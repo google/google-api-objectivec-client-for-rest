@@ -389,6 +389,17 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROSConfig_GoogleCloudOsconfigV2betaOperationMetadata
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2betaOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROSConfig_GooSettings
 //
 

@@ -148,6 +148,13 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_Recon
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_ReconciliationModeUnspecified = @"RECONCILIATION_MODE_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2LocalInventory.availability
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Backorder = @"BACKORDER";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_InStock = @"IN_STOCK";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_OutOfStock = @"OUT_OF_STOCK";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Preorder = @"PREORDER";
+
 // GTLRCloudRetail_GoogleCloudRetailV2Model.dataState
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataError = @"DATA_ERROR";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataOk = @"DATA_OK";
@@ -2299,7 +2306,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2LocalInventory
-@dynamic attributes, fulfillmentTypes, placeId, priceInfo;
+@dynamic attributes, availability, fulfillmentTypes, placeId, priceInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2439,6 +2446,62 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata
+@dynamic allMatchedPins, droppedPins;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_AllMatchedPins
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_AllMatchedPins
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_DroppedPins
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_DroppedPins
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins
+@dynamic productId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productId" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3317,8 +3380,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponse
 @dynamic appliedControls, attributionToken, conversationalSearchResult,
          correctedQuery, experimentInfo, facets, invalidConditionBoostSpecs,
-         nextPageToken, queryExpansionInfo, redirectUri, results,
-         tileNavigationResult, totalSize;
+         nextPageToken, pinControlMetadata, queryExpansionInfo, redirectUri,
+         results, tileNavigationResult, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

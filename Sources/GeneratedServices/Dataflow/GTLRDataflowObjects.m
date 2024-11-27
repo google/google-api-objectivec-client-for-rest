@@ -995,6 +995,26 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_GPUUsage
+//
+
+@implementation GTLRDataflow_GPUUsage
+@dynamic timestamp, utilization;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_GPUUtilization
+//
+
+@implementation GTLRDataflow_GPUUtilization
+@dynamic rate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_Histogram
 //
 
@@ -2149,11 +2169,12 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ResourceUtilizationReport
-@dynamic containers, cpuTime, memoryInfo;
+@dynamic containers, cpuTime, gpuUsage, memoryInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"cpuTime" : [GTLRDataflow_CPUTime class],
+    @"gpuUsage" : [GTLRDataflow_GPUUsage class],
     @"memoryInfo" : [GTLRDataflow_MemInfo class]
   };
   return map;

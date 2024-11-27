@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: checks.accounts.apps.operations.cancel
@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRChecksService_CancelOperationRequest to include in
@@ -401,6 +401,144 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRChecksServiceQuery_AccountsReposOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Uploads the results of local Code Compliance analysis and generates a scan
+ *  of privacy issues. Returns a google.longrunning.Operation containing
+ *  analysis and findings.
+ *
+ *  Method: checks.accounts.repos.scans.generate
+ */
+@interface GTLRChecksServiceQuery_AccountsReposScansGenerate : GTLRChecksServiceQuery
+
+/** Required. Resource name of the repo. Example: `accounts/123/repos/456` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRChecksService_Operation.
+ *
+ *  Uploads the results of local Code Compliance analysis and generates a scan
+ *  of privacy issues. Returns a google.longrunning.Operation containing
+ *  analysis and findings.
+ *
+ *  @param object The @c
+ *    GTLRChecksService_GoogleChecksRepoScanV1alphaGenerateScanRequest to
+ *    include in the query.
+ *  @param parent Required. Resource name of the repo. Example:
+ *    `accounts/123/repos/456`
+ *
+ *  @return GTLRChecksServiceQuery_AccountsReposScansGenerate
+ */
++ (instancetype)queryWithObject:(GTLRChecksService_GoogleChecksRepoScanV1alphaGenerateScanRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a repo scan. By default, only the name and results_uri fields are
+ *  returned. You can include other fields by listing them in the `fields` URL
+ *  query parameter. For example, `?fields=name,sources` will return the name
+ *  and sources fields.
+ *
+ *  Method: checks.accounts.repos.scans.get
+ */
+@interface GTLRChecksServiceQuery_AccountsReposScansGet : GTLRChecksServiceQuery
+
+/**
+ *  Required. Resource name of the repo scan. Example:
+ *  `accounts/123/repos/456/scans/789`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_GoogleChecksRepoScanV1alphaRepoScan.
+ *
+ *  Gets a repo scan. By default, only the name and results_uri fields are
+ *  returned. You can include other fields by listing them in the `fields` URL
+ *  query parameter. For example, `?fields=name,sources` will return the name
+ *  and sources fields.
+ *
+ *  @param name Required. Resource name of the repo scan. Example:
+ *    `accounts/123/repos/456/scans/789`
+ *
+ *  @return GTLRChecksServiceQuery_AccountsReposScansGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists repo scans for the specified repo.
+ *
+ *  Method: checks.accounts.repos.scans.list
+ */
+@interface GTLRChecksServiceQuery_AccountsReposScansList : GTLRChecksServiceQuery
+
+/**
+ *  Optional. An [AIP-160](https://google.aip.dev/160) filter string to filter
+ *  repo scans. Example: `scmMetadata.branch = main`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of repo scans to return. If unspecified, at
+ *  most 10 repo scans will be returned. The maximum value is 50; values above
+ *  50 will be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous `ListRepoScans` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListRepoScans` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Resource name of the repo. Example: `accounts/123/repos/456` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChecksService_GoogleChecksRepoScanV1alphaListRepoScansResponse.
+ *
+ *  Lists repo scans for the specified repo.
+ *
+ *  @param parent Required. Resource name of the repo. Example:
+ *    `accounts/123/repos/456`
+ *
+ *  @return GTLRChecksServiceQuery_AccountsReposScansList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Analyze a piece of content with the provided set of policies.
+ *
+ *  Method: checks.aisafety.classifyContent
+ */
+@interface GTLRChecksServiceQuery_AisafetyClassifyContent : GTLRChecksServiceQuery
+
+/**
+ *  Fetches a @c
+ *  GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponse.
+ *
+ *  Analyze a piece of content with the provided set of policies.
+ *
+ *  @param object The @c
+ *    GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest to
+ *    include in the query.
+ *
+ *  @return GTLRChecksServiceQuery_AisafetyClassifyContent
+ */
++ (instancetype)queryWithObject:(GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest *)object;
 
 @end
 

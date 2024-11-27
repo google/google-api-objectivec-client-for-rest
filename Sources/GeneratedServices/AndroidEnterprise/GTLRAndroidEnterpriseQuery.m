@@ -18,6 +18,11 @@ NSString * const kGTLRAndroidEnterpriseDeviceTypeDedicatedDevice = @"dedicatedDe
 NSString * const kGTLRAndroidEnterpriseDeviceTypeKnowledgeWorker = @"knowledgeWorker";
 NSString * const kGTLRAndroidEnterpriseDeviceTypeUnknown       = @"unknown";
 
+// enrollmentTokenEnrollmentTokenType
+NSString * const kGTLRAndroidEnterpriseEnrollmentTokenEnrollmentTokenTypeEnrollmentTokenTypeUnspecified = @"enrollmentTokenTypeUnspecified";
+NSString * const kGTLRAndroidEnterpriseEnrollmentTokenEnrollmentTokenTypeUserDevice = @"userDevice";
+NSString * const kGTLRAndroidEnterpriseEnrollmentTokenEnrollmentTokenTypeUserlessDevice = @"userlessDevice";
+
 // keyType
 NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials = @"googleCredentials";
 NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12           = @"pkcs12";
@@ -234,7 +239,17 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken
 
-@dynamic deviceType, enterpriseId;
+@dynamic deviceType, enrollmentTokenDuration,
+         enrollmentTokenEnrollmentTokenType, enrollmentTokenToken, enterpriseId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"enrollmentTokenDuration" : @"enrollmentToken.duration",
+    @"enrollmentTokenEnrollmentTokenType" : @"enrollmentToken.enrollmentTokenType",
+    @"enrollmentTokenToken" : @"enrollmentToken.token"
+  };
+  return map;
+}
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];

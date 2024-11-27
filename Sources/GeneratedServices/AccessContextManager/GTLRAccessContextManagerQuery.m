@@ -860,7 +860,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @implementation GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch
 
-@dynamic name, updateMask;
+@dynamic append, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRAccessContextManager_GcpUserAccessBinding *)object
                            name:(NSString *)name {

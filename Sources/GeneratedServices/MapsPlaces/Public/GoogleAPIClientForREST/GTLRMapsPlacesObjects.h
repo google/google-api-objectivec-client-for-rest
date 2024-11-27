@@ -13,6 +13,9 @@
 #endif
 
 @class GTLRMapsPlaces_GoogleGeoTypeViewport;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationBias;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationRestriction;
@@ -40,7 +43,9 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriod;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
@@ -50,6 +55,7 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePlusCode;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Polyline;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1References;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Review;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers;
@@ -75,6 +81,81 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea.containment
+
+/**
+ *  The containment is unspecified.
+ *
+ *  Value: "CONTAINMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_ContainmentUnspecified;
+/**
+ *  The target location is outside the area region, but close by.
+ *
+ *  Value: "NEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Near;
+/**
+ *  The target location is within the area region, close to the edge.
+ *
+ *  Value: "OUTSKIRTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Outskirts;
+/**
+ *  The target location is within the area region, close to the center.
+ *
+ *  Value: "WITHIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Within;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark.spatialRelationship
+
+/**
+ *  The target is directly opposite the landmark on the other side of the road.
+ *
+ *  Value: "ACROSS_THE_ROAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AcrossTheRoad;
+/**
+ *  Not on the same route as the landmark but a single turn away.
+ *
+ *  Value: "AROUND_THE_CORNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AroundTheCorner;
+/**
+ *  Close to the landmark's structure but further away from its street
+ *  entrances.
+ *
+ *  Value: "BEHIND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Behind;
+/**
+ *  The target is directly adjacent to the landmark.
+ *
+ *  Value: "BESIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Beside;
+/**
+ *  On the same route as the landmark but not besides or across.
+ *
+ *  Value: "DOWN_THE_ROAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_DownTheRoad;
+/**
+ *  This is the default relationship when nothing more specific below applies.
+ *
+ *  Value: "NEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Near;
+/**
+ *  The landmark has a spatial geometry and the target is within its bounds.
+ *
+ *  Value: "WITHIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Within;
 
 // ----------------------------------------------------------------------------
 // GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation.type
@@ -684,6 +765,137 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  A relational description of a location. Includes a ranked set of nearby
+ *  landmarks and precise containing areas and their relationship to the target
+ *  location.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor : GTLRObject
+
+/**
+ *  A ranked list of containing or adjacent areas. The most recognizable and
+ *  precise areas are ranked first.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea *> *areas;
+
+/**
+ *  A ranked list of nearby landmarks. The most recognizable and nearby
+ *  landmarks are ranked first.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark *> *landmarks;
+
+@end
+
+
+/**
+ *  Area information and the area's relationship with the target location. Areas
+ *  includes precise sublocality, neighborhoods, and large compounds that are
+ *  useful for describing a location.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea : GTLRObject
+
+/**
+ *  Defines the spatial relationship between the target location and the area.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_ContainmentUnspecified
+ *        The containment is unspecified. (Value: "CONTAINMENT_UNSPECIFIED")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Near
+ *        The target location is outside the area region, but close by. (Value:
+ *        "NEAR")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Outskirts
+ *        The target location is within the area region, close to the edge.
+ *        (Value: "OUTSKIRTS")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Within
+ *        The target location is within the area region, close to the center.
+ *        (Value: "WITHIN")
+ */
+@property(nonatomic, copy, nullable) NSString *containment;
+
+/** The area's display name. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/** The area's resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The area's place id. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+@end
+
+
+/**
+ *  Basic landmark information and the landmark's relationship with the target
+ *  location. Landmarks are prominent places that can be used to describe a
+ *  location.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark : GTLRObject
+
+/** The landmark's display name. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/** The landmark's resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The landmark's place id. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+/**
+ *  Defines the spatial relationship between the target location and the
+ *  landmark.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AcrossTheRoad
+ *        The target is directly opposite the landmark on the other side of the
+ *        road. (Value: "ACROSS_THE_ROAD")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AroundTheCorner
+ *        Not on the same route as the landmark but a single turn away. (Value:
+ *        "AROUND_THE_CORNER")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Behind
+ *        Close to the landmark's structure but further away from its street
+ *        entrances. (Value: "BEHIND")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Beside
+ *        The target is directly adjacent to the landmark. (Value: "BESIDE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_DownTheRoad
+ *        On the same route as the landmark but not besides or across. (Value:
+ *        "DOWN_THE_ROAD")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Near
+ *        This is the default relationship when nothing more specific below
+ *        applies. (Value: "NEAR")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Within
+ *        The landmark has a spatial geometry and the target is within its
+ *        bounds. (Value: "WITHIN")
+ */
+@property(nonatomic, copy, nullable) NSString *spatialRelationship;
+
+/**
+ *  The straight line distance, in meters, between the center point of the
+ *  target and the center point of the landmark. In some situations, this value
+ *  can be longer than `travel_distance_meters`.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *straightLineDistanceMeters;
+
+/**
+ *  The travel distance, in meters, along the road network from the target to
+ *  the landmark, if known. This value does not take into account the mode of
+ *  transportation, such as walking, driving, or biking.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *travelDistanceMeters;
+
+/**
+ *  A set of type tags for this landmark. For a complete list of possible
+ *  values, see
+ *  https://developers.google.com/maps/documentation/places/web-service/place-types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *types;
+
+@end
+
+
+/**
  *  Information about the author of the UGC data. Used in Photo, and Review.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution : GTLRObject
@@ -722,6 +934,19 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  the results will be located in the area of intersection.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedRegionCodes;
+
+/**
+ *  Optional. Include pure service area businesses if the field is set to true.
+ *  Pure service area business is a business that visits or delivers to
+ *  customers directly but does not serve customers at their business address.
+ *  For example, businesses like cleaning services or plumbers. Those businesses
+ *  do not have a physical address or location on Google Maps. Places will not
+ *  return fields including `location`, `plus_code`, and other location related
+ *  fields for these businesses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includePureServiceAreaBusinesses;
 
 /**
  *  Optional. If true, the response will include both Place and query
@@ -1394,6 +1619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /** This photo's authors. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution *> *authorAttributions;
 
+/** A link where users can flag a problem with the photo. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** A link to show the photo on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *googleMapsUri;
+
 /**
  *  The maximum available height, in pixels.
  *
@@ -1461,6 +1692,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent *> *addressComponents;
 
 /**
+ *  The address descriptor of the place. Address descriptors include additional
+ *  information that help describe a location using landmarks and areas. See
+ *  address descriptor regional coverage in
+ *  https://developers.google.com/maps/documentation/geocoding/address-descriptors/coverage.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor *addressDescriptor;
+
+/**
  *  The place's address in adr microformat: http://microformats.org/wiki/adr.
  */
 @property(nonatomic, copy, nullable) NSString *adrFormatAddress;
@@ -1498,6 +1737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        "OPERATIONAL")
  */
 @property(nonatomic, copy, nullable) NSString *businessStatus;
+
+/** List of places in which the current place is located. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace *> *containingPlaces;
 
 /**
  *  Specifies if the business supports curbside pickup.
@@ -1592,6 +1834,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *goodForWatchingSports;
+
+/** Links to trigger different Google Maps actions. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks *googleMapsLinks;
 
 /** A URL providing more information about this place. */
 @property(nonatomic, copy, nullable) NSString *googleMapsUri;
@@ -1689,6 +1934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *priceLevel;
 
+/** The price range associated with a Place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange *priceRange;
+
 /**
  *  The primary type of the given result. This type must one of the Places API
  *  supported types. For example, "restaurant", "cafe", "airport", etc. A place
@@ -1707,13 +1955,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *primaryTypeDisplayName;
 
 /**
+ *  Indicates whether the place is a pure service area business. Pure service
+ *  area business is a business that visits or delivers to customers directly
+ *  but does not serve customers at their business address. For example,
+ *  businesses like cleaning services or plumbers. Those businesses may not have
+ *  a physical address or location on Google Maps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pureServiceAreaBusiness;
+
+/**
  *  A rating between 1.0 and 5.0, based on user reviews of this place.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rating;
 
-/** The regular hours of operation. */
+/**
+ *  The regular hours of operation. Note that if a place is always open (24
+ *  hours), the `close` field will not be set. Clients can rely on always open
+ *  (24 hours) being represented as an `open` period containing day with value
+ *  `0`, hour with value `0`, and minute with value `0`.
+ */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours *regularOpeningHours;
 
 /**
@@ -1852,7 +2116,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *utcOffsetMinutes;
 
-/** A viewport suitable for displaying the place on an average-sized map. */
+/**
+ *  A viewport suitable for displaying the place on an average-sized map. This
+ *  viewport should not be used as the physical boundary or the service area of
+ *  the business.
+ */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *viewport;
 
 /**
@@ -1943,6 +2211,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *> *contentBlocks;
 
+/** A link where users can flag a problem with the summary. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
 @end
 
 
@@ -1961,6 +2232,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  Info about the place in which this place is located.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace : GTLRObject
+
+/**
+ *  The place id of the place in which this place is located.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The resource name of the place in which this place is located. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Experimental: See
  *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
  *  for more details. AI-generated summary of the place.
@@ -1974,8 +2263,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *descriptionProperty;
 
+/** A link where users can flag a problem with the description summary. */
+@property(nonatomic, copy, nullable) NSString *descriptionFlagContentUri;
+
 /** The overview of the place. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *overview;
+
+/** A link where users can flag a problem with the overview summary. */
+@property(nonatomic, copy, nullable) NSString *overviewFlagContentUri;
 
 /** References that are used to generate the summary description. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1References *references;
@@ -1984,9 +2279,59 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  Links to trigger different Google Maps actions.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks : GTLRObject
+
+/**
+ *  A link to show the directions to the place. The link only populates the
+ *  destination location and uses the default travel mode `DRIVE`.
+ */
+@property(nonatomic, copy, nullable) NSString *directionsUri;
+
+/**
+ *  A link to show photos of this place. This link is currently not supported on
+ *  Google Maps Mobile and only works on the web version of Google Maps.
+ */
+@property(nonatomic, copy, nullable) NSString *photosUri;
+
+/** A link to show this place. */
+@property(nonatomic, copy, nullable) NSString *placeUri;
+
+/**
+ *  A link to show reviews of this place. This link is currently not supported
+ *  on Google Maps Mobile and only works on the web version of Google Maps.
+ */
+@property(nonatomic, copy, nullable) NSString *reviewsUri;
+
+/**
+ *  A link to write a review for this place. This link is currently not
+ *  supported on Google Maps Mobile and only works on the web version of Google
+ *  Maps.
+ */
+@property(nonatomic, copy, nullable) NSString *writeAReviewUri;
+
+@end
+
+
+/**
  *  Information about business hour of the place.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours : GTLRObject
+
+/**
+ *  The next time the current opening hours period ends up to 7 days in the
+ *  future. This field is only populated if the opening hours period is active
+ *  at the time of serving the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextCloseTime;
+
+/**
+ *  The next time the current opening hours period starts up to 7 days in the
+ *  future. This field is only populated if the opening hours period is not
+ *  active at the time of serving the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextOpenTime;
 
 /**
  *  Whether the opening hours period is currently active. For regular opening
@@ -2092,14 +2437,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  The hour in 2 digits. Ranges from 00 to 23.
+ *  The hour in 24 hour format. Ranges from 0 to 23.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hour;
 
 /**
- *  The minute in 2 digits. Ranges from 00 to 59.
+ *  The minute. Ranges from 0 to 59.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2293,6 +2638,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  The price range associated with a Place. `end_price` could be unset, which
+ *  indicates a range without upper bound (e.g. "More than $100").
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange : GTLRObject
+
+/**
+ *  The high end of the price range (exclusive). Price should be lower than this
+ *  amount.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeMoney *endPrice;
+
+/**
+ *  The low end of the price range (inclusive). Price should be at or above this
+ *  amount.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeMoney *startPrice;
+
+@end
+
+
+/**
  *  Experimental: See
  *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
  *  for more details. Reference that the generative content is related to.
@@ -2318,6 +2684,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** This review's author. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution *authorAttribution;
+
+/** A link where users can flag a problem with the review. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** A link to show the review on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *googleMapsUri;
 
 /**
  *  A reference representing this place review which may be used to look up this
@@ -2484,6 +2856,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  request causes an error.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary : GTLRObject
+
+/**
+ *  A link to show directions on Google Maps using the waypoints from the given
+ *  routing summary. The route generated by this link is not guaranteed to be
+ *  the same as the route used to generate the routing summary. The link uses
+ *  information provided in the request, from fields including
+ *  `routingParameters` and `searchAlongRouteParameters` when applicable, to
+ *  generate the directions link.
+ */
+@property(nonatomic, copy, nullable) NSString *directionsUri;
 
 /**
  *  The legs of the trip. When you calculate travel duration and distance from a
@@ -2684,6 +3066,19 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Only support one included type.
  */
 @property(nonatomic, copy, nullable) NSString *includedType;
+
+/**
+ *  Optional. Include pure service area businesses if the field is set to true.
+ *  Pure service area business is a business that visits or delivers to
+ *  customers directly but does not serve customers at their business address.
+ *  For example, businesses like cleaning services or plumbers. Those businesses
+ *  do not have a physical address or location on Google Maps. Places will not
+ *  return fields including `location`, `plus_code`, and other location related
+ *  fields for these businesses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includePureServiceAreaBusinesses;
 
 /**
  *  Place details will be displayed with the preferred language if available. If
@@ -2937,6 +3332,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  will have as many entries as the list of places if requested.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary *> *routingSummaries;
+
+/**
+ *  A link allows the user to search with the same text query as specified in
+ *  the request on Google Maps.
+ */
+@property(nonatomic, copy, nullable) NSString *searchUri;
 
 @end
 

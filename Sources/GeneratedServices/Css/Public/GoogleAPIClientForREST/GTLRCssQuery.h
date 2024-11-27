@@ -305,7 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the labels assigned to an account.
+ *  Lists the labels owned by an account.
  *
  *  Method: css.accounts.labels.list
  *
@@ -335,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCss_ListAccountLabelsResponse.
  *
- *  Lists the labels assigned to an account.
+ *  Lists the labels owned by an account.
  *
  *  @param parent Required. The parent account. Format: accounts/{account}
  *

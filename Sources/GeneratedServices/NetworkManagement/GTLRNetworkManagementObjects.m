@@ -32,6 +32,7 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress = @
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation = @"NO_SOURCE_LOCATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudNatConfigs = @"PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudRouterConfigs = @"PERMISSION_DENIED_NO_CLOUD_ROUTER_CONFIGS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoNegEndpointConfigs = @"PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound = @"RESOURCE_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_RouteConfigNotFound = @"ROUTE_CONFIG_NOT_FOUND";
@@ -117,12 +118,14 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvali
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination = @"NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromPeeredNetworkToDestination = @"NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment = @"NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute = @"NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address = @"NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination = @"NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported = @"PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatToPscEndpointUnsupported = @"PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet = @"PRIVATE_TRAFFIC_TO_INTERNET";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted = @"PSC_CONNECTION_NOT_ACCEPTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscEndpointAccessedFromPeeredNetwork = @"PSC_ENDPOINT_ACCESSED_FROM_PEERED_NETWORK";
@@ -291,6 +294,7 @@ NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_Network = @"NETWORK
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_RouteScopeUnspecified = @"ROUTE_SCOPE_UNSPECIFIED";
 
 // GTLRNetworkManagement_RouteInfo.routeType
+NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Advertised = @"ADVERTISED";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic = @"DYNAMIC";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringDynamic = @"PEERING_DYNAMIC";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringStatic = @"PEERING_STATIC";
@@ -577,9 +581,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_Endpoint
 @dynamic appEngineVersion, cloudFunction, cloudRunRevision, cloudSqlInstance,
-         forwardingRule, forwardingRuleTarget, gkeMasterCluster, instance,
+         forwardingRule, forwardingRuleTarget, fqdn, gkeMasterCluster, instance,
          ipAddress, loadBalancerId, loadBalancerType, network, networkType,
-         port, projectId;
+         port, projectId, redisCluster, redisInstance;
 @end
 
 
@@ -657,7 +661,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_GKEMasterInfo
-@dynamic clusterNetworkUri, clusterUri, externalIp, internalIp;
+@dynamic clusterNetworkUri, clusterUri, dnsEndpoint, externalIp, internalIp;
 @end
 
 

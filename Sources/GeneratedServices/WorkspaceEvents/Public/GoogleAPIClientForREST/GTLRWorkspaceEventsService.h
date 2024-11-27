@@ -87,6 +87,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly;
 /**
+ *  Authorization scope: See, edit, create, and delete all of your Google Drive
+ *  files
+ *
+ *  Value "https://www.googleapis.com/auth/drive"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDrive;
+/**
+ *  Authorization scope: See, edit, create, and delete only the specific Google
+ *  Drive files you use with this app
+ *
+ *  Value "https://www.googleapis.com/auth/drive.file"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveFile;
+/**
+ *  Authorization scope: View and manage metadata of files in your Google Drive
+ *
+ *  Value "https://www.googleapis.com/auth/drive.metadata"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveMetadata;
+/**
+ *  Authorization scope: See information about your Google Drive files
+ *
+ *  Value "https://www.googleapis.com/auth/drive.metadata.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly;
+/**
+ *  Authorization scope: See and download all your Google Drive files
+ *
+ *  Value "https://www.googleapis.com/auth/drive.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveReadonly;
+/**
  *  Authorization scope: Create, edit, and see information about your Google
  *  Meet conferences created by the app.
  *

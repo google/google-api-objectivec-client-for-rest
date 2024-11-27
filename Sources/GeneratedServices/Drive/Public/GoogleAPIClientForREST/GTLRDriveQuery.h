@@ -84,6 +84,119 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
+ *  Retrieves an AccessProposal by ID.
+ *
+ *  Method: drive.accessproposals.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ *    @c kGTLRAuthScopeDriveMetadataReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_AccessproposalsGet : GTLRDriveQuery
+
+/** Required. The id of the item the request is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** Required. The id of the access proposal to resolve. */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  Fetches a @c GTLRDrive_AccessProposal.
+ *
+ *  Retrieves an AccessProposal by ID.
+ *
+ *  @param fileId Required. The id of the item the request is on.
+ *  @param proposalId Required. The id of the access proposal to resolve.
+ *
+ *  @return GTLRDriveQuery_AccessproposalsGet
+ */
++ (instancetype)queryWithFileId:(NSString *)fileId
+                     proposalId:(NSString *)proposalId;
+
+@end
+
+/**
+ *  List the AccessProposals on a file. Note: Only approvers are able to list
+ *  AccessProposals on a file. If the user is not an approver, returns a 403.
+ *
+ *  Method: drive.accessproposals.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ *    @c kGTLRAuthScopeDriveMetadataReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_AccessproposalsList : GTLRDriveQuery
+
+/** Required. The id of the item the request is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** Optional. The number of results per page */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The continuation token on the list of access requests. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDrive_ListAccessProposalsResponse.
+ *
+ *  List the AccessProposals on a file. Note: Only approvers are able to list
+ *  AccessProposals on a file. If the user is not an approver, returns a 403.
+ *
+ *  @param fileId Required. The id of the item the request is on.
+ *
+ *  @return GTLRDriveQuery_AccessproposalsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFileId:(NSString *)fileId;
+
+@end
+
+/**
+ *  Used to approve or deny an Access Proposal.
+ *
+ *  Method: drive.accessproposals.resolve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ */
+@interface GTLRDriveQuery_AccessproposalsResolve : GTLRDriveQuery
+
+/** Required. The id of the item the request is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** Required. The id of the access proposal to resolve. */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Used to approve or deny an Access Proposal.
+ *
+ *  @param object The @c GTLRDrive_ResolveAccessProposalRequest to include in
+ *    the query.
+ *  @param fileId Required. The id of the item the request is on.
+ *  @param proposalId Required. The id of the access proposal to resolve.
+ *
+ *  @return GTLRDriveQuery_AccessproposalsResolve
+ */
++ (instancetype)queryWithObject:(GTLRDrive_ResolveAccessProposalRequest *)object
+                         fileId:(NSString *)fileId
+                     proposalId:(NSString *)proposalId;
+
+@end
+
+/**
  *  Gets a specific app.
  *
  *  Method: drive.apps.get
@@ -1958,7 +2071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: drive.operation.cancel
@@ -1979,7 +2092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.

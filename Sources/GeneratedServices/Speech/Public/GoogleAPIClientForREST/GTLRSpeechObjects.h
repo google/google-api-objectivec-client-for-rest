@@ -99,6 +99,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_PhraseSet_State_StateUnspecified;
 // GTLRSpeech_RecognitionConfig.encoding
 
 /**
+ *  8-bit samples that compand 13-bit audio samples using G.711 PCMU/a-law.
+ *
+ *  Value: "ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Alaw;
+/**
  *  Adaptive Multi-Rate Narrowband codec. `sample_rate_hertz` must be 8000.
  *
  *  Value: "AMR"
@@ -1253,6 +1259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  audio formats. For details, see AudioEncoding.
  *
  *  Likely values:
+ *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Alaw 8-bit samples that
+ *        compand 13-bit audio samples using G.711 PCMU/a-law. (Value: "ALAW")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Amr Adaptive Multi-Rate
  *        Narrowband codec. `sample_rate_hertz` must be 8000. (Value: "AMR")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_AmrWb Adaptive Multi-Rate

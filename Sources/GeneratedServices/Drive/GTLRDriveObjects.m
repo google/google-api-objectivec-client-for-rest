@@ -11,6 +11,14 @@
 #import <GoogleAPIClientForREST/GTLRDriveObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRDrive_ResolveAccessProposalRequest.action
+NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Accept = @"ACCEPT";
+NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRDrive_About
 //
@@ -111,6 +119,35 @@
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_AccessProposal
+//
+
+@implementation GTLRDrive_AccessProposal
+@dynamic createTime, fileId, proposalId, recipientEmailAddress,
+         requesterEmailAddress, requestMessage, rolesAndViews;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rolesAndViews" : [GTLRDrive_AccessProposalRoleAndView class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_AccessProposalRoleAndView
+//
+
+@implementation GTLRDrive_AccessProposalRoleAndView
+@dynamic role, view;
 @end
 
 
@@ -778,6 +815,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ListAccessProposalsResponse
+//
+
+@implementation GTLRDrive_ListAccessProposalsResponse
+@dynamic accessProposals, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessProposals" : [GTLRDrive_AccessProposal class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"accessProposals";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_ListOperationsResponse
 //
 
@@ -984,6 +1043,24 @@
 
 + (NSString *)collectionItemsKey {
   return @"replies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_ResolveAccessProposalRequest
+//
+
+@implementation GTLRDrive_ResolveAccessProposalRequest
+@dynamic action, role, sendNotification, view;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"role" : [NSString class]
+  };
+  return map;
 }
 
 @end

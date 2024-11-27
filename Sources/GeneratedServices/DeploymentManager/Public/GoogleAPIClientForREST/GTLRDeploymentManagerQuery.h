@@ -119,6 +119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
+
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -153,6 +155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
+
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -182,6 +186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy : GTLRDeploymentManagerQuery
+
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -232,6 +238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *        kGTLRDeploymentManagerCreatePolicyCreateOrAcquire.
  */
 @property(nonatomic, copy, nullable) NSString *createPolicy;
+
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
 
 /**
  *  If set to true, creates a deployment and creates "shell" resources but does
@@ -402,6 +410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
+
 /**
  *  If set to true, updates the deployment and creates and updates the "shell"
  *  resources but does not actually alter or instantiate these resources. This
@@ -525,6 +535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions : GTLRDeploymentManagerQuery
 
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -589,6 +601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
+
 /**
  *  If set to true, updates the deployment and creates and updates the "shell"
  *  resources but does not actually alter or instantiate these resources. This
@@ -642,6 +656,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
+
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
 
 /** The name of the manifest for this request. */
 @property(nonatomic, copy, nullable) NSString *manifest;
@@ -782,6 +798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  */
 @interface GTLRDeploymentManagerQuery_OperationsGet : GTLRDeploymentManagerQuery
 
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
+
 /** The name of the operation for this request. */
 @property(nonatomic, copy, nullable) NSString *operation;
 
@@ -916,6 +934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
+
+@property(nonatomic, assign) BOOL headerBypassBillingFilter;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;

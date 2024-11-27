@@ -498,7 +498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
- *  GTLRBackupdrQuery_ProjectsLocationsBackupVaultsCreate
+ *  Creates a new BackupVault in a given project and location.
  *
  *  Method: backupdr.projects.locations.backupVaults.create
  *
@@ -540,6 +540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /**
  *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Creates a new BackupVault in a given project and location.
  *
  *  @param object The @c GTLRBackupdr_BackupVault to include in the query.
  *  @param parent Required. Value for parent.
@@ -753,7 +755,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsPatch : GTLRBackupdrQuery
 
-/** Output only. Identifier. Name of the resource. */
+/**
+ *  Output only. Identifier. Name of the backup to create. It must have the
+ *  format`"projects//locations//backupVaults//dataSources/{datasource}/backups/{backup}"`.
+ *  `{backup}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the datasource.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -788,7 +795,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Updates the settings of a Backup.
  *
  *  @param object The @c GTLRBackupdr_Backup to include in the query.
- *  @param name Output only. Identifier. Name of the resource.
+ *  @param name Output only. Identifier. Name of the backup to create. It must
+ *    have the
+ *    format`"projects//locations//backupVaults//dataSources/{datasource}/backups/{backup}"`.
+ *    `{backup}` cannot be changed after creation. It must be between 3-63
+ *    characters long and must be unique within the datasource.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsPatch
  */
@@ -1035,7 +1046,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /** Optional. Enable upsert. */
 @property(nonatomic, assign) BOOL allowMissing;
 
-/** Output only. Identifier. The resource name. */
+/**
+ *  Output only. Identifier. Name of the datasource to create. It must have the
+ *  format`"projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}"`.
+ *  `{datasource}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the backup vault.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1070,7 +1086,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Updates the settings of a DataSource.
  *
  *  @param object The @c GTLRBackupdr_DataSource to include in the query.
- *  @param name Output only. Identifier. The resource name.
+ *  @param name Output only. Identifier. Name of the datasource to create. It
+ *    must have the
+ *    format`"projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}"`.
+ *    `{datasource}` cannot be changed after creation. It must be between 3-63
+ *    characters long and must be unique within the backup vault.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesPatch
  */
@@ -1172,6 +1192,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  be deleted.
  */
 @property(nonatomic, assign) BOOL force;
+
+/**
+ *  Optional. If set to true, backupvault deletion will proceed even if there
+ *  are backup plans referencing the backupvault. The default is 'false'.
+ */
+@property(nonatomic, assign) BOOL ignoreBackupPlanReferences;
 
 /** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1411,7 +1437,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 @property(nonatomic, assign) BOOL force;
 
-/** Output only. Identifier. The resource name. */
+/**
+ *  Output only. Identifier. Name of the backup vault to create. It must have
+ *  the
+ *  format`"projects/{project}/locations/{location}/backupVaults/{backupvault}"`.
+ *  `{backupvault}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the project and location.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1452,7 +1484,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Updates the settings of a BackupVault.
  *
  *  @param object The @c GTLRBackupdr_BackupVault to include in the query.
- *  @param name Output only. Identifier. The resource name.
+ *  @param name Output only. Identifier. Name of the backup vault to create. It
+ *    must have the
+ *    format`"projects/{project}/locations/{location}/backupVaults/{backupvault}"`.
+ *    `{backupvault}` cannot be changed after creation. It must be between 3-63
+ *    characters long and must be unique within the project and location.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsPatch
  */

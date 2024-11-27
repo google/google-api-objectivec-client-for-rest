@@ -22,6 +22,11 @@ NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 = @"MP3";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw = @"MULAW";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus = @"OGG_OPUS";
 
+// GTLRTexttospeech_CustomPronunciationParams.phoneticEncoding
+NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingIpa = @"PHONETIC_ENCODING_IPA";
+NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingUnspecified = @"PHONETIC_ENCODING_UNSPECIFIED";
+NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingXSampa = @"PHONETIC_ENCODING_X_SAMPA";
+
 // GTLRTexttospeech_CustomVoiceParams.reportedUsage
 NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Offline = @"OFFLINE";
 NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Realtime = @"REALTIME";
@@ -38,6 +43,16 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Female = @"FE
 NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Male = @"MALE";
 NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Neutral = @"NEUTRAL";
 NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified = @"SSML_VOICE_GENDER_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_AdvancedVoiceOptions
+//
+
+@implementation GTLRTexttospeech_AdvancedVoiceOptions
+@dynamic lowLatencyJourneySynthesis;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -64,6 +79,34 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_CustomPronunciationParams
+//
+
+@implementation GTLRTexttospeech_CustomPronunciationParams
+@dynamic phoneticEncoding, phrase, pronunciation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_CustomPronunciations
+//
+
+@implementation GTLRTexttospeech_CustomPronunciations
+@dynamic pronunciations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pronunciations" : [GTLRTexttospeech_CustomPronunciationParams class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -129,6 +172,24 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"voices" : [GTLRTexttospeech_Voice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_MultiSpeakerMarkup
+//
+
+@implementation GTLRTexttospeech_MultiSpeakerMarkup
+@dynamic turns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"turns" : [GTLRTexttospeech_Turn class]
   };
   return map;
 }
@@ -212,7 +273,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_SynthesisInput
-@dynamic ssml, text;
+@dynamic customPronunciations, multiSpeakerMarkup, ssml, text;
 @end
 
 
@@ -242,7 +303,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_SynthesizeSpeechRequest
-@dynamic audioConfig, input, voice;
+@dynamic advancedVoiceOptions, audioConfig, input, voice;
 @end
 
 
@@ -253,6 +314,16 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 
 @implementation GTLRTexttospeech_SynthesizeSpeechResponse
 @dynamic audioContent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_Turn
+//
+
+@implementation GTLRTexttospeech_Turn
+@dynamic speaker, text;
 @end
 
 
@@ -276,9 +347,19 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTexttospeech_VoiceCloneParams
+//
+
+@implementation GTLRTexttospeech_VoiceCloneParams
+@dynamic voiceCloningKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTexttospeech_VoiceSelectionParams
 //
 
 @implementation GTLRTexttospeech_VoiceSelectionParams
-@dynamic customVoice, languageCode, name, ssmlGender;
+@dynamic customVoice, languageCode, name, ssmlGender, voiceClone;
 @end

@@ -376,6 +376,25 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsQueryStatus
+
+@dynamic filter, groupBy, name, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:queryStatus";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsQueryStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_QueryHubStatusResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.queryStatus";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpoke
 
 @dynamic name;

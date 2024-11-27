@@ -56,6 +56,7 @@ NSString * const kGTLRTPU_Node_State_Stopped          = @"STOPPED";
 NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 NSString * const kGTLRTPU_Node_State_Terminated       = @"TERMINATED";
 NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
+NSString * const kGTLRTPU_Node_State_Unknown          = @"UNKNOWN";
 
 // GTLRTPU_QueuedResourceState.state
 NSString * const kGTLRTPU_QueuedResourceState_State_Accepted   = @"ACCEPTED";

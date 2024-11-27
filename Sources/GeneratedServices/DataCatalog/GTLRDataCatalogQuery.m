@@ -56,6 +56,71 @@
 
 @end
 
+@implementation GTLRDataCatalogQuery_OrganizationsLocationsRetrieveConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:retrieveConfig";
+  GTLRDataCatalogQuery_OrganizationsLocationsRetrieveConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig class];
+  query.loggingName = @"datacatalog.organizations.locations.retrieveConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_OrganizationsLocationsRetrieveEffectiveConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:retrieveEffectiveConfig";
+  GTLRDataCatalogQuery_OrganizationsLocationsRetrieveEffectiveConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig class];
+  query.loggingName = @"datacatalog.organizations.locations.retrieveEffectiveConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_OrganizationsLocationsSetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setConfig";
+  GTLRDataCatalogQuery_OrganizationsLocationsSetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig class];
+  query.loggingName = @"datacatalog.organizations.locations.setConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsCreate
 
 @dynamic entryGroupId, parent;
@@ -830,6 +895,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataCatalog_ListOperationsResponse class];
   query.loggingName = @"datacatalog.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsRetrieveEffectiveConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:retrieveEffectiveConfig";
+  GTLRDataCatalogQuery_ProjectsLocationsRetrieveEffectiveConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig class];
+  query.loggingName = @"datacatalog.projects.locations.retrieveEffectiveConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsSetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setConfig";
+  GTLRDataCatalogQuery_ProjectsLocationsSetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig class];
+  query.loggingName = @"datacatalog.projects.locations.setConfig";
   return query;
 }
 

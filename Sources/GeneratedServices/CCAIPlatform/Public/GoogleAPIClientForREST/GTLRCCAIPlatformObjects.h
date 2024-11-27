@@ -126,6 +126,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUn
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
 
 /**
+ *  Instance Size DEV_SMALL
+ *
+ *  Value: "DEV_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall;
+/**
  *  Instance Size DEV_EXTRA_SMALL.
  *
  *  Value: "DEV_XSMALL"
@@ -174,6 +180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge;
 /**
+ *  Instance Size SANDBOX_SMALL
+ *
+ *  Value: "SANDBOX_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_SandboxSmall;
+/**
  *  Instance Size STANDARD_2XLARGE.
  *
  *  Value: "STANDARD_2XLARGE"
@@ -209,10 +221,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  *  Value: "STANDARD_XLARGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge;
+/**
+ *  Instance Size TIME_LIMITED_TRIAL_SMALL
+ *
+ *  Value: "TIME_LIMITED_TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TimeLimitedTrialSmall;
+/**
+ *  Instance Size TRIAL_SMALL
+ *
+ *  Value: "TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TrialSmall;
 
 // ----------------------------------------------------------------------------
 // GTLRCCAIPlatform_Quota.contactCenterInstanceSize
 
+/**
+ *  Instance Size DEV_SMALL
+ *
+ *  Value: "DEV_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall;
 /**
  *  Instance Size DEV_EXTRA_SMALL.
  *
@@ -262,6 +292,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge;
 /**
+ *  Instance Size SANDBOX_SMALL
+ *
+ *  Value: "SANDBOX_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_SandboxSmall;
+/**
  *  Instance Size STANDARD_2XLARGE.
  *
  *  Value: "STANDARD_2XLARGE"
@@ -297,6 +333,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  Value: "STANDARD_XLARGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge;
+/**
+ *  Instance Size TIME_LIMITED_TRIAL_SMALL
+ *
+ *  Value: "TIME_LIMITED_TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TimeLimitedTrialSmall;
+/**
+ *  Instance Size TRIAL_SMALL
+ *
+ *  Value: "TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TrialSmall;
 
 // ----------------------------------------------------------------------------
 // GTLRCCAIPlatform_SAMLParams.authenticationContexts
@@ -597,7 +645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 
 /**
- *  Message describing ContactCenter object Next ID: 23
+ *  Message describing ContactCenter object Next ID: 24
  */
 @interface GTLRCCAIPlatform_ContactCenter : GTLRObject
 
@@ -826,6 +874,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *  The instance size of this the instance configuration.
  *
  *  Likely values:
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall Instance
+ *        Size DEV_SMALL (Value: "DEV_SMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall Instance
  *        Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified
@@ -843,6 +893,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *        Instance Size MULTIREGION_SMALL (Value: "MULTIREGION_SMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge
  *        Instance Size MULTIREGION_XLARGE (Value: "MULTIREGION_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_SandboxSmall
+ *        Instance Size SANDBOX_SMALL (Value: "SANDBOX_SMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge
  *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge
@@ -855,6 +907,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *        Instance Size STANDARD_SMALL. (Value: "STANDARD_SMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge
  *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TimeLimitedTrialSmall
+ *        Instance Size TIME_LIMITED_TRIAL_SMALL (Value:
+ *        "TIME_LIMITED_TRIAL_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TrialSmall Instance
+ *        Size TRIAL_SMALL (Value: "TRIAL_SMALL")
  */
 @property(nonatomic, copy, nullable) NSString *instanceSize;
 
@@ -1189,6 +1246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *  Contact center instance type.
  *
  *  Likely values:
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall
+ *        Instance Size DEV_SMALL (Value: "DEV_SMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall
  *        Instance Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified
@@ -1206,6 +1265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *        Instance Size MULTIREGION_SMALL (Value: "MULTIREGION_SMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge
  *        Instance Size MULTIREGION_XLARGE (Value: "MULTIREGION_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_SandboxSmall
+ *        Instance Size SANDBOX_SMALL (Value: "SANDBOX_SMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge
  *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge
@@ -1218,6 +1279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *        Instance Size STANDARD_SMALL. (Value: "STANDARD_SMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge
  *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TimeLimitedTrialSmall
+ *        Instance Size TIME_LIMITED_TRIAL_SMALL (Value:
+ *        "TIME_LIMITED_TRIAL_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TrialSmall
+ *        Instance Size TRIAL_SMALL (Value: "TRIAL_SMALL")
  */
 @property(nonatomic, copy, nullable) NSString *contactCenterInstanceSize;
 
@@ -1303,30 +1369,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 @interface GTLRCCAIPlatform_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

@@ -74,7 +74,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 //
 
 @implementation GTLRBigQueryReservation_Assignment
-@dynamic assignee, jobType, name, state;
+@dynamic assignee, enableGeminiInBigquery, jobType, name, state;
 @end
 
 
@@ -236,9 +236,23 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 //
 
 @implementation GTLRBigQueryReservation_Reservation
-@dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots,
+@dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots, labels,
          multiRegionAuxiliary, name, originalPrimaryLocation, primaryLocation,
          secondaryLocation, slotCapacity, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_Reservation_Labels
+//
+
+@implementation GTLRBigQueryReservation_Reservation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

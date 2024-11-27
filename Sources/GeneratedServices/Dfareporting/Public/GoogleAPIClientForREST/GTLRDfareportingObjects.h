@@ -65,6 +65,7 @@
 @class GTLRDfareporting_CreativeOptimizationConfiguration;
 @class GTLRDfareporting_CreativeRotation;
 @class GTLRDfareporting_CrossDimensionReachReportCompatibleFields;
+@class GTLRDfareporting_CrossMediaReachReportCompatibleFields;
 @class GTLRDfareporting_CustomFloodlightVariable;
 @class GTLRDfareporting_CustomRichMediaEvents;
 @class GTLRDfareporting_CustomViewabilityMetric;
@@ -147,6 +148,7 @@
 @class GTLRDfareporting_Report;
 @class GTLRDfareporting_Report_Criteria;
 @class GTLRDfareporting_Report_CrossDimensionReachCriteria;
+@class GTLRDfareporting_Report_CrossMediaReachCriteria;
 @class GTLRDfareporting_Report_Delivery;
 @class GTLRDfareporting_Report_FloodlightCriteria;
 @class GTLRDfareporting_Report_FloodlightCriteria_ReportProperties;
@@ -179,6 +181,8 @@
 @class GTLRDfareporting_ThirdPartyAuthenticationToken;
 @class GTLRDfareporting_ThirdPartyTrackingUrl;
 @class GTLRDfareporting_TranscodeSetting;
+@class GTLRDfareporting_TvCampaignSummary;
+@class GTLRDfareporting_TvCampaignTimepoint;
 @class GTLRDfareporting_UniversalAdId;
 @class GTLRDfareporting_UserDefinedVariableConfiguration;
 @class GTLRDfareporting_UserIdentifier;
@@ -3218,6 +3222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Format_Excel;
 
 /** Value: "CROSS_DIMENSION_REACH" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach;
+/** Value: "CROSS_MEDIA_REACH" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossMediaReach;
 /** Value: "FLOODLIGHT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Floodlight;
 /** Value: "PATH_TO_CONVERSION" */
@@ -3604,6 +3610,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_Third
  *  Value: "VIDEO_THIRD_QUARTILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_TvCampaignSummary.type
+
+/**
+ *  Brand.
+ *
+ *  Value: "BRAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Brand;
+/**
+ *  Campaign.
+ *
+ *  Value: "CAMPAIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Campaign;
+/**
+ *  Required to exist; do not use.
+ *
+ *  Value: "CAMPAIGN_COMPONENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_CampaignComponentTypeUnspecified;
+/**
+ *  Company.
+ *
+ *  Value: "COMPANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Company;
+/**
+ *  Product.
+ *
+ *  Value: "PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Product;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_TvCampaignTimepoint.dateWindow
+
+/**
+ *  Eight weeks.
+ *
+ *  Value: "WEEKS_EIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight;
+/**
+ *  Four weeks.
+ *
+ *  Value: "WEEKS_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour;
+/**
+ *  One week.
+ *
+ *  Value: "WEEKS_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksOne;
+/**
+ *  Twelve weeks.
+ *
+ *  Value: "WEEKS_TWELVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksTwelve;
+/**
+ *  Default value, should never be set.
+ *
+ *  Value: "WEEKS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_UniversalAdId.registry
@@ -5926,7 +6000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Contains additional information about cart data.
+ *  Contains additional information about cart data. This field may only be used
+ *  when calling batchinsert; it is not supported by batchupdate.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -5957,7 +6032,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *merchantFeedLanguage;
 
 /**
- *  The Merchant Center ID where the items are uploaded.
+ *  The Merchant Center ID where the items are uploaded. This is a required
+ *  field.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6322,7 +6398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Represents a response to the queryCompatibleFields method.
+ *  Represents a response to the queryCompatibleFields method. Next ID: 10
  */
 @interface GTLRDfareporting_CompatibleFields : GTLRObject
 
@@ -6331,6 +6407,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  "CROSS_DIMENSION_REACH".
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_CrossDimensionReachReportCompatibleFields *crossDimensionReachReportCompatibleFields;
+
+/**
+ *  Contains items that are compatible to be selected for a report of type
+ *  "CROSS_MEDIA_REACH".
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CrossMediaReachReportCompatibleFields *crossMediaReachReportCompatibleFields;
 
 /**
  *  Contains items that are compatible to be selected for a report of type
@@ -6505,10 +6587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *childDirectedTreatment;
 
-/**
- *  Custom floodlight variables. This field may only be used when calling
- *  batchinsert; it is not supported by batchupdate.
- */
+/** Custom floodlight variables. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomFloodlightVariable *> *customVariables;
 
 /**
@@ -8857,6 +8936,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Represents fields that are compatible to be selected for a report of type
+ *  "CROSS_MEDIA_REACH".
+ */
+@interface GTLRDfareporting_CrossMediaReachReportCompatibleFields : GTLRObject
+
+/**
+ *  Dimensions which are compatible to be selected in the "dimensionFilters"
+ *  section of the report.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *dimensionFilters;
+
+/**
+ *  Dimensions which are compatible to be selected in the "dimensions" section
+ *  of the report.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *dimensions;
+
+/**
+ *  The kind of resource this is, in this case
+ *  dfareporting#crossMediaReachReportCompatibleFields.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Metrics which are compatible to be selected in the "metricNames" section of
+ *  the report.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Metric *> *metrics;
+
+@end
+
+
+/**
  *  A custom floodlight variable. This field may only be used when calling
  *  batchinsert; it is not supported by batchupdate.
  */
@@ -8870,7 +8982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The type of custom floodlight variable to supply a value for. These map to
- *  the "u[1-20]=" in the tags.
+ *  the "u[1-100]=" in the tags.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CustomFloodlightVariable_Type_U1 Value "U1"
@@ -14182,6 +14294,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** The report criteria for a report of type "CROSS_DIMENSION_REACH". */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_CrossDimensionReachCriteria *crossDimensionReachCriteria;
 
+/** Optional. The report criteria for a report of type "CROSS_MEDIA_REACH". */
+@property(nonatomic, strong, nullable) GTLRDfareporting_Report_CrossMediaReachCriteria *crossMediaReachCriteria;
+
 /** The report's email delivery settings. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_Delivery *delivery;
 
@@ -14261,6 +14376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Report_Type_CrossDimensionReach Value
  *        "CROSS_DIMENSION_REACH"
+ *    @arg @c kGTLRDfareporting_Report_Type_CrossMediaReach Value
+ *        "CROSS_MEDIA_REACH"
  *    @arg @c kGTLRDfareporting_Report_Type_Floodlight Value "FLOODLIGHT"
  *    @arg @c kGTLRDfareporting_Report_Type_PathToConversion Value
  *        "PATH_TO_CONVERSION"
@@ -14343,6 +14460,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pivoted;
+
+@end
+
+
+/**
+ *  Optional. The report criteria for a report of type "CROSS_MEDIA_REACH".
+ */
+@interface GTLRDfareporting_Report_CrossMediaReachCriteria : GTLRObject
+
+/** Required. The date range this report should be run for. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
+
+/**
+ *  Required. The list of filters on which dimensions are filtered. Filters for
+ *  different dimensions are ANDed, filters for the same dimension are grouped
+ *  together and ORed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *dimensionFilters;
+
+/** Required. The list of dimensions the report should include. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *dimensions;
+
+/** Required. The list of names of metrics the report should include. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
 
 @end
 
@@ -16079,6 +16220,161 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  "dfareporting#transcodeSetting".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  TvCampaignDetail contains data from a TV campaign for specific start dates
+ *  and date windows.
+ */
+@interface GTLRDfareporting_TvCampaignDetail : GTLRObject
+
+/**
+ *  ID of this TV campaign.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#tvCampaignSummary".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The timepoints of the TV campaign. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_TvCampaignTimepoint *> *timepoints;
+
+@end
+
+
+/**
+ *  Response message for TvCampaignSummariesService.List.
+ */
+@interface GTLRDfareporting_TvCampaignSummariesListResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#tvCampaignSummariesListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** List of TV campaign summaries. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_TvCampaignSummary *> *tvCampaignSummaries;
+
+@end
+
+
+/**
+ *  TvCampaignSummary contains aggregate data from a TV campaign.
+ */
+@interface GTLRDfareporting_TvCampaignSummary : GTLRObject
+
+/**
+ *  The end date of the TV campaign, inclusive. A string of the format:
+ *  "yyyy-MM-dd".
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/**
+ *  GRP of this TV campaign.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *grp;
+
+/**
+ *  ID of this TV campaign.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Impressions across the entire TV campaign.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impressions;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#tvCampaignSummary".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Identifier. Name of this TV campaign. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Spend across the entire TV campaign.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spend;
+
+/**
+ *  The start date of the TV campaign, inclusive. A string of the format:
+ *  "yyyy-MM-dd".
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/**
+ *  "CampaignComponentType" of this TV campaign.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Brand Brand. (Value:
+ *        "BRAND")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Campaign Campaign.
+ *        (Value: "CAMPAIGN")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_CampaignComponentTypeUnspecified
+ *        Required to exist; do not use. (Value:
+ *        "CAMPAIGN_COMPONENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Company Company. (Value:
+ *        "COMPANY")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Product Product. (Value:
+ *        "PRODUCT")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A single data point for TvCampaignDetail, which holds information about the
+ *  TV campaign for a specific start date and date window.
+ */
+@interface GTLRDfareporting_TvCampaignTimepoint : GTLRObject
+
+/**
+ *  The date window of the timepoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight Eight
+ *        weeks. (Value: "WEEKS_EIGHT")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour Four
+ *        weeks. (Value: "WEEKS_FOUR")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksOne One
+ *        week. (Value: "WEEKS_ONE")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksTwelve
+ *        Twelve weeks. (Value: "WEEKS_TWELVE")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksUnspecified
+ *        Default value, should never be set. (Value: "WEEKS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dateWindow;
+
+/**
+ *  The spend within the time range of the timepoint.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spend;
+
+/**
+ *  The start date of the timepoint. A string in the format of "yyyy-MM-dd".
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 @end
 

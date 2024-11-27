@@ -535,7 +535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Versio
 // GTLRCloudHealthcare_FieldMetadata.action
 
 /**
- *  No action specified.
+ *  No action specified. Defaults to DO_NOT_TRANSFORM.
  *
  *  Value: "ACTION_UNSPECIFIED"
  */
@@ -1438,7 +1438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_CharacterMaskConfig : GTLRObject
 
 /**
- *  Character to mask the sensitive values. If not supplied, defaults to "*".
+ *  Optional. Character to mask the sensitive values. If not supplied, defaults
+ *  to "*".
  */
 @property(nonatomic, copy, nullable) NSString *maskingCharacter;
 
@@ -1913,13 +1914,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_DeidentifiedStoreDestination : GTLRObject
 
 /**
- *  The configuration to use when de-identifying resources that are added to
- *  this store.
+ *  Optional. The configuration to use when de-identifying resources that are
+ *  added to this store.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The full resource name of a Cloud Healthcare FHIR store, for example,
+ *  Optional. The full resource name of a Cloud Healthcare FHIR store, for
+ *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *store;
@@ -1934,26 +1936,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_DeidentifyConfig : GTLRObject
 
-/** Configures de-id of application/DICOM content. */
+/** Optional. Configures de-id of application/DICOM content. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomConfig *dicom;
 
-/** Configures de-id of application/FHIR content. */
+/** Optional. Configures de-id of application/FHIR content. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_FhirConfig *fhir;
 
 /**
- *  Configures de-identification of image pixels wherever they are found in the
- *  source_dataset.
+ *  Optional. Configures de-identification of image pixels wherever they are
+ *  found in the source_dataset.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ImageConfig *image;
 
 /**
- *  Configures de-identification of text wherever it is found in the
+ *  Optional. Configures de-identification of text wherever it is found in the
  *  source_dataset.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_TextConfig *text;
 
 /**
- *  Ensures in-flight data remains in the region of origin during
+ *  Optional. Ensures in-flight data remains in the region of origin during
  *  de-identification. The default value is false. Using this option results in
  *  a significant reduction of throughput, and is not compatible with `LOCATION`
  *  or `ORGANIZATION_NAME` infoTypes. `LOCATION` must be excluded within
@@ -2132,9 +2134,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_TagFilterList *removeList;
 
 /**
- *  If true, skip replacing StudyInstanceUID, SeriesInstanceUID, SOPInstanceUID,
- *  and MediaStorageSOPInstanceUID and leave them untouched. The Cloud
- *  Healthcare API regenerates these UIDs by default based on the DICOM
+ *  Optional. If true, skip replacing StudyInstanceUID, SeriesInstanceUID,
+ *  SOPInstanceUID, and MediaStorageSOPInstanceUID and leave them untouched. The
+ *  Cloud Healthcare API regenerates these UIDs by default based on the DICOM
  *  Standard's reasoning: "Whilst these UIDs cannot be mapped directly to an
  *  individual out of context, given access to the original images, or to a
  *  database of the original images containing the UIDs, it would be possible to
@@ -2779,19 +2781,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_FhirConfig : GTLRObject
 
 /**
- *  The behaviour for handling FHIR extensions that aren't otherwise specified
- *  for de-identification. If true, all extensions are preserved during
- *  de-identification by default. If false or unspecified, all extensions are
- *  removed during de-identification by default.
+ *  Optional. The behaviour for handling FHIR extensions that aren't otherwise
+ *  specified for de-identification. If true, all extensions are preserved
+ *  during de-identification by default. If false or unspecified, all extensions
+ *  are removed during de-identification by default.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultKeepExtensions;
 
 /**
- *  Specifies FHIR paths to match and how to transform them. Any field that is
- *  not matched by a FieldMetadata is passed through to the output dataset
- *  unmodified. All extensions will be processed according to
+ *  Optional. Specifies FHIR paths to match and how to transform them. Any field
+ *  that is not matched by a FieldMetadata is passed through to the output
+ *  dataset unmodified. All extensions will be processed according to
  *  `default_keep_extensions`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FieldMetadata *> *fieldMetadataList;
@@ -2868,14 +2870,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_FhirStore : GTLRObject
 
 /**
- *  Enable parsing of references within complex FHIR data types such as
- *  Extensions. If this value is set to ENABLED, then features like referential
- *  integrity and Bundle reference rewriting apply to all references. If this
- *  flag has not been specified the behavior of the FHIR store will not change,
- *  references in complex data types will not be parsed. New stores will have
- *  this value set to ENABLED after a notification period. Warning: turning on
- *  this flag causes processing existing resources to fail if they contain
- *  references to non-existent resources.
+ *  Optional. Enable parsing of references within complex FHIR data types such
+ *  as Extensions. If this value is set to ENABLED, then features like
+ *  referential integrity and Bundle reference rewriting apply to all
+ *  references. If this flag has not been specified the behavior of the FHIR
+ *  store will not change, references in complex data types will not be parsed.
+ *  New stores will have this value set to ENABLED after a notification period.
+ *  Warning: turning on this flag causes processing existing resources to fail
+ *  if they contain references to non-existent resources.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_ComplexDataTypeReferenceParsingUnspecified
@@ -2993,8 +2995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_StreamConfig *> *streamConfigs;
 
 /**
- *  Configuration for how to validate incoming FHIR resources against configured
- *  profiles.
+ *  Optional. Configuration for how to validate incoming FHIR resources against
+ *  configured profiles.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ValidationConfig *validationConfig;
 
@@ -3128,11 +3130,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_FieldMetadata : GTLRObject
 
 /**
- *  Deidentify action for one field.
+ *  Optional. Deidentify action for one field.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_ActionUnspecified No
- *        action specified. (Value: "ACTION_UNSPECIFIED")
+ *        action specified. Defaults to DO_NOT_TRANSFORM. (Value:
+ *        "ACTION_UNSPECIFIED")
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform Do not
  *        transform. (Value: "DO_NOT_TRANSFORM")
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform
@@ -3143,14 +3146,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  List of paths to FHIR fields to be redacted. Each path is a period-separated
- *  list where each component is either a field name or FHIR type name, for
- *  example: Patient, HumanName. For "choice" types (those defined in the FHIR
- *  spec with the form: field[x]) we use two separate components. For example,
- *  "deceasedAge.unit" is matched by "Deceased.Age.unit". Supported types are:
- *  AdministrativeGenderCode, Base64Binary, Boolean, Code, Date, DateTime,
- *  Decimal, HumanName, Id, Instant, Integer, LanguageCode, Markdown, Oid,
- *  PositiveInt, String, UnsignedInt, Uri, Uuid, Xhtml.
+ *  Optional. List of paths to FHIR fields to be redacted. Each path is a
+ *  period-separated list where each component is either a field name or FHIR
+ *  type name, for example: Patient, HumanName. For "choice" types (those
+ *  defined in the FHIR spec with the form: field[x]) we use two separate
+ *  components. For example, "deceasedAge.unit" is matched by
+ *  "Deceased.Age.unit". Supported types are: AdministrativeGenderCode,
+ *  Base64Binary, Boolean, Code, Date, DateTime, Decimal, HumanName, Id,
+ *  Instant, Integer, LanguageCode, Markdown, Oid, PositiveInt, String,
+ *  UnsignedInt, Uri, Uuid, Xhtml.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
@@ -3297,8 +3301,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination : GTLRObject
 
 /**
- *  Use `write_disposition` instead. If `write_disposition` is specified, this
- *  parameter is ignored. force=false is equivalent to
+ *  Optional. Use `write_disposition` instead. If `write_disposition` is
+ *  specified, this parameter is ignored. force=false is equivalent to
  *  write_disposition=WRITE_EMPTY and force=true is equivalent to
  *  write_disposition=WRITE_TRUNCATE.
  *
@@ -3307,13 +3311,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSNumber *force;
 
 /**
- *  BigQuery URI to a table, up to 2000 characters long, in the format
+ *  Optional. BigQuery URI to a table, up to 2000 characters long, in the format
  *  `bq://projectId.bqDatasetId.tableId`
  */
 @property(nonatomic, copy, nullable) NSString *tableUri;
 
 /**
- *  Determines whether the existing table in the destination is to be
+ *  Optional. Determines whether the existing table in the destination is to be
  *  overwritten or appended to. If a write_disposition is specified, the `force`
  *  parameter is ignored.
  *
@@ -3869,7 +3873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_ImageConfig : GTLRObject
 
 /**
- *  Determines how to redact text from image.
+ *  Optional. Determines how to redact text from image.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactAllText
@@ -4007,8 +4011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DateShiftConfig *dateShiftConfig;
 
 /**
- *  InfoTypes to apply this transformation to. If this is not specified, the
- *  transformation applies to any info_type.
+ *  Optional. InfoTypes to apply this transformation to. If this is not
+ *  specified, the transformation applies to any info_type.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *infoTypes;
 
@@ -4782,8 +4786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_SchemaPackage *schema;
 
 /**
- *  Byte(s) to use as the segment terminator. If this is unset, '\\r' is used as
- *  segment terminator, matching the HL7 version 2 specification.
+ *  Optional. Byte(s) to use as the segment terminator. If this is unset, '\\r'
+ *  is used as segment terminator, matching the HL7 version 2 specification.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5837,12 +5841,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  The destination FHIR store for de-identified resources. After this field is
  *  added, all subsequent creates/updates/patches to the source store will be
  *  de-identified using the provided configuration and applied to the
- *  destination store. Importing resources to the source store will not trigger
- *  the streaming. If the source store already contains resources when this
- *  option is enabled, those resources will not be copied to the destination
- *  store unless they are subsequently updated. This may result in invalid
- *  references in the destination store. Before adding this config, you must
- *  grant the healthcare.fhirResources.update permission on the destination
+ *  destination store. Resources deleted from the source store will be deleted
+ *  from the destination store. Importing resources to the source store will not
+ *  trigger the streaming. If the source store already contains resources when
+ *  this option is enabled, those resources will not be copied to the
+ *  destination store unless they are subsequently updated. This may result in
+ *  invalid references in the destination store. Before adding this config, you
+ *  must grant the healthcare.fhirResources.update permission on the destination
  *  store to your project's **Cloud Healthcare Service Agent** [service
  *  account](https://cloud.google.com/healthcare/docs/how-tos/permissions-healthcare-api-gcp-products#the_cloud_healthcare_service_agent).
  *  The destination store must set enable_update_create to true. The destination
@@ -5928,8 +5933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_TagFilterList : GTLRObject
 
 /**
- *  Tags to be filtered. Tags must be DICOM Data Elements, File Meta Elements,
- *  or Directory Structuring Elements, as defined at:
+ *  Optional. Tags to be filtered. Tags must be DICOM Data Elements, File Meta
+ *  Elements, or Directory Structuring Elements, as defined at:
  *  http://dicom.nema.org/medical/dicom/current/output/html/part06.html#table_6-1,.
  *  They may be provided by "Keyword" or "Tag". For example "PatientID",
  *  "00100010".
@@ -5973,18 +5978,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_TextConfig : GTLRObject
 
 /**
- *  Transformations to apply to the detected data, overridden by
+ *  Optional. Transformations to apply to the detected data, overridden by
  *  `exclude_info_types`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *additionalTransformations;
 
 /**
- *  InfoTypes to skip transforming, overriding `additional_transformations`.
+ *  Optional. InfoTypes to skip transforming, overriding
+ *  `additional_transformations`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludeInfoTypes;
 
 /**
- *  The transformations to apply to the detected data. Deprecated. Use
+ *  Optional. The transformations to apply to the detected data. Deprecated. Use
  *  `additional_transformations` instead.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *transformations;
@@ -6120,54 +6126,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_ValidationConfig : GTLRObject
 
 /**
- *  Whether to disable FHIRPath validation for incoming resources. The default
- *  value is false. Set this to true to disable checking incoming resources for
- *  conformance against FHIRPath requirement defined in the FHIR specification.
- *  This property only affects resource types that do not have profiles
- *  configured for them, any rules in enabled implementation guides will still
- *  be enforced.
+ *  Optional. Whether to disable FHIRPath validation for incoming resources. The
+ *  default value is false. Set this to true to disable checking incoming
+ *  resources for conformance against FHIRPath requirement defined in the FHIR
+ *  specification. This property only affects resource types that do not have
+ *  profiles configured for them, any rules in enabled implementation guides
+ *  will still be enforced.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableFhirpathValidation;
 
 /**
- *  Whether to disable profile validation for this FHIR store. The default value
- *  is false. Set this to true to disable checking incoming resources for
- *  conformance against structure definitions in this FHIR store.
+ *  Optional. Whether to disable profile validation for this FHIR store. The
+ *  default value is false. Set this to true to disable checking incoming
+ *  resources for conformance against structure definitions in this FHIR store.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableProfileValidation;
 
 /**
- *  Whether to disable reference type validation for incoming resources. The
- *  default value is false. Set this to true to disable checking incoming
- *  resources for conformance against reference type requirement defined in the
- *  FHIR specification. This property only affects resource types that do not
- *  have profiles configured for them, any rules in enabled implementation
- *  guides will still be enforced.
+ *  Optional. Whether to disable reference type validation for incoming
+ *  resources. The default value is false. Set this to true to disable checking
+ *  incoming resources for conformance against reference type requirement
+ *  defined in the FHIR specification. This property only affects resource types
+ *  that do not have profiles configured for them, any rules in enabled
+ *  implementation guides will still be enforced.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableReferenceTypeValidation;
 
 /**
- *  Whether to disable required fields validation for incoming resources. The
- *  default value is false. Set this to true to disable checking incoming
- *  resources for conformance against required fields requirement defined in the
- *  FHIR specification. This property only affects resource types that do not
- *  have profiles configured for them, any rules in enabled implementation
- *  guides will still be enforced.
+ *  Optional. Whether to disable required fields validation for incoming
+ *  resources. The default value is false. Set this to true to disable checking
+ *  incoming resources for conformance against required fields requirement
+ *  defined in the FHIR specification. This property only affects resource types
+ *  that do not have profiles configured for them, any rules in enabled
+ *  implementation guides will still be enforced.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableRequiredFieldValidation;
 
 /**
- *  A list of implementation guide URLs in this FHIR store that are used to
- *  configure the profiles to use for validation. For example, to use the US
- *  Core profiles for validation, set `enabled_implementation_guides` to
+ *  Optional. A list of implementation guide URLs in this FHIR store that are
+ *  used to configure the profiles to use for validation. For example, to use
+ *  the US Core profiles for validation, set `enabled_implementation_guides` to
  *  `["http://hl7.org/fhir/us/core/ImplementationGuide/ig"]`. If
  *  `enabled_implementation_guides` is empty or omitted, then incoming resources
  *  are only required to conform to the base FHIR profiles. Otherwise, a

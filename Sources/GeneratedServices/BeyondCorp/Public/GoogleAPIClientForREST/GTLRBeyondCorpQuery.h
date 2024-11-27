@@ -2175,6 +2175,152 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new Application in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.global.securityGateways.applications.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsCreate : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. User-settable Application resource ID. * Must start with a letter.
+ *  * Must contain between 4-63 characters from `/a-z-/`. * Must end with a
+ *  number or letter.
+ */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/**
+ *  Required. The resource name of the parent SecurityGateway using the form:
+ *  `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore request if it has already been completed. The server will guarantee
+ *  that for at least 60 minutes since the first request.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Creates a new Application in a given project and location.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent SecurityGateway
+ *    using the form:
+ *    `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single Application.
+ *
+ *  Method: beyondcorp.projects.locations.global.securityGateways.applications.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsPatch : GTLRBeyondCorpQuery
+
+/** Identifier. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request timed
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Mutable fields include: display_name.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single Application.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application to
+ *    include in the query.
+ *  @param name Identifier. Name of the resource.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: beyondcorp.projects.locations.global.securityGateways.applications.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsTestIamPermissions : GTLRBeyondCorpQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: beyondcorp.projects.locations.list
@@ -2368,6 +2514,619 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a single Application.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.applications.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsDelete : GTLRBeyondCorpQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Deletes a single Application.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Application.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.applications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGet : GTLRBeyondCorpQuery
+
+/**
+ *  Required. The resource name of the Application using the form:
+ *  `projects/{project_id}/locations/global/securityGateway/{security_gateway_id}/applications/{application_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application.
+ *
+ *  Gets details of a single Application.
+ *
+ *  @param name Required. The resource name of the Application using the form:
+ *    `projects/{project_id}/locations/global/securityGateway/{security_gateway_id}/applications/{application_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.applications.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGetIamPolicy : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Applications in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.applications.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsList : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. A filter specifying constraints of a list operation. All fields in
+ *  the Application message are supported. For example, the following query will
+ *  return the Application with displayName "test-application" For more
+ *  information, please refer to https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results. See [Sorting
+ *  order](https://cloud.google.com/apis/design/design_patterns#sorting_order)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 50 will be used by the service. Regardless of the page_size value,
+ *  the response may include a partial list and a caller should only rely on
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous
+ *  ListApplicationsRequest, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent location to which the resources belong.
+ *  `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListApplicationsResponse.
+ *
+ *  Lists Applications in a given project and location.
+ *
+ *  @param parent Required. The parent location to which the resources belong.
+ *    `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.applications.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsSetIamPolicy : GTLRBeyondCorpQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new SecurityGateway in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysCreate : GTLRBeyondCorpQuery
+
+/**
+ *  Required. The resource project name of the SecurityGateway location using
+ *  the form: `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore request if it has already been completed. The server will guarantee
+ *  that for at least 60 minutes since the first request.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. User-settable SecurityGateway resource ID. * Must start with a
+ *  letter. * Must contain between 4-63 characters from `/a-z-/`. * Must end
+ *  with a number or letter.
+ */
+@property(nonatomic, copy, nullable) NSString *securityGatewayId;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Creates a new SecurityGateway in a given project and location.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway to
+ *    include in the query.
+ *  @param parent Required. The resource project name of the SecurityGateway
+ *    location using the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysCreate
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single SecurityGateway.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysDelete : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp SecurityGateway name using the form:
+ *  `projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Deletes a single SecurityGateway.
+ *
+ *  @param name Required. BeyondCorp SecurityGateway name using the form:
+ *    `projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single SecurityGateway.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGet : GTLRBeyondCorpQuery
+
+/**
+ *  Required. The resource name of the PartnerTenant using the form:
+ *  `projects/{project_id}/locations/{location_id}/securityGateway/{security_gateway_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway.
+ *
+ *  Gets details of a single SecurityGateway.
+ *
+ *  @param name Required. The resource name of the PartnerTenant using the form:
+ *    `projects/{project_id}/locations/{location_id}/securityGateway/{security_gateway_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGetIamPolicy : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists SecurityGateways in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysList : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. A filter specifying constraints of a list operation. All fields in
+ *  the SecurityGateway message are supported. For example, the following query
+ *  will return the SecurityGateway with displayName "test-security-gateway" For
+ *  more information, please refer to https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results. See [Sorting
+ *  order](https://cloud.google.com/apis/design/design_patterns#sorting_order)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 50 will be used by the service. Regardless of the page_size value,
+ *  the response may include a partial list and a caller should only rely on
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous
+ *  ListSecurityGatewayRequest, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent location to which the resources belong.
+ *  `projects/{project_id}/locations/{location_id}/`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListSecurityGatewaysResponse.
+ *
+ *  Lists SecurityGateways in a given project and location.
+ *
+ *  @param parent Required. The parent location to which the resources belong.
+ *    `projects/{project_id}/locations/{location_id}/`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single SecurityGateway.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysPatch : GTLRBeyondCorpQuery
+
+/** Identifier. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request timed
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Mutable fields include: display_name, hubs.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single SecurityGateway.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway to
+ *    include in the query.
+ *  @param name Identifier. Name of the resource.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysPatch
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysSetIamPolicy : GTLRBeyondCorpQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: beyondcorp.projects.locations.securityGateways.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysTestIamPermissions : GTLRBeyondCorpQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

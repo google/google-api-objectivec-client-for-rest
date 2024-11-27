@@ -12,6 +12,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_AdvanceRelocateBucketOperationRequest
+//
+
+@implementation GTLRStorage_AdvanceRelocateBucketOperationRequest
+@dynamic expireTime, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_AnywhereCache
 //
 
@@ -891,8 +901,8 @@
          hardDeleteTime, identifier, kind, kmsKeyName, md5Hash, mediaLink,
          metadata, metageneration, name, owner, restoreToken, retention,
          retentionExpirationTime, selfLink, size, softDeleteTime, storageClass,
-         temporaryHold, timeCreated, timeDeleted, timeStorageClassUpdated,
-         updated;
+         temporaryHold, timeCreated, timeDeleted, timeFinalized,
+         timeStorageClassUpdated, updated;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1056,6 +1066,34 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RelocateBucketRequest
+//
+
+@implementation GTLRStorage_RelocateBucketRequest
+@dynamic destinationCustomPlacementConfig, destinationLocation, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig
+//
+
+@implementation GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig
+@dynamic dataLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataLocations" : [NSString class]
   };
   return map;
 }

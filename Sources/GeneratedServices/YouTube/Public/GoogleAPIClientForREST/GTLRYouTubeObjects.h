@@ -58,6 +58,7 @@
 @class GTLRYouTube_ChannelTopicDetails;
 @class GTLRYouTube_ChannelToStoreLinkDetails;
 @class GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails;
+@class GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails;
 @class GTLRYouTube_Comment;
 @class GTLRYouTube_CommentSnippet;
 @class GTLRYouTube_CommentSnippetAuthorChannelId;
@@ -430,6 +431,34 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBilling
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusPending;
 /** Value: "billingStatusUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails.status
+
+/**
+ *  Merchant affiliate program is active.
+ *
+ *  Value: "merchantAffiliateProgramStatusActive"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusActive;
+/**
+ *  Merchant is eligible for the merchant affiliate program.
+ *
+ *  Value: "merchantAffiliateProgramStatusEligible"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusEligible;
+/**
+ *  Merchant affiliate program is paused.
+ *
+ *  Value: "merchantAffiliateProgramStatusPaused"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusPaused;
+/**
+ *  Unspecified status.
+ *
+ *  Value: "merchantAffiliateProgramStatusUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CommentSnippet.moderationStatus
@@ -6194,6 +6223,9 @@ GTLR_DEPRECATED
 /** Information specific to billing (read-only). */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails *billingDetails;
 
+/** Information specific to merchant affiliate program (read-only). */
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails *merchantAffiliateProgramDetails;
+
 /**
  *  Google Merchant Center id of the store.
  *
@@ -6229,6 +6261,33 @@ GTLR_DEPRECATED
  *        Value "billingStatusUnspecified"
  */
 @property(nonatomic, copy, nullable) NSString *billingStatus;
+
+@end
+
+
+/**
+ *  Information specific to merchant affiliate program.
+ */
+@interface GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails : GTLRObject
+
+/**
+ *  The current merchant affiliate program status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusActive
+ *        Merchant affiliate program is active. (Value:
+ *        "merchantAffiliateProgramStatusActive")
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusEligible
+ *        Merchant is eligible for the merchant affiliate program. (Value:
+ *        "merchantAffiliateProgramStatusEligible")
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusPaused
+ *        Merchant affiliate program is paused. (Value:
+ *        "merchantAffiliateProgramStatusPaused")
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusUnspecified
+ *        Unspecified status. (Value:
+ *        "merchantAffiliateProgramStatusUnspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -8433,7 +8492,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  LINT.IfChange Describes an invideo branding.
+ *  Describes an invideo branding.
  */
 @interface GTLRYouTube_InvideoBranding : GTLRObject
 
@@ -8454,7 +8513,7 @@ GTLR_DEPRECATED
  *  The spatial position within the video where the branding watermark will be
  *  displayed.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_InvideoPosition *position;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoPosition *position GTLR_DEPRECATED;
 
 /**
  *  The channel to which this branding links. If not present it defaults to the
@@ -10782,7 +10841,7 @@ GTLR_DEPRECATED
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "youtube#playlistItemListResponse". Etag of this resource.
+ *  "youtube#playlistItemListResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -11411,9 +11470,6 @@ GTLR_DEPRECATED
 /** The ID that YouTube uses to uniquely identify the subscriber's channel. */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
-/** Channel title for the channel that the subscription belongs to. */
-@property(nonatomic, copy, nullable) NSString *channelTitle;
-
 /**
  *  The subscription's details.
  *
@@ -11627,6 +11683,9 @@ GTLR_DEPRECATED
  *  GTLRYouTube_TestItem
  */
 @interface GTLRYouTube_TestItem : GTLRObject
+
+/** Etag for the resource. See https://en.wikipedia.org/wiki/HTTP_ETag. */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  featuredPart
@@ -12715,7 +12774,7 @@ GTLR_DEPRECATED
 
 /**
  *  The time that the broadcast is scheduled to end. If the value is empty or
- *  the property is not present, then the broadcast is scheduled to contiue
+ *  the property is not present, then the broadcast is scheduled to continue
  *  indefinitely.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
@@ -13108,6 +13167,13 @@ GTLR_DEPRECATED
  *  19
  */
 @interface GTLRYouTube_VideoStatus : GTLRObject
+
+/**
+ *  Indicates if the video contains altered or synthetic media.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containsSyntheticMedia;
 
 /**
  *  This value indicates if the video can be embedded on another website.

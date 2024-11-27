@@ -25,6 +25,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Period;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1ProvisionedService;
@@ -476,6 +477,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1O
  *  Value: "TRANSFER_ENTITLEMENTS_TO_GOOGLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_OperationType_TransferEntitlementsToGoogle;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent.eventType
+
+/**
+ *  New opportunity created.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created;
+/**
+ *  Not used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_TypeUnspecified;
+/**
+ *  Existing opportunity updated.
+ *
+ *  Value: "UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Updated;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1Period.periodType
@@ -1777,7 +1800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @property(nonatomic, copy, nullable) NSString *channelPartner;
 
 /**
- *  Type of event performed on the Channel Partner.
+ *  Type of event which happened for the channel partner.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_LinkStateChanged
@@ -1868,7 +1891,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Type of event which happened on the customer.
+ *  Type of event which happened for the customer.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainChanged
@@ -2008,6 +2031,15 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter *> *parameters;
 
+/**
+ *  Optional. Price reference ID for the offer. Optional field only for offers
+ *  that require additional price information. Used to guarantee that the
+ *  pricing is consistent between quoting the offer and placing the order. Not
+ *  yet implemented: if this field is populated in a request, it isn't evaluated
+ *  in the API.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 /** Output only. Service provisioning details for the entitlement. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1ProvisionedService *provisionedService;
 
@@ -2074,7 +2106,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *entitlement;
 
 /**
- *  Type of event which happened on the entitlement.
+ *  Type of event which happened for the entitlement.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_Activated
@@ -2173,6 +2205,30 @@ GTLR_DEPRECATED
  *        (Value: "TRANSFER_ENTITLEMENTS_TO_GOOGLE")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
+
+@end
+
+
+/**
+ *  Represents Pub/Sub message content describing opportunity updates.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent : GTLRObject
+
+/**
+ *  Type of event which happened for the opportunity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created
+ *        New opportunity created. (Value: "CREATED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_TypeUnspecified
+ *        Not used. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Updated
+ *        Existing opportunity updated. (Value: "UPDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/** Resource name of the opportunity. Format: opportunities/{opportunity} */
+@property(nonatomic, copy, nullable) NSString *opportunity;
 
 @end
 
@@ -2487,6 +2543,11 @@ GTLR_DEPRECATED
 /** Entitlement event sent as part of Pub/Sub event to partners. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent *entitlementEvent;
 
+/**
+ *  Opportunity event sent as part of Pub/Sub event to partners/integrators.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent *opportunityEvent;
+
 @end
 
 
@@ -2689,6 +2750,15 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 
+/**
+ *  Optional. Price reference ID for the offer. Optional field only for offers
+ *  that require additional price information. Used to guarantee that the
+ *  pricing is consistent between quoting the offer and placing the order. Not
+ *  yet implemented: if populated in a request, this field isn't evaluated in
+ *  the API.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 /** Optional. Purchase order id provided by the reseller. */
 @property(nonatomic, copy, nullable) NSString *purchaseOrderId;
 
@@ -2708,7 +2778,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Request message for CloudChannelService.ChangeParametersRequest.
+ *  Request message for CloudChannelService.ChangeParameters.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1ChangeParametersRequest : GTLRObject
 
@@ -2924,7 +2994,8 @@ GTLR_DEPRECATED
 
 /**
  *  Returns true if the Cloud Identity account is associated with a customer of
- *  the Channel Services partner.
+ *  the Channel Services partner (with active subscriptions or purchase
+ *  consents).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3255,7 +3326,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Type of event which happened on the customer.
+ *  Type of event which happened for the customer.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainChanged
@@ -3430,6 +3501,15 @@ GTLR_DEPRECATED
  *  display_name: The display name of the billing subaccount.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
+
+/**
+ *  Optional. Price reference ID for the offer. Optional field only for offers
+ *  that require additional price information. Used to guarantee that the
+ *  pricing is consistent between quoting the offer and placing the order. Not
+ *  yet implemented: if this field is populated in a request, it isn't evaluated
+ *  in the API.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
 
 /** Output only. Service provisioning details for the entitlement. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1ProvisionedService *provisionedService;
@@ -3652,7 +3732,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *entitlement;
 
 /**
- *  Type of event which happened on the entitlement.
+ *  Type of event which happened for the entitlement.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_Activated
@@ -4115,7 +4195,7 @@ GTLR_DEPRECATED
 
 /**
  *  A token to retrieve the next page of results. Pass to
- *  ListSkuGroupBillableSkus.page_token to obtain that page.
+ *  ListSkuGroupBillableSkusRequest.page_token to obtain that page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4134,7 +4214,7 @@ GTLR_DEPRECATED
 
 /**
  *  A token to retrieve the next page of results. Pass to
- *  ListSkuGroups.page_token to obtain that page.
+ *  ListSkuGroupsRequest.page_token to obtain that page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4884,6 +4964,13 @@ GTLR_DEPRECATED
 /** Offer. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Offer *offer;
 
+/**
+ *  Optional. Price reference ID for the offer. Optional field only for offers
+ *  that require additional price information. Used to guarantee that the
+ *  pricing is consistent between quoting the offer and placing the order.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 @end
 
 
@@ -4918,6 +5005,18 @@ GTLR_DEPRECATED
  *  Request Message for RegisterSubscriber.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest : GTLRObject
+
+/**
+ *  Optional. Resource name of the account. Required if integrator is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/**
+ *  Optional. Resource name of the integrator. Required if account is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *integrator;
 
 /**
  *  Required. Service account that provides subscriber access to the registered
@@ -5456,6 +5555,13 @@ GTLR_DEPRECATED
 /** Offer with parameter constraints updated to allow the Transfer. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Offer *offer;
 
+/**
+ *  Optional. Price reference ID for the offer. Optional field only for offers
+ *  that require additional price information. Used to guarantee that the
+ *  pricing is consistent between quoting the offer and placing the order.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 @end
 
 
@@ -5616,6 +5722,18 @@ GTLR_DEPRECATED
  *  Request Message for UnregisterSubscriber.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest : GTLRObject
+
+/**
+ *  Optional. Resource name of the account. Required if integrator is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/**
+ *  Optional. Resource name of the integrator. Required if account is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *integrator;
 
 /**
  *  Required. Service account to unregister from subscriber access to the topic.
@@ -6001,10 +6119,10 @@ GTLR_DEPRECATED
 
 /**
  *  A representation of a decimal value, such as 2.5. Clients may convert values
- *  into language-native decimal formats, such as Java's BigDecimal or Python's
- *  decimal.Decimal. [BigDecimal]:
- *  https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html
- *  [decimal.Decimal]: https://docs.python.org/3/library/decimal.html
+ *  into language-native decimal formats, such as Java's
+ *  [BigDecimal](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html)
+ *  or Python's
+ *  [decimal.Decimal](https://docs.python.org/3/library/decimal.html).
  */
 @interface GTLRCloudchannel_GoogleTypeDecimal : GTLRObject
 

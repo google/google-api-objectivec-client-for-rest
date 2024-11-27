@@ -1292,7 +1292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  backlog, from the moment a message is published. If `retain_acked_messages`
  *  is true, then this also configures the retention of acknowledged messages,
  *  and thus configures how far back in time a `Seek` can be done. Defaults to 7
- *  days. Cannot be more than 7 days or less than 10 minutes.
+ *  days. Cannot be more than 31 days or less than 10 minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
 
@@ -2246,6 +2246,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  `projects/subscriberproject/locations/US`
  */
 @property(nonatomic, copy, nullable) NSString *destination;
+
+/** Optional. BigQuery destination dataset to create for the subscriber. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_DestinationDataset *destinationDataset;
 
 /** Email of the subscriber. */
 @property(nonatomic, copy, nullable) NSString *subscriberContact;

@@ -72,6 +72,25 @@
 
 @end
 
+@implementation GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/allowedLocations";
+  GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIAMCredentials_ServiceAccountAllowedLocations class];
+  query.loggingName = @"iamcredentials.projects.serviceAccounts.getAllowedLocations";
+  return query;
+}
+
+@end
+
 @implementation GTLRIAMCredentialsQuery_ProjectsServiceAccountsSignBlob
 
 @dynamic name;

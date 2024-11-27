@@ -31,6 +31,12 @@ NSString * const kGTLRDatastore_CompositeFilter_Op_And         = @"AND";
 NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 NSString * const kGTLRDatastore_CompositeFilter_Op_Or          = @"OR";
 
+// GTLRDatastore_FindNearest.distanceMeasure
+NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_Cosine = @"COSINE";
+NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified = @"DISTANCE_MEASURE_UNSPECIFIED";
+NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_DotProduct = @"DOT_PRODUCT";
+NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_Euclidean = @"EUCLIDEAN";
+
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.operationType
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ExportEntities = @"EXPORT_ENTITIES";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ImportEntities = @"IMPORT_ENTITIES";
@@ -124,6 +130,11 @@ NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_OptimisticWithEntityGroups = @"OPTIMISTIC_WITH_ENTITY_GROUPS";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
 
+// GTLRDatastore_Mutation.conflictResolutionStrategy
+NSString * const kGTLRDatastore_Mutation_ConflictResolutionStrategy_Fail = @"FAIL";
+NSString * const kGTLRDatastore_Mutation_ConflictResolutionStrategy_ServerValue = @"SERVER_VALUE";
+NSString * const kGTLRDatastore_Mutation_ConflictResolutionStrategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+
 // GTLRDatastore_PropertyFilter.op
 NSString * const kGTLRDatastore_PropertyFilter_Op_Equal        = @"EQUAL";
 NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan  = @"GREATER_THAN";
@@ -140,6 +151,10 @@ NSString * const kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified = @"OPERAT
 NSString * const kGTLRDatastore_PropertyOrder_Direction_Ascending = @"ASCENDING";
 NSString * const kGTLRDatastore_PropertyOrder_Direction_Descending = @"DESCENDING";
 NSString * const kGTLRDatastore_PropertyOrder_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
+
+// GTLRDatastore_PropertyTransform.setToServerValue
+NSString * const kGTLRDatastore_PropertyTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
+NSString * const kGTLRDatastore_PropertyTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
 
 // GTLRDatastore_QueryResultBatch.entityResultType
 NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_Full = @"FULL";
@@ -474,6 +489,17 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRDatastore_Filter
 @dynamic compositeFilter, propertyFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_FindNearest
+//
+
+@implementation GTLRDatastore_FindNearest
+@dynamic distanceMeasure, distanceResultProperty, distanceThreshold, limit,
+         queryVector, vectorProperty;
 @end
 
 
@@ -991,11 +1017,18 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_Mutation
-@dynamic baseVersion, deleteProperty, insert, propertyMask, update, updateTime,
-         upsert;
+@dynamic baseVersion, conflictResolutionStrategy, deleteProperty, insert,
+         propertyMask, propertyTransforms, update, updateTime, upsert;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"propertyTransforms" : [GTLRDatastore_PropertyTransform class]
+  };
+  return map;
 }
 
 @end
@@ -1007,7 +1040,16 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_MutationResult
-@dynamic conflictDetected, createTime, key, updateTime, version;
+@dynamic conflictDetected, createTime, key, transformResults, updateTime,
+         version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transformResults" : [GTLRDatastore_Value class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1134,12 +1176,23 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_PropertyTransform
+//
+
+@implementation GTLRDatastore_PropertyTransform
+@dynamic appendMissingElements, increment, maximum, minimum, property,
+         removeAllFromArray, setToServerValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_Query
 //
 
 @implementation GTLRDatastore_Query
-@dynamic distinctOn, endCursor, filter, kind, limit, offset, order, projection,
-         startCursor;
+@dynamic distinctOn, endCursor, filter, findNearest, kind, limit, offset, order,
+         projection, startCursor;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

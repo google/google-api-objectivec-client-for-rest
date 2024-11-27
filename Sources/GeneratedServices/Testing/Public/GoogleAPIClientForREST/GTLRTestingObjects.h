@@ -93,6 +93,7 @@
 @class GTLRTesting_TrafficRule;
 @class GTLRTesting_UniformSharding;
 @class GTLRTesting_UsesFeature;
+@class GTLRTesting_UsesPermissionTag;
 @class GTLRTesting_XcodeVersion;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1606,8 +1607,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Feature usage tags defined in the manifest. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_UsesFeature *> *usesFeature;
 
-/** Permissions declared to be used by the application */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usesPermission;
+
+/** Permissions declared to be used by the application */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_UsesPermissionTag *> *usesPermissionTags;
 
 /**
  *  Version number used internally by the app.
@@ -3708,6 +3711,25 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isRequired;
+
+/** The android:name value */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The tag within a manifest.
+ *  https://developer.android.com/guide/topics/manifest/uses-permission-element.html
+ */
+@interface GTLRTesting_UsesPermissionTag : GTLRObject
+
+/**
+ *  The android:name value
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
 
 /** The android:name value */
 @property(nonatomic, copy, nullable) NSString *name;

@@ -4236,7 +4236,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersLocationsLogScopesPatch : GTLRLoggingQuery
 
 /**
- *  Output only. The resource name of the log scope.For
+ *  Output only. The resource name of the log scope.Log scopes are only
+ *  available in the global location. For
  *  example:projects/my-project/locations/global/logScopes/my-log-scope
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4259,7 +4260,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a log scope.
  *
  *  @param object The @c GTLRLogging_LogScope to include in the query.
- *  @param name Output only. The resource name of the log scope.For
+ *  @param name Output only. The resource name of the log scope.Log scopes are
+ *    only available in the global location. For
  *    example:projects/my-project/locations/global/logScopes/my-log-scope
  *
  *  @return GTLRLoggingQuery_FoldersLocationsLogScopesPatch
@@ -8191,7 +8193,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsLocationsLogScopesPatch : GTLRLoggingQuery
 
 /**
- *  Output only. The resource name of the log scope.For
+ *  Output only. The resource name of the log scope.Log scopes are only
+ *  available in the global location. For
  *  example:projects/my-project/locations/global/logScopes/my-log-scope
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -8214,7 +8217,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a log scope.
  *
  *  @param object The @c GTLRLogging_LogScope to include in the query.
- *  @param name Output only. The resource name of the log scope.For
+ *  @param name Output only. The resource name of the log scope.Log scopes are
+ *    only available in the global location. For
  *    example:projects/my-project/locations/global/logScopes/my-log-scope
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesPatch
@@ -10924,7 +10928,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsLocationsLogScopesPatch : GTLRLoggingQuery
 
 /**
- *  Output only. The resource name of the log scope.For
+ *  Output only. The resource name of the log scope.Log scopes are only
+ *  available in the global location. For
  *  example:projects/my-project/locations/global/logScopes/my-log-scope
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -10947,7 +10952,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a log scope.
  *
  *  @param object The @c GTLRLogging_LogScope to include in the query.
- *  @param name Output only. The resource name of the log scope.For
+ *  @param name Output only. The resource name of the log scope.Log scopes are
+ *    only available in the global location. For
  *    example:projects/my-project/locations/global/logScopes/my-log-scope
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesPatch

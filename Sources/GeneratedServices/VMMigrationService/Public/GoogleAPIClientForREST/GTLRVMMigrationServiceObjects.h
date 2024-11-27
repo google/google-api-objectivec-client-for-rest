@@ -194,6 +194,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDetails_Stat
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AwsSourceVmDetails.architecture
+
+/**
+ *  The architecture is ARM64.
+ *
+ *  Value: "VM_ARCHITECTURE_ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureArm64;
+/**
+ *  The architecture is unknown.
+ *
+ *  Value: "VM_ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureUnspecified;
+/**
+ *  The architecture is one of the x86 architectures.
+ *
+ *  Value: "VM_ARCHITECTURE_X86_FAMILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureX86Family;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_AwsSourceVmDetails.firmware
 
 /**
@@ -359,6 +381,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceDetails_St
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AzureSourceVmDetails.architecture
+
+/**
+ *  The architecture is ARM64.
+ *
+ *  Value: "VM_ARCHITECTURE_ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureArm64;
+/**
+ *  The architecture is unknown.
+ *
+ *  Value: "VM_ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureUnspecified;
+/**
+ *  The architecture is one of the x86 architectures.
+ *
+ *  Value: "VM_ARCHITECTURE_X86_FAMILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureX86Family;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_AzureSourceVmDetails.firmware
 
 /**
@@ -379,6 +423,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_
  *  Value: "FIRMWARE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_FirmwareUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AzureVmDetails.architecture
+
+/**
+ *  The architecture is ARM64.
+ *
+ *  Value: "VM_ARCHITECTURE_ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureArm64;
+/**
+ *  The architecture is unknown.
+ *
+ *  Value: "VM_ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureUnspecified;
+/**
+ *  The architecture is one of the x86 architectures.
+ *
+ *  Value: "VM_ARCHITECTURE_X86_FAMILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureX86Family;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_AzureVmDetails.bootOption
@@ -1381,6 +1447,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapa
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_VmwareSourceVmDetails.architecture
+
+/**
+ *  The architecture is ARM64.
+ *
+ *  Value: "VM_ARCHITECTURE_ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureArm64;
+/**
+ *  The architecture is unknown.
+ *
+ *  Value: "VM_ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureUnspecified;
+/**
+ *  The architecture is one of the x86 architectures.
+ *
+ *  Value: "VM_ARCHITECTURE_X86_FAMILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureX86Family;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_VmwareSourceVmDetails.firmware
 
 /**
@@ -1401,6 +1489,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails
  *  Value: "FIRMWARE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_FirmwareUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_VmwareVmDetails.architecture
+
+/**
+ *  The architecture is ARM64.
+ *
+ *  Value: "VM_ARCHITECTURE_ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureArm64;
+/**
+ *  The architecture is unknown.
+ *
+ *  Value: "VM_ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureUnspecified;
+/**
+ *  The architecture is one of the x86 architectures.
+ *
+ *  Value: "VM_ARCHITECTURE_X86_FAMILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureX86Family;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_VmwareVmDetails.bootOption
@@ -1680,6 +1790,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Represent the source AWS VM details.
  */
 @interface GTLRVMMigrationService_AwsSourceVmDetails : GTLRObject
+
+/**
+ *  Output only. The VM architecture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureArm64
+ *        The architecture is ARM64. (Value: "VM_ARCHITECTURE_ARM64")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureUnspecified
+ *        The architecture is unknown. (Value: "VM_ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureX86Family
+ *        The architecture is one of the x86 architectures. (Value:
+ *        "VM_ARCHITECTURE_X86_FAMILY")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
 
 /**
  *  Output only. The total size of the disks being migrated in bytes.
@@ -1975,6 +2099,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_AzureSourceVmDetails : GTLRObject
 
 /**
+ *  Output only. The VM architecture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureArm64
+ *        The architecture is ARM64. (Value: "VM_ARCHITECTURE_ARM64")
+ *    @arg @c kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureUnspecified
+ *        The architecture is unknown. (Value: "VM_ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureX86Family
+ *        The architecture is one of the x86 architectures. (Value:
+ *        "VM_ARCHITECTURE_X86_FAMILY")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
  *  Output only. The total size of the disks being migrated in bytes.
  *
  *  Uses NSNumber of longLongValue.
@@ -2010,6 +2148,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  AzureVmDetails describes a VM in Azure.
  */
 @interface GTLRVMMigrationService_AzureVmDetails : GTLRObject
+
+/**
+ *  The CPU architecture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureArm64
+ *        The architecture is ARM64. (Value: "VM_ARCHITECTURE_ARM64")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureUnspecified
+ *        The architecture is unknown. (Value: "VM_ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureX86Family
+ *        The architecture is one of the x86 architectures. (Value:
+ *        "VM_ARCHITECTURE_X86_FAMILY")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
 
 /**
  *  The VM Boot Option.
@@ -5451,6 +5603,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_VmwareSourceVmDetails : GTLRObject
 
 /**
+ *  Output only. The VM architecture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureArm64
+ *        The architecture is ARM64. (Value: "VM_ARCHITECTURE_ARM64")
+ *    @arg @c kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureUnspecified
+ *        The architecture is unknown. (Value: "VM_ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureX86Family
+ *        The architecture is one of the x86 architectures. (Value:
+ *        "VM_ARCHITECTURE_X86_FAMILY")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
  *  Output only. The total size of the disks being migrated in bytes.
  *
  *  Uses NSNumber of longLongValue.
@@ -5486,6 +5652,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  VmwareVmDetails describes a VM in vCenter.
  */
 @interface GTLRVMMigrationService_VmwareVmDetails : GTLRObject
+
+/**
+ *  Output only. The CPU architecture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureArm64
+ *        The architecture is ARM64. (Value: "VM_ARCHITECTURE_ARM64")
+ *    @arg @c kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureUnspecified
+ *        The architecture is unknown. (Value: "VM_ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureX86Family
+ *        The architecture is one of the x86 architectures. (Value:
+ *        "VM_ARCHITECTURE_X86_FAMILY")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
 
 /**
  *  Output only. The VM Boot Option.

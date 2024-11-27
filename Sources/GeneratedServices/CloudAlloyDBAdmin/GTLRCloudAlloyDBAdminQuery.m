@@ -233,6 +233,33 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
 
 @end
 
+@implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersExport
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_ExportClusterRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:export";
+  GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersExport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAlloyDBAdmin_Operation class];
+  query.loggingName = @"alloydb.projects.locations.clusters.export";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersGet
 
 @dynamic name, view;

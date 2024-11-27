@@ -55,10 +55,10 @@
 @class GTLRAccessContextManager_Operation_Response;
 @class GTLRAccessContextManager_OsConstraint;
 @class GTLRAccessContextManager_Policy;
-@class GTLRAccessContextManager_ReauthSettings;
 @class GTLRAccessContextManager_ScopedAccessSettings;
 @class GTLRAccessContextManager_ServicePerimeter;
 @class GTLRAccessContextManager_ServicePerimeterConfig;
+@class GTLRAccessContextManager_SessionSettings;
 @class GTLRAccessContextManager_Status;
 @class GTLRAccessContextManager_Status_Details_Item;
 @class GTLRAccessContextManager_SupportedService;
@@ -369,37 +369,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRAccessContextManager_ReauthSettings.reauthMethod
-
-/**
- *  The user will prompted to perform regular login. Users who are enrolled for
- *  two-step verification and haven't chosen to "Remember this computer" will be
- *  prompted for their second factor.
- *
- *  Value: "LOGIN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Login;
-/**
- *  The user will be prompted for their password.
- *
- *  Value: "PASSWORD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Password;
-/**
- *  If method undefined in API, we will use LOGIN by default.
- *
- *  Value: "REAUTH_METHOD_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_ReauthMethodUnspecified;
-/**
- *  The user will be prompted to autheticate using their security key. If no
- *  security key has been configured, then we will fallback to LOGIN.
- *
- *  Value: "SECURITY_KEY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_SecurityKey;
-
-// ----------------------------------------------------------------------------
 // GTLRAccessContextManager_ServicePerimeter.perimeterType
 
 /**
@@ -414,6 +383,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  Value: "PERIMETER_TYPE_REGULAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_SessionSettings.sessionReauthMethod
+
+/**
+ *  The user will prompted to perform regular login. Users who are enrolled for
+ *  two-step verification and haven't chosen to "Remember this computer" will be
+ *  prompted for their second factor.
+ *
+ *  Value: "LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login;
+/**
+ *  The user will be prompted for their password.
+ *
+ *  Value: "PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password;
+/**
+ *  The user will be prompted to autheticate using their security key. If no
+ *  security key has been configured, then we will fallback to LOGIN.
+ *
+ *  Value: "SECURITY_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey;
+/**
+ *  If method undefined in API, we will use LOGIN by default.
+ *
+ *  Value: "SESSION_REAUTH_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_SupportedService.serviceSupportStage
@@ -629,9 +629,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
 
 /**
- *  Optional. Reauth settings applied to user access on a given AccessScope.
+ *  Optional. Session settings applied to user access on a given AccessScope.
  */
-@property(nonatomic, strong, nullable) GTLRAccessContextManager_ReauthSettings *reauthSettings;
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_SessionSettings *sessionSettings;
 
 @end
 
@@ -1211,6 +1211,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_EgressTo *egressTo;
 
+/**
+ *  Optional. Human-readable title for the egress rule. The title must be unique
+ *  within the perimeter and can not exceed 100 characters. Within the access
+ *  policy, the combined length of all rule titles must not exceed 240,000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 
@@ -1377,9 +1385,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. GCSL policy for the group key. */
-@property(nonatomic, strong, nullable) GTLRAccessContextManager_ReauthSettings *reauthSettings;
-
 /**
  *  Optional. A list of applications that are subject to this binding's
  *  restrictions. If the list is empty, the binding restrictions will
@@ -1393,6 +1398,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  restricted_client_applications is set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ScopedAccessSettings *> *scopedAccessSettings;
+
+/** Optional. GCSL policy for the group key. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_SessionSettings *sessionSettings;
 
 @end
 
@@ -1512,6 +1520,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  cause this IngressPolicy to apply.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_IngressTo *ingressTo;
+
+/**
+ *  Optional. Human-readable title for the ingress rule. The title must be
+ *  unique within the perimeter and can not exceed 100 characters. Within the
+ *  access policy, the combined length of all rule titles must not exceed
+ *  240,000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -2003,68 +2019,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
- *  Stores settings related to Google Cloud Session Length including session
- *  duration, the type of challenge (i.e. method) they should face when their
- *  session expires, and other related settings.
- */
-@interface GTLRAccessContextManager_ReauthSettings : GTLRObject
-
-/**
- *  Optional. How long a user is allowed to take between actions before a new
- *  access token must be issued. Presently only set for Cloud Apps.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *maxInactivity;
-
-/**
- *  Optional. Reauth method when users GCP session is up.
- *
- *  Likely values:
- *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Login The
- *        user will prompted to perform regular login. Users who are enrolled
- *        for two-step verification and haven't chosen to "Remember this
- *        computer" will be prompted for their second factor. (Value: "LOGIN")
- *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Password The
- *        user will be prompted for their password. (Value: "PASSWORD")
- *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_ReauthMethodUnspecified
- *        If method undefined in API, we will use LOGIN by default. (Value:
- *        "REAUTH_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_SecurityKey
- *        The user will be prompted to autheticate using their security key. If
- *        no security key has been configured, then we will fallback to LOGIN.
- *        (Value: "SECURITY_KEY")
- */
-@property(nonatomic, copy, nullable) NSString *reauthMethod;
-
-/**
- *  Optional. The session length. Setting this field to zero is equal to
- *  disabling. Reauth. Also can set infinite session by flipping the enabled bit
- *  to false below. If use_oidc_max_age is true, for OIDC apps, the session
- *  length will be the minimum of this field and OIDC max_age param.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *sessionLength;
-
-/**
- *  Optional. Big red button to turn off GCSL. When false, all fields set above
- *  will be disregarded and the session length is basically infinite.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sessionLengthEnabled;
-
-/**
- *  Optional. Only useful for OIDC apps. When false, the OIDC max_age param, if
- *  passed in the authentication request will be ignored. When true, the re-auth
- *  period will be the minimum of the session_length field and the max_age OIDC
- *  param.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *useOidcMaxAge;
-
-@end
-
-
-/**
  *  A request to replace all existing Access Levels in an Access Policy with the
  *  Access Levels provided. This is done atomically.
  */
@@ -2187,6 +2141,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. An opaque identifier for the current version of the
+ *  `ServicePerimeter`. This identifier does not follow any specific format. If
+ *  an etag is not provided, the operation will be performed as if a valid etag
+ *  is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
@@ -2299,6 +2261,69 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /** Configuration for APIs allowed within Perimeter. */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_VpcAccessibleServices *vpcAccessibleServices;
+
+@end
+
+
+/**
+ *  Stores settings related to Google Cloud Session Length including session
+ *  duration, the type of challenge (i.e. method) they should face when their
+ *  session expires, and other related settings.
+ */
+@interface GTLRAccessContextManager_SessionSettings : GTLRObject
+
+/**
+ *  Optional. How long a user is allowed to take between actions before a new
+ *  access token must be issued. Presently only set for Cloud Apps.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxInactivity;
+
+/**
+ *  Optional. The session length. Setting this field to zero is equal to
+ *  disabling. Session. Also can set infinite session by flipping the enabled
+ *  bit to false below. If use_oidc_max_age is true, for OIDC apps, the session
+ *  length will be the minimum of this field and OIDC max_age param.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *sessionLength;
+
+/**
+ *  Optional. Big red button to turn off GCSL. When false, all fields set above
+ *  will be disregarded and the session length is basically infinite.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionLengthEnabled;
+
+/**
+ *  Optional. Session method when users GCP session is up.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login
+ *        The user will prompted to perform regular login. Users who are
+ *        enrolled for two-step verification and haven't chosen to "Remember
+ *        this computer" will be prompted for their second factor. (Value:
+ *        "LOGIN")
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password
+ *        The user will be prompted for their password. (Value: "PASSWORD")
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey
+ *        The user will be prompted to autheticate using their security key. If
+ *        no security key has been configured, then we will fallback to LOGIN.
+ *        (Value: "SECURITY_KEY")
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified
+ *        If method undefined in API, we will use LOGIN by default. (Value:
+ *        "SESSION_REAUTH_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sessionReauthMethod;
+
+/**
+ *  Optional. Only useful for OIDC apps. When false, the OIDC max_age param, if
+ *  passed in the authentication request will be ignored. When true, the re-auth
+ *  period will be the minimum of the session_length field and the max_age OIDC
+ *  param.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useOidcMaxAge;
 
 @end
 

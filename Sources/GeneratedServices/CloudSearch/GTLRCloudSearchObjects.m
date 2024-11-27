@@ -463,20 +463,6 @@ NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Highest = @"HIG
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low = @"LOW";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_None = @"NONE";
 
-// GTLRCloudSearch_RewrittenQuery.sortBy
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyCreateLatest = @"SORTBY_CREATE_LATEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyCreateOldest = @"SORTBY_CREATE_OLDEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyLargest = @"SORTBY_LARGEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyLatest = @"SORTBY_LATEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyModifyLatest = @"SORTBY_MODIFY_LATEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyModifyOldest = @"SORTBY_MODIFY_OLDEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyOldest = @"SORTBY_OLDEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyRelevancy = @"SORTBY_RELEVANCY";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbySmallest = @"SORTBY_SMALLEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyUnsupported = @"SORTBY_UNSUPPORTED";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyViewLatest = @"SORTBY_VIEW_LATEST";
-NSString * const kGTLRCloudSearch_RewrittenQuery_SortBy_SortbyViewOldest = @"SORTBY_VIEW_OLDEST";
-
 // GTLRCloudSearch_SortOptions.sortOrder
 NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Ascending = @"ASCENDING";
 NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Descending = @"DESCENDING";
@@ -3080,34 +3066,6 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_RetrievalImportance
 @dynamic importance;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RewrittenQueries
-//
-
-@implementation GTLRCloudSearch_RewrittenQueries
-@dynamic rewrittenQueries, selectedQueryIndex;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rewrittenQueries" : [GTLRCloudSearch_RewrittenQuery class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RewrittenQuery
-//
-
-@implementation GTLRCloudSearch_RewrittenQuery
-@dynamic rewrittenQuery, score, sortBy;
 @end
 
 

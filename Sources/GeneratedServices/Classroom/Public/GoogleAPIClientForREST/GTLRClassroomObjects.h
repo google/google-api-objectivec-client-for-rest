@@ -29,6 +29,7 @@
 @class GTLRClassroom_CourseWork;
 @class GTLRClassroom_CourseWorkChangesInfo;
 @class GTLRClassroom_CourseWorkMaterial;
+@class GTLRClassroom_Criterion;
 @class GTLRClassroom_Date;
 @class GTLRClassroom_DriveFile;
 @class GTLRClassroom_DriveFolder;
@@ -43,18 +44,23 @@
 @class GTLRClassroom_GuardianInvitation;
 @class GTLRClassroom_IndividualStudentsOptions;
 @class GTLRClassroom_Invitation;
+@class GTLRClassroom_Level;
 @class GTLRClassroom_Link;
 @class GTLRClassroom_Material;
 @class GTLRClassroom_ModifyIndividualStudentsOptions;
 @class GTLRClassroom_MultipleChoiceQuestion;
 @class GTLRClassroom_MultipleChoiceSubmission;
 @class GTLRClassroom_Name;
+@class GTLRClassroom_Rubric;
+@class GTLRClassroom_RubricGrade;
 @class GTLRClassroom_SharedDriveFile;
 @class GTLRClassroom_ShortAnswerSubmission;
 @class GTLRClassroom_StateHistory;
 @class GTLRClassroom_Student;
 @class GTLRClassroom_StudentContext;
 @class GTLRClassroom_StudentSubmission;
+@class GTLRClassroom_StudentSubmission_AssignedRubricGrades;
+@class GTLRClassroom_StudentSubmission_DraftRubricGrades;
 @class GTLRClassroom_SubmissionHistory;
 @class GTLRClassroom_Teacher;
 @class GTLRClassroom_TeacherContext;
@@ -1659,6 +1665,35 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  A rubric criterion. Each criterion is a dimension on which performance is
+ *  rated.
+ */
+@interface GTLRClassroom_Criterion : GTLRObject
+
+/**
+ *  The description of the criterion.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The criterion ID. On creation, an ID is assigned.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The list of levels within this criterion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Level *> *levels;
+
+/** The title of the criterion. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
@@ -2115,6 +2150,42 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  A level of the criterion.
+ */
+@interface GTLRClassroom_Level : GTLRObject
+
+/**
+ *  The description of the level.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The level ID. On creation, an ID is assigned.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional points associated with this level. If set, all levels within the
+ *  rubric must specify points and the value must be distinct across all levels
+ *  within a single criterion. 0 is distinct from no points.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *points;
+
+/**
+ *  The title of the level. If the level has no points set, title must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  URL item.
  */
 @interface GTLRClassroom_Link : GTLRObject
@@ -2374,6 +2445,33 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *  results are available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response when listing rubrics.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rubrics" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRClassroom_ListRubricsResponse : GTLRCollectionObject
+
+/**
+ *  Token identifying the next page of results to return. If empty, no further
+ *  results are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Rubrics that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Rubric *> *rubrics;
 
 @end
 
@@ -2693,6 +2791,81 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  The rubric of the course work. A rubric is a scoring guide used to evaluate
+ *  student work and give feedback. For further details, see [Rubrics structure
+ *  and known limitations](/classroom/rubrics/limitations).
+ */
+@interface GTLRClassroom_Rubric : GTLRObject
+
+/** Identifier of the course. Read-only. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Identifier for the course work this corresponds to. Read-only. */
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
+
+/** Output only. Timestamp when this rubric was created. Read-only. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/**
+ *  List of criteria. Each criterion is a dimension on which performance is
+ *  rated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Criterion *> *criteria;
+
+/**
+ *  Classroom-assigned identifier for the rubric. This is unique among rubrics
+ *  for the relevant course work. Read-only.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Input only. Immutable. Google Sheets ID of the spreadsheet. This spreadsheet
+ *  must contain formatted rubric settings. See [Create or reuse a rubric for an
+ *  assignment](https://support.google.com/edu/classroom/answer/9335069). Use of
+ *  this field requires the
+ *  `https://www.googleapis.com/auth/spreadsheets.readonly` or
+ *  `https://www.googleapis.com/auth/spreadsheets` scope.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSpreadsheetId;
+
+/**
+ *  Output only. Timestamp of the most recent change to this rubric. Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A rubric grade set for the student submission. There is at most one entry
+ *  per rubric criterion.
+ */
+@interface GTLRClassroom_RubricGrade : GTLRObject
+
+/** Optional. Criterion ID. */
+@property(nonatomic, copy, nullable) NSString *criterionId;
+
+/**
+ *  Optional. Optional level ID of the selected level. If empty, no level was
+ *  selected.
+ */
+@property(nonatomic, copy, nullable) NSString *levelId;
+
+/**
+ *  Optional. Optional points assigned for this criterion, typically based on
+ *  the level. Levels might or might not have points. If unset, no points were
+ *  set for this criterion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *points;
+
+@end
+
+
+/**
  *  Drive file that is used as material for course work.
  */
 @interface GTLRClassroom_SharedDriveFile : GTLRObject
@@ -2832,6 +3005,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @property(nonatomic, strong, nullable) NSNumber *assignedGrade;
 
 /**
+ *  Assigned rubric grades based on the rubric's Criteria. This map is empty if
+ *  there is no rubric attached to this course work or if a rubric is attached,
+ *  but no grades have been set on any Criteria. Entries are only populated for
+ *  grades that have been set. Key: The rubric's criterion ID. Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRClassroom_StudentSubmission_AssignedRubricGrades *assignedRubricGrades;
+
+/**
  *  Submission content when course_work_type is ASSIGNMENT. Students can modify
  *  this content using ModifyAttachments.
  */
@@ -2883,6 +3064,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *draftGrade;
+
+/**
+ *  Pending rubric grades based on the rubric's criteria. This map is empty if
+ *  there is no rubric attached to this course work or if a rubric is attached,
+ *  but no grades have been set on any criteria. Entries are only populated for
+ *  grades that have been set. Key: The rubric's criterion ID. Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRClassroom_StudentSubmission_DraftRubricGrades *draftRubricGrades;
 
 /**
  *  Classroom-assigned Identifier for the student submission. This is unique
@@ -2945,6 +3134,36 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  Assigned rubric grades based on the rubric's Criteria. This map is empty if
+ *  there is no rubric attached to this course work or if a rubric is attached,
+ *  but no grades have been set on any Criteria. Entries are only populated for
+ *  grades that have been set. Key: The rubric's criterion ID. Read-only.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRClassroom_RubricGrade. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRClassroom_StudentSubmission_AssignedRubricGrades : GTLRObject
+@end
+
+
+/**
+ *  Pending rubric grades based on the rubric's criteria. This map is empty if
+ *  there is no rubric attached to this course work or if a rubric is attached,
+ *  but no grades have been set on any criteria. Entries are only populated for
+ *  grades that have been set. Key: The rubric's criterion ID. Read-only.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRClassroom_RubricGrade. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRClassroom_StudentSubmission_DraftRubricGrades : GTLRObject
+@end
+
+
+/**
  *  The history of the submission. This currently includes state and grade
  *  histories.
  */
@@ -2996,30 +3215,34 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @interface GTLRClassroom_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Merchant API (merchantapi/reports_v1beta)
+//   Merchant API (merchantapi/reviews_v1beta)
 // Description:
 //   Programmatically manage your Merchant Center Accounts.
 // Documentation:
@@ -16,11 +16,49 @@
 
 @end
 
-@implementation GTLRMerchantQuery_AccountsReportsSearch
+@implementation GTLRMerchantQuery_AccountsMerchantReviewsDelete
 
-@dynamic parent;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRMerchant_SearchRequest *)object
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"reviews/v1beta/{+name}";
+  GTLRMerchantQuery_AccountsMerchantReviewsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMerchant_Empty class];
+  query.loggingName = @"merchantapi.accounts.merchantReviews.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMerchantQuery_AccountsMerchantReviewsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"reviews/v1beta/{+name}";
+  GTLRMerchantQuery_AccountsMerchantReviewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMerchant_Review class];
+  query.loggingName = @"merchantapi.accounts.merchantReviews.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMerchantQuery_AccountsMerchantReviewsInsert
+
+@dynamic dataSource, parent;
+
++ (instancetype)queryWithObject:(GTLRMerchant_Review *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -29,15 +67,118 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"reports/v1beta/{+parent}/reports:search";
-  GTLRMerchantQuery_AccountsReportsSearch *query =
+  NSString *pathURITemplate = @"reviews/v1beta/{+parent}/merchantReviews:insert";
+  GTLRMerchantQuery_AccountsMerchantReviewsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRMerchant_SearchResponse class];
-  query.loggingName = @"merchantapi.accounts.reports.search";
+  query.expectedObjectClass = [GTLRMerchant_Review class];
+  query.loggingName = @"merchantapi.accounts.merchantReviews.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRMerchantQuery_AccountsMerchantReviewsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"reviews/v1beta/{+parent}/merchantReviews";
+  GTLRMerchantQuery_AccountsMerchantReviewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMerchant_ListMerchantReviewsResponse class];
+  query.loggingName = @"merchantapi.accounts.merchantReviews.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMerchantQuery_AccountsProductReviewsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"reviews/v1beta/{+name}";
+  GTLRMerchantQuery_AccountsProductReviewsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMerchant_Empty class];
+  query.loggingName = @"merchantapi.accounts.productReviews.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMerchantQuery_AccountsProductReviewsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"reviews/v1beta/{+name}";
+  GTLRMerchantQuery_AccountsProductReviewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMerchant_ProductReview class];
+  query.loggingName = @"merchantapi.accounts.productReviews.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMerchantQuery_AccountsProductReviewsInsert
+
+@dynamic dataSource, parent;
+
++ (instancetype)queryWithObject:(GTLRMerchant_ProductReview *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"reviews/v1beta/{+parent}/productReviews:insert";
+  GTLRMerchantQuery_AccountsProductReviewsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMerchant_ProductReview class];
+  query.loggingName = @"merchantapi.accounts.productReviews.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRMerchantQuery_AccountsProductReviewsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"reviews/v1beta/{+parent}/productReviews";
+  GTLRMerchantQuery_AccountsProductReviewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMerchant_ListProductReviewsResponse class];
+  query.loggingName = @"merchantapi.accounts.productReviews.list";
   return query;
 }
 

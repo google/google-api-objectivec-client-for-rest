@@ -56,7 +56,9 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ModelSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig_Config;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema;
@@ -666,6 +668,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Impo
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.catalogUiExperience
+
+/**
+ *  The UI is Data Catalog.
+ *
+ *  Value: "CATALOG_UI_EXPERIENCE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceDisabled;
+/**
+ *  The UI is Dataplex.
+ *
+ *  Value: "CATALOG_UI_EXPERIENCE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceEnabled;
+/**
+ *  Default value. The default UI is Dataplex.
+ *
+ *  Value: "CATALOG_UI_EXPERIENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.tagTemplateMigration
+
+/**
+ *  Migration of Tag Templates from Data Catalog to Dataplex is disabled.
+ *
+ *  Value: "TAG_TEMPLATE_MIGRATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationDisabled;
+/**
+ *  Migration of Tag Templates from Data Catalog to Dataplex is enabled.
+ *
+ *  Value: "TAG_TEMPLATE_MIGRATION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationEnabled;
+/**
+ *  Default value. Migration of Tag Templates from Data Catalog to Dataplex is
+ *  not performed.
+ *
+ *  Value: "TAG_TEMPLATE_MIGRATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata.state
 
 /**
@@ -853,6 +900,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Seri
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest.catalogUiExperience
+
+/**
+ *  The UI is Data Catalog.
+ *
+ *  Value: "CATALOG_UI_EXPERIENCE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceDisabled;
+/**
+ *  The UI is Dataplex.
+ *
+ *  Value: "CATALOG_UI_EXPERIENCE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceEnabled;
+/**
+ *  Default value. The default UI is Dataplex.
+ *
+ *  Value: "CATALOG_UI_EXPERIENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest.tagTemplateMigration
+
+/**
+ *  Migration of Tag Templates from Data Catalog to Dataplex is disabled.
+ *
+ *  Value: "TAG_TEMPLATE_MIGRATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationDisabled;
+/**
+ *  Migration of Tag Templates from Data Catalog to Dataplex is enabled.
+ *
+ *  Value: "TAG_TEMPLATE_MIGRATION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationEnabled;
+/**
+ *  Default value. Migration of Tag Templates from Data Catalog to Dataplex is
+ *  not performed.
+ *
+ *  Value: "TAG_TEMPLATE_MIGRATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1Tag.dataplexTransferStatus
+
+/**
+ *  Default value. TagTemplate and its tags are only visible and editable in
+ *  DataCatalog.
+ *
+ *  Value: "DATAPLEX_TRANSFER_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_DataplexTransferStatusUnspecified;
+/**
+ *  TagTemplate and its tags are auto-copied to Dataplex service. Visible in
+ *  both services. Editable in DataCatalog, read-only in Dataplex. Deprecated:
+ *  Individual TagTemplate migration is deprecated in favor of organization or
+ *  project wide TagTemplate migration opt-in.
+ *
+ *  Value: "MIGRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Migrated GTLR_DEPRECATED;
+/**
+ *  TagTemplate and its tags are auto-copied to Dataplex service. Visible in
+ *  both services. Editable in Dataplex, read-only in DataCatalog.
+ *
+ *  Value: "TRANSFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Transferred;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate.dataplexTransferStatus
 
 /**
@@ -871,6 +990,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagT
  *  Value: "MIGRATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated GTLR_DEPRECATED;
+/**
+ *  TagTemplate and its tags are auto-copied to Dataplex service. Visible in
+ *  both services. Editable in Dataplex, read-only in DataCatalog.
+ *
+ *  Value: "TRANSFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Transferred;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
@@ -2166,6 +2292,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. When set to [true], it means DataCatalog EntryGroup was
+ *  transferred to Dataplex Catalog Service. It makes EntryGroup and its Entries
+ *  to be read-only in DataCatalog. However, new Tags on EntryGroup and its
+ *  Entries can be created. After setting the flag to [true] it cannot be unset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transferredToDataplex;
+
 @end
 
 
@@ -2637,6 +2773,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
+ *  The configuration related to the migration to Dataplex applied to an
+ *  organization or project. It is the response message for SetConfig and
+ *  RetrieveEffectiveConfig.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig : GTLRObject
+
+/**
+ *  Opt-in status for the UI switch to Dataplex.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceDisabled
+ *        The UI is Data Catalog. (Value: "CATALOG_UI_EXPERIENCE_DISABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceEnabled
+ *        The UI is Dataplex. (Value: "CATALOG_UI_EXPERIENCE_ENABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceUnspecified
+ *        Default value. The default UI is Dataplex. (Value:
+ *        "CATALOG_UI_EXPERIENCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *catalogUiExperience;
+
+/**
+ *  Opt-in status for the migration of Tag Templates to Dataplex.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationDisabled
+ *        Migration of Tag Templates from Data Catalog to Dataplex is disabled.
+ *        (Value: "TAG_TEMPLATE_MIGRATION_DISABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationEnabled
+ *        Migration of Tag Templates from Data Catalog to Dataplex is enabled.
+ *        (Value: "TAG_TEMPLATE_MIGRATION_ENABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationUnspecified
+ *        Default value. Migration of Tag Templates from Data Catalog to
+ *        Dataplex is not performed. (Value:
+ *        "TAG_TEMPLATE_MIGRATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tagTemplateMigration;
+
+@end
+
+
+/**
  *  Specification that applies to a model. Valid only for entries with the
  *  `MODEL` type.
  */
@@ -2667,6 +2844,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 /** Required. The new value for the Entry Overview. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview *entryOverview;
 
+@end
+
+
+/**
+ *  The configuration related to the migration from Data Catalog to Dataplex
+ *  that has been applied to an organization and any projects under it. It is
+ *  the response message for RetrieveConfig.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig : GTLRObject
+
+/**
+ *  Map of organizations and project resource names and their configuration. The
+ *  format for the map keys is `organizations/{organizationId}` or
+ *  `projects/{projectId}`.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig_Config *config;
+
+@end
+
+
+/**
+ *  Map of organizations and project resource names and their configuration. The
+ *  format for the map keys is `organizations/{organizationId}` or
+ *  `projects/{projectId}`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig_Config : GTLRObject
 @end
 
 
@@ -3398,6 +3607,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
+ *  Request message for SetConfig.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest : GTLRObject
+
+/**
+ *  Opt-in status for the UI switch to Dataplex.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceDisabled
+ *        The UI is Data Catalog. (Value: "CATALOG_UI_EXPERIENCE_DISABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceEnabled
+ *        The UI is Dataplex. (Value: "CATALOG_UI_EXPERIENCE_ENABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceUnspecified
+ *        Default value. The default UI is Dataplex. (Value:
+ *        "CATALOG_UI_EXPERIENCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *catalogUiExperience;
+
+/**
+ *  Opt-in status for the migration of Tag Templates to Dataplex.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationDisabled
+ *        Migration of Tag Templates from Data Catalog to Dataplex is disabled.
+ *        (Value: "TAG_TEMPLATE_MIGRATION_DISABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationEnabled
+ *        Migration of Tag Templates from Data Catalog to Dataplex is enabled.
+ *        (Value: "TAG_TEMPLATE_MIGRATION_ENABLED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationUnspecified
+ *        Default value. Migration of Tag Templates from Data Catalog to
+ *        Dataplex is not performed. (Value:
+ *        "TAG_TEMPLATE_MIGRATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tagTemplateMigration;
+
+@end
+
+
+/**
  *  Specification that applies to entries that are part `SQL_DATABASE` system
  *  (user_specified_type)
  */
@@ -3521,6 +3769,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *  Example: `column.nested_column`.
  */
 @property(nonatomic, copy, nullable) NSString *column;
+
+/**
+ *  Output only. Denotes the transfer status of the Tag Template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_DataplexTransferStatusUnspecified
+ *        Default value. TagTemplate and its tags are only visible and editable
+ *        in DataCatalog. (Value: "DATAPLEX_TRANSFER_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Migrated
+ *        TagTemplate and its tags are auto-copied to Dataplex service. Visible
+ *        in both services. Editable in DataCatalog, read-only in Dataplex.
+ *        Deprecated: Individual TagTemplate migration is deprecated in favor of
+ *        organization or project wide TagTemplate migration opt-in. (Value:
+ *        "MIGRATED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Transferred
+ *        TagTemplate and its tags are auto-copied to Dataplex service. Visible
+ *        in both services. Editable in Dataplex, read-only in DataCatalog.
+ *        (Value: "TRANSFERRED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataplexTransferStatus;
 
 /**
  *  Required. Maps the ID of a tag field to its value and additional information
@@ -3683,6 +3951,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        Deprecated: Individual TagTemplate migration is deprecated in favor of
  *        organization or project wide TagTemplate migration opt-in. (Value:
  *        "MIGRATED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Transferred
+ *        TagTemplate and its tags are auto-copied to Dataplex service. Visible
+ *        in both services. Editable in Dataplex, read-only in DataCatalog.
+ *        (Value: "TRANSFERRED")
  */
 @property(nonatomic, copy, nullable) NSString *dataplexTransferStatus;
 

@@ -19,6 +19,8 @@
 @class GTLRDatastream_BackfillNoneStrategy;
 @class GTLRDatastream_BigQueryDestinationConfig;
 @class GTLRDatastream_BigQueryProfile;
+@class GTLRDatastream_BinaryLogParser;
+@class GTLRDatastream_BinaryLogPosition;
 @class GTLRDatastream_CdcStrategy;
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_ConnectionProfile_Labels;
@@ -30,10 +32,13 @@
 @class GTLRDatastream_ForwardSshTunnelConnectivity;
 @class GTLRDatastream_GcsDestinationConfig;
 @class GTLRDatastream_GcsProfile;
+@class GTLRDatastream_Gtid;
 @class GTLRDatastream_JsonFileFormat;
 @class GTLRDatastream_Location;
 @class GTLRDatastream_Location_Labels;
 @class GTLRDatastream_Location_Metadata;
+@class GTLRDatastream_LogFileDirectories;
+@class GTLRDatastream_LogMiner;
 @class GTLRDatastream_Merge;
 @class GTLRDatastream_MostRecentStartPosition;
 @class GTLRDatastream_MysqlColumn;
@@ -49,6 +54,9 @@
 @class GTLRDatastream_Operation;
 @class GTLRDatastream_Operation_Metadata;
 @class GTLRDatastream_Operation_Response;
+@class GTLRDatastream_OracleAsmConfig;
+@class GTLRDatastream_OracleAsmConfig_ConnectionAttributes;
+@class GTLRDatastream_OracleAsmLogFileAccess;
 @class GTLRDatastream_OracleColumn;
 @class GTLRDatastream_OracleObjectIdentifier;
 @class GTLRDatastream_OracleProfile;
@@ -523,6 +531,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Configuration to use Binary Log Parser CDC technique.
+ */
+@interface GTLRDatastream_BinaryLogParser : GTLRObject
+
+/** Use Oracle directories. */
+@property(nonatomic, strong, nullable) GTLRDatastream_LogFileDirectories *logFileDirectories;
+
+/** Use Oracle ASM. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleAsmLogFileAccess *oracleAsmLogFileAccess;
+
+@end
+
+
+/**
+ *  Use Binary log position based replication.
+ */
+@interface GTLRDatastream_BinaryLogPosition : GTLRObject
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRDatastream_CancelOperationRequest : GTLRObject
@@ -870,6 +899,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Use GTID based replication.
+ */
+@interface GTLRDatastream_Gtid : GTLRObject
+@end
+
+
+/**
  *  JSON file format configuration.
  */
 @interface GTLRDatastream_JsonFileFormat : GTLRObject
@@ -1159,6 +1195,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Configuration to specify the Oracle directories to access the log files.
+ */
+@interface GTLRDatastream_LogFileDirectories : GTLRObject
+
+/** Required. Oracle directory for archived logs. */
+@property(nonatomic, copy, nullable) NSString *archivedLogDirectory;
+
+/** Required. Oracle directory for online logs. */
+@property(nonatomic, copy, nullable) NSString *onlineLogDirectory;
+
+@end
+
+
+/**
+ *  Configuration to use LogMiner CDC method.
+ */
+@interface GTLRDatastream_LogMiner : GTLRObject
+@end
+
+
+/**
  *  Request for looking up a specific stream object by its source object
  *  identifier.
  */
@@ -1295,14 +1352,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  MySQL database profile.
+ *  MySQL database profile. Next ID: 7.
  */
 @interface GTLRDatastream_MysqlProfile : GTLRObject
 
 /** Required. Hostname for the MySQL connection. */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
-/** Required. Input only. Password for the MySQL connection. */
+/**
+ *  Optional. Input only. Password for the MySQL connection. Mutually exclusive
+ *  with the `secret_manager_stored_password` field.
+ */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
@@ -1337,8 +1397,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MysqlSourceConfig : GTLRObject
 
+/** Use Binary log position based replication. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BinaryLogPosition *binaryLogPosition;
+
 /** MySQL objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *excludeObjects;
+
+/** Use GTID based replication. */
+@property(nonatomic, strong, nullable) GTLRDatastream_Gtid *gtid;
 
 /** MySQL objects to retrieve from the source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *includeObjects;
@@ -1558,6 +1624,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Configuration for Oracle Automatic Storage Management (ASM) connection.
+ */
+@interface GTLRDatastream_OracleAsmConfig : GTLRObject
+
+/** Required. ASM service name for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *asmService;
+
+/** Optional. Connection string attributes */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleAsmConfig_ConnectionAttributes *connectionAttributes;
+
+/** Required. Hostname for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Optional. SSL configuration for the Oracle connection. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleSslConfig *oracleSslConfig;
+
+/** Required. Password for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Required. Port for the Oracle ASM connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/** Required. Username for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Optional. Connection string attributes
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatastream_OracleAsmConfig_ConnectionAttributes : GTLRObject
+@end
+
+
+/**
+ *  Configuration to use Oracle ASM to access the log files.
+ */
+@interface GTLRDatastream_OracleAsmLogFileAccess : GTLRObject
+@end
+
+
+/**
  *  Oracle Column.
  */
 @interface GTLRDatastream_OracleColumn : GTLRObject
@@ -1631,7 +1749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Oracle database profile.
+ *  Oracle database profile. Next ID: 10.
  */
 @interface GTLRDatastream_OracleProfile : GTLRObject
 
@@ -1644,10 +1762,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Required. Hostname for the Oracle connection. */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
+/** Optional. Configuration for Oracle ASM connection. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleAsmConfig *oracleAsmConfig;
+
 /** Optional. SSL configuration for the Oracle connection. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleSslConfig *oracleSslConfig;
 
-/** Required. Password for the Oracle connection. */
+/**
+ *  Optional. Password for the Oracle connection. Mutually exclusive with the
+ *  `secret_manager_stored_password` field.
+ */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
@@ -1656,6 +1780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the Oracle
+ *  connection password. Mutually exclusive with the `password` field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
 
 /** Required. Username for the Oracle connection. */
 @property(nonatomic, copy, nullable) NSString *username;
@@ -1720,6 +1850,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_OracleSourceConfig : GTLRObject
 
+/** Use Binary Log Parser. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BinaryLogParser *binaryLogParser;
+
 /** Drop large object values. */
 @property(nonatomic, strong, nullable) GTLRDatastream_DropLargeObjects *dropLargeObjects;
 
@@ -1728,6 +1861,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Oracle objects to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *includeObjects;
+
+/** Use LogMiner. */
+@property(nonatomic, strong, nullable) GTLRDatastream_LogMiner *logMiner;
 
 /**
  *  Maximum number of concurrent backfill tasks. The number should be
@@ -1871,7 +2007,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Required. Hostname for the PostgreSQL connection. */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
-/** Required. Password for the PostgreSQL connection. */
+/**
+ *  Optional. Password for the PostgreSQL connection. Mutually exclusive with
+ *  the `secret_manager_stored_password` field.
+ */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
@@ -2275,7 +2414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  SQLServer database profile
+ *  SQLServer database profile. Next ID: 8.
  */
 @interface GTLRDatastream_SqlServerProfile : GTLRObject
 
@@ -2285,7 +2424,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Required. Hostname for the SQLServer connection. */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
-/** Required. Password for the SQLServer connection. */
+/**
+ *  Optional. Password for the SQLServer connection. Mutually exclusive with the
+ *  `secret_manager_stored_password` field.
+ */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**

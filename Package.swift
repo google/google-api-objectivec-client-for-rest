@@ -626,6 +626,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_FirebaseCloudMessaging"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_FirebaseDataConnect",
+            targets: ["GoogleAPIClientForREST_FirebaseDataConnect"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_FirebaseDynamicLinks",
             targets: ["GoogleAPIClientForREST_FirebaseDynamicLinks"]
         ),
@@ -826,6 +830,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MyBusinessVerifications"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_NetAppFiles",
+            targets: ["GoogleAPIClientForREST_NetAppFiles"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Networkconnectivity",
             targets: ["GoogleAPIClientForREST_Networkconnectivity"]
         ),
@@ -864,6 +872,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_PagespeedInsights",
             targets: ["GoogleAPIClientForREST_PagespeedInsights"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Parallelstore",
+            targets: ["GoogleAPIClientForREST_Parallelstore"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PaymentsResellerSubscription",
@@ -2120,6 +2132,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_FirebaseDataConnect",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/FirebaseDataConnect",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_FirebaseDynamicLinks",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/FirebaseDynamicLinks",
@@ -2420,6 +2438,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_NetAppFiles",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/NetAppFiles",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Networkconnectivity",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Networkconnectivity",
@@ -2477,6 +2501,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_PagespeedInsights",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/PagespeedInsights",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Parallelstore",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Parallelstore",
             publicHeadersPath: "Public"
         ),
         .target(

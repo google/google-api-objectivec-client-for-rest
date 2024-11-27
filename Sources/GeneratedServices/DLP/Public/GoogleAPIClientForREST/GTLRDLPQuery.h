@@ -65,7 +65,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Returns a list of the sensitive information types that DLP API supports. See
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
  *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
@@ -100,7 +101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
- *  Returns a list of the sensitive information types that DLP API supports. See
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
  *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
@@ -111,7 +113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Returns a list of the sensitive information types that DLP API supports. See
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
  *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
@@ -146,7 +149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
- *  Returns a list of the sensitive information types that DLP API supports. See
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
  *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *

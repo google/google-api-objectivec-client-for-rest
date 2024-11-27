@@ -19,6 +19,31 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDe
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_ConstraintDefaultUnspecified = @"CONSTRAINT_DEFAULT_UNSPECIFIED";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Deny = @"DENY";
 
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition.actionType
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Allow = @"ALLOW";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Deny = @"DENY";
+
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition.methodTypes
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_Create = @"CREATE";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_Delete = @"DELETE";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_GovernTags = @"GOVERN_TAGS";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_MethodTypeUnspecified = @"METHOD_TYPE_UNSPECIFIED";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_RemoveGrant = @"REMOVE_GRANT";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_Update = @"UPDATE";
+
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter.item
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_Boolean = @"BOOLEAN";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_List = @"LIST";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_String = @"STRING";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter.type
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_Boolean = @"BOOLEAN";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_List = @"LIST";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_String = @"STRING";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.actionType
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow = @"ALLOW";
@@ -64,6 +89,65 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 //
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintBooleanConstraint
+@dynamic customConstraintDefinition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition
+//
+
+@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition
+@dynamic actionType, condition, methodTypes, parameters, resourceTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodTypes" : [NSString class],
+    @"resourceTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_Parameters
+//
+
+@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter
+//
+
+@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter
+@dynamic defaultValue, item, metadata, type, validValuesExpr;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameterMetadata
+//
+
+@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameterMetadata
+@dynamic descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

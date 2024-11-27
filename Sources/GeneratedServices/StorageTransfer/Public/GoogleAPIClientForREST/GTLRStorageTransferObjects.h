@@ -1893,27 +1893,30 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 
 
 /**
- *  Specifies the configuration for running a replication job.
+ *  Specifies the configuration for a cross-bucket replication job. Cross-bucket
+ *  replication copies new or updated objects from a source Cloud Storage bucket
+ *  to a destination Cloud Storage bucket. Existing objects in the source bucket
+ *  are not copied by a new cross-bucket replication job.
  */
 @interface GTLRStorageTransfer_ReplicationSpec : GTLRObject
 
-/** Specifies cloud Storage data sink. */
+/** The Cloud Storage bucket to which to replicate objects. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSink;
 
-/** Specifies cloud Storage data source. */
+/** The Cloud Storage bucket from which to replicate objects. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSource;
 
 /**
- *  Specifies the object conditions to only include objects that satisfy these
- *  conditions in the set of data source objects. Object conditions based on
- *  objects' "last modification time" do not exclude objects in a data sink.
+ *  Object conditions that determine which objects are transferred. For
+ *  replication jobs, only `include_prefixes` and `exclude_prefixes` are
+ *  supported.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_ObjectConditions *objectConditions;
 
 /**
- *  Specifies the actions to be performed on the object during replication.
- *  Delete options are not supported for replication and when specified, the
- *  request fails with an INVALID_ARGUMENT error.
+ *  Specifies the metadata options to be applied during replication. Delete
+ *  options are not supported. If a delete option is specified, the request
+ *  fails with an INVALID_ARGUMENT error.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferOptions *transferOptions;
 
@@ -2130,30 +2133,34 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 @interface GTLRStorageTransfer_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

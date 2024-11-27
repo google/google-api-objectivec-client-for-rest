@@ -23,6 +23,7 @@
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1IssueAnnotation;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricValue;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion;
@@ -66,6 +67,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  Value: "ERROR_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_ErrorTypeUnspecified;
+/**
+ *  Non-fatal caused by events that do not immediately cause crashes, but is
+ *  likely to lead to one.
+ *
+ *  Value: "NON_FATAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_NonFatal;
 
 // ----------------------------------------------------------------------------
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport.type
@@ -90,6 +98,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  Value: "ERROR_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_ErrorTypeUnspecified;
+/**
+ *  Non-fatal caused by events that do not immediately cause crashes, but is
+ *  likely to lead to one.
+ *
+ *  Value: "NON_FATAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_NonFatal;
 
 // ----------------------------------------------------------------------------
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness.aggregationPeriod
@@ -736,6 +751,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue : GTLRObject
 
 /**
+ *  List of annotations for an issue. Annotations provide additional information
+ *  that may help in diagnosing and fixing the issue.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1IssueAnnotation *> *annotations;
+
+/**
  *  Cause of the issue. Depending on the type this can be either: *
  *  APPLICATION_NOT_RESPONDING: the type of ANR that occurred, e.g., 'Input
  *  dispatching timed out'. * CRASH: for Java unhandled exception errors, the
@@ -834,6 +855,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *        "CRASH")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_ErrorTypeUnspecified
  *        Unspecified error type. (Value: "ERROR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_NonFatal
+ *        Non-fatal caused by events that do not immediately cause crashes, but
+ *        is likely to lead to one. (Value: "NON_FATAL")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -900,6 +924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *        "CRASH")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_ErrorTypeUnspecified
  *        Unspecified error type. (Value: "ERROR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_NonFatal
+ *        Non-fatal caused by events that do not immediately cause crashes, but
+ *        is likely to lead to one. (Value: "NON_FATAL")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1029,6 +1056,26 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  [TimelineSpec.end_time.
  */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GoogleTypeDateTime *latestEndTime;
+
+@end
+
+
+/**
+ *  Representation of an annotation message for an issue.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1IssueAnnotation : GTLRObject
+
+/** Contains the contents of the annotation message. */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/**
+ *  Category that the annotation belongs to. An annotation will belong to a
+ *  single category. Example categories: "Potential fix", "Insight".
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** Title for the annotation. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -2601,10 +2648,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  A representation of a decimal value, such as 2.5. Clients may convert values
- *  into language-native decimal formats, such as Java's BigDecimal or Python's
- *  decimal.Decimal. [BigDecimal]:
- *  https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html
- *  [decimal.Decimal]: https://docs.python.org/3/library/decimal.html
+ *  into language-native decimal formats, such as Java's
+ *  [BigDecimal](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html)
+ *  or Python's
+ *  [decimal.Decimal](https://docs.python.org/3/library/decimal.html).
  */
 @interface GTLRPlaydeveloperreporting_GoogleTypeDecimal : GTLRObject
 
@@ -2658,13 +2705,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GoogleTypeTimeZone : GTLRObject
 
 /**
- *  IANA Time Zone Database time zone, e.g. "America/New_York".
+ *  IANA Time Zone Database time zone. For example "America/New_York".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end

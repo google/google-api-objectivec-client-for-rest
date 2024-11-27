@@ -9806,6 +9806,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Gets one TvCampaignDetail by ID.
+ *
+ *  Method: dfareporting.tvCampaignDetails.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_TvCampaignDetailsGet : GTLRDfareportingQuery
+
+/** Required. Account ID associated with this request. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. TV Campaign ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Required. User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_TvCampaignDetail.
+ *
+ *  Gets one TvCampaignDetail by ID.
+ *
+ *  @param profileId Required. User profile ID associated with this request.
+ *  @param identifier Required. TV Campaign ID.
+ *
+ *  @return GTLRDfareportingQuery_TvCampaignDetailsGet
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Retrieves a list of TV campaign summaries.
+ *
+ *  Method: dfareporting.tvCampaignSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_TvCampaignSummariesList : GTLRDfareportingQuery
+
+/** Required. Account ID associated with this request. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. Search string to filter the list of TV campaign summaries. Matches
+ *  any substring. Required field.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_TvCampaignSummariesListResponse.
+ *
+ *  Retrieves a list of TV campaign summaries.
+ *
+ *  @param profileId Required. User profile ID associated with this request.
+ *
+ *  @return GTLRDfareportingQuery_TvCampaignSummariesList
+ */
++ (instancetype)queryWithProfileId:(long long)profileId;
+
+@end
+
+/**
  *  Gets one user profile by ID.
  *
  *  Method: dfareporting.userProfiles.get

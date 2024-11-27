@@ -107,6 +107,228 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates membershipFeature under a given parent.
+ *
+ *  Method: gkehub.projects.locations.memberships.features.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesCreate : GTLRGKEHubQuery
+
+/** Required. The ID of the membership_feature to create. */
+@property(nonatomic, copy, nullable) NSString *featureId;
+
+/**
+ *  Required. The name of parent where the MembershipFeature will be created.
+ *  Specified in the format `projects/ * /locations/ * /memberships/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Creates membershipFeature under a given parent.
+ *
+ *  @param object The @c GTLRGKEHub_MembershipFeature to include in the query.
+ *  @param parent Required. The name of parent where the MembershipFeature will
+ *    be created. Specified in the format `projects/ * /locations/ *
+ *    /memberships/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesCreate
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipFeature *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Removes a membershipFeature.
+ *
+ *  Method: gkehub.projects.locations.memberships.features.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesDelete : GTLRGKEHubQuery
+
+/**
+ *  Required. The name of the membershipFeature to be deleted. Specified in the
+ *  format `projects/ * /locations/ * /memberships/ * /features/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Removes a membershipFeature.
+ *
+ *  @param name Required. The name of the membershipFeature to be deleted.
+ *    Specified in the format `projects/ * /locations/ * /memberships/ *
+ *    /features/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  ========= MembershipFeature Services ========= Gets details of a
+ *  membershipFeature.
+ *
+ *  Method: gkehub.projects.locations.memberships.features.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesGet : GTLRGKEHubQuery
+
+/**
+ *  Required. The MembershipFeature resource name in the format `projects/ *
+ *  /locations/ * /memberships/ * /features/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_MembershipFeature.
+ *
+ *  ========= MembershipFeature Services ========= Gets details of a
+ *  membershipFeature.
+ *
+ *  @param name Required. The MembershipFeature resource name in the format
+ *    `projects/ * /locations/ * /memberships/ * /features/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists MembershipFeatures in a given project and location.
+ *
+ *  Method: gkehub.projects.locations.memberships.features.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesList : GTLRGKEHubQuery
+
+/**
+ *  Lists MembershipFeatures that match the filter expression, following the
+ *  syntax outlined in https://google.aip.dev/160. Examples: - Feature with the
+ *  name "helloworld" in project "foo-proj" and membership "member-bar": name =
+ *  "projects/foo-proj/locations/global/memberships/member-bar/features/helloworld"
+ *  - Features that have a label called `foo`: labels.foo:* - Features that have
+ *  a label called `foo` whose value is `bar`: labels.foo = bar
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  One or more fields to compare and use to sort the output. See
+ *  https://google.aip.dev/132#ordering.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  When requesting a 'page' of resources, `page_size` specifies number of
+ *  resources to return. If unspecified or set to 0, all resources will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token returned by previous call to `ListFeatures` which specifies the
+ *  position in the list from where to continue listing the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent where the MembershipFeature will be listed. In the
+ *  format: `projects/ * /locations/ * /memberships/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListMembershipFeaturesResponse.
+ *
+ *  Lists MembershipFeatures in a given project and location.
+ *
+ *  @param parent Required. The parent where the MembershipFeature will be
+ *    listed. In the format: `projects/ * /locations/ * /memberships/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing MembershipFeature.
+ *
+ *  Method: gkehub.projects.locations.memberships.features.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesPatch : GTLRGKEHubQuery
+
+/**
+ *  Optional. If set to true, and the MembershipFeature is not found, a new
+ *  MembershipFeature will be created. In this situation, `update_mask` is
+ *  ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Output only. The resource name of the membershipFeature, in the format:
+ *  `projects/{project}/locations/{location}/memberships/{membership}/features/{feature}`.
+ *  Note that `membershipFeatures` is shortened to `features` in the resource
+ *  name. (see http://go/aip/122#collection-identifiers)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Mask of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Updates an existing MembershipFeature.
+ *
+ *  @param object The @c GTLRGKEHub_MembershipFeature to include in the query.
+ *  @param name Output only. The resource name of the membershipFeature, in the
+ *    format:
+ *    `projects/{project}/locations/{location}/memberships/{membership}/features/{feature}`.
+ *    Note that `membershipFeatures` is shortened to `features` in the resource
+ *    name. (see http://go/aip/122#collection-identifiers)
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesPatch
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipFeature *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns

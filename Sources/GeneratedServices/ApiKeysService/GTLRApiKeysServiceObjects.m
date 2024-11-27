@@ -179,7 +179,7 @@
 
 @implementation GTLRApiKeysService_V2Key
 @dynamic annotations, createTime, deleteTime, displayName, ETag, keyString,
-         name, restrictions, uid, updateTime;
+         name, restrictions, serviceAccountEmail, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

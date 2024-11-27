@@ -9,6 +9,390 @@
 #import <GoogleAPIClientForREST/GTLRGKEHubObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRGKEHub_AppDevExperienceStatus.code
+NSString * const kGTLRGKEHub_AppDevExperienceStatus_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_AppDevExperienceStatus_Code_Failed = @"FAILED";
+NSString * const kGTLRGKEHub_AppDevExperienceStatus_Code_Ok    = @"OK";
+NSString * const kGTLRGKEHub_AppDevExperienceStatus_Code_Unknown = @"UNKNOWN";
+
+// GTLRGKEHub_CloudBuildSpec.securityPolicy
+NSString * const kGTLRGKEHub_CloudBuildSpec_SecurityPolicy_NonPrivileged = @"NON_PRIVILEGED";
+NSString * const kGTLRGKEHub_CloudBuildSpec_SecurityPolicy_Privileged = @"PRIVILEGED";
+NSString * const kGTLRGKEHub_CloudBuildSpec_SecurityPolicy_SecurityPolicyUnspecified = @"SECURITY_POLICY_UNSPECIFIED";
+
+// GTLRGKEHub_ClusterUpgradeUpgradeStatus.code
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Complete = @"COMPLETE";
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedSoaking = @"FORCED_SOAKING";
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Ineligible = @"INELIGIBLE";
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Pending = @"PENDING";
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Soaking = @"SOAKING";
+
+// GTLRGKEHub_ConfigManagementBinauthzState.webhook
+NSString * const kGTLRGKEHub_ConfigManagementBinauthzState_Webhook_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementBinauthzState_Webhook_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementBinauthzState_Webhook_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementBinauthzState_Webhook_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementBinauthzState_Webhook_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.admissionWebhook
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.gitSync
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.importer
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.monitor
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.otelCollector
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_OtelCollector_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_OtelCollector_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_OtelCollector_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_OtelCollector_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_OtelCollector_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.reconcilerManager
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.resourceGroupControllerManager
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ResourceGroupControllerManager_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ResourceGroupControllerManager_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ResourceGroupControllerManager_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ResourceGroupControllerManager_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ResourceGroupControllerManager_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.rootReconciler
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.syncer
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncState.clusterLevelStopSyncingState
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ClusterLevelStopSyncingState_NotStopped = @"NOT_STOPPED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ClusterLevelStopSyncingState_Pending = @"PENDING";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ClusterLevelStopSyncingState_Stopped = @"STOPPED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ClusterLevelStopSyncingState_StopSyncingStateUnspecified = @"STOP_SYNCING_STATE_UNSPECIFIED";
+
+// GTLRGKEHub_ConfigManagementConfigSyncState.reposyncCrd
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_CrdStateUnspecified = @"CRD_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Terminating = @"TERMINATING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncState.rootsyncCrd
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_CrdStateUnspecified = @"CRD_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Terminating = @"TERMINATING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncState.state
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncError = @"CONFIG_SYNC_ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncInstalled = @"CONFIG_SYNC_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncNotInstalled = @"CONFIG_SYNC_NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncPending = @"CONFIG_SYNC_PENDING";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperAudit
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperControllerManagerState
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperMutation
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.extension
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.hnc
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementOperatorState.deploymentState
+NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementPolicyControllerMigration.stage
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_AcmManaged = @"ACM_MANAGED";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_PocoManaged = @"POCO_MANAGED";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
+
+// GTLRGKEHub_ConfigManagementPolicyControllerMonitoring.backends
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_CloudMonitoring = @"CLOUD_MONITORING";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_MonitoringBackendUnspecified = @"MONITORING_BACKEND_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_Prometheus = @"PROMETHEUS";
+
+// GTLRGKEHub_ConfigManagementSpec.management
+NSString * const kGTLRGKEHub_ConfigManagementSpec_Management_ManagementAutomatic = @"MANAGEMENT_AUTOMATIC";
+NSString * const kGTLRGKEHub_ConfigManagementSpec_Management_ManagementManual = @"MANAGEMENT_MANUAL";
+NSString * const kGTLRGKEHub_ConfigManagementSpec_Management_ManagementUnspecified = @"MANAGEMENT_UNSPECIFIED";
+
+// GTLRGKEHub_ConfigManagementSyncState.code
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_NotConfigured = @"NOT_CONFIGURED";
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Pending = @"PENDING";
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_SyncCodeUnspecified = @"SYNC_CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Synced = @"SYNCED";
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Unauthorized = @"UNAUTHORIZED";
+NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRGKEHub_IdentityServiceState.state
+NSString * const kGTLRGKEHub_IdentityServiceState_State_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_IdentityServiceState_State_Error  = @"ERROR";
+NSString * const kGTLRGKEHub_IdentityServiceState_State_Ok     = @"OK";
+
+// GTLRGKEHub_LifecycleState.state
+NSString * const kGTLRGKEHub_LifecycleState_State_Active       = @"ACTIVE";
+NSString * const kGTLRGKEHub_LifecycleState_State_Disabling    = @"DISABLING";
+NSString * const kGTLRGKEHub_LifecycleState_State_Enabling     = @"ENABLING";
+NSString * const kGTLRGKEHub_LifecycleState_State_ServiceUpdating = @"SERVICE_UPDATING";
+NSString * const kGTLRGKEHub_LifecycleState_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_LifecycleState_State_Updating     = @"UPDATING";
+
+// GTLRGKEHub_Origin.type
+NSString * const kGTLRGKEHub_Origin_Type_Fleet           = @"FLEET";
+NSString * const kGTLRGKEHub_Origin_Type_FleetOutOfSync  = @"FLEET_OUT_OF_SYNC";
+NSString * const kGTLRGKEHub_Origin_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_Origin_Type_User            = @"USER";
+
+// GTLRGKEHub_PolicyControllerHubConfig.installSpec
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecDetached = @"INSTALL_SPEC_DETACHED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecEnabled = @"INSTALL_SPEC_ENABLED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecNotInstalled = @"INSTALL_SPEC_NOT_INSTALLED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecSuspended = @"INSTALL_SPEC_SUSPENDED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecUnspecified = @"INSTALL_SPEC_UNSPECIFIED";
+
+// GTLRGKEHub_PolicyControllerMonitoringConfig.backends
+NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_CloudMonitoring = @"CLOUD_MONITORING";
+NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_MonitoringBackendUnspecified = @"MONITORING_BACKEND_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_Prometheus = @"PROMETHEUS";
+
+// GTLRGKEHub_PolicyControllerOnClusterState.state
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_ClusterError = @"CLUSTER_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Decommissioning = @"DECOMMISSIONING";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Detached = @"DETACHED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_HubError = @"HUB_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Updating = @"UPDATING";
+
+// GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig.podAffinity
+NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AffinityUnspecified = @"AFFINITY_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AntiAffinity = @"ANTI_AFFINITY";
+NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_NoAffinity = @"NO_AFFINITY";
+
+// GTLRGKEHub_PolicyControllerState.state
+NSString * const kGTLRGKEHub_PolicyControllerState_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_ClusterError = @"CLUSTER_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_Decommissioning = @"DECOMMISSIONING";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_Detached = @"DETACHED";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_HubError = @"HUB_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRGKEHub_PolicyControllerState_State_Updating = @"UPDATING";
+
+// GTLRGKEHub_PolicyControllerTemplateLibraryConfig.installation
+NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_All = @"ALL";
+NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_InstallationUnspecified = @"INSTALLATION_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_NotInstalled = @"NOT_INSTALLED";
+
+// GTLRGKEHub_ServiceMeshAnalysisMessageBase.level
+NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_Info = @"INFO";
+NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_LevelUnspecified = @"LEVEL_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_Warning = @"WARNING";
+
+// GTLRGKEHub_ServiceMeshCondition.code
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ClusterHasZeroNodes = @"CLUSTER_HAS_ZERO_NODES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniConfigUnsupported = @"CNI_CONFIG_UNSUPPORTED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniInstallationFailed = @"CNI_INSTALLATION_FAILED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniPodUnschedulable = @"CNI_POD_UNSCHEDULABLE";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyInternalError = @"CONFIG_APPLY_INTERNAL_ERROR";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationError = @"CONFIG_VALIDATION_ERROR";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationWarning = @"CONFIG_VALIDATION_WARNING";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_DeprecatedSpecControlPlaneManagement = @"DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_DeprecatedSpecControlPlaneManagementSafe = @"DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT_SAFE";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_GkeSandboxUnsupported = @"GKE_SANDBOX_UNSUPPORTED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamCrossProjectPermissionDenied = @"MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamPermissionDenied = @"MESH_IAM_PERMISSION_DENIED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted = @"MODERNIZATION_ABORTED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompleted = @"MODERNIZATION_COMPLETED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress = @"MODERNIZATION_IN_PROGRESS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled = @"MODERNIZATION_SCHEDULED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired = @"NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededBackendServices = @"QUOTA_EXCEEDED_BACKEND_SERVICES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededClientTlsPolicies = @"QUOTA_EXCEEDED_CLIENT_TLS_POLICIES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededEndpointPolicies = @"QUOTA_EXCEEDED_ENDPOINT_POLICIES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededGateways = @"QUOTA_EXCEEDED_GATEWAYS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHealthChecks = @"QUOTA_EXCEEDED_HEALTH_CHECKS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHttpFilters = @"QUOTA_EXCEEDED_HTTP_FILTERS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHttpRoutes = @"QUOTA_EXCEEDED_HTTP_ROUTES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededMeshes = @"QUOTA_EXCEEDED_MESHES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededNetworkEndpointGroups = @"QUOTA_EXCEEDED_NETWORK_ENDPOINT_GROUPS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededServerTlsPolicies = @"QUOTA_EXCEEDED_SERVER_TLS_POLICIES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededServiceLbPolicies = @"QUOTA_EXCEEDED_SERVICE_LB_POLICIES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpFilters = @"QUOTA_EXCEEDED_TCP_FILTERS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpRoutes = @"QUOTA_EXCEEDED_TCP_ROUTES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTlsRoutes = @"QUOTA_EXCEEDED_TLS_ROUTES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies = @"QUOTA_EXCEEDED_TRAFFIC_POLICIES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedMultipleControlPlanes = @"UNSUPPORTED_MULTIPLE_CONTROL_PLANES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_VpcscGaSupported = @"VPCSC_GA_SUPPORTED";
+
+// GTLRGKEHub_ServiceMeshCondition.severity
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Severity_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Severity_Info = @"INFO";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Severity_Warning = @"WARNING";
+
+// GTLRGKEHub_ServiceMeshControlPlaneManagement.implementation
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_ImplementationUnspecified = @"IMPLEMENTATION_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_Istiod = @"ISTIOD";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_TrafficDirector = @"TRAFFIC_DIRECTOR";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_Updating = @"UPDATING";
+
+// GTLRGKEHub_ServiceMeshControlPlaneManagement.state
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Degraded = @"DEGRADED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Disabled = @"DISABLED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Stalled = @"STALLED";
+
+// GTLRGKEHub_ServiceMeshDataPlaneManagement.state
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Degraded = @"DEGRADED";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Disabled = @"DISABLED";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Stalled = @"STALLED";
+
+// GTLRGKEHub_ServiceMeshSpec.configApi
+NSString * const kGTLRGKEHub_ServiceMeshSpec_ConfigApi_ConfigApiGateway = @"CONFIG_API_GATEWAY";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_ConfigApi_ConfigApiIstio = @"CONFIG_API_ISTIO";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_ConfigApi_ConfigApiUnspecified = @"CONFIG_API_UNSPECIFIED";
+
+// GTLRGKEHub_ServiceMeshSpec.controlPlane
+NSString * const kGTLRGKEHub_ServiceMeshSpec_ControlPlane_Automatic = @"AUTOMATIC";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_ControlPlane_ControlPlaneManagementUnspecified = @"CONTROL_PLANE_MANAGEMENT_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_ControlPlane_Manual = @"MANUAL";
+
+// GTLRGKEHub_ServiceMeshSpec.defaultChannel
+NSString * const kGTLRGKEHub_ServiceMeshSpec_DefaultChannel_ChannelUnspecified = @"CHANNEL_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_DefaultChannel_Rapid = @"RAPID";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_DefaultChannel_Regular = @"REGULAR";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_DefaultChannel_Stable = @"STABLE";
+
+// GTLRGKEHub_ServiceMeshSpec.management
+NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementAutomatic = @"MANAGEMENT_AUTOMATIC";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementManual = @"MANAGEMENT_MANUAL";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementUnspecified = @"MANAGEMENT_UNSPECIFIED";
+
+// GTLRGKEHub_State.code
+NSString * const kGTLRGKEHub_State_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_State_Code_Error           = @"ERROR";
+NSString * const kGTLRGKEHub_State_Code_Ok              = @"OK";
+NSString * const kGTLRGKEHub_State_Code_Warning         = @"WARNING";
+
+// GTLRGKEHub_WorkloadCertificateSpec.certificateManagement
+NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_CertificateManagementUnspecified = @"CERTIFICATE_MANAGEMENT_UNSPECIFIED";
+NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Disabled = @"DISABLED";
+NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabled = @"ENABLED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AppDevExperienceState
+//
+
+@implementation GTLRGKEHub_AppDevExperienceState
+@dynamic networkingInstallSucceeded;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AppDevExperienceStatus
+//
+
+@implementation GTLRGKEHub_AppDevExperienceStatus
+@dynamic code, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRGKEHub_CancelOperationRequest
 //
@@ -19,10 +403,457 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_CloudBuildSpec
+//
+
+@implementation GTLRGKEHub_CloudBuildSpec
+@dynamic securityPolicy, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ClusterUpgradeGKEUpgrade
+//
+
+@implementation GTLRGKEHub_ClusterUpgradeGKEUpgrade
+@dynamic name, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ClusterUpgradeIgnoredMembership
+//
+
+@implementation GTLRGKEHub_ClusterUpgradeIgnoredMembership
+@dynamic ignoredTime, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState
+//
+
+@implementation GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState
+@dynamic status, upgrade;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ClusterUpgradeState
+//
+
+@implementation GTLRGKEHub_ClusterUpgradeState
+@dynamic ignored, upgrades;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"upgrades" : [GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ClusterUpgradeUpgradeStatus
+//
+
+@implementation GTLRGKEHub_ClusterUpgradeUpgradeStatus
+@dynamic code, reason, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementBinauthzConfig
+//
+
+@implementation GTLRGKEHub_ConfigManagementBinauthzConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementBinauthzState
+//
+
+@implementation GTLRGKEHub_ConfigManagementBinauthzState
+@dynamic version, webhook;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementBinauthzVersion
+//
+
+@implementation GTLRGKEHub_ConfigManagementBinauthzVersion
+@dynamic webhookVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementConfigSync
+//
+
+@implementation GTLRGKEHub_ConfigManagementConfigSync
+@dynamic allowVerticalScale, enabled, git, metricsGcpServiceAccountEmail, oci,
+         preventDrift, sourceFormat, stopSyncing;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementConfigSyncDeploymentState
+//
+
+@implementation GTLRGKEHub_ConfigManagementConfigSyncDeploymentState
+@dynamic admissionWebhook, gitSync, importer, monitor, otelCollector,
+         reconcilerManager, resourceGroupControllerManager, rootReconciler,
+         syncer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementConfigSyncError
+//
+
+@implementation GTLRGKEHub_ConfigManagementConfigSyncError
+@dynamic errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementConfigSyncState
+//
+
+@implementation GTLRGKEHub_ConfigManagementConfigSyncState
+@dynamic clusterLevelStopSyncingState, crCount, deploymentState, errors,
+         reposyncCrd, rootsyncCrd, state, syncState, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRGKEHub_ConfigManagementConfigSyncError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementConfigSyncVersion
+//
+
+@implementation GTLRGKEHub_ConfigManagementConfigSyncVersion
+@dynamic admissionWebhook, gitSync, importer, monitor, otelCollector,
+         reconcilerManager, resourceGroupControllerManager, rootReconciler,
+         syncer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementErrorResource
+//
+
+@implementation GTLRGKEHub_ConfigManagementErrorResource
+@dynamic resourceGvk, resourceName, resourceNamespace, sourcePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementGatekeeperDeploymentState
+//
+
+@implementation GTLRGKEHub_ConfigManagementGatekeeperDeploymentState
+@dynamic gatekeeperAudit, gatekeeperControllerManagerState, gatekeeperMutation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementGitConfig
+//
+
+@implementation GTLRGKEHub_ConfigManagementGitConfig
+@dynamic gcpServiceAccountEmail, httpsProxy, policyDir, secretType, syncBranch,
+         syncRepo, syncRev, syncWaitSecs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementGroupVersionKind
+//
+
+@implementation GTLRGKEHub_ConfigManagementGroupVersionKind
+@dynamic group, kind, version;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementHierarchyControllerConfig
+//
+
+@implementation GTLRGKEHub_ConfigManagementHierarchyControllerConfig
+@dynamic enabled, enableHierarchicalResourceQuota, enablePodTreeLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState
+//
+
+@implementation GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState
+@dynamic extension, hnc;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementHierarchyControllerState
+//
+
+@implementation GTLRGKEHub_ConfigManagementHierarchyControllerState
+@dynamic state, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementHierarchyControllerVersion
+//
+
+@implementation GTLRGKEHub_ConfigManagementHierarchyControllerVersion
+@dynamic extension, hnc;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementInstallError
+//
+
+@implementation GTLRGKEHub_ConfigManagementInstallError
+@dynamic errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementOciConfig
+//
+
+@implementation GTLRGKEHub_ConfigManagementOciConfig
+@dynamic gcpServiceAccountEmail, policyDir, secretType, syncRepo, syncWaitSecs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementOperatorState
+//
+
+@implementation GTLRGKEHub_ConfigManagementOperatorState
+@dynamic deploymentState, errors, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRGKEHub_ConfigManagementInstallError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementPolicyController
+//
+
+@implementation GTLRGKEHub_ConfigManagementPolicyController
+@dynamic auditIntervalSeconds, enabled, exemptableNamespaces, logDeniesEnabled,
+         monitoring, mutationEnabled, referentialRulesEnabled,
+         templateLibraryInstalled, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptableNamespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementPolicyControllerMigration
+//
+
+@implementation GTLRGKEHub_ConfigManagementPolicyControllerMigration
+@dynamic copyTime, stage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementPolicyControllerMonitoring
+//
+
+@implementation GTLRGKEHub_ConfigManagementPolicyControllerMonitoring
+@dynamic backends;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backends" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementPolicyControllerState
+//
+
+@implementation GTLRGKEHub_ConfigManagementPolicyControllerState
+@dynamic deploymentState, migration, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementPolicyControllerVersion
+//
+
+@implementation GTLRGKEHub_ConfigManagementPolicyControllerVersion
+@dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementSpec
+//
+
+@implementation GTLRGKEHub_ConfigManagementSpec
+@dynamic binauthz, cluster, configSync, hierarchyController, management,
+         policyController, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementState
+//
+
+@implementation GTLRGKEHub_ConfigManagementState
+@dynamic binauthzState, clusterName, configSyncState, hierarchyControllerState,
+         membershipSpec, operatorState, policyControllerState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementSyncError
+//
+
+@implementation GTLRGKEHub_ConfigManagementSyncError
+@dynamic code, errorMessage, errorResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorResources" : [GTLRGKEHub_ConfigManagementErrorResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementSyncState
+//
+
+@implementation GTLRGKEHub_ConfigManagementSyncState
+@dynamic code, errors, importToken, lastSync, lastSyncTime, sourceToken,
+         syncToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRGKEHub_ConfigManagementSyncError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_Empty
 //
 
 @implementation GTLRGKEHub_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FeatureConfigRef
+//
+
+@implementation GTLRGKEHub_FeatureConfigRef
+@dynamic config, configUpdateTime, uuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FeatureSpec
+//
+
+@implementation GTLRGKEHub_FeatureSpec
+@dynamic cloudbuild, configmanagement, identityservice, origin,
+         policycontroller, servicemesh, workloadcertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FeatureState
+//
+
+@implementation GTLRGKEHub_FeatureState
+@dynamic appdevexperience, clusterupgrade, configmanagement, identityservice,
+         metering, policycontroller, servicemesh, state;
 @end
 
 
@@ -60,6 +891,203 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_IdentityServiceAuthMethod
+//
+
+@implementation GTLRGKEHub_IdentityServiceAuthMethod
+@dynamic azureadConfig, googleConfig, ldapConfig, name, oidcConfig, proxy,
+         samlConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceAzureADConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceAzureADConfig
+@dynamic clientId, clientSecret, encryptedClientSecret, groupFormat,
+         kubectlRedirectUri, tenant, userClaim;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceDiagnosticInterface
+//
+
+@implementation GTLRGKEHub_IdentityServiceDiagnosticInterface
+@dynamic enabled, expirationTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceGoogleConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceGoogleConfig
+@dynamic disable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceGroupConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceGroupConfig
+@dynamic baseDn, filter, idAttribute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceIdentityServiceOptions
+//
+
+@implementation GTLRGKEHub_IdentityServiceIdentityServiceOptions
+@dynamic diagnosticInterface, sessionDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceLdapConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceLdapConfig
+@dynamic group, server, serviceAccount, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceOidcConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceOidcConfig
+@dynamic certificateAuthorityData, clientId, clientSecret,
+         deployCloudConsoleProxy, enableAccessToken, encryptedClientSecret,
+         extraParams, groupPrefix, groupsClaim, issuerUri, kubectlRedirectUri,
+         scopes, userClaim, userPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceSamlConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceSamlConfig
+@dynamic attributeMapping, groupPrefix, groupsAttribute,
+         identityProviderCertificates, identityProviderId,
+         identityProviderSsoUri, userAttribute, userPrefix;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identityProviderCertificates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceSamlConfig_AttributeMapping
+//
+
+@implementation GTLRGKEHub_IdentityServiceSamlConfig_AttributeMapping
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceServerConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceServerConfig
+@dynamic certificateAuthorityData, connectionType, host;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceServiceAccountConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceServiceAccountConfig
+@dynamic simpleBindCredentials;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceSimpleBindCredentials
+//
+
+@implementation GTLRGKEHub_IdentityServiceSimpleBindCredentials
+@dynamic dn, encryptedPassword, password;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceSpec
+//
+
+@implementation GTLRGKEHub_IdentityServiceSpec
+@dynamic authMethods, identityServiceOptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authMethods" : [GTLRGKEHub_IdentityServiceAuthMethod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceState
+//
+
+@implementation GTLRGKEHub_IdentityServiceState
+@dynamic failureReason, installedVersion, memberConfig, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceUserConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceUserConfig
+@dynamic baseDn, filter, idAttribute, loginAttribute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_LifecycleState
+//
+
+@implementation GTLRGKEHub_LifecycleState
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ListLocationsResponse
 //
 
@@ -75,6 +1103,29 @@
 
 + (NSString *)collectionItemsKey {
   return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ListMembershipFeaturesResponse
+//
+
+@implementation GTLRGKEHub_ListMembershipFeaturesResponse
+@dynamic membershipFeatures, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"membershipFeatures" : [GTLRGKEHub_MembershipFeature class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"membershipFeatures";
 }
 
 @end
@@ -142,6 +1193,41 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_MembershipFeature
+//
+
+@implementation GTLRGKEHub_MembershipFeature
+@dynamic createTime, deleteTime, featureConfigRef, labels, lifecycleState, name,
+         spec, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_MembershipFeature_Labels
+//
+
+@implementation GTLRGKEHub_MembershipFeature_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_MeteringState
+//
+
+@implementation GTLRGKEHub_MeteringState
+@dynamic lastMeasurementTime, preciseLastMeasuredClusterVcpuCapacity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_Operation
 //
 
@@ -175,4 +1261,418 @@
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_OperationMetadata
+//
+
+@implementation GTLRGKEHub_OperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Origin
+//
+
+@implementation GTLRGKEHub_Origin
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerBundleInstallSpec
+//
+
+@implementation GTLRGKEHub_PolicyControllerBundleInstallSpec
+@dynamic exemptedNamespaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedNamespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerHubConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerHubConfig
+@dynamic auditIntervalSeconds, constraintViolationLimit, deploymentConfigs,
+         exemptableNamespaces, installSpec, logDeniesEnabled, monitoring,
+         mutationEnabled, policyContent, referentialRulesEnabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptableNamespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs
+//
+
+@implementation GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerMonitoringConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerMonitoringConfig
+@dynamic backends;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backends" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerOnClusterState
+//
+
+@implementation GTLRGKEHub_PolicyControllerOnClusterState
+@dynamic details, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentSpec
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentSpec
+@dynamic bundles, templateLibrary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentSpec_Bundles
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentSpec_Bundles
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerBundleInstallSpec class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentState
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentState
+@dynamic bundleStates, referentialSyncConfigState, templateLibraryState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentState_BundleStates
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentState_BundleStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerOnClusterState class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig
+@dynamic containerResources, podAffinity, podAntiAffinity, podTolerations,
+         replicaCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"podTolerations" : [GTLRGKEHub_PolicyControllerToleration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerResourceList
+//
+
+@implementation GTLRGKEHub_PolicyControllerResourceList
+@dynamic cpu, memory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerResourceRequirements
+//
+
+@implementation GTLRGKEHub_PolicyControllerResourceRequirements
+@dynamic limits, requests;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerSpec
+//
+
+@implementation GTLRGKEHub_PolicyControllerSpec
+@dynamic policyControllerHubConfig, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerState
+//
+
+@implementation GTLRGKEHub_PolicyControllerState
+@dynamic componentStates, policyContentState, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerState_ComponentStates
+//
+
+@implementation GTLRGKEHub_PolicyControllerState_ComponentStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerOnClusterState class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerTemplateLibraryConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerTemplateLibraryConfig
+@dynamic installation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerToleration
+//
+
+@implementation GTLRGKEHub_PolicyControllerToleration
+@dynamic effect, key, operatorProperty, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"operatorProperty" : @"operator" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshAnalysisMessage
+//
+
+@implementation GTLRGKEHub_ServiceMeshAnalysisMessage
+@dynamic args, descriptionProperty, messageBase, resourcePaths;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourcePaths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshAnalysisMessage_Args
+//
+
+@implementation GTLRGKEHub_ServiceMeshAnalysisMessage_Args
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshAnalysisMessageBase
+//
+
+@implementation GTLRGKEHub_ServiceMeshAnalysisMessageBase
+@dynamic documentationUrl, level, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshCondition
+//
+
+@implementation GTLRGKEHub_ServiceMeshCondition
+@dynamic code, details, documentationLink, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshControlPlaneManagement
+//
+
+@implementation GTLRGKEHub_ServiceMeshControlPlaneManagement
+@dynamic details, implementation, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRGKEHub_ServiceMeshStatusDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshDataPlaneManagement
+//
+
+@implementation GTLRGKEHub_ServiceMeshDataPlaneManagement
+@dynamic details, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRGKEHub_ServiceMeshStatusDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshSpec
+//
+
+@implementation GTLRGKEHub_ServiceMeshSpec
+@dynamic configApi, controlPlane, defaultChannel, management;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshState
+//
+
+@implementation GTLRGKEHub_ServiceMeshState
+@dynamic analysisMessages, conditions, configApiVersion, controlPlaneManagement,
+         dataPlaneManagement;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysisMessages" : [GTLRGKEHub_ServiceMeshAnalysisMessage class],
+    @"conditions" : [GTLRGKEHub_ServiceMeshCondition class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshStatusDetails
+//
+
+@implementation GTLRGKEHub_ServiceMeshStatusDetails
+@dynamic code, details;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshType
+//
+
+@implementation GTLRGKEHub_ServiceMeshType
+@dynamic code, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_State
+//
+
+@implementation GTLRGKEHub_State
+@dynamic code, descriptionProperty, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_WorkloadCertificateSpec
+//
+
+@implementation GTLRGKEHub_WorkloadCertificateSpec
+@dynamic certificateManagement;
 @end

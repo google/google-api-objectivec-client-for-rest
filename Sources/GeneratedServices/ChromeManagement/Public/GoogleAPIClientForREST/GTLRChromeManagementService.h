@@ -42,7 +42,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagemen
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly;
 /**
  *  Authorization scope: See basic device and telemetry information collected
- *  from Chrome OS devices or users managed within your organization
+ *  from ChromeOS devices or users managed within your organization
  *
  *  Value "https://www.googleapis.com/auth/chrome.management.telemetry.readonly"
  */

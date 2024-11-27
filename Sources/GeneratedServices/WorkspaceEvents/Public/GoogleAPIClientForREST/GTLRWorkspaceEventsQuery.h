@@ -51,6 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
@@ -91,6 +96,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
@@ -137,6 +147,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
@@ -201,6 +216,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
@@ -247,6 +267,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
@@ -321,13 +346,18 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsPatch : GTLRWorkspaceEventsQuery
 
 /**
- *  Optional. Immutable. Identifier. Resource name of the subscription. Format:
+ *  Identifier. Resource name of the subscription. Format:
  *  `subscriptions/{subscription}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -361,8 +391,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRWorkspaceEvents_Subscription to include in the
  *    query.
- *  @param name Optional. Immutable. Identifier. Resource name of the
- *    subscription. Format: `subscriptions/{subscription}`
+ *  @param name Identifier. Resource name of the subscription. Format:
+ *    `subscriptions/{subscription}`
  *
  *  @return GTLRWorkspaceEventsQuery_SubscriptionsPatch
  */
@@ -375,8 +405,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Reactivates a suspended Google Workspace subscription. This method resets
  *  your subscription's `State` field to `ACTIVE`. Before you use this method,
- *  you must fix the error that suspended the subscription. To learn how to use
- *  this method, see [Reactivate a Google Workspace
+ *  you must fix the error that suspended the subscription. This method will
+ *  ignore or reject any subscription that isn't currently in a suspended state.
+ *  To learn how to use this method, see [Reactivate a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
  *
  *  Method: workspaceevents.subscriptions.reactivate
@@ -390,6 +421,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
  *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
@@ -407,8 +443,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Reactivates a suspended Google Workspace subscription. This method resets
  *  your subscription's `State` field to `ACTIVE`. Before you use this method,
- *  you must fix the error that suspended the subscription. To learn how to use
- *  this method, see [Reactivate a Google Workspace
+ *  you must fix the error that suspended the subscription. This method will
+ *  ignore or reject any subscription that isn't currently in a suspended state.
+ *  To learn how to use this method, see [Reactivate a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
  *
  *  @param object The @c GTLRWorkspaceEvents_ReactivateSubscriptionRequest to

@@ -54,6 +54,7 @@ NSString * const kGTLRBackupforGKE_Restore_State_Failed        = @"FAILED";
 NSString * const kGTLRBackupforGKE_Restore_State_InProgress    = @"IN_PROGRESS";
 NSString * const kGTLRBackupforGKE_Restore_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBackupforGKE_Restore_State_Succeeded     = @"SUCCEEDED";
+NSString * const kGTLRBackupforGKE_Restore_State_Validating    = @"VALIDATING";
 
 // GTLRBackupforGKE_RestoreConfig.clusterResourceConflictPolicy
 NSString * const kGTLRBackupforGKE_RestoreConfig_ClusterResourceConflictPolicy_ClusterResourceConflictPolicyUnspecified = @"CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED";

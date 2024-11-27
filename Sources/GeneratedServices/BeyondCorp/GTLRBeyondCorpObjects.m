@@ -63,6 +63,15 @@ NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInf
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Status_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Status_Unresponsive = @"UNRESPONSIVE";
 
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway.state
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Creating = @"CREATING";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Deleting = @"DELETING";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Down = @"DOWN";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Error = @"ERROR";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Running = @"RUNNING";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Updating = @"UPDATING";
+
 // GTLRBeyondCorp_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -683,6 +692,159 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGatewayOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application
+@dynamic createTime, displayName, endpointMatchers, name, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpointMatchers" : [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher
+@dynamic hostname, ports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ports" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub
+@dynamic internetGateway;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway
+@dynamic assignedIps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedIps" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListApplicationsResponse
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListApplicationsResponse
+@dynamic applications, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applications" : [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"applications";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListSecurityGatewaysResponse
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListSecurityGatewaysResponse
+@dynamic nextPageToken, securityGateways, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityGateways" : [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityGateways";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway
+@dynamic createTime, displayName, externalIps, hubs, name, state, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalIps" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_Hubs
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_Hubs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGatewayOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGatewayOperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
 @end

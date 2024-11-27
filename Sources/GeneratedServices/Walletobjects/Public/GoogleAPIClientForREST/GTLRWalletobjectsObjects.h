@@ -88,8 +88,10 @@
 @class GTLRWalletobjects_LoyaltyPointsBalance;
 @class GTLRWalletobjects_Media;
 @class GTLRWalletobjects_MediaRequestInfo;
+@class GTLRWalletobjects_MerchantLocation;
 @class GTLRWalletobjects_Message;
 @class GTLRWalletobjects_ModifyLinkedOfferObjects;
+@class GTLRWalletobjects_ModuleViewConstraints;
 @class GTLRWalletobjects_Money;
 @class GTLRWalletobjects_Notifications;
 @class GTLRWalletobjects_ObjectId;
@@ -122,6 +124,7 @@
 @class GTLRWalletobjects_TranslatedString;
 @class GTLRWalletobjects_UpcomingNotification;
 @class GTLRWalletobjects_Uri;
+@class GTLRWalletobjects_ValueAddedModuleData;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -521,6 +524,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketClass_MultipleD
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWalletobjects_EventTicketClass.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketClass_NotifyPreference_NotifyOnUpdate;
+
+// ----------------------------------------------------------------------------
 // GTLRWalletobjects_EventTicketClass.reviewStatus
 
 /**
@@ -616,6 +636,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketClass_ViewUnloc
  *  Value: "VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWalletobjects_EventTicketObject.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketObject_NotifyPreference_NotifyOnUpdate;
 
 // ----------------------------------------------------------------------------
 // GTLRWalletobjects_EventTicketObject.state
@@ -795,6 +832,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightClass_MultipleDevice
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWalletobjects_FlightClass.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightClass_NotifyPreference_NotifyOnUpdate;
+
+// ----------------------------------------------------------------------------
 // GTLRWalletobjects_FlightClass.reviewStatus
 
 /**
@@ -848,6 +902,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightClass_ViewUnlockRequ
  *  Value: "VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWalletobjects_FlightObject.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightObject_NotifyPreference_NotifyOnUpdate;
 
 // ----------------------------------------------------------------------------
 // GTLRWalletobjects_FlightObject.state
@@ -966,6 +1037,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLibraryMembership;
 /**
+ *  Loyalty cards. Please note that it is advisable to use a dedicated Loyalty
+ *  card pass type instead of this generic type. A dedicated loyalty card pass
+ *  type offers more features and functionality than a generic pass type.
+ *
+ *  Value: "GENERIC_LOYALTY_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLoyaltyCard;
+/**
  *  Other type
  *
  *  Value: "GENERIC_OTHER"
@@ -1073,6 +1152,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardClass_MultipleDevi
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWalletobjects_GiftCardClass.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardClass_NotifyPreference_NotifyOnUpdate;
+
+// ----------------------------------------------------------------------------
 // GTLRWalletobjects_GiftCardClass.reviewStatus
 
 /**
@@ -1126,6 +1222,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardClass_ViewUnlockRe
  *  Value: "VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWalletobjects_GiftCardObject.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardObject_NotifyPreference_NotifyOnUpdate;
 
 // ----------------------------------------------------------------------------
 // GTLRWalletobjects_GiftCardObject.state
@@ -1204,6 +1317,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyClass_MultipleDevic
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWalletobjects_LoyaltyClass.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyClass_NotifyPreference_NotifyOnUpdate;
+
+// ----------------------------------------------------------------------------
 // GTLRWalletobjects_LoyaltyClass.reviewStatus
 
 /**
@@ -1257,6 +1387,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyClass_ViewUnlockReq
  *  Value: "VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWalletobjects_LoyaltyObject.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyObject_NotifyPreference_NotifyOnUpdate;
 
 // ----------------------------------------------------------------------------
 // GTLRWalletobjects_LoyaltyObject.state
@@ -1483,6 +1630,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferClass_MultipleDevices
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWalletobjects_OfferClass.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferClass_NotifyPreference_NotifyOnUpdate;
+
+// ----------------------------------------------------------------------------
 // GTLRWalletobjects_OfferClass.redemptionChannel
 
 /**
@@ -1566,6 +1730,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferClass_ViewUnlockRequi
  *  Value: "VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWalletobjects_OfferObject.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferObject_NotifyPreference_NotifyOnUpdate;
 
 // ----------------------------------------------------------------------------
 // GTLRWalletobjects_OfferObject.state
@@ -1861,6 +2042,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitClass_MultipleDevic
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWalletobjects_TransitClass.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitClass_NotifyPreference_NotifyOnUpdate;
+
+// ----------------------------------------------------------------------------
 // GTLRWalletobjects_TransitClass.reviewStatus
 
 /**
@@ -1974,6 +2172,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_ConcessionCa
  *  Value: "senior"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_ConcessionCategory_Senior GTLR_DEPRECATED;
+
+// ----------------------------------------------------------------------------
+// GTLRWalletobjects_TransitObject.notifyPreference
+
+/**
+ *  Default behavior is no notifications sent.
+ *
+ *  Value: "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified;
+/**
+ *  This value will result in a notification being sent, if the updated fields
+ *  are part of an allowlist.
+ *
+ *  Value: "NOTIFY_ON_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_NotifyPreference_NotifyOnUpdate;
 
 // ----------------------------------------------------------------------------
 // GTLRWalletobjects_TransitObject.passengerType
@@ -2166,6 +2381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** Optional information about the partner app link. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_AppLinkDataAppLinkInfo *androidAppLinkInfo;
+
+/** Optional display text for the app link button. Character limit is 30. */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_LocalizedString *displayText;
 
 /** Deprecated. Links to open iOS apps are not supported. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_AppLinkDataAppLinkInfo *iosAppLinkInfo GTLR_DEPRECATED;
@@ -3528,6 +3746,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *logo;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the class. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
@@ -3551,6 +3777,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Unspecified preference. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *multipleDevicesAndHoldersAllowedStatus;
+
+/**
+ *  Whether or not field updates to this class should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If not specified, no notification will be triggered.
+ *  This setting is ephemeral and needs to be set with each PATCH or UPDATE
+ *  request, otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_EventTicketClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_EventTicketClass_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Identifies which redemption issuers can redeem the pass over Smart Tap.
@@ -3657,6 +3901,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  the object and 10 from the class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
+
+/**
+ *  Optional value added module data. Maximum of ten on the class. For a pass
+ *  only ten will be displayed, prioritizing those from the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /** Event venue details. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_EventVenue *venue;
@@ -3865,10 +4115,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the object. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
+/**
+ *  Whether or not field updates to this object should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If set to DO_NOT_NOTIFY or
+ *  NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This
+ *  setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+ *  otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_EventTicketObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_EventTicketObject_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Pass constraints for the object. Includes limiting NFC and screenshot
@@ -3954,6 +4231,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  passed.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
+
+/** Optional value added module data. Maximum of ten on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -4405,6 +4685,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the class. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected by the validator.
+ *  These locations will trigger a notification when a user enters within a
+ *  Google-set radius of the point. This field replaces the deprecated
+ *  LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
@@ -4428,6 +4717,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Unspecified preference. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *multipleDevicesAndHoldersAllowedStatus;
+
+/**
+ *  Whether or not field updates to this class should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If not specified, no notification will be triggered.
+ *  This setting is ephemeral and needs to be set with each PATCH or UPDATE
+ *  request, otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_FlightClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_FlightClass_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /** Required. Origin airport. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_AirportInfo *origin;
@@ -4486,6 +4793,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  the object and 10 from the class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
+
+/**
+ *  Optional value added module data. Maximum of ten on the class. For a pass
+ *  only ten will be displayed, prioritizing those from the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -4718,10 +5031,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the object. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
+/**
+ *  Whether or not field updates to this object should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If set to DO_NOT_NOTIFY or
+ *  NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This
+ *  setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+ *  otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_FlightObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_FlightObject_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Pass constraints for the object. Includes limiting NFC and screenshot
@@ -4792,6 +5132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  passed.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
+
+/** Optional value added module data. Maximum of ten on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -4910,6 +5253,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_LinksModuleData *linksModuleData;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the class. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
@@ -4957,6 +5308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  class and 10 from object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
+
+/**
+ *  Optional value added module data. Maximum of ten on the class. For a pass
+ *  only ten will be displayed, prioritizing those from the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  View Unlock Requirement options for the generic pass.
@@ -5053,6 +5410,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Home-insurance cards (Value: "GENERIC_HOME_INSURANCE")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericLibraryMembership
  *        Library membership cards (Value: "GENERIC_LIBRARY_MEMBERSHIP")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericLoyaltyCard
+ *        Loyalty cards. Please note that it is advisable to use a dedicated
+ *        Loyalty card pass type instead of this generic type. A dedicated
+ *        loyalty card pass type offers more features and functionality than a
+ *        generic pass type. (Value: "GENERIC_LOYALTY_CARD")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericOther Other
  *        type (Value: "GENERIC_OTHER")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericParkingPass
@@ -5150,6 +5512,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *logo;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the object. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
@@ -5222,6 +5592,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  affect the rendering on user's devices.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
+
+/** Optional value added module data. Maximum of ten on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  The wide logo of the pass. When provided, this will be used in place of the
@@ -5411,6 +5784,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the class. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  Merchant name, such as "Adam's Apparel". The app may display an ellipsis
  *  after the first 20 characters to ensure full string is displayed on smaller
  *  screens.
@@ -5441,6 +5822,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Unspecified preference. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *multipleDevicesAndHoldersAllowedStatus;
+
+/**
+ *  Whether or not field updates to this class should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If not specified, no notification will be triggered.
+ *  This setting is ephemeral and needs to be set with each PATCH or UPDATE
+ *  request, otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_GiftCardClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_GiftCardClass_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /** The label to display for the PIN, such as "4-digit PIN". */
 @property(nonatomic, copy, nullable) NSString *pinLabel;
@@ -5505,6 +5904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  the object and 10 from the class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
+
+/**
+ *  Optional value added module data. Maximum of ten on the class. For a pass
+ *  only ten will be displayed, prioritizing those from the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -5704,10 +6109,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the object. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
+/**
+ *  Whether or not field updates to this object should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If set to DO_NOT_NOTIFY or
+ *  NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This
+ *  setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+ *  otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_GiftCardObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_GiftCardObject_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Pass constraints for the object. Includes limiting NFC and screenshot
@@ -5769,6 +6201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  passed.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
+
+/** Optional value added module data. Maximum of ten on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -6364,6 +6799,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the class. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
@@ -6387,6 +6830,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Unspecified preference. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *multipleDevicesAndHoldersAllowedStatus;
+
+/**
+ *  Whether or not field updates to this class should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If not specified, no notification will be triggered.
+ *  This setting is ephemeral and needs to be set with each PATCH or UPDATE
+ *  request, otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_LoyaltyClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_LoyaltyClass_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Required. The logo of the loyalty program or company. This logo is displayed
@@ -6474,6 +6935,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  the object and 10 from the class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
+
+/**
+ *  Optional value added module data. Maximum of ten on the class. For a pass
+ *  only ten will be displayed, prioritizing those from the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -6679,10 +7146,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_LoyaltyPoints *loyaltyPoints;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the object. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
+/**
+ *  Whether or not field updates to this object should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If set to DO_NOT_NOTIFY or
+ *  NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This
+ *  setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+ *  otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_LoyaltyObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_LoyaltyObject_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Pass constraints for the object. Includes limiting NFC and screenshot
@@ -6750,6 +7244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  passed.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
+
+/** Optional value added module data. Maximum of ten on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -7205,6 +7702,33 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
+ *  Locations of interest for this class or object. Currently, this location is
+ *  used for geofenced notifications. When a user is within a set radius of this
+ *  lat/long, and dwells there, Google will trigger a notification. When a user
+ *  exits this radius, the notification will be hidden.
+ */
+@interface GTLRWalletobjects_MerchantLocation : GTLRObject
+
+/**
+ *  The latitude specified as any value in the range of -90.0 through +90.0,
+ *  both inclusive. Values outside these bounds will be rejected.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  The longitude specified in the range -180.0 through +180.0, both inclusive.
+ *  Values outside these bounds will be rejected.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
+
+@end
+
+
+/**
  *  A message that will be displayed with a Valuable
  */
 @interface GTLRWalletobjects_Message : GTLRObject
@@ -7287,6 +7811,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The linked offer object ids to add or remove from the object. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_ModifyLinkedOfferObjects *linkedOfferObjectIds;
+
+@end
+
+
+/**
+ *  Constraints that all must be met for the module to be shown.
+ */
+@interface GTLRWalletobjects_ModuleViewConstraints : GTLRObject
+
+/**
+ *  The period of time that the module will be displayed to users. Can define
+ *  both a `startTime` and `endTime`. The module is displayed immediately after
+ *  insertion unless a `startTime` is set. The module is displayed indefinitely
+ *  if `endTime` is not set.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *displayInterval;
 
 @end
 
@@ -7524,6 +8064,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the class. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
@@ -7547,6 +8095,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Unspecified preference. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *multipleDevicesAndHoldersAllowedStatus;
+
+/**
+ *  Whether or not field updates to this class should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If not specified, no notification will be triggered.
+ *  This setting is ephemeral and needs to be set with each PATCH or UPDATE
+ *  request, otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_OfferClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_OfferClass_NotifyPreference_NotifyOnUpdate This
+ *        value will result in a notification being sent, if the updated fields
+ *        are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Required. The offer provider (either the aggregator name or merchant name).
@@ -7648,6 +8214,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  and list views of the app.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *titleImage;
+
+/**
+ *  Optional value added module data. Maximum of ten on the class. For a pass
+ *  only ten will be displayed, prioritizing those from the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -7831,10 +8403,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the object. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
+/**
+ *  Whether or not field updates to this object should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If set to DO_NOT_NOTIFY or
+ *  NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This
+ *  setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+ *  otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_OfferObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_OfferObject_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Pass constraints for the object. Includes limiting NFC and screenshot
@@ -7893,6 +8492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  passed.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
+
+/** Optional value added module data. Maximum of ten on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -9033,6 +9635,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *logo;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the class. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
@@ -9056,6 +9666,25 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Unspecified preference. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *multipleDevicesAndHoldersAllowedStatus;
+
+/**
+ *  Whether or not field updates to this class should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If set to DO_NOT_NOTIFY or
+ *  NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This
+ *  setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+ *  otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_TransitClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_TransitClass_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Identifies which redemption issuers can redeem the pass over Smart Tap.
@@ -9133,6 +9762,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        Value "TRANSIT_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *transitType;
+
+/**
+ *  Optional value added module data. Maximum of ten on the class. For a pass
+ *  only ten will be displayed, prioritizing those from the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
  *  Deprecated
@@ -9360,10 +9995,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
+ *  Merchant locations. There is a maximum of ten on the object. Any additional
+ *  MerchantLocations added beyond the 10 will be rejected. These locations will
+ *  trigger a notification when a user enters within a Google-set radius of the
+ *  point. This field replaces the deprecated LatLongPoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_MerchantLocation *> *merchantLocations;
+
+/**
  *  An array of messages displayed in the app. All users of this object will
  *  receive its associated messages. The maximum number of these fields is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
+/**
+ *  Whether or not field updates to this object should trigger notifications.
+ *  When set to NOTIFY, we will attempt to trigger a field update notification
+ *  to users. These notifications will only be sent to users if the field is
+ *  part of an allowlist. If set to DO_NOT_NOTIFY or
+ *  NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This
+ *  setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+ *  otherwise a notification will not be triggered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWalletobjects_TransitObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified
+ *        Default behavior is no notifications sent. (Value:
+ *        "NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED")
+ *    @arg @c kGTLRWalletobjects_TransitObject_NotifyPreference_NotifyOnUpdate
+ *        This value will result in a notification being sent, if the updated
+ *        fields are part of an allowlist. (Value: "NOTIFY_ON_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *notifyPreference;
 
 /**
  *  Pass constraints for the object. Includes limiting NFC and screenshot
@@ -9513,6 +10175,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
+/** Optional value added module data. Maximum of ten on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
+
 /**
  *  Deprecated
  *
@@ -9650,6 +10315,52 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  address). URIs must have a scheme.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Data for Value Added module. Required fields are header and uri.
+ */
+@interface GTLRWalletobjects_ValueAddedModuleData : GTLRObject
+
+/**
+ *  Body to be displayed on the module. Character limit is 50 and longer strings
+ *  will be truncated.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_LocalizedString *body;
+
+/**
+ *  Header to be displayed on the module. Character limit is 60 and longer
+ *  strings will be truncated.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_LocalizedString *header;
+
+/**
+ *  Image to be displayed on the module. Recommended image ratio is 1:1. Images
+ *  will be resized to fit this ratio.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_Image *image;
+
+/**
+ *  The index for sorting the modules. Modules with a lower sort index are shown
+ *  before modules with a higher sort index. If unspecified, the sort index is
+ *  assumed to be INT_MAX. For two modules with the same index, the sorting
+ *  behavior is undefined.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sortIndex;
+
+/**
+ *  URI that the module leads to on click. This can be a web link or a deep link
+ *  as mentioned in
+ *  https://developer.android.com/training/app-links/deep-linking.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/** Constraints that all must be met for the module to be shown. */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_ModuleViewConstraints *viewConstraints;
 
 @end
 

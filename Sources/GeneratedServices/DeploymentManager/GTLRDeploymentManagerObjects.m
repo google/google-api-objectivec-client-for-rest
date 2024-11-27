@@ -45,6 +45,7 @@ NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_InvalidHeal
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NetworkEndpointNotDetached = @"NETWORK_ENDPOINT_NOT_DETACHED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
@@ -53,14 +54,29 @@ NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInst
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_PageMissingResults = @"PAGE_MISSING_RESULTS";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RateLimitExceeded = @"RATE_LIMIT_EXCEEDED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry135 = @"RESERVED_ENTRY_135";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry136 = @"RESERVED_ENTRY_136";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry139 = @"RESERVED_ENTRY_139";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry141 = @"RESERVED_ENTRY_141";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry142 = @"RESERVED_ENTRY_142";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotFoundWarning = @"RESOURCE_NOT_FOUND_WARNING";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceUsesGlobalDns = @"RESOURCE_USES_GLOBAL_DNS";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched = @"SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRDeploymentManager_QuotaExceededInfo.rolloutStatus
+NSString * const kGTLRDeploymentManager_QuotaExceededInfo_RolloutStatus_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDeploymentManager_QuotaExceededInfo_RolloutStatus_RolloutStatusUnspecified = @"ROLLOUT_STATUS_UNSPECIFIED";
 
 // GTLRDeploymentManager_Resource_Warnings_Item.code
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -75,6 +91,7 @@ NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_InvalidHealt
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NetworkEndpointNotDetached = @"NETWORK_ENDPOINT_NOT_DETACHED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
@@ -83,12 +100,23 @@ NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInsta
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_PageMissingResults = @"PAGE_MISSING_RESULTS";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RateLimitExceeded = @"RATE_LIMIT_EXCEEDED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry135 = @"RESERVED_ENTRY_135";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry136 = @"RESERVED_ENTRY_136";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry139 = @"RESERVED_ENTRY_139";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry141 = @"RESERVED_ENTRY_141";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry142 = @"RESERVED_ENTRY_142";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotFoundWarning = @"RESOURCE_NOT_FOUND_WARNING";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceUsesGlobalDns = @"RESOURCE_USES_GLOBAL_DNS";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched = @"SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
 
@@ -120,6 +148,7 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Invali
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NetworkEndpointNotDetached = @"NETWORK_ENDPOINT_NOT_DETACHED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
@@ -128,12 +157,23 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHo
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PageMissingResults = @"PAGE_MISSING_RESULTS";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RateLimitExceeded = @"RATE_LIMIT_EXCEEDED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry135 = @"RESERVED_ENTRY_135";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry136 = @"RESERVED_ENTRY_136";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry139 = @"RESERVED_ENTRY_139";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry141 = @"RESERVED_ENTRY_141";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry142 = @"RESERVED_ENTRY_142";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotFoundWarning = @"RESOURCE_NOT_FOUND_WARNING";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceUsesGlobalDns = @"RESOURCE_USES_GLOBAL_DNS";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched = @"SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
 
@@ -217,6 +257,24 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 @implementation GTLRDeploymentManager_ConfigFile
 @dynamic content;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_DebugInfo
+//
+
+@implementation GTLRDeploymentManager_DebugInfo
+@dynamic detail, stackEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stackEntries" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -333,6 +391,30 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_ErrorInfo
+//
+
+@implementation GTLRDeploymentManager_ErrorInfo
+@dynamic domain, metadata, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_ErrorInfo_Metadata
+//
+
+@implementation GTLRDeploymentManager_ErrorInfo_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_Expr
 //
 
@@ -352,7 +434,7 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 //
 
 @implementation GTLRDeploymentManager_GlobalSetPolicyRequest
-@dynamic bindings, ETag, policy;
+@dynamic bindings, ETag, policy, updateMask;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -363,6 +445,39 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
     @"bindings" : [GTLRDeploymentManager_Binding class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_Help
+//
+
+@implementation GTLRDeploymentManager_Help
+@dynamic links;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRDeploymentManager_HelpLink class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_HelpLink
+//
+
+@implementation GTLRDeploymentManager_HelpLink
+@dynamic descriptionProperty, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -399,6 +514,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
   return [GTLRDeploymentManager_BulkInsertOperationStatus class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_LocalizedMessage
+//
+
+@implementation GTLRDeploymentManager_LocalizedMessage
+@dynamic locale, message;
 @end
 
 
@@ -456,7 +581,7 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 @dynamic clientOperationId, creationTimestamp, descriptionProperty, endTime,
          error, httpErrorMessage, httpErrorStatusCode, identifier, insertTime,
          instancesBulkInsertOperationMetadata, kind, name, operationGroupId,
-         operationType, progress, region, selfLink,
+         operationType, progress, region, selfLink, selfLinkWithId,
          setCommonInstanceMetadataOperationMetadata, startTime, status,
          statusMessage, targetId, targetLink, user, warnings, zoneProperty;
 
@@ -521,7 +646,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 //
 
 @implementation GTLRDeploymentManager_Operation_Error_Errors_Item
-@dynamic code, location, message;
+@dynamic arguments, code, debugInfo, errorDetails, location, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"arguments" : [NSString class],
+    @"errorDetails" : [GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -532,6 +666,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 @implementation GTLRDeploymentManager_Operation_Warnings_Item_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item
+//
+
+@implementation GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item
+@dynamic errorInfo, help, localizedMessage, quotaInfo;
 @end
 
 
@@ -575,6 +719,30 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
     @"bindings" : [GTLRDeploymentManager_Binding class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_QuotaExceededInfo
+//
+
+@implementation GTLRDeploymentManager_QuotaExceededInfo
+@dynamic dimensions, futureLimit, limit, limitName, metricName, rolloutStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_QuotaExceededInfo_Dimensions
+//
+
+@implementation GTLRDeploymentManager_QuotaExceededInfo_Dimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -724,7 +892,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 //
 
 @implementation GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item
-@dynamic code, location, message;
+@dynamic arguments, code, debugInfo, errorDetails, location, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"arguments" : [NSString class],
+    @"errorDetails" : [GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -735,6 +912,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 @implementation GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item
+//
+
+@implementation GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item
+@dynamic errorInfo, help, localizedMessage, quotaInfo;
 @end
 
 

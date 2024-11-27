@@ -36,10 +36,12 @@
 @class GTLRNetworkconnectivity_Group_Labels;
 @class GTLRNetworkconnectivity_Hub;
 @class GTLRNetworkconnectivity_Hub_Labels;
+@class GTLRNetworkconnectivity_HubStatusEntry;
 @class GTLRNetworkconnectivity_InterconnectAttachment;
 @class GTLRNetworkconnectivity_InternalRange;
 @class GTLRNetworkconnectivity_InternalRange_Labels;
 @class GTLRNetworkconnectivity_LinkedInterconnectAttachments;
+@class GTLRNetworkconnectivity_LinkedProducerVpcNetwork;
 @class GTLRNetworkconnectivity_LinkedRouterApplianceInstances;
 @class GTLRNetworkconnectivity_LinkedVpcNetwork;
 @class GTLRNetworkconnectivity_LinkedVpnTunnels;
@@ -58,6 +60,7 @@
 @class GTLRNetworkconnectivity_PscConfig;
 @class GTLRNetworkconnectivity_PscConnection;
 @class GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata;
+@class GTLRNetworkconnectivity_PscPropagationStatus;
 @class GTLRNetworkconnectivity_RegionalEndpoint;
 @class GTLRNetworkconnectivity_RegionalEndpoint_Labels;
 @class GTLRNetworkconnectivity_Route;
@@ -122,6 +125,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogTy
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_ConsumerPscConfig.ipVersion
+
+/**
+ *  Will use IPv4 only.
+ *
+ *  Value: "IPV4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_Ipv4;
+/**
+ *  Will use IPv6 only.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_Ipv6;
+/**
+ *  Default value. We will use IPv4 or IPv6 depending on the IP version of first
+ *  available subnetwork.
+ *
+ *  Value: "IP_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_IpVersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_ConsumerPscConfig.state
@@ -190,6 +216,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnectio
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorProducerSide;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_ConsumerPscConnection.ipVersion
+
+/**
+ *  Will use IPv4 only.
+ *
+ *  Value: "IPV4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_Ipv4;
+/**
+ *  Will use IPv6 only.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_Ipv6;
+/**
+ *  Default value. We will use IPv4 or IPv6 depending on the IP version of first
+ *  available subnetwork.
+ *
+ *  Value: "IP_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_IpVersionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_ConsumerPscConnection.state
 
 /**
@@ -201,11 +250,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnectio
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Active;
 /**
+ *  The connection is being repaired to complete creation.
+ *
+ *  Value: "CREATE_REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_CreateRepairing;
+/**
  *  The connection is being created.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Creating;
+/**
+ *  The connection is being repaired to complete deletion.
+ *
+ *  Value: "DELETE_REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_DeleteRepairing;
 /**
  *  The connection is being deleted.
  *
@@ -480,8 +541,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peerin
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc;
 /**
  *  Ranges created FOR_MIGRATION can be used to lock a CIDR range between a
- *  source and target subnet. If usage is set to FOR_MIGRATION the peering value
- *  has to be set to FOR_SELF or default to FOR_SELF when unset.
+ *  source and target subnet. If usage is set to FOR_MIGRATION, the peering
+ *  value has to be set to FOR_SELF or default to FOR_SELF when unset. This
+ *  value is for internal use.
  *
  *  Value: "FOR_MIGRATION"
  */
@@ -593,6 +655,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorT
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorProducerSide;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_PscConnection.ipVersion
+
+/**
+ *  Will use IPv4 only.
+ *
+ *  Value: "IPV4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_IpVersion_Ipv4;
+/**
+ *  Will use IPv6 only.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_IpVersion_Ipv6;
+/**
+ *  Default value. We will use IPv4 or IPv6 depending on the IP version of first
+ *  available subnetwork.
+ *
+ *  Value: "IP_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_IpVersion_IpVersionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_PscConnection.state
 
 /**
@@ -604,11 +689,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorT
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_Active;
 /**
+ *  The connection is being repaired to complete creation.
+ *
+ *  Value: "CREATE_REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_CreateRepairing;
+/**
  *  The connection is being created.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_Creating;
+/**
+ *  The connection is being repaired to complete deletion.
+ *
+ *  Value: "DELETE_REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_DeleteRepairing;
 /**
  *  The connection is being deleted.
  *
@@ -628,6 +725,60 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_PscPropagationStatus.code
+
+/**
+ *  The code is unspecified.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_CodeUnspecified;
+/**
+ *  The PSC connection propagation failed because the
+ *  `PSC_PROPAGATED_CONNECTIONS_PER_VPC_NETWORK` quota in the consumer VPC
+ *  network has been exceeded.
+ *
+ *  Value: "ERROR_CONSUMER_QUOTA_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorConsumerQuotaExceeded;
+/**
+ *  The PSC connection propagation failed because the NAT IP subnet space has
+ *  been exhausted. It is equivalent to the `Needs attention` status of the PSC
+ *  connection. See
+ *  https://cloud.google.com/vpc/docs/about-accessing-vpc-hosted-services-endpoints#connection-statuses.
+ *
+ *  Value: "ERROR_PRODUCER_NAT_IP_SPACE_EXHAUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerNatIpSpaceExhausted;
+/**
+ *  The PSC connection propagation failed because the VPC network or the project
+ *  of the target spoke has exceeded the connection limit set by the producer.
+ *
+ *  Value: "ERROR_PRODUCER_PROPAGATED_CONNECTION_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerPropagatedConnectionLimitExceeded;
+/**
+ *  PSC connection propagation failed because the
+ *  `PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK` quota in the
+ *  producer VPC network has been exceeded.
+ *
+ *  Value: "ERROR_PRODUCER_QUOTA_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerQuotaExceeded;
+/**
+ *  PSC connection is propagating. This is a transient state.
+ *
+ *  Value: "PROPAGATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_Propagating;
+/**
+ *  The propagated PSC connection is ready.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_RegionalEndpoint.accessType
@@ -844,6 +995,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionPol
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_InterconnectAttachment;
 /**
+ *  Spokes that are backed by a producer VPC network.
+ *
+ *  Value: "PRODUCER_VPC_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_ProducerVpcNetwork;
+/**
  *  Spokes associated with router appliance instances.
  *
  *  Value: "ROUTER_APPLIANCE"
@@ -1019,6 +1176,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCoun
  *  Value: "REJECTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Rejected;
+/**
+ *  Network Connectivity Center encountered errors while accepting the spoke
+ *  update.
+ *
+ *  Value: "UPDATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdateFailed;
+/**
+ *  The proposed spoke update is pending review.
+ *
+ *  Value: "UPDATE_PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdatePendingReview;
+/**
+ *  The proposed spoke update has been rejected by the hub administrator.
+ *
+ *  Value: "UPDATE_REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdateRejected;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_SpokeTypeCount.spokeType
@@ -1029,6 +1205,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCoun
  *  Value: "INTERCONNECT_ATTACHMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_InterconnectAttachment;
+/**
+ *  Spokes that are backed by a producer VPC network.
+ *
+ *  Value: "PRODUCER_VPC_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_ProducerVpcNetwork;
 /**
  *  Spokes associated with router appliance instances.
  *
@@ -1087,6 +1269,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Pen
  *  Value: "REJECTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rejected;
+/**
+ *  Network Connectivity Center encountered errors while accepting the spoke
+ *  update.
+ *
+ *  Value: "UPDATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdateFailed;
+/**
+ *  The proposed spoke update is pending review.
+ *
+ *  Value: "UPDATE_PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdatePendingReview;
+/**
+ *  The proposed spoke update has been rejected by the hub administrator.
+ *
+ *  Value: "UPDATE_REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdateRejected;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Warnings.code
@@ -1344,6 +1545,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSNumber *disableGlobalAccess;
 
 /**
+ *  The requested IP version for the PSC connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_Ipv4 Will use
+ *        IPv4 only. (Value: "IPV4")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_Ipv6 Will use
+ *        IPv6 only. (Value: "IPV6")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_IpVersionUnspecified
+ *        Default value. We will use IPv4 or IPv6 depending on the IP version of
+ *        first available subnetwork. (Value: "IP_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ipVersion;
+
+/**
  *  The resource path of the consumer network where PSC connections are allowed
  *  to be created in. Note, this network does not need be in the
  *  ConsumerPscConfig.project in the case of SharedVPC. Example:
@@ -1478,6 +1693,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *ip;
 
 /**
+ *  The requested IP version for the PSC connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_Ipv4 Will
+ *        use IPv4 only. (Value: "IPV4")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_Ipv6 Will
+ *        use IPv6 only. (Value: "IPV6")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_IpVersionUnspecified
+ *        Default value. We will use IPv4 or IPv6 depending on the IP version of
+ *        first available subnetwork. (Value: "IP_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ipVersion;
+
+/**
  *  The consumer network whose PSC forwarding rule is connected to the service
  *  attachments in this service connection map. Note that the network could be
  *  on a different project (shared VPC).
@@ -1524,8 +1753,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        connection has been created successfully. However, for the up-to-date
  *        connection status, please use the service attachment's
  *        "ConnectedEndpoint.status" as the source of truth. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_CreateRepairing
+ *        The connection is being repaired to complete creation. (Value:
+ *        "CREATE_REPAIRING")
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Creating The
  *        connection is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_DeleteRepairing
+ *        The connection is being repaired to complete deletion. (Value:
+ *        "DELETE_REPAIRING")
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Deleting The
  *        connection is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Failed The
@@ -2115,6 +2350,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  The hub status entry.
+ */
+@interface GTLRNetworkconnectivity_HubStatusEntry : GTLRObject
+
+/**
+ *  The number of status. If group_by is not set in the request, the default is
+ *  1.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** The same group_by field from the request. */
+@property(nonatomic, copy, nullable) NSString *groupBy;
+
+/** The PSC propagation status. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_PscPropagationStatus *pscPropagationStatus;
+
+@end
+
+
+/**
  *  InterconnectAttachment that this route applies to.
  */
 @interface GTLRNetworkconnectivity_InterconnectAttachment : GTLRObject
@@ -2156,7 +2413,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** User-defined labels. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_InternalRange_Labels *labels;
 
-/** Optional. Should be present if usage is set to FOR_MIGRATION. */
+/**
+ *  Optional. Must be present if usage is set to FOR_MIGRATION. This field is
+ *  for internal use.
+ */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Migration *migration;
 
 /**
@@ -2248,9 +2508,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        interconnect. (Value: "EXTERNAL_TO_VPC")
  *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ForMigration Ranges
  *        created FOR_MIGRATION can be used to lock a CIDR range between a
- *        source and target subnet. If usage is set to FOR_MIGRATION the peering
- *        value has to be set to FOR_SELF or default to FOR_SELF when unset.
- *        (Value: "FOR_MIGRATION")
+ *        source and target subnet. If usage is set to FOR_MIGRATION, the
+ *        peering value has to be set to FOR_SELF or default to FOR_SELF when
+ *        unset. This value is for internal use. (Value: "FOR_MIGRATION")
  *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc A VPC resource
  *        can use the reserved CIDR block by associating it with the internal
  *        range resource if usage is set to FOR_VPC. (Value: "FOR_VPC")
@@ -2297,8 +2557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedInterconnectAttachments : GTLRObject
 
 /**
- *  Optional. IP ranges allowed to be included during import from hub.(does not
- *  control transit connectivity) The only allowed value for now is
+ *  Optional. IP ranges allowed to be included during import from hub (does not
+ *  control transit connectivity). The only allowed value for now is
  *  "ALL_IPV4_RANGES".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
@@ -2322,6 +2582,41 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  GTLRNetworkconnectivity_LinkedProducerVpcNetwork
+ */
+@interface GTLRNetworkconnectivity_LinkedProducerVpcNetwork : GTLRObject
+
+/**
+ *  Optional. IP ranges encompassing the subnets to be excluded from peering.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeExportRanges;
+
+/** Optional. IP ranges allowed to be included from peering. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeExportRanges;
+
+/**
+ *  Immutable. The URI of the Service Consumer VPC that the Producer VPC is
+ *  peered with.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Immutable. The name of the VPC peering between the Service Consumer VPC and
+ *  the Producer VPC (defined in the Tenant project) which is added to the NCC
+ *  hub. This peering must be in ACTIVE state.
+ */
+@property(nonatomic, copy, nullable) NSString *peering;
+
+/** Output only. The URI of the Producer VPC. */
+@property(nonatomic, copy, nullable) NSString *producerNetwork;
+
+/** Output only. The Service Consumer Network spoke. */
+@property(nonatomic, copy, nullable) NSString *serviceConsumerVpcSpoke;
+
+@end
+
+
+/**
  *  A collection of router appliance instances. If you configure multiple router
  *  appliance instances to receive data from the same set of sites outside of
  *  Google Cloud, we recommend that you associate those instances with the same
@@ -2330,8 +2625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedRouterApplianceInstances : GTLRObject
 
 /**
- *  Optional. IP ranges allowed to be included during import from hub.(does not
- *  control transit connectivity) The only allowed value for now is
+ *  Optional. IP ranges allowed to be included during import from hub (does not
+ *  control transit connectivity). The only allowed value for now is
  *  "ALL_IPV4_RANGES".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
@@ -2392,8 +2687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedVpnTunnels : GTLRObject
 
 /**
- *  Optional. IP ranges allowed to be included during import from hub.(does not
- *  control transit connectivity) The only allowed value for now is
+ *  Optional. IP ranges allowed to be included during import from hub (does not
+ *  control transit connectivity). The only allowed value for now is
  *  "ALL_IPV4_RANGES".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
@@ -3379,6 +3674,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *gceOperation;
 
 /**
+ *  The requested IP version for the PSC connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_IpVersion_Ipv4 Will use
+ *        IPv4 only. (Value: "IPV4")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_IpVersion_Ipv6 Will use
+ *        IPv6 only. (Value: "IPV6")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_IpVersion_IpVersionUnspecified
+ *        Default value. We will use IPv4 or IPv6 depending on the IP version of
+ *        first available subnetwork. (Value: "IP_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ipVersion;
+
+/**
  *  Immutable. Deprecated. Use producer_instance_metadata instead. An immutable
  *  identifier for the producer instance.
  */
@@ -3411,8 +3720,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        has been created successfully. However, for the up-to-date connection
  *        status, please use the created forwarding rule's "PscConnectionStatus"
  *        as the source of truth. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_CreateRepairing The
+ *        connection is being repaired to complete creation. (Value:
+ *        "CREATE_REPAIRING")
  *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Creating The
  *        connection is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_DeleteRepairing The
+ *        connection is being repaired to complete deletion. (Value:
+ *        "DELETE_REPAIRING")
  *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Deleting The
  *        connection is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Failed The connection
@@ -3435,6 +3750,94 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        fetch them all at once.
  */
 @interface GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata : GTLRObject
+@end
+
+
+/**
+ *  The PSC propagation status in a hub.
+ */
+@interface GTLRNetworkconnectivity_PscPropagationStatus : GTLRObject
+
+/**
+ *  The propagation status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_CodeUnspecified
+ *        The code is unspecified. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorConsumerQuotaExceeded
+ *        The PSC connection propagation failed because the
+ *        `PSC_PROPAGATED_CONNECTIONS_PER_VPC_NETWORK` quota in the consumer VPC
+ *        network has been exceeded. (Value: "ERROR_CONSUMER_QUOTA_EXCEEDED")
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerNatIpSpaceExhausted
+ *        The PSC connection propagation failed because the NAT IP subnet space
+ *        has been exhausted. It is equivalent to the `Needs attention` status
+ *        of the PSC connection. See
+ *        https://cloud.google.com/vpc/docs/about-accessing-vpc-hosted-services-endpoints#connection-statuses.
+ *        (Value: "ERROR_PRODUCER_NAT_IP_SPACE_EXHAUSTED")
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerPropagatedConnectionLimitExceeded
+ *        The PSC connection propagation failed because the VPC network or the
+ *        project of the target spoke has exceeded the connection limit set by
+ *        the producer. (Value:
+ *        "ERROR_PRODUCER_PROPAGATED_CONNECTION_LIMIT_EXCEEDED")
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerQuotaExceeded
+ *        PSC connection propagation failed because the
+ *        `PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK` quota in the
+ *        producer VPC network has been exceeded. (Value:
+ *        "ERROR_PRODUCER_QUOTA_EXCEEDED")
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_Propagating PSC
+ *        connection is propagating. This is a transient state. (Value:
+ *        "PROPAGATING")
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_Ready The
+ *        propagated PSC connection is ready. (Value: "READY")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** The human-readable summary of the PSC connection propagation status. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** The name of the forwarding rule exported to the hub. */
+@property(nonatomic, copy, nullable) NSString *sourceForwardingRule;
+
+/** The name of the group that the source spoke belongs to. */
+@property(nonatomic, copy, nullable) NSString *sourceGroup;
+
+/** The name of the spoke that the source forwarding rule belongs to. */
+@property(nonatomic, copy, nullable) NSString *sourceSpoke;
+
+/** The name of the group that the target spoke belongs to. */
+@property(nonatomic, copy, nullable) NSString *targetGroup;
+
+/** The name of the spoke that the source forwarding rule propagates to. */
+@property(nonatomic, copy, nullable) NSString *targetSpoke;
+
+@end
+
+
+/**
+ *  The response for HubService.QueryHubStatus.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "hubStatusEntries" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkconnectivity_QueryHubStatusResponse : GTLRCollectionObject
+
+/**
+ *  The list of hub status.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_HubStatusEntry *> *hubStatusEntries;
+
+/**
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @end
 
 
@@ -3843,7 +4246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The ServiceClass resource. Next id: 9
+ *  The ServiceClass resource.
  */
 @interface GTLRNetworkconnectivity_ServiceClass : GTLRObject
 
@@ -3899,7 +4302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The ServiceConnectionMap resource. Next id: 15
+ *  The ServiceConnectionMap resource.
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionMap : GTLRObject
 
@@ -3987,7 +4390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The ServiceConnectionPolicy resource. Next id: 12
+ *  The ServiceConnectionPolicy resource.
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionPolicy : GTLRObject
 
@@ -4077,7 +4480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The ServiceConnectionToken resource. Next id: 10
+ *  The ServiceConnectionToken resource.
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionToken : GTLRObject
 
@@ -4197,6 +4600,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** VLAN attachments that are associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedInterconnectAttachments *linkedInterconnectAttachments;
 
+/** Optional. The linked producer VPC that is associated with the spoke. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedProducerVpcNetwork *linkedProducerVpcNetwork;
+
 /** Router appliance instances that are associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedRouterApplianceInstances *linkedRouterApplianceInstances;
 
@@ -4213,10 +4619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Output only. The reasons for current state of the spoke. Only present when
- *  the spoke is in the `INACTIVE` state.
- */
+/** Output only. The reasons for current state of the spoke. */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_StateReason *> *reasons;
 
 /**
@@ -4226,6 +4629,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_InterconnectAttachment
  *        Spokes associated with VLAN attachments. (Value:
  *        "INTERCONNECT_ATTACHMENT")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_ProducerVpcNetwork Spokes
+ *        that are backed by a producer VPC network. (Value:
+ *        "PRODUCER_VPC_NETWORK")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_RouterAppliance Spokes
  *        associated with router appliance instances. (Value:
  *        "ROUTER_APPLIANCE")
@@ -4363,6 +4769,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Rejected
  *        The proposed spoke has been rejected by the hub administrator. (Value:
  *        "REJECTED")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdateFailed
+ *        Network Connectivity Center encountered errors while accepting the
+ *        spoke update. (Value: "UPDATE_FAILED")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdatePendingReview
+ *        The proposed spoke update is pending review. (Value:
+ *        "UPDATE_PENDING_REVIEW")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdateRejected
+ *        The proposed spoke update has been rejected by the hub administrator.
+ *        (Value: "UPDATE_REJECTED")
  */
 @property(nonatomic, copy, nullable) NSString *stateReasonCode;
 
@@ -4419,6 +4834,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_InterconnectAttachment
  *        Spokes associated with VLAN attachments. (Value:
  *        "INTERCONNECT_ATTACHMENT")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_ProducerVpcNetwork
+ *        Spokes that are backed by a producer VPC network. (Value:
+ *        "PRODUCER_VPC_NETWORK")
  *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_RouterAppliance
  *        Spokes associated with router appliance instances. (Value:
  *        "ROUTER_APPLIANCE")
@@ -4454,6 +4872,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        proposed spoke is pending review. (Value: "PENDING_REVIEW")
  *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_Rejected The proposed
  *        spoke has been rejected by the hub administrator. (Value: "REJECTED")
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_UpdateFailed Network
+ *        Connectivity Center encountered errors while accepting the spoke
+ *        update. (Value: "UPDATE_FAILED")
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_UpdatePendingReview The
+ *        proposed spoke update is pending review. (Value:
+ *        "UPDATE_PENDING_REVIEW")
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_UpdateRejected The
+ *        proposed spoke update has been rejected by the hub administrator.
+ *        (Value: "UPDATE_REJECTED")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 

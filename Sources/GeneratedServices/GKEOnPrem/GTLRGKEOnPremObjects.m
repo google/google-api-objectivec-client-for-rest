@@ -1900,6 +1900,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareAdminMetalLbConfig
+@dynamic enabled;
 @end
 
 

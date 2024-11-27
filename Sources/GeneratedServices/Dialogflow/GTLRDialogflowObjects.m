@@ -31,6 +31,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnecti
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_Unstructured = @"UNSTRUCTURED";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig.audioEncoding
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingAlaw = @"AUDIO_ENCODING_ALAW";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingAmr = @"AUDIO_ENCODING_AMR";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingAmrWb = @"AUDIO_ENCODING_AMR_WB";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingFlac = @"AUDIO_ENCODING_FLAC";
@@ -234,6 +235,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_M
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_ReportConflict = @"REPORT_CONFLICT";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig.audioEncoding
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAlaw = @"AUDIO_ENCODING_ALAW";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAmr = @"AUDIO_ENCODING_AMR";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAmrWb = @"AUDIO_ENCODING_AMR_WB";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingFlac = @"AUDIO_ENCODING_FLAC";
@@ -271,6 +273,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3NluSettings_ModelType_
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3NluSettings_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig.audioEncoding
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingAlaw = @"OUTPUT_AUDIO_ENCODING_ALAW";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16 = @"OUTPUT_AUDIO_ENCODING_LINEAR_16";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3 = @"OUTPUT_AUDIO_ENCODING_MP3";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp364Kbps = @"OUTPUT_AUDIO_ENCODING_MP3_64_KBPS";
@@ -3756,7 +3759,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Generator
-@dynamic displayName, name, placeholders, promptText;
+@dynamic displayName, modelParameter, name, placeholders, promptText;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3765,6 +3768,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorModelParameter
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorModelParameter
+@dynamic maxDecodeSteps, temperature, topK, topP;
 @end
 
 
@@ -7156,7 +7169,21 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet
-@dynamic text, title, uri;
+@dynamic metadata, text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -7681,7 +7708,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ConversationModel
 @dynamic articleSuggestionModelMetadata, createTime, datasets, displayName,
-         languageCode, name, smartReplyModelMetadata, state;
+         languageCode, name, satisfiesPzi, satisfiesPzs,
+         smartReplyModelMetadata, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8539,7 +8567,21 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet
-@dynamic text, title, uri;
+@dynamic metadata, text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

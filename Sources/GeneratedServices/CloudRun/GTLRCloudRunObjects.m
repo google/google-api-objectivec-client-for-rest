@@ -131,6 +131,11 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_LaunchStageU
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.encryptionKeyRevocationAction
+NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified = @"ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_PreventNew = @"PREVENT_NEW";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_Shutdown = @"SHUTDOWN";
+
 // GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.executionEnvironment
 NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1 = @"EXECUTION_ENVIRONMENT_GEN1";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
@@ -209,6 +214,7 @@ NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Sta
 
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.defaultLogsBucketBehavior
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified = @"DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket = @"LEGACY_BUCKET";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket = @"REGIONAL_USER_OWNED_BUCKET";
 
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.logging
@@ -307,7 +313,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild
 @dynamic baseImage, cacheImageUri, enableAutomaticUpdates, environmentVariables,
-         functionTarget, runtime;
+         functionTarget, projectDescriptor, runtime;
 @end
 
 
@@ -616,7 +622,15 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource
-@dynamic bucket, readOnly;
+@dynamic bucket, mountOptions, readOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mountOptions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1022,7 +1036,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
-@dynamic annotations, containers, encryptionKey, executionEnvironment,
+@dynamic annotations, containers, encryptionKey, encryptionKeyRevocationAction,
+         encryptionKeyShutdownDuration, executionEnvironment,
          healthCheckDisabled, labels, maxInstanceRequestConcurrency,
          nodeSelector, revision, scaling, serviceAccount, serviceMesh,
          sessionAffinity, timeout, volumes, vpcAccess;
@@ -1117,11 +1132,12 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_GoogleCloudRunV2Service
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
          createTime, creator, customAudiences, defaultUriDisabled, deleteTime,
-         descriptionProperty, ETag, expireTime, generation, ingress, labels,
-         lastModifier, latestCreatedRevision, latestReadyRevision, launchStage,
-         name, observedGeneration, reconciling, satisfiesPzs, scaling,
-         templateProperty, terminalCondition, traffic, trafficStatuses, uid,
-         updateTime, uri, urls;
+         descriptionProperty, ETag, expireTime, generation, ingress,
+         invokerIamDisabled, labels, lastModifier, latestCreatedRevision,
+         latestReadyRevision, launchStage, name, observedGeneration,
+         reconciling, satisfiesPzs, scaling, templateProperty,
+         terminalCondition, traffic, trafficStatuses, uid, updateTime, uri,
+         urls;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

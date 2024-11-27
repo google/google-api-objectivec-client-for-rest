@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Merchant API (merchantapi/reports_v1beta)
+//   Merchant API (merchantapi/reviews_v1beta)
 // Description:
 //   Programmatically manage your Merchant Center Accounts.
 // Documentation:

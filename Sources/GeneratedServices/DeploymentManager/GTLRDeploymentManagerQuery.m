@@ -66,7 +66,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsDelete
 
-@dynamic deletePolicy, deployment, project;
+@dynamic deletePolicy, deployment, headerBypassBillingFilter, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment {
@@ -89,7 +93,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsGet
 
-@dynamic deployment, project;
+@dynamic deployment, headerBypassBillingFilter, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment {
@@ -112,7 +120,12 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy
 
-@dynamic optionsRequestedPolicyVersion, project, resource;
+@dynamic headerBypassBillingFilter, optionsRequestedPolicyVersion, project,
+         resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                         resource:(NSString *)resource {
@@ -135,7 +148,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsInsert
 
-@dynamic createPolicy, preview, project;
+@dynamic createPolicy, headerBypassBillingFilter, preview, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project {
@@ -181,7 +198,12 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsPatch
 
-@dynamic createPolicy, deletePolicy, deployment, preview, project;
+@dynamic createPolicy, deletePolicy, deployment, headerBypassBillingFilter,
+         preview, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project
@@ -274,7 +296,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions
 
-@dynamic project, resource;
+@dynamic headerBypassBillingFilter, project, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithObject:(GTLRDeploymentManager_TestPermissionsRequest *)object
                         project:(NSString *)project
@@ -305,7 +331,12 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsUpdate
 
-@dynamic createPolicy, deletePolicy, deployment, preview, project;
+@dynamic createPolicy, deletePolicy, deployment, headerBypassBillingFilter,
+         preview, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project
@@ -336,7 +367,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_ManifestsGet
 
-@dynamic deployment, manifest, project;
+@dynamic deployment, headerBypassBillingFilter, manifest, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment
@@ -384,7 +419,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_OperationsGet
 
-@dynamic operation, project;
+@dynamic headerBypassBillingFilter, operation, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                        operation:(NSString *)operation {
@@ -426,7 +465,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_ResourcesGet
 
-@dynamic deployment, project, resource;
+@dynamic deployment, headerBypassBillingFilter, project, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"headerBypassBillingFilter" : @"header.bypassBillingFilter" };
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment

@@ -1112,7 +1112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @property(nonatomic, copy, nullable) NSString *quotaValidation;
 
 /**
- *  Optional. User-specified Service Account (SA) credentials to be used when
+ *  Required. User-specified Service Account (SA) credentials to be used when
  *  actuating resources. Format:
  *  `projects/{projectID}/serviceAccounts/{serviceAccount}`
  */
@@ -2034,7 +2034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @property(nonatomic, copy, nullable) NSString *previewMode;
 
 /**
- *  Optional. User-specified Service Account (SA) credentials to be used when
+ *  Required. User-specified Service Account (SA) credentials to be used when
  *  previewing resources. Format:
  *  `projects/{projectID}/serviceAccounts/{serviceAccount}`
  */

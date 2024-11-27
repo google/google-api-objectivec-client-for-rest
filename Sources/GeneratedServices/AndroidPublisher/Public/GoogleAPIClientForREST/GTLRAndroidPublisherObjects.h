@@ -64,7 +64,6 @@
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternalAccountIdentifiers;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
-@class GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails;
 @class GTLRAndroidPublisher_ExternalSubscription;
 @class GTLRAndroidPublisher_ExternalTransactionAddress;
 @class GTLRAndroidPublisher_ExternalTransactionTestPurchase;
@@ -101,6 +100,7 @@
 @class GTLRAndroidPublisher_MultiAbiTargeting;
 @class GTLRAndroidPublisher_OfferDetails;
 @class GTLRAndroidPublisher_OfferTag;
+@class GTLRAndroidPublisher_OneTimeCode;
 @class GTLRAndroidPublisher_OneTimeExternalTransaction;
 @class GTLRAndroidPublisher_OtherRecurringProduct;
 @class GTLRAndroidPublisher_OtherRegionsBasePlanConfig;
@@ -138,6 +138,7 @@
 @class GTLRAndroidPublisher_ScreenDensityTargeting;
 @class GTLRAndroidPublisher_SdkVersion;
 @class GTLRAndroidPublisher_SdkVersionTargeting;
+@class GTLRAndroidPublisher_SignupPromotion;
 @class GTLRAndroidPublisher_SplitApkMetadata;
 @class GTLRAndroidPublisher_SplitApkVariant;
 @class GTLRAndroidPublisher_StandaloneApkMetadata;
@@ -157,6 +158,7 @@
 @class GTLRAndroidPublisher_SystemApkOptions;
 @class GTLRAndroidPublisher_SystemFeature;
 @class GTLRAndroidPublisher_SystemInitiatedCancellation;
+@class GTLRAndroidPublisher_SystemOnChip;
 @class GTLRAndroidPublisher_Targeting;
 @class GTLRAndroidPublisher_TargetingInfo;
 @class GTLRAndroidPublisher_TargetingRuleScope;
@@ -182,6 +184,7 @@
 @class GTLRAndroidPublisher_UserCountrySet;
 @class GTLRAndroidPublisher_UserInitiatedCancellation;
 @class GTLRAndroidPublisher_UsesPermission;
+@class GTLRAndroidPublisher_VanityCode;
 @class GTLRAndroidPublisher_Variant;
 @class GTLRAndroidPublisher_VariantTargeting;
 @class GTLRAndroidPublisher_VoidedPurchase;
@@ -3199,6 +3202,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SystemFeature *> *requiredSystemFeatures;
 
+/**
+ *  Optional. The SoCs included by this selector. Only works for Android S+
+ *  devices.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SystemOnChip *> *systemOnChips;
+
 @end
 
 
@@ -3444,21 +3453,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Details about the first time a user/device completed a transaction using
- *  external offers.
- */
-@interface GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails : GTLRObject
-
-/**
- *  Required. The external transaction id of the first completed purchase made
- *  by the user.
- */
-@property(nonatomic, copy, nullable) NSString *externalTransactionId;
-
-@end
-
-
-/**
  *  Details of an external subscription.
  */
 @interface GTLRAndroidPublisher_ExternalSubscription : GTLRObject
@@ -3504,13 +3498,6 @@ GTLR_DEPRECATED
  *  including any refunds that may have been applied to this transaction.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *currentTaxAmount;
-
-/**
- *  Optional. Details about the first time a user/device completed a transaction
- *  using external offers. Not required for transactions made using user choice
- *  billing or alternative billing only.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails *externalOfferInitialAcquisitionDetails;
 
 /**
  *  Output only. The id of this transaction. All transaction ids under the same
@@ -4902,6 +4889,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A single use promotion code.
+ */
+@interface GTLRAndroidPublisher_OneTimeCode : GTLRObject
+@end
+
+
+/**
  *  Represents a one-time transaction.
  */
 @interface GTLRAndroidPublisher_OneTimeExternalTransaction : GTLRObject
@@ -5937,6 +5931,20 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The promotion applied on this item when purchased.
+ */
+@interface GTLRAndroidPublisher_SignupPromotion : GTLRObject
+
+/** A one-time code was applied. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeCode *oneTimeCode;
+
+/** A vanity code was applied. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_VanityCode *vanityCode;
+
+@end
+
+
+/**
  *  Holds data specific to Split APKs.
  */
 @interface GTLRAndroidPublisher_SplitApkMetadata : GTLRObject
@@ -6618,6 +6626,12 @@ GTLR_DEPRECATED
 /** The purchased product ID (for example, 'monthly001'). */
 @property(nonatomic, copy, nullable) NSString *productId;
 
+/**
+ *  Promotion details about this item. Only set if a promotion was applied
+ *  during signup.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SignupPromotion *signupPromotion;
+
 @end
 
 
@@ -6901,6 +6915,30 @@ GTLR_DEPRECATED
  *  Information specific to cancellations initiated by Google system.
  */
 @interface GTLRAndroidPublisher_SystemInitiatedCancellation : GTLRObject
+@end
+
+
+/**
+ *  Representation of a System-on-Chip (SoC) of an Android device. Can be used
+ *  to target S+ devices.
+ */
+@interface GTLRAndroidPublisher_SystemOnChip : GTLRObject
+
+/**
+ *  Required. The designer of the SoC, eg. "Google" Value of build property
+ *  "ro.soc.manufacturer"
+ *  https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+
+/**
+ *  Required. The model of the SoC, eg. "Tensor" Value of build property
+ *  "ro.soc.model"
+ *  https://developer.android.com/reference/android/os/Build#SOC_MODEL Required.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
 @end
 
 
@@ -7714,6 +7752,17 @@ GTLR_DEPRECATED
 
 /** The name of the permission requested. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A multiple use, predefined promotion code.
+ */
+@interface GTLRAndroidPublisher_VanityCode : GTLRObject
+
+/** The promotion code. */
+@property(nonatomic, copy, nullable) NSString *promotionCode;
 
 @end
 

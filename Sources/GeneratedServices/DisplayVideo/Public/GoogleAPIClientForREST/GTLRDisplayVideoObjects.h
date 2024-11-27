@@ -662,10 +662,226 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroupAd_EntityStatus_Enti
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroupAd_EntityStatus_EntityStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.adultExplicitSexualContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.armsAmmunitionContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.deathInjuryMilitaryConflictContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.debatedSensitiveSocialIssueContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.displayIabViewability
+
+/**
+ *  10%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability10;
+/**
+ *  20%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability20;
+/**
+ *  35%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability35;
+/**
+ *  50%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_50"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability50;
+/**
+ *  75%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_75"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability75;
+/**
+ *  Default value when not specified or is unknown in this version.
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewabilityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Adloox.excludedAdlooxCategories
 
 /**
- *  This enum is only a placeholder and it doesn't specify any Adloox option.
+ *  Default value when a Adloox category is not specified or is unknown in this
+ *  version.
  *
  *  Value: "ADLOOX_UNSPECIFIED"
  */
@@ -718,6 +934,308 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCatego
  *  Value: "VIOLENT_CONTENT_WEAPONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_ViolentContentWeapons;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.excludedFraudIvtMfaCategories
+
+/**
+ *  FRAUD, IVT, MFA.
+ *
+ *  Value: "FRAUD_IVT_MFA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedFraudIvtMfaCategories_FraudIvtMfa;
+/**
+ *  Default value when a Adloox Fraud, IVT, MFA category is not specified or is
+ *  unknown in this version.
+ *
+ *  Value: "FRAUD_IVT_MFA_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedFraudIvtMfaCategories_FraudIvtMfaCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.hateSpeechActsAggressionContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.illegalDrugsTobaccoEcigarettesVapingAlcoholContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.misinformationContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.obscenityProfanityContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.onlinePiracyContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.spamHarmfulContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.terrorismContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.videoIabViewability
+
+/**
+ *  10%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability10;
+/**
+ *  20%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability20;
+/**
+ *  35%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability35;
+/**
+ *  50%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_50"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability50;
+/**
+ *  75%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_75"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability75;
+/**
+ *  Default value when not specified or is unknown in this version.
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AdUrl.type
@@ -1574,6 +2092,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  *  Value: "EXCHANGE_TRITON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriton;
+/**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTubi;
 /**
  *  TVN.
  *
@@ -3784,6 +4308,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *  Value: "SDF_VERSION_7_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71;
+/**
+ *  SDF version 8. Read the [v8 migration
+ *  guide](/display-video/api/structured-data-file/v8-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -6234,6 +6766,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -6736,6 +7274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -7237,6 +7781,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_TRITON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton;
+/**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTubi;
 /**
  *  TVN.
  *
@@ -7767,6 +8317,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_TRITON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton;
+/**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTubi;
 /**
  *  TVN.
  *
@@ -9326,6 +9882,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -10567,6 +11129,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_TRITON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton;
+/**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTubi;
 /**
  *  TVN.
  *
@@ -12832,6 +13400,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71;
 /**
+ *  SDF version 8. Read the [v8 migration
+ *  guide](/display-video/api/structured-data-file/v8-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -12924,6 +13500,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71;
 /**
+ *  SDF version 8. Read the [v8 migration
+ *  guide](/display-video/api/structured-data-file/v8-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -12970,10 +13554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDrugs;
 /**
- *  YouTube videos embedded on websites outside of YouTube.com. Only applicable
- *  to YouTube and Partners line items. *Warning*: On **September 30, 2024**,
- *  this value will be sunset. [Read more about this announced
- *  change](/display-video/api/deprecations#features.yt_li_categories).
+ *  YouTube videos embedded on websites outside of YouTube.com.
  *
  *  Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO"
  */
@@ -12986,10 +13567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling;
 /**
- *  Video of live events streamed over the internet. Only applicable to YouTube
- *  and Partners line items. *Warning*: On **September 30, 2024**, this value
- *  will be sunset. [Read more about this announced
- *  change](/display-video/api/deprecations#features.yt_li_categories).
+ *  Video of live events streamed over the internet.
  *
  *  Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO"
  */
@@ -13122,10 +13700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDrugs;
 /**
- *  YouTube videos embedded on websites outside of YouTube.com. Only applicable
- *  to YouTube and Partners line items. *Warning*: On **September 30, 2024**,
- *  this value will be sunset. [Read more about this announced
- *  change](/display-video/api/deprecations#features.yt_li_categories).
+ *  YouTube videos embedded on websites outside of YouTube.com.
  *
  *  Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO"
  */
@@ -13138,10 +13713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling;
 /**
- *  Video of live events streamed over the internet. Only applicable to YouTube
- *  and Partners line items. *Warning*: On **September 30, 2024**, this value
- *  will be sunset. [Read more about this announced
- *  change](/display-video/api/deprecations#features.yt_li_categories).
+ *  Video of live events streamed over the internet.
  *
  *  Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO"
  */
@@ -14765,12 +15337,329 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Details of Adloox settings.
+ *  Details of Adloox brand safety settings.
  */
 @interface GTLRDisplayVideo_Adloox : GTLRObject
 
-/** Adloox's brand safety settings. */
+/**
+ *  Optional. Adult and Explicit Sexual Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adultExplicitSexualContent;
+
+/**
+ *  Optional. Arms and Ammunition Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *armsAmmunitionContent;
+
+/**
+ *  Optional. Crime and Harmful Acts Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent;
+
+/**
+ *  Optional. Death, Injury, or Military Conflict Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deathInjuryMilitaryConflictContent;
+
+/**
+ *  Optional. Debated Sensitive Social Issue Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *debatedSensitiveSocialIssueContent;
+
+/**
+ *  Optional. IAB viewability threshold for display ads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability10
+ *        10%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_10")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability20
+ *        20%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_20")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability35
+ *        35%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_35")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability50
+ *        50%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_50")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability75
+ *        75%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_75")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewabilityUnspecified
+ *        Default value when not specified or is unknown in this version.
+ *        (Value: "DISPLAY_IAB_VIEWABILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *displayIabViewability;
+
+/** Adloox categories to exclude. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedAdlooxCategories;
+
+/** Optional. Adloox's fraud IVT MFA categories to exclude. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedFraudIvtMfaCategories;
+
+/**
+ *  Optional. Hate Speech and Acts of Aggression Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hateSpeechActsAggressionContent;
+
+/**
+ *  Optional. Illegal Drugs/Alcohol Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *illegalDrugsTobaccoEcigarettesVapingAlcoholContent;
+
+/**
+ *  Optional. Misinformation Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *misinformationContent;
+
+/**
+ *  Optional. Obscenity and Profanity Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *obscenityProfanityContent;
+
+/**
+ *  Optional. Online Piracy Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *onlinePiracyContent;
+
+/**
+ *  Optional. Spam or Harmful Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spamHarmfulContent;
+
+/**
+ *  Optional. Terrorism Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *terrorismContent;
+
+/**
+ *  Optional. IAB viewability threshold for video ads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability10
+ *        10%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_10")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability20
+ *        20%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_20")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability35
+ *        35%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_35")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability50
+ *        50%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_50")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability75
+ *        75%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_75")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilityUnspecified
+ *        Default value when not specified or is unknown in this version.
+ *        (Value: "VIDEO_IAB_VIEWABILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *videoIabViewability;
 
 @end
 
@@ -14823,7 +15712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
-/** Optional. Required. Billing related settings of the advertiser. */
+/** Required. Billing related settings of the advertiser. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserBillingConfig *billingConfig;
 
 /** Required. Creative related settings of the advertiser. */
@@ -14937,7 +15826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AdvertiserBillingConfig : GTLRObject
 
 /**
- *  Optional. The ID of a billing profile assigned to the advertiser.
+ *  Required. The ID of a billing profile assigned to the advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -15498,6 +16387,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnited
@@ -19273,6 +20164,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SDF version 7.1. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_7_1")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8
+ *        SDF version 8. Read the [v8 migration
+ *        guide](/display-video/api/structured-data-file/v8-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_8")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -21670,6 +22565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnited
@@ -21869,6 +22766,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited
@@ -22069,6 +22968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTubi Tubi.
+ *        (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited
@@ -22272,6 +23173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited
@@ -23595,6 +24498,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton Triton.
  *        (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTubi Tubi.
+ *        (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited United.
@@ -24059,10 +24964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. The budget spending speed setting of the insertion order.
- *  *Warning*: Starting on **November 5, 2024**, pacing_type `PACING_TYPE_ASAP`
- *  will no longer be compatible with pacing_period `PACING_PERIOD_FLIGHT`.
- *  [Read more about this announced
- *  change](/display-video/api/deprecations#features.io_asap).
+ *  pacing_type `PACING_TYPE_ASAP` is not compatible with pacing_period
+ *  `PACING_PERIOD_FLIGHT`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Pacing *pacing;
 
@@ -24690,6 +25593,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton Triton.
  *        (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTubi Tubi.
+ *        (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited United.
@@ -27675,10 +28580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. The type of pacing that defines how the budget amount will be
- *  spent across the pacing_period. *Warning*: Starting on **November 5, 2024**,
- *  `PACING_TYPE_ASAP` will no longer be compatible with pacing_period
- *  `PACING_PERIOD_FLIGHT` for insertion orders. [Read more about this announced
- *  change](/display-video/api/deprecations#features.io_asap).
+ *  spent across the pacing_period. `PACING_TYPE_ASAP` is not compatible with
+ *  pacing_period `PACING_PERIOD_FLIGHT` for insertion orders.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_Pacing_PacingType_PacingTypeAhead Only
@@ -28968,6 +29871,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_7_1")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8 SDF version 8.
+ *        Read the [v8 migration
+ *        guide](/display-video/api/structured-data-file/v8-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_8")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -29040,6 +29947,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        version 7.1. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_7_1")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8 SDF
+ *        version 8. Read the [v8 migration
+ *        guide](/display-video/api/structured-data-file/v8-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_8")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -29161,21 +30072,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        drugs, as well as to drug paraphernalia or cultivation. (Value:
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryEmbeddedVideo
- *        YouTube videos embedded on websites outside of YouTube.com. Only
- *        applicable to YouTube and Partners line items. *Warning*: On
- *        **September 30, 2024**, this value will be sunset. [Read more about
- *        this announced
- *        change](/display-video/api/deprecations#features.yt_li_categories).
- *        (Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
+ *        YouTube videos embedded on websites outside of YouTube.com. (Value:
+ *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling
  *        Contains content related to betting or wagering in a real-world or
  *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryLiveStreamingVideo
- *        Video of live events streamed over the internet. Only applicable to
- *        YouTube and Partners line items. *Warning*: On **September 30, 2024**,
- *        this value will be sunset. [Read more about this announced
- *        change](/display-video/api/deprecations#features.yt_li_categories).
- *        (Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
+ *        Video of live events streamed over the internet. (Value:
+ *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryPolitics
  *        Political news and media, including discussions of social,
  *        governmental, and public policy. (Value:
@@ -29262,21 +30166,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        drugs, as well as to drug paraphernalia or cultivation. (Value:
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryEmbeddedVideo
- *        YouTube videos embedded on websites outside of YouTube.com. Only
- *        applicable to YouTube and Partners line items. *Warning*: On
- *        **September 30, 2024**, this value will be sunset. [Read more about
- *        this announced
- *        change](/display-video/api/deprecations#features.yt_li_categories).
- *        (Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
+ *        YouTube videos embedded on websites outside of YouTube.com. (Value:
+ *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling
  *        Contains content related to betting or wagering in a real-world or
  *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryLiveStreamingVideo
- *        Video of live events streamed over the internet. Only applicable to
- *        YouTube and Partners line items. *Warning*: On **September 30, 2024**,
- *        this value will be sunset. [Read more about this announced
- *        change](/display-video/api/deprecations#features.yt_li_categories).
- *        (Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
+ *        Video of live events streamed over the internet. (Value:
+ *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryPolitics
  *        Political news and media, including discussions of social,
  *        governmental, and public policy. (Value:
@@ -29551,11 +30448,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *audienceExpansionSeedListExcluded;
 
 /**
- *  Required. Whether to enable Optimized Targeting for the line item.
- *  *Warning*: Starting on **September 30, 2024**, optimized targeting will no
- *  longer be compatible with a subset of bid strategies. [Read more about this
- *  announced
- *  change](/display-video/api/deprecations#features.ot_bid_strategies).
+ *  Required. Whether to enable Optimized Targeting for the line item. Optimized
+ *  targeting is not compatible with all bid strategies. Attempting to set this
+ *  field to `true` for a line item using one of the following combinations of
+ *  BiddingStrategy fields and BiddingStrategyPerformanceGoalType will result in
+ *  an error: maximize_auto_spend_bid: *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED`
+ *  performance_goal_auto_bid: *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`
  *
  *  Uses NSNumber of boolValue.
  */

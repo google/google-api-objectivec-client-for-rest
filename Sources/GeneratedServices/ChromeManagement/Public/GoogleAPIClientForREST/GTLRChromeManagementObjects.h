@@ -60,6 +60,9 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrinterReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrintJob;
+@class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment;
+@class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData;
+@class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry;
 @class GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
@@ -88,6 +91,17 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -915,6 +929,84 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData.overallRiskLevel
+
+/**
+ *  Extension that represents a high risk.
+ *
+ *  Value: "RISK_LEVEL_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelHigh;
+/**
+ *  Extension that represents a low risk.
+ *
+ *  Value: "RISK_LEVEL_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelLow;
+/**
+ *  Extension that represents a medium risk.
+ *
+ *  Value: "RISK_LEVEL_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelMedium;
+/**
+ *  Risk level not specified.
+ *
+ *  Value: "RISK_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry.provider
+
+/**
+ *  CRXcavator.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator;
+/**
+ *  Spin.Ai.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi;
+/**
+ *  Default value when no provider is specified.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry.riskLevel
+
+/**
+ *  Extension that represents a high risk.
+ *
+ *  Value: "RISK_LEVEL_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelHigh;
+/**
+ *  Extension that represents a low risk.
+ *
+ *  Value: "RISK_LEVEL_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelLow;
+/**
+ *  Extension that represents a medium risk.
+ *
+ *  Value: "RISK_LEVEL_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelMedium;
+/**
+ *  Risk level not specified.
+ *
+ *  Value: "RISK_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallReason
 
 /**
@@ -1289,6 +1381,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceMenu;
 /**
+ *  Application launched from navigation capturing.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_NAVIGATION_CAPTURING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNavigationCapturing;
+/**
  *  Application launched from the new tab page.
  *
  *  Value: "APPLICATION_LAUNCH_SOURCE_NEW_TAB_PAGE"
@@ -1392,6 +1490,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "APPLICATION_LAUNCH_SOURCE_URL_HANDLER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUrlHandler;
+/**
+ *  Application launched from web install API.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_WEB_INSTALL_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWebInstallApi;
 /**
  *  Application launched from welcome tour.
  *
@@ -1980,6 +2084,321 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "MEMORY_ENCRYPTION_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess.signatureAlgorithm
+
+/**
+ *  The PKCS#1 digest info is built by the server-side and sent to the client
+ *  unhashed. The client is responsible for signing and hashing. Uses the P-256
+ *  curve.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256;
+/**
+ *  The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
+ *  constructed on the server-side. The client should sign using RSA with PKCS#1
+ *  v1.5 padding.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential.keyTrustLevel
+
+/**
+ *  Represents a HW key.
+ *
+ *  Value: "CHROME_BROWSER_HW_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserHwKey;
+/**
+ *  Represents an OS key.
+ *
+ *  Value: "CHROME_BROWSER_OS_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserOsKey;
+/**
+ *  Represents an unspecified public key trust level.
+ *
+ *  Value: "KEY_TRUST_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_KeyTrustLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential.keyType
+
+/**
+ *  Represents an EC key.
+ *
+ *  Value: "EC_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_EcKey;
+/**
+ *  Represents an unspecified public key type.
+ *
+ *  Value: "KEY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_KeyTypeUnspecified;
+/**
+ *  Represents a RSA key.
+ *
+ *  Value: "RSA_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.affiliationState
+
+/**
+ *  Affiliated - Both the profile and the managed browser are managed by the
+ *  same organization.
+ *
+ *  Value: "AFFILIATED_CLOUD_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliatedCloudManaged;
+/**
+ *  Unspecified affiliation state.
+ *
+ *  Value: "AFFILIATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliationStateUnspecified;
+/**
+ *  Unaffiliated - A managed profile that appears on a totally unamanaged
+ *  browser.
+ *
+ *  Value: "PROFILE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_ProfileOnly;
+/**
+ *  Unaffiliated - A managed profile that appears on a managed browser that is
+ *  cloud managed by a different organization (using Chrome Browser Cloud
+ *  Management).
+ *
+ *  Value: "UNAFFILIATED_CLOUD_MACHINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedCloudMachine;
+/**
+ *  Unaffiliated - but we do not have the details for the type of unaffiliated
+ *  profile.
+ *
+ *  Value: "UNAFFILIATED_GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedGeneric;
+/**
+ *  Unaffiliated - A managed profile that appears on a machine that is locally
+ *  managed by a different organization (through platform management mechanisms
+ *  like GPO).
+ *
+ *  Value: "UNAFFILIATED_LOCAL_MACHINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedLocalMachine;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.identityProvider
+
+/**
+ *  Represents an external identity provider.
+ *
+ *  Value: "EXTERNAL_IDENTITY_PROVIDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_ExternalIdentityProvider;
+/**
+ *  Represents a Google identity provider.
+ *
+ *  Value: "GOOGLE_IDENTITY_PROVIDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_GoogleIdentityProvider;
+/**
+ *  Represents an unspecified identity provider.
+ *
+ *  Value: "IDENTITY_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_IdentityProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
+
+/**
+ *  Represents a Chrome browser device.
+ *
+ *  Value: "CHROME_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_ChromeBrowser;
+/**
+ *  Represents an unspecified device type.
+ *
+ *  Value: "DEVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_DeviceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
+
+/**
+ *  Represents a machine level user cloud policy.
+ *
+ *  Value: "MACHINE_LEVEL_USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineLevelUserCloud;
+/**
+ *  Represents a machine level merged policy.
+ *
+ *  Value: "MACHINE_MERGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineMerged;
+/**
+ *  Represents a machine level platform policy.
+ *
+ *  Value: "MACHINE_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachinePlatform;
+/**
+ *  Represents an unspecified policy source.
+ *
+ *  Value: "POLICY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_PolicySourceUnspecified;
+/**
+ *  Represents a user level cloud policy.
+ *
+ *  Value: "USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserCloud;
+/**
+ *  Represents a user level platform policy.
+ *
+ *  Value: "USER_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserPlatform;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData.extensionType
+
+/**
+ *  Represents an app.
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_App;
+/**
+ *  Represents an extension.
+ *
+ *  Value: "EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Extension;
+/**
+ *  Represents an unspecified extension type.
+ *
+ *  Value: "EXTENSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_ExtensionTypeUnspecified;
+/**
+ *  Represents a hosted app.
+ *
+ *  Value: "HOSTED_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_HostedApp;
+/**
+ *  Represents a theme.
+ *
+ *  Value: "THEME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Theme;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData.installationType
+
+/**
+ *  Represents an installation by admin.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Admin;
+/**
+ *  Represents a development installation type.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Development;
+/**
+ *  Represents an unspecified installation type.
+ *
+ *  Value: "INSTALLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_InstallationTypeUnspecified;
+/**
+ *  Represents instances of the extension having mixed installation types.
+ *
+ *  Value: "MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Multiple;
+/**
+ *  Represents a normal installation type.
+ *
+ *  Value: "NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Normal;
+/**
+ *  Represents an installation type that is not covered in the other options.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Other;
+/**
+ *  Represents a sideload installation type.
+ *
+ *  Value: "SIDELOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Sideload;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData.source
+
+/**
+ *  Represents a machine level user cloud policy.
+ *
+ *  Value: "MACHINE_LEVEL_USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineLevelUserCloud;
+/**
+ *  Represents a machine level merged policy.
+ *
+ *  Value: "MACHINE_MERGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineMerged;
+/**
+ *  Represents a machine level platform policy.
+ *
+ *  Value: "MACHINE_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachinePlatform;
+/**
+ *  Represents an unspecified policy source.
+ *
+ *  Value: "POLICY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_PolicySourceUnspecified;
+/**
+ *  Represents a user level cloud policy.
+ *
+ *  Value: "USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserCloud;
+/**
+ *  Represents a user level platform policy.
+ *
+ *  Value: "USER_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform;
 
 /**
  *  Android app information.
@@ -3831,6 +4250,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. Permissions of the installed app. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+/**
+ *  Output only. If available, the risk assessment data about this extension.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData *riskAssessment;
+
 @end
 
 
@@ -4479,6 +4903,96 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Risk assessment for a Chrome extension.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment : GTLRObject
+
+/**
+ *  Risk assessment for the extension. Currently, this is a numerical value, and
+ *  its interpretation is specific to each risk assessment provider.
+ */
+@property(nonatomic, copy, nullable) NSString *assessment;
+
+/**
+ *  A URL that a user can navigate to for more information about the risk
+ *  assessment.
+ */
+@property(nonatomic, copy, nullable) NSString *detailsUrl;
+
+/** The version of the extension that this assessment applies to. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Risk assessment data about an extension/app.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData : GTLRObject
+
+/** Individual risk assessments. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry *> *entries;
+
+/**
+ *  Overall assessed risk level across all entries. This will be the highest
+ *  risk level from all entries.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelHigh
+ *        Extension that represents a high risk. (Value: "RISK_LEVEL_HIGH")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelLow
+ *        Extension that represents a low risk. (Value: "RISK_LEVEL_LOW")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelMedium
+ *        Extension that represents a medium risk. (Value: "RISK_LEVEL_MEDIUM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelUnspecified
+ *        Risk level not specified. (Value: "RISK_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *overallRiskLevel;
+
+@end
+
+
+/**
+ *  One risk assessment entry.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry : GTLRObject
+
+/**
+ *  The risk assessment provider from which this entry comes from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator
+ *        CRXcavator. (Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi
+ *        Spin.Ai. (Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderUnspecified
+ *        Default value when no provider is specified. (Value:
+ *        "RISK_ASSESSMENT_PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+/** The details of the provider's risk assessment. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment *riskAssessment;
+
+/**
+ *  The bucketed risk level for the risk assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelHigh
+ *        Extension that represents a high risk. (Value: "RISK_LEVEL_HIGH")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelLow
+ *        Extension that represents a low risk. (Value: "RISK_LEVEL_LOW")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelMedium
+ *        Extension that represents a medium risk. (Value: "RISK_LEVEL_MEDIUM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelUnspecified
+ *        Risk level not specified. (Value: "RISK_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *riskLevel;
+
+@end
+
+
+/**
  *  Runtime counters retrieved from CPU. Currently the runtime counters
  *  telemetry is only supported by Intel vPro PSR on Gen 14+.
  */
@@ -4823,6 +5337,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceMenu
  *        Application launched from menu. (Value:
  *        "APPLICATION_LAUNCH_SOURCE_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNavigationCapturing
+ *        Application launched from navigation capturing. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_NAVIGATION_CAPTURING")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNewTabPage
  *        Application launched from the new tab page. (Value:
  *        "APPLICATION_LAUNCH_SOURCE_NEW_TAB_PAGE")
@@ -4876,6 +5393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUrlHandler
  *        Application launched from URL handler. (Value:
  *        "APPLICATION_LAUNCH_SOURCE_URL_HANDLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWebInstallApi
+ *        Application launched from web install API. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_WEB_INSTALL_API")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWelcomeTour
  *        Application launched from welcome tour. (Value:
  *        "APPLICATION_LAUNCH_SOURCE_WELCOME_TOUR")
@@ -5789,6 +6309,678 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Request justification as entered by the user. */
 @property(nonatomic, copy, nullable) NSString *justification;
+
+@end
+
+
+/**
+ *  A certificate provisioning process.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess : GTLRObject
+
+/**
+ *  Output only. A JSON string that contains the administrator-provided
+ *  configuration for the certification authority service. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *caConnectionAdapterConfigReference;
+
+/**
+ *  Output only. The client certificate is being provisioned for a ChromeOS
+ *  device. This contains information about the device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice *chromeOsDevice;
+
+/**
+ *  Output only. The client certificate is being provisioned for a ChromeOS user
+ *  session. This contains information about the user session.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession *chromeOsUserSession;
+
+/**
+ *  Output only. A message describing why this `CertificateProvisioningProcess`
+ *  failed. Presence of this field indicates that the
+ *  `CertificateProvisioningProcess` has failed.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/**
+ *  Output only. The issued certificate for this
+ *  `CertificateProvisioningProcess` in PEM format.
+ */
+@property(nonatomic, copy, nullable) NSString *issuedCertificate;
+
+/**
+ *  Identifier. Resource name of the `CertificateProvisioningProcess`. The name
+ *  pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. A JSON string that contains the administrator-provided
+ *  configuration for the certificate provisioning profile. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *profileAdapterConfigReference;
+
+/** Output only. The ID of the certificate provisioning profile. */
+@property(nonatomic, copy, nullable) NSString *provisioningProfileId;
+
+/**
+ *  Output only. The signature of `signature_algorithm`, generated using the
+ *  client's private key using `signature_algorithm`. This field is only present
+ *  after the`SignData` operation has finished.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+/**
+ *  Output only. The signature algorithm that the adapter expects the client and
+ *  backend components to use when processing `sign_data`. This field is only
+ *  present after the `SignData` operation has been initiated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256
+ *        The PKCS#1 digest info is built by the server-side and sent to the
+ *        client unhashed. The client is responsible for signing and hashing.
+ *        Uses the P-256 curve. (Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256
+ *        The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
+ *        constructed on the server-side. The client should sign using RSA with
+ *        PKCS#1 v1.5 padding. (Value:
+ *        "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SIGNATURE_ALGORITHM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signatureAlgorithm;
+
+/**
+ *  Output only. The data that the client was asked to sign. This field is only
+ *  present after the `SignData` operation has been initiated.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signData;
+
+/**
+ *  Output only. Server-generated timestamp of when the certificate provisioning
+ *  process has been created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The public key for which a certificate should be provisioned.
+ *  Represented as a DER-encoded X.509 SubjectPublicKeyInfo.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *subjectPublicKeyInfo;
+
+@end
+
+
+/**
+ *  Describes the ChromeOS device that a `CertificateProvisioningProcess`
+ *  belongs to.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice : GTLRObject
+
+/**
+ *  Output only. The unique Directory API ID of the device. This value is the
+ *  same as the Admin Console's Directory API ID in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceDirectoryApiId;
+
+/**
+ *  Output only. Device serial number. This value is the same as the Admin
+ *  Console's Serial Number in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+@end
+
+
+/**
+ *  Describes the ChromeOS user session that a `CertificateProvisioningProcess`
+ *  belongs to.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession : GTLRObject
+
+/**
+ *  Output only. This field contains information about the ChromeOS device that
+ *  the user session is running on. It is only set if the user session is
+ *  affiliated, i.e. if the user is managed by the same organization that
+ *  managed the ChromeOS device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice *chromeOsDevice;
+
+/** Output only. The unique Directory API ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userDirectoryApiId;
+
+/** Output only. The primary e-mail address of the user. */
+@property(nonatomic, copy, nullable) NSString *userPrimaryEmail;
+
+@end
+
+
+/**
+ *  Metadata for the long-running operation returned by signData.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataMetadata : GTLRObject
+
+/** Output only. Start time of the SignData operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Response message for requesting a signature from the client that initated a
+ *  certificate provisioning process.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataResponse : GTLRObject
+
+/**
+ *  Output only. The certificate provisioning process. The signature generated
+ *  by the client will be available in the `signature` field of
+ *  `CertificateProvisioningProcess`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess *certificateProvisioningProcess;
+
+@end
+
+
+/**
+ *  Information of public key associated with a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential : GTLRObject
+
+/** Output only. Latest rotation timestamp of the public key rotation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *keyRotationTime;
+
+/**
+ *  Output only. Trust level of the public key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserHwKey
+ *        Represents a HW key. (Value: "CHROME_BROWSER_HW_KEY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserOsKey
+ *        Represents an OS key. (Value: "CHROME_BROWSER_OS_KEY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_KeyTrustLevelUnspecified
+ *        Represents an unspecified public key trust level. (Value:
+ *        "KEY_TRUST_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *keyTrustLevel;
+
+/**
+ *  Output only. Type of the public key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_EcKey
+ *        Represents an EC key. (Value: "EC_KEY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_KeyTypeUnspecified
+ *        Represents an unspecified public key type. (Value:
+ *        "KEY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey
+ *        Represents a RSA key. (Value: "RSA_KEY")
+ */
+@property(nonatomic, copy, nullable) NSString *keyType;
+
+/**
+ *  Output only. Value of the public key.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *publicKey;
+
+@end
+
+
+/**
+ *  A representation of a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile : GTLRObject
+
+/**
+ *  Output only. The specific affiliation state of the profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliatedCloudManaged
+ *        Affiliated - Both the profile and the managed browser are managed by
+ *        the same organization. (Value: "AFFILIATED_CLOUD_MANAGED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliationStateUnspecified
+ *        Unspecified affiliation state. (Value:
+ *        "AFFILIATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_ProfileOnly
+ *        Unaffiliated - A managed profile that appears on a totally unamanaged
+ *        browser. (Value: "PROFILE_ONLY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedCloudMachine
+ *        Unaffiliated - A managed profile that appears on a managed browser
+ *        that is cloud managed by a different organization (using Chrome
+ *        Browser Cloud Management). (Value: "UNAFFILIATED_CLOUD_MACHINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedGeneric
+ *        Unaffiliated - but we do not have the details for the type of
+ *        unaffiliated profile. (Value: "UNAFFILIATED_GENERIC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedLocalMachine
+ *        Unaffiliated - A managed profile that appears on a machine that is
+ *        locally managed by a different organization (through platform
+ *        management mechanisms like GPO). (Value: "UNAFFILIATED_LOCAL_MACHINE")
+ */
+@property(nonatomic, copy, nullable) NSString *affiliationState;
+
+/** Optional. Location of the profile annotated by the admin. */
+@property(nonatomic, copy, nullable) NSString *annotatedLocation;
+
+/** Optional. User of the profile annotated by the admin. */
+@property(nonatomic, copy, nullable) NSString *annotatedUser;
+
+/** Output only. Attestation credential information of the profile. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential *attestationCredential;
+
+/** Output only. Channel of the browser on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *browserChannel;
+
+/** Output only. Version of the browser on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Output only. Basic information of the device on which the profile exists.
+ *  This information is only available for the affiliated profiles.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo *deviceInfo;
+
+/** Output only. Profile display name set by client. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Etag of this ChromeBrowserProfile resource. This etag can be
+ *  used with UPDATE operation to ensure consistency.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Number of extensions installed on the profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extensionCount;
+
+/** Output only. Timestamp of the first enrollment of the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstEnrollmentTime;
+
+/**
+ *  Output only. Identify provider of the profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_ExternalIdentityProvider
+ *        Represents an external identity provider. (Value:
+ *        "EXTERNAL_IDENTITY_PROVIDER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_GoogleIdentityProvider
+ *        Represents a Google identity provider. (Value:
+ *        "GOOGLE_IDENTITY_PROVIDER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_IdentityProviderUnspecified
+ *        Represents an unspecified identity provider. (Value:
+ *        "IDENTITY_PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *identityProvider;
+
+/** Output only. Timestamp of the latest activity by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActivityTime;
+
+/** Output only. Timestamp of the latest policy fetch by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyFetchTime;
+
+/** Output only. Timestamp of the latest policy sync by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicySyncTime;
+
+/** Output only. Timestamp of the latest status report by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastStatusReportTime;
+
+/**
+ *  Identifier. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. OS platform of the device on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *osPlatformType;
+
+/**
+ *  Output only. Major OS version of the device on which the profile exists.
+ *  (i.e. Windows 10)
+ */
+@property(nonatomic, copy, nullable) NSString *osPlatformVersion;
+
+/** Output only. OS version of the device on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/**
+ *  Output only. Number of policies applied on the profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyCount;
+
+/** Output only. Chrome client side profile ID. */
+@property(nonatomic, copy, nullable) NSString *profileId;
+
+/**
+ *  Output only. Profile permanent ID is the unique identifier of a profile
+ *  within one customer.
+ */
+@property(nonatomic, copy, nullable) NSString *profilePermanentId;
+
+/**
+ *  Output only. Detailed reporting data of the profile. This information is
+ *  only available when the profile reporting policy is enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData *reportingData;
+
+/** Output only. Email address of the user to which the profile belongs. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+/**
+ *  Output only. Unique Directory API ID of the user that can be used in Admin
+ *  SDK Users API.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Information of a device that runs a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo : GTLRObject
+
+/**
+ *  Output only. Device ID that identifies the affiliated device on which the
+ *  profile exists. If the device type is CHROME_BROWSER, then this represents a
+ *  unique Directory API ID of the device that can be used in Admin SDK Browsers
+ *  API.
+ */
+@property(nonatomic, copy, nullable) NSString *affiliatedDeviceId;
+
+/**
+ *  Output only. Type of the device on which the profile exists.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_ChromeBrowser
+ *        Represents a Chrome browser device. (Value: "CHROME_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_DeviceTypeUnspecified
+ *        Represents an unspecified device type. (Value:
+ *        "DEVICE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+/** Output only. Hostname of the device on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Output only. Machine name of the device on which the profile exists. On
+ *  platforms which do not report the machine name (currently iOS and Android)
+ *  this is instead set to the browser's device_id - but note that this is a
+ *  different device_id than the |affiliated_device_id|.
+ */
+@property(nonatomic, copy, nullable) NSString *machine;
+
+@end
+
+
+/**
+ *  Response to ListChromeBrowserProfiles method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "chromeBrowserProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfilesResponse : GTLRCollectionObject
+
+/**
+ *  The list of profiles returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile *> *chromeBrowserProfiles;
+
+/** The pagination token that can be used to list the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total size represents an estimated number of resources returned. Not
+ *  guaranteed to be accurate above 10k profiles.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Reporting data of a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData : GTLRObject
+
+/**
+ *  Output only. Executable path of the installed Chrome browser. A valid path
+ *  is included only in affiliated profiles.
+ */
+@property(nonatomic, copy, nullable) NSString *browserExecutablePath;
+
+/** Output only. Information of the extensions installed on the profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData *> *extensionData;
+
+/** Output only. Information of the policies applied on the extensions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData *> *extensionPolicyData;
+
+/**
+ *  Output only. Updated version of a browser, if it is different from the
+ *  active browser version.
+ */
+@property(nonatomic, copy, nullable) NSString *installedBrowserVersion;
+
+/** Output only. Information of the policies applied on the profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData *> *policyData;
+
+/**
+ *  Output only. Path of the profile. A valid path is included only in
+ *  affiliated profiles.
+ */
+@property(nonatomic, copy, nullable) NSString *profilePath;
+
+@end
+
+
+/**
+ *  Information of conflicting policy applied on a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData : GTLRObject
+
+/**
+ *  Output only. Source of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineLevelUserCloud
+ *        Represents a machine level user cloud policy. (Value:
+ *        "MACHINE_LEVEL_USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineMerged
+ *        Represents a machine level merged policy. (Value: "MACHINE_MERGED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachinePlatform
+ *        Represents a machine level platform policy. (Value:
+ *        "MACHINE_PLATFORM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_PolicySourceUnspecified
+ *        Represents an unspecified policy source. (Value:
+ *        "POLICY_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserCloud
+ *        Represents a user level cloud policy. (Value: "USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserPlatform
+ *        Represents a user level platform policy. (Value: "USER_PLATFORM")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  Information of an extension installed on a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData : GTLRObject
+
+/**
+ *  Output only. Description of the extension.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. ID of the extension. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/**
+ *  Output only. Type of the extension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_App
+ *        Represents an app. (Value: "APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Extension
+ *        Represents an extension. (Value: "EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_ExtensionTypeUnspecified
+ *        Represents an unspecified extension type. (Value:
+ *        "EXTENSION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_HostedApp
+ *        Represents a hosted app. (Value: "HOSTED_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Theme
+ *        Represents a theme. (Value: "THEME")
+ */
+@property(nonatomic, copy, nullable) NSString *extensionType;
+
+/** Output only. The URL of the homepage of the extension. */
+@property(nonatomic, copy, nullable) NSString *homepageUri;
+
+/**
+ *  Output only. Installation type of the extension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Admin
+ *        Represents an installation by admin. (Value: "ADMIN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Development
+ *        Represents a development installation type. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_InstallationTypeUnspecified
+ *        Represents an unspecified installation type. (Value:
+ *        "INSTALLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Multiple
+ *        Represents instances of the extension having mixed installation types.
+ *        (Value: "MULTIPLE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Normal
+ *        Represents a normal installation type. (Value: "NORMAL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Other
+ *        Represents an installation type that is not covered in the other
+ *        options. (Value: "OTHER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Sideload
+ *        Represents a sideload installation type. (Value: "SIDELOAD")
+ */
+@property(nonatomic, copy, nullable) NSString *installationType;
+
+/**
+ *  Output only. Represents whether the user disabled the extension.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDisabled;
+
+/**
+ *  Output only. Represents whether the extension is from the webstore.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isWebstoreExtension;
+
+/**
+ *  Output only. Manifest version of the extension.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manifestVersion;
+
+/** Output only. Name of the extension. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Permissions requested by the extension. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/** Output only. Version of the extension. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Information of the policies applied on an extension.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData : GTLRObject
+
+/** Output only. ID of the extension. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/** Output only. Name of the extension. */
+@property(nonatomic, copy, nullable) NSString *extensionName;
+
+/** Output only. Information of the policies applied on the extension. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData *> *policyData;
+
+@end
+
+
+/**
+ *  Information of a policy applied on a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData : GTLRObject
+
+/** Output only. Conflicting policy information. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData *> *conflicts;
+
+/** Output only. Error message of the policy, if any. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** Output only. Name of the policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Source of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineLevelUserCloud
+ *        Represents a machine level user cloud policy. (Value:
+ *        "MACHINE_LEVEL_USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineMerged
+ *        Represents a machine level merged policy. (Value: "MACHINE_MERGED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachinePlatform
+ *        Represents a machine level platform policy. (Value:
+ *        "MACHINE_PLATFORM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_PolicySourceUnspecified
+ *        Represents an unspecified policy source. (Value:
+ *        "POLICY_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserCloud
+ *        Represents a user level cloud policy. (Value: "USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform
+ *        Represents a user level platform policy. (Value: "USER_PLATFORM")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** Output only. Value of the policy. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

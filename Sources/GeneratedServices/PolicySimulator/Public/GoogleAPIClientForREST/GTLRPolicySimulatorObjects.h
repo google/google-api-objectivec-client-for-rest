@@ -25,6 +25,7 @@
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy;
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpec;
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule;
+@class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters;
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRuleStringValues;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessTuple;
@@ -980,11 +981,34 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) NSNumber *enforce;
 
 /**
+ *  Optional. Required for GMCs if parameters defined in constraints. Pass
+ *  parameter values when policy enforcement is enabled. Ensure that parameter
+ *  value types match those defined in the constraint definition. For example: {
+ *  "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true }
+ */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters *parameters;
+
+/**
  *  List of values to be used for this policy rule. This field can be set only
  *  in policies for list constraints.
  */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRuleStringValues *values;
 
+@end
+
+
+/**
+ *  Optional. Required for GMCs if parameters defined in constraints. Pass
+ *  parameter values when policy enforcement is enabled. Ensure that parameter
+ *  value types match those defined in the constraint definition. For example: {
+ *  "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters : GTLRObject
 @end
 
 

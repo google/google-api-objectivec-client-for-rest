@@ -19,6 +19,11 @@ NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_DataRead = @"DA
 NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRNetworkconnectivity_ConsumerPscConfig.ipVersion
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_Ipv4 = @"IPV4";
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_Ipv6 = @"IPV6";
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_IpVersion_IpVersionUnspecified = @"IP_VERSION_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_ConsumerPscConfig.state
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing = @"CONNECTION_POLICY_MISSING";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConsumerInstanceProjectNotAllowlisted = @"CONSUMER_INSTANCE_PROJECT_NOT_ALLOWLISTED";
@@ -32,9 +37,16 @@ NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorC
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorInternal = @"ERROR_INTERNAL";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorProducerSide = @"ERROR_PRODUCER_SIDE";
 
+// GTLRNetworkconnectivity_ConsumerPscConnection.ipVersion
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_Ipv4 = @"IPV4";
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_Ipv6 = @"IPV6";
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_IpVersion_IpVersionUnspecified = @"IP_VERSION_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_ConsumerPscConnection.state
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_CreateRepairing = @"CREATE_REPAIRING";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_DeleteRepairing = @"DELETE_REPAIRING";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Deleting = @"DELETING";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Failed = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -110,12 +122,28 @@ NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorConsumerS
 NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorInternal = @"ERROR_INTERNAL";
 NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorProducerSide = @"ERROR_PRODUCER_SIDE";
 
+// GTLRNetworkconnectivity_PscConnection.ipVersion
+NSString * const kGTLRNetworkconnectivity_PscConnection_IpVersion_Ipv4 = @"IPV4";
+NSString * const kGTLRNetworkconnectivity_PscConnection_IpVersion_Ipv6 = @"IPV6";
+NSString * const kGTLRNetworkconnectivity_PscConnection_IpVersion_IpVersionUnspecified = @"IP_VERSION_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_PscConnection.state
 NSString * const kGTLRNetworkconnectivity_PscConnection_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkconnectivity_PscConnection_State_CreateRepairing = @"CREATE_REPAIRING";
 NSString * const kGTLRNetworkconnectivity_PscConnection_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkconnectivity_PscConnection_State_DeleteRepairing = @"DELETE_REPAIRING";
 NSString * const kGTLRNetworkconnectivity_PscConnection_State_Deleting = @"DELETING";
 NSString * const kGTLRNetworkconnectivity_PscConnection_State_Failed = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_PscConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkconnectivity_PscPropagationStatus.code
+NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorConsumerQuotaExceeded = @"ERROR_CONSUMER_QUOTA_EXCEEDED";
+NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerNatIpSpaceExhausted = @"ERROR_PRODUCER_NAT_IP_SPACE_EXHAUSTED";
+NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerPropagatedConnectionLimitExceeded = @"ERROR_PRODUCER_PROPAGATED_CONNECTION_LIMIT_EXCEEDED";
+NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerQuotaExceeded = @"ERROR_PRODUCER_QUOTA_EXCEEDED";
+NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_Propagating = @"PROPAGATING";
+NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_Ready = @"READY";
 
 // GTLRNetworkconnectivity_RegionalEndpoint.accessType
 NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
@@ -160,6 +188,7 @@ NSString * const kGTLRNetworkconnectivity_ServiceConnectionPolicy_Infrastructure
 
 // GTLRNetworkconnectivity_Spoke.spokeType
 NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_InterconnectAttachment = @"INTERCONNECT_ATTACHMENT";
+NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_ProducerVpcNetwork = @"PRODUCER_VPC_NETWORK";
 NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_RouterAppliance = @"ROUTER_APPLIANCE";
 NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_SpokeTypeUnspecified = @"SPOKE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_VpcNetwork = @"VPC_NETWORK";
@@ -193,9 +222,13 @@ NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_
 NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Paused = @"PAUSED";
 NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_PendingReview = @"PENDING_REVIEW";
 NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Rejected = @"REJECTED";
+NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdateFailed = @"UPDATE_FAILED";
+NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdatePendingReview = @"UPDATE_PENDING_REVIEW";
+NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_UpdateRejected = @"UPDATE_REJECTED";
 
 // GTLRNetworkconnectivity_SpokeTypeCount.spokeType
 NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_InterconnectAttachment = @"INTERCONNECT_ATTACHMENT";
+NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_ProducerVpcNetwork = @"PRODUCER_VPC_NETWORK";
 NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_RouterAppliance = @"ROUTER_APPLIANCE";
 NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_SpokeTypeUnspecified = @"SPOKE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_VpcNetwork = @"VPC_NETWORK";
@@ -207,6 +240,9 @@ NSString * const kGTLRNetworkconnectivity_StateReason_Code_Failed = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_StateReason_Code_Paused = @"PAUSED";
 NSString * const kGTLRNetworkconnectivity_StateReason_Code_PendingReview = @"PENDING_REVIEW";
 NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rejected = @"REJECTED";
+NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdateFailed = @"UPDATE_FAILED";
+NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdatePendingReview = @"UPDATE_PENDING_REVIEW";
+NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdateRejected = @"UPDATE_REJECTED";
 
 // GTLRNetworkconnectivity_Warnings.code
 NSString * const kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified = @"RESOURCE_BEING_MODIFIED";
@@ -311,7 +347,7 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConfig
-@dynamic consumerInstanceProject, disableGlobalAccess, network,
+@dynamic consumerInstanceProject, disableGlobalAccess, ipVersion, network,
          producerInstanceId, producerInstanceMetadata, project,
          serviceAttachmentIpAddressMap, state;
 @end
@@ -351,9 +387,10 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConnection
-@dynamic error, errorInfo, errorType, forwardingRule, gceOperation, ip, network,
-         producerInstanceId, producerInstanceMetadata, project, pscConnectionId,
-         selectedSubnetwork, serviceAttachmentUri, state;
+@dynamic error, errorInfo, errorType, forwardingRule, gceOperation, ip,
+         ipVersion, network, producerInstanceId, producerInstanceMetadata,
+         project, pscConnectionId, selectedSubnetwork, serviceAttachmentUri,
+         state;
 @end
 
 
@@ -601,6 +638,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_HubStatusEntry
+//
+
+@implementation GTLRNetworkconnectivity_HubStatusEntry
+@dynamic count, groupBy, pscPropagationStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_InterconnectAttachment
 //
 
@@ -661,6 +708,26 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
   NSDictionary<NSString *, Class> *map = @{
     @"includeImportRanges" : [NSString class],
     @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_LinkedProducerVpcNetwork
+//
+
+@implementation GTLRNetworkconnectivity_LinkedProducerVpcNetwork
+@dynamic excludeExportRanges, includeExportRanges, network, peering,
+         producerNetwork, serviceConsumerVpcSpoke;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludeExportRanges" : [NSString class],
+    @"includeExportRanges" : [NSString class]
   };
   return map;
 }
@@ -1268,7 +1335,7 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_PscConnection
 @dynamic consumerAddress, consumerForwardingRule, consumerTargetProject, error,
-         errorInfo, errorType, gceOperation, producerInstanceId,
+         errorInfo, errorType, gceOperation, ipVersion, producerInstanceId,
          producerInstanceMetadata, pscConnectionId, selectedSubnetwork,
          serviceClass, state;
 @end
@@ -1283,6 +1350,39 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_PscPropagationStatus
+//
+
+@implementation GTLRNetworkconnectivity_PscPropagationStatus
+@dynamic code, message, sourceForwardingRule, sourceGroup, sourceSpoke,
+         targetGroup, targetSpoke;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_QueryHubStatusResponse
+//
+
+@implementation GTLRNetworkconnectivity_QueryHubStatusResponse
+@dynamic hubStatusEntries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hubStatusEntries" : [GTLRNetworkconnectivity_HubStatusEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"hubStatusEntries";
 }
 
 @end
@@ -1590,9 +1690,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_Spoke
 @dynamic createTime, descriptionProperty, group, hub, labels,
-         linkedInterconnectAttachments, linkedRouterApplianceInstances,
-         linkedVpcNetwork, linkedVpnTunnels, name, reasons, spokeType, state,
-         uniqueId, updateTime;
+         linkedInterconnectAttachments, linkedProducerVpcNetwork,
+         linkedRouterApplianceInstances, linkedVpcNetwork, linkedVpnTunnels,
+         name, reasons, spokeType, state, uniqueId, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -4315,6 +4315,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  load balancer. For admin clusters, currently no configurations is needed.
  */
 @interface GTLRGKEOnPrem_VmwareAdminMetalLbConfig : GTLRObject
+
+/**
+ *  Whether MetalLB is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 

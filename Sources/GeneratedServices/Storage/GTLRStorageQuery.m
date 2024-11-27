@@ -545,9 +545,36 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_BucketsRelocate
+
+@dynamic bucket;
+
++ (instancetype)queryWithObject:(GTLRStorage_RelocateBucketRequest *)object
+                         bucket:(NSString *)bucket {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/relocate";
+  GTLRStorageQuery_BucketsRelocate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.buckets.relocate";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_BucketsRestore
 
-@dynamic bucket, generation, userProject;
+@dynamic bucket, generation, projection, userProject;
 
 + (instancetype)queryWithBucket:(NSString *)bucket
                      generation:(long long)generation {
@@ -559,6 +586,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                        pathParameterNames:pathParams];
   query.bucket = bucket;
   query.generation = generation;
+  query.expectedObjectClass = [GTLRStorage_Bucket class];
   query.loggingName = @"storage.buckets.restore";
   return query;
 }
@@ -1832,6 +1860,36 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.bucket = bucket;
   query.expectedObjectClass = [GTLRStorage_Channel class];
   query.loggingName = @"storage.objects.watchAll";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_OperationsAdvanceRelocateBucket
+
+@dynamic bucket, operationId;
+
++ (instancetype)queryWithObject:(GTLRStorage_AdvanceRelocateBucketOperationRequest *)object
+                         bucket:(NSString *)bucket
+                    operationId:(NSString *)operationId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"bucket", @"operationId"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/operations/{operationId}/advanceRelocateBucket";
+  GTLRStorageQuery_OperationsAdvanceRelocateBucket *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.operationId = operationId;
+  query.loggingName = @"storage.buckets.operations.advanceRelocateBucket";
   return query;
 }
 

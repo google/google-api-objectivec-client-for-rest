@@ -26,6 +26,11 @@ NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Failed = @"FAILE
 NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRVMMigrationService_AwsSourceVmDetails.architecture
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
+
 // GTLRVMMigrationService_AwsSourceVmDetails.firmware
 NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios = @"BIOS";
 NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi = @"EFI";
@@ -61,10 +66,20 @@ NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Failed = @"FAI
 NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRVMMigrationService_AzureSourceVmDetails.architecture
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
+
 // GTLRVMMigrationService_AzureSourceVmDetails.firmware
 NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Bios = @"BIOS";
 NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Efi = @"EFI";
 NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
+
+// GTLRVMMigrationService_AzureVmDetails.architecture
+NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
 
 // GTLRVMMigrationService_AzureVmDetails.bootOption
 NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_Bios = @"BIOS";
@@ -271,10 +286,20 @@ NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabil
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityNvmeStorageAccess = @"OS_CAPABILITY_NVME_STORAGE_ACCESS";
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityUnspecified = @"OS_CAPABILITY_UNSPECIFIED";
 
+// GTLRVMMigrationService_VmwareSourceVmDetails.architecture
+NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
+
 // GTLRVMMigrationService_VmwareSourceVmDetails.firmware
 NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Bios = @"BIOS";
 NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Efi = @"EFI";
 NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
+
+// GTLRVMMigrationService_VmwareVmDetails.architecture
+NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
 
 // GTLRVMMigrationService_VmwareVmDetails.bootOption
 NSString * const kGTLRVMMigrationService_VmwareVmDetails_BootOption_Bios = @"BIOS";
@@ -411,7 +436,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AwsSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
+@dynamic architecture, committedStorageBytes, disks, firmware,
+         vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -521,7 +547,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AzureSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
+@dynamic architecture, committedStorageBytes, disks, firmware,
+         vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -539,8 +566,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AzureVmDetails
-@dynamic bootOption, committedStorageMb, computerName, cpuCount, diskCount,
-         disks, memoryMb, osDescription, osDisk, powerState, tags, vmId, vmSize;
+@dynamic architecture, bootOption, committedStorageMb, computerName, cpuCount,
+         diskCount, disks, memoryMb, osDescription, osDisk, powerState, tags,
+         vmId, vmSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2192,7 +2220,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_VmwareSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
+@dynamic architecture, committedStorageBytes, disks, firmware,
+         vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2210,9 +2239,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_VmwareVmDetails
-@dynamic bootOption, committedStorageMb, cpuCount, datacenterDescription,
-         datacenterId, diskCount, displayName, guestDescription, memoryMb,
-         powerState, uuid, vmId;
+@dynamic architecture, bootOption, committedStorageMb, cpuCount,
+         datacenterDescription, datacenterId, diskCount, displayName,
+         guestDescription, memoryMb, powerState, uuid, vmId;
 @end
 
 

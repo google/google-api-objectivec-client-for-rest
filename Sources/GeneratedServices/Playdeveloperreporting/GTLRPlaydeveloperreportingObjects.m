@@ -15,11 +15,13 @@
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_ApplicationNotResponding = @"APPLICATION_NOT_RESPONDING";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_Crash = @"CRASH";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_NonFatal = @"NON_FATAL";
 
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport.type
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_ApplicationNotResponding = @"APPLICATION_NOT_RESPONDING";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_Crash = @"CRASH";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport_Type_NonFatal = @"NON_FATAL";
 
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness.aggregationPeriod
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_AggregationPeriodUnspecified = @"AGGREGATION_PERIOD_UNSPECIFIED";
@@ -189,13 +191,14 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 //
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue
-@dynamic cause, distinctUsers, distinctUsersPercent, errorReportCount,
-         firstAppVersion, firstOsVersion, issueUri, lastAppVersion,
-         lastErrorReportTime, lastOsVersion, location, name, sampleErrorReports,
-         type;
+@dynamic annotations, cause, distinctUsers, distinctUsersPercent,
+         errorReportCount, firstAppVersion, firstOsVersion, issueUri,
+         lastAppVersion, lastErrorReportTime, lastOsVersion, location, name,
+         sampleErrorReports, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1IssueAnnotation class],
     @"sampleErrorReports" : [NSString class]
   };
   return map;
@@ -250,6 +253,16 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness
 @dynamic aggregationPeriod, latestEndTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1IssueAnnotation
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1IssueAnnotation
+@dynamic body, category, title;
 @end
 
 

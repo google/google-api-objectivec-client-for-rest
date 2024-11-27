@@ -91,6 +91,11 @@ NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Clouds
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Rds = @"RDS";
 
+// GTLRDatabaseMigrationService_ConnectionProfile.role
+NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Role_Destination = @"DESTINATION";
+NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Role_Source = @"SOURCE";
+
 // GTLRDatabaseMigrationService_ConnectionProfile.state
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Creating = @"CREATING";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Deleted = @"DELETED";
@@ -381,6 +386,8 @@ NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilter
 NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionUnspecified = @"NUMERIC_FILTER_OPTION_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_SslConfig.type
+NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_None = @"NONE";
+NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_Required = @"REQUIRED";
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_ServerClient = @"SERVER_CLIENT";
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_ServerOnly = @"SERVER_ONLY";
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified = @"SSL_TYPE_UNSPECIFIED";
@@ -548,6 +555,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_BinaryLogParser
+//
+
+@implementation GTLRDatabaseMigrationService_BinaryLogParser
+@dynamic logFileDirectories, oracleAsmLogFileAccess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Binding
 //
 
@@ -707,7 +724,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_ConnectionProfile
 @dynamic alloydb, cloudsql, createTime, displayName, error, labels, mysql, name,
-         oracle, postgresql, provider, sqlserver, state, updateTime;
+         oracle, postgresql, provider, role, sqlserver, state, updateTime;
 @end
 
 
@@ -1491,6 +1508,25 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_LogFileDirectories
+//
+
+@implementation GTLRDatabaseMigrationService_LogFileDirectories
+@dynamic archivedLogDirectory, onlineLogDirectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_LogMiner
+//
+
+@implementation GTLRDatabaseMigrationService_LogMiner
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_MachineConfig
 //
 
@@ -1564,10 +1600,10 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 @implementation GTLRDatabaseMigrationService_MigrationJob
 @dynamic cmekKeyName, conversionWorkspace, createTime, destination,
          destinationDatabase, displayName, dumpFlags, dumpPath, dumpType,
-         duration, endTime, error, filter, labels, name, performanceConfig,
-         phase, reverseSshConnectivity, source, sourceDatabase,
-         sqlserverHomogeneousMigrationJobConfig, state, staticIpConnectivity,
-         type, updateTime, vpcPeeringConnectivity;
+         duration, endTime, error, filter, labels, name, oracleToPostgresConfig,
+         performanceConfig, phase, reverseSshConnectivity, source,
+         sourceDatabase, sqlserverHomogeneousMigrationJobConfig, state,
+         staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
 @end
 
 
@@ -1691,6 +1727,15 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_OracleAsmLogFileAccess
+//
+
+@implementation GTLRDatabaseMigrationService_OracleAsmLogFileAccess
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_OracleConnectionProfile
 //
 
@@ -1698,6 +1743,28 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 @dynamic databaseService, forwardSshConnectivity, host, oracleAsmConfig,
          password, passwordSet, port, privateConnectivity, ssl,
          staticServiceIpConnectivity, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_OracleSourceConfig
+//
+
+@implementation GTLRDatabaseMigrationService_OracleSourceConfig
+@dynamic binaryLogParser, cdcStartPosition, logMiner,
+         maxConcurrentCdcConnections, maxConcurrentFullDumpConnections,
+         skipFullDump;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_OracleToPostgresConfig
+//
+
+@implementation GTLRDatabaseMigrationService_OracleToPostgresConfig
+@dynamic oracleSourceConfig, postgresDestinationConfig;
 @end
 
 
@@ -1770,12 +1837,22 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_PostgresDestinationConfig
+//
+
+@implementation GTLRDatabaseMigrationService_PostgresDestinationConfig
+@dynamic maxConcurrentConnections, transactionTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
 //
 
 @implementation GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
-@dynamic alloydbClusterId, cloudSqlId, host, networkArchitecture, password,
-         passwordSet, port, privateServiceConnectConnectivity, ssl,
+@dynamic alloydbClusterId, cloudSqlId, database, host, networkArchitecture,
+         password, passwordSet, port, privateServiceConnectConnectivity, ssl,
          staticIpConnectivity, username;
 @end
 

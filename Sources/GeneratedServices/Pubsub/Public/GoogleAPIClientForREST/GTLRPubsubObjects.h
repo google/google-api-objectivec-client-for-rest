@@ -17,9 +17,11 @@
 
 @class GTLRPubsub_AnalyticsHubSubscriptionInfo;
 @class GTLRPubsub_AvroConfig;
+@class GTLRPubsub_AvroFormat;
 @class GTLRPubsub_AwsKinesis;
 @class GTLRPubsub_BigQueryConfig;
 @class GTLRPubsub_Binding;
+@class GTLRPubsub_CloudStorage;
 @class GTLRPubsub_CloudStorageConfig;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
 @class GTLRPubsub_DeadLetterPolicy;
@@ -31,6 +33,7 @@
 @class GTLRPubsub_MessageStoragePolicy;
 @class GTLRPubsub_NoWrapper;
 @class GTLRPubsub_OidcToken;
+@class GTLRPubsub_PlatformLogsSettings;
 @class GTLRPubsub_Policy;
 @class GTLRPubsub_PushConfig;
 @class GTLRPubsub_PushConfig_Attributes;
@@ -43,6 +46,7 @@
 @class GTLRPubsub_Subscription;
 @class GTLRPubsub_Subscription_Labels;
 @class GTLRPubsub_TextConfig;
+@class GTLRPubsub_TextFormat;
 @class GTLRPubsub_Topic;
 @class GTLRPubsub_Topic_Labels;
 @class GTLRPubsub_Wrapper;
@@ -151,6 +155,53 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismat
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRPubsub_CloudStorage.state
+
+/**
+ *  Ingestion is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_Active;
+/**
+ *  The provided Cloud Storage bucket doesn't exist.
+ *
+ *  Value: "BUCKET_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_BucketNotFound;
+/**
+ *  Permission denied encountered while calling the Cloud Storage API. This can
+ *  happen if the Pub/Sub SA has not been granted the [appropriate
+ *  permissions](https://cloud.google.com/storage/docs/access-control/iam-permissions):
+ *  - storage.objects.list: to list the objects in a bucket. -
+ *  storage.objects.get: to read the objects in a bucket. - storage.buckets.get:
+ *  to verify the bucket exists.
+ *
+ *  Value: "CLOUD_STORAGE_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_CloudStoragePermissionDenied;
+/**
+ *  Permission denied encountered while publishing to the topic. This can happen
+ *  if the Pub/Sub SA has not been granted the [appropriate publish
+ *  permissions](https://cloud.google.com/pubsub/docs/access-control#pubsub.publisher)
+ *
+ *  Value: "PUBLISH_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_PublishPermissionDenied;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_StateUnspecified;
+/**
+ *  The Cloud Storage bucket has too many objects, ingestion will be paused.
+ *
+ *  Value: "TOO_MANY_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_TooManyObjects;
+
+// ----------------------------------------------------------------------------
 // GTLRPubsub_CloudStorageConfig.state
 
 /**
@@ -192,6 +243,46 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_PlatformLogsSettings.severity
+
+/**
+ *  Debug logs and higher-severity logs will be written.
+ *
+ *  Value: "DEBUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Debug;
+/**
+ *  Logs will be disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Disabled;
+/**
+ *  Only error logs will be written.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Error;
+/**
+ *  Info logs and higher-severity logs will be written.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Info;
+/**
+ *  Default value. Logs level is unspecified. Logs will be disabled.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_SeverityUnspecified;
+/**
+ *  Warning logs and higher-severity logs will be written.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsub_Schema.type
@@ -371,6 +462,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  */
 @property(nonatomic, strong, nullable) NSNumber *writeMetadata;
 
+@end
+
+
+/**
+ *  Configuration for reading Cloud Storage data written via [Cloud Storage
+ *  subscriptions](https://cloud.google.com/pubsub/docs/cloudstorage). The data
+ *  and attributes fields of the originally exported Pub/Sub message will be
+ *  restored when publishing.
+ */
+@interface GTLRPubsub_AvroFormat : GTLRObject
 @end
 
 
@@ -610,6 +711,77 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Ingestion settings for Cloud Storage.
+ */
+@interface GTLRPubsub_CloudStorage : GTLRObject
+
+/** Optional. Data from Cloud Storage will be interpreted in Avro format. */
+@property(nonatomic, strong, nullable) GTLRPubsub_AvroFormat *avroFormat;
+
+/**
+ *  Optional. Cloud Storage bucket. The bucket name must be without any prefix
+ *  like "gs://". See the [bucket naming requirements]
+ *  (https://cloud.google.com/storage/docs/buckets#naming).
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Optional. Glob pattern used to match objects that will be ingested. If
+ *  unset, all objects will be ingested. See the [supported
+ *  patterns](https://cloud.google.com/storage/docs/json_api/v1/objects/list#list-objects-and-prefixes-using-glob).
+ */
+@property(nonatomic, copy, nullable) NSString *matchGlob;
+
+/**
+ *  Optional. Only objects with a larger or equal creation timestamp will be
+ *  ingested.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *minimumObjectCreateTime;
+
+/**
+ *  Optional. It will be assumed data from Cloud Storage was written via [Cloud
+ *  Storage subscriptions](https://cloud.google.com/pubsub/docs/cloudstorage).
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_AvroFormat *pubsubAvroFormat;
+
+/**
+ *  Output only. An output-only field that indicates the state of the Cloud
+ *  Storage ingestion source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_CloudStorage_State_Active Ingestion is active. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRPubsub_CloudStorage_State_BucketNotFound The provided Cloud
+ *        Storage bucket doesn't exist. (Value: "BUCKET_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_CloudStorage_State_CloudStoragePermissionDenied
+ *        Permission denied encountered while calling the Cloud Storage API.
+ *        This can happen if the Pub/Sub SA has not been granted the
+ *        [appropriate
+ *        permissions](https://cloud.google.com/storage/docs/access-control/iam-permissions):
+ *        - storage.objects.list: to list the objects in a bucket. -
+ *        storage.objects.get: to read the objects in a bucket. -
+ *        storage.buckets.get: to verify the bucket exists. (Value:
+ *        "CLOUD_STORAGE_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_CloudStorage_State_PublishPermissionDenied Permission
+ *        denied encountered while publishing to the topic. This can happen if
+ *        the Pub/Sub SA has not been granted the [appropriate publish
+ *        permissions](https://cloud.google.com/pubsub/docs/access-control#pubsub.publisher)
+ *        (Value: "PUBLISH_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_CloudStorage_State_StateUnspecified Default value.
+ *        This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_CloudStorage_State_TooManyObjects The Cloud Storage
+ *        bucket has too many objects, ingestion will be paused. (Value:
+ *        "TOO_MANY_OBJECTS")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. Data from Cloud Storage will be interpreted as text. */
+@property(nonatomic, strong, nullable) GTLRPubsub_TextFormat *textFormat;
 
 @end
 
@@ -898,6 +1070,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /** Optional. Amazon Kinesis Data Streams. */
 @property(nonatomic, strong, nullable) GTLRPubsub_AwsKinesis *awsKinesis;
+
+/** Optional. Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRPubsub_CloudStorage *cloudStorage;
+
+/**
+ *  Optional. Platform Logs settings. If unset, no Platform Logs will be
+ *  generated.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_PlatformLogsSettings *platformLogsSettings;
 
 @end
 
@@ -1261,6 +1442,34 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  subscriptions](https://cloud.google.com/pubsub/docs/push).
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+@end
+
+
+/**
+ *  Settings for Platform Logs produced by Pub/Sub.
+ */
+@interface GTLRPubsub_PlatformLogsSettings : GTLRObject
+
+/**
+ *  Optional. The minimum severity level of Platform Logs that will be written.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_PlatformLogsSettings_Severity_Debug Debug logs and
+ *        higher-severity logs will be written. (Value: "DEBUG")
+ *    @arg @c kGTLRPubsub_PlatformLogsSettings_Severity_Disabled Logs will be
+ *        disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRPubsub_PlatformLogsSettings_Severity_Error Only error logs
+ *        will be written. (Value: "ERROR")
+ *    @arg @c kGTLRPubsub_PlatformLogsSettings_Severity_Info Info logs and
+ *        higher-severity logs will be written. (Value: "INFO")
+ *    @arg @c kGTLRPubsub_PlatformLogsSettings_Severity_SeverityUnspecified
+ *        Default value. Logs level is unspecified. Logs will be disabled.
+ *        (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_PlatformLogsSettings_Severity_Warning Warning logs and
+ *        higher-severity logs will be written. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 @end
 
@@ -2002,6 +2211,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  be written to files as raw text, separated by a newline.
  */
 @interface GTLRPubsub_TextConfig : GTLRObject
+@end
+
+
+/**
+ *  Configuration for reading Cloud Storage data in text format. Each line of
+ *  text as specified by the delimiter will be set to the `data` field of a
+ *  Pub/Sub message.
+ */
+@interface GTLRPubsub_TextFormat : GTLRObject
+
+/** Optional. When unset, '\\n' is used. */
+@property(nonatomic, copy, nullable) NSString *delimiter;
+
 @end
 
 

@@ -251,6 +251,7 @@ NSString * const kGTLRBigquery_MlStatistics_ModelType_AutomlClassifier = @"AUTOM
 NSString * const kGTLRBigquery_MlStatistics_ModelType_AutomlRegressor = @"AUTOML_REGRESSOR";
 NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedTreeClassifier = @"BOOSTED_TREE_CLASSIFIER";
 NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedTreeRegressor = @"BOOSTED_TREE_REGRESSOR";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_ContributionAnalysis = @"CONTRIBUTION_ANALYSIS";
 NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnClassifier = @"DNN_CLASSIFIER";
 NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedClassifier = @"DNN_LINEAR_COMBINED_CLASSIFIER";
 NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedRegressor = @"DNN_LINEAR_COMBINED_REGRESSOR";
@@ -283,6 +284,7 @@ NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier = @"AUTOML_CLASS
 NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor = @"AUTOML_REGRESSOR";
 NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClassifier = @"BOOSTED_TREE_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeRegressor = @"BOOSTED_TREE_REGRESSOR";
+NSString * const kGTLRBigquery_Model_ModelType_ContributionAnalysis = @"CONTRIBUTION_ANALYSIS";
 NSString * const kGTLRBigquery_Model_ModelType_DnnClassifier   = @"DNN_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_DnnLinearCombinedClassifier = @"DNN_LINEAR_COMBINED_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_DnnLinearCombinedRegressor = @"DNN_LINEAR_COMBINED_REGRESSOR";
@@ -390,6 +392,11 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified 
 NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfAwayFromZero = @"ROUND_HALF_AWAY_FROM_ZERO";
 NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfEven = @"ROUND_HALF_EVEN";
 NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundingModeUnspecified = @"ROUNDING_MODE_UNSPECIFIED";
+
+// GTLRBigquery_Table.managedTableType
+NSString * const kGTLRBigquery_Table_ManagedTableType_Iceberg  = @"ICEBERG";
+NSString * const kGTLRBigquery_Table_ManagedTableType_ManagedTableTypeUnspecified = @"MANAGED_TABLE_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_Table_ManagedTableType_Native   = @"NATIVE";
 
 // GTLRBigquery_TableFieldSchema.roundingMode
 NSString * const kGTLRBigquery_TableFieldSchema_RoundingMode_RoundHalfAwayFromZero = @"ROUND_HALF_AWAY_FROM_ZERO";
@@ -1262,8 +1269,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_Dataset_Access_Item
-@dynamic dataset, domain, groupByEmail, iamMember, role, routine, specialGroup,
-         userByEmail, view;
+@dynamic condition, dataset, domain, groupByEmail, iamMember, role, routine,
+         specialGroup, userByEmail, view;
 @end
 
 
@@ -3681,16 +3688,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          defaultCollation, defaultRoundingMode, descriptionProperty,
          encryptionConfiguration, ETag, expirationTime,
          externalCatalogTableOptions, externalDataConfiguration, friendlyName,
-         identifier, kind, labels, lastModifiedTime, location, materializedView,
-         materializedViewStatus, maxStaleness, model, numActiveLogicalBytes,
-         numActivePhysicalBytes, numBytes, numCurrentPhysicalBytes,
-         numLongTermBytes, numLongTermLogicalBytes, numLongTermPhysicalBytes,
-         numPartitions, numPhysicalBytes, numRows, numTimeTravelPhysicalBytes,
-         numTotalLogicalBytes, numTotalPhysicalBytes, partitionDefinition,
-         rangePartitioning, replicas, requirePartitionFilter, resourceTags,
-         restrictions, schema, selfLink, snapshotDefinition, streamingBuffer,
-         tableConstraints, tableReference, tableReplicationInfo,
-         timePartitioning, type, view;
+         identifier, kind, labels, lastModifiedTime, location, managedTableType,
+         materializedView, materializedViewStatus, maxStaleness, model,
+         numActiveLogicalBytes, numActivePhysicalBytes, numBytes,
+         numCurrentPhysicalBytes, numLongTermBytes, numLongTermLogicalBytes,
+         numLongTermPhysicalBytes, numPartitions, numPhysicalBytes, numRows,
+         numTimeTravelPhysicalBytes, numTotalLogicalBytes,
+         numTotalPhysicalBytes, partitionDefinition, rangePartitioning,
+         replicas, requirePartitionFilter, resourceTags, restrictions, schema,
+         selfLink, snapshotDefinition, streamingBuffer, tableConstraints,
+         tableReference, tableReplicationInfo, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4178,29 +4185,31 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          autoArimaMaxOrder, autoArimaMinOrder, autoClassWeights, batchSize,
          boosterType, budgetHours, calculatePValues, categoryEncodingMethod,
          cleanSpikesAndDips, colorSpace, colsampleBylevel, colsampleBynode,
-         colsampleBytree, dartNormalizeType, dataFrequency, dataSplitColumn,
-         dataSplitEvalFraction, dataSplitMethod, decomposeTimeSeries,
-         distanceType, dropout, earlyStop, enableGlobalExplain, feedbackType,
-         fitIntercept, hiddenUnits, holidayRegion, holidayRegions, horizon,
+         colsampleBytree, contributionMetric, dartNormalizeType, dataFrequency,
+         dataSplitColumn, dataSplitEvalFraction, dataSplitMethod,
+         decomposeTimeSeries, dimensionIdColumns, distanceType, dropout,
+         earlyStop, enableGlobalExplain, feedbackType, fitIntercept,
+         hiddenUnits, holidayRegion, holidayRegions, horizon,
          hparamTuningObjectives, includeDrift, initialLearnRate,
          inputLabelColumns, instanceWeightColumn, integratedGradientsNumSteps,
-         itemColumn, kmeansInitializationColumn, kmeansInitializationMethod,
-         l1RegActivation, l1Regularization, l2Regularization, labelClassWeights,
-         learnRate, learnRateStrategy, lossType, maxIterations,
-         maxParallelTrials, maxTimeSeriesLength, maxTreeDepth,
-         minRelativeProgress, minSplitLoss, minTimeSeriesLength,
-         minTreeChildWeight, modelRegistry, modelUri, nonSeasonalOrder,
-         numClusters, numFactors, numParallelTree, numPrincipalComponents,
-         numTrials, optimizationStrategy, optimizer, pcaExplainedVarianceRatio,
-         pcaSolver, sampledShapleyNumPaths, scaleFeatures, standardizeFeatures,
-         subsample, tfVersion, timeSeriesDataColumn, timeSeriesIdColumn,
-         timeSeriesIdColumns, timeSeriesLengthFraction,
-         timeSeriesTimestampColumn, treeMethod, trendSmoothingWindowSize,
-         userColumn, vertexAiModelVersionAliases, walsAlpha, warmStart,
-         xgboostVersion;
+         isTestColumn, itemColumn, kmeansInitializationColumn,
+         kmeansInitializationMethod, l1RegActivation, l1Regularization,
+         l2Regularization, labelClassWeights, learnRate, learnRateStrategy,
+         lossType, maxIterations, maxParallelTrials, maxTimeSeriesLength,
+         maxTreeDepth, minAprioriSupport, minRelativeProgress, minSplitLoss,
+         minTimeSeriesLength, minTreeChildWeight, modelRegistry, modelUri,
+         nonSeasonalOrder, numClusters, numFactors, numParallelTree,
+         numPrincipalComponents, numTrials, optimizationStrategy, optimizer,
+         pcaExplainedVarianceRatio, pcaSolver, sampledShapleyNumPaths,
+         scaleFeatures, standardizeFeatures, subsample, tfVersion,
+         timeSeriesDataColumn, timeSeriesIdColumn, timeSeriesIdColumns,
+         timeSeriesLengthFraction, timeSeriesTimestampColumn, treeMethod,
+         trendSmoothingWindowSize, userColumn, vertexAiModelVersionAliases,
+         walsAlpha, warmStart, xgboostVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"dimensionIdColumns" : [NSString class],
     @"hiddenUnits" : [NSNumber class],
     @"holidayRegions" : [NSString class],
     @"hparamTuningObjectives" : [NSString class],

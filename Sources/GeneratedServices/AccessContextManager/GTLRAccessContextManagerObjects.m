@@ -84,15 +84,15 @@ NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows = 
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios = @"IOS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @"OS_UNSPECIFIED";
 
-// GTLRAccessContextManager_ReauthSettings.reauthMethod
-NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Login = @"LOGIN";
-NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Password = @"PASSWORD";
-NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_ReauthMethodUnspecified = @"REAUTH_METHOD_UNSPECIFIED";
-NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_SecurityKey = @"SECURITY_KEY";
-
 // GTLRAccessContextManager_ServicePerimeter.perimeterType
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
+
+// GTLRAccessContextManager_SessionSettings.sessionReauthMethod
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login = @"LOGIN";
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password = @"PASSWORD";
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey = @"SECURITY_KEY";
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified = @"SESSION_REAUTH_METHOD_UNSPECIFIED";
 
 // GTLRAccessContextManager_SupportedService.serviceSupportStage
 NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Deprecated = @"DEPRECATED";
@@ -163,7 +163,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_AccessSettings
-@dynamic accessLevels, reauthSettings;
+@dynamic accessLevels, sessionSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -425,7 +425,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_EgressPolicy
-@dynamic egressFrom, egressTo;
+@dynamic egressFrom, egressTo, title;
 @end
 
 
@@ -489,8 +489,8 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_GcpUserAccessBinding
-@dynamic accessLevels, dryRunAccessLevels, groupKey, name, reauthSettings,
-         restrictedClientApplications, scopedAccessSettings;
+@dynamic accessLevels, dryRunAccessLevels, groupKey, name,
+         restrictedClientApplications, scopedAccessSettings, sessionSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -559,7 +559,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_IngressPolicy
-@dynamic ingressFrom, ingressTo;
+@dynamic ingressFrom, ingressTo, title;
 @end
 
 
@@ -838,17 +838,6 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAccessContextManager_ReauthSettings
-//
-
-@implementation GTLRAccessContextManager_ReauthSettings
-@dynamic maxInactivity, reauthMethod, sessionLength, sessionLengthEnabled,
-         useOidcMaxAge;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAccessContextManager_ReplaceAccessLevelsRequest
 //
 
@@ -943,11 +932,15 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_ServicePerimeter
-@dynamic descriptionProperty, name, perimeterType, spec, status, title,
+@dynamic descriptionProperty, ETag, name, perimeterType, spec, status, title,
          useExplicitDryRunSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end
@@ -973,6 +966,17 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_SessionSettings
+//
+
+@implementation GTLRAccessContextManager_SessionSettings
+@dynamic maxInactivity, sessionLength, sessionLengthEnabled,
+         sessionReauthMethod, useOidcMaxAge;
 @end
 
 

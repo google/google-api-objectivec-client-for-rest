@@ -474,7 +474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 
 
 /**
- *  LINT.IfChange Workflow program to be executed by Workflows.
+ *  Workflow program to be executed by Workflows.
  */
 @interface GTLRWorkflows_Workflow : GTLRObject
 

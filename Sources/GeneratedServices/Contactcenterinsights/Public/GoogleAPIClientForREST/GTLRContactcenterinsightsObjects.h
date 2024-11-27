@@ -20,6 +20,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_PhraseMatchers;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorQaConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorQaConfigScorecardList;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData;
@@ -50,6 +52,11 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionAgentDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionAnswerDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Metadata;
@@ -60,6 +67,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelRequestGcsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FeedbackLabel;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequest;
@@ -82,6 +90,17 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultQaTagResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSlice;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPoint;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceTimeSeries;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput;
@@ -100,14 +119,21 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata_Entities;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata_Intents;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata_PhraseMatchers;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotationBoundary;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelector;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorQaConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorQaConfigScorecardList;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsMetadataDownloadStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_CustomHighlighterMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats;
@@ -138,6 +164,11 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowInteractionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionAgentDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionAnswerDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity_Metadata;
@@ -149,6 +180,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequestGcsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest;
@@ -176,6 +208,23 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswer;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultQaTagResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSlice;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceTimeSeries;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput;
@@ -196,6 +245,7 @@
 @class GTLRContactcenterinsights_GoogleLongrunningOperation_Response;
 @class GTLRContactcenterinsights_GoogleRpcStatus;
 @class GTLRContactcenterinsights_GoogleRpcStatus_Details_Item;
+@class GTLRContactcenterinsights_GoogleTypeInterval;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -313,6 +363,92 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "ROLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant_Role_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo.agentType
+
+/**
+ *  Participant is either a human or automated agent.
+ *
+ *  Value: "ANY_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_AnyAgent;
+/**
+ *  Participant is an automated agent.
+ *
+ *  Value: "AUTOMATED_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_AutomatedAgent;
+/**
+ *  Participant is an end user who conversed with the contact center.
+ *
+ *  Value: "END_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_EndUser;
+/**
+ *  Participant is a human agent.
+ *
+ *  Value: "HUMAN_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_HumanAgent;
+/**
+ *  Participant's role is not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension.dimensionKey
+
+/**
+ *  The dimension is keyed by agents.
+ *
+ *  Value: "AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent;
+/**
+ *  The dimension is keyed by agent teams.
+ *
+ *  Value: "AGENT_TEAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentTeam;
+/**
+ *  The dimension is keyed by the conversation profile ID.
+ *
+ *  Value: "CONVERSATION_PROFILE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationProfileId;
+/**
+ *  The key of the dimension is unspecified.
+ *
+ *  Value: "DIMENSION_KEY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_DimensionKeyUnspecified;
+/**
+ *  The dimension is keyed by issues.
+ *
+ *  Value: "ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Issue;
+/**
+ *  The dimension is keyed by QaQuestionIds-Answer value pairs. Note that: We
+ *  only group by the QuestionId and not the revision-id of the scorecard this
+ *  question is a part of. This allows for showing distribution of answers per
+ *  question across different scorecard revisions.
+ *
+ *  Value: "QA_QUESTION_ANSWER_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionAnswerValue;
+/**
+ *  The dimension is keyed by QaQuestionIds. Note that: We only group by the
+ *  QuestionId and not the revision-id of the scorecard this question is a part
+ *  of. This allows for showing stats for the same question across different
+ *  scorecard revisions.
+ *
+ *  Value: "QA_QUESTION_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionId;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity.type
@@ -585,6 +721,51 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource.sourceType
+
+/**
+ *  Answer was created by a human via manual edit.
+ *
+ *  Value: "MANUAL_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource_SourceType_ManualEdit;
+/**
+ *  Source type is unspecified.
+ *
+ *  Value: "SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource_SourceType_SourceTypeUnspecified;
+/**
+ *  Answer was system-generated; created during an Insights analysis.
+ *
+ *  Value: "SYSTEM_GENERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource_SourceType_SystemGenerated;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource.sourceType
+
+/**
+ *  Score is derived from both system-generated answers, and includes any manual
+ *  edits if they exist.
+ *
+ *  Value: "INCLUDES_MANUAL_EDITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource_SourceType_IncludesManualEdits;
+/**
+ *  Source type is unspecified.
+ *
+ *  Value: "SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource_SourceType_SourceTypeUnspecified;
+/**
+ *  Score is derived only from system-generated answers.
+ *
+ *  Value: "SYSTEM_GENERATED_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource_SourceType_SystemGeneratedOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput.querySource
 
 /**
@@ -658,6 +839,73 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback_CorrectnessLevel_PartiallyCorrect;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest.feedbackLabelType
+
+/**
+ *  Unspecified format
+ *
+ *  Value: "FEEDBACK_LABEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_FeedbackLabelTypeUnspecified;
+/**
+ *  Downloaded file will contain all Quality AI labels from the latest scorecard
+ *  revision.
+ *
+ *  Value: "QUALITY_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_QualityAi;
+/**
+ *  Downloaded file will contain only Topic Modeling labels.
+ *
+ *  Value: "TOPIC_MODELING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_TopicModeling;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination.format
+
+/**
+ *  CSV format. 1,000 labels are stored per CSV file by default.
+ *
+ *  Value: "CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination_Format_Csv;
+/**
+ *  Unspecified format.
+ *
+ *  Value: "FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination_Format_FormatUnspecified;
+/**
+ *  JSON format. 1 label stored per JSON file by default.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination_Format_Json;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource.format
+
+/**
+ *  CSV format.
+ *
+ *  Value: "CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource_Format_Csv;
+/**
+ *  Unspecified format.
+ *
+ *  Value: "FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource_Format_FormatUnspecified;
+/**
+ *  JSON format.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource_Format_Json;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation.medium
 
 /**
@@ -712,6 +960,92 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "ROLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant_Role_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo.agentType
+
+/**
+ *  Participant is either a human or automated agent.
+ *
+ *  Value: "ANY_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_AnyAgent;
+/**
+ *  Participant is an automated agent.
+ *
+ *  Value: "AUTOMATED_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_AutomatedAgent;
+/**
+ *  Participant is an end user who conversed with the contact center.
+ *
+ *  Value: "END_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_EndUser;
+/**
+ *  Participant is a human agent.
+ *
+ *  Value: "HUMAN_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_HumanAgent;
+/**
+ *  Participant's role is not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension.dimensionKey
+
+/**
+ *  The dimension is keyed by agents.
+ *
+ *  Value: "AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent;
+/**
+ *  The dimension is keyed by agent teams.
+ *
+ *  Value: "AGENT_TEAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentTeam;
+/**
+ *  The dimension is keyed by the conversation profile ID.
+ *
+ *  Value: "CONVERSATION_PROFILE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationProfileId;
+/**
+ *  The key of the dimension is unspecified.
+ *
+ *  Value: "DIMENSION_KEY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_DimensionKeyUnspecified;
+/**
+ *  The dimension is keyed by issues.
+ *
+ *  Value: "ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Issue;
+/**
+ *  The dimension is keyed by QaQuestionIds-Answer value pairs. Note that: We
+ *  only group by the QuestionId and not the revision-id of the scorecard this
+ *  question is a part of. This allows for showing distribution of answers per
+ *  question across different scorecard revisions.
+ *
+ *  Value: "QA_QUESTION_ANSWER_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionAnswerValue;
+/**
+ *  The dimension is keyed by QaQuestionIds. Note that: We only group by the
+ *  QuestionId and not the revision-id of the scorecard this question is a part
+ *  of. This allows for showing stats for the same question across different
+ *  scorecard revisions.
+ *
+ *  Value: "QA_QUESTION_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionId;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity.type
@@ -1062,6 +1396,185 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_PhraseMatchRuleGroupTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource.sourceType
+
+/**
+ *  Answer was created by a human via manual edit.
+ *
+ *  Value: "MANUAL_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_ManualEdit;
+/**
+ *  Source type is unspecified.
+ *
+ *  Value: "SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_SourceTypeUnspecified;
+/**
+ *  Answer was system-generated; created during an Insights analysis.
+ *
+ *  Value: "SYSTEM_GENERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_SystemGenerated;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata.datasetValidationWarnings
+
+/**
+ *  All the labels in the dataset come from a single answer choice.
+ *
+ *  Value: "ALL_FEEDBACK_LABELS_HAVE_THE_SAME_ANSWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_AllFeedbackLabelsHaveTheSameAnswer;
+/**
+ *  Unspecified data validation warning.
+ *
+ *  Value: "DATASET_VALIDATION_WARNING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_DatasetValidationWarningUnspecified;
+/**
+ *  The quantity of valid feedback labels provided is less than the recommended
+ *  minimum.
+ *
+ *  Value: "INSUFFICIENT_FEEDBACK_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_InsufficientFeedbackLabels;
+/**
+ *  One or more of the answers have less than the recommended minimum of
+ *  feedback labels.
+ *
+ *  Value: "INSUFFICIENT_FEEDBACK_LABELS_PER_ANSWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_InsufficientFeedbackLabelsPerAnswer;
+/**
+ *  A non-trivial percentage of the feedback labels are invalid.
+ *
+ *  Value: "TOO_MANY_INVALID_FEEDBACK_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_TooManyInvalidFeedbackLabels;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource.sourceType
+
+/**
+ *  Score is derived from both system-generated answers, and includes any manual
+ *  edits if they exist.
+ *
+ *  Value: "INCLUDES_MANUAL_EDITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource_SourceType_IncludesManualEdits;
+/**
+ *  Source type is unspecified.
+ *
+ *  Value: "SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource_SourceType_SourceTypeUnspecified;
+/**
+ *  Score is derived only from system-generated answers.
+ *
+ *  Value: "SYSTEM_GENERATED_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource_SourceType_SystemGeneratedOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision.state
+
+/**
+ *  Scorecard is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Deleting;
+/**
+ *  The scorecard revision can be edited.
+ *
+ *  Value: "EDITABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Editable;
+/**
+ *  The revision can be used in analysis.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Ready;
+/**
+ *  Unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_StateUnspecified;
+/**
+ *  Scorecard model training is in progress.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Training;
+/**
+ *  Scorecard model training was explicitly cancelled by the user.
+ *
+ *  Value: "TRAINING_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_TrainingCancelled;
+/**
+ *  Scorecard revision model training failed.
+ *
+ *  Value: "TRAINING_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_TrainingFailed;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest.timeGranularity
+
+/**
+ *  Data points in the time series will aggregate at a daily granularity. 1 day
+ *  means [midnight to midnight).
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Daily;
+/**
+ *  Data points in the time series will aggregate at a daily granularity. 1 HOUR
+ *  means [01:00 to 02:00).
+ *
+ *  Value: "HOURLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Hourly;
+/**
+ *  Data points in the time series will aggregate at a monthly granularity. 1
+ *  MONTH means [01st of the month to 1st of the next month).
+ *
+ *  Value: "MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Monthly;
+/**
+ *  No time granularity. The response won't contain a time series. This is the
+ *  default value if no time granularity is specified.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_None;
+/**
+ *  Data points in the time series will aggregate at a 1 minute granularity.
+ *  PER_5_MINUTES means [01:00 to 01:05).
+ *
+ *  Value: "PER_5_MINUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Per5Minutes;
+/**
+ *  Data points in the time series will aggregate at a daily granularity.
+ *  PER_MINUTE means [01:00 to 01:01).
+ *
+ *  Value: "PER_MINUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_PerMinute;
+/**
+ *  The time granularity is unspecified and will default to NONE.
+ *
+ *  Value: "TIME_GRANULARITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_TimeGranularityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput.querySource
 
 /**
@@ -1152,6 +1665,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** All the matched phrase matchers in the call. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_PhraseMatchers *phraseMatchers;
+
+/** Results of scoring QaScorecards. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResult *> *qaScorecardResults;
 
 /** Overall conversation-level sentiment for each channel of the call. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment *> *sentiments;
@@ -1248,6 +1764,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phraseMatchers;
 
+/** Configuration for the QA annotator. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorQaConfig *qaConfig;
+
 /**
  *  Whether to run the entity annotator.
  *
@@ -1285,6 +1804,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) NSNumber *runPhraseMatcherAnnotator;
 
 /**
+ *  Whether to run the QA annotator.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runQaAnnotator;
+
+/**
  *  Whether to run the sentiment annotator.
  *
  *  Uses NSNumber of boolValue.
@@ -1307,6 +1833,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Configuration for the summarization annotator. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig *summarizationConfig;
+
+@end
+
+
+/**
+ *  Configuration for the QA feature.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorQaConfig : GTLRObject
+
+/** A manual list of scorecards to score. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorQaConfigScorecardList *scorecardList;
+
+@end
+
+
+/**
+ *  Container for a list of scorecards.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorQaConfigScorecardList : GTLRObject
+
+/** List of QaScorecardRevisions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qaScorecardRevisions;
 
 @end
 
@@ -1675,7 +2223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  A map for the user to specify any custom fields. A maximum of 20 labels per
+ *  A map for the user to specify any custom fields. A maximum of 100 labels per
  *  conversation is allowed, with a maximum of 256 characters per entry.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Labels *labels;
@@ -1707,9 +2255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, copy, nullable) NSString *medium;
 
 /**
- *  Input only. JSON Metadata encoded as a string. This field is primarily used
+ *  Input only. JSON metadata encoded as a string. This field is primarily used
  *  by Insights integrations with various telphony systems and must be in one of
- *  Insights' supported formats.
+ *  Insight's supported formats.
  */
 @property(nonatomic, copy, nullable) NSString *metadataJson;
 
@@ -1774,7 +2322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  A map for the user to specify any custom fields. A maximum of 20 labels per
+ *  A map for the user to specify any custom fields. A maximum of 100 labels per
  *  conversation is allowed, with a maximum of 256 characters per entry.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1934,6 +2482,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** A user-specified string representing the agent. */
 @property(nonatomic, copy, nullable) NSString *agentId;
+
+/**
+ *  The agent type, e.g. HUMAN_AGENT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_AnyAgent
+ *        Participant is either a human or automated agent. (Value: "ANY_AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_AutomatedAgent
+ *        Participant is an automated agent. (Value: "AUTOMATED_AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_EndUser
+ *        Participant is an end user who conversed with the contact center.
+ *        (Value: "END_USER")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified
+ *        Participant's role is not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *agentType;
 
 /** The agent's name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -2301,16 +2867,139 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  A dimension determines the grouping key for the query. In SQL terms, these
+ *  would be part of both the "SELECT" and "GROUP BY" clauses.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension : GTLRObject
+
+/** Output only. Metadata about the agent dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionAgentDimensionMetadata *agentDimensionMetadata;
+
+/**
+ *  The key of the dimension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent
+ *        The dimension is keyed by agents. (Value: "AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentTeam
+ *        The dimension is keyed by agent teams. (Value: "AGENT_TEAM")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationProfileId
+ *        The dimension is keyed by the conversation profile ID. (Value:
+ *        "CONVERSATION_PROFILE_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_DimensionKeyUnspecified
+ *        The key of the dimension is unspecified. (Value:
+ *        "DIMENSION_KEY_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Issue
+ *        The dimension is keyed by issues. (Value: "ISSUE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionAnswerValue
+ *        The dimension is keyed by QaQuestionIds-Answer value pairs. Note that:
+ *        We only group by the QuestionId and not the revision-id of the
+ *        scorecard this question is a part of. This allows for showing
+ *        distribution of answers per question across different scorecard
+ *        revisions. (Value: "QA_QUESTION_ANSWER_VALUE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionId
+ *        The dimension is keyed by QaQuestionIds. Note that: We only group by
+ *        the QuestionId and not the revision-id of the scorecard this question
+ *        is a part of. This allows for showing stats for the same question
+ *        across different scorecard revisions. (Value: "QA_QUESTION_ID")
+ */
+@property(nonatomic, copy, nullable) NSString *dimensionKey;
+
+/** Output only. Metadata about the issue dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata *issueDimensionMetadata;
+
+/** Output only. Metadata about the QA question-answer dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionAnswerDimensionMetadata *qaQuestionAnswerDimensionMetadata;
+
+/** Output only. Metadata about the QA question dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionDimensionMetadata *qaQuestionDimensionMetadata;
+
+@end
+
+
+/**
+ *  Metadata about the agent dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionAgentDimensionMetadata : GTLRObject
+
+/** Optional. The agent's name */
+@property(nonatomic, copy, nullable) NSString *agentDisplayName;
+
+/** Optional. A user-specified string representing the agent. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/** Optional. A user-specified string representing the agent's team. */
+@property(nonatomic, copy, nullable) NSString *agentTeam;
+
+@end
+
+
+/**
+ *  Metadata about the issue dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata : GTLRObject
+
+/** The issue display name. */
+@property(nonatomic, copy, nullable) NSString *issueDisplayName;
+
+/** The issue ID. */
+@property(nonatomic, copy, nullable) NSString *issueId;
+
+/** The parent issue model ID. */
+@property(nonatomic, copy, nullable) NSString *issueModelId;
+
+@end
+
+
+/**
+ *  Metadata about the QA question-answer dimension. This is useful for showing
+ *  the answer distribution for questions for a given scorecard.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionAnswerDimensionMetadata : GTLRObject
+
+/** Optional. The full body of the question. */
+@property(nonatomic, copy, nullable) NSString *answerValue;
+
+/** Optional. The QA question ID. */
+@property(nonatomic, copy, nullable) NSString *qaQuestionId;
+
+/** Optional. The QA scorecard ID. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardId;
+
+/** Optional. The full body of the question. */
+@property(nonatomic, copy, nullable) NSString *questionBody;
+
+@end
+
+
+/**
+ *  Metadata about the QA question dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionDimensionMetadata : GTLRObject
+
+/** Optional. The QA question ID. */
+@property(nonatomic, copy, nullable) NSString *qaQuestionId;
+
+/** Optional. The QA scorecard ID. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardId;
+
+/** Optional. The full body of the question. */
+@property(nonatomic, copy, nullable) NSString *questionBody;
+
+@end
+
+
+/**
  *  A customer-managed encryption key specification that can be applied to all
- *  created resources (e.g. Conversation).
+ *  created resources (e.g. `Conversation`).
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec : GTLRObject
 
 /**
  *  Required. The name of customer-managed encryption key that is used to secure
- *  a resource and its sub-resources. If empty, the resource is secured by the
- *  default Google encryption key. Only the key in the same location as this
- *  resource is allowed to be used for encryption. Format:
+ *  a resource and its sub-resources. If empty, the resource is secured by our
+ *  default encryption key. Only the key in the same location as this resource
+ *  is allowed to be used for encryption. Format:
  *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
@@ -2659,6 +3348,35 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Represents a conversation, resource, and label provided by the user.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FeedbackLabel : GTLRObject
+
+/** Output only. Create time of the label. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** String label. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** Resource name of the resource to be labeled. */
+@property(nonatomic, copy, nullable) NSString *labeledResource;
+
+/**
+ *  Immutable. Resource name of the FeedbackLabel. Format:
+ *  projects/{project}/locations/{location}/conversations/{conversation}/feedbackLabels/{feedback_label}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** QaAnswer label. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue *qaAnswerLabel;
+
+/** Output only. Update time of the label. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  A Cloud Storage source of conversation data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource : GTLRObject
@@ -2911,7 +3629,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /**
  *  Optional. Custom keys to extract as conversation labels from metadata files
  *  in `metadata_bucket_uri`. Keys not included in this field will be ignored.
- *  Note that there is a limit of 20 labels per conversation.
+ *  Note that there is a limit of 100 labels per conversation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customMetadataKeys;
 
@@ -2971,7 +3689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Partial errors during initialising operation that might cause the operation
+ *  Partial errors during initializing operation that might cause the operation
  *  output to be incomplete.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
@@ -2991,7 +3709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Required. The encryption spec used for CMEK encryption. It is required that
  *  the kms key is in the same region as the endpoint. The same key will be used
  *  for all provisioned resources, if encryption is available. If the
- *  kms_key_name is left empty, no encryption will be enforced.
+ *  `kms_key_name` field is left empty, no encryption will be enforced.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec *encryptionSpec;
 
@@ -3278,6 +3996,57 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  The response for listing all feedback labels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "feedbackLabels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ListAllFeedbackLabelsResponse : GTLRCollectionObject
+
+/**
+ *  The feedback labels that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FeedbackLabel *> *feedbackLabels;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for listing feedback labels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "feedbackLabels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ListFeedbackLabelsResponse : GTLRCollectionObject
+
+/**
+ *  The feedback labels that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FeedbackLabel *> *feedbackLabels;
+
+/** The next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The data for a matched phrase matcher. Represents information identifying a
  *  phrase matcher for a given match.
  */
@@ -3288,6 +4057,454 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** The unique identifier (the resource name) of the phrase matcher. */
 @property(nonatomic, copy, nullable) NSString *phraseMatcher;
+
+@end
+
+
+/**
+ *  An answer to a QaQuestion.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer : GTLRObject
+
+/** List of all individual answers given to the question. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource *> *answerSources;
+
+/** The main answer value, incorporating any manual edits if they exist. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue *answerValue;
+
+/** The conversation the answer applies to. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The QaQuestion answered by this answer. */
+@property(nonatomic, copy, nullable) NSString *qaQuestion;
+
+/** Question text. E.g., "Did the agent greet the customer?" */
+@property(nonatomic, copy, nullable) NSString *questionBody;
+
+/**
+ *  User-defined list of arbitrary tags. Matches the value from
+ *  QaScorecard.ScorecardQuestion.tags. Used for grouping/organization and for
+ *  weighting the score of each answer.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  A question may have multiple answers from varying sources, one of which
+ *  becomes the "main" answer above. AnswerSource represents each individual
+ *  answer.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource : GTLRObject
+
+/** The answer value from this source. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue *answerValue;
+
+/**
+ *  What created the answer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource_SourceType_ManualEdit
+ *        Answer was created by a human via manual edit. (Value: "MANUAL_EDIT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource_SourceType_SourceTypeUnspecified
+ *        Source type is unspecified. (Value: "SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource_SourceType_SystemGenerated
+ *        Answer was system-generated; created during an Insights analysis.
+ *        (Value: "SYSTEM_GENERATED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  Message for holding the value of a QaAnswer. QaQuestion.AnswerChoice defines
+ *  the possible answer values for a question.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue : GTLRObject
+
+/**
+ *  Boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  A short string used as an identifier. Matches the value used in
+ *  QaQuestion.AnswerChoice.key.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  A value of "Not Applicable (N/A)". Should only ever be `true`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *naValue;
+
+/**
+ *  Output only. Normalized score of the questions. Calculated as score /
+ *  potential_score.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  Numerical value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numValue;
+
+/**
+ *  Output only. The maximum potential score of the question.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/**
+ *  Output only. Numerical score of the answer.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** String value. */
+@property(nonatomic, copy, nullable) NSString *strValue;
+
+@end
+
+
+/**
+ *  The results of scoring a single conversation against a QaScorecard. Contains
+ *  a collection of QaAnswers and aggregate score.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResult : GTLRObject
+
+/** ID of the agent that handled the conversation. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/** The conversation scored by this result. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** Output only. The timestamp that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The name of the scorecard result. Format:
+ *  projects/{project}/locations/{location}/qaScorecardResults/{qa_scorecard_result}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normalized score, which is the score divided by the potential score. Any
+ *  manual edits are included if they exist.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  The maximum potential overall score of the scorecard. Any questions answered
+ *  using `na_value` are excluded from this calculation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/** Set of QaAnswers represented in the result. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer *> *qaAnswers;
+
+/** The QaScorecardRevision scored by this result. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardRevision;
+
+/** Collection of tags and their scores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultQaTagResult *> *qaTagResults;
+
+/**
+ *  The overall numerical score of the result, incorporating any manual edits if
+ *  they exist.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** List of all individual score sets. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource *> *scoreSources;
+
+@end
+
+
+/**
+ *  Tags and their corresponding results.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultQaTagResult : GTLRObject
+
+/**
+ *  The normalized score the tag applies to.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  The potential score the tag applies to.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/**
+ *  The score the tag applies to.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** The tag the score applies to. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  A scorecard result may have multiple sets of scores from varying sources,
+ *  one of which becomes the "main" answer above. A ScoreSource represents each
+ *  individual set of scores.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource : GTLRObject
+
+/**
+ *  The normalized score, which is the score divided by the potential score.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  The maximum potential overall score of the scorecard. Any questions answered
+ *  using `na_value` are excluded from this calculation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/** Collection of tags and their scores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultQaTagResult *> *qaTagResults;
+
+/**
+ *  The overall numerical score of the result.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  What created the score.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource_SourceType_IncludesManualEdits
+ *        Score is derived from both system-generated answers, and includes any
+ *        manual edits if they exist. (Value: "INCLUDES_MANUAL_EDITS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource_SourceType_SourceTypeUnspecified
+ *        Source type is unspecified. (Value: "SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource_SourceType_SystemGeneratedOnly
+ *        Score is derived only from system-generated answers. (Value:
+ *        "SYSTEM_GENERATED_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  The metadata from querying metrics.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response for querying metrics.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponse : GTLRObject
+
+/**
+ *  Required. The location of the data.
+ *  "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The macro average slice contains aggregated averages across the selected
+ *  dimension. i.e. if group_by agent is specified this field will contain the
+ *  average across all agents. This field is only populated if the request
+ *  specifies a Dimension.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSlice *macroAverageSlice;
+
+/**
+ *  A slice contains a total and (if the request specified a time granularity) a
+ *  time series of metric values. Each slice contains a unique combination of
+ *  the cardinality of dimensions from the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSlice *> *slices;
+
+/** The metrics last update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A slice contains a total and (if the request specified a time granularity) a
+ *  time series of metric values. Each slice contains a unique combination of
+ *  the cardinality of dimensions from the request. For example, if the request
+ *  specifies a single ISSUE dimension and it has a cardinality of 2 (i.e. the
+ *  data used to compute the metrics has 2 issues in total), the response will
+ *  have 2 slices: * Slice 1 -> dimensions=[Issue 1] * Slice 2 ->
+ *  dimensions=[Issue 2]
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSlice : GTLRObject
+
+/** A unique combination of dimensions that this slice represents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension *> *dimensions;
+
+/**
+ *  A time series of metric values. This is only populated if the request
+ *  specifies a time granularity other than NONE.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceTimeSeries *timeSeries;
+
+/**
+ *  The total metric value. The interval of this data point is [starting create
+ *  time, ending create time) from the request.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPoint *total;
+
+@end
+
+
+/**
+ *  A data point contains the metric values mapped to an interval.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPoint : GTLRObject
+
+/** The measure related to conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure *conversationMeasure;
+
+/**
+ *  The interval that this data point represents. * If this is the total data
+ *  point, the interval is [starting create time, ending create time) from the
+ *  request. * If this a data point from the time series, the interval is [time,
+ *  time + time granularity from the request).
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleTypeInterval *interval;
+
+@end
+
+
+/**
+ *  The measure related to conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure : GTLRObject
+
+/**
+ *  The average agent's sentiment score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageAgentSentimentScore;
+
+/**
+ *  The average client's sentiment score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageClientSentimentScore;
+
+/**
+ *  The average customer satisfaction rating.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageCustomerSatisfactionRating;
+
+/** The average duration. */
+@property(nonatomic, strong, nullable) GTLRDuration *averageDuration;
+
+/**
+ *  Average QA normalized score. Will exclude 0's in average calculation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageQaNormalizedScore;
+
+/**
+ *  Average QA normalized score averaged for questions averaged across all
+ *  revisions of the parent scorecard. Will be only populated if the request
+ *  specifies a dimension of QA_QUESTION_ID.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageQaQuestionNormalizedScore;
+
+/**
+ *  The average silence percentage.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSilencePercentage;
+
+/**
+ *  The average turn count.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageTurnCount;
+
+/**
+ *  The conversation count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationCount;
+
+/** Average QA normalized score for all the tags. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore *> *qaTagScores;
+
+@end
+
+
+/**
+ *  Average QA normalized score for the tag.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore : GTLRObject
+
+/**
+ *  Average tag normalized score per tag.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageTagNormalizedScore;
+
+/** Tag name. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  A time series of metric values.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceTimeSeries : GTLRObject
+
+/** The data points that make up the time series . */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPoint *> *dataPoints;
 
 @end
 
@@ -3704,6 +4921,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** All the matched phrase matchers in the call. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata_PhraseMatchers *phraseMatchers;
 
+/** Results of scoring QaScorecards. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResult *> *qaScorecardResults;
+
 /** Overall conversation-level sentiment for each channel of the call. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSentiment *> *sentiments;
 
@@ -3749,6 +4969,66 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata_PhraseMatchers : GTLRObject
+@end
+
+
+/**
+ *  The CCAI Insights project wide analysis rule. This rule will be applied to
+ *  all conversations that match the filter defined in the rule. For a
+ *  conversation matches the filter, the annotators specified in the rule will
+ *  be run. If a conversation matches multiple rules, a union of all the
+ *  annotators will be run. One project can have multiple analysis rules.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule : GTLRObject
+
+/**
+ *  If true, apply this rule to conversations. Otherwise, this rule is inactive
+ *  and saved as a draft.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  Percentage of conversations that we should apply this analysis setting
+ *  automatically, between [0, 1]. For example, 0.1 means 10%. Conversations are
+ *  sampled in a determenestic way. The original runtime_percentage & upload
+ *  percentage will be replaced by defining filters on the conversation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *analysisPercentage;
+
+/**
+ *  Selector of annotators to run and the phrase matchers to use for
+ *  conversations that matches the conversation_filter. If not specified, NO
+ *  annotators will be run.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelector *annotatorSelector;
+
+/**
+ *  Filter for the conversations that should apply this analysis rule. An empty
+ *  filter means this analysis rule applies to all conversations.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationFilter;
+
+/** Output only. The time at which this analysis rule was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Display Name of the analysis rule. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The resource name of the analysis rule. Format:
+ *  projects/{project}/locations/{location}/analysisRules/{analysis_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The most recent time at which this analysis rule was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -3799,6 +5079,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phraseMatchers;
 
+/** Configuration for the QA annotator. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorQaConfig *qaConfig;
+
 /**
  *  Whether to run the entity annotator.
  *
@@ -3836,6 +5119,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) NSNumber *runPhraseMatcherAnnotator;
 
 /**
+ *  Whether to run the QA annotator.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runQaAnnotator;
+
+/**
  *  Whether to run the sentiment annotator.
  *
  *  Uses NSNumber of boolValue.
@@ -3858,6 +5148,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Configuration for the summarization annotator. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig *summarizationConfig;
+
+@end
+
+
+/**
+ *  Configuration for the QA feature.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorQaConfig : GTLRObject
+
+/** A manual list of scorecards to score. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorQaConfigScorecardList *scorecardList;
+
+@end
+
+
+/**
+ *  Container for a list of scorecards.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorQaConfigScorecardList : GTLRObject
+
+/** List of QaScorecardRevisions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qaScorecardRevisions;
 
 @end
 
@@ -4142,6 +5454,237 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Metadata for the BulkDownloadFeedbackLabel endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Statistics for BulkDownloadFeedbackLabels operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsMetadataDownloadStats *downloadStats;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Partial errors during ingest operation that might cause the operation output
+ *  to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** Output only. The original request for download. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest *request;
+
+@end
+
+
+/**
+ *  Statistics for BulkDownloadFeedbackLabels operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsMetadataDownloadStats : GTLRObject
+
+/** Output only. Full name of the files written to Cloud storage. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileNames;
+
+/**
+ *  The number of objects processed during the download operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *processedObjectCount;
+
+/**
+ *  The number of new feedback labels downloaded during this operation.
+ *  Different from "processed" because some labels might not be downloaded
+ *  because an error.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successfulDownloadCount;
+
+/**
+ *  Total number of files written to the provided Cloud Storage bucket.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalFilesWritten;
+
+@end
+
+
+/**
+ *  Request for the BulkDownloadFeedbackLabel endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest : GTLRObject
+
+/**
+ *  Optional. Filter parent conversations to download feedback labels for. When
+ *  specified, the feedback labels will be downloaded for the conversations that
+ *  match the filter. If `template_qa_scorecard_id` is set, all the
+ *  conversations that match the filter will be paired with the questions under
+ *  the scorecard for labeling.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationFilter;
+
+/**
+ *  Optional. The type of feedback labels that will be downloaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_FeedbackLabelTypeUnspecified
+ *        Unspecified format (Value: "FEEDBACK_LABEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_QualityAi
+ *        Downloaded file will contain all Quality AI labels from the latest
+ *        scorecard revision. (Value: "QUALITY_AI")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_TopicModeling
+ *        Downloaded file will contain only Topic Modeling labels. (Value:
+ *        "TOPIC_MODELING")
+ */
+@property(nonatomic, copy, nullable) NSString *feedbackLabelType;
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Supports
+ *  disjunctions (OR) and conjunctions (AND). Supported fields: *
+ *  `issue_model_id` * `qa_question_id` * `qa_scorecard_id` * `min_create_time`
+ *  * `max_create_time` * `min_update_time` * `max_update_time` *
+ *  `feedback_label_type`: QUALITY_AI, TOPIC_MODELING
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** A cloud storage bucket destination. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination *gcsDestination;
+
+/**
+ *  Optional. Limits the maximum number of feedback labels that will be
+ *  downloaded. The first `N` feedback labels will be downloaded.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDownloadCount;
+
+/** Required. The parent resource for new feedback labels. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set, a template for labeling conversations and scorecard
+ *  questions will be created from the conversation_filter and the questions
+ *  under the scorecard(s). The feedback label `filter` will be ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *templateQaScorecardId;
+
+@end
+
+
+/**
+ *  Google Cloud Storage Object details to write the feedback labels to.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination : GTLRObject
+
+/**
+ *  Optional. Add whitespace to the JSON file. Makes easier to read, but
+ *  increases file size. Only applicable for JSON format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *addWhitespace;
+
+/**
+ *  Optional. Always print fields with no presence. This is useful for printing
+ *  fields that are not set, like implicit 0 value or empty lists/maps. Only
+ *  applicable for JSON format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alwaysPrintEmptyFields;
+
+/**
+ *  Required. File format in which the labels will be exported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination_Format_Csv
+ *        CSV format. 1,000 labels are stored per CSV file by default. (Value:
+ *        "CSV")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination_Format_FormatUnspecified
+ *        Unspecified format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination_Format_Json
+ *        JSON format. 1 label stored per JSON file by default. (Value: "JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Required. The Google Cloud Storage URI to write the feedback labels to. The
+ *  file name will be used as a prefix for the files written to the bucket if
+ *  the output needs to be split across multiple files, otherwise it will be
+ *  used as is. The file extension will be appended to the file name based on
+ *  the format selected. E.g. `gs://bucket_name/object_uri_prefix`
+ */
+@property(nonatomic, copy, nullable) NSString *objectUri;
+
+/**
+ *  Optional. The number of records per file. Applicable for either format.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsPerFileCount;
+
+@end
+
+
+/**
+ *  Response for the BulkDownloadFeedbackLabel endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsResponse : GTLRObject
+@end
+
+
+/**
+ *  The request for bulk uploading feedback labels.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequest : GTLRObject
+
+/** A cloud storage bucket source. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource *gcsSource;
+
+/**
+ *  Optional. If set, upload will not happen and the labels will be validated.
+ *  If not set, then default behavior will be to upload the labels after
+ *  validation is complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Google Cloud Storage Object details to get the feedback label file from.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource : GTLRObject
+
+/**
+ *  Required. File format which will be ingested.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource_Format_Csv
+ *        CSV format. (Value: "CSV")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource_Format_FormatUnspecified
+ *        Unspecified format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource_Format_Json
+ *        JSON format. (Value: "JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Required. The Google Cloud Storage URI of the file to import. Format:
+ *  `gs://bucket_name/object_name`
+ */
+@property(nonatomic, copy, nullable) NSString *objectUri;
+
+@end
+
+
+/**
  *  Response of querying an issue model's statistics.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateIssueModelStatsResponse : GTLRObject
@@ -4394,7 +5937,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  A map for the user to specify any custom fields. A maximum of 20 labels per
+ *  A map for the user to specify any custom fields. A maximum of 100 labels per
  *  conversation is allowed, with a maximum of 256 characters per entry.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Labels *labels;
@@ -4426,9 +5969,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *medium;
 
 /**
- *  Input only. JSON Metadata encoded as a string. This field is primarily used
+ *  Input only. JSON metadata encoded as a string. This field is primarily used
  *  by Insights integrations with various telphony systems and must be in one of
- *  Insights' supported formats.
+ *  Insight's supported formats.
  */
 @property(nonatomic, copy, nullable) NSString *metadataJson;
 
@@ -4493,7 +6036,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  A map for the user to specify any custom fields. A maximum of 20 labels per
+ *  A map for the user to specify any custom fields. A maximum of 100 labels per
  *  conversation is allowed, with a maximum of 256 characters per entry.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -4653,6 +6196,24 @@ GTLR_DEPRECATED
 
 /** A user-specified string representing the agent. */
 @property(nonatomic, copy, nullable) NSString *agentId;
+
+/**
+ *  The agent type, e.g. HUMAN_AGENT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_AnyAgent
+ *        Participant is either a human or automated agent. (Value: "ANY_AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_AutomatedAgent
+ *        Participant is an automated agent. (Value: "AUTOMATED_AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_EndUser
+ *        Participant is an end user who conversed with the contact center.
+ *        (Value: "END_USER")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified
+ *        Participant's role is not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *agentType;
 
 /** The agent's name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -4965,6 +6526,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The request to deploy a QaScorecardRevision
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployQaScorecardRevisionRequest : GTLRObject
+@end
+
+
+/**
  *  The data for a Dialogflow intent. Represents a detected intent in the
  *  conversation, e.g. MAKES_PROMISE.
  */
@@ -5020,16 +6588,139 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A dimension determines the grouping key for the query. In SQL terms, these
+ *  would be part of both the "SELECT" and "GROUP BY" clauses.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension : GTLRObject
+
+/** Output only. Metadata about the agent dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionAgentDimensionMetadata *agentDimensionMetadata;
+
+/**
+ *  The key of the dimension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent
+ *        The dimension is keyed by agents. (Value: "AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentTeam
+ *        The dimension is keyed by agent teams. (Value: "AGENT_TEAM")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationProfileId
+ *        The dimension is keyed by the conversation profile ID. (Value:
+ *        "CONVERSATION_PROFILE_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_DimensionKeyUnspecified
+ *        The key of the dimension is unspecified. (Value:
+ *        "DIMENSION_KEY_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Issue
+ *        The dimension is keyed by issues. (Value: "ISSUE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionAnswerValue
+ *        The dimension is keyed by QaQuestionIds-Answer value pairs. Note that:
+ *        We only group by the QuestionId and not the revision-id of the
+ *        scorecard this question is a part of. This allows for showing
+ *        distribution of answers per question across different scorecard
+ *        revisions. (Value: "QA_QUESTION_ANSWER_VALUE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionId
+ *        The dimension is keyed by QaQuestionIds. Note that: We only group by
+ *        the QuestionId and not the revision-id of the scorecard this question
+ *        is a part of. This allows for showing stats for the same question
+ *        across different scorecard revisions. (Value: "QA_QUESTION_ID")
+ */
+@property(nonatomic, copy, nullable) NSString *dimensionKey;
+
+/** Output only. Metadata about the issue dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata *issueDimensionMetadata;
+
+/** Output only. Metadata about the QA question-answer dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionAnswerDimensionMetadata *qaQuestionAnswerDimensionMetadata;
+
+/** Output only. Metadata about the QA question dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionDimensionMetadata *qaQuestionDimensionMetadata;
+
+@end
+
+
+/**
+ *  Metadata about the agent dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionAgentDimensionMetadata : GTLRObject
+
+/** Optional. The agent's name */
+@property(nonatomic, copy, nullable) NSString *agentDisplayName;
+
+/** Optional. A user-specified string representing the agent. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/** Optional. A user-specified string representing the agent's team. */
+@property(nonatomic, copy, nullable) NSString *agentTeam;
+
+@end
+
+
+/**
+ *  Metadata about the issue dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata : GTLRObject
+
+/** The issue display name. */
+@property(nonatomic, copy, nullable) NSString *issueDisplayName;
+
+/** The issue ID. */
+@property(nonatomic, copy, nullable) NSString *issueId;
+
+/** The parent issue model ID. */
+@property(nonatomic, copy, nullable) NSString *issueModelId;
+
+@end
+
+
+/**
+ *  Metadata about the QA question-answer dimension. This is useful for showing
+ *  the answer distribution for questions for a given scorecard.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionAnswerDimensionMetadata : GTLRObject
+
+/** Optional. The full body of the question. */
+@property(nonatomic, copy, nullable) NSString *answerValue;
+
+/** Optional. The QA question ID. */
+@property(nonatomic, copy, nullable) NSString *qaQuestionId;
+
+/** Optional. The QA scorecard ID. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardId;
+
+/** Optional. The full body of the question. */
+@property(nonatomic, copy, nullable) NSString *questionBody;
+
+@end
+
+
+/**
+ *  Metadata about the QA question dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionDimensionMetadata : GTLRObject
+
+/** Optional. The QA question ID. */
+@property(nonatomic, copy, nullable) NSString *qaQuestionId;
+
+/** Optional. The QA scorecard ID. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardId;
+
+/** Optional. The full body of the question. */
+@property(nonatomic, copy, nullable) NSString *questionBody;
+
+@end
+
+
+/**
  *  A customer-managed encryption key specification that can be applied to all
- *  created resources (e.g. Conversation).
+ *  created resources (e.g. `Conversation`).
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec : GTLRObject
 
 /**
  *  Required. The name of customer-managed encryption key that is used to secure
- *  a resource and its sub-resources. If empty, the resource is secured by the
- *  default Google encryption key. Only the key in the same location as this
- *  resource is allowed to be used for encryption. Format:
+ *  a resource and its sub-resources. If empty, the resource is secured by our
+ *  default encryption key. Only the key in the same location as this resource
+ *  is allowed to be used for encryption. Format:
  *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
@@ -5393,6 +7084,35 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents a conversation, resource, and label provided by the user.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel : GTLRObject
+
+/** Output only. Create time of the label. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** String label. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** Resource name of the resource to be labeled. */
+@property(nonatomic, copy, nullable) NSString *labeledResource;
+
+/**
+ *  Immutable. Resource name of the FeedbackLabel. Format:
+ *  projects/{project}/locations/{location}/conversations/{conversation}/feedbackLabels/{feedback_label}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** QaAnswer label. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue *qaAnswerLabel;
+
+/** Output only. Update time of the label. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  A Cloud Storage source of conversation data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource : GTLRObject
@@ -5645,7 +7365,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. Custom keys to extract as conversation labels from metadata files
  *  in `metadata_bucket_uri`. Keys not included in this field will be ignored.
- *  Note that there is a limit of 20 labels per conversation.
+ *  Note that there is a limit of 100 labels per conversation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customMetadataKeys;
 
@@ -5705,7 +7425,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Partial errors during initialising operation that might cause the operation
+ *  Partial errors during initializing operation that might cause the operation
  *  output to be incomplete.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
@@ -5725,7 +7445,7 @@ GTLR_DEPRECATED
  *  Required. The encryption spec used for CMEK encryption. It is required that
  *  the kms key is in the same region as the endpoint. The same key will be used
  *  for all provisioned resources, if encryption is available. If the
- *  kms_key_name is left empty, no encryption will be enforced.
+ *  `kms_key_name` field is left empty, no encryption will be enforced.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec *encryptionSpec;
 
@@ -6044,6 +7764,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The response for listing all feedback labels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "feedbackLabels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAllFeedbackLabelsResponse : GTLRCollectionObject
+
+/**
+ *  The feedback labels that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel *> *feedbackLabels;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response to list analyses.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6060,6 +7807,33 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis *> *analyses;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response of listing views.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "analysisRules" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAnalysisRulesResponse : GTLRCollectionObject
+
+/**
+ *  The analysis_rule that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule *> *analysisRules;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -6093,6 +7867,30 @@ GTLR_DEPRECATED
  *  field is set, it means there is another page available. If it is not set, it
  *  means no other pages are available.
  */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for listing feedback labels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "feedbackLabels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListFeedbackLabelsResponse : GTLRCollectionObject
+
+/**
+ *  The feedback labels that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel *> *feedbackLabels;
+
+/** The next page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -6143,6 +7941,87 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher *> *phraseMatchers;
+
+@end
+
+
+/**
+ *  The response from a ListQaQuestions request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "qaQuestions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaQuestionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The QaQuestions under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion *> *qaQuestions;
+
+@end
+
+
+/**
+ *  The response from a ListQaScorecardRevisions request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "qaScorecardRevisions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaScorecardRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The QaScorecards under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision *> *qaScorecardRevisions;
+
+@end
+
+
+/**
+ *  The response from a ListQaScorecards request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "qaScorecards" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaScorecardsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The QaScorecards under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard *> *qaScorecards;
 
 @end
 
@@ -6340,6 +8219,760 @@ GTLR_DEPRECATED
  *        Unspecified. (Value: "PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  An answer to a QaQuestion.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswer : GTLRObject
+
+/** List of all individual answers given to the question. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource *> *answerSources;
+
+/** The main answer value, incorporating any manual edits if they exist. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue *answerValue;
+
+/** The conversation the answer applies to. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The QaQuestion answered by this answer. */
+@property(nonatomic, copy, nullable) NSString *qaQuestion;
+
+/** Question text. E.g., "Did the agent greet the customer?" */
+@property(nonatomic, copy, nullable) NSString *questionBody;
+
+/**
+ *  User-defined list of arbitrary tags. Matches the value from
+ *  QaScorecard.ScorecardQuestion.tags. Used for grouping/organization and for
+ *  weighting the score of each answer.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  A question may have multiple answers from varying sources, one of which
+ *  becomes the "main" answer above. AnswerSource represents each individual
+ *  answer.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource : GTLRObject
+
+/** The answer value from this source. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue *answerValue;
+
+/**
+ *  What created the answer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_ManualEdit
+ *        Answer was created by a human via manual edit. (Value: "MANUAL_EDIT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_SourceTypeUnspecified
+ *        Source type is unspecified. (Value: "SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_SystemGenerated
+ *        Answer was system-generated; created during an Insights analysis.
+ *        (Value: "SYSTEM_GENERATED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  Message for holding the value of a QaAnswer. QaQuestion.AnswerChoice defines
+ *  the possible answer values for a question.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue : GTLRObject
+
+/**
+ *  Boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  A short string used as an identifier. Matches the value used in
+ *  QaQuestion.AnswerChoice.key.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  A value of "Not Applicable (N/A)". Should only ever be `true`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *naValue;
+
+/**
+ *  Output only. Normalized score of the questions. Calculated as score /
+ *  potential_score.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  Numerical value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numValue;
+
+/**
+ *  Output only. The maximum potential score of the question.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/**
+ *  Output only. Numerical score of the answer.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** String value. */
+@property(nonatomic, copy, nullable) NSString *strValue;
+
+@end
+
+
+/**
+ *  A single question to be scored by the Insights QA feature.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion : GTLRObject
+
+/**
+ *  Short, descriptive string, used in the UI where it's not practical to
+ *  display the full question body. E.g., "Greeting".
+ */
+@property(nonatomic, copy, nullable) NSString *abbreviation;
+
+/**
+ *  A list of valid answers to the question, which the LLM must choose from.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice *> *answerChoices;
+
+/** Instructions describing how to determine the answer. */
+@property(nonatomic, copy, nullable) NSString *answerInstructions;
+
+/** Output only. The time at which this question was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Metrics of the underlying tuned LLM over a holdout/test set while fine
+ *  tuning the underlying LLM for the given question. This field will only be
+ *  populated if and only if the question is part of a scorecard revision that
+ *  has been tuned.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics *metrics;
+
+/**
+ *  Identifier. The resource name of the question. Format:
+ *  projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}/revisions/{revision}/qaQuestions/{qa_question}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Defines the order of the question within its parent scorecard revision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *order;
+
+/** Question text. E.g., "Did the agent greet the customer?" */
+@property(nonatomic, copy, nullable) NSString *questionBody;
+
+/**
+ *  User-defined list of arbitrary tags for the question. Used for
+ *  grouping/organization and for weighting the score of each question.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/**
+ *  Metadata about the tuning operation for the question.This field will only be
+ *  populated if and only if the question is part of a scorecard revision that
+ *  has been tuned.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata *tuningMetadata;
+
+/** Output only. The most recent time at which the question was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Message representing a possible answer to the question.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice : GTLRObject
+
+/**
+ *  Boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/** A short string used as an identifier. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  A value of "Not Applicable (N/A)". If provided, this field may only be set
+ *  to `true`. If a question receives this answer, it will be excluded from any
+ *  score calculations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *naValue;
+
+/**
+ *  Numerical value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numValue;
+
+/**
+ *  Numerical score of the answer, used for generating the overall score of a
+ *  QaScorecardResult. If the answer uses na_value, this field is unused.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** String value. */
+@property(nonatomic, copy, nullable) NSString *strValue;
+
+@end
+
+
+/**
+ *  A wrapper representing metrics calculated against a test-set on a LLM that
+ *  was fine tuned for this question.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics : GTLRObject
+
+/**
+ *  Output only. Accuracy of the model. Measures the percentage of correct
+ *  answers the model gave on the test set.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accuracy;
+
+@end
+
+
+/**
+ *  Metadata about the tuning operation for the question. Will only be set if a
+ *  scorecard containing this question has been tuned.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata : GTLRObject
+
+/**
+ *  A list of any applicable data validation warnings about the question's
+ *  feedback labels.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *datasetValidationWarnings;
+
+/**
+ *  Total number of valid labels provided for the question at the time of
+ *  tuining.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalValidLabelCount;
+
+/**
+ *  Error status of the tuning operation for the question. Will only be set if
+ *  the tuning operation failed.
+ */
+@property(nonatomic, copy, nullable) NSString *tuningError;
+
+@end
+
+
+/**
+ *  A QaScorecard represents a collection of questions to be scored during
+ *  analysis.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard : GTLRObject
+
+/** Output only. The time at which this scorecard was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A text description explaining the intent of the scorecard.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The user-specified display name of the scorecard. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The scorecard name. Format:
+ *  projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The most recent time at which the scorecard was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The results of scoring a single conversation against a QaScorecard. Contains
+ *  a collection of QaAnswers and aggregate score.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResult : GTLRObject
+
+/** ID of the agent that handled the conversation. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/** The conversation scored by this result. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** Output only. The timestamp that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The name of the scorecard result. Format:
+ *  projects/{project}/locations/{location}/qaScorecardResults/{qa_scorecard_result}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normalized score, which is the score divided by the potential score. Any
+ *  manual edits are included if they exist.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  The maximum potential overall score of the scorecard. Any questions answered
+ *  using `na_value` are excluded from this calculation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/** Set of QaAnswers represented in the result. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswer *> *qaAnswers;
+
+/** The QaScorecardRevision scored by this result. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardRevision;
+
+/** Collection of tags and their scores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultQaTagResult *> *qaTagResults;
+
+/**
+ *  The overall numerical score of the result, incorporating any manual edits if
+ *  they exist.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** List of all individual score sets. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource *> *scoreSources;
+
+@end
+
+
+/**
+ *  Tags and their corresponding results.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultQaTagResult : GTLRObject
+
+/**
+ *  The normalized score the tag applies to.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  The potential score the tag applies to.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/**
+ *  The score the tag applies to.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** The tag the score applies to. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  A scorecard result may have multiple sets of scores from varying sources,
+ *  one of which becomes the "main" answer above. A ScoreSource represents each
+ *  individual set of scores.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource : GTLRObject
+
+/**
+ *  The normalized score, which is the score divided by the potential score.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalizedScore;
+
+/**
+ *  The maximum potential overall score of the scorecard. Any questions answered
+ *  using `na_value` are excluded from this calculation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potentialScore;
+
+/** Collection of tags and their scores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultQaTagResult *> *qaTagResults;
+
+/**
+ *  The overall numerical score of the result.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  What created the score.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource_SourceType_IncludesManualEdits
+ *        Score is derived from both system-generated answers, and includes any
+ *        manual edits if they exist. (Value: "INCLUDES_MANUAL_EDITS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource_SourceType_SourceTypeUnspecified
+ *        Source type is unspecified. (Value: "SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource_SourceType_SystemGeneratedOnly
+ *        Score is derived only from system-generated answers. (Value:
+ *        "SYSTEM_GENERATED_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  A revision of a QaScorecard. Modifying published scorecard fields would
+ *  invalidate existing scorecard results — the questions may have changed, or
+ *  the score weighting will make existing scores impossible to understand. So
+ *  changes must create a new revision, rather than modifying the existing
+ *  resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision : GTLRObject
+
+/**
+ *  Output only. Alternative IDs for this revision of the scorecard, e.g.,
+ *  `latest`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alternateIds;
+
+/** Output only. The timestamp that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The name of the scorecard revision. Format:
+ *  projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The snapshot of the scorecard at the time of this revision's creation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard *snapshot;
+
+/**
+ *  Output only. State of the scorecard revision, indicating whether it's ready
+ *  to be used in analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Deleting
+ *        Scorecard is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Editable
+ *        The scorecard revision can be edited. (Value: "EDITABLE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Ready
+ *        The revision can be used in analysis. (Value: "READY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_StateUnspecified
+ *        Unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_Training
+ *        Scorecard model training is in progress. (Value: "TRAINING")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_TrainingCancelled
+ *        Scorecard model training was explicitly cancelled by the user. (Value:
+ *        "TRAINING_CANCELLED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision_State_TrainingFailed
+ *        Scorecard revision model training failed. (Value: "TRAINING_FAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The metadata from querying metrics.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request for querying metrics.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest : GTLRObject
+
+/**
+ *  The dimensions that determine the grouping key for the query. Defaults to no
+ *  dimension if this field is unspecified. If a dimension is specified, its key
+ *  must also be specified. Each dimension's key must be unique. If a time
+ *  granularity is also specified, metric values in the dimension will be
+ *  bucketed by this granularity. Up to one dimension is supported for now.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension *> *dimensions;
+
+/**
+ *  Required. Filter to select a subset of conversations to compute the metrics.
+ *  Must specify a window of the conversation create time to compute the
+ *  metrics. The returned metrics will be from the range [DATE(starting create
+ *  time), DATE(ending create time)).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Measures to return. Defaults to all measures if this field is unspecified. A
+ *  valid mask should traverse from the `measure` field from the response. For
+ *  example, a path from a measure mask to get the conversation count is
+ *  "conversation_measure.count".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *measureMask;
+
+/**
+ *  The time granularity of each data point in the time series. Defaults to NONE
+ *  if this field is unspecified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Daily
+ *        Data points in the time series will aggregate at a daily granularity.
+ *        1 day means [midnight to midnight). (Value: "DAILY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Hourly
+ *        Data points in the time series will aggregate at a daily granularity.
+ *        1 HOUR means [01:00 to 02:00). (Value: "HOURLY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Monthly
+ *        Data points in the time series will aggregate at a monthly
+ *        granularity. 1 MONTH means [01st of the month to 1st of the next
+ *        month). (Value: "MONTHLY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_None
+ *        No time granularity. The response won't contain a time series. This is
+ *        the default value if no time granularity is specified. (Value: "NONE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_Per5Minutes
+ *        Data points in the time series will aggregate at a 1 minute
+ *        granularity. PER_5_MINUTES means [01:00 to 01:05). (Value:
+ *        "PER_5_MINUTES")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_PerMinute
+ *        Data points in the time series will aggregate at a daily granularity.
+ *        PER_MINUTE means [01:00 to 01:01). (Value: "PER_MINUTE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest_TimeGranularity_TimeGranularityUnspecified
+ *        The time granularity is unspecified and will default to NONE. (Value:
+ *        "TIME_GRANULARITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *timeGranularity;
+
+@end
+
+
+/**
+ *  The response for querying metrics.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponse : GTLRObject
+
+/**
+ *  Required. The location of the data.
+ *  "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The macro average slice contains aggregated averages across the selected
+ *  dimension. i.e. if group_by agent is specified this field will contain the
+ *  average across all agents. This field is only populated if the request
+ *  specifies a Dimension.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSlice *macroAverageSlice;
+
+/**
+ *  A slice contains a total and (if the request specified a time granularity) a
+ *  time series of metric values. Each slice contains a unique combination of
+ *  the cardinality of dimensions from the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSlice *> *slices;
+
+/** The metrics last update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A slice contains a total and (if the request specified a time granularity) a
+ *  time series of metric values. Each slice contains a unique combination of
+ *  the cardinality of dimensions from the request. For example, if the request
+ *  specifies a single ISSUE dimension and it has a cardinality of 2 (i.e. the
+ *  data used to compute the metrics has 2 issues in total), the response will
+ *  have 2 slices: * Slice 1 -> dimensions=[Issue 1] * Slice 2 ->
+ *  dimensions=[Issue 2]
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSlice : GTLRObject
+
+/** A unique combination of dimensions that this slice represents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension *> *dimensions;
+
+/**
+ *  A time series of metric values. This is only populated if the request
+ *  specifies a time granularity other than NONE.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceTimeSeries *timeSeries;
+
+/**
+ *  The total metric value. The interval of this data point is [starting create
+ *  time, ending create time) from the request.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint *total;
+
+@end
+
+
+/**
+ *  A data point contains the metric values mapped to an interval.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint : GTLRObject
+
+/** The measure related to conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure *conversationMeasure;
+
+/**
+ *  The interval that this data point represents. * If this is the total data
+ *  point, the interval is [starting create time, ending create time) from the
+ *  request. * If this a data point from the time series, the interval is [time,
+ *  time + time granularity from the request).
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleTypeInterval *interval;
+
+@end
+
+
+/**
+ *  The measure related to conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure : GTLRObject
+
+/**
+ *  The average agent's sentiment score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageAgentSentimentScore;
+
+/**
+ *  The average client's sentiment score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageClientSentimentScore;
+
+/**
+ *  The average customer satisfaction rating.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageCustomerSatisfactionRating;
+
+/** The average duration. */
+@property(nonatomic, strong, nullable) GTLRDuration *averageDuration;
+
+/**
+ *  Average QA normalized score. Will exclude 0's in average calculation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageQaNormalizedScore;
+
+/**
+ *  Average QA normalized score averaged for questions averaged across all
+ *  revisions of the parent scorecard. Will be only populated if the request
+ *  specifies a dimension of QA_QUESTION_ID.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageQaQuestionNormalizedScore;
+
+/**
+ *  The average silence percentage.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSilencePercentage;
+
+/**
+ *  The average turn count.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageTurnCount;
+
+/**
+ *  The conversation count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationCount;
+
+/** Average QA normalized score for all the tags. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore *> *qaTagScores;
+
+@end
+
+
+/**
+ *  Average QA normalized score for the tag.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore : GTLRObject
+
+/**
+ *  Average tag normalized score per tag.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageTagNormalizedScore;
+
+/** Tag name. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  A time series of metric values.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceTimeSeries : GTLRObject
+
+/** The data points that make up the time series . */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint *> *dataPoints;
 
 @end
 
@@ -6720,6 +9353,32 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request for TuneQaScorecardRevision endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TuneQaScorecardRevisionRequest : GTLRObject
+
+/**
+ *  Required. Filter for selecting the feedback labels that needs to be used for
+ *  training. This filter can be used to limit the feedback labels used for
+ *  tuning to a feedback labels created or updated for a specific time-window
+ *  etc.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Run in validate only mode, no fine tuning will actually run. Data
+ *  quality validations like training data distributions will run. Even when set
+ *  to false, the data quality validations will still run but once the
+ *  validations complete we will proceed with the fine tune, if applicable.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
  *  Metadata for undeploying an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelMetadata : GTLRObject
@@ -6751,6 +9410,13 @@ GTLR_DEPRECATED
  *  The response to undeploy an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelResponse : GTLRObject
+@end
+
+
+/**
+ *  The request to undeploy a QaScorecardRevision
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployQaScorecardRevisionRequest : GTLRObject
 @end
 
 
@@ -6997,6 +9663,29 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRContactcenterinsights_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents a time interval, encoded as a Timestamp start (inclusive) and a
+ *  Timestamp end (exclusive). The start must be less than or equal to the end.
+ *  When the start equals the end, the interval is empty (matches no time). When
+ *  both start and end are unspecified, the interval matches any time.
+ */
+@interface GTLRContactcenterinsights_GoogleTypeInterval : GTLRObject
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -49,6 +49,15 @@
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationMemory;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationNetwork;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationStats;
+@class GTLRMigrationCenterAPI_DatabaseDeploymentDetails;
+@class GTLRMigrationCenterAPI_DatabaseDeploymentDetailsAggregatedStats;
+@class GTLRMigrationCenterAPI_DatabaseDeploymentTopology;
+@class GTLRMigrationCenterAPI_DatabaseDetails;
+@class GTLRMigrationCenterAPI_DatabaseDetailsParentDatabaseDeployment;
+@class GTLRMigrationCenterAPI_DatabaseInstance;
+@class GTLRMigrationCenterAPI_DatabaseInstanceNetwork;
+@class GTLRMigrationCenterAPI_DatabaseObjects;
+@class GTLRMigrationCenterAPI_DatabaseSchema;
 @class GTLRMigrationCenterAPI_Date;
 @class GTLRMigrationCenterAPI_DiscoveryClient;
 @class GTLRMigrationCenterAPI_DiscoveryClient_Labels;
@@ -80,6 +89,7 @@
 @class GTLRMigrationCenterAPI_ImportJob;
 @class GTLRMigrationCenterAPI_ImportJob_Labels;
 @class GTLRMigrationCenterAPI_ImportRowError;
+@class GTLRMigrationCenterAPI_ImportRowErrorArchiveErrorDetails;
 @class GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails;
 @class GTLRMigrationCenterAPI_ImportRowErrorXlsxErrorDetails;
 @class GTLRMigrationCenterAPI_Insight;
@@ -96,6 +106,12 @@
 @class GTLRMigrationCenterAPI_MemoryUsageSample;
 @class GTLRMigrationCenterAPI_MigrationInsight;
 @class GTLRMigrationCenterAPI_Money;
+@class GTLRMigrationCenterAPI_MysqlDatabaseDeployment;
+@class GTLRMigrationCenterAPI_MySqlPlugin;
+@class GTLRMigrationCenterAPI_MySqlProperty;
+@class GTLRMigrationCenterAPI_MySqlSchemaDetails;
+@class GTLRMigrationCenterAPI_MySqlStorageEngineDetails;
+@class GTLRMigrationCenterAPI_MySqlVariable;
 @class GTLRMigrationCenterAPI_NetworkAdapterDetails;
 @class GTLRMigrationCenterAPI_NetworkAdapterList;
 @class GTLRMigrationCenterAPI_NetworkAddress;
@@ -113,6 +129,11 @@
 @class GTLRMigrationCenterAPI_PerformanceSample;
 @class GTLRMigrationCenterAPI_PhysicalPlatformDetails;
 @class GTLRMigrationCenterAPI_PlatformDetails;
+@class GTLRMigrationCenterAPI_PostgreSqlDatabaseDeployment;
+@class GTLRMigrationCenterAPI_PostgreSqlExtension;
+@class GTLRMigrationCenterAPI_PostgreSqlProperty;
+@class GTLRMigrationCenterAPI_PostgreSqlSchemaDetails;
+@class GTLRMigrationCenterAPI_PostgreSqlSetting;
 @class GTLRMigrationCenterAPI_PreferenceSet;
 @class GTLRMigrationCenterAPI_RegionPreferences;
 @class GTLRMigrationCenterAPI_Report;
@@ -143,6 +164,11 @@
 @class GTLRMigrationCenterAPI_SoleTenancyPreferences;
 @class GTLRMigrationCenterAPI_SoleTenantNodeType;
 @class GTLRMigrationCenterAPI_Source;
+@class GTLRMigrationCenterAPI_SqlServerDatabaseDeployment;
+@class GTLRMigrationCenterAPI_SqlServerFeature;
+@class GTLRMigrationCenterAPI_SqlServerSchemaDetails;
+@class GTLRMigrationCenterAPI_SqlServerServerFlag;
+@class GTLRMigrationCenterAPI_SqlServerTraceFlag;
 @class GTLRMigrationCenterAPI_Status;
 @class GTLRMigrationCenterAPI_Status_Details_Item;
 @class GTLRMigrationCenterAPI_UpdateAssetRequest;
@@ -205,6 +231,50 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_Collection
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUpload;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_AwsEc2PlatformDetails.hyperthreading
+
+/**
+ *  Simultaneous Multithreading is disabled or unavailable.
+ *
+ *  Value: "HYPERTHREADING_STATUS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusDisabled;
+/**
+ *  Simultaneous Multithreading is enabled.
+ *
+ *  Value: "HYPERTHREADING_STATUS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusEnabled;
+/**
+ *  Simultaneous Multithreading status unknown.
+ *
+ *  Value: "HYPERTHREADING_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_AzureVmPlatformDetails.hyperthreading
+
+/**
+ *  Simultaneous Multithreading is disabled or unavailable.
+ *
+ *  Value: "HYPERTHREADING_STATUS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled;
+/**
+ *  Simultaneous Multithreading is enabled.
+ *
+ *  Value: "HYPERTHREADING_STATUS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled;
+/**
+ *  Simultaneous Multithreading status unknown.
+ *
+ *  Value: "HYPERTHREADING_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_ComputeEnginePreferences.licenseType
 
 /**
@@ -249,8 +319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferen
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard;
 /**
- *  Unspecified (default value). Selecting this value allows the system to use
- *  any disk type according to reported usage. This a good value to start with.
+ *  Unspecified. Fallback to default value based on context.
  *
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
@@ -278,12 +347,85 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescrip
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard;
 /**
- *  Unspecified (default value). Selecting this value allows the system to use
- *  any disk type according to reported usage. This a good value to start with.
+ *  Unspecified. Fallback to default value based on context.
  *
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_DatabaseInstance.role
+
+/**
+ *  Arbiter.
+ *
+ *  Value: "ARBITER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_Arbiter;
+/**
+ *  Primary.
+ *
+ *  Value: "PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_Primary;
+/**
+ *  Unspecified.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_RoleUnspecified;
+/**
+ *  Secondary.
+ *
+ *  Value: "SECONDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_Secondary;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_DatabaseObjects.category
+
+/**
+ *  Unspecified type.
+ *
+ *  Value: "CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_CategoryUnspecified;
+/**
+ *  Constraints.
+ *
+ *  Value: "CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Constraints;
+/**
+ *  Index.
+ *
+ *  Value: "INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Index;
+/**
+ *  Uncategorized objects.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Other;
+/**
+ *  Source code, e.g. procedures.
+ *
+ *  Value: "SOURCE_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_SourceCode;
+/**
+ *  Table.
+ *
+ *  Value: "TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Table;
+/**
+ *  Views.
+ *
+ *  Value: "VIEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Views;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_DiscoveryClient.state
@@ -400,6 +542,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLeve
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_RequiresEffort;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_GenericPlatformDetails.hyperthreading
+
+/**
+ *  Simultaneous Multithreading is disabled or unavailable.
+ *
+ *  Value: "HYPERTHREADING_STATUS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled;
+/**
+ *  Simultaneous Multithreading is enabled.
+ *
+ *  Value: "HYPERTHREADING_STATUS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled;
+/**
+ *  Simultaneous Multithreading status unknown.
+ *
+ *  Value: "HYPERTHREADING_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_GuestConfigDetails.selinuxMode
 
 /**
@@ -454,6 +618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_ImportDataFile.format
 
+/**
+ *  ZIP file with nested CSV files generated by a database collector.
+ *
+ *  Value: "IMPORT_JOB_FORMAT_DATABASE_ZIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatDatabaseZip;
 /**
  *  CSV format exported from AWS using the AWS collection script.
  *
@@ -671,6 +841,82 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerS
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspending;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_MySqlStorageEngineDetails.engine
+
+/**
+ *  Archive.
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Archive;
+/**
+ *  Blackhole.
+ *
+ *  Value: "BLACKHOLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Blackhole;
+/**
+ *  CSV.
+ *
+ *  Value: "CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Csv;
+/**
+ *  Unspecified storage engine.
+ *
+ *  Value: "ENGINE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_EngineUnspecified;
+/**
+ *  Example.
+ *
+ *  Value: "EXAMPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Example;
+/**
+ *  Federated.
+ *
+ *  Value: "FEDERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Federated;
+/**
+ *  InnoDB.
+ *
+ *  Value: "INNODB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Innodb;
+/**
+ *  Memory.
+ *
+ *  Value: "MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Memory;
+/**
+ *  Merge.
+ *
+ *  Value: "MERGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Merge;
+/**
+ *  MyISAM.
+ *
+ *  Value: "MYISAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Myisam;
+/**
+ *  NDB.
+ *
+ *  Value: "NDB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Ndb;
+/**
+ *  Other.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Other;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_NetworkAddress.assignment
 
 /**
@@ -731,6 +977,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_Sta
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_PhysicalPlatformDetails.hyperthreading
+
+/**
+ *  Simultaneous Multithreading is disabled or unavailable.
+ *
+ *  Value: "HYPERTHREADING_STATUS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled;
+/**
+ *  Simultaneous Multithreading is enabled.
+ *
+ *  Value: "HYPERTHREADING_STATUS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled;
+/**
+ *  Simultaneous Multithreading status unknown.
+ *
+ *  Value: "HYPERTHREADING_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_Report.state
@@ -798,8 +1066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeE
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeStandard;
 /**
- *  Unspecified (default value). Selecting this value allows the system to use
- *  any disk type according to reported usage. This a good value to start with.
+ *  Unspecified. Fallback to default value based on context.
  *
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
@@ -998,6 +1265,34 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTyp
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeUpload;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_SqlServerTraceFlag.scope
+
+/**
+ *  Global.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Global;
+/**
+ *  Off.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Off;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_ScopeUnspecified;
+/**
+ *  Session.
+ *
+ *  Value: "SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Session;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_VirtualMachinePreferences.commitmentPlan
 
 /**
@@ -1079,7 +1374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePrefere
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductUnspecified;
 /**
- *  Prefer to migrate to Google Cloud VMware Engine.
+ *  Prefer to migrate to Google Cloud VMware Engine.6278
  *
  *  Value: "COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE"
  */
@@ -1232,6 +1527,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Value: "ON_DEMAND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_OnDemand;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_VmwarePlatformDetails.esxHyperthreading
+
+/**
+ *  Simultaneous Multithreading is disabled or unavailable.
+ *
+ *  Value: "HYPERTHREADING_STATUS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusDisabled;
+/**
+ *  Simultaneous Multithreading is enabled.
+ *
+ *  Value: "HYPERTHREADING_STATUS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusEnabled;
+/**
+ *  Simultaneous Multithreading status unknown.
+ *
+ *  Value: "HYPERTHREADING_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusUnspecified;
 
 /**
  *  A request to add assets to a group.
@@ -1495,6 +1812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Output only. The timestamp when the asset was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. Asset information specific for database deployments. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDeploymentDetails *databaseDeploymentDetails;
+
+/** Output only. Asset information specific for logical databases. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDetails *databaseDetails;
+
 /** Output only. The list of insights associated with the asset. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_InsightList *insightList;
 
@@ -1514,6 +1837,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Output only. The list of sources contributing to the asset. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
+
+/** Output only. Server generated human readable name of the asset. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** Output only. The timestamp when the asset was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1572,6 +1898,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *        Manually uploaded file (e.g. CSV) (Value: "SOURCE_TYPE_UPLOAD")
  */
 @property(nonatomic, copy, nullable) NSString *collectionType;
+
+/** Asset information specific for database deployments. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDeploymentDetails *databaseDeploymentDetails;
+
+/** Asset information specific for logical databases. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDetails *databaseDetails;
 
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetFrame_Labels *labels;
@@ -1652,6 +1984,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_AwsEc2PlatformDetails : GTLRObject
 
+/**
+ *  Optional. Whether the machine is hyperthreaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusDisabled
+ *        Simultaneous Multithreading is disabled or unavailable. (Value:
+ *        "HYPERTHREADING_STATUS_DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusEnabled
+ *        Simultaneous Multithreading is enabled. (Value:
+ *        "HYPERTHREADING_STATUS_ENABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified
+ *        Simultaneous Multithreading status unknown. (Value:
+ *        "HYPERTHREADING_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hyperthreading;
+
 /** The location of the machine in the AWS format. */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -1665,6 +2013,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Azure VM specific details.
  */
 @interface GTLRMigrationCenterAPI_AzureVmPlatformDetails : GTLRObject
+
+/**
+ *  Whether the machine is hyperthreaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled
+ *        Simultaneous Multithreading is disabled or unavailable. (Value:
+ *        "HYPERTHREADING_STATUS_DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled
+ *        Simultaneous Multithreading is enabled. (Value:
+ *        "HYPERTHREADING_STATUS_ENABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified
+ *        Simultaneous Multithreading status unknown. (Value:
+ *        "HYPERTHREADING_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hyperthreading;
 
 /** The location of the machine in the Azure format. */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -1817,9 +2181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard
  *        Standard HDD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_STANDARD")
  *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified
- *        Unspecified (default value). Selecting this value allows the system to
- *        use any disk type according to reported usage. This a good value to
- *        start with. (Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED")
+ *        Unspecified. Fallback to default value based on context. (Value:
+ *        "PERSISTENT_DISK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *persistentDiskType;
 
@@ -1887,9 +2250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *    @arg @c kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard
  *        Standard HDD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_STANDARD")
  *    @arg @c kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified
- *        Unspecified (default value). Selecting this value allows the system to
- *        use any disk type according to reported usage. This a good value to
- *        start with. (Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED")
+ *        Unspecified. Fallback to default value based on context. (Value:
+ *        "PERSISTENT_DISK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1951,8 +2313,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_DailyResourceUsageAggregationDisk : GTLRObject
 
-/** Disk I/O operations per second. */
+/** Optional. Disk I/O operations per second. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DailyResourceUsageAggregationStats *iops;
+
+/** Optional. Disk read I/O operations per second. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DailyResourceUsageAggregationStats *readIops;
+
+/** Optional. Disk write I/O operations per second. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DailyResourceUsageAggregationStats *writeIops;
 
 @end
 
@@ -2014,6 +2382,278 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *peak;
+
+@end
+
+
+/**
+ *  The details of a database deployment asset.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseDeploymentDetails : GTLRObject
+
+/** Output only. Aggregated stats for the database deployment. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDeploymentDetailsAggregatedStats *aggregatedStats;
+
+/** Optional. The database deployment edition. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
+/** Optional. The database deployment generated ID. */
+@property(nonatomic, copy, nullable) NSString *generatedId;
+
+/** Optional. A manual unique ID set by the user. */
+@property(nonatomic, copy, nullable) NSString *manualUniqueId;
+
+/** Optional. Details of a MYSQL database deployment. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MysqlDatabaseDeployment *mysql;
+
+/** Optional. Details of a PostgreSQL database deployment. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_PostgreSqlDatabaseDeployment *postgresql;
+
+/** Optional. Details of a Microsoft SQL Server database deployment. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SqlServerDatabaseDeployment *sqlServer;
+
+/** Optional. Details of the database deployment topology. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDeploymentTopology *topology;
+
+/** Optional. The database deployment version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Aggregated stats for the database deployment.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseDeploymentDetailsAggregatedStats : GTLRObject
+
+/**
+ *  Output only. The number of databases in the deployment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *databaseCount;
+
+@end
+
+
+/**
+ *  Details of database deployment's topology.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseDeploymentTopology : GTLRObject
+
+/**
+ *  Optional. Number of total logical cores.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coreCount;
+
+/**
+ *  Optional. Number of total logical cores limited by db deployment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coreLimit;
+
+/**
+ *  Optional. Disk allocated in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskAllocatedBytes;
+
+/**
+ *  Optional. Disk used in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskUsedBytes;
+
+/** Optional. List of database instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_DatabaseInstance *> *instances;
+
+/**
+ *  Optional. Total memory in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryBytes;
+
+/**
+ *  Optional. Total memory in bytes limited by db deployment.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryLimitBytes;
+
+/**
+ *  Optional. Number of total physical cores.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *physicalCoreCount;
+
+/**
+ *  Optional. Number of total physical cores limited by db deployment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *physicalCoreLimit;
+
+@end
+
+
+/**
+ *  Details of a logical database.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseDetails : GTLRObject
+
+/**
+ *  Optional. The allocated storage for the database in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedStorageBytes;
+
+/** Required. The name of the database. */
+@property(nonatomic, copy, nullable) NSString *databaseName;
+
+/**
+ *  Required. The parent database deployment that contains the logical database.
+ */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDetailsParentDatabaseDeployment *parentDatabaseDeployment;
+
+/** Optional. The database schemas. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_DatabaseSchema *> *schemas;
+
+@end
+
+
+/**
+ *  The identifiers of the parent database deployment.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseDetailsParentDatabaseDeployment : GTLRObject
+
+/** Optional. The parent database deployment generated ID. */
+@property(nonatomic, copy, nullable) NSString *generatedId;
+
+/**
+ *  Optional. The parent database deployment optional manual unique ID set by
+ *  the user.
+ */
+@property(nonatomic, copy, nullable) NSString *manualUniqueId;
+
+@end
+
+
+/**
+ *  Details of a database instance.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseInstance : GTLRObject
+
+/** Optional. The instance's name. */
+@property(nonatomic, copy, nullable) NSString *instanceName;
+
+/** Optional. Networking details. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseInstanceNetwork *network;
+
+/**
+ *  Optional. The instance role in the database engine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseInstance_Role_Arbiter Arbiter.
+ *        (Value: "ARBITER")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseInstance_Role_Primary Primary.
+ *        (Value: "PRIMARY")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseInstance_Role_RoleUnspecified
+ *        Unspecified. (Value: "ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseInstance_Role_Secondary Secondary.
+ *        (Value: "SECONDARY")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Network details of a database instance.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseInstanceNetwork : GTLRObject
+
+/** Optional. The instance's host names. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hostNames;
+
+/** Optional. The instance's IP addresses. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
+
+/** Optional. The instance's primary MAC address. */
+@property(nonatomic, copy, nullable) NSString *primaryMacAddress;
+
+@end
+
+
+/**
+ *  Details of a group of database objects.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseObjects : GTLRObject
+
+/**
+ *  Optional. The category of the objects.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseObjects_Category_CategoryUnspecified
+ *        Unspecified type. (Value: "CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseObjects_Category_Constraints
+ *        Constraints. (Value: "CONSTRAINTS")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseObjects_Category_Index Index.
+ *        (Value: "INDEX")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseObjects_Category_Other
+ *        Uncategorized objects. (Value: "OTHER")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseObjects_Category_SourceCode Source
+ *        code, e.g. procedures. (Value: "SOURCE_CODE")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseObjects_Category_Table Table.
+ *        (Value: "TABLE")
+ *    @arg @c kGTLRMigrationCenterAPI_DatabaseObjects_Category_Views Views.
+ *        (Value: "VIEWS")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Optional. The number of objects.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+@end
+
+
+/**
+ *  Details of a database schema.
+ */
+@interface GTLRMigrationCenterAPI_DatabaseSchema : GTLRObject
+
+/** Optional. Details of a Mysql schema. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MySqlSchemaDetails *mysql;
+
+/** Optional. List of details of objects by category. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_DatabaseObjects *> *objects;
+
+/** Optional. Details of a PostgreSql schema. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_PostgreSqlSchemaDetails *postgresql;
+
+/** Required. The name of the schema. */
+@property(nonatomic, copy, nullable) NSString *schemaName;
+
+/** Optional. Details of a SqlServer schema. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SqlServerSchemaDetails *sqlServer;
+
+/**
+ *  Optional. The total size of tables in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tablesSizeBytes;
 
 @end
 
@@ -2289,11 +2929,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_DiskUsageSample : GTLRObject
 
 /**
- *  Average IOPS sampled over a short window. Must be non-negative.
+ *  Optional. Average IOPS sampled over a short window. Must be non-negative.
+ *  Must be equal to the sum of read and write if one of them is positive. if
+ *  both read and write are zero they are ignored.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageIops;
+
+/**
+ *  Optional. Average read IOPS sampled over a short window. Must be
+ *  non-negative.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageReadIops;
+
+/**
+ *  Optional. Average write IOPS sampled over a short window. Must be
+ *  non-negative.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageWriteIops;
 
 @end
 
@@ -2507,6 +3165,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Generic platform details.
  */
 @interface GTLRMigrationCenterAPI_GenericPlatformDetails : GTLRObject
+
+/**
+ *  Whether the machine is hyperthreaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled
+ *        Simultaneous Multithreading is disabled or unavailable. (Value:
+ *        "HYPERTHREADING_STATUS_DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled
+ *        Simultaneous Multithreading is enabled. (Value:
+ *        "HYPERTHREADING_STATUS_ENABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified
+ *        Simultaneous Multithreading status unknown. (Value:
+ *        "HYPERTHREADING_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hyperthreading;
 
 /**
  *  Free text representation of the machine location. The format of this field
@@ -2743,6 +3417,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Required. The payload format.
  *
  *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatDatabaseZip
+ *        ZIP file with nested CSV files generated by a database collector.
+ *        (Value: "IMPORT_JOB_FORMAT_DATABASE_ZIP")
  *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAwsCsv
  *        CSV format exported from AWS using the AWS collection script. (Value:
  *        "IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV")
@@ -2889,6 +3566,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_ImportRowError : GTLRObject
 
+/** Error details for an archive file. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ImportRowErrorArchiveErrorDetails *archiveError;
+
+/** Output only. The asset title. */
+@property(nonatomic, copy, nullable) NSString *assetTitle;
+
 /** Error details for a CSV file. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails *csvError;
 
@@ -2910,6 +3593,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Error details for an XLSX file. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ImportRowErrorXlsxErrorDetails *xlsxError;
+
+@end
+
+
+/**
+ *  Error details for an archive file.
+ */
+@interface GTLRMigrationCenterAPI_ImportRowErrorArchiveErrorDetails : GTLRObject
+
+/** Error details for a CSV file. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails *csvError;
+
+/**
+ *  Output only. The file path inside the archive where the error was detected.
+ */
+@property(nonatomic, copy, nullable) NSString *filePath;
 
 @end
 
@@ -2952,7 +3651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_Insight : GTLRObject
 
-/** Output only. A generic insight about an asset */
+/** Output only. A generic insight about an asset. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GenericInsight *genericInsight;
 
 /** Output only. An insight about potential migrations for an asset. */
@@ -3382,11 +4081,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, strong, nullable) NSNumber *cpuSocketCount;
 
 /**
- *  Number of CPU threads allocated to the machine.
+ *  Deprecated: use MachineDetails.core_count instead. Number of CPU threads
+ *  allocated to the machine.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *cpuThreadCount;
+@property(nonatomic, strong, nullable) NSNumber *cpuThreadCount GTLR_DEPRECATED;
 
 /**
  *  Firmware type.
@@ -3630,6 +4330,157 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  Specific details for a Mysql database deployment.
+ */
+@interface GTLRMigrationCenterAPI_MysqlDatabaseDeployment : GTLRObject
+
+/** Optional. List of MySql plugins. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_MySqlPlugin *> *plugins;
+
+/** Optional. List of MySql properties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_MySqlProperty *> *properties;
+
+/**
+ *  Optional. Number of resource groups.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceGroupsCount;
+
+/** Optional. List of MySql variables. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_MySqlVariable *> *variables;
+
+@end
+
+
+/**
+ *  MySql plugin.
+ */
+@interface GTLRMigrationCenterAPI_MySqlPlugin : GTLRObject
+
+/**
+ *  Required. The plugin is active.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Required. The plugin name. */
+@property(nonatomic, copy, nullable) NSString *plugin;
+
+/** Required. The plugin version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  MySql property.
+ */
+@interface GTLRMigrationCenterAPI_MySqlProperty : GTLRObject
+
+/**
+ *  Required. The property is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Required. The property numeric value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numericValue;
+
+/** Required. The property name. */
+@property(nonatomic, copy, nullable) NSString *property;
+
+@end
+
+
+/**
+ *  Specific details for a Mysql database.
+ */
+@interface GTLRMigrationCenterAPI_MySqlSchemaDetails : GTLRObject
+
+/** Optional. Mysql storage engine tables. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_MySqlStorageEngineDetails *> *storageEngines;
+
+@end
+
+
+/**
+ *  Mysql storage engine tables.
+ */
+@interface GTLRMigrationCenterAPI_MySqlStorageEngineDetails : GTLRObject
+
+/**
+ *  Optional. The number of encrypted tables.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *encryptedTableCount;
+
+/**
+ *  Required. The storage engine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Archive
+ *        Archive. (Value: "ARCHIVE")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Blackhole
+ *        Blackhole. (Value: "BLACKHOLE")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Csv CSV.
+ *        (Value: "CSV")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_EngineUnspecified
+ *        Unspecified storage engine. (Value: "ENGINE_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Example
+ *        Example. (Value: "EXAMPLE")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Federated
+ *        Federated. (Value: "FEDERATED")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Innodb
+ *        InnoDB. (Value: "INNODB")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Memory
+ *        Memory. (Value: "MEMORY")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Merge
+ *        Merge. (Value: "MERGE")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Myisam
+ *        MyISAM. (Value: "MYISAM")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Ndb NDB.
+ *        (Value: "NDB")
+ *    @arg @c kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Other
+ *        Other. (Value: "OTHER")
+ */
+@property(nonatomic, copy, nullable) NSString *engine;
+
+/**
+ *  Optional. The number of tables.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tableCount;
+
+@end
+
+
+/**
+ *  MySql variable.
+ */
+@interface GTLRMigrationCenterAPI_MySqlVariable : GTLRObject
+
+/** Required. The variable category. */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** Required. The variable value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+/** Required. The variable name. */
+@property(nonatomic, copy, nullable) NSString *variable;
 
 @end
 
@@ -4008,6 +4859,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_PhysicalPlatformDetails : GTLRObject
 
 /**
+ *  Whether the machine is hyperthreaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled
+ *        Simultaneous Multithreading is disabled or unavailable. (Value:
+ *        "HYPERTHREADING_STATUS_DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled
+ *        Simultaneous Multithreading is enabled. (Value:
+ *        "HYPERTHREADING_STATUS_ENABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified
+ *        Simultaneous Multithreading status unknown. (Value:
+ *        "HYPERTHREADING_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hyperthreading;
+
+/**
  *  Free text representation of the machine location. The format of this field
  *  should not be relied on. Different machines in the same location may have
  *  different string values for this field.
@@ -4036,6 +4903,121 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** VMware specific details. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VmwarePlatformDetails *vmwareDetails;
+
+@end
+
+
+/**
+ *  Specific details for a PostgreSQL database deployment.
+ */
+@interface GTLRMigrationCenterAPI_PostgreSqlDatabaseDeployment : GTLRObject
+
+/** Optional. List of PostgreSql properties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_PostgreSqlProperty *> *properties;
+
+/** Optional. List of PostgreSql settings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_PostgreSqlSetting *> *settings;
+
+@end
+
+
+/**
+ *  PostgreSql extension.
+ */
+@interface GTLRMigrationCenterAPI_PostgreSqlExtension : GTLRObject
+
+/** Required. The extension name. */
+@property(nonatomic, copy, nullable) NSString *extension;
+
+/** Required. The extension version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  PostgreSql property.
+ */
+@interface GTLRMigrationCenterAPI_PostgreSqlProperty : GTLRObject
+
+/**
+ *  Required. The property is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Required. The property numeric value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numericValue;
+
+/** Required. The property name. */
+@property(nonatomic, copy, nullable) NSString *property;
+
+@end
+
+
+/**
+ *  Specific details for a PostgreSql schema.
+ */
+@interface GTLRMigrationCenterAPI_PostgreSqlSchemaDetails : GTLRObject
+
+/**
+ *  Optional. PostgreSql foreign tables.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *foreignTablesCount;
+
+/** Optional. PostgreSql extensions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_PostgreSqlExtension *> *postgresqlExtensions;
+
+@end
+
+
+/**
+ *  PostgreSql setting.
+ */
+@interface GTLRMigrationCenterAPI_PostgreSqlSetting : GTLRObject
+
+/**
+ *  Required. The setting boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Required. The setting int value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/**
+ *  Required. The setting real value.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *realValue;
+
+/** Required. The setting name. */
+@property(nonatomic, copy, nullable) NSString *setting;
+
+/** Required. The setting source. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Required. The setting string value. Notice that enum values are stored as
+ *  strings.
+ */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+/** Optional. The setting unit. */
+@property(nonatomic, copy, nullable) NSString *unit;
 
 @end
 
@@ -4254,7 +5236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_ReportSummaryAssetAggregateStats : GTLRObject
 
-/** Histogram showing a distribution of CPU core counts. */
+/** Histogram showing a distribution of logical CPU core counts. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryHistogramChartData *coreCountHistogram;
 
 /** Histogram showing a distribution of memory sizes. */
@@ -4994,6 +5976,104 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
+ *  Specific details for a Microsoft SQL Server database deployment.
+ */
+@interface GTLRMigrationCenterAPI_SqlServerDatabaseDeployment : GTLRObject
+
+/** Optional. List of SQL Server features. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_SqlServerFeature *> *features;
+
+/** Optional. List of SQL Server server flags. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_SqlServerServerFlag *> *serverFlags;
+
+/** Optional. List of SQL Server trace flags. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_SqlServerTraceFlag *> *traceFlags;
+
+@end
+
+
+/**
+ *  SQL Server feature details.
+ */
+@interface GTLRMigrationCenterAPI_SqlServerFeature : GTLRObject
+
+/**
+ *  Required. Field enabled is set when a feature is used on the source
+ *  deployment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Required. The feature name. */
+@property(nonatomic, copy, nullable) NSString *featureName;
+
+@end
+
+
+/**
+ *  Specific details for a SqlServer database.
+ */
+@interface GTLRMigrationCenterAPI_SqlServerSchemaDetails : GTLRObject
+
+/**
+ *  Optional. SqlServer number of CLR objects.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clrObjectCount;
+
+@end
+
+
+/**
+ *  SQL Server server flag details.
+ */
+@interface GTLRMigrationCenterAPI_SqlServerServerFlag : GTLRObject
+
+/** Required. The server flag name. */
+@property(nonatomic, copy, nullable) NSString *serverFlagName;
+
+/** Required. The server flag value set by the user. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+/**
+ *  Required. The server flag actual value. If `value_in_use` is different from
+ *  `value` it means that either the configuration change was not applied or it
+ *  is an expected behavior. See SQL Server documentation for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *valueInUse;
+
+@end
+
+
+/**
+ *  SQL Server trace flag details.
+ */
+@interface GTLRMigrationCenterAPI_SqlServerTraceFlag : GTLRObject
+
+/**
+ *  Required. The trace flag scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Global Global.
+ *        (Value: "GLOBAL")
+ *    @arg @c kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Off Off. (Value:
+ *        "OFF")
+ *    @arg @c kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_ScopeUnspecified
+ *        Unspecified. (Value: "SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Session Session.
+ *        (Value: "SESSION")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/** Required. The trace flag name. */
+@property(nonatomic, copy, nullable) NSString *traceFlagName;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -5223,7 +6303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *        Unspecified (default value). (Value:
  *        "COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED")
  *    @arg @c kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductVmwareEngine
- *        Prefer to migrate to Google Cloud VMware Engine. (Value:
+ *        Prefer to migrate to Google Cloud VMware Engine.6278 (Value:
  *        "COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE")
  */
 @property(nonatomic, copy, nullable) NSString *targetProduct;
@@ -5376,6 +6456,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  VMware specific details.
  */
 @interface GTLRMigrationCenterAPI_VmwarePlatformDetails : GTLRObject
+
+/**
+ *  Whether the ESX is hyperthreaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusDisabled
+ *        Simultaneous Multithreading is disabled or unavailable. (Value:
+ *        "HYPERTHREADING_STATUS_DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusEnabled
+ *        Simultaneous Multithreading is enabled. (Value:
+ *        "HYPERTHREADING_STATUS_ENABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusUnspecified
+ *        Simultaneous Multithreading status unknown. (Value:
+ *        "HYPERTHREADING_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *esxHyperthreading;
 
 /** ESX version. */
 @property(nonatomic, copy, nullable) NSString *esxVersion;

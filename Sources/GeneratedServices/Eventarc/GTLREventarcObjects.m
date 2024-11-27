@@ -25,6 +25,18 @@ NSString * const kGTLREventarc_Channel_State_Inactive         = @"INACTIVE";
 NSString * const kGTLREventarc_Channel_State_Pending          = @"PENDING";
 NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLREventarc_LoggingConfig.logSeverity
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Alert = @"ALERT";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Critical = @"CRITICAL";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Debug = @"DEBUG";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Emergency = @"EMERGENCY";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Error = @"ERROR";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Info  = @"INFO";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_LogSeverityUnspecified = @"LOG_SEVERITY_UNSPECIFIED";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_None  = @"NONE";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Notice = @"NOTICE";
+NSString * const kGTLREventarc_LoggingConfig_LogSeverity_Warning = @"WARNING";
+
 // GTLREventarc_StateCondition.code
 NSString * const kGTLREventarc_StateCondition_Code_Aborted     = @"ABORTED";
 NSString * const kGTLREventarc_StateCondition_Code_AlreadyExists = @"ALREADY_EXISTS";
@@ -150,6 +162,50 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_Enrollment
+//
+
+@implementation GTLREventarc_Enrollment
+@dynamic annotations, celMatch, createTime, destination, displayName, ETag,
+         labels, messageBus, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Enrollment_Annotations
+//
+
+@implementation GTLREventarc_Enrollment_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Enrollment_Labels
+//
+
+@implementation GTLREventarc_Enrollment_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_EventFilter
 //
 
@@ -232,11 +288,185 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_GoogleApiSource
+//
+
+@implementation GTLREventarc_GoogleApiSource
+@dynamic annotations, createTime, cryptoKeyName, destination, displayName, ETag,
+         labels, loggingConfig, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleApiSource_Annotations
+//
+
+@implementation GTLREventarc_GoogleApiSource_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleApiSource_Labels
+//
+
+@implementation GTLREventarc_GoogleApiSource_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_GoogleChannelConfig
 //
 
 @implementation GTLREventarc_GoogleChannelConfig
 @dynamic cryptoKeyName, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineDestination
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineDestination
+@dynamic authenticationConfig, httpEndpoint, messageBus, networkConfig,
+         outputPayloadFormat, topic, workflow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfig
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfig
+@dynamic googleOidc, oauthToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfigOAuthToken
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfigOAuthToken
+@dynamic scope, serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfigOidcToken
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfigOidcToken
+@dynamic audience, serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineDestinationHttpEndpoint
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineDestinationHttpEndpoint
+@dynamic messageBindingTemplate, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineDestinationNetworkConfig
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineDestinationNetworkConfig
+@dynamic networkAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineMediation
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineMediation
+@dynamic transformation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineMediationTransformation
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineMediationTransformation
+@dynamic transformationTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormat
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormat
+@dynamic avro, json, protobuf;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormatAvroFormat
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormatAvroFormat
+@dynamic schemaDefinition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormatJsonFormat
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormatJsonFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormatProtobufFormat
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineMessagePayloadFormatProtobufFormat
+@dynamic schemaDefinition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleCloudEventarcV1PipelineRetryPolicy
+//
+
+@implementation GTLREventarc_GoogleCloudEventarcV1PipelineRetryPolicy
+@dynamic maxAttempts, maxRetryDelay, minRetryDelay;
 @end
 
 
@@ -399,6 +629,52 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_ListEnrollmentsResponse
+//
+
+@implementation GTLREventarc_ListEnrollmentsResponse
+@dynamic enrollments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enrollments" : [GTLREventarc_Enrollment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"enrollments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ListGoogleApiSourcesResponse
+//
+
+@implementation GTLREventarc_ListGoogleApiSourcesResponse
+@dynamic googleApiSources, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"googleApiSources" : [GTLREventarc_GoogleApiSource class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"googleApiSources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_ListLocationsResponse
 //
 
@@ -414,6 +690,71 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 + (NSString *)collectionItemsKey {
   return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ListMessageBusEnrollmentsResponse
+//
+
+@implementation GTLREventarc_ListMessageBusEnrollmentsResponse
+@dynamic enrollments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enrollments" : [NSString class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ListMessageBusesResponse
+//
+
+@implementation GTLREventarc_ListMessageBusesResponse
+@dynamic messageBuses, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messageBuses" : [GTLREventarc_MessageBus class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"messageBuses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ListPipelinesResponse
+//
+
+@implementation GTLREventarc_ListPipelinesResponse
+@dynamic nextPageToken, pipelines, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pipelines" : [GTLREventarc_Pipeline class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"pipelines";
 }
 
 @end
@@ -505,6 +846,60 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_LoggingConfig
+//
+
+@implementation GTLREventarc_LoggingConfig
+@dynamic logSeverity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_MessageBus
+//
+
+@implementation GTLREventarc_MessageBus
+@dynamic annotations, createTime, cryptoKeyName, displayName, ETag, labels,
+         loggingConfig, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_MessageBus_Annotations
+//
+
+@implementation GTLREventarc_MessageBus_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_MessageBus_Labels
+//
+
+@implementation GTLREventarc_MessageBus_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_NetworkConfig
 //
 
@@ -521,6 +916,59 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 @implementation GTLREventarc_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Pipeline
+//
+
+@implementation GTLREventarc_Pipeline
+@dynamic annotations, createTime, cryptoKeyName, destinations, displayName,
+         ETag, inputPayloadFormat, labels, loggingConfig, mediations, name,
+         retryPolicy, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [GTLREventarc_GoogleCloudEventarcV1PipelineDestination class],
+    @"mediations" : [GTLREventarc_GoogleCloudEventarcV1PipelineMediation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Pipeline_Annotations
+//
+
+@implementation GTLREventarc_Pipeline_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Pipeline_Labels
+//
+
+@implementation GTLREventarc_Pipeline_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

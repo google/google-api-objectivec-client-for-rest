@@ -59,6 +59,8 @@
 @class GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
+@class GTLRDataflow_GPUUsage;
+@class GTLRDataflow_GPUUtilization;
 @class GTLRDataflow_Histogram;
 @class GTLRDataflow_HistogramValue;
 @class GTLRDataflow_HotKeyDebuggingInfo;
@@ -3426,7 +3428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  The environment values to be set at runtime for flex template. LINT.IfChange
+ *  The environment values to be set at runtime for flex template.
  */
 @interface GTLRDataflow_FlexTemplateRuntimeEnvironment : GTLRObject
 
@@ -3762,6 +3764,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        Template Type. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *templateType;
+
+@end
+
+
+/**
+ *  Information about the GPU usage on the worker.
+ */
+@interface GTLRDataflow_GPUUsage : GTLRObject
+
+/** Required. Timestamp of the measurement. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/** Required. Utilization info about the GPU. */
+@property(nonatomic, strong, nullable) GTLRDataflow_GPUUtilization *utilization;
+
+@end
+
+
+/**
+ *  Utilization details about the GPU.
+ */
+@interface GTLRDataflow_GPUUtilization : GTLRObject
+
+/**
+ *  Required. GPU utilization rate of any kernel over the last sample period in
+ *  the range of [0, 1].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rate;
 
 @end
 
@@ -6085,6 +6117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** CPU utilization samples. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_CPUTime *> *cpuTime;
 
+/** Optional. GPU usage samples. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_GPUUsage *> *gpuUsage;
+
 /** Memory utilization samples. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_MemInfo *> *memoryInfo;
 
@@ -6111,7 +6146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  The environment values to set at runtime. LINT.IfChange
+ *  The environment values to set at runtime.
  */
 @interface GTLRDataflow_RuntimeEnvironment : GTLRObject
 

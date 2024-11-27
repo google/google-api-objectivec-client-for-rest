@@ -203,6 +203,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Permis
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudNatConfigs;
 /**
+ *  Aborted because user lacks permission to access Cloud Router configs
+ *  required to run the test.
+ *
+ *  Value: "PERMISSION_DENIED_NO_CLOUD_ROUTER_CONFIGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudRouterConfigs;
+/**
  *  Aborted because user lacks permission to access Network endpoint group
  *  endpoint configs required to run the test.
  *
@@ -569,8 +576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Dropped
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService;
 /**
- *  Packet is dropped due to an unspecified reason inside a Google-managed
- *  service. Used only for return traces.
+ *  Packet is dropped inside a Google-managed service due to being delivered in
+ *  return trace to an endpoint that doesn't match the endpoint the packet was
+ *  sent from in forward trace. Used only for return traces.
  *
  *  Value: "DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE"
  */
@@ -738,6 +746,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdver
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress;
 /**
+ *  Packet from the unknown peered network is dropped due to no known route from
+ *  the source network to the destination IP address.
+ *
+ *  Value: "NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromPeeredNetworkToDestination;
+/**
  *  No NAT subnets are defined for the PSC service attachment.
  *
  *  Value: "NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT"
@@ -778,6 +793,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Private
  *  Value: "PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported;
+/**
+ *  Sending packets processed by the Private NAT Gateways to the Private Service
+ *  Connect endpoints is not supported.
+ *
+ *  Value: "PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatToPscEndpointUnsupported;
 /**
  *  Packet with internal destination address sent to the internet gateway.
  *
@@ -1738,6 +1760,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_R
 // GTLRNetworkManagement_RouteInfo.routeType
 
 /**
+ *  Advertised route. Synthetic route which is used to transition from the
+ *  StartFromPrivateNetwork state in Connectivity tests.
+ *
+ *  Value: "ADVERTISED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Advertised;
+/**
  *  Dynamic route exchanged between BGP peers.
  *
  *  Value: "DYNAMIC"
@@ -2113,6 +2142,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Aborted because user lacks permission to access Cloud NAT configs
  *        required to run the test. (Value:
  *        "PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudRouterConfigs
+ *        Aborted because user lacks permission to access Cloud Router configs
+ *        required to run the test. (Value:
+ *        "PERMISSION_DENIED_NO_CLOUD_ROUTER_CONFIGS")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoNegEndpointConfigs
  *        Aborted because user lacks permission to access Network endpoint group
  *        endpoint configs required to run the test. (Value:
@@ -2731,9 +2764,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Packet was dropped inside Google Kubernetes Engine Service. (Value:
  *        "DROPPED_INSIDE_GKE_SERVICE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGoogleManagedService
- *        Packet is dropped due to an unspecified reason inside a Google-managed
- *        service. Used only for return traces. (Value:
- *        "DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE")
+ *        Packet is dropped inside a Google-managed service due to being
+ *        delivered in return trace to an endpoint that doesn't match the
+ *        endpoint the packet was sent from in forward trace. Used only for
+ *        return traces. (Value: "DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer
  *        Packet was dropped inside Private Service Connect service producer.
  *        (Value: "DROPPED_INSIDE_PSC_SERVICE_PRODUCER")
@@ -2821,6 +2855,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        with only an internal IP address tries to access external hosts, but
  *        Cloud NAT is not enabled in the subnet, unless special configurations
  *        on a VM allow this connection. (Value: "NO_EXTERNAL_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromPeeredNetworkToDestination
+ *        Packet from the unknown peered network is dropped due to no known
+ *        route from the source network to the destination IP address. (Value:
+ *        "NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment
  *        No NAT subnets are defined for the PSC service attachment. (Value:
  *        "NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT")
@@ -2843,6 +2881,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        VPN tunnel to another network, but Private Google Access needs to be
  *        enabled in the source endpoint network. (Value:
  *        "PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateNatToPscEndpointUnsupported
+ *        Sending packets processed by the Private NAT Gateways to the Private
+ *        Service Connect endpoints is not supported. (Value:
+ *        "PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet
  *        Packet with internal destination address sent to the internet gateway.
  *        (Value: "PRIVATE_TRAFFIC_TO_INTERNET")
@@ -3067,8 +3109,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *forwardingRuleTarget;
 
 /**
- *  A cluster URI for [Google Kubernetes Engine
- *  master](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
+ *  DNS endpoint of [Google Kubernetes Engine cluster control
+ *  plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
+ *  Requires gke_master_cluster to be set, can't be used simultaneoulsly with
+ *  ip_address or network. Applicable only to destination endpoint.
+ */
+@property(nonatomic, copy, nullable) NSString *fqdn;
+
+/**
+ *  A cluster URI for [Google Kubernetes Engine cluster control
+ *  plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
  */
 @property(nonatomic, copy, nullable) NSString *gkeMasterCluster;
 
@@ -3163,6 +3213,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  in the host project.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A [Redis Cluster](https://cloud.google.com/memorystore/docs/cluster) URI.
+ */
+@property(nonatomic, copy, nullable) NSString *redisCluster;
+
+/**
+ *  A [Redis Instance](https://cloud.google.com/memorystore/docs/redis) URI.
+ */
+@property(nonatomic, copy, nullable) NSString *redisInstance;
 
 @end
 
@@ -3471,10 +3531,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** URI of a GKE cluster. */
 @property(nonatomic, copy, nullable) NSString *clusterUri;
 
-/** External IP address of a GKE cluster master. */
+/** DNS endpoint of a GKE cluster control plane. */
+@property(nonatomic, copy, nullable) NSString *dnsEndpoint;
+
+/** External IP address of a GKE cluster control plane. */
 @property(nonatomic, copy, nullable) NSString *externalIp;
 
-/** Internal IP address of a GKE cluster master. */
+/** Internal IP address of a GKE cluster control plane. */
 @property(nonatomic, copy, nullable) NSString *internalIp;
 
 @end
@@ -4616,6 +4679,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Type of route.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Advertised Advertised
+ *        route. Synthetic route which is used to transition from the
+ *        StartFromPrivateNetwork state in Connectivity tests. (Value:
+ *        "ADVERTISED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic Dynamic route
  *        exchanged between BGP peers. (Value: "DYNAMIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PeeringDynamic A

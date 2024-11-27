@@ -710,7 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Failover a reservation to the secondary location. The operation should be
+ *  Fail over a reservation to the secondary location. The operation should be
  *  done in the current secondary location, which will be promoted to the new
  *  primary location for the reservation. Attempting to failover a reservation
  *  in the current primary location will fail with the error code
@@ -733,7 +733,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_Reservation.
  *
- *  Failover a reservation to the secondary location. The operation should be
+ *  Fail over a reservation to the secondary location. The operation should be
  *  done in the current secondary location, which will be promoted to the new
  *  primary location for the reservation. Attempting to failover a reservation
  *  in the current primary location will fail with the error code

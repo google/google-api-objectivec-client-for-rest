@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The project and location to build in. Location must be a region,
  *  e.g., 'us-central1' or 'global' if the global builder is to be used. Format:
- *  projects/{project}/locations/{location}
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param parent Required. The project and location to build in. Location must
  *    be a region, e.g., 'us-central1' or 'global' if the global builder is to
- *    be used. Format: projects/{project}/locations/{location}
+ *    be used. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit
  */

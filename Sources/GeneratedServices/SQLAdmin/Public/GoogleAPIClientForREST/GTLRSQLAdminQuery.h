@@ -595,8 +595,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  was previously added but never used in a certificate rotation, this
  *  operation replaces that version. There cannot be more than one CA version
  *  waiting to be rotated in. For instances that have enabled Certificate
- *  Authority Service (CAS) based server CA, please use AddServerCertificate to
- *  add a new server certificate.
+ *  Authority Service (CAS) based server CA, use AddServerCertificate to add a
+ *  new server certificate.
  *
  *  Method: sql.instances.addServerCa
  *
@@ -620,8 +620,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  was previously added but never used in a certificate rotation, this
  *  operation replaces that version. There cannot be more than one CA version
  *  waiting to be rotated in. For instances that have enabled Certificate
- *  Authority Service (CAS) based server CA, please use AddServerCertificate to
- *  add a new server certificate.
+ *  Authority Service (CAS) based server CA, use AddServerCertificate to add a
+ *  new server certificate.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -639,8 +639,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  a certificate rotation. If a server certificate version was previously added
  *  but never used in a certificate rotation, this operation replaces that
  *  version. There cannot be more than one certificate version waiting to be
- *  rotated in. For instances not using CAS server CA, please use AddServerCa
- *  instead.
+ *  rotated in. For instances not using CAS server CA, use AddServerCa instead.
  *
  *  Method: sql.instances.addServerCertificate
  *
@@ -664,8 +663,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  a certificate rotation. If a server certificate version was previously added
  *  but never used in a certificate rotation, this operation replaces that
  *  version. There cannot be more than one certificate version waiting to be
- *  rotated in. For instances not using CAS server CA, please use AddServerCa
- *  instead.
+ *  rotated in. For instances not using CAS server CA, use AddServerCa instead.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -1110,7 +1108,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  for the specified instance. There can be up to three sets of certs listed:
  *  the certificate that is currently in use, a future that has been added but
  *  not yet used to sign a certificate, and a certificate that has been rotated
- *  out.
+ *  out. For instances not using Certificate Authority Service (CAS) server CA,
+ *  use ListServerCas instead.
  *
  *  Method: sql.instances.ListServerCertificates
  *
@@ -1133,7 +1132,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  for the specified instance. There can be up to three sets of certs listed:
  *  the certificate that is currently in use, a future that has been added but
  *  not yet used to sign a certificate, and a certificate that has been rotated
- *  out.
+ *  out. For instances not using Certificate Authority Service (CAS) server CA,
+ *  use ListServerCas instead.
  *
  *  @param project Required. Project ID of the project that contains the
  *    instance.
@@ -1409,8 +1409,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Rotates the server certificate to one signed by the Certificate Authority
  *  (CA) version previously added with the addServerCA method. For instances
- *  that have enabled Certificate Authority Service (CAS) based server CA,
- *  please use RotateServerCertificate to rotate the server certificate.
+ *  that have enabled Certificate Authority Service (CAS) based server CA, use
+ *  RotateServerCertificate to rotate the server certificate.
  *
  *  Method: sql.instances.rotateServerCa
  *
@@ -1431,8 +1431,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Rotates the server certificate to one signed by the Certificate Authority
  *  (CA) version previously added with the addServerCA method. For instances
- *  that have enabled Certificate Authority Service (CAS) based server CA,
- *  please use RotateServerCertificate to rotate the server certificate.
+ *  that have enabled Certificate Authority Service (CAS) based server CA, use
+ *  RotateServerCertificate to rotate the server certificate.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesRotateServerCaRequest to include
  *    in the query.
@@ -1450,7 +1450,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Rotates the server certificate version to one previously added with the
  *  addServerCertificate method. For instances not using Certificate Authority
- *  Service (CAS) server CA, please use RotateServerCa instead.
+ *  Service (CAS) server CA, use RotateServerCa instead.
  *
  *  Method: sql.instances.RotateServerCertificate
  *
@@ -1471,7 +1471,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Rotates the server certificate version to one previously added with the
  *  addServerCertificate method. For instances not using Certificate Authority
- *  Service (CAS) server CA, please use RotateServerCa instead.
+ *  Service (CAS) server CA, use RotateServerCa instead.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesRotateServerCertificateRequest to
  *    include in the query.

@@ -403,6 +403,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_Sa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes_Types_BigQueryTableTypeExternalBigLake;
 /**
+ *  A snapshot of a BigQuery table.
+ *
+ *  Value: "BIG_QUERY_TABLE_TYPE_SNAPSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes_Types_BigQueryTableTypeSnapshot;
+/**
  *  A normal BigQuery table.
  *
  *  Value: "BIG_QUERY_TABLE_TYPE_TABLE"
@@ -418,6 +424,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
 
+/**
+ *  AI model file types. Only used for profiling.
+ *
+ *  Value: "AI_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_AiModel;
 /**
  *  Audio file types. Only used for profiling.
  *
@@ -1000,8 +1012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_Error;
 /**
- *  DLP automatically created this connection during an initial scan, and it is
- *  awaiting full configuration by a user.
+ *  The DLP API automatically created this connection during an initial scan,
+ *  and it is awaiting full configuration by a user.
  *
  *  Value: "MISSING_CREDENTIALS"
  */
@@ -1896,6 +1908,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_Logica
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2FileClusterType.cluster
 
+/**
+ *  AI models like .tflite etc.
+ *
+ *  Value: "CLUSTER_AI_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterAiModel;
 /**
  *  Archives and containers like .zip, .tar etc.
  *
@@ -3768,8 +3786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  The Google Cloud Platform project ID of the project containing the table. If
- *  omitted, project ID is inferred from the API call.
+ *  The Google Cloud project ID of the project containing the table. If omitted,
+ *  project ID is inferred from the API call.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3892,6 +3910,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  The type of data stored in the bytes string. Default will be TEXT_UTF8.
  *
  *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_AiModel AI model
+ *        file types. Only used for profiling. (Value: "AI_MODEL")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Audio Audio file
  *        types. Only used for profiling. (Value: "AUDIO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro avro (Value:
@@ -4173,8 +4193,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *databaseEngine;
 
 /**
- *  Required. DLP will limit its connections to max_connections. Must be 2 or
- *  greater.
+ *  Required. The DLP API will limit its connections to max_connections. Must be
+ *  2 or greater.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4502,12 +4522,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The data risk level for this column. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataRiskLevel *dataRiskLevel;
 
-/** The BigQuery dataset ID. */
+/** The BigQuery dataset ID, if the resource profiled is a BigQuery table. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  The BigQuery location where the dataset's data is stored. See
- *  https://cloud.google.com/bigquery/docs/locations for supported locations.
+ *  If supported, the location where the dataset's data is stored. See
+ *  https://cloud.google.com/bigquery/docs/locations for supported BigQuery
+ *  locations.
  */
 @property(nonatomic, copy, nullable) NSString *datasetLocation;
 
@@ -4609,7 +4630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The resource name of the resource this column is within. */
 @property(nonatomic, copy, nullable) NSString *tableFullResource;
 
-/** The BigQuery table ID. */
+/** The table ID. */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 @end
@@ -4679,8 +4700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A data connection to allow DLP to profile data in locations that require
- *  additional configuration.
+ *  A data connection to allow the DLP API to profile data in locations that
+ *  require additional configuration.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Connection : GTLRObject
 
@@ -4714,9 +4735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        to AVAILABLE when the connection is ready for use. If the resolution
  *        doesn't require external action, then any changes to the connection
  *        properties will automatically mark it as AVAILABLE. (Value: "ERROR")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Connection_State_MissingCredentials DLP
- *        automatically created this connection during an initial scan, and it
- *        is awaiting full configuration by a user. (Value:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Connection_State_MissingCredentials The
+ *        DLP API automatically created this connection during an initial scan,
+ *        and it is awaiting full configuration by a user. (Value:
  *        "MISSING_CREDENTIALS")
  */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -5373,7 +5394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToChronicle *publishToChronicle;
 
-/** Publishes findings to SCC for each data profile. */
+/** Publishes findings to Security Command Center for each data profile. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter *publishToScc;
 
 /** Publish a message into the Pub/Sub topic. */
@@ -5470,7 +5491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The project that will run the scan. The DLP service account that exists
  *  within this project must have access to all resources that are profiled, and
- *  the Cloud DLP API must be enabled.
+ *  the DLP API must be enabled.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -7140,6 +7161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Cluster type.
  *
  *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterAiModel
+ *        AI models like .tflite etc. (Value: "CLUSTER_AI_MODEL")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterArchive
  *        Archives and containers like .zip, .tar etc. (Value:
  *        "CLUSTER_ARCHIVE")
@@ -9581,7 +9604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The project that will run the scan. The DLP service account that exists
  *  within this project must have access to all resources that are profiled, and
- *  the Cloud DLP API must be enabled.
+ *  the DLP API must be enabled.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -10037,7 +10060,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  If set, a summary finding will be created/updated in SCC for each profile.
+ *  If set, a summary finding will be created or updated in Security Command
+ *  Center for each profile.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter : GTLRObject
 @end
@@ -11163,7 +11187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *failedColumnCount;
 
 /**
- *  The resource name of the resource profiled.
+ *  The Cloud Asset Inventory resource that was profiled in order to generate
+ *  this TableDataProfile.
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  */
 @property(nonatomic, copy, nullable) NSString *fullResource;
@@ -11249,7 +11274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** If the resource is BigQuery, the BigQuery table ID. */
+/** The table ID. */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
@@ -12248,30 +12273,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GoogleTypeTimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

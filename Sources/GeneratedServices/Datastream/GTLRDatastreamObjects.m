@@ -145,6 +145,25 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_BinaryLogParser
+//
+
+@implementation GTLRDatastream_BinaryLogParser
+@dynamic logFileDirectories, oracleAsmLogFileAccess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BinaryLogPosition
+//
+
+@implementation GTLRDatastream_BinaryLogPosition
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_CancelOperationRequest
 //
 
@@ -321,6 +340,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_GcsProfile
 @dynamic bucket, rootPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_Gtid
+//
+
+@implementation GTLRDatastream_Gtid
 @end
 
 
@@ -532,6 +560,25 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_LogFileDirectories
+//
+
+@implementation GTLRDatastream_LogFileDirectories
+@dynamic archivedLogDirectory, onlineLogDirectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_LogMiner
+//
+
+@implementation GTLRDatastream_LogMiner
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_LookupStreamObjectRequest
 //
 
@@ -641,8 +688,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlSourceConfig
-@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks,
-         maxConcurrentCdcTasks;
+@dynamic binaryLogPosition, excludeObjects, gtid, includeObjects,
+         maxConcurrentBackfillTasks, maxConcurrentCdcTasks;
 @end
 
 
@@ -735,6 +782,40 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_OracleAsmConfig
+//
+
+@implementation GTLRDatastream_OracleAsmConfig
+@dynamic asmService, connectionAttributes, hostname, oracleSslConfig, password,
+         port, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_OracleAsmConfig_ConnectionAttributes
+//
+
+@implementation GTLRDatastream_OracleAsmConfig_ConnectionAttributes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_OracleAsmLogFileAccess
+//
+
+@implementation GTLRDatastream_OracleAsmLogFileAccess
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_OracleColumn
 //
 
@@ -760,8 +841,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleProfile
-@dynamic connectionAttributes, databaseService, hostname, oracleSslConfig,
-         password, port, username;
+@dynamic connectionAttributes, databaseService, hostname, oracleAsmConfig,
+         oracleSslConfig, password, port, secretManagerStoredPassword, username;
 @end
 
 
@@ -831,8 +912,9 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSourceConfig
-@dynamic dropLargeObjects, excludeObjects, includeObjects,
-         maxConcurrentBackfillTasks, maxConcurrentCdcTasks, streamLargeObjects;
+@dynamic binaryLogParser, dropLargeObjects, excludeObjects, includeObjects,
+         logMiner, maxConcurrentBackfillTasks, maxConcurrentCdcTasks,
+         streamLargeObjects;
 @end
 
 

@@ -21,6 +21,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  If specified in the `GET` request for a `WasmPlugin` resource, the server's
+ *  response includes just the `WasmPlugin` resource.
+ *
+ *  Value: "WASM_PLUGIN_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewBasic;
+/**
+ *  If specified in the `GET` request for a `WasmPlugin` resource, the server's
+ *  response includes the `WasmPlugin` resource with all its versions.
+ *
+ *  Value: "WASM_PLUGIN_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewFull;
+/**
+ *  Unspecified value. Do not use.
+ *
+ *  Value: "WASM_PLUGIN_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other NetworkServices query classes.
  */
@@ -28,6 +59,249 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a new `AuthzExtension` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.authzExtensions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. User-provided ID of the `AuthzExtension` resource to be created.
+ */
+@property(nonatomic, copy, nullable) NSString *authzExtensionId;
+
+/**
+ *  Required. The parent resource of the `AuthzExtension` resource. Must be in
+ *  the format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `AuthzExtension` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_AuthzExtension to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `AuthzExtension`
+ *    resource. Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_AuthzExtension *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `AuthzExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.authzExtensions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The name of the `AuthzExtension` resource to delete. Must be in
+ *  the format
+ *  `projects/{project}/locations/{location}/authzExtensions/{authz_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes after the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `AuthzExtension` resource.
+ *
+ *  @param name Required. The name of the `AuthzExtension` resource to delete.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/authzExtensions/{authz_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `AuthzExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.authzExtensions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `AuthzExtension` resource to get. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/authzExtensions/{authz_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_AuthzExtension.
+ *
+ *  Gets details of the specified `AuthzExtension` resource.
+ *
+ *  @param name Required. A name of the `AuthzExtension` resource to get. Must
+ *    be in the format
+ *    `projects/{project}/locations/{location}/authzExtensions/{authz_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `AuthzExtension` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.authzExtensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsList : GTLRNetworkServicesQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results that the server returns.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `AuthzExtension` resources
+ *  are listed, specified in the following format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListAuthzExtensionsResponse.
+ *
+ *  Lists `AuthzExtension` resources in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `AuthzExtension` resources are listed, specified in the following format:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of the specified `AuthzExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.authzExtensions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Identifier. Name of the `AuthzExtension` resource in the following
+ *  format:
+ *  `projects/{project}/locations/{location}/authzExtensions/{authz_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Used to specify the fields to be overwritten in the
+ *  `AuthzExtension` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not specify a mask, then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of the specified `AuthzExtension` resource.
+ *
+ *  @param object The @c GTLRNetworkServices_AuthzExtension to include in the
+ *    query.
+ *  @param name Required. Identifier. Name of the `AuthzExtension` resource in
+ *    the following format:
+ *    `projects/{project}/locations/{location}/authzExtensions/{authz_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_AuthzExtension *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -802,6 +1076,80 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get a single RouteView of a Gateway.
+ *
+ *  Method: networkservices.projects.locations.gateways.routeViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the GatewayRouteView resource. Formats:
+ *  projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_GatewayRouteView.
+ *
+ *  Get a single RouteView of a Gateway.
+ *
+ *  @param name Required. Name of the GatewayRouteView resource. Formats:
+ *    projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RouteViews
+ *
+ *  Method: networkservices.projects.locations.gateways.routeViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsList : GTLRNetworkServicesQuery
+
+/** Maximum number of GatewayRouteViews to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListGatewayRouteViewsResponse` Indicates
+ *  that this is a continuation of a prior `ListGatewayRouteViews` call, and
+ *  that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Gateway to which a Route is associated. Formats:
+ *  projects/{project_number}/locations/{location}/gateways/{gateway_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListGatewayRouteViewsResponse.
+ *
+ *  Lists RouteViews
+ *
+ *  @param parent Required. The Gateway to which a Route is associated. Formats:
+ *    projects/{project_number}/locations/{location}/gateways/{gateway_name}
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: networkservices.projects.locations.get
@@ -1408,7 +1756,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Used to specify the fields to be overwritten in the
  *  `LbRouteExtension` resource by the update. The fields specified in the
- *  update_mask are relative to the resource, not the full request. A field is
+ *  `update_mask` are relative to the resource, not the full request. A field is
  *  overwritten if it is in the mask. If the user does not specify a mask, then
  *  all fields are overwritten.
  *
@@ -1652,7 +2000,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Used to specify the fields to be overwritten in the
  *  `LbTrafficExtension` resource by the update. The fields specified in the
- *  update_mask are relative to the resource, not the full request. A field is
+ *  `update_mask` are relative to the resource, not the full request. A field is
  *  overwritten if it is in the mask. If the user does not specify a mask, then
  *  all fields are overwritten.
  *
@@ -1906,6 +2254,80 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_Mesh *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Get a single RouteView of a Mesh.
+ *
+ *  Method: networkservices.projects.locations.meshes.routeViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the MeshRouteView resource. Format:
+ *  projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_MeshRouteView.
+ *
+ *  Get a single RouteView of a Mesh.
+ *
+ *  @param name Required. Name of the MeshRouteView resource. Format:
+ *    projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RouteViews
+ *
+ *  Method: networkservices.projects.locations.meshes.routeViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsList : GTLRNetworkServicesQuery
+
+/** Maximum number of MeshRouteViews to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListMeshRouteViewsResponse` Indicates that
+ *  this is a continuation of a prior `ListMeshRouteViews` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Mesh to which a Route is associated. Format:
+ *  projects/{project_number}/locations/{location}/meshes/{mesh_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListMeshRouteViewsResponse.
+ *
+ *  Lists RouteViews
+ *
+ *  @param parent Required. The Mesh to which a Route is associated. Format:
+ *    projects/{project_number}/locations/{location}/meshes/{mesh_name}
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -2300,55 +2722,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkservices.projects.locations.serviceLbPolicies.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists ServiceLbPolicies in a given project and location.
  *
  *  Method: networkservices.projects.locations.serviceLbPolicies.list
@@ -2405,7 +2778,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the ServiceLbPolicy resource. It matches pattern
+ *  Identifier. Name of the ServiceLbPolicy resource. It matches pattern
  *  `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2428,7 +2801,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRNetworkServices_ServiceLbPolicy to include in the
  *    query.
- *  @param name Required. Name of the ServiceLbPolicy resource. It matches
+ *  @param name Identifier. Name of the ServiceLbPolicy resource. It matches
  *    pattern
  *    `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
  *
@@ -2436,90 +2809,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_ServiceLbPolicy *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkservices.projects.locations.serviceLbPolicies.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesSetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkservices.projects.locations.serviceLbPolicies.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesTestIamPermissions : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -2884,6 +3173,372 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_TlsRoute *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `WasmPlugin` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The parent resource of the `WasmPlugin` resource. Must be in the
+ *  format `projects/{project}/locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. User-provided ID of the `WasmPlugin` resource to be created. */
+@property(nonatomic, copy, nullable) NSString *wasmPluginId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `WasmPlugin` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_WasmPlugin to include in the query.
+ *  @param parent Required. The parent resource of the `WasmPlugin` resource.
+ *    Must be in the format `projects/{project}/locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_WasmPlugin *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `WasmPlugin` resource.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `WasmPlugin` resource to delete. Must be in the
+ *  format `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `WasmPlugin` resource.
+ *
+ *  @param name Required. A name of the `WasmPlugin` resource to delete. Must be
+ *    in the format
+ *    `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `WasmPlugin` resource.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `WasmPlugin` resource to get. Must be in the format
+ *  `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Determines how much data must be returned in the response. See
+ *  [AIP-157](https://google.aip.dev/157).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServicesViewWasmPluginViewUnspecified Unspecified
+ *        value. Do not use. (Value: "WASM_PLUGIN_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServicesViewWasmPluginViewBasic If specified in the
+ *        `GET` request for a `WasmPlugin` resource, the server's response
+ *        includes just the `WasmPlugin` resource. (Value:
+ *        "WASM_PLUGIN_VIEW_BASIC")
+ *    @arg @c kGTLRNetworkServicesViewWasmPluginViewFull If specified in the
+ *        `GET` request for a `WasmPlugin` resource, the server's response
+ *        includes the `WasmPlugin` resource with all its versions. (Value:
+ *        "WASM_PLUGIN_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_WasmPlugin.
+ *
+ *  Gets details of the specified `WasmPlugin` resource.
+ *
+ *  @param name Required. A name of the `WasmPlugin` resource to get. Must be in
+ *    the format
+ *    `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `WasmPlugin` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsList : GTLRNetworkServicesQuery
+
+/**
+ *  Maximum number of `WasmPlugin` resources to return per call. If not
+ *  specified, at most 50 `WasmPlugin` resources are returned. The maximum value
+ *  is 1000; values above 1000 are coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListWasmPluginsResponse` call. Indicates
+ *  that this is a continuation of a prior `ListWasmPlugins` call, and that the
+ *  next page of data is to be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `WasmPlugin` resources are
+ *  listed, specified in the following format:
+ *  `projects/{project}/locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListWasmPluginsResponse.
+ *
+ *  Lists `WasmPlugin` resources in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the `WasmPlugin`
+ *    resources are listed, specified in the following format:
+ *    `projects/{project}/locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of the specified `WasmPlugin` resource.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Identifier. Name of the `WasmPlugin` resource in the following format:
+ *  `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Used to specify the fields to be overwritten in the `WasmPlugin`
+ *  resource by the update. The fields specified in the `update_mask` field are
+ *  relative to the resource, not the full request. An omitted `update_mask`
+ *  field is treated as an implied `update_mask` field equivalent to all fields
+ *  that are populated (that have a non-empty value). The `update_mask` field
+ *  supports a special value `*`, which means that each field in the given
+ *  `WasmPlugin` resource (including the empty ones) replaces the current value.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of the specified `WasmPlugin` resource.
+ *
+ *  @param object The @c GTLRNetworkServices_WasmPlugin to include in the query.
+ *  @param name Identifier. Name of the `WasmPlugin` resource in the following
+ *    format:
+ *    `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_WasmPlugin *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `WasmPluginVersion` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The parent resource of the `WasmPluginVersion` resource. Must be
+ *  in the format
+ *  `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. User-provided ID of the `WasmPluginVersion` resource to be
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *wasmPluginVersionId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `WasmPluginVersion` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_WasmPluginVersion to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `WasmPluginVersion`
+ *    resource. Must be in the format
+ *    `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_WasmPluginVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `WasmPluginVersion` resource.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `WasmPluginVersion` resource to delete. Must be in
+ *  the format
+ *  `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `WasmPluginVersion` resource.
+ *
+ *  @param name Required. A name of the `WasmPluginVersion` resource to delete.
+ *    Must be in the format
+ *    `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_version}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `WasmPluginVersion` resource.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `WasmPluginVersion` resource to get. Must be in the
+ *  format
+ *  `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_WasmPluginVersion.
+ *
+ *  Gets details of the specified `WasmPluginVersion` resource.
+ *
+ *  @param name Required. A name of the `WasmPluginVersion` resource to get.
+ *    Must be in the format
+ *    `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_version}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `WasmPluginVersion` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.wasmPlugins.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsList : GTLRNetworkServicesQuery
+
+/**
+ *  Maximum number of `WasmPluginVersion` resources to return per call. If not
+ *  specified, at most 50 `WasmPluginVersion` resources are returned. The
+ *  maximum value is 1000; values above 1000 are coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListWasmPluginVersionsResponse` call.
+ *  Indicates that this is a continuation of a prior `ListWasmPluginVersions`
+ *  call, and that the next page of data is to be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The `WasmPlugin` resource whose `WasmPluginVersion`s are listed,
+ *  specified in the following format:
+ *  `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListWasmPluginVersionsResponse.
+ *
+ *  Lists `WasmPluginVersion` resources in a given project and location.
+ *
+ *  @param parent Required. The `WasmPlugin` resource whose `WasmPluginVersion`s
+ *    are listed, specified in the following format:
+ *    `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

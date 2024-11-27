@@ -422,6 +422,32 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_Criterion
+//
+
+@implementation GTLRClassroom_Criterion
+@dynamic descriptionProperty, identifier, levels, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"levels" : [GTLRClassroom_Level class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Date
 //
 
@@ -600,6 +626,25 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Level
+//
+
+@implementation GTLRClassroom_Level
+@dynamic descriptionProperty, identifier, points, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
 }
 
 @end
@@ -808,6 +853,28 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 + (NSString *)collectionItemsKey {
   return @"invitations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListRubricsResponse
+//
+
+@implementation GTLRClassroom_ListRubricsResponse
+@dynamic nextPageToken, rubrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rubrics" : [GTLRClassroom_Rubric class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rubrics";
 }
 
 @end
@@ -1036,6 +1103,39 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_Rubric
+//
+
+@implementation GTLRClassroom_Rubric
+@dynamic courseId, courseWorkId, creationTime, criteria, identifier,
+         sourceSpreadsheetId, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"criteria" : [GTLRClassroom_Criterion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_RubricGrade
+//
+
+@implementation GTLRClassroom_RubricGrade
+@dynamic criterionId, levelId, points;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_SharedDriveFile
 //
 
@@ -1090,10 +1190,11 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_StudentSubmission
-@dynamic alternateLink, assignedGrade, assignmentSubmission,
-         associatedWithDeveloper, courseId, courseWorkId, courseWorkType,
-         creationTime, draftGrade, identifier, late, multipleChoiceSubmission,
-         shortAnswerSubmission, state, submissionHistory, updateTime, userId;
+@dynamic alternateLink, assignedGrade, assignedRubricGrades,
+         assignmentSubmission, associatedWithDeveloper, courseId, courseWorkId,
+         courseWorkType, creationTime, draftGrade, draftRubricGrades,
+         identifier, late, multipleChoiceSubmission, shortAnswerSubmission,
+         state, submissionHistory, updateTime, userId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1104,6 +1205,34 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
     @"submissionHistory" : [GTLRClassroom_SubmissionHistory class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_StudentSubmission_AssignedRubricGrades
+//
+
+@implementation GTLRClassroom_StudentSubmission_AssignedRubricGrades
+
++ (Class)classForAdditionalProperties {
+  return [GTLRClassroom_RubricGrade class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_StudentSubmission_DraftRubricGrades
+//
+
+@implementation GTLRClassroom_StudentSubmission_DraftRubricGrades
+
++ (Class)classForAdditionalProperties {
+  return [GTLRClassroom_RubricGrade class];
 }
 
 @end

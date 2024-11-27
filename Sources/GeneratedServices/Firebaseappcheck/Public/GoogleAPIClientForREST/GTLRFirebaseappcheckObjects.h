@@ -169,19 +169,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
- *  Encapsulates an *App Check token*, which are used to access Firebase
- *  services protected by App Check.
+ *  Encapsulates an *App Check token*, which are used to access backend services
+ *  protected by App Check.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken : GTLRObject
 
 /**
  *  The App Check token. App Check tokens are signed
  *  [JWTs](https://tools.ietf.org/html/rfc7519) containing claims that identify
- *  the attested app and Firebase project. This token is used to access Firebase
+ *  the attested app and GCP project. This token is used to access Google
  *  services protected by App Check. These tokens can also be [verified by your
  *  own custom
  *  backends](https://firebase.google.com/docs/app-check/custom-resource-backend)
- *  using the Firebase Admin SDK.
+ *  using the Firebase Admin SDK or third-party libraries.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
@@ -1008,7 +1008,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  App Check enforcement policy for a specific resource of a Firebase service
+ *  App Check enforcement policy for a specific resource of a Google service
  *  supported by App Check. Note that this policy will override the
  *  service-level configuration.
  */
@@ -1082,13 +1082,13 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Service specific name of the resource object to which this policy
- *  applies, in the format: *
+ *  applies, in the format: * **iOS OAuth clients** (Google Identity for iOS):
  *  `//oauth2.googleapis.com/projects/{project_number}/oauthClients/{oauth_client_id}`
- *  (Google Identity for iOS) Note that the resource must belong to the service
- *  specified in the `name` and be from the same project as this policy, but the
- *  resource is allowed to be missing at the time of creation of this policy; in
- *  that case, we make a best-effort attempt at respecting this policy, but it
- *  may not have any effect until the resource is fully created.
+ *  Note that the resource must belong to the service specified in the `name`
+ *  and be from the same project as this policy, but the resource is allowed to
+ *  be missing at the time of creation of this policy; in that case, we make a
+ *  best-effort attempt at respecting this policy, but it may not have any
+ *  effect until the resource is fully created.
  */
 @property(nonatomic, copy, nullable) NSString *targetResource;
 
@@ -1186,7 +1186,8 @@ GTLR_DEPRECATED
  *  that the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1233,7 +1234,8 @@ GTLR_DEPRECATED
  *  `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service *service;
 

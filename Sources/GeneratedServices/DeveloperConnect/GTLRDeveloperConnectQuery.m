@@ -296,6 +296,60 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @end
 
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabEnterpriseWebhook
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessGitLabEnterpriseWebhookRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:processGitLabEnterpriseWebhook";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabEnterpriseWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Empty class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.processGitLabEnterpriseWebhook";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabWebhook
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessGitLabWebhookRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:processGitLabWebhook";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Empty class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.processGitLabWebhook";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -337,6 +391,33 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
   query.name = name;
   query.expectedObjectClass = [GTLRDeveloperConnect_Operation class];
   query.loggingName = @"developerconnect.projects.locations.connections.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsProcessGitHubEnterpriseWebhook
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessGitHubEnterpriseWebhookRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/connections:processGitHubEnterpriseWebhook";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsProcessGitHubEnterpriseWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Empty class];
+  query.loggingName = @"developerconnect.projects.locations.connections.processGitHubEnterpriseWebhook";
   return query;
 }
 

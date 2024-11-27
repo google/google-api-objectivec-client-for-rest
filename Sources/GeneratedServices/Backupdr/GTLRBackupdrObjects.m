@@ -92,6 +92,14 @@ NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Creating = @"CREATING
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Deleting = @"DELETING";
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Inactive = @"INACTIVE";
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Updating = @"UPDATING";
+
+// GTLRBackupdr_BackupVault.accessRestriction
+NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_AccessRestrictionUnspecified = @"ACCESS_RESTRICTION_UNSPECIFIED";
+NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_Unrestricted = @"UNRESTRICTED";
+NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_WithinOrganization = @"WITHIN_ORGANIZATION";
+NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_WithinOrgButUnrestrictedForBa = @"WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA";
+NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_WithinProject = @"WITHIN_PROJECT";
 
 // GTLRBackupdr_BackupVault.state
 NSString * const kGTLRBackupdr_BackupVault_State_Active        = @"ACTIVE";
@@ -145,62 +153,6 @@ NSString * const kGTLRBackupdr_GuestOsFeature_Type_UefiCompatible = @"UEFI_COMPA
 NSString * const kGTLRBackupdr_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTIO_SCSI_MULTIQUEUE";
 NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows     = @"WINDOWS";
 
-// GTLRBackupdr_IsolationExpectations.ziOrgPolicy
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRBackupdr_IsolationExpectations.ziRegionPolicy
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed = @"ZI_REGION_POLICY_FAIL_CLOSED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen = @"ZI_REGION_POLICY_FAIL_OPEN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet = @"ZI_REGION_POLICY_NOT_SET";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown = @"ZI_REGION_POLICY_UNKNOWN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified = @"ZI_REGION_POLICY_UNSPECIFIED";
-
-// GTLRBackupdr_IsolationExpectations.ziRegionState
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionEnabled = @"ZI_REGION_ENABLED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled = @"ZI_REGION_NOT_ENABLED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionUnknown = @"ZI_REGION_UNKNOWN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionUnspecified = @"ZI_REGION_UNSPECIFIED";
-
-// GTLRBackupdr_IsolationExpectations.zoneIsolation
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRBackupdr_IsolationExpectations.zoneSeparation
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRBackupdr_IsolationExpectations.zsOrgPolicy
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRBackupdr_IsolationExpectations.zsRegionState
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionEnabled = @"ZS_REGION_ENABLED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled = @"ZS_REGION_NOT_ENABLED";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionUnknown = @"ZS_REGION_UNKNOWN";
-NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionUnspecified = @"ZS_REGION_UNSPECIFIED";
-
-// GTLRBackupdr_LocationAssignment.locationType
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_CloudRegion = @"CLOUD_REGION";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_CloudZone = @"CLOUD_ZONE";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Cluster = @"CLUSTER";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Global = @"GLOBAL";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_MultiRegionGeo = @"MULTI_REGION_GEO";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_MultiRegionJurisdiction = @"MULTI_REGION_JURISDICTION";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Other = @"OTHER";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Pop = @"POP";
-NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
-
 // GTLRBackupdr_ManagementServer.state
 NSString * const kGTLRBackupdr_ManagementServer_State_Creating = @"CREATING";
 NSString * const kGTLRBackupdr_ManagementServer_State_Deleting = @"DELETING";
@@ -243,19 +195,6 @@ NSString * const kGTLRBackupdr_NetworkPerformanceConfig_TotalEgressBandwidthTier
 NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_In = @"IN";
 NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_NotIn = @"NOT_IN";
 NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
-
-// GTLRBackupdr_RequirementOverride.ziOverride
-NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRBackupdr_RequirementOverride.zsOverride
-NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsUnspecified = @"ZS_UNSPECIFIED";
 
 // GTLRBackupdr_RuleConfigInfo.lastBackupState
 NSString * const kGTLRBackupdr_RuleConfigInfo_LastBackupState_Failed = @"FAILED";
@@ -398,26 +337,6 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_AssetLocation
-//
-
-@implementation GTLRBackupdr_AssetLocation
-@dynamic ccfeRmsPath, expected, extraParameters, locationData, parentAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraParameters" : [GTLRBackupdr_ExtraParameter class],
-    @"locationData" : [GTLRBackupdr_LocationData class],
-    @"parentAsset" : [GTLRBackupdr_CloudAsset class]
   };
   return map;
 }
@@ -664,9 +583,10 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_BackupVault
-@dynamic annotations, backupCount, backupMinimumEnforcedRetentionDuration,
-         createTime, deletable, descriptionProperty, effectiveTime, ETag,
-         labels, name, serviceAccount, state, totalStoredBytes, uid, updateTime;
+@dynamic accessRestriction, annotations, backupCount,
+         backupMinimumEnforcedRetentionDuration, createTime, deletable,
+         descriptionProperty, effectiveTime, ETag, labels, name, serviceAccount,
+         state, totalStoredBytes, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -737,56 +657,10 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_BlobstoreLocation
-//
-
-@implementation GTLRBackupdr_BlobstoreLocation
-@dynamic policyId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"policyId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBackupdr_CancelOperationRequest
 //
 
 @implementation GTLRBackupdr_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_CloudAsset
-//
-
-@implementation GTLRBackupdr_CloudAsset
-@dynamic assetName, assetType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_CloudAssetComposition
-//
-
-@implementation GTLRBackupdr_CloudAssetComposition
-@dynamic childAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"childAsset" : [GTLRBackupdr_CloudAsset class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -982,24 +856,6 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_DirectLocationAssignment
-//
-
-@implementation GTLRBackupdr_DirectLocationAssignment
-@dynamic location;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"location" : [GTLRBackupdr_LocationAssignment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBackupdr_DisplayDevice
 //
 
@@ -1039,16 +895,6 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_ExtraParameter
-//
-
-@implementation GTLRBackupdr_ExtraParameter
-@dynamic regionalMigDistributionPolicy;
 @end
 
 
@@ -1142,6 +988,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_GcpResource
+//
+
+@implementation GTLRBackupdr_GcpResource
+@dynamic gcpResourcename, location, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_GuestOsFeature
 //
 
@@ -1209,17 +1065,6 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_IsolationExpectations
-//
-
-@implementation GTLRBackupdr_IsolationExpectations
-@dynamic requirementOverride, ziOrgPolicy, ziRegionPolicy, ziRegionState,
-         zoneIsolation, zoneSeparation, zsOrgPolicy, zsRegionState;
 @end
 
 
@@ -1445,27 +1290,6 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_LocationAssignment
-//
-
-@implementation GTLRBackupdr_LocationAssignment
-@dynamic location, locationType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_LocationData
-//
-
-@implementation GTLRBackupdr_LocationData
-@dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
-         placerLocation, spannerLocation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBackupdr_ManagementServer
 //
 
@@ -1667,16 +1491,6 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_PlacerLocation
-//
-
-@implementation GTLRBackupdr_PlacerLocation
-@dynamic placerConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBackupdr_Policy
 //
 
@@ -1700,39 +1514,11 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_RegionalMigDistributionPolicy
-//
-
-@implementation GTLRBackupdr_RegionalMigDistributionPolicy
-@dynamic targetShape, zones;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"zones" : [GTLRBackupdr_ZoneConfiguration class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBackupdr_RemoveDataSourceRequest
 //
 
 @implementation GTLRBackupdr_RemoveDataSourceRequest
 @dynamic requestId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_RequirementOverride
-//
-
-@implementation GTLRBackupdr_RequirementOverride
-@dynamic ziOverride, zsOverride;
 @end
 
 
@@ -1744,6 +1530,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 @implementation GTLRBackupdr_RestoreBackupRequest
 @dynamic computeInstanceRestoreProperties, computeInstanceTargetEnvironment,
          requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreBackupResponse
+//
+
+@implementation GTLRBackupdr_RestoreBackupResponse
+@dynamic targetResource;
 @end
 
 
@@ -1838,20 +1634,10 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_SpannerLocation
+//   GTLRBackupdr_SetInternalStatusResponse
 //
 
-@implementation GTLRBackupdr_SpannerLocation
-@dynamic backupName, dbName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"backupName" : [NSString class],
-    @"dbName" : [NSString class]
-  };
-  return map;
-}
-
+@implementation GTLRBackupdr_SetInternalStatusResponse
 @end
 
 
@@ -1928,19 +1714,11 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_TenantProjectProxy
+//   GTLRBackupdr_TargetResource
 //
 
-@implementation GTLRBackupdr_TenantProjectProxy
-@dynamic projectNumbers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"projectNumbers" : [NSString class]
-  };
-  return map;
-}
-
+@implementation GTLRBackupdr_TargetResource
+@dynamic gcpResource;
 @end
 
 
@@ -2017,19 +1795,4 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID
 @dynamic firstPartyOauth2ClientId, thirdPartyOauth2ClientId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_ZoneConfiguration
-//
-
-@implementation GTLRBackupdr_ZoneConfiguration
-@dynamic zoneProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"zoneProperty" : @"zone" };
-}
-
 @end

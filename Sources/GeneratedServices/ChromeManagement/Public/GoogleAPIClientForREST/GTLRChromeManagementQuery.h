@@ -352,6 +352,135 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Deletes the data collected from a Chrome browser profile.
+ *
+ *  Method: chromemanagement.customers.profiles.delete
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesDelete : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleProtobufEmpty.
+ *
+ *  Deletes the data collected from a Chrome browser profile.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Chrome browser profile with customer ID and profile permanent ID.
+ *
+ *  Method: chromemanagement.customers.profiles.get
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.
+ *
+ *  Gets a Chrome browser profile with customer ID and profile permanent ID.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Chrome browser profiles of a customer based on the given search and
+ *  sorting criteria.
+ *
+ *  Method: chromemanagement.customers.profiles.list
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The filter used to filter profiles. The following fields can be
+ *  used in the filter: - profile_id - display_name - user_email -
+ *  last_activity_time - last_policy_sync_time - last_status_report_time -
+ *  first_enrollment_time - os_platform_type - os_version - browser_version -
+ *  browser_channel - policy_count - extension_count - identity_provider -
+ *  affiliation_state - ouId Any of the above fields can be used to specify a
+ *  filter, and filtering by multiple fields is supported with AND operator.
+ *  String type fields and enum type fields support '=' and '!=' operators. The
+ *  integer type and the timestamp type fields support '=', '!=', '<', '>', '<='
+ *  and '>=' operators. Timestamps expect an RFC-3339 formatted string (e.g.
+ *  2012-04-21T11:30:00-04:00). Wildcard '*' can be used with a string type
+ *  field filter. In addition, string literal filtering is also supported, for
+ *  example, 'ABC' as a filter maps to a filter that checks if any of the
+ *  filterable string type fields contains 'ABC'. Organization unit number can
+ *  be used as a filtering criteria here by specifying 'ouId =
+ *  ${your_org_unit_id}', please note that only single OU ID matching is
+ *  supported.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The fields used to specify the ordering of the results. The
+ *  supported fields are: - profile_id - display_name - user_email -
+ *  last_activity_time - last_policy_sync_time - last_status_report_time -
+ *  first_enrollment_time - os_platform_type - os_version - browser_version -
+ *  browser_channel - policy_count - extension_count - identity_provider -
+ *  affiliation_state By default, sorting is in ascending order, to specify
+ *  descending order for a field, a suffix " desc" should be added to the field
+ *  name. The default ordering is the descending order of
+ *  last_status_report_time.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of profiles to return. The default page size is
+ *  100 if page_size is unspecified, and the maximum page size allowed is 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token used to retrieve a specific page of the listing
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfilesResponse.
+ *
+ *  Lists Chrome browser profiles of a customer based on the given search and
+ *  sorting criteria.
+ *
+ *  @param parent Required. Format: customers/{customer_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Count of Chrome Browsers that have been recently enrolled, have new policy
  *  to be synced, or have no recent activity.
  *
@@ -653,14 +782,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  OR operations are not supported in this filter. Supported filter fields: *
  *  app_name * app_type * install_type * number_of_permissions *
  *  total_install_count * latest_profile_active_date * permission_name * app_id
- *  * manifest_versions
+ *  * manifest_versions * risk_score
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field used to order results. Supported order by fields: * app_name *
  *  app_type * install_type * number_of_permissions * total_install_count *
- *  app_id * manifest_versions
+ *  app_id * manifest_versions * risk_score
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

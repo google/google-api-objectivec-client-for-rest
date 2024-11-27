@@ -60,6 +60,7 @@
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_DataFlowEvent;
 @class GTLRSecurityCommandCenter_Detection;
+@class GTLRSecurityCommandCenter_Disk;
 @class GTLRSecurityCommandCenter_DiskPath;
 @class GTLRSecurityCommandCenter_DynamicMuteRecord;
 @class GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule;
@@ -132,6 +133,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Database;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DynamicMuteRecord;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2EnvironmentVariable;
@@ -849,6 +851,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Oper
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Read;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.cloudProvider
+
+/**
+ *  Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_AmazonWebServices;
+/**
+ *  Unspecified cloud provider.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_CloudProviderUnspecified;
+/**
+ *  Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_GoogleCloudPlatform;
+/**
+ *  Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.enablementState
 
 /**
@@ -869,6 +899,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThre
  *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.cloudProvider
+
+/**
+ *  Amazon Web Services (AWS).
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_AmazonWebServices;
+/**
+ *  Unspecified cloud provider.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_CloudProviderUnspecified;
+/**
+ *  Google Cloud.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_GoogleCloudPlatform;
+/**
+ *  Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.enablementState
@@ -1139,6 +1197,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule.cloudProvider
+
+/**
+ *  Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_AmazonWebServices;
+/**
+ *  Unspecified cloud provider.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_CloudProviderUnspecified;
+/**
+ *  Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_GoogleCloudPlatform;
+/**
+ *  Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule.enablementState
 
 /**
@@ -1393,6 +1479,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TERMINATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.cloudProvider
+
+/**
+ *  Amazon Web Services (AWS).
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_AmazonWebServices;
+/**
+ *  Unspecified cloud provider.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_CloudProviderUnspecified;
+/**
+ *  Google Cloud.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_GoogleCloudPlatform;
+/**
+ *  Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.enablementState
@@ -2381,6 +2495,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DefaultAccounts;
 /**
+ *  T1610
+ *
+ *  Value: "DEPLOY_CONTAINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DeployContainer;
+/**
  *  T1562.001
  *
  *  Value: "DISABLE_OR_MODIFY_TOOLS"
@@ -2410,6 +2530,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "ESCAPE_TO_HOST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_EscapeToHost;
+/**
+ *  T1546
+ *
+ *  Value: "EVENT_TRIGGERED_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_EventTriggeredExecution;
 /**
  *  T1567
  *
@@ -2869,6 +2995,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DefaultAccounts;
 /**
+ *  T1610
+ *
+ *  Value: "DEPLOY_CONTAINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DeployContainer;
+/**
  *  T1562.001
  *
  *  Value: "DISABLE_OR_MODIFY_TOOLS"
@@ -2898,6 +3030,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "ESCAPE_TO_HOST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_EscapeToHost;
+/**
+ *  T1546
+ *
+ *  Value: "EVENT_TRIGGERED_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_EventTriggeredExecution;
 /**
  *  T1567
  *
@@ -3811,6 +3949,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DefaultAccounts;
 /**
+ *  T1610
+ *
+ *  Value: "DEPLOY_CONTAINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DeployContainer;
+/**
  *  T1562.001
  *
  *  Value: "DISABLE_OR_MODIFY_TOOLS"
@@ -3840,6 +3984,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "ESCAPE_TO_HOST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_EscapeToHost;
+/**
+ *  T1546
+ *
+ *  Value: "EVENT_TRIGGERED_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_EventTriggeredExecution;
 /**
  *  T1567
  *
@@ -4299,6 +4449,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DefaultAccounts;
 /**
+ *  T1610
+ *
+ *  Value: "DEPLOY_CONTAINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DeployContainer;
+/**
  *  T1562.001
  *
  *  Value: "DISABLE_OR_MODIFY_TOOLS"
@@ -4328,6 +4484,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "ESCAPE_TO_HOST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_EscapeToHost;
+/**
+ *  T1546
+ *
+ *  Value: "EVENT_TRIGGERED_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_EventTriggeredExecution;
 /**
  *  T1567
  *
@@ -5562,6 +5724,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_AzureResourceGroup : GTLRObject
 
+/**
+ *  The ID of the Azure resource group.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
 /** The name of the Azure resource group. This is not a UUID. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6638,6 +6807,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains information about the disk associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Disk : GTLRObject
+
+/**
+ *  The name of the disk, for example,
+ *  "https://www.googleapis.com/compute/v1/projects/project-id/zones/zone-id/disks/disk-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Path of the file in terms of underlying disk/partition identifiers.
  */
 @interface GTLRSecurityCommandCenter_DiskPath : GTLRObject
@@ -6688,6 +6871,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  `enabled`. EffectiveEventThreatDetectionCustomModule is read-only.
  */
 @interface GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule : GTLRObject
+
+/**
+ *  The cloud provider of the custom module.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_AmazonWebServices
+ *        Amazon Web Services. (Value: "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_CloudProviderUnspecified
+ *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_GoogleCloudPlatform
+ *        Google Cloud Platform. (Value: "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_MicrosoftAzure
+ *        Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /** Output only. Config for the effective module. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_Config *config;
@@ -6785,6 +6983,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  EventThreatDetectionCustomModule resource name.
  */
 @property(nonatomic, copy, nullable) NSString *ancestorModule;
+
+/**
+ *  The cloud provider of the custom module.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_AmazonWebServices
+ *        Amazon Web Services (AWS). (Value: "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_CloudProviderUnspecified
+ *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_GoogleCloudPlatform
+ *        Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_CloudProvider_MicrosoftAzure
+ *        Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /**
  *  Config for the module. For the resident module, its config value is defined
@@ -7100,6 +7313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Disk associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Disk *disk;
 
 /**
  *  The time the finding was first detected. If an existing finding is updated,
@@ -7748,6 +7964,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  `enabled`. EffectiveSecurityHealthAnalyticsCustomModule is read-only.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule : GTLRObject
+
+/**
+ *  The cloud provider of the custom module.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_AmazonWebServices
+ *        Amazon Web Services. (Value: "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_CloudProviderUnspecified
+ *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_GoogleCloudPlatform
+ *        Google Cloud Platform. (Value: "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_MicrosoftAzure
+ *        Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /** Output only. The user-specified configuration for the module. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig *customConfig;
@@ -8462,9 +8693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping *sensitiveDataProtectionMapping;
 
 /**
- *  Required. Tag values combined with `AND` to check against. Values in the
- *  form "tagValues/123" Example: `[ "tagValues/123", "tagValues/456",
- *  "tagValues/789" ]`
+ *  Required. Tag values combined with `AND` to check against. For Google Cloud
+ *  resources, they are tag value IDs in the form of "tagValues/123". Example:
+ *  `[ "tagValues/123", "tagValues/456", "tagValues/789" ]`
  *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
@@ -8537,6 +8768,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  the custom module is inherited.
  */
 @property(nonatomic, copy, nullable) NSString *ancestorModule;
+
+/**
+ *  The cloud provider of the custom module.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_AmazonWebServices
+ *        Amazon Web Services (AWS). (Value: "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_CloudProviderUnspecified
+ *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_GoogleCloudPlatform
+ *        Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_CloudProvider_MicrosoftAzure
+ *        Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /** The user specified custom configuration for the module. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig *customConfig;
@@ -9011,6 +9257,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Represents an Azure resource group.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureResourceGroup : GTLRObject
+
+/**
+ *  The ID of the Azure resource group.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The name of the Azure resource group. This is not a UUID. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -9929,6 +10182,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains information about the disk associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk : GTLRObject
+
+/**
+ *  The name of the disk, for example,
+ *  "https://www.googleapis.com/compute/v1/projects/project-id/zones/zone-id/disks/disk-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Path of the file in terms of underlying disk/partition identifiers.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath : GTLRObject
@@ -10251,6 +10518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Disk associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk *disk;
 
 /**
  *  The time the finding was first detected. If an existing finding is updated,
@@ -11621,9 +11891,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping *sensitiveDataProtectionMapping;
 
 /**
- *  Tag values combined with `AND` to check against. Values in the form
- *  "tagValues/123" Example: `[ "tagValues/123", "tagValues/456",
- *  "tagValues/789" ]`
+ *  Tag values combined with `AND` to check against. For Google Cloud resources,
+ *  they are tag value IDs in the form of "tagValues/123". Example: `[
+ *  "tagValues/123", "tagValues/456", "tagValues/789" ]`
  *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
@@ -12239,7 +12509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  read_time. If this field is set then `state_change` must be a specified
  *  field in `group_by`.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *compareDuration GTLR_DEPRECATED;
 
 /**
  *  Expression that defines the filter to apply across findings. The expression
@@ -12299,7 +12569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  at that specific time. Absence of this field will default to the API's
  *  version of NOW.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime GTLR_DEPRECATED;
 
 @end
 
@@ -14296,8 +14566,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_SetFindingStateRequest : GTLRObject
 
-/** Required. The time at which the updated state takes effect. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+/**
+ *  Optional. The time at which the updated state takes effect. If unset,
+ *  defaults to the request time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime GTLR_DEPRECATED;
 
 /**
  *  Required. The desired State of the finding.

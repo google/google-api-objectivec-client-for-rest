@@ -1585,7 +1585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) long long merchantId;
 
 /**
- *  Required. List of fields being updated.
+ *  Optional. List of fields being updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -4799,140 +4799,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_ReturnPolicyOnline *)object
                      merchantId:(long long)merchantId
                  returnPolicyId:(NSString *)returnPolicyId;
-
-@end
-
-/**
- *  Retrieves a settlement report from your Merchant Center account.
- *
- *  Method: content.settlementreports.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_SettlementreportsGet : GTLRShoppingContentQuery
-
-/** The Merchant Center account of the settlement report. */
-@property(nonatomic, assign) unsigned long long merchantId;
-
-/** The Google-provided ID of the settlement. */
-@property(nonatomic, copy, nullable) NSString *settlementId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_SettlementReport.
- *
- *  Retrieves a settlement report from your Merchant Center account.
- *
- *  @param merchantId The Merchant Center account of the settlement report.
- *  @param settlementId The Google-provided ID of the settlement.
- *
- *  @return GTLRShoppingContentQuery_SettlementreportsGet
- */
-+ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                       settlementId:(NSString *)settlementId;
-
-@end
-
-/**
- *  Retrieves a list of settlement reports from your Merchant Center account.
- *
- *  Method: content.settlementreports.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_SettlementreportsList : GTLRShoppingContentQuery
-
-/**
- *  The maximum number of settlements to return in the response, used for
- *  paging. The default value is 200 returns per page, and the maximum allowed
- *  value is 5000 returns per page.
- */
-@property(nonatomic, assign) NSUInteger maxResults;
-
-/** The Merchant Center account to list settlements for. */
-@property(nonatomic, assign) unsigned long long merchantId;
-
-/** The token returned by the previous request. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Obtains settlements which have transactions before this date (inclusively),
- *  in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *transferEndDate;
-
-/**
- *  Obtains settlements which have transactions after this date (inclusively),
- *  in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *transferStartDate;
-
-/**
- *  Fetches a @c GTLRShoppingContent_SettlementreportsListResponse.
- *
- *  Retrieves a list of settlement reports from your Merchant Center account.
- *
- *  @param merchantId The Merchant Center account to list settlements for.
- *
- *  @return GTLRShoppingContentQuery_SettlementreportsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
-
-@end
-
-/**
- *  Retrieves a list of transactions for the settlement.
- *
- *  Method: content.settlementtransactions.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_SettlementtransactionsList : GTLRShoppingContentQuery
-
-/**
- *  The maximum number of transactions to return in the response, used for
- *  paging. The default value is 200 transactions per page, and the maximum
- *  allowed value is 5000 transactions per page.
- */
-@property(nonatomic, assign) NSUInteger maxResults;
-
-/** The Merchant Center account to list transactions for. */
-@property(nonatomic, assign) unsigned long long merchantId;
-
-/** The token returned by the previous request. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** The Google-provided ID of the settlement. */
-@property(nonatomic, copy, nullable) NSString *settlementId;
-
-/**
- *  The list of transactions to return. If not set, all transactions will be
- *  returned.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *transactionIds;
-
-/**
- *  Fetches a @c GTLRShoppingContent_SettlementtransactionsListResponse.
- *
- *  Retrieves a list of transactions for the settlement.
- *
- *  @param merchantId The Merchant Center account to list transactions for.
- *  @param settlementId The Google-provided ID of the settlement.
- *
- *  @return GTLRShoppingContentQuery_SettlementtransactionsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                       settlementId:(NSString *)settlementId;
 
 @end
 

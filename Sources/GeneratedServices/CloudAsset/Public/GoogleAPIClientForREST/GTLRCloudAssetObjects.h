@@ -1007,7 +1007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The service account impersonation analysis if
- *  AnalyzeIamPolicyRequest.analyze_service_account_impersonation is enabled.
+ *  IamPolicyAnalysisQuery.Options.analyze_service_account_impersonation is
+ *  enabled.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_IamPolicyAnalysis *> *serviceAccountImpersonationAnalysis;
 
@@ -1737,7 +1738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The [full resource
  *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format) of
- *  the ancestor from which an effective_tag is inherited, according to [tag
+ *  the ancestor from which effective_tags are inherited, according to [tag
  *  inheritance](https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
  */
 @property(nonatomic, copy, nullable) NSString *attachedResource;
@@ -2163,9 +2164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The ordered list of all organization policies from the
- *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource
- *  to the scope specified in the request. If the constraint is defined with
- *  default policy, it will also appear in the list.
+ *  consolidated_policy.attached_resource to the scope specified in the request.
+ *  If the constraint is defined with default policy, it will also appear in the
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 
@@ -2539,9 +2540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The ordered list of all organization policies from the
- *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource.
- *  to the scope specified in the request. If the constraint is defined with
- *  default policy, it will also appear in the list.
+ *  consolidated_policy.attached_resource. to the scope specified in the
+ *  request. If the constraint is defined with default policy, it will also
+ *  appear in the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 
@@ -3882,6 +3883,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. An opaque identifier for the current version of the
+ *  `ServicePerimeter`. This identifier does not follow any specific format. If
+ *  an etag is not provided, the operation will be performed as if a valid etag
+ *  is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
@@ -4804,8 +4813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The consolidated organization policy for the analyzed resource. The
  *  consolidated organization policy is computed by merging and evaluating
- *  AnalyzeOrgPoliciesResponse.policy_bundle. The evaluation will respect the
- *  organization policy [hierarchy
+ *  policy_bundle. The evaluation will respect the organization policy
+ *  [hierarchy
  *  rules](https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy).
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicy *consolidatedPolicy;
@@ -4826,9 +4835,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The ordered list of all organization policies from the
- *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource.
- *  to the scope specified in the request. If the constraint is defined with
- *  default policy, it will also appear in the list.
+ *  consolidated_policy.attached_resource. to the scope specified in the
+ *  request. If the constraint is defined with default policy, it will also
+ *  appear in the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 

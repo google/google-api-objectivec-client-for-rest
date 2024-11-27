@@ -18,6 +18,10 @@
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2AlternatePolicySpec;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintBooleanConstraint;
+@class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition;
+@class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_Parameters;
+@class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter;
+@class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameterMetadata;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintListConstraint;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy;
@@ -59,6 +63,124 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
  *  Value: "DENY"
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition.actionType
+
+/**
+ *  Unspecified. Results in an error.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_ActionTypeUnspecified;
+/**
+ *  Allowed action type.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Allow;
+/**
+ *  Deny action type.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition.methodTypes
+
+/**
+ *  Constraint applied when creating the resource.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_Create;
+/**
+ *  Constraint applied when deleting the resource. Not supported yet.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_Delete;
+/**
+ *  Constraint applied when enforcing forced tagging.
+ *
+ *  Value: "GOVERN_TAGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_GovernTags;
+/**
+ *  Unspecified. Results in an error.
+ *
+ *  Value: "METHOD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_MethodTypeUnspecified;
+/**
+ *  Constraint applied when removing an IAM grant.
+ *
+ *  Value: "REMOVE_GRANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_RemoveGrant;
+/**
+ *  Constraint applied when updating the resource.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_Update;
+
+// ----------------------------------------------------------------------------
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter.item
+
+/**
+ *  Boolean parameter type.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_Boolean;
+/**
+ *  List parameter type.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_List;
+/**
+ *  String parameter type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_String;
+/**
+ *  Unspecified. Results in an error.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter.type
+
+/**
+ *  Boolean parameter type.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_Boolean;
+/**
+ *  List parameter type.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_List;
+/**
+ *  String parameter type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_String;
+/**
+ *  Unspecified. Results in an error.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.actionType
@@ -215,6 +337,143 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *  instance, serial port connections will not be opened to that instance.
  */
 @interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintBooleanConstraint : GTLRObject
+
+/** Custom constraint definition. This is set only for Managed Constraints */
+@property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition *customConstraintDefinition;
+
+@end
+
+
+/**
+ *  Currently used for Managed Constraints. This represents a subset of fields
+ *  missing from Constraint proto that are required to describe CustomConstraint
+ */
+@interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition : GTLRObject
+
+/**
+ *  Allow or deny type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_ActionTypeUnspecified
+ *        Unspecified. Results in an error. (Value: "ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Allow
+ *        Allowed action type. (Value: "ALLOW")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Deny
+ *        Deny action type. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *actionType;
+
+/**
+ *  Org policy condition/expression. For example:
+ *  `resource.instanceName.matches("[production|test]_.*_(\\d)+")` or,
+ *  `resource.management.auto_upgrade == true` The max length of the condition
+ *  is 1000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** All the operations being applied for this constraint. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methodTypes;
+
+/**
+ *  Stores Structure of parameters used by Constraint condition. Key of map
+ *  represents name of the parameter.
+ */
+@property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_Parameters *parameters;
+
+/**
+ *  The resource instance type on which this policy applies. Format will be of
+ *  the form : `/` Example: * `compute.googleapis.com/Instance`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
+@end
+
+
+/**
+ *  Stores Structure of parameters used by Constraint condition. Key of map
+ *  represents name of the parameter.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Defines a parameter structure.
+ */
+@interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter : GTLRObject
+
+/**
+ *  Sets the value of the parameter in an assignment if no value is given.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id defaultValue;
+
+/**
+ *  Determines the parameter’s value structure. For example, LIST can be
+ *  specified by defining type : LIST, and item type as : STRING.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_Boolean
+ *        Boolean parameter type. (Value: "BOOLEAN")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_List
+ *        List parameter type. (Value: "LIST")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_String
+ *        String parameter type. (Value: "STRING")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_TypeUnspecified
+ *        Unspecified. Results in an error. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *item;
+
+/**
+ *  Defines subproperties primarily used by the UI to display user-friendly
+ *  information.
+ */
+@property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameterMetadata *metadata;
+
+/**
+ *  Type of the parameter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_Boolean
+ *        Boolean parameter type. (Value: "BOOLEAN")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_List
+ *        List parameter type. (Value: "LIST")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_String
+ *        String parameter type. (Value: "STRING")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_TypeUnspecified
+ *        Unspecified. Results in an error. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Provides a CEL expression to specify the acceptable parameter values during
+ *  assignment. For example, parameterName in ("parameterValue1",
+ *  "parameterValue2")
+ */
+@property(nonatomic, copy, nullable) NSString *validValuesExpr;
+
+@end
+
+
+/**
+ *  Defines Medata structure.
+ */
+@interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameterMetadata : GTLRObject
+
+/**
+ *  Detailed description of what this `parameter` is and use of it. Mutable.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
 @end
 
 

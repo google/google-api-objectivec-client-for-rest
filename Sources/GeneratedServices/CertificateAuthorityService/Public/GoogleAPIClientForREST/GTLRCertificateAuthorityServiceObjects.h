@@ -1198,8 +1198,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Output only. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
+ *  Output only. Identifier. The resource name for this CertificateAuthority in
+ *  the format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2158,8 +2159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page
- *  of results.
+ *  ListCertificateAuthoritiesRequest.page_token to retrieve the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2189,8 +2190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page
- *  of results.
+ *  ListCertificateAuthoritiesRequest.page_token to retrieve the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2221,8 +2222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateRevocationListsRequest.next_page_token to retrieve the next
- *  page of results.
+ *  ListCertificateRevocationListsRequest.page_token to retrieve the next page
+ *  of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2252,8 +2253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificatesRequest.next_page_token to retrieve the next page of
- *  results.
+ *  ListCertificatesRequest.page_token to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2283,7 +2283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateTemplatesRequest.next_page_token to retrieve the next page of
+ *  ListCertificateTemplatesRequest.page_token to retrieve the next page of
  *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2595,8 +2595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */

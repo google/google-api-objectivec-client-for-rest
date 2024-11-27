@@ -60,6 +60,9 @@ NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu1g = 
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu2g = @"A2_ULTRAGPU_2G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu4g = @"A2_ULTRAGPU_4G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu8g = @"A2_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu1g = @"A3_HIGHGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu2g = @"A3_HIGHGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu4g = @"A3_HIGHGPU_4G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Megagpu8g = @"A3_MEGAGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
@@ -266,6 +269,9 @@ NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu1g = 
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu2g = @"A2_ULTRAGPU_2G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu4g = @"A2_ULTRAGPU_4G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu8g = @"A2_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu1g = @"A3_HIGHGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu2g = @"A3_HIGHGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu4g = @"A3_HIGHGPU_4G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Megagpu8g = @"A3_MEGAGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
@@ -417,6 +423,11 @@ NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard80 = 
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard96 = @"N2_STANDARD_96";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_UnknownMachineSpec = @"UNKNOWN_MACHINE_SPEC";
 
+// GTLRCloudNaturalLanguage_ModerateTextRequest.modelVersion
+NSString * const kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersion1 = @"MODEL_VERSION_1";
+NSString * const kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersion2 = @"MODEL_VERSION_2";
+NSString * const kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersionUnspecified = @"MODEL_VERSION_UNSPECIFIED";
+
 // GTLRCloudNaturalLanguage_RamMetric.machineSpec
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Highgpu1g = @"A2_HIGHGPU_1G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Highgpu2g = @"A2_HIGHGPU_2G";
@@ -427,6 +438,9 @@ NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu1g = 
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu2g = @"A2_ULTRAGPU_2G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu4g = @"A2_ULTRAGPU_4G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu8g = @"A2_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu1g = @"A3_HIGHGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu2g = @"A3_HIGHGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu4g = @"A3_HIGHGPU_4G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Megagpu8g = @"A3_MEGAGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
@@ -890,7 +904,7 @@ NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Type_TypeUnspecified
 //
 
 @implementation GTLRCloudNaturalLanguage_ClassificationCategory
-@dynamic confidence, name;
+@dynamic confidence, name, severity;
 @end
 
 
@@ -1070,7 +1084,7 @@ NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Type_TypeUnspecified
 //
 
 @implementation GTLRCloudNaturalLanguage_ModerateTextRequest
-@dynamic document;
+@dynamic document, modelVersion;
 @end
 
 

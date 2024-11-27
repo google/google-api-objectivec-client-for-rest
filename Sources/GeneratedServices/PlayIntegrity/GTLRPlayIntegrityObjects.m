@@ -166,11 +166,22 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlayIntegrity_DeviceAttributes
+//
+
+@implementation GTLRPlayIntegrity_DeviceAttributes
+@dynamic sdkVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlayIntegrity_DeviceIntegrity
 //
 
 @implementation GTLRPlayIntegrity_DeviceIntegrity
-@dynamic deviceRecall, deviceRecognitionVerdict, recentDeviceActivity;
+@dynamic deviceAttributes, deviceRecall, deviceRecognitionVerdict,
+         recentDeviceActivity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -296,6 +296,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
  *  Value: "UNHIDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
+/**
+ *  TPU node has unknown state after a failed repair.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRTPU_QueuedResourceState.state
@@ -1202,6 +1208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        nodes). (Value: "TERMINATED")
  *    @arg @c kGTLRTPU_Node_State_Unhiding TPU node is currently unhiding.
  *        (Value: "UNHIDING")
+ *    @arg @c kGTLRTPU_Node_State_Unknown TPU node has unknown state after a
+ *        failed repair. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

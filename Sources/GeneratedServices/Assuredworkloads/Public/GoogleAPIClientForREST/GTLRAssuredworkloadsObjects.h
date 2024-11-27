@@ -31,6 +31,7 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Metadata;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Response;
@@ -141,17 +142,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
 /**
- *  Health Insurance Portability and Accountability Act controls
+ *  [DEPRECATED] Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa GTLR_DEPRECATED;
 /**
- *  Health Information Trust Alliance controls
+ *  [DEPRECATED] Health Information Trust Alliance controls
  *
  *  Value: "HITRUST"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust GTLR_DEPRECATED;
 /**
  *  Information protection as per DoD IL2 requirements.
  *
@@ -422,17 +423,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
 /**
- *  Health Insurance Portability and Accountability Act controls
+ *  [DEPRECATED] Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa GTLR_DEPRECATED;
 /**
- *  Health Information Trust Alliance controls
+ *  [DEPRECATED] Health Information Trust Alliance controls
  *
  *  Value: "HITRUST"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust GTLR_DEPRECATED;
 /**
  *  Information protection as per DoD IL2 requirements.
  *
@@ -789,6 +790,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions.kajEnrollmentType
+
+/**
+ *  KAJ Enrollment type is unspecified
+ *
+ *  Value: "KAJ_ENROLLMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified;
+/**
+ *  KAT sets External, Hardware, and Software key feature logging only to TRUE.
+ *  (no enforcement)
+ *
+ *  Value: "KEY_ACCESS_TRANSPARENCY_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff;
+
 /**
  *  Request for acknowledging the violation
  */
@@ -923,10 +941,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Healthcare and Life Science Controls with US Support (Value:
  *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
- *        Health Insurance Portability and Accountability Act controls (Value:
- *        "HIPAA")
+ *        [DEPRECATED] Health Insurance Portability and Accountability Act
+ *        controls (Value: "HIPAA")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust
- *        Health Information Trust Alliance controls (Value: "HITRUST")
+ *        [DEPRECATED] Health Information Trust Alliance controls (Value:
+ *        "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il2
  *        Information protection as per DoD IL2 requirements. (Value: "IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
@@ -1446,10 +1465,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Healthcare and Life Science Controls with US Support (Value:
  *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa
- *        Health Insurance Portability and Accountability Act controls (Value:
- *        "HIPAA")
+ *        [DEPRECATED] Health Insurance Portability and Accountability Act
+ *        controls (Value: "HIPAA")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust
- *        Health Information Trust Alliance controls (Value: "HITRUST")
+ *        [DEPRECATED] Health Information Trust Alliance controls (Value:
+ *        "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il2
  *        Information protection as per DoD IL2 requirements. (Value: "IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
@@ -1644,6 +1664,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *violationNotificationsEnabled;
+
+/** Optional. Options to be set for the given created workload. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions *workloadOptions;
 
 @end
 
@@ -1922,6 +1945,27 @@ GTLR_DEPRECATED
  *        SAA enrollment pending. (Value: "STATUS_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *setupStatus;
+
+@end
+
+
+/**
+ *  Options to be set for the given created workload.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions : GTLRObject
+
+/**
+ *  Optional. Specifies type of KAJ Enrollment if provided.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified
+ *        KAJ Enrollment type is unspecified (Value:
+ *        "KAJ_ENROLLMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff
+ *        KAT sets External, Hardware, and Software key feature logging only to
+ *        TRUE. (no enforcement) (Value: "KEY_ACCESS_TRANSPARENCY_OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *kajEnrollmentType;
 
 @end
 

@@ -22,6 +22,16 @@ NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeInv
 NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUnknown = @"SOURCE_TYPE_UNKNOWN";
 NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUpload = @"SOURCE_TYPE_UPLOAD";
 
+// GTLRMigrationCenterAPI_AwsEc2PlatformDetails.hyperthreading
+NSString * const kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusDisabled = @"HYPERTHREADING_STATUS_DISABLED";
+NSString * const kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusEnabled = @"HYPERTHREADING_STATUS_ENABLED";
+NSString * const kGTLRMigrationCenterAPI_AwsEc2PlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified = @"HYPERTHREADING_STATUS_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_AzureVmPlatformDetails.hyperthreading
+NSString * const kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled = @"HYPERTHREADING_STATUS_DISABLED";
+NSString * const kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled = @"HYPERTHREADING_STATUS_ENABLED";
+NSString * const kGTLRMigrationCenterAPI_AzureVmPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified = @"HYPERTHREADING_STATUS_UNSPECIFIED";
+
 // GTLRMigrationCenterAPI_ComputeEnginePreferences.licenseType
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeBringYourOwnLicense = @"LICENSE_TYPE_BRING_YOUR_OWN_LICENSE";
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeDefault = @"LICENSE_TYPE_DEFAULT";
@@ -38,6 +48,21 @@ NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_Persisten
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_DatabaseInstance.role
+NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_Arbiter = @"ARBITER";
+NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_Primary = @"PRIMARY";
+NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_DatabaseInstance_Role_Secondary = @"SECONDARY";
+
+// GTLRMigrationCenterAPI_DatabaseObjects.category
+NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Constraints = @"CONSTRAINTS";
+NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Index = @"INDEX";
+NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Other = @"OTHER";
+NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_SourceCode = @"SOURCE_CODE";
+NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Table = @"TABLE";
+NSString * const kGTLRMigrationCenterAPI_DatabaseObjects_Category_Views = @"VIEWS";
 
 // GTLRMigrationCenterAPI_DiscoveryClient.state
 NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Active = @"ACTIVE";
@@ -62,6 +87,11 @@ NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_FitLevelUnspecif
 NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_NoFit = @"NO_FIT";
 NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_RequiresEffort = @"REQUIRES_EFFORT";
 
+// GTLRMigrationCenterAPI_GenericPlatformDetails.hyperthreading
+NSString * const kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled = @"HYPERTHREADING_STATUS_DISABLED";
+NSString * const kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled = @"HYPERTHREADING_STATUS_ENABLED";
+NSString * const kGTLRMigrationCenterAPI_GenericPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified = @"HYPERTHREADING_STATUS_UNSPECIFIED";
+
 // GTLRMigrationCenterAPI_GuestConfigDetails.selinuxMode
 NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeDisabled = @"SE_LINUX_MODE_DISABLED";
 NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeEnforcing = @"SE_LINUX_MODE_ENFORCING";
@@ -75,6 +105,7 @@ NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyUnknown =
 NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyWindows = @"OS_FAMILY_WINDOWS";
 
 // GTLRMigrationCenterAPI_ImportDataFile.format
+NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatDatabaseZip = @"IMPORT_JOB_FORMAT_DATABASE_ZIP";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAwsCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAzureCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatRvtoolsCsv = @"IMPORT_JOB_FORMAT_RVTOOLS_CSV";
@@ -122,6 +153,20 @@ NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_PowerStateUns
 NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspended = @"SUSPENDED";
 NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspending = @"SUSPENDING";
 
+// GTLRMigrationCenterAPI_MySqlStorageEngineDetails.engine
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Archive = @"ARCHIVE";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Blackhole = @"BLACKHOLE";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Csv = @"CSV";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_EngineUnspecified = @"ENGINE_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Example = @"EXAMPLE";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Federated = @"FEDERATED";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Innodb = @"INNODB";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Memory = @"MEMORY";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Merge = @"MERGE";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Myisam = @"MYISAM";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Ndb = @"NDB";
+NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDetails_Engine_Other = @"OTHER";
+
 // GTLRMigrationCenterAPI_NetworkAddress.assignment
 NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentDhcp = @"ADDRESS_ASSIGNMENT_DHCP";
 NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentStatic = @"ADDRESS_ASSIGNMENT_STATIC";
@@ -134,6 +179,11 @@ NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Listen = @"LIST
 NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Open = @"OPEN";
 NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Opening = @"OPENING";
 NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_PhysicalPlatformDetails.hyperthreading
+NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusDisabled = @"HYPERTHREADING_STATUS_DISABLED";
+NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled = @"HYPERTHREADING_STATUS_ENABLED";
+NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified = @"HYPERTHREADING_STATUS_UNSPECIFIED";
 
 // GTLRMigrationCenterAPI_Report.state
 NSString * const kGTLRMigrationCenterAPI_Report_State_Failed   = @"FAILED";
@@ -191,6 +241,12 @@ NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeInventoryScan = @
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeUnknown = @"SOURCE_TYPE_UNKNOWN";
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeUpload = @"SOURCE_TYPE_UPLOAD";
 
+// GTLRMigrationCenterAPI_SqlServerTraceFlag.scope
+NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Global = @"GLOBAL";
+NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Off = @"OFF";
+NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_SqlServerTraceFlag_Scope_Session = @"SESSION";
+
 // GTLRMigrationCenterAPI_VirtualMachinePreferences.commitmentPlan
 NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_CommitmentPlan_CommitmentPlanNone = @"COMMITMENT_PLAN_NONE";
 NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_CommitmentPlan_CommitmentPlanOneYear = @"COMMITMENT_PLAN_ONE_YEAR";
@@ -238,6 +294,11 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment3YearUpfrontPayment = @"COMMITMENT_3_YEAR_UPFRONT_PAYMENT";
 NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_OnDemand = @"ON_DEMAND";
+
+// GTLRMigrationCenterAPI_VmwarePlatformDetails.esxHyperthreading
+NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusDisabled = @"HYPERTHREADING_STATUS_DISABLED";
+NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusEnabled = @"HYPERTHREADING_STATUS_ENABLED";
+NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading_HyperthreadingStatusUnspecified = @"HYPERTHREADING_STATUS_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -428,8 +489,9 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_Asset
-@dynamic assignedGroups, attributes, createTime, insightList, labels,
-         machineDetails, name, performanceData, sources, updateTime;
+@dynamic assignedGroups, attributes, createTime, databaseDeploymentDetails,
+         databaseDetails, insightList, labels, machineDetails, name,
+         performanceData, sources, title, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -476,8 +538,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_AssetFrame
-@dynamic attributes, collectionType, labels, machineDetails, performanceSamples,
-         reportTime, traceToken;
+@dynamic attributes, collectionType, databaseDeploymentDetails, databaseDetails,
+         labels, machineDetails, performanceSamples, reportTime, traceToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -559,7 +621,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_AwsEc2PlatformDetails
-@dynamic location, machineTypeLabel;
+@dynamic hyperthreading, location, machineTypeLabel;
 @end
 
 
@@ -569,7 +631,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_AzureVmPlatformDetails
-@dynamic location, machineTypeLabel, provisioningState;
+@dynamic hyperthreading, location, machineTypeLabel, provisioningState;
 @end
 
 
@@ -736,7 +798,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_DailyResourceUsageAggregationDisk
-@dynamic iops;
+@dynamic iops, readIops, writeIops;
 @end
 
 
@@ -767,6 +829,131 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 @implementation GTLRMigrationCenterAPI_DailyResourceUsageAggregationStats
 @dynamic average, median, ninteyFifthPercentile, peak;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseDeploymentDetails
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseDeploymentDetails
+@dynamic aggregatedStats, edition, generatedId, manualUniqueId, mysql,
+         postgresql, sqlServer, topology, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseDeploymentDetailsAggregatedStats
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseDeploymentDetailsAggregatedStats
+@dynamic databaseCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseDeploymentTopology
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseDeploymentTopology
+@dynamic coreCount, coreLimit, diskAllocatedBytes, diskUsedBytes, instances,
+         memoryBytes, memoryLimitBytes, physicalCoreCount, physicalCoreLimit;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRMigrationCenterAPI_DatabaseInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseDetails
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseDetails
+@dynamic allocatedStorageBytes, databaseName, parentDatabaseDeployment, schemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemas" : [GTLRMigrationCenterAPI_DatabaseSchema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseDetailsParentDatabaseDeployment
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseDetailsParentDatabaseDeployment
+@dynamic generatedId, manualUniqueId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseInstance
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseInstance
+@dynamic instanceName, network, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseInstanceNetwork
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseInstanceNetwork
+@dynamic hostNames, ipAddresses, primaryMacAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hostNames" : [NSString class],
+    @"ipAddresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseObjects
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseObjects
+@dynamic category, count;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DatabaseSchema
+//
+
+@implementation GTLRMigrationCenterAPI_DatabaseSchema
+@dynamic mysql, objects, postgresql, schemaName, sqlServer, tablesSizeBytes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"objects" : [GTLRMigrationCenterAPI_DatabaseObjects class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -882,7 +1069,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_DiskUsageSample
-@dynamic averageIops;
+@dynamic averageIops, averageReadIops, averageWriteIops;
 @end
 
 
@@ -1032,7 +1219,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_GenericPlatformDetails
-@dynamic location;
+@dynamic hyperthreading, location;
 @end
 
 
@@ -1219,7 +1406,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_ImportRowError
-@dynamic csvError, errors, rowNumber, vmName, vmUuid, xlsxError;
+@dynamic archiveError, assetTitle, csvError, errors, rowNumber, vmName, vmUuid,
+         xlsxError;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1228,6 +1416,16 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ImportRowErrorArchiveErrorDetails
+//
+
+@implementation GTLRMigrationCenterAPI_ImportRowErrorArchiveErrorDetails
+@dynamic csvError, filePath;
 @end
 
 
@@ -1693,6 +1891,84 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_MysqlDatabaseDeployment
+//
+
+@implementation GTLRMigrationCenterAPI_MysqlDatabaseDeployment
+@dynamic plugins, properties, resourceGroupsCount, variables;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"plugins" : [GTLRMigrationCenterAPI_MySqlPlugin class],
+    @"properties" : [GTLRMigrationCenterAPI_MySqlProperty class],
+    @"variables" : [GTLRMigrationCenterAPI_MySqlVariable class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MySqlPlugin
+//
+
+@implementation GTLRMigrationCenterAPI_MySqlPlugin
+@dynamic enabled, plugin, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MySqlProperty
+//
+
+@implementation GTLRMigrationCenterAPI_MySqlProperty
+@dynamic enabled, numericValue, property;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MySqlSchemaDetails
+//
+
+@implementation GTLRMigrationCenterAPI_MySqlSchemaDetails
+@dynamic storageEngines;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"storageEngines" : [GTLRMigrationCenterAPI_MySqlStorageEngineDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MySqlStorageEngineDetails
+//
+
+@implementation GTLRMigrationCenterAPI_MySqlStorageEngineDetails
+@dynamic encryptedTableCount, engine, tableCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MySqlVariable
+//
+
+@implementation GTLRMigrationCenterAPI_MySqlVariable
+@dynamic category, value, variable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_NetworkAdapterDetails
 //
 
@@ -1915,7 +2191,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_PhysicalPlatformDetails
-@dynamic location;
+@dynamic hyperthreading, location;
 @end
 
 
@@ -1927,6 +2203,73 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 @implementation GTLRMigrationCenterAPI_PlatformDetails
 @dynamic awsEc2Details, azureVmDetails, genericDetails, physicalDetails,
          vmwareDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_PostgreSqlDatabaseDeployment
+//
+
+@implementation GTLRMigrationCenterAPI_PostgreSqlDatabaseDeployment
+@dynamic properties, settings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"properties" : [GTLRMigrationCenterAPI_PostgreSqlProperty class],
+    @"settings" : [GTLRMigrationCenterAPI_PostgreSqlSetting class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_PostgreSqlExtension
+//
+
+@implementation GTLRMigrationCenterAPI_PostgreSqlExtension
+@dynamic extension, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_PostgreSqlProperty
+//
+
+@implementation GTLRMigrationCenterAPI_PostgreSqlProperty
+@dynamic enabled, numericValue, property;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_PostgreSqlSchemaDetails
+//
+
+@implementation GTLRMigrationCenterAPI_PostgreSqlSchemaDetails
+@dynamic foreignTablesCount, postgresqlExtensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"postgresqlExtensions" : [GTLRMigrationCenterAPI_PostgreSqlExtension class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_PostgreSqlSetting
+//
+
+@implementation GTLRMigrationCenterAPI_PostgreSqlSetting
+@dynamic boolValue, intValue, realValue, setting, source, stringValue, unit;
 @end
 
 
@@ -2432,6 +2775,66 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_SqlServerDatabaseDeployment
+//
+
+@implementation GTLRMigrationCenterAPI_SqlServerDatabaseDeployment
+@dynamic features, serverFlags, traceFlags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"features" : [GTLRMigrationCenterAPI_SqlServerFeature class],
+    @"serverFlags" : [GTLRMigrationCenterAPI_SqlServerServerFlag class],
+    @"traceFlags" : [GTLRMigrationCenterAPI_SqlServerTraceFlag class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SqlServerFeature
+//
+
+@implementation GTLRMigrationCenterAPI_SqlServerFeature
+@dynamic enabled, featureName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SqlServerSchemaDetails
+//
+
+@implementation GTLRMigrationCenterAPI_SqlServerSchemaDetails
+@dynamic clrObjectCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SqlServerServerFlag
+//
+
+@implementation GTLRMigrationCenterAPI_SqlServerServerFlag
+@dynamic serverFlagName, value, valueInUse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SqlServerTraceFlag
+//
+
+@implementation GTLRMigrationCenterAPI_SqlServerTraceFlag
+@dynamic scope, traceFlagName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_Status
 //
 
@@ -2564,6 +2967,6 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_VmwarePlatformDetails
-@dynamic esxVersion, osid, vcenterFolder, vcenterUri, vcenterVersion,
-         vcenterVmId;
+@dynamic esxHyperthreading, esxVersion, osid, vcenterFolder, vcenterUri,
+         vcenterVersion, vcenterVmId;
 @end

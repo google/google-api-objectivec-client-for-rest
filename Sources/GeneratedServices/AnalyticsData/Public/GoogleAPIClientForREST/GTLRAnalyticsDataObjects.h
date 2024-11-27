@@ -39,6 +39,7 @@
 @class GTLRAnalyticsData_DimensionMetadata;
 @class GTLRAnalyticsData_DimensionOrderBy;
 @class GTLRAnalyticsData_DimensionValue;
+@class GTLRAnalyticsData_EmptyFilter;
 @class GTLRAnalyticsData_Filter;
 @class GTLRAnalyticsData_FilterExpression;
 @class GTLRAnalyticsData_FilterExpressionList;
@@ -1382,12 +1383,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  Filter for empty values.
+ */
+@interface GTLRAnalyticsData_EmptyFilter : GTLRObject
+@end
+
+
+/**
  *  An expression to filter dimension or metric values.
  */
 @interface GTLRAnalyticsData_Filter : GTLRObject
 
 /** A filter for two values. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_BetweenFilter *betweenFilter;
+
+/** A filter for empty values such as "(not set)" and "" values. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_EmptyFilter *emptyFilter;
 
 /**
  *  The dimension name or metric name. In most methods, dimensions & metrics can

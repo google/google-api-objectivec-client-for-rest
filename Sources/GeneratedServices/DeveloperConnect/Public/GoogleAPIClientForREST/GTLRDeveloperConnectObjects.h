@@ -25,6 +25,8 @@
 @class GTLRDeveloperConnect_GitRepositoryLink;
 @class GTLRDeveloperConnect_GitRepositoryLink_Annotations;
 @class GTLRDeveloperConnect_GitRepositoryLink_Labels;
+@class GTLRDeveloperConnect_HttpBody;
+@class GTLRDeveloperConnect_HttpBody_Extensions_Item;
 @class GTLRDeveloperConnect_Installation;
 @class GTLRDeveloperConnect_InstallationState;
 @class GTLRDeveloperConnect_LinkableGitRepository;
@@ -620,6 +622,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 
 
 /**
+ *  Message that represents an arbitrary HTTP body. It should only be used for
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
+ */
+@interface GTLRDeveloperConnect_HttpBody : GTLRObject
+
+/**
+ *  The HTTP Content-Type header value specifying the content type of the body.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  The HTTP request/response body as raw binary.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Application specific response metadata. Must be set in the first response
+ *  for streaming APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_HttpBody_Extensions_Item *> *extensions;
+
+@end
+
+
+/**
+ *  GTLRDeveloperConnect_HttpBody_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDeveloperConnect_HttpBody_Extensions_Item : GTLRObject
+@end
+
+
+/**
  *  Represents an installation of the GitHub App.
  */
 @interface GTLRDeveloperConnect_Installation : GTLRObject
@@ -974,8 +1031,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -991,6 +1048,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  RPC request object accepted by the ProcessGitHubEnterpriseWebhook RPC
+ *  method.
+ */
+@interface GTLRDeveloperConnect_ProcessGitHubEnterpriseWebhookRequest : GTLRObject
+
+/** Required. HTTP request body. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_HttpBody *body;
+
+@end
+
+
+/**
+ *  RPC request object accepted by the ProcessGitLabEnterpriseWebhook RPC
+ *  method.
+ */
+@interface GTLRDeveloperConnect_ProcessGitLabEnterpriseWebhookRequest : GTLRObject
+
+/** Required. HTTP request body. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_HttpBody *body;
+
+@end
+
+
+/**
+ *  RPC request object accepted by the ProcessGitLabWebhook RPC method.
+ */
+@interface GTLRDeveloperConnect_ProcessGitLabWebhookRequest : GTLRObject
+
+/** Required. HTTP request body. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_HttpBody *body;
 
 @end
 

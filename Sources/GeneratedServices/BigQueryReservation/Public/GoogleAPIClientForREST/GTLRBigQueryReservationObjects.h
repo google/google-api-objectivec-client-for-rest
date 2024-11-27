@@ -18,6 +18,7 @@
 @class GTLRBigQueryReservation_Autoscale;
 @class GTLRBigQueryReservation_CapacityCommitment;
 @class GTLRBigQueryReservation_Reservation;
+@class GTLRBigQueryReservation_Reservation_Labels;
 @class GTLRBigQueryReservation_Status;
 @class GTLRBigQueryReservation_Status_Details_Item;
 @class GTLRBigQueryReservation_TableReference;
@@ -114,7 +115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise;
 /**
- *  Enterprise plus edition.
+ *  Enterprise Plus edition.
  *
  *  Value: "ENTERPRISE_PLUS"
  */
@@ -340,7 +341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise;
 /**
- *  Enterprise plus edition.
+ *  Enterprise Plus edition.
  *
  *  Value: "ENTERPRISE_PLUS"
  */
@@ -363,6 +364,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  `folders/123`, or `organizations/456`.
  */
 @property(nonatomic, copy, nullable) NSString *assignee;
+
+/**
+ *  Optional. This field controls if "Gemini in BigQuery"
+ *  (https://cloud.google.com/gemini/docs/bigquery/overview) features should be
+ *  enabled for this reservation assignment, which is not on by default. "Gemini
+ *  in BigQuery" has a distinct compliance posture from BigQuery. If this field
+ *  is set to true, the assignment job type is QUERY, and the parent reservation
+ *  edition is ENTERPRISE_PLUS, then the assignment will give the grantee
+ *  project/organization access to "Gemini in BigQuery" features.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableGeminiInBigquery;
 
 /**
  *  Which type of jobs will use the reservation.
@@ -423,7 +437,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 /**
  *  Output only. The slot capacity added to this reservation when autoscale
- *  happens. Will be between [0, max_slots].
+ *  happens. Will be between [0, max_slots]. Note: after users reduce max_slots,
+ *  it may take a while before it can be propagated, so current_slots may stay
+ *  in the original value and could be larger than max_slots for that brief
+ *  period (less than one minute)
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -503,7 +520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise
  *        Enterprise edition. (Value: "ENTERPRISE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_EnterprisePlus
- *        Enterprise plus edition. (Value: "ENTERPRISE_PLUS")
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Standard
  *        Standard edition. (Value: "STANDARD")
  */
@@ -824,7 +841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  asynchronous nature of the system and various optimizations for small
  *  queries. Default value is 0 which means that concurrency target will be
  *  automatically computed by the system. NOTE: this field is exposed as target
- *  job concurrency in the Information Schema, DDL and BQ CLI.
+ *  job concurrency in the Information Schema, DDL and BigQuery CLI.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -843,7 +860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Enterprise Enterprise
  *        edition. (Value: "ENTERPRISE")
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EnterprisePlus
- *        Enterprise plus edition. (Value: "ENTERPRISE_PLUS")
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Standard Standard
  *        edition. (Value: "STANDARD")
  */
@@ -858,6 +875,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreIdleSlots;
+
+/**
+ *  Optional. The labels associated with this reservation. You can use these to
+ *  organize and group your reservations. You can set this property when
+ *  inserting or updating a reservation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_Reservation_Labels *labels;
 
 /**
  *  Applicable only for reservations located within one of the BigQuery
@@ -884,25 +908,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  during its creation and remains unchanged afterwards. It can be used by the
  *  customer to answer questions about disaster recovery billing. The field is
  *  output only for customers and should not be specified, however, the
- *  google.api.field_behavior is not set to OUTPUT_ONLY since these fields are
- *  set in rerouted requests sent across regions.
+ *  `google.api.field_behavior` is not set to `OUTPUT_ONLY` since these fields
+ *  are set in rerouted requests sent across regions.
  */
 @property(nonatomic, copy, nullable) NSString *originalPrimaryLocation;
 
 /**
  *  Optional. The primary location of the reservation. The field is only
- *  meaningful for reservation used for cross region disaster recovery. The
- *  field is output only for customers and should not be specified, however, the
- *  google.api.field_behavior is not set to OUTPUT_ONLY since these fields are
- *  set in rerouted requests sent across regions.
+ *  meaningful for a failover reservation that is used for managed disaster
+ *  recovery. The field is output only for customers and should not be
+ *  specified. However, the `google.api.field_behavior` is not set to
+ *  `OUTPUT_ONLY` since these fields are set in rerouted requests sent across
+ *  regions.
  */
 @property(nonatomic, copy, nullable) NSString *primaryLocation;
 
 /**
- *  Optional. The secondary location of the reservation which is used for cross
- *  region disaster recovery purposes. Customer can set this in create/update
- *  reservation calls to create a failover reservation or convert a non-failover
- *  reservation to a failover reservation.
+ *  Optional. The secondary location of the reservation that is used for managed
+ *  disaster recovery. Customers can set this in create/update reservation calls
+ *  to create a failover reservation or convert a non-failover reservation to a
+ *  failover reservation.
  */
 @property(nonatomic, copy, nullable) NSString *secondaryLocation;
 
@@ -931,6 +956,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 /** Output only. Last update time of the reservation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. The labels associated with this reservation. You can use these to
+ *  organize and group your reservations. You can set this property when
+ *  inserting or updating a reservation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigQueryReservation_Reservation_Labels : GTLRObject
 @end
 
 

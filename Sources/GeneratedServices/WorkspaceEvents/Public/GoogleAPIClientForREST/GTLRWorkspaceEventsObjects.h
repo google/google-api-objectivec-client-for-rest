@@ -382,7 +382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  Optional. Immutable. Identifier. Resource name of the subscription. Format:
+ *  Identifier. Resource name of the subscription. Format:
  *  `subscriptions/{subscription}`
  */
 @property(nonatomic, copy, nullable) NSString *name;

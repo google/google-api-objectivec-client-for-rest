@@ -1300,7 +1300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  Alerts from AppSettingsChanged bucket Rules configured by Admin which
+ *  * Alerts from AppSettingsChanged bucket Rules configured by Admin which
  *  contain the below rules. Calendar settings changed Drive settings changed
  *  Email settings changed Mobile settings changed
  */
@@ -2049,7 +2049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  Event occurred when primary admin changed in customer's account. The event
+ *  * Event occurred when primary admin changed in customer's account. The event
  *  are being received from insight forwarder
  */
 @interface GTLRAlertCenter_PrimaryAdminChangedEvent : GTLRObject
@@ -2301,8 +2301,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  Event occurred when SSO Profile created in customer's account. The event are
- *  being received from insight forwarder
+ *  * Event occurred when SSO Profile created in customer's account. The event
+ *  are being received from insight forwarder
  */
 @interface GTLRAlertCenter_SSOProfileCreatedEvent : GTLRObject
 
@@ -2313,8 +2313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  Event occurred when SSO Profile deleted in customer's account. The event are
- *  being received from insight forwarder
+ *  * Event occurred when SSO Profile deleted in customer's account. The event
+ *  are being received from insight forwarder
  */
 @interface GTLRAlertCenter_SSOProfileDeletedEvent : GTLRObject
 
@@ -2325,8 +2325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  Event occurred when SSO Profile updated in customer's account. The event are
- *  being received from insight forwarder
+ *  * Event occurred when SSO Profile updated in customer's account. The event
+ *  are being received from insight forwarder
  */
 @interface GTLRAlertCenter_SSOProfileUpdatedEvent : GTLRObject
 
@@ -2396,7 +2396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  Event occurred when password was reset for super admin in customer's
+ *  * Event occurred when password was reset for super admin in customer's
  *  account. The event are being received from insight forwarder
  */
 @interface GTLRAlertCenter_SuperAdminPasswordResetEvent : GTLRObject
@@ -2576,9 +2576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  Alerts from UserChanges bucket Rules for predefined rules which contain the
- *  below rules. Suspended user made active New user Added User suspended (by
- *  admin) User granted admin privileges User admin privileges revoked User
+ *  * Alerts from UserChanges bucket Rules for predefined rules which contain
+ *  the below rules. Suspended user made active New user Added User suspended
+ *  (by admin) User granted admin privileges User admin privileges revoked User
  *  deleted Users password changed
  */
 @interface GTLRAlertCenter_UserChanges : GTLRObject

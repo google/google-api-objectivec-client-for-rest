@@ -615,23 +615,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Cred
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny;
 /**
- *  Automatically grant a permission.On Android 12 and above,
- *  Manifest.permission.READ_SMS
+ *  Automatically grant a permission.On Android 12 and above, READ_SMS
  *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *  and following sensor-related permissions can only be granted on fully
- *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  managed devices: ACCESS_FINE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  ACCESS_BACKGROUND_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  ACCESS_COARSE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *  Manifest.permission.CAMERA
+ *  CAMERA
  *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *  Manifest.permission.RECORD_AUDIO
+ *  RECORD_AUDIO
  *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  ACTIVITY_RECOGNITION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *  Manifest.permission.BODY_SENSORS
+ *  BODY_SENSORS
  *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
@@ -655,13 +654,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Defa
 // GTLRAndroidManagement_ApplicationPolicy.delegatedScopes
 
 /**
- *  Grants access to blocking uninstallation.
+ *  Grants access to blocking uninstallation. This scope can be delegated to
+ *  multiple applications.
  *
  *  Value: "BLOCK_UNINSTALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_BlockUninstall;
 /**
- *  Grants access to certificate installation and management.
+ *  Grants access to certificate installation and management. This scope can be
+ *  delegated to multiple applications.
  *
  *  Value: "CERT_INSTALL"
  */
@@ -675,7 +676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#grantKeyPairToApp%28android.content.ComponentName,%20java.lang.String,%20java.lang.String%29)
  *  and revokeKeyPairFromApp
  *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#revokeKeyPairFromApp%28android.content.ComponentName,%20java.lang.String,%20java.lang.String%29)
- *  methods. There can be at most one app that has this delegation.
+ *  methods. This scope can be delegated to at most one application.
  *  choosePrivateKeyRules must be empty and privateKeySelectionEnabled has no
  *  effect if certificate selection is delegated to an application.
  *
@@ -689,13 +690,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_DelegatedScopeUnspecified;
 /**
- *  Grants access for enabling system apps.
+ *  Grants access for enabling system apps. This scope can be delegated to
+ *  multiple applications.
  *
  *  Value: "ENABLE_SYSTEM_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_EnableSystemApp;
 /**
- *  Grants access to managed configurations management.
+ *  Grants access to managed configurations management. This scope can be
+ *  delegated to multiple applications.
  *
  *  Value: "MANAGED_CONFIGURATIONS"
  */
@@ -717,13 +720,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_NetworkActivityLogs;
 /**
- *  Grants access to package access state.
+ *  Grants access to package access state. This scope can be delegated to
+ *  multiple applications.
  *
  *  Value: "PACKAGE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PackageAccess;
 /**
- *  Grants access to permission policy and permission grant state.
+ *  Grants access to permission policy and permission grant state. This scope
+ *  can be delegated to multiple applications.
  *
  *  Value: "PERMISSION_GRANT"
  */
@@ -1840,7 +1845,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowP
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed;
 /**
  *  Device is not associated with a single user, and thus both personal usage
- *  and corporate identity authentication are not expected.
+ *  and corporate identity authentication are not expected. Important: This
+ *  setting is mandatory for dedicated device enrollment and it is a breaking
+ *  change. This change needs to be implemented before January 2025.For
+ *  additional details see the dedicated device provisioning guide
+ *  (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
  *
  *  Value: "PERSONAL_USAGE_DISALLOWED_USERLESS"
  */
@@ -2901,23 +2910,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PerAppResult_ClearingR
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny;
 /**
- *  Automatically grant a permission.On Android 12 and above,
- *  Manifest.permission.READ_SMS
+ *  Automatically grant a permission.On Android 12 and above, READ_SMS
  *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *  and following sensor-related permissions can only be granted on fully
- *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  managed devices: ACCESS_FINE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  ACCESS_BACKGROUND_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  ACCESS_COARSE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *  Manifest.permission.CAMERA
+ *  CAMERA
  *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *  Manifest.permission.RECORD_AUDIO
+ *  RECORD_AUDIO
  *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  ACTIVITY_RECOGNITION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *  Manifest.permission.BODY_SENSORS
+ *  BODY_SENSORS
  *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
@@ -3171,23 +3179,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CredentialProvi
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny;
 /**
- *  Automatically grant a permission.On Android 12 and above,
- *  Manifest.permission.READ_SMS
+ *  Automatically grant a permission.On Android 12 and above, READ_SMS
  *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *  and following sensor-related permissions can only be granted on fully
- *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  managed devices: ACCESS_FINE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  ACCESS_BACKGROUND_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  ACCESS_COARSE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *  Manifest.permission.CAMERA
+ *  CAMERA
  *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *  Manifest.permission.RECORD_AUDIO
+ *  RECORD_AUDIO
  *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  ACTIVITY_RECOGNITION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *  Manifest.permission.BODY_SENSORS
+ *  BODY_SENSORS
  *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
@@ -3749,7 +3756,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPers
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed;
 /**
  *  Device is not associated with a single user, and thus both personal usage
- *  and corporate identity authentication are not expected.
+ *  and corporate identity authentication are not expected. Important: This
+ *  setting is mandatory for dedicated device enrollment and it is a breaking
+ *  change. This change needs to be implemented before January 2025.For
+ *  additional details see the dedicated device provisioning guide
+ *  (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
  *
  *  Value: "PERSONAL_USAGE_DISALLOWED_USERLESS"
  */
@@ -4883,23 +4894,22 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny
  *        Automatically deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Grant
- *        Automatically grant a permission.On Android 12 and above,
- *        Manifest.permission.READ_SMS
+ *        Automatically grant a permission.On Android 12 and above, READ_SMS
  *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *        and following sensor-related permissions can only be granted on fully
- *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        managed devices: ACCESS_FINE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        ACCESS_BACKGROUND_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        ACCESS_COARSE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *        Manifest.permission.CAMERA
+ *        CAMERA
  *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *        Manifest.permission.RECORD_AUDIO
+ *        RECORD_AUDIO
  *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        ACTIVITY_RECOGNITION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *        Manifest.permission.BODY_SENSORS
+ *        BODY_SENSORS
  *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_PermissionPolicyUnspecified
@@ -6866,8 +6876,13 @@ GTLR_DEPRECATED
  *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
  *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowedUserless
  *        Device is not associated with a single user, and thus both personal
- *        usage and corporate identity authentication are not expected. (Value:
- *        "PERSONAL_USAGE_DISALLOWED_USERLESS")
+ *        usage and corporate identity authentication are not expected.
+ *        Important: This setting is mandatory for dedicated device enrollment
+ *        and it is a breaking change. This change needs to be implemented
+ *        before January 2025.For additional details see the dedicated device
+ *        provisioning guide
+ *        (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
+ *        (Value: "PERSONAL_USAGE_DISALLOWED_USERLESS")
  */
 @property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 
@@ -7006,13 +7021,13 @@ GTLR_DEPRECATED
 
 /**
  *  Configuration to enable an app as an extension app, with the capability of
- *  interacting with Android Device Policy offline. For Android versions 13 and
+ *  interacting with Android Device Policy offline. For Android versions 11 and
  *  above, extension apps are exempt from battery restrictions so will not be
  *  placed into the restricted App Standby Bucket
  *  (https://developer.android.com/topic/performance/appstandby#restricted-bucket).
  *  Extensions apps are also protected against users clearing their data or
  *  force-closing the application, although admins can continue to use the clear
- *  app data command on extension apps if needed for Android 13 and above.
+ *  app data command on extension apps if needed for Android 11 and above.
  */
 @interface GTLRAndroidManagement_ExtensionConfig : GTLRObject
 
@@ -8963,23 +8978,22 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_Deny Automatically
  *        deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_Grant Automatically
- *        grant a permission.On Android 12 and above,
- *        Manifest.permission.READ_SMS
+ *        grant a permission.On Android 12 and above, READ_SMS
  *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *        and following sensor-related permissions can only be granted on fully
- *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        managed devices: ACCESS_FINE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        ACCESS_BACKGROUND_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        ACCESS_COARSE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *        Manifest.permission.CAMERA
+ *        CAMERA
  *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *        Manifest.permission.RECORD_AUDIO
+ *        RECORD_AUDIO
  *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        ACTIVITY_RECOGNITION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *        Manifest.permission.BODY_SENSORS
+ *        BODY_SENSORS
  *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyUnspecified
@@ -9131,7 +9145,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountTypesWithManagementDisabled;
 
 /**
- *  Whether adding new users and profiles is disabled.
+ *  Whether adding new users and profiles is disabled. For devices where
+ *  managementMode is DEVICE_OWNER this field is ignored and the user is never
+ *  allowed to add or remove users.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9389,23 +9405,22 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny
  *        Automatically deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant
- *        Automatically grant a permission.On Android 12 and above,
- *        Manifest.permission.READ_SMS
+ *        Automatically grant a permission.On Android 12 and above, READ_SMS
  *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *        and following sensor-related permissions can only be granted on fully
- *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        managed devices: ACCESS_FINE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        ACCESS_BACKGROUND_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        ACCESS_COARSE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *        Manifest.permission.CAMERA
+ *        CAMERA
  *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *        Manifest.permission.RECORD_AUDIO
+ *        RECORD_AUDIO
  *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        ACTIVITY_RECOGNITION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *        Manifest.permission.BODY_SENSORS
+ *        BODY_SENSORS
  *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified
@@ -10448,8 +10463,13 @@ GTLR_DEPRECATED
  *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
  *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless
  *        Device is not associated with a single user, and thus both personal
- *        usage and corporate identity authentication are not expected. (Value:
- *        "PERSONAL_USAGE_DISALLOWED_USERLESS")
+ *        usage and corporate identity authentication are not expected.
+ *        Important: This setting is mandatory for dedicated device enrollment
+ *        and it is a breaking change. This change needs to be implemented
+ *        before January 2025.For additional details see the dedicated device
+ *        provisioning guide
+ *        (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
+ *        (Value: "PERSONAL_USAGE_DISALLOWED_USERLESS")
  */
 @property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 

@@ -40,6 +40,12 @@
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Resource;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaContainerHealthDetails_ExtendedStatus;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_Hubs;
 @class GTLRBeyondCorp_GoogleCloudLocationLocation;
 @class GTLRBeyondCorp_GoogleCloudLocationLocation_Labels;
 @class GTLRBeyondCorp_GoogleCloudLocationLocation_Metadata;
@@ -285,6 +291,53 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconne
  *  Value: "UNRESPONSIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Status_Unresponsive;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway.state
+
+/**
+ *  SecurityGateway is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Creating;
+/**
+ *  SecurityGateway is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Deleting;
+/**
+ *  SecurityGateway is down and may be restored in the future. This happens when
+ *  CCFE sends ProjectState = OFF.
+ *
+ *  Value: "DOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Down;
+/**
+ *  SecurityGateway encountered an error and is in an indeterministic state.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Error;
+/**
+ *  SecurityGateway is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Running;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_StateUnspecified;
+/**
+ *  SecurityGateway is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRBeyondCorp_GoogleIamV1AuditLogConfig.logType
@@ -1643,6 +1696,253 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGatewayOperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have been cancelled successfully have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  A Beyondcorp Application resource information.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application : GTLRObject
+
+/** Output only. Timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. An arbitrary user-provided name for the Application resource.
+ *  Cannot exceed 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. Endpoint matchers associated with an application. A combination of
+ *  hostname and ports as endpoint matcher is used to match the application.
+ *  Match conditions for OR logic. An array of match conditions to allow for
+ *  multiple matching criteria. The rule is considered a match if one the
+ *  conditions are met. The conditions can be one of the following combination
+ *  (Hostname), (Hostname & Ports) EXAMPLES: Hostname - ("*.abc.com"),
+ *  ("xyz.abc.com") Hostname and Ports - ("abc.com" and "22"), ("abc.com" and
+ *  "22,33") etc
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher *> *endpointMatchers;
+
+/** Identifier. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Timestamp when the resource was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  EndpointMatcher contains the information of the endpoint that will match the
+ *  application.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher : GTLRObject
+
+/** Required. Hostname of the application. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Optional. Ports of the application.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ports;
+
+@end
+
+
+/**
+ *  The Hub message contains information pertaining to the regional data path
+ *  deployments.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub : GTLRObject
+
+/** Optional. Internet Gateway configuration. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway *internetGateway;
+
+@end
+
+
+/**
+ *  Represents the Internet Gateway configuration.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway : GTLRObject
+
+/** Output only. List of IP addresses assigned to the Cloud NAT. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assignedIps;
+
+@end
+
+
+/**
+ *  Message for response to listing Applications.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "applications" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListApplicationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of BeyondCorp Application in the project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application *> *applications;
+
+/**
+ *  A token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** A list of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing SecurityGateways.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityGateways" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListSecurityGatewaysResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of BeyondCorp SecurityGateway in the project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway *> *securityGateways;
+
+/** A list of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Information about a BeyoncCorp SecurityGateway resource.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway : GTLRObject
+
+/** Output only. Timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. An arbitrary user-provided name for the SecurityGateway. Cannot
+ *  exceed 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. IP addresses that will be used for establishing connection to
+ *  the endpoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalIps;
+
+/**
+ *  Optional. Map of Hubs that represents regional data path deployment with GCP
+ *  region as a key.
+ */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_Hubs *hubs;
+
+/** Identifier. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The operational state of the SecurityGateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Creating
+ *        SecurityGateway is being created. (Value: "CREATING")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Deleting
+ *        SecurityGateway is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Down
+ *        SecurityGateway is down and may be restored in the future. This
+ *        happens when CCFE sends ProjectState = OFF. (Value: "DOWN")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Error
+ *        SecurityGateway encountered an error and is in an indeterministic
+ *        state. (Value: "ERROR")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Running
+ *        SecurityGateway is running. (Value: "RUNNING")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Updating
+ *        SecurityGateway is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Timestamp when the resource was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Map of Hubs that represents regional data path deployment with GCP
+ *  region as a key.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_Hubs : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGatewayOperationMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;

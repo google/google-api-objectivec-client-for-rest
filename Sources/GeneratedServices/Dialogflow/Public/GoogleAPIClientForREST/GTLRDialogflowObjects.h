@@ -183,6 +183,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettingsPromptTemplate;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsKnowledgeConnectorSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Generator;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorModelParameter;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources;
@@ -364,6 +365,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Message;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1MessageAnnotation;
@@ -445,6 +447,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Message;
 @class GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation;
@@ -562,6 +565,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig.audioEncoding
 
+/**
+ *  8-bit samples that compand 13-bit audio samples using G.711 PCMU/a-law.
+ *
+ *  Value: "AUDIO_ENCODING_ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingAlaw;
 /**
  *  Adaptive Multi-Rate Narrowband codec. `sample_rate_hertz` must be 8000.
  *
@@ -1585,6 +1594,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Impo
 // GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig.audioEncoding
 
 /**
+ *  8-bit samples that compand 13-bit audio samples using G.711 PCMU/a-law.
+ *
+ *  Value: "AUDIO_ENCODING_ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAlaw;
+/**
  *  Adaptive Multi-Rate Narrowband codec. `sample_rate_hertz` must be 8000.
  *
  *  Value: "AUDIO_ENCODING_AMR"
@@ -1794,6 +1809,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3NluS
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig.audioEncoding
 
+/**
+ *  8-bit samples that compand 13-bit audio samples using G.711 PCMU/a-law.
+ *
+ *  Value: "OUTPUT_AUDIO_ENCODING_ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingAlaw;
 /**
  *  Uncompressed 16-bit signed little-endian samples (Linear PCM). Audio content
  *  returned as LINEAR16 also contains a WAV header.
@@ -4561,7 +4582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  that an utterance has been detected. Note that no-speech event is not
  *  expected in this phase. The client provides this configuration in terms of
  *  the durations of those two phases. The durations are measured in terms of
- *  the audio length from the the start of the input audio. No-speech event is a
+ *  the audio length from the start of the input audio. No-speech event is a
  *  response with END_OF_UTTERANCE without any transcript following up.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3BargeInConfig : GTLRObject
@@ -4833,7 +4854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  that an utterance has been detected. Note that no-speech event is not
  *  expected in this phase. The client provides this configuration in terms of
  *  the durations of those two phases. The durations are measured in terms of
- *  the audio length from the the start of the input audio. No-speech event is a
+ *  the audio length from the start of the input audio. No-speech event is a
  *  response with END_OF_UTTERANCE without any transcript following up.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1BargeInConfig : GTLRObject
@@ -5864,6 +5885,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Required. Audio encoding of the audio content to process.
  *
  *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingAlaw
+ *        8-bit samples that compand 13-bit audio samples using G.711
+ *        PCMU/a-law. (Value: "AUDIO_ENCODING_ALAW")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingAmr
  *        Adaptive Multi-Rate Narrowband codec. `sample_rate_hertz` must be
  *        8000. (Value: "AUDIO_ENCODING_AMR")
@@ -10317,6 +10341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Parameters passed to the LLM to configure its behavior. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorModelParameter *modelParameter;
+
 /**
  *  The unique identifier of the generator. Must be set for the
  *  Generators.UpdateGenerator method. Generators.CreateGenerate populates the
@@ -10329,6 +10356,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. Prompt for the LLM model. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase *promptText;
+
+@end
+
+
+/**
+ *  Parameters to be passed to the LLM. If not set, default values will be used.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorModelParameter : GTLRObject
+
+/**
+ *  The maximum number of tokens to generate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDecodeSteps;
+
+/**
+ *  The temperature used for sampling. Temperature sampling occurs after both
+ *  topP and topK have been applied. Valid range: [0.0, 1.0] Low temperature =
+ *  less random. High temperature = more random.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temperature;
+
+/**
+ *  If set, the sampling process in each step is limited to the top_k tokens
+ *  with highest probabilities. Valid range: [1, 40] or 1000+. Small topK = less
+ *  random. Large topK = more random.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topK;
+
+/**
+ *  If set, only the tokens comprising the top top_p probability mass are
+ *  considered. If both top_p and top_k are set, top_p will be used for further
+ *  refining candidates selected with top_k. Valid range: (0.0, 1.0]. Small topP
+ *  = less random. Large topP = more random.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topP;
 
 @end
 
@@ -10702,6 +10772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Required. Audio encoding of the audio content to process.
  *
  *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAlaw
+ *        8-bit samples that compand 13-bit audio samples using G.711
+ *        PCMU/a-law. (Value: "AUDIO_ENCODING_ALAW")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAmr
  *        Adaptive Multi-Rate Narrowband codec. `sample_rate_hertz` must be
  *        8000. (Value: "AUDIO_ENCODING_AMR")
@@ -11920,6 +11993,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Required. Audio encoding of the synthesized audio content.
  *
  *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingAlaw
+ *        8-bit samples that compand 13-bit audio samples using G.711
+ *        PCMU/a-law. (Value: "OUTPUT_AUDIO_ENCODING_ALAW")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16
  *        Uncompressed 16-bit signed little-endian samples (Linear PCM). Audio
  *        content returned as LINEAR16 also contains a WAV header. (Value:
@@ -12443,8 +12519,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Optional. Data store connection feature output signals. Filled only when
  *  data stores are involved in serving the query and
- *  DetectIntentRequest.populate data_store_connection_quality_signals is set to
- *  true in the request.
+ *  DetectIntentRequest.populate_data_store_connection_signals is set to true in
+ *  the request.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignals *dataStoreConnectionSignals;
 
@@ -17206,6 +17282,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet : GTLRObject
 
+/** Metadata of the document. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata *metadata;
+
 /** Text taken from that URI. */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -17215,6 +17294,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** URI the data is sourced from. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
+@end
+
+
+/**
+ *  Metadata of the document.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata : GTLRObject
 @end
 
 
@@ -18260,7 +18351,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for a ConversationProfile.ClearSuggestionFeatureConfig operation.
+ *  Metadata for a ConversationProfiles.ClearSuggestionFeatureConfig operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata : GTLRObject
 
@@ -18484,6 +18575,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. A read only boolean field reflecting Zone Isolation status of
+ *  the model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. A read only boolean field reflecting Zone Separation status of
+ *  the model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** Metadata for smart reply models. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata *smartReplyModelMetadata;
 
@@ -18521,7 +18628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for ConversationDatasets.
+ *  Metadata for CreateConversationDataset.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata : GTLRObject
 
@@ -18624,7 +18731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for ConversationDatasets.
+ *  Metadata for DeleteConversationDataset.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DeleteConversationDatasetOperationMetadata : GTLRObject
 @end
@@ -20126,6 +20233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet : GTLRObject
 
+/** Metadata of the document. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata *metadata;
+
 /** Text taken from that URI. */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -20135,6 +20245,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** URI the data is sourced from. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
+@end
+
+
+/**
+ *  Metadata of the document.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata : GTLRObject
 @end
 
 
@@ -20526,10 +20648,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  The result of sentiment analysis. Sentiment analysis inspects user input and
  *  identifies the prevailing subjective opinion, especially to determine a
- *  user's attitude as positive, negative, or neutral. For
- *  Participants.DetectIntent, it needs to be configured in
- *  DetectIntentRequest.query_params. For Participants.StreamingDetectIntent, it
- *  needs to be configured in StreamingDetectIntentRequest.query_params. And for
+ *  user's attitude as positive, negative, or neutral. For DetectIntent, it
+ *  needs to be configured in DetectIntentRequest.query_params. For
+ *  StreamingDetectIntent, it needs to be configured in
+ *  StreamingDetectIntentRequest.query_params. And for
  *  Participants.AnalyzeContent and Participants.StreamingAnalyzeContent, it
  *  needs to be configured in ConversationProfile.human_agent_assistant_config
  */
@@ -20597,7 +20719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for a ConversationProfile.SetSuggestionFeatureConfig operation.
+ *  Metadata for a ConversationProfiles.SetSuggestionFeatureConfig operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata : GTLRObject
 
