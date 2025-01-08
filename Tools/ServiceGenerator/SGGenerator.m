@@ -3733,6 +3733,8 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"boolValueSafe",
       @"int64ValueSafe",
       @"utf8ValueSafe",
+      // -------------------- New as of Sequoia --------------------
+      @"CA_initialize_for_decoding"
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
