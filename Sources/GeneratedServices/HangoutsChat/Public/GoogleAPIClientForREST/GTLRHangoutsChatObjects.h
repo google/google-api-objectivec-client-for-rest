@@ -56,6 +56,8 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1CardAction;
 @class GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter;
 @class GTLRHangoutsChat_GoogleAppsCardV1CardHeader;
+@class GTLRHangoutsChat_GoogleAppsCardV1Carousel;
+@class GTLRHangoutsChat_GoogleAppsCardV1CarouselCard;
 @class GTLRHangoutsChat_GoogleAppsCardV1Chip;
 @class GTLRHangoutsChat_GoogleAppsCardV1ChipList;
 @class GTLRHangoutsChat_GoogleAppsCardV1CollapseControl;
@@ -71,6 +73,7 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1ImageComponent;
 @class GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle;
 @class GTLRHangoutsChat_GoogleAppsCardV1MaterialIcon;
+@class GTLRHangoutsChat_GoogleAppsCardV1NestedWidget;
 @class GTLRHangoutsChat_GoogleAppsCardV1OnClick;
 @class GTLRHangoutsChat_GoogleAppsCardV1OpenLink;
 @class GTLRHangoutsChat_GoogleAppsCardV1OverflowMenu;
@@ -84,6 +87,7 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1SwitchControl;
 @class GTLRHangoutsChat_GoogleAppsCardV1TextInput;
 @class GTLRHangoutsChat_GoogleAppsCardV1TextParagraph;
+@class GTLRHangoutsChat_GoogleAppsCardV1Validation;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widget;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widgets;
 @class GTLRHangoutsChat_Group;
@@ -1235,6 +1239,46 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_T
  *  Value: "SINGLE_LINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Validation.inputType
+
+/**
+ *  An email address.
+ *
+ *  Value: "EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Email;
+/**
+ *  A emoji selected from system-provided emoji picker.
+ *
+ *  Value: "EMOJI_PICKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_EmojiPicker;
+/**
+ *  A float value.
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Float;
+/**
+ *  Unspecified type. Do not use.
+ *
+ *  Value: "INPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_InputTypeUnspecified;
+/**
+ *  An integer value.
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Integer;
+/**
+ *  Regular text that accepts all characters.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Text;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1Widget.horizontalAlignment
@@ -2869,6 +2913,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_GoogleAppsCardV1Action : GTLRObject
 
 /**
+ *  Optional. If this is true, then all widgets are considered required by this
+ *  action. [Google Workspace Add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allWidgetsAreRequired;
+
+/**
  *  A custom function to invoke when the containing element is clicked or
  *  otherwise activated. For example usage, see [Read form
  *  data](https://developers.google.com/workspace/chat/read-form-data).
@@ -2940,6 +2993,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *persistValues;
+
+/**
+ *  Optional. Fill this list with the names of widgets that this Action needs
+ *  for a valid submission. If the widgets listed here don't have a value when
+ *  this Action is invoked, the form submission is aborted. [Google Workspace
+ *  Add-ons and Chat apps](https://developers.google.com/workspace/extend):
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredWidgets;
 
 @end
 
@@ -3067,8 +3128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Optional. The type of a button. If unset, button type defaults to
  *  `OUTLINED`. If the `color` field is set, the button type is forced to
- *  `FILLED` and any value set for this field is ignored. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  `FILLED` and any value set for this field is ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Button_Type_Borderless A button
@@ -3122,7 +3182,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  dialog](https://developers.google.com/workspace/chat/design-components-card-dialog).
  *  * For Google Workspace Add-ons, see [Card-based
  *  interfaces](https://developers.google.com/apps-script/add-ons/concepts/cards).
- *  **Example: Card message for a Google Chat app** ![Example contact
+ *  Note: You can add up to 100 widgets per card. Any widgets beyond this limit
+ *  are ignored. This limit applies to both card messages and dialogs in Google
+ *  Chat apps, and to cards in Google Workspace Add-ons. **Example: Card message
+ *  for a Google Chat app** ![Example contact
  *  card](https://developers.google.com/workspace/chat/images/card_api_reference.png)
  *  To create the sample card message in Google Chat, use the following JSON:
  *  ``` { "cardsV2": [ { "cardId": "unique-card-id", "card": { "header": {
@@ -3323,8 +3386,50 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A text, icon, or text and icon chip that users can click. [Google Chat
+ *  [Developer Preview](https://developers.google.com/workspace/preview): A
+ *  carousel, also known as a slider, rotates and displays a list of widgets in
+ *  a slideshow format, with buttons navigating to the previous or next widget.
+ *  For example, this is a JSON representation of a carousel that contains three
+ *  text paragraph widgets. ``` { "carouselCards": [ { "widgets": [ {
+ *  "textParagraph": { "text": "First text paragraph in carousel", } } ] }, {
+ *  "widgets": [ { "textParagraph": { "text": "Second text paragraph in
+ *  carousel", } } ] }, { "widgets": [ { "textParagraph": { "text": "Third text
+ *  paragraph in carousel", } } ] } ] } ``` [Google Chat
  *  apps](https://developers.google.com/workspace/chat):
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Carousel : GTLRObject
+
+/** A list of cards included in the carousel. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1CarouselCard *> *carouselCards;
+
+@end
+
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview): A card
+ *  that can be displayed as a carousel item. [Google Chat
+ *  apps](https://developers.google.com/workspace/chat):
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1CarouselCard : GTLRObject
+
+/**
+ *  A list of widgets displayed at the bottom of the carousel card. The widgets
+ *  are displayed in the order that they are specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1NestedWidget *> *footerWidgets;
+
+/**
+ *  A list of widgets displayed in the carousel card. The widgets are displayed
+ *  in the order that they are specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1NestedWidget *> *widgets;
+
+@end
+
+
+/**
+ *  A text, icon, or text and icon chip that users can click. [Google Workspace
+ *  Add-ons and Chat apps](https://developers.google.com/workspace/extend):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Chip : GTLRObject
 
@@ -3372,8 +3477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A list of chips layed out horizontally, which can either scroll horizontally
- *  or wrap to the next line. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  or wrap to the next line. [Google Workspace Add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1ChipList : GTLRObject
 
@@ -3399,8 +3504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Represent an expand and collapse control. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  Represent an expand and collapse control. [Google Workspace Add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1CollapseControl : GTLRObject
 
@@ -3540,8 +3645,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Lets users input a date, a time, or both a date and a time. For an example
- *  in Google Chat apps, see [Let a user pick a date and
+ *  Lets users input a date, a time, or both a date and a time. Supports form
+ *  submission validation. When `Action.all_widgets_are_required` is set to
+ *  `true` or this widget is specified in `Action.required_widgets`, the
+ *  submission action is blocked unless a value is selected. For an example in
+ *  Google Chat apps, see [Let a user pick a date and
  *  time](https://developers.google.com/workspace/chat/design-interactive-card-dialog#let_a_user_pick_a_date_and_time).
  *  Users can input text or use the picker to select dates and times. If users
  *  input an invalid date or time, the picker shows an error that prompts users
@@ -3990,6 +4098,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  [Developer Preview](https://developers.google.com/workspace/preview): A list
+ *  of widgets that can be displayed in a containing layout, such as a
+ *  `CarouselCard`. [Google Chat
+ *  apps](https://developers.google.com/workspace/chat):
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1NestedWidget : GTLRObject
+
+/** A button list widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
+
+/** An image widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Image *image;
+
+/** A text paragraph widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextParagraph *textParagraph;
+
+@end
+
+
+/**
  *  Represents how to respond when users click an interactive element on a card,
  *  such as a button. [Google Workspace Add-ons and Chat
  *  apps](https://developers.google.com/workspace/extend):
@@ -4017,10 +4145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** If specified, this `onClick` triggers an open link action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OpenLink *openLink;
 
-/**
- *  If specified, this `onClick` opens an overflow menu. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
- */
+/** If specified, this `onClick` opens an overflow menu. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OverflowMenu *overflowMenu;
 
 @end
@@ -4072,7 +4197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  invoke. For example, showing non-primary actions in a card. You can use this
  *  widget when actions don't fit in the available space. To use, specify this
  *  widget in the `OnClick` action of widgets that support it. For example, in a
- *  `Button`. [Google Chat apps](https://developers.google.com/workspace/chat):
+ *  `Button`. [Google Workspace Add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -4091,8 +4217,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  An option that users can invoke in an overflow menu. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  An option that users can invoke in an overflow menu. [Google Workspace
+ *  Add-ons and Chat apps](https://developers.google.com/workspace/extend):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1OverflowMenuItem : GTLRObject
 
@@ -4161,8 +4287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Optional. Define the expand and collapse button of the section. This button
  *  will be shown only if the section is collapsible. If this field isn't set,
- *  the default button is used. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  the default button is used.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CollapseControl *collapseControl;
 
@@ -4206,10 +4331,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A widget that creates one or more UI items that users can select. For
- *  example, a dropdown menu or checkboxes. You can use this widget to collect
- *  data that can be predicted or enumerated. For an example in Google Chat
- *  apps, see [Add selectable UI
+ *  A widget that creates one or more UI items that users can select. Supports
+ *  form submission validation for `dropdown` and `multiselect` menus only. When
+ *  `Action.all_widgets_are_required` is set to `true` or this widget is
+ *  specified in `Action.required_widgets`, the submission action is blocked
+ *  unless a value is selected. For example, a dropdown menu or checkboxes. You
+ *  can use this widget to collect data that can be predicted or enumerated. For
+ *  an example in Google Chat apps, see [Add selectable UI
  *  elements](/workspace/chat/design-interactive-card-dialog#add_selectable_ui_elements).
  *  Chat apps can process the value of items that users select or input. For
  *  details about working with form inputs, see [Receive form
@@ -4468,8 +4596,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A field in which users can enter text. Supports suggestions and on-change
- *  actions. For an example in Google Chat apps, see [Add a field in which a
- *  user can enter
+ *  actions. Supports form submission validation. When
+ *  `Action.all_widgets_are_required` is set to `true` or this widget is
+ *  specified in `Action.required_widgets`, the submission action is blocked
+ *  unless a value is entered. For an example in Google Chat apps, see [Add a
+ *  field in which a user can enter
  *  text](https://developers.google.com/workspace/chat/design-interactive-card-dialog#add_a_field_in_which_a_user_can_enter_text).
  *  Chat apps receive and can process the value of entered text during form
  *  input events. For details about working with form inputs, see [Receive form
@@ -4561,6 +4692,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
+ *  Specify the input format validation necessary for this text field. [Google
+ *  Workspace Add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Validation *validation;
+
+/**
  *  The value entered by a user, returned as part of a form input event. For
  *  details about working with form inputs, see [Receive form
  *  data](https://developers.google.com/workspace/chat/read-form-data).
@@ -4590,8 +4728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  concealed behind a **show more** button. If the text is equal or shorter
  *  than the specified maximum number of lines, a **show more** button isn't
  *  displayed. The default value is 0, in which case all context is displayed.
- *  Negative values are ignored. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  Negative values are ignored.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4599,6 +4736,46 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** The text that's shown in the widget. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents the necessary data for validating the widget it's attached to.
+ *  [Google Workspace Add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Validation : GTLRObject
+
+/**
+ *  Specify the character limit for text input widgets. Note that this is only
+ *  used for text input and is ignored for other widgets. [Google Workspace
+ *  Add-ons and Chat apps](https://developers.google.com/workspace/extend):
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *characterLimit;
+
+/**
+ *  Specify the type of the input widgets. [Google Workspace Add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Email An
+ *        email address. (Value: "EMAIL")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_EmojiPicker
+ *        A emoji selected from system-provided emoji picker. (Value:
+ *        "EMOJI_PICKER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Float A
+ *        float value. (Value: "FLOAT")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_InputTypeUnspecified
+ *        Unspecified type. Do not use. (Value: "INPUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Integer An
+ *        integer value. (Value: "INTEGER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Text
+ *        Regular text that accepts all characters. (Value: "TEXT")
+ */
+@property(nonatomic, copy, nullable) NSString *inputType;
 
 @end
 
@@ -4620,12 +4797,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
 
 /**
+ *  A carousel contains a collection of nested widgets. For example, this is a
+ *  JSON representation of a carousel that contains two text paragraphs. ``` {
+ *  "widgets": [ { "textParagraph": { "text": "First text paragraph in the
+ *  carousel." } }, { "textParagraph": { "text": "Second text paragraph in the
+ *  carousel." } } ] } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Carousel *carousel;
+
+/**
  *  A list of chips. For example, the following JSON creates two chips. The
  *  first is a text chip and the second is an icon chip that opens a link: ```
  *  "chipList": { "chips": [ { "text": "Edit", "disabled": true, }, { "icon": {
  *  "knownIcon": "INVITE", "altText": "check calendar" }, "onClick": {
- *  "openLink": { "url": "https://example.com/calendar" } } } ] } ``` [Google
- *  Chat apps](https://developers.google.com/workspace/chat):
+ *  "openLink": { "url": "https://example.com/calendar" } } } ] } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ChipList *chipList;
 
@@ -4758,10 +4943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** ButtonList widget. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
 
-/**
- *  ChipList widget. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
- */
+/** ChipList widget. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ChipList *chipList;
 
 /** DateTimePicker widget. */
@@ -5976,7 +6158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Optional. The Google Chat users or groups to invite to join the space. Omit
  *  the calling user, as they are added automatically. The set currently allows
- *  up to 20 memberships (in addition to the caller). For human membership, the
+ *  up to 49 memberships (in addition to the caller). For human membership, the
  *  `Membership.member` field must contain a `user` with `name` populated
  *  (format: `users/{user}`) and `type` set to `User.Type.HUMAN`. You can only
  *  add human users when setting up a space (adding Chat apps is only supported
@@ -6152,6 +6334,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *importMode;
 
+/**
+ *  Output only. The time when the space will be automatically deleted by the
+ *  system if it remains in import mode. Each space created in import mode must
+ *  exit this mode before this expire time using `spaces.completeImport`. This
+ *  field is only populated for spaces that were created with import mode.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *importModeExpireTime;
+
 /** Output only. Timestamp of the last message in the space. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastActiveTime;
 
@@ -6176,7 +6366,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Optional. Space permission settings for existing spaces. Input for updating
  *  exact space permission settings, where existing permission settings are
- *  replaced. Output lists current permission settings.
+ *  replaced. Output lists current permission settings. Reading and updating
+ *  permission settings supports: - In [Developer
+ *  Preview](https://developers.google.com/workspace/preview), [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  with the `chat.app.spaces` scope. Only populated and settable when the Chat
+ *  app created the space. - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_PermissionSettings *permissionSettings;
 
@@ -6184,7 +6381,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Optional. Input only. Predefined space permission settings, input only when
  *  creating a space. If the field is not set, a collaboration space is created.
  *  After you create the space, settings are populated in the
- *  `PermissionSettings` field.
+ *  `PermissionSettings` field. Setting predefined permission settings supports:
+ *  - In [Developer Preview](https://developers.google.com/workspace/preview),
+ *  [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  with the `chat.app.spaces` or `chat.app.spaces.create` scopes. - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_PredefinedPermissionSettings_AnnouncementSpace

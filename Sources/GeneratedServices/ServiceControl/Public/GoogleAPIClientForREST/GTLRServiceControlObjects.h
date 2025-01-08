@@ -28,6 +28,7 @@
 @class GTLRServiceControl_AuthenticationInfo;
 @class GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal;
 @class GTLRServiceControl_AuthorizationInfo;
+@class GTLRServiceControl_CheckResponse_DynamicMetadata;
 @class GTLRServiceControl_CheckResponse_Headers;
 @class GTLRServiceControl_FirstPartyPrincipal;
 @class GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata;
@@ -584,14 +585,6 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRServiceControl_Auth_Claims *claims;
 
 /**
- *  Identifies the client credential id used for authentication. credential_id
- *  is in the format of AUTH_METHOD:IDENTIFIER, e.g. "serviceaccount:XXXXX,
- *  apikey:XXXXX" where the format of the IDENTIFIER can vary for different
- *  AUTH_METHODs.
- */
-@property(nonatomic, copy, nullable) NSString *credentialId;
-
-/**
  *  The authorized presenter of the credential. Reflects the optional Authorized
  *  Presenter (`azp`) claim within a JWT or the OAuth client id. For example, a
  *  Google Cloud Platform client id looks as follows:
@@ -786,6 +779,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRServiceControl_CheckResponse : GTLRObject
 
+/**
+ *  Optional response metadata that will be emitted as dynamic metadata to be
+ *  consumed by the caller of ServiceController. For compatibility with the
+ *  ext_authz interface.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_CheckResponse_DynamicMetadata *dynamicMetadata;
+
 /** Returns a set of request contexts generated from the `CheckRequest`. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_CheckResponse_Headers *headers;
 
@@ -796,6 +796,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
 
+@end
+
+
+/**
+ *  Optional response metadata that will be emitted as dynamic metadata to be
+ *  consumed by the caller of ServiceController. For compatibility with the
+ *  ext_authz interface.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_CheckResponse_DynamicMetadata : GTLRObject
 @end
 
 
@@ -1633,7 +1647,7 @@ GTLR_DEPRECATED
 
 /**
  *  The referer URL of the request, as defined in [HTTP/1.1 Header Field
- *  Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+ *  Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
  */
 @property(nonatomic, copy, nullable) NSString *referer;
 

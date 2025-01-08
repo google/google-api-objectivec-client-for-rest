@@ -85,6 +85,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1EndpointAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule;
 @class GTLRApigee_GoogleCloudApigeeV1EntityMetadata;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm;
@@ -5455,6 +5457,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *apiProxyType;
 
 /**
+ *  Optional. The algorithm to resolve IP. This will affect Analytics, API
+ *  Security, and other features that use the client ip. To remove a client ip
+ *  resolution config, update the field to an empty value. Example: '{
+ *  "clientIpResolutionConfig" = {} }' For more information, see:
+ *  https://cloud.google.com/apigee/docs/api-platform/system-administration/client-ip-resolution.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig *clientIpResolutionConfig;
+
+/**
  *  Output only. Creation time of this environment as milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
@@ -5579,6 +5590,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        for more details. (Value: "INTERMEDIATE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Configuration for resolving the client ip.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig : GTLRObject
+
+/** Resolves the client ip based on a custom header. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm *headerIndexAlgorithm;
+
+@end
+
+
+/**
+ *  Resolves the client ip based on a custom header.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm : GTLRObject
+
+/**
+ *  Required. The index of the ip in the header. Positive indices 0, 1, 2, 3
+ *  chooses indices from the left (first ips) Negative indices -1, -2, -3
+ *  chooses indices from the right (last ips)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipHeaderIndex;
+
+/**
+ *  Required. The name of the header to extract the client ip from. We are
+ *  currently only supporting the X-Forwarded-For header.
+ */
+@property(nonatomic, copy, nullable) NSString *ipHeaderName;
 
 @end
 
@@ -7955,11 +8000,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
  *  Valid only when [RuntimeType](#RuntimeType) is set to `CLOUD`. The value
  *  must be set before the creation of a runtime instance and can be updated
- *  only when there are no runtime instances. For example: `default`. Apigee
- *  also supports shared VPC (that is, the host network project is not the same
- *  as the one that is peering with Apigee). See [Shared VPC
- *  overview](https://cloud.google.com/vpc/docs/shared-vpc). To use a shared VPC
- *  network, use the following format:
+ *  only when there are no runtime instances. For example: `default`. When
+ *  changing authorizedNetwork, you must reconfigure VPC peering. After VPC
+ *  peering with previous network is deleted, [run the following
+ *  command](https://cloud.google.com/sdk/gcloud/reference/services/vpc-peerings/delete):
+ *  `gcloud services vpc-peerings delete --network=NETWORK`, where `NETWORK` is
+ *  the name of the previous network. This will delete the previous Service
+ *  Networking. Otherwise, you will get the following error: `The resource
+ *  'projects/...-tp' is already linked to another shared VPC host
+ *  'projects/...-tp`. Apigee also supports shared VPC (that is, the host
+ *  network project is not the same as the one that is peering with Apigee). See
+ *  [Shared VPC overview](https://cloud.google.com/vpc/docs/shared-vpc). To use
+ *  a shared VPC network, use the following format:
  *  `projects/{host-project-id}/{region}/networks/{network-name}`. For example:
  *  `projects/my-sharedvpc-host/global/networks/mynetwork` **Note:** Not
  *  supported for Apigee hybrid.

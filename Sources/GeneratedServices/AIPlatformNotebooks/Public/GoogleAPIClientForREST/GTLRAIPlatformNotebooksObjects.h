@@ -1169,6 +1169,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) NSNumber *disableProxyAccess;
 
 /**
+ *  Optional. Flag that specifies that a notebook can be accessed with third
+ *  party identity provider.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableThirdPartyIdentity;
+
+/**
  *  Optional. Compute Engine setup for the notebook. Uses notebook-defined
  *  fields.
  */

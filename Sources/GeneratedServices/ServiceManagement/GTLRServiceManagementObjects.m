@@ -681,8 +681,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
-         serviceRootUrl, summary;
+@dynamic additionalIamInfo, documentationRootUrl, overview, pages, rules,
+         sectionOverrides, serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -982,7 +982,21 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_GoSettings
-@dynamic common;
+@dynamic common, renamedServices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_GoSettings_RenamedServices
+//
+
+@implementation GTLRServiceManagement_GoSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

@@ -1171,6 +1171,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansDelete : GTLRCloudDataplexQuery
 
 /**
+ *  Optional. If set to true, any child resources of this data scan will also be
+ *  deleted. (Otherwise, the request will only work if the data scan has no
+ *  child resources.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
  *  Required. The resource name of the dataScan:
  *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id} where
  *  project refers to a project_id or project_number and location_id refers to a
@@ -1560,15 +1567,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansPatch : GTLRCloudDataplexQuery
 
 /**
- *  Output only. The relative resource name of the scan, of the form:
- *  projects/{project}/locations/{location_id}/dataScans/{datascan_id}, where
- *  project refers to a project_id or project_number and location_id refers to a
- *  GCP region.
+ *  Output only. Identifier. The relative resource name of the scan, of the
+ *  form: projects/{project}/locations/{location_id}/dataScans/{datascan_id},
+ *  where project refers to a project_id or project_number and location_id
+ *  refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask of fields to update.
+ *  Optional. Mask of fields to update.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1587,10 +1594,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataScan to
  *    include in the query.
- *  @param name Output only. The relative resource name of the scan, of the
- *    form: projects/{project}/locations/{location_id}/dataScans/{datascan_id},
- *    where project refers to a project_id or project_number and location_id
- *    refers to a GCP region.
+ *  @param name Output only. Identifier. The relative resource name of the scan,
+ *    of the form:
+ *    projects/{project}/locations/{location_id}/dataScans/{datascan_id}, where
+ *    project refers to a project_id or project_number and location_id refers to
+ *    a GCP region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansPatch
  */
@@ -2739,8 +2747,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  supports the following syntaxes: - matches an aspect of the given type and
  *  empty path. \@path - matches an aspect of the given type and specified path.
  *  For example, to attach an aspect to a field that is specified by the schema
- *  aspect, the path should have the format Schema.. * - matches aspects of the
- *  given type for all paths. *\@path - matches aspects of all types on the
+ *  aspect, the path should have the format Schema.. \@* - matches aspects of
+ *  the given type for all paths. *\@path - matches aspects of all types on the
  *  given path.The service will not remove existing aspects matching the syntax
  *  unless delete_missing_aspects is set to true.If this field is left empty,
  *  the service treats it as specifying exactly those Aspects present in the
@@ -7769,7 +7777,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. Specifies the ordering of results. */
+/**
+ *  Optional. Specifies the ordering of results. Supported values are: *
+ *  relevance (default) * last_modified_timestamp * last_modified_timestamp asc
+ */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -7785,7 +7796,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The query against which entries in scope should be matched. */
+/**
+ *  Required. The query against which entries in scope should be matched. The
+ *  query syntax is defined in Search syntax for Dataplex Catalog
+ *  (https://cloud.google.com/dataplex/docs/search-syntax).
+ */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**

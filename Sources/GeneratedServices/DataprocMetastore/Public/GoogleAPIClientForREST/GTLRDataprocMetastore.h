@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataproc Metastore API (metastore/v1)
+//   Dataproc Metastore API (metastore/v2)
 // Description:
 //   The Dataproc Metastore API is used to manage the lifecycle and
 //   configuration of metastore services.

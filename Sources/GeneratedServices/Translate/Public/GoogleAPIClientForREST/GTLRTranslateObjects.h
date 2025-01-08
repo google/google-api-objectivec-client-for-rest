@@ -1158,6 +1158,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_GlossaryConfig : GTLRObject
 
 /**
+ *  Optional. If set to true, the glossary will be used for contextual
+ *  translation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextualTranslationEnabled;
+
+/**
  *  Required. The `glossary` to be applied for this translation. The format
  *  depends on the glossary: - User-provided custom glossary:
  *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
@@ -2117,6 +2125,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  options for applying that glossary.
  */
 @interface GTLRTranslate_TextGlossaryConfig : GTLRObject
+
+/**
+ *  Optional. If set to true, the glossary will be used for contextual
+ *  translation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextualTranslationEnabled;
 
 /**
  *  Required. The `glossary` to be applied for this translation. The format

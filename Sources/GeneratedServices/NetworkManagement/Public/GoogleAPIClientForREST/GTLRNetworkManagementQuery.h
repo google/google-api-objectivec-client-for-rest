@@ -485,7 +485,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: networkmanagement.projects.locations.global.operations.cancel
@@ -508,7 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRNetworkManagement_CancelOperationRequest to include
@@ -671,6 +671,220 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
+ *  settings already exists (even if the ID is different), the creation fails.
+ *  Notes: 1. Creating a configuration with state=DISABLED will fail 2. The
+ *  following fields are not considered as `settings` for the purpose of the
+ *  check mentioned above, therefore - creating another configuration with the
+ *  same fields but different values for the following fields will fail as well:
+ *  * name * create_time * update_time * labels * description
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsCreate : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The parent resource of the VPC Flow Logs configuration to create:
+ *  `projects/{project_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. ID of the `VpcFlowLogsConfig`. */
+@property(nonatomic, copy, nullable) NSString *vpcFlowLogsConfigId;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
+ *  settings already exists (even if the ID is different), the creation fails.
+ *  Notes: 1. Creating a configuration with state=DISABLED will fail 2. The
+ *  following fields are not considered as `settings` for the purpose of the
+ *  check mentioned above, therefore - creating another configuration with the
+ *  same fields but different values for the following fields will fail as well:
+ *  * name * create_time * update_time * labels * description
+ *
+ *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the VPC Flow Logs
+ *    configuration to create: `projects/{project_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific `VpcFlowLogsConfig`.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete : GTLRNetworkManagementQuery
+
+/**
+ *  Required. `VpcFlowLogsConfig` resource name using the form:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Deletes a specific `VpcFlowLogsConfig`.
+ *
+ *  @param name Required. `VpcFlowLogsConfig` resource name using the form:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific `VpcFlowLogsConfig`.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. `VpcFlowLogsConfig` resource name using the form:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_VpcFlowLogsConfig.
+ *
+ *  Gets the details of a specific `VpcFlowLogsConfig`.
+ *
+ *  @param name Required. `VpcFlowLogsConfig` resource name using the form:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all `VpcFlowLogsConfigs` in a given project.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. Lists the `VpcFlowLogsConfigs` that match the filter expression. A
+ *  filter expression must use the supported [CEL logic operators]
+ *  (https://cloud.google.com/vpc/docs/about-flow-logs-records#supported_cel_logic_operators).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to use to sort the list. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. Number of `VpcFlowLogsConfigs` to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the VpcFlowLogsConfig:
+ *  `projects/{project_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListVpcFlowLogsConfigsResponse.
+ *
+ *  Lists all `VpcFlowLogsConfigs` in a given project.
+ *
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig:
+ *    `projects/{project_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
+ *  same settings already exists (even if the ID is different), the creation
+ *  fails. Notes: 1. Updating a configuration with state=DISABLED will fail. 2.
+ *  The following fields are not considered as `settings` for the purpose of the
+ *  check mentioned above, therefore - updating another configuration with the
+ *  same fields but different values for the following fields will fail as well:
+ *  * name * create_time * update_time * labels * description
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch : GTLRNetworkManagementQuery
+
+/**
+ *  Identifier. Unique name of the configuration using the form:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
+ *  same settings already exists (even if the ID is different), the creation
+ *  fails. Notes: 1. Updating a configuration with state=DISABLED will fail. 2.
+ *  The following fields are not considered as `settings` for the purpose of the
+ *  check mentioned above, therefore - updating another configuration with the
+ *  same fields but different values for the following fields will fail as well:
+ *  * name * create_time * update_time * labels * description
+ *
+ *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
+ *    the query.
+ *  @param name Identifier. Unique name of the configuration using the form:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                           name:(NSString *)name;
 
 @end
 

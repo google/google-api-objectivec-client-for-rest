@@ -217,6 +217,14 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Swi
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_MultipleLine = @"MULTIPLE_LINE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine = @"SINGLE_LINE";
 
+// GTLRHangoutsChat_GoogleAppsCardV1Validation.inputType
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Email = @"EMAIL";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_EmojiPicker = @"EMOJI_PICKER";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Float = @"FLOAT";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_InputTypeUnspecified = @"INPUT_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Integer = @"INTEGER";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Validation_InputType_Text = @"TEXT";
+
 // GTLRHangoutsChat_GoogleAppsCardV1Widget.horizontalAlignment
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Center = @"CENTER";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_End = @"END";
@@ -739,11 +747,13 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1Action
-@dynamic function, interaction, loadIndicator, parameters, persistValues;
+@dynamic allWidgetsAreRequired, function, interaction, loadIndicator,
+         parameters, persistValues, requiredWidgets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRHangoutsChat_GoogleAppsCardV1ActionParameter class]
+    @"parameters" : [GTLRHangoutsChat_GoogleAppsCardV1ActionParameter class],
+    @"requiredWidgets" : [NSString class]
   };
   return map;
 }
@@ -846,6 +856,43 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1CardHeader
 @dynamic imageAltText, imageType, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Carousel
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Carousel
+@dynamic carouselCards;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"carouselCards" : [GTLRHangoutsChat_GoogleAppsCardV1CarouselCard class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1CarouselCard
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1CarouselCard
+@dynamic footerWidgets, widgets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"footerWidgets" : [GTLRHangoutsChat_GoogleAppsCardV1NestedWidget class],
+    @"widgets" : [GTLRHangoutsChat_GoogleAppsCardV1NestedWidget class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1038,6 +1085,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_GoogleAppsCardV1NestedWidget
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1NestedWidget
+@dynamic buttonList, image, textParagraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_GoogleAppsCardV1OnClick
 //
 
@@ -1188,7 +1245,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1TextInput
 @dynamic autoCompleteAction, hintText, initialSuggestions, label, name,
-         onChangeAction, placeholderText, type, value;
+         onChangeAction, placeholderText, type, validation, value;
 @end
 
 
@@ -1204,12 +1261,22 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_GoogleAppsCardV1Validation
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Validation
+@dynamic characterLimit, inputType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_GoogleAppsCardV1Widget
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1Widget
-@dynamic buttonList, chipList, columns, dateTimePicker, decoratedText, divider,
-         grid, horizontalAlignment, image, selectionInput, textInput,
+@dynamic buttonList, carousel, chipList, columns, dateTimePicker, decoratedText,
+         divider, grid, horizontalAlignment, image, selectionInput, textInput,
          textParagraph;
 @end
 
@@ -1863,10 +1930,11 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Space
 @dynamic accessSettings, adminInstalled, createTime, displayName,
-         externalUserAllowed, importMode, lastActiveTime, membershipCount, name,
-         permissionSettings, predefinedPermissionSettings, singleUserBotDm,
-         spaceDetails, spaceHistoryState, spaceThreadingState, spaceType,
-         spaceUri, threaded, type;
+         externalUserAllowed, importMode, importModeExpireTime, lastActiveTime,
+         membershipCount, name, permissionSettings,
+         predefinedPermissionSettings, singleUserBotDm, spaceDetails,
+         spaceHistoryState, spaceThreadingState, spaceType, spaceUri, threaded,
+         type;
 @end
 
 

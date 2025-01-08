@@ -388,9 +388,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 // GTLRAccessContextManager_SessionSettings.sessionReauthMethod
 
 /**
- *  The user will prompted to perform regular login. Users who are enrolled for
- *  two-step verification and haven't chosen to "Remember this computer" will be
- *  prompted for their second factor.
+ *  The user will be prompted to perform regular login. Users who are enrolled
+ *  for two-step verification and haven't chosen "Remember this computer" will
+ *  be prompted for their second factor.
  *
  *  Value: "LOGIN"
  */
@@ -402,14 +402,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_Ses
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password;
 /**
- *  The user will be prompted to autheticate using their security key. If no
- *  security key has been configured, then we will fallback to LOGIN.
+ *  The user will be prompted to authenticate using their security key. If no
+ *  security key has been configured, then authentication will fallback to
+ *  LOGIN.
  *
  *  Value: "SECURITY_KEY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey;
 /**
- *  If method undefined in API, we will use LOGIN by default.
+ *  If method is undefined in the API, LOGIN will be used by default.
  *
  *  Value: "SESSION_REAUTH_METHOD_UNSPECIFIED"
  */
@@ -1399,14 +1400,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ScopedAccessSettings *> *scopedAccessSettings;
 
-/** Optional. GCSL policy for the group key. */
+/**
+ *  Optional. The Google Cloud session length (GCSL) policy for the group key.
+ */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_SessionSettings *sessionSettings;
 
 @end
 
 
 /**
- *  Metadata of GCP Access Binding Long Running Operations.
+ *  Metadata of Google Cloud Access Binding Long Running Operations.
  */
 @interface GTLRAccessContextManager_GcpUserAccessBindingOperationMetadata : GTLRObject
 @end
@@ -2274,44 +2277,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /**
  *  Optional. How long a user is allowed to take between actions before a new
- *  access token must be issued. Presently only set for Cloud Apps.
+ *  access token must be issued. Only set for Google Cloud apps.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxInactivity;
 
 /**
  *  Optional. The session length. Setting this field to zero is equal to
- *  disabling. Session. Also can set infinite session by flipping the enabled
- *  bit to false below. If use_oidc_max_age is true, for OIDC apps, the session
+ *  disabling session. Also can set infinite session by flipping the enabled bit
+ *  to false below. If use_oidc_max_age is true, for OIDC apps, the session
  *  length will be the minimum of this field and OIDC max_age param.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *sessionLength;
 
 /**
- *  Optional. Big red button to turn off GCSL. When false, all fields set above
- *  will be disregarded and the session length is basically infinite.
+ *  Optional. This field enables or disables Google Cloud session length. When
+ *  false, all fields set above will be disregarded and the session length is
+ *  basically infinite.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sessionLengthEnabled;
 
 /**
- *  Optional. Session method when users GCP session is up.
+ *  Optional. Session method when user's Google Cloud session is up.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login
- *        The user will prompted to perform regular login. Users who are
- *        enrolled for two-step verification and haven't chosen to "Remember
- *        this computer" will be prompted for their second factor. (Value:
- *        "LOGIN")
+ *        The user will be prompted to perform regular login. Users who are
+ *        enrolled for two-step verification and haven't chosen "Remember this
+ *        computer" will be prompted for their second factor. (Value: "LOGIN")
  *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password
  *        The user will be prompted for their password. (Value: "PASSWORD")
  *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey
- *        The user will be prompted to autheticate using their security key. If
- *        no security key has been configured, then we will fallback to LOGIN.
- *        (Value: "SECURITY_KEY")
+ *        The user will be prompted to authenticate using their security key. If
+ *        no security key has been configured, then authentication will fallback
+ *        to LOGIN. (Value: "SECURITY_KEY")
  *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified
- *        If method undefined in API, we will use LOGIN by default. (Value:
- *        "SESSION_REAUTH_METHOD_UNSPECIFIED")
+ *        If method is undefined in the API, LOGIN will be used by default.
+ *        (Value: "SESSION_REAUTH_METHOD_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sessionReauthMethod;
 

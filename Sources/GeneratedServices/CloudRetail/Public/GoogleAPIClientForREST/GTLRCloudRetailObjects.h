@@ -121,6 +121,8 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RulePinAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RulePinAction_PinMap;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleRemoveFacetAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction;
@@ -3962,6 +3964,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Request message for CollectUserEvent method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest : GTLRObject
+
+/**
+ *  The event timestamp in milliseconds. This prevents browser caching of
+ *  otherwise identical get requests. The name is abbreviated to reduce the
+ *  payload bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ets;
+
+/**
+ *  The prebuilt rule name that can convert a specific type of raw_json. For
+ *  example: "ga4_bq" rule for the GA4 user event schema.
+ */
+@property(nonatomic, copy, nullable) NSString *prebuiltRule;
+
+/**
+ *  An arbitrary serialized JSON string that contains necessary information that
+ *  can comprise a user event. When this field is specified, the user_event
+ *  field will be ignored. Note: line-delimited JSON is not supported, a single
+ *  JSON only.
+ */
+@property(nonatomic, copy, nullable) NSString *rawJson;
+
+/**
+ *  The URL including cgi-parameters but excluding the hash fragment with a
+ *  length limit of 5,000 characters. This is often more useful than the referer
+ *  URL, because many browsers only send the domain for 3rd party requests.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Required. URL encoded UserEvent proto with a length limit of 2,000,000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *userEvent;
+
+@end
+
+
+/**
  *  The color information of a Product.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2ColorInfo : GTLRObject
@@ -3975,7 +4021,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  must be a UTF-8 encoded string with a length limit of 128 characters.
  *  Otherwise, an INVALID_ARGUMENT error is returned. Google Merchant Center
  *  property [color](https://support.google.com/merchants/answer/6324487).
- *  Schema.org property [Product.color](https://schema.org/color).
+ *  Schema.org property [Product.color](https://schema.org/color). The
+ *  colorFamilies field as a system attribute is not a required field but
+ *  strongly recommended to be specified. Google Search models treat this field
+ *  as more important than a custom product attribute when specified.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *colorFamilies;
 
@@ -4719,10 +4768,11 @@ GTLR_DEPRECATED
 
 
 /**
- *  Product image. Recommendations AI and Retail Search do not use product
- *  images to improve prediction and search results. However, product images can
- *  be returned in results, and are shown in prediction or search previews in
- *  the console.
+ *  Product image. Recommendations AI and Retail Search use product images to
+ *  improve prediction and search results. Product images can be returned in
+ *  results, and are shown in prediction or search previews in the console.
+ *  Please try to provide correct product images and avoid using images with
+ *  size too small.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2Image : GTLRObject
 
@@ -6982,6 +7032,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction *onewaySynonymsAction;
 
+/**
+ *  Pins one or more specified products to a specific position in the results.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RulePinAction *pinAction;
+
 /** Redirects a shopper to a specific page. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction *redirectAction;
 
@@ -7165,6 +7220,56 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
 
+@end
+
+
+/**
+ *  Pins one or more specified products to a specific position in the results. *
+ *  Rule Condition: Must specify non-empty Condition.query_terms (for search
+ *  only) or Condition.page_categories (for browse only), but can't specify
+ *  both. * Action Input: mapping of `[pin_position, product_id]` pairs (pin
+ *  position uses 1-based indexing). * Action Result: Will pin products with
+ *  matching ids to the position specified in the final result order. Example:
+ *  Suppose the query is `shoes`, the Condition.query_terms is `shoes` and the
+ *  pin_map has `{1, "pid1"}`, then product with `pid1` will be pinned to the
+ *  top position in the final results. If multiple PinActions are matched to a
+ *  single request the actions will be processed from most to least recently
+ *  updated. Pins to positions larger than the max allowed page size of 120 are
+ *  not allowed.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RulePinAction : GTLRObject
+
+/**
+ *  Required. A map of positions to product_ids. Partial matches per action are
+ *  allowed, if a certain position in the map is already filled that `[position,
+ *  product_id]` pair will be ignored but the rest may still be applied. This
+ *  case will only occur if multiple pin actions are matched to a single
+ *  request, as the map guarantees that pin positions are unique within the same
+ *  action. Duplicate product_ids are not permitted within a single pin map. The
+ *  max size of this map is 120, equivalent to the max [request page
+ *  size](https://cloud.google.com/retail/docs/reference/rest/v2/projects.locations.catalogs.placements/search#request-body).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RulePinAction_PinMap *pinMap;
+
+@end
+
+
+/**
+ *  Required. A map of positions to product_ids. Partial matches per action are
+ *  allowed, if a certain position in the map is already filled that `[position,
+ *  product_id]` pair will be ignored but the rest may still be applied. This
+ *  case will only occur if multiple pin actions are matched to a single
+ *  request, as the map guarantees that pin positions are unique within the same
+ *  action. Duplicate product_ids are not permitted within a single pin map. The
+ *  max size of this map is 120, equivalent to the max [request page
+ *  size](https://cloud.google.com/retail/docs/reference/rest/v2/projects.locations.catalogs.placements/search#request-body).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RulePinAction_PinMap : GTLRObject
 @end
 
 

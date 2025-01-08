@@ -1671,10 +1671,17 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *code;
 
-/** Detail message */
+/**
+ *  Detail message copybara:strip_begin(b/383363683)
+ *  copybara:strip_end_and_replace optional string message = 3;
+ */
 @property(nonatomic, copy, nullable) NSString *message;
 
-/** message_set associates an arbitrary proto message with the status. */
+/**
+ *  message_set associates an arbitrary proto message with the status.
+ *  copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+ *  proto2.bridge.MessageSet message_set = 5;
+ */
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_MessageSet *messageSet;
 
 /**

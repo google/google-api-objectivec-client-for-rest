@@ -1252,9 +1252,9 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 @implementation GTLRArtifactRegistry_Repository
 @dynamic cleanupPolicies, cleanupPolicyDryRun, createTime, descriptionProperty,
          disallowUnspecifiedMode, dockerConfig, format, kmsKeyName, labels,
-         mavenConfig, mode, name, remoteRepositoryConfig, satisfiesPzi,
-         satisfiesPzs, sizeBytes, updateTime, virtualRepositoryConfig,
-         vulnerabilityScanningConfig;
+         mavenConfig, mode, name, registryUri, remoteRepositoryConfig,
+         satisfiesPzi, satisfiesPzs, sizeBytes, updateTime,
+         virtualRepositoryConfig, vulnerabilityScanningConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

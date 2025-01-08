@@ -1160,7 +1160,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SpecificStartPosition
-@dynamic mysqlLogPosition, oracleScnPosition;
+@dynamic mysqlLogPosition, oracleScnPosition, sqlServerLsnPosition;
 @end
 
 
@@ -1181,6 +1181,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_SqlServerColumn
 @dynamic column, dataType, length, nullable, ordinalPosition, precision,
          primaryKey, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerLsnPosition
+//
+
+@implementation GTLRDatastream_SqlServerLsnPosition
+@dynamic lsn;
 @end
 
 

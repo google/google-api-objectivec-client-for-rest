@@ -4070,6 +4070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 /** CPU architecture, e.g., "x64-based PC", "x86_64", "i686" etc. */
 @property(nonatomic, copy, nullable) NSString *cpuArchitecture;
 
+/** Optional. CPU manufacturer, e.g., "Intel", "AMD". */
+@property(nonatomic, copy, nullable) NSString *cpuManufacturer;
+
 /** CPU name, e.g., "Intel Xeon E5-2690", "AMD EPYC 7571" etc. */
 @property(nonatomic, copy, nullable) NSString *cpuName;
 

@@ -1283,6 +1283,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_Account
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_AccountNotLinked;
 /**
+ *  Account is suspended.
+ *
+ *  Value: "ACCOUNT_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_AccountSuspended;
+/**
  *  Entitlement and Account are active.
  *
  *  Value: "ACTIVE"
@@ -3196,7 +3202,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, strong, nullable) NSNumber *storageSizeGb;
 
-/** Output only. Operating system version of the image. */
+/** Optional. Operating system version of the image. */
 @property(nonatomic, copy, nullable) NSString *systemVersion;
 
 /**
@@ -3681,6 +3687,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        linked but not active. (Value: "ACCOUNT_NOT_ACTIVE")
  *    @arg @c kGTLROracleDatabase_Entitlement_State_AccountNotLinked Account not
  *        linked. (Value: "ACCOUNT_NOT_LINKED")
+ *    @arg @c kGTLROracleDatabase_Entitlement_State_AccountSuspended Account is
+ *        suspended. (Value: "ACCOUNT_SUSPENDED")
  *    @arg @c kGTLROracleDatabase_Entitlement_State_Active Entitlement and
  *        Account are active. (Value: "ACTIVE")
  *    @arg @c kGTLROracleDatabase_Entitlement_State_StateUnspecified Default
@@ -4511,13 +4519,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @interface GTLROracleDatabase_TimeZone : GTLRObject
 
 /**
- *  IANA Time Zone Database time zone, e.g. "America/New_York".
+ *  IANA Time Zone Database time zone. For example "America/New_York".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end

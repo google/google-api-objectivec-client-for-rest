@@ -282,6 +282,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsDomainRegistrant;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsHostedAdClientId;
 /**
+ *  Unique ID of a hosted client's custom channel.
+ *
+ *  Value: "HOSTED_CUSTOM_CHANNEL_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsHostedCustomChannelId;
+/**
  *  Month dimension in YYYY-MM format (e.g. "2010-02").
  *
  *  Value: "MONTH"
@@ -1815,6 +1821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseDimensionsCustomChannelId Unique ID of a custom
  *        channel. The members of this dimension match the values from
  *        CustomChannel.reporting_dimension_id. (Value: "CUSTOM_CHANNEL_ID")
+ *    @arg @c kGTLRAdsenseDimensionsHostedCustomChannelId Unique ID of a hosted
+ *        client's custom channel. (Value: "HOSTED_CUSTOM_CHANNEL_ID")
  *    @arg @c kGTLRAdsenseDimensionsOwnedSiteDomainName Domain name of a
  *        verified site (e.g. "example.com"). The members of this dimension
  *        match the values from Site.domain. (Value: "OWNED_SITE_DOMAIN_NAME")
@@ -2234,6 +2242,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseDimensionsCustomChannelId Unique ID of a custom
  *        channel. The members of this dimension match the values from
  *        CustomChannel.reporting_dimension_id. (Value: "CUSTOM_CHANNEL_ID")
+ *    @arg @c kGTLRAdsenseDimensionsHostedCustomChannelId Unique ID of a hosted
+ *        client's custom channel. (Value: "HOSTED_CUSTOM_CHANNEL_ID")
  *    @arg @c kGTLRAdsenseDimensionsOwnedSiteDomainName Domain name of a
  *        verified site (e.g. "example.com"). The members of this dimension
  *        match the values from Site.domain. (Value: "OWNED_SITE_DOMAIN_NAME")

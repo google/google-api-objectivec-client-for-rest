@@ -59,6 +59,7 @@
 @class GTLRSecurityCommandCenter_DataAccessEvent;
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_DataFlowEvent;
+@class GTLRSecurityCommandCenter_DataRetentionDeletionEvent;
 @class GTLRSecurityCommandCenter_Detection;
 @class GTLRSecurityCommandCenter_Disk;
 @class GTLRSecurityCommandCenter_DiskPath;
@@ -132,6 +133,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Database;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath;
@@ -150,6 +152,20 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFinding;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingCve;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingSecurityBulletin;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadata;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadataAwsAccount;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadata;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadataAzureSubscription;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceGoogleCloudMetadata;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContext;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextAggregatedCount;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextContext;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2KernelRootkit;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Kubernetes;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Label;
@@ -849,6 +865,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Oper
  *  Value: "READ"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Read;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_DataRetentionDeletionEvent.eventType
+
+/**
+ *  The maximum retention time has been exceeded.
+ *
+ *  Value: "EVENT_TYPE_MAX_TTL_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded;
+/**
+ *  Unspecified event type.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.cloudProvider
@@ -2058,6 +2090,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Read;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent.eventType
+
+/**
+ *  The maximum retention time has been exceeded.
+ *
+ *  Value: "EVENT_TYPE_MAX_TTL_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded;
+/**
+ *  Unspecified event type.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding.findingClass
 
 /**
@@ -2270,6 +2318,186 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "REMOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding_Action_Remove;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue.issueType
+
+/**
+ *  Chokepoint issue type.
+ *
+ *  Value: "CHOKEPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_Chokepoint;
+/**
+ *  Insight issue type.
+ *
+ *  Value: "INSIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_Insight;
+/**
+ *  Unspecified issue type.
+ *
+ *  Value: "ISSUE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_IssueTypeUnspecified;
+/**
+ *  Toxic combination issue type.
+ *
+ *  Value: "TOXIC_COMBINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_ToxicCombination;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Medium;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue.state
+
+/**
+ *  Active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_Active;
+/**
+ *  Inactive state.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_Inactive;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain.domainCategory
+
+/**
+ *  Issues in the AI domain.
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Ai;
+/**
+ *  Issues in the code domain.
+ *
+ *  Value: "CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Code;
+/**
+ *  Issues in the container domain.
+ *
+ *  Value: "CONTAINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Container;
+/**
+ *  Issues in the data domain.
+ *
+ *  Value: "DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Data;
+/**
+ *  Unspecified domain category.
+ *
+ *  Value: "DOMAIN_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_DomainCategoryUnspecified;
+/**
+ *  Issues in the identity and access domain.
+ *
+ *  Value: "IDENTITY_AND_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_IdentityAndAccess;
+/**
+ *  Issues in the vulnerability domain.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Vulnerability;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute.muteState
+
+/**
+ *  Muted.
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_Muted;
+/**
+ *  Unspecified mute state.
+ *
+ *  Value: "MUTE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_MuteStateUnspecified;
+/**
+ *  Not muted.
+ *
+ *  Value: "NOT_MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_NotMuted;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource.cloudProvider
+
+/**
+ *  Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_AmazonWebServices;
+/**
+ *  Unspecified cloud provider.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_CloudProviderUnspecified;
+/**
+ *  Google Cloud.
+ *
+ *  Value: "GOOGLE_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_GoogleCloud;
+/**
+ *  Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack.additionalTactics
@@ -5326,18 +5554,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *classification;
 
 /**
- *  Total BPS (bytes per second) volume of attack.
+ *  Total BPS (bytes per second) volume of attack. Deprecated - refer to
+ *  volume_bps_long instead.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *volumeBps;
+@property(nonatomic, strong, nullable) NSNumber *volumeBps GTLR_DEPRECATED;
+
+/**
+ *  Total BPS (bytes per second) volume of attack.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumeBpsLong;
+
+/**
+ *  Total PPS (packets per second) volume of attack. Deprecated - refer to
+ *  volume_pps_long instead.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumePps GTLR_DEPRECATED;
 
 /**
  *  Total PPS (packets per second) volume of attack.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *volumePps;
+@property(nonatomic, strong, nullable) NSNumber *volumePpsLong;
 
 @end
 
@@ -6787,6 +7031,57 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about data retention deletion violations, in which the data is
+ *  non-compliant based on their retention or deletion time, as defined in the
+ *  applicable data security policy. The Data Retention Deletion (DRD) control
+ *  is a control of the DSPM (Data Security Posture Management) suite that
+ *  enables organizations to manage data retention and deletion policies in
+ *  compliance with regulations, such as GDPR and CRPA. DRD supports two primary
+ *  policy types: maximum storage length (max TTL) and minimum storage length
+ *  (min TTL). Both are aimed at helping organizations meet regulatory and data
+ *  management commitments.
+ */
+@interface GTLRSecurityCommandCenter_DataRetentionDeletionEvent : GTLRObject
+
+/**
+ *  Number of objects that violated the policy for this resource. If the number
+ *  is less than 1,000, then the value of this field is the exact number. If the
+ *  number of objects that violated the policy is greater than or equal to
+ *  1,000, then the value of this field is 1000.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataObjectCount;
+
+/** Timestamp indicating when the event was detected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventDetectionTime;
+
+/**
+ *  Type of the DRD event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded
+ *        The maximum retention time has been exceeded. (Value:
+ *        "EVENT_TYPE_MAX_TTL_EXCEEDED")
+ *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified
+ *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  Maximum duration of retention allowed from the DRD control. This comes from
+ *  the DRD control where users set a max TTL for their data. For example,
+ *  suppose that a user set the max TTL for a Cloud Storage bucket to 90 days.
+ *  However, an object in that bucket is 100 days old. In this case, a
+ *  DataRetentionDeletionEvent will be generated for that Cloud Storage bucket,
+ *  and the max_retention_allowed is 90 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRetentionAllowed;
+
+@end
+
+
+/**
  *  Memory hash detection contributing to the binary family match.
  */
 @interface GTLRSecurityCommandCenter_Detection : GTLRObject
@@ -7306,6 +7601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** Data flow events associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_DataFlowEvent *> *dataFlowEvents;
+
+/** Data retention deletion events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_DataRetentionDeletionEvent *> *dataRetentionDeletionEvents;
 
 /**
  *  Contains more details about the finding.
@@ -9047,18 +9345,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *classification;
 
 /**
- *  Total BPS (bytes per second) volume of attack.
+ *  Total BPS (bytes per second) volume of attack. Deprecated - refer to
+ *  volume_bps_long instead.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *volumeBps;
+@property(nonatomic, strong, nullable) NSNumber *volumeBps GTLR_DEPRECATED;
+
+/**
+ *  Total BPS (bytes per second) volume of attack.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumeBpsLong;
+
+/**
+ *  Total PPS (packets per second) volume of attack. Deprecated - refer to
+ *  volume_pps_long instead.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumePps GTLR_DEPRECATED;
 
 /**
  *  Total PPS (packets per second) volume of attack.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *volumePps;
+@property(nonatomic, strong, nullable) NSNumber *volumePpsLong;
 
 @end
 
@@ -10162,6 +10476,57 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about data retention deletion violations, in which the data is
+ *  non-compliant based on their retention or deletion time, as defined in the
+ *  applicable data security policy. The Data Retention Deletion (DRD) control
+ *  is a control of the DSPM (Data Security Posture Management) suite that
+ *  enables organizations to manage data retention and deletion policies in
+ *  compliance with regulations, such as GDPR and CRPA. DRD supports two primary
+ *  policy types: maximum storage length (max TTL) and minimum storage length
+ *  (min TTL). Both are aimed at helping organizations meet regulatory and data
+ *  management commitments.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent : GTLRObject
+
+/**
+ *  Number of objects that violated the policy for this resource. If the number
+ *  is less than 1,000, then the value of this field is the exact number. If the
+ *  number of objects that violated the policy is greater than or equal to
+ *  1,000, then the value of this field is 1000.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataObjectCount;
+
+/** Timestamp indicating when the event was detected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventDetectionTime;
+
+/**
+ *  Type of the DRD event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded
+ *        The maximum retention time has been exceeded. (Value:
+ *        "EVENT_TYPE_MAX_TTL_EXCEEDED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified
+ *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  Maximum duration of retention allowed from the DRD control. This comes from
+ *  the DRD control where users set a max TTL for their data. For example,
+ *  suppose that a user set the max TTL for a Cloud Storage bucket to 90 days.
+ *  However, an object in that bucket is 100 days old. In this case, a
+ *  DataRetentionDeletionEvent will be generated for that Cloud Storage bucket,
+ *  and the max_retention_allowed is 90 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRetentionAllowed;
+
+@end
+
+
+/**
  *  Memory hash detection contributing to the binary family match.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection : GTLRObject
@@ -10511,6 +10876,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** Data flow events associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent *> *dataFlowEvents;
+
+/** Data retention deletion events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent *> *dataRetentionDeletionEvents;
 
 /**
  *  Contains more details about the finding.
@@ -10974,6 +11342,384 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The list of URIs associated to the Findings. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+@end
+
+
+/**
+ *  Security Command Center Issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue : GTLRObject
+
+/** Output only. The time the issue was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The description of the issue in Markdown format.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The finding category or rule name that generated the issue. */
+@property(nonatomic, copy, nullable) NSString *detection;
+
+/** The domains of the issue. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain *> *domains;
+
+/**
+ *  The exposure score of the issue.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exposureScore;
+
+/**
+ *  The type of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_Chokepoint
+ *        Chokepoint issue type. (Value: "CHOKEPOINT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_Insight
+ *        Insight issue type. (Value: "INSIGHT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_IssueTypeUnspecified
+ *        Unspecified issue type. (Value: "ISSUE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_ToxicCombination
+ *        Toxic combination issue type. (Value: "TOXIC_COMBINATION")
+ */
+@property(nonatomic, copy, nullable) NSString *issueType;
+
+/** The time the issue was last observed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastObservationTime;
+
+/** The mute information of the issue. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute *mute;
+
+/**
+ *  Identifier. The name of the issue. Format:
+ *  organizations/{organization}/locations/{location}/issues/{issue}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The primary resource associated with the issue. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource *primaryResource;
+
+/** The findings related to the issue. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFinding *> *relatedFindings;
+
+/** Approaches to remediate the issue in Markdown format. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *remediations;
+
+/** Additional resources associated with the issue. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource *> *secondaryResources;
+
+/** The security context of the issue. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContext *> *securityContexts;
+
+/**
+ *  The severity of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_High
+ *        High severity. (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Low
+ *        Low severity. (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Medium
+ *        Medium severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  Output only. The state of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_Active
+ *        Active state. (Value: "ACTIVE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_Inactive
+ *        Inactive state. (Value: "INACTIVE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time the issue was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The domains of an issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain : GTLRObject
+
+/**
+ *  The domain category of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Ai
+ *        Issues in the AI domain. (Value: "AI")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Code
+ *        Issues in the code domain. (Value: "CODE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Container
+ *        Issues in the container domain. (Value: "CONTAINER")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Data
+ *        Issues in the data domain. (Value: "DATA")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_DomainCategoryUnspecified
+ *        Unspecified domain category. (Value: "DOMAIN_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_IdentityAndAccess
+ *        Issues in the identity and access domain. (Value:
+ *        "IDENTITY_AND_ACCESS")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Vulnerability
+ *        Issues in the vulnerability domain. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *domainCategory;
+
+@end
+
+
+/**
+ *  Finding related to an issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFinding : GTLRObject
+
+/** The CVE of the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingCve *cve;
+
+/** The name of the finding. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The security bulletin of the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingSecurityBulletin *securityBulletin;
+
+@end
+
+
+/**
+ *  The CVE of the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingCve : GTLRObject
+
+/** The CVE name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The security bulletin of the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingSecurityBulletin : GTLRObject
+
+/** The security bulletin name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The mute information of the issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute : GTLRObject
+
+/**
+ *  The email address of the user who last changed the mute state of the issue.
+ */
+@property(nonatomic, copy, nullable) NSString *muteInitiator;
+
+/** The user-provided reason for muting the issue. */
+@property(nonatomic, copy, nullable) NSString *muteReason;
+
+/**
+ *  Output only. The mute state of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_Muted
+ *        Muted. (Value: "MUTED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_MuteStateUnspecified
+ *        Unspecified mute state. (Value: "MUTE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_NotMuted
+ *        Not muted. (Value: "NOT_MUTED")
+ */
+@property(nonatomic, copy, nullable) NSString *muteState;
+
+/** The time the issue was muted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *muteUpdateTime;
+
+@end
+
+
+/**
+ *  A resource associated with the an issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource : GTLRObject
+
+/**
+ *  The AWS metadata of the resource associated with the issue. Only populated
+ *  for AWS resources.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadata *awsMetadata;
+
+/**
+ *  The Azure metadata of the resource associated with the issue. Only populated
+ *  for Azure resources.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadata *azureMetadata;
+
+/**
+ *  The cloud provider of the resource associated with the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_AmazonWebServices
+ *        Amazon Web Services. (Value: "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_CloudProviderUnspecified
+ *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_GoogleCloud
+ *        Google Cloud. (Value: "GOOGLE_CLOUD")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_MicrosoftAzure
+ *        Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
+
+/**
+ *  The resource-type specific display name of the resource associated with the
+ *  issue.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The Google Cloud metadata of the resource associated with the issue. Only
+ *  populated for Google Cloud resources.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceGoogleCloudMetadata *googleCloudMetadata;
+
+/** The full resource name of the resource associated with the issue. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The type of the resource associated with the issue. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The AWS metadata of a resource associated with an issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadata : GTLRObject
+
+/** The AWS account of the resource associated with the issue. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadataAwsAccount *account;
+
+@end
+
+
+/**
+ *  The AWS account of the resource associated with the issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadataAwsAccount : GTLRObject
+
+/**
+ *  The AWS account ID of the resource associated with the issue.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The AWS account name of the resource associated with the issue. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The Azure metadata of a resource associated with an issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadata : GTLRObject
+
+/** The Azure subscription of the resource associated with the issue. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadataAzureSubscription *subscription;
+
+@end
+
+
+/**
+ *  The Azure subscription of the resource associated with the issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadataAzureSubscription : GTLRObject
+
+/**
+ *  The Azure subscription display name of the resource associated with the
+ *  issue.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The Azure subscription ID of the resource associated with the issue.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Google Cloud metadata of a resource associated with an issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceGoogleCloudMetadata : GTLRObject
+
+/** The project ID that the resource associated with the issue belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  Security context associated with an issue.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContext : GTLRObject
+
+/** The aggregated count of the security context. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextAggregatedCount *aggregatedCount;
+
+/** The context of the security context. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextContext *context;
+
+@end
+
+
+/**
+ *  Aggregated count of a security context.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextAggregatedCount : GTLRObject
+
+/** Aggregation key. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Aggregation value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Context of a security context.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextContext : GTLRObject
+
+/** Context type. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Context values. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 

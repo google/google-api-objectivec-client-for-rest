@@ -129,12 +129,17 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alph
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_HateSpeech;
 /**
- *  The model facilitates harm by providing health advice or guidance.
+ *  The model provides or offers to facilitate access to medical advice or
+ *  guidance.
  *
  *  Value: "MEDICAL_INFO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_MedicalInfo;
-/** Value: "OBSCENITY_AND_PROFANITY" */
+/**
+ *  The model generates profanity and obscenities.
+ *
+ *  Value: "OBSCENITY_AND_PROFANITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_ObscenityAndProfanity;
 /**
  *  The model reveals an individual’s personal information and data.
@@ -187,12 +192,17 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alph
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_HateSpeech;
 /**
- *  The model facilitates harm by providing health advice or guidance.
+ *  The model provides or offers to facilitate access to medical advice or
+ *  guidance.
  *
  *  Value: "MEDICAL_INFO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_MedicalInfo;
-/** Value: "OBSCENITY_AND_PROFANITY" */
+/**
+ *  The model generates profanity and obscenities.
+ *
+ *  Value: "OBSCENITY_AND_PROFANITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_ObscenityAndProfanity;
 /**
  *  The model reveals an individual’s personal information and data.
@@ -2494,10 +2504,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alph
  *        The model promotes violence, hatred, discrimination on the basis of
  *        race, religion, etc. (Value: "HATE_SPEECH")
  *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_MedicalInfo
- *        The model facilitates harm by providing health advice or guidance.
- *        (Value: "MEDICAL_INFO")
+ *        The model provides or offers to facilitate access to medical advice or
+ *        guidance. (Value: "MEDICAL_INFO")
  *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_ObscenityAndProfanity
- *        Value "OBSCENITY_AND_PROFANITY"
+ *        The model generates profanity and obscenities. (Value:
+ *        "OBSCENITY_AND_PROFANITY")
  *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_PiiSolicitingReciting
  *        The model reveals an individual’s personal information and data.
  *        (Value: "PII_SOLICITING_RECITING")
@@ -2554,10 +2565,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alph
  *        The model promotes violence, hatred, discrimination on the basis of
  *        race, religion, etc. (Value: "HATE_SPEECH")
  *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_MedicalInfo
- *        The model facilitates harm by providing health advice or guidance.
- *        (Value: "MEDICAL_INFO")
+ *        The model provides or offers to facilitate access to medical advice or
+ *        guidance. (Value: "MEDICAL_INFO")
  *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_ObscenityAndProfanity
- *        Value "OBSCENITY_AND_PROFANITY"
+ *        The model generates profanity and obscenities. (Value:
+ *        "OBSCENITY_AND_PROFANITY")
  *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_PiiSolicitingReciting
  *        The model reveals an individual’s personal information and data.
  *        (Value: "PII_SOLICITING_RECITING")

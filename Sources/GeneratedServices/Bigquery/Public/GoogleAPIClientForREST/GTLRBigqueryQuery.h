@@ -204,7 +204,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
  *  for conditional access policy binding in datasets must specify version 3.
  *  Dataset with no conditional role bindings in access policy may specify any
- *  valid value or leave the field unset. This field will be maped to [IAM
+ *  valid value or leave the field unset. This field will be mapped to [IAM
  *  Policy version] (https://cloud.google.com/iam/docs/policies#versions) and
  *  will be used to fetch policy from IAM. If unset or if 0 or 1 value is used
  *  for dataset with conditional bindings, access entry with condition will have
@@ -276,7 +276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  dataset with no conditional role bindings in access policy may specify any
  *  valid value or leave the field unset. If unset or if 0 or 1 value is used
  *  for dataset with conditional bindings, request will be rejected. This field
- *  will be maped to IAM Policy version
+ *  will be mapped to IAM Policy version
  *  (https://cloud.google.com/iam/docs/policies#versions) and will be used to
  *  set policy in IAM.
  */
@@ -384,7 +384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  access policy entry with condition. * But dataset with no conditional role
  *  bindings in access policy may specify any valid value or leave the field
  *  unset. If unset or if 0 or 1 value is used for dataset with conditional
- *  bindings, request will be rejected. This field will be maped to IAM Policy
+ *  bindings, request will be rejected. This field will be mapped to IAM Policy
  *  version (https://cloud.google.com/iam/docs/policies#versions) and will be
  *  used to set policy in IAM.
  */
@@ -480,7 +480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  access policy entry with condition. * But dataset with no conditional role
  *  bindings in access policy may specify any valid value or leave the field
  *  unset. If unset or if 0 or 1 value is used for dataset with conditional
- *  bindings, request will be rejected. This field will be maped to IAM Policy
+ *  bindings, request will be rejected. This field will be mapped to IAM Policy
  *  version (https://cloud.google.com/iam/docs/policies#versions) and will be
  *  used to set policy in IAM.
  */
@@ -528,11 +528,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. You must specify the location to run the
- *  job for the following scenarios: * If the location to run a job is not in
- *  the `us` or the `eu` multi-regional location * If the job's location is in a
- *  single region (for example, `us-central1`) For more information, see
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  The geographic location of the job. You must [specify the
+ *  location](https://cloud.google.com/bigquery/docs/locations#specify_locations)
+ *  to run the job for the following scenarios: * If the location to run a job
+ *  is not in the `us` or the `eu` multi-regional location * If the job's
+ *  location is in a single region (for example, `us-central1`)
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -577,8 +577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. Required. See details at:
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  The geographic location of the job. Required. For more information, see how
+ *  to [specify
+ *  locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -627,8 +628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  The geographic location of the job. You must specify the location to run the
  *  job for the following scenarios: * If the location to run a job is not in
  *  the `us` or the `eu` multi-regional location * If the job's location is in a
- *  single region (for example, `us-central1`) For more information, see
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  single region (for example, `us-central1`) For more information, see how to
+ *  [specify
+ *  locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -674,8 +676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  The geographic location of the job. You must specify the location to run the
  *  job for the following scenarios: * If the location to run a job is not in
  *  the `us` or the `eu` multi-regional location * If the job's location is in a
- *  single region (for example, `us-central1`) For more information, see
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  single region (for example, `us-central1`) For more information, see how to
+ *  [specify
+ *  locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 

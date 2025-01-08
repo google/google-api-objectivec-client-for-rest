@@ -116,8 +116,22 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 //
 
 @implementation GTLREventarc_Channel
-@dynamic activationToken, createTime, cryptoKeyName, name, provider,
+@dynamic activationToken, createTime, cryptoKeyName, labels, name, provider,
          pubsubTopic, satisfiesPzs, state, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Channel_Labels
+//
+
+@implementation GTLREventarc_Channel_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -127,7 +141,21 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 //
 
 @implementation GTLREventarc_ChannelConnection
-@dynamic activationToken, channel, createTime, name, uid, updateTime;
+@dynamic activationToken, channel, createTime, labels, name, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ChannelConnection_Labels
+//
+
+@implementation GTLREventarc_ChannelConnection_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

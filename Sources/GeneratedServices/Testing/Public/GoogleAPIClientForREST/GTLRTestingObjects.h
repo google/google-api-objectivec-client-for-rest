@@ -2261,7 +2261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  An optional Roboscript to customize the crawl. See
  *  https://firebase.google.com/docs/test-lab/android/robo-scripts-reference for
- *  more information about Roboscripts.
+ *  more information about Roboscripts. The maximum allowed file size of the
+ *  roboscript is 10MiB.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *roboScript;
 

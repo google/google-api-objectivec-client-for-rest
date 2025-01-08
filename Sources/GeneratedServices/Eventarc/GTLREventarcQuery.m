@@ -787,6 +787,83 @@
 
 @end
 
+@implementation GTLREventarcQuery_ProjectsLocationsKafkaSourcesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLREventarcQuery_ProjectsLocationsKafkaSourcesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLREventarc_Policy class];
+  query.loggingName = @"eventarc.projects.locations.kafkaSources.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsKafkaSourcesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLREventarcQuery_ProjectsLocationsKafkaSourcesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLREventarc_Policy class];
+  query.loggingName = @"eventarc.projects.locations.kafkaSources.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsKafkaSourcesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLREventarcQuery_ProjectsLocationsKafkaSourcesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLREventarc_TestIamPermissionsResponse class];
+  query.loggingName = @"eventarc.projects.locations.kafkaSources.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLREventarcQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;

@@ -4307,6 +4307,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2ServiceScaling : GTLRObject
 
 /**
+ *  Optional. total instance count for the service in manual scaling mode. This
+ *  number of instances is divided among all revisions with specified traffic
+ *  based on the percent of traffic they are receiving.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manualInstanceCount;
+
+/**
+ *  Optional. total max instances for the service. This number of instances is
+ *  divided among all revisions with specified traffic based on the percent of
+ *  traffic they are receiving.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
+
+/**
  *  Optional. total min instances for the service. This number of instances is
  *  divided among all revisions with specified traffic based on the percent of
  *  traffic they are receiving.

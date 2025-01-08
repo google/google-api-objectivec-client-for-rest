@@ -1839,9 +1839,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          ephemeralStorageLocalSsdConfig, fastSocket, gcfsConfig, gvnic,
          imageType, kubeletConfig, labels, linuxNodeConfig,
          localNvmeSsdBlockConfig, localSsdCount, localSsdEncryptionMode,
-         loggingConfig, machineType, metadata, minCpuPlatform, nodeGroup,
-         oauthScopes, preemptible, reservationAffinity, resourceLabels,
-         resourceManagerTags, sandboxConfig, secondaryBootDisks,
+         loggingConfig, machineType, maxRunDuration, metadata, minCpuPlatform,
+         nodeGroup, oauthScopes, preemptible, reservationAffinity,
+         resourceLabels, resourceManagerTags, sandboxConfig, secondaryBootDisks,
          secondaryBootDiskUpdateStrategy, serviceAccount,
          shieldedInstanceConfig, soleTenantConfig, spot, storagePools, tags,
          taints, windowsNodeConfig, workloadMetadataConfig;
@@ -2925,10 +2925,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic accelerators, clusterId, confidentialNodes, containerdConfig,
          diskSizeGb, diskType, ETag, fastSocket, gcfsConfig, gvnic, imageType,
          kubeletConfig, labels, linuxNodeConfig, locations, loggingConfig,
-         machineType, name, nodeNetworkConfig, nodePoolId, nodeVersion,
-         projectId, queuedProvisioning, resourceLabels, resourceManagerTags,
-         storagePools, tags, taints, upgradeSettings, windowsNodeConfig,
-         workloadMetadataConfig, zoneProperty;
+         machineType, maxRunDuration, name, nodeNetworkConfig, nodePoolId,
+         nodeVersion, projectId, queuedProvisioning, resourceLabels,
+         resourceManagerTags, storagePools, tags, taints, upgradeSettings,
+         windowsNodeConfig, workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

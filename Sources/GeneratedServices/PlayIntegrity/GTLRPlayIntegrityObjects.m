@@ -70,6 +70,13 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Mee
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown = @"UNKNOWN";
 
+// GTLRPlayIntegrity_DeviceIntegrity.legacyDeviceRecognitionVerdict
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsBasicIntegrity = @"MEETS_BASIC_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsDeviceIntegrity = @"MEETS_DEVICE_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsStrongIntegrity = @"MEETS_STRONG_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_Unknown = @"UNKNOWN";
+
 // GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_HighRisk = @"HIGH_RISK";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_MediumRisk = @"MEDIUM_RISK";
@@ -181,11 +188,12 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 @implementation GTLRPlayIntegrity_DeviceIntegrity
 @dynamic deviceAttributes, deviceRecall, deviceRecognitionVerdict,
-         recentDeviceActivity;
+         legacyDeviceRecognitionVerdict, recentDeviceActivity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"deviceRecognitionVerdict" : [NSString class]
+    @"deviceRecognitionVerdict" : [NSString class],
+    @"legacyDeviceRecognitionVerdict" : [NSString class]
   };
   return map;
 }

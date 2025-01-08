@@ -20,6 +20,8 @@ NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroups = @"https://www.
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly = @"https://www.googleapis.com/auth/cloud-identity.groups.readonly";
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso = @"https://www.googleapis.com/auth/cloud-identity.inboundsso";
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly = @"https://www.googleapis.com/auth/cloud-identity.inboundsso.readonly";
+NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityPolicies = @"https://www.googleapis.com/auth/cloud-identity.policies";
+NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityPoliciesReadonly = @"https://www.googleapis.com/auth/cloud-identity.policies.readonly";
 NSString * const kGTLRAuthScopeCloudIdentityCloudPlatform      = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

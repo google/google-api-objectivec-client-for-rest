@@ -1006,3 +1006,30 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 }
 
 @end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_InitializeServiceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:initialize";
+  GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.serviceConfig.initialize";
+  return query;
+}
+
+@end

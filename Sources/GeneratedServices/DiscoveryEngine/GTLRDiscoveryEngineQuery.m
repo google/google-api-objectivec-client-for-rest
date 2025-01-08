@@ -1043,6 +1043,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.servingConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend
 
 @dynamic servingConfig;
@@ -1124,6 +1151,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsStreamAnswer
+
+@dynamic servingConfig;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
+                  servingConfig:(NSString *)servingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"servingConfig" ];
+  NSString *pathURITemplate = @"v1/{+servingConfig}:streamAnswer";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsStreamAnswer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.servingConfig = servingConfig;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.servingConfigs.streamAnswer";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsAnswersGet
 
 @dynamic name;
@@ -1191,7 +1245,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsGet
 
-@dynamic name;
+@dynamic includeAnswerDetails, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2201,6 +2255,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.servingConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend
 
 @dynamic servingConfig;
@@ -2282,6 +2363,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsStreamAnswer
+
+@dynamic servingConfig;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
+                  servingConfig:(NSString *)servingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"servingConfig" ];
+  NSString *pathURITemplate = @"v1/{+servingConfig}:streamAnswer";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsStreamAnswer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.servingConfig = servingConfig;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.servingConfigs.streamAnswer";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsAnswersGet
 
 @dynamic name;
@@ -2349,7 +2457,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsGet
 
-@dynamic name;
+@dynamic includeAnswerDetails, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -3382,6 +3490,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.dataStores.servingConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend
 
 @dynamic servingConfig;
@@ -3463,6 +3598,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsStreamAnswer
+
+@dynamic servingConfig;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
+                  servingConfig:(NSString *)servingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"servingConfig" ];
+  NSString *pathURITemplate = @"v1/{+servingConfig}:streamAnswer";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsStreamAnswer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.servingConfig = servingConfig;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.dataStores.servingConfigs.streamAnswer";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsAnswersGet
 
 @dynamic name;
@@ -3530,7 +3692,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsGet
 
-@dynamic name;
+@dynamic includeAnswerDetails, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -3961,6 +4123,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent class];
   query.loggingName = @"discoveryengine.projects.locations.dataStores.userEvents.write";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsGenerateGroundedContent
+
+@dynamic location;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest *)object
+                       location:(NSString *)location {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:generateGroundedContent";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsGenerateGroundedContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.location = location;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.generateGroundedContent";
   return query;
 }
 

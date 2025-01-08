@@ -546,7 +546,8 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_GalleryReference
-@dynamic host, isModified, owner, repository, signature, version;
+@dynamic host, isModified, owner, repository, signature, templateDeveloperId,
+         version;
 @end
 
 

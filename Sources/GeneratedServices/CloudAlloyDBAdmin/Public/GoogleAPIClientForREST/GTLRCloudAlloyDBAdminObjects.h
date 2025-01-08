@@ -74,6 +74,7 @@
 @class GTLRCloudAlloyDBAdmin_QueryInsightsInstanceConfig;
 @class GTLRCloudAlloyDBAdmin_ReadPoolConfig;
 @class GTLRCloudAlloyDBAdmin_SecondaryConfig;
+@class GTLRCloudAlloyDBAdmin_SqlExportOptions;
 @class GTLRCloudAlloyDBAdmin_SslConfig;
 @class GTLRCloudAlloyDBAdmin_StageInfo;
 @class GTLRCloudAlloyDBAdmin_Status;
@@ -3995,12 +3996,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Options for exporting data in CSV format. For now, we only support a query
- *  to get the data that needs to be exported.
+ *  Options for exporting data in CSV format.
  */
 @interface GTLRCloudAlloyDBAdmin_CsvExportOptions : GTLRObject
 
-/** Required. The select_query used to extract the data. */
+/**
+ *  Optional. Specifies the character that should appear before a data character
+ *  that needs to be escaped. The default is the same as quote character. The
+ *  value of this argument has to be a character in Hex ASCII Code.
+ */
+@property(nonatomic, copy, nullable) NSString *escapeCharacter;
+
+/**
+ *  Optional. Specifies the character that separates columns within each row
+ *  (line) of the file. The default is comma. The value of this argument has to
+ *  be a character in Hex ASCII Code.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldDelimiter;
+
+/**
+ *  Optional. Specifies the quoting character to be used when a data value is
+ *  quoted. The default is double-quote. The value of this argument has to be a
+ *  character in Hex ASCII Code.
+ */
+@property(nonatomic, copy, nullable) NSString *quoteCharacter;
+
+/** Required. The SELECT query used to extract the data. */
 @property(nonatomic, copy, nullable) NSString *selectQuery;
 
 @end
@@ -4077,14 +4098,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_CsvExportOptions *csvExportOptions;
 
 /**
- *  Required. Name of the database where the query will be executed. Note -
- *  Value provided should be the same as expected from `SELECT
+ *  Required. Name of the database where the export command will be executed.
+ *  Note - Value provided should be the same as expected from `SELECT
  *  current_database();` and NOT as a resource reference.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /** Required. Option to export data to cloud storage. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GcsDestination *gcsDestination;
+
+/**
+ *  Options for exporting data in SQL format. Required field to be set for SQL
+ *  file type.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_SqlExportOptions *sqlExportOptions;
 
 @end
 
@@ -4138,8 +4165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Required. The path to the file in Google Cloud Storage where the export will
- *  be stored. The URI is in the form `gs://bucketName/fileName`. If the file
- *  already exists, the request succeeds, but the operation fails.
+ *  be stored. The URI is in the form `gs://bucketName/fileName`.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -5113,8 +5139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5429,6 +5455,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  projects/{project}/locations/{region}/clusters/{cluster_id}
  */
 @property(nonatomic, copy, nullable) NSString *primaryClusterName;
+
+@end
+
+
+/**
+ *  Options for exporting data in SQL format.
+ */
+@interface GTLRCloudAlloyDBAdmin_SqlExportOptions : GTLRObject
+
+/**
+ *  Optional. If true, output commands to DROP all the dumped database objects
+ *  prior to outputting the commands for creating them.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cleanTargetObjects;
+
+/**
+ *  Optional. If true, use DROP ... IF EXISTS commands to check for the object's
+ *  existence before dropping it in clean_target_objects mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ifExistTargetObjects;
+
+/**
+ *  Optional. If true, only export the schema.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *schemaOnly;
+
+/** Optional. Tables to export from. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tables;
 
 @end
 
@@ -6921,6 +6981,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shardCount;
+
+/**
+ *  Optional. The number of vCPUs. TODO(b/342344482, b/342346271) add proto
+ *  validations again after bug fix.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vcpuCount;
 
 @end
 

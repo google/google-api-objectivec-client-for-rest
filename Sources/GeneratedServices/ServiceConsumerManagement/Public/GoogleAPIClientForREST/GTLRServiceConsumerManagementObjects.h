@@ -1799,6 +1799,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_Documentation : GTLRObject
 
+/**
+ *  Optional information about the IAM configuration. This is typically used to
+ *  link to documentation about a product's IAM roles and permissions.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalIamInfo;
+
 /** The URL to the root of documentation. */
 @property(nonatomic, copy, nullable) NSString *documentationRootUrl;
 

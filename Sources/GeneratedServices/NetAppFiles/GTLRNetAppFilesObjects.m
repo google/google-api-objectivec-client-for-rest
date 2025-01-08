@@ -82,21 +82,6 @@ NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv4   = @"NFSV4";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_ProtocolsUnspecified = @"PROTOCOLS_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Smb     = @"SMB";
 
-// GTLRNetAppFiles_QuotaRule.state
-NSString * const kGTLRNetAppFiles_QuotaRule_State_Creating     = @"CREATING";
-NSString * const kGTLRNetAppFiles_QuotaRule_State_Deleting     = @"DELETING";
-NSString * const kGTLRNetAppFiles_QuotaRule_State_Error        = @"ERROR";
-NSString * const kGTLRNetAppFiles_QuotaRule_State_Ready        = @"READY";
-NSString * const kGTLRNetAppFiles_QuotaRule_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRNetAppFiles_QuotaRule_State_Updating     = @"UPDATING";
-
-// GTLRNetAppFiles_QuotaRule.type
-NSString * const kGTLRNetAppFiles_QuotaRule_Type_DefaultGroupQuota = @"DEFAULT_GROUP_QUOTA";
-NSString * const kGTLRNetAppFiles_QuotaRule_Type_DefaultUserQuota = @"DEFAULT_USER_QUOTA";
-NSString * const kGTLRNetAppFiles_QuotaRule_Type_IndividualGroupQuota = @"INDIVIDUAL_GROUP_QUOTA";
-NSString * const kGTLRNetAppFiles_QuotaRule_Type_IndividualUserQuota = @"INDIVIDUAL_USER_QUOTA";
-NSString * const kGTLRNetAppFiles_QuotaRule_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
 // GTLRNetAppFiles_Replication.hybridReplicationType
 NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_ContinuousReplication = @"CONTINUOUS_REPLICATION";
 NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_HybridReplicationTypeUnspecified = @"HYBRID_REPLICATION_TYPE_UNSPECIFIED";
@@ -173,6 +158,10 @@ NSString * const kGTLRNetAppFiles_StoragePool_State_Updating   = @"UPDATING";
 NSString * const kGTLRNetAppFiles_TieringPolicy_TierAction_Enabled = @"ENABLED";
 NSString * const kGTLRNetAppFiles_TieringPolicy_TierAction_Paused = @"PAUSED";
 NSString * const kGTLRNetAppFiles_TieringPolicy_TierAction_TierActionUnspecified = @"TIER_ACTION_UNSPECIFIED";
+
+// GTLRNetAppFiles_ValidateDirectoryServiceRequest.directoryServiceType
+NSString * const kGTLRNetAppFiles_ValidateDirectoryServiceRequest_DirectoryServiceType_ActiveDirectory = @"ACTIVE_DIRECTORY";
+NSString * const kGTLRNetAppFiles_ValidateDirectoryServiceRequest_DirectoryServiceType_DirectoryServiceTypeUnspecified = @"DIRECTORY_SERVICE_TYPE_UNSPECIFIED";
 
 // GTLRNetAppFiles_Volume.encryptionType
 NSString * const kGTLRNetAppFiles_Volume_EncryptionType_CloudKms = @"CLOUD_KMS";
@@ -274,7 +263,8 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 @implementation GTLRNetAppFiles_Backup
 @dynamic backupType, chainStorageBytes, createTime, descriptionProperty, labels,
-         name, sourceSnapshot, sourceVolume, state, volumeUsageBytes;
+         name, satisfiesPzi, satisfiesPzs, sourceSnapshot, sourceVolume, state,
+         volumeUsageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -399,7 +389,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_DestinationVolumeParameters
-@dynamic descriptionProperty, shareName, storagePool, volumeId;
+@dynamic descriptionProperty, shareName, storagePool, tieringPolicy, volumeId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -710,29 +700,6 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetAppFiles_ListQuotaRulesResponse
-//
-
-@implementation GTLRNetAppFiles_ListQuotaRulesResponse
-@dynamic nextPageToken, quotaRules, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"quotaRules" : [GTLRNetAppFiles_QuotaRule class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"quotaRules";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetAppFiles_ListReplicationsResponse
 //
 
@@ -955,36 +922,6 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetAppFiles_QuotaRule
-//
-
-@implementation GTLRNetAppFiles_QuotaRule
-@dynamic createTime, descriptionProperty, diskLimitMib, labels, name, state,
-         stateDetails, target, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetAppFiles_QuotaRule_Labels
-//
-
-@implementation GTLRNetAppFiles_QuotaRule_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetAppFiles_Replication
 //
 
@@ -1157,8 +1094,8 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @dynamic activeDirectory, allowAutoTiering, capacityGib, createTime,
          descriptionProperty, encryptionType, globalAccessAllowed, kmsConfig,
          labels, ldapEnabled, name, network, psaRange, replicaZone,
-         serviceLevel, state, stateDetails, volumeCapacityGib, volumeCount,
-         zoneProperty;
+         satisfiesPzi, satisfiesPzs, serviceLevel, state, stateDetails,
+         volumeCapacityGib, volumeCount, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1222,6 +1159,16 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @dynamic lagDuration, lastTransferBytes, lastTransferDuration,
          lastTransferEndTime, lastTransferError, totalTransferDuration,
          transferBytes, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ValidateDirectoryServiceRequest
+//
+
+@implementation GTLRNetAppFiles_ValidateDirectoryServiceRequest
+@dynamic directoryServiceType;
 @end
 
 

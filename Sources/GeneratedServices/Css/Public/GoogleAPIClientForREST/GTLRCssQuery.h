@@ -88,13 +88,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCssQuery_AccountsCssProductInputsInsert : GTLRCssQuery
 
 /**
- *  Required. The primary or supplemental feed id. If CSS Product already exists
- *  and feed id provided is different, then the CSS Product will be moved to a
- *  new feed. Note: For now, CSSs do not need to provide feed ids as we create
- *  feeds on the fly. We do not have supplemental feed support for CSS Products
- *  yet.
+ *  Optional. DEPRECATED. Feed id is not required for CSS Products. The primary
+ *  or supplemental feed id. If CSS Product already exists and feed id provided
+ *  is different, then the CSS Product will be moved to a new feed. Note: For
+ *  now, CSSs do not need to provide feed ids as we create feeds on the fly. We
+ *  do not have supplemental feed support for CSS Products yet.
  */
-@property(nonatomic, assign) long long feedId;
+@property(nonatomic, assign) long long feedId GTLR_DEPRECATED;
 
 /**
  *  Required. The account where this CSS Product will be inserted. Format:
@@ -119,6 +119,56 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCss_ProductInput *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the existing Css Product input in your CSS Center account. After
+ *  inserting, updating, or deleting a CSS Product input, it may take several
+ *  minutes before the processed Css Product can be retrieved.
+ *
+ *  Method: css.accounts.cssProductInputs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCssContent
+ */
+@interface GTLRCssQuery_AccountsCssProductInputsPatch : GTLRCssQuery
+
+/**
+ *  The name of the CSS Product input. Format:
+ *  `accounts/{account}/cssProductInputs/{css_product_input}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of CSS product attributes to be updated. If the update mask is
+ *  omitted, then it is treated as implied field mask equivalent to all fields
+ *  that are populated (have a non-empty value). Attributes specified in the
+ *  update mask without a value specified in the body will be deleted from the
+ *  CSS product. Update mask can only be specified for top level fields in
+ *  attributes and custom attributes. To specify the update mask for custom
+ *  attributes you need to add the `custom_attribute.` prefix. Providing special
+ *  "*" value for full CSS product replacement is not supported.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCss_ProductInput.
+ *
+ *  Updates the existing Css Product input in your CSS Center account. After
+ *  inserting, updating, or deleting a CSS Product input, it may take several
+ *  minutes before the processed Css Product can be retrieved.
+ *
+ *  @param object The @c GTLRCss_ProductInput to include in the query.
+ *  @param name The name of the CSS Product input. Format:
+ *    `accounts/{account}/cssProductInputs/{css_product_input}`
+ *
+ *  @return GTLRCssQuery_AccountsCssProductInputsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCss_ProductInput *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -403,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. The maximum number of accounts to return. The service may return
  *  fewer than this value. If unspecified, at most 50 accounts will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

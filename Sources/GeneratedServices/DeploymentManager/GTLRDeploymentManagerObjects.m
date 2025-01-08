@@ -395,16 +395,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 //
 
 @implementation GTLRDeploymentManager_ErrorInfo
-@dynamic domain, metadata, reason;
+@dynamic domain, metadatas, reason;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_ErrorInfo_Metadata
+//   GTLRDeploymentManager_ErrorInfo_Metadatas
 //
 
-@implementation GTLRDeploymentManager_ErrorInfo_Metadata
+@implementation GTLRDeploymentManager_ErrorInfo_Metadatas
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

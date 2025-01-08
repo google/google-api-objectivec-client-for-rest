@@ -4,7 +4,7 @@
 // API:
 //   Parallelstore API (parallelstore/v1)
 // Documentation:
-//   https://cloud.google.com/
+//   https://cloud.google.com/parallelstore
 
 #import <GoogleAPIClientForREST/GTLRParallelstoreQuery.h>
 

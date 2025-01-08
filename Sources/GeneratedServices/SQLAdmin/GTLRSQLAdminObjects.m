@@ -283,6 +283,7 @@ NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Tlog = @"T
 
 // GTLRSQLAdmin_IpConfiguration.serverCaMode
 NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CaModeUnspecified = @"CA_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CustomerManagedCasCa = @"CUSTOMER_MANAGED_CAS_CA";
 NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedCasCa = @"GOOGLE_MANAGED_CAS_CA";
 NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedInternalCa = @"GOOGLE_MANAGED_INTERNAL_CA";
 
@@ -505,6 +506,13 @@ NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_Syn
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_Normal = @"NORMAL";
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SoftShutdown = @"SOFT_SHUTDOWN";
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SqlOutOfDiskStateUnspecified = @"SQL_OUT_OF_DISK_STATE_UNSPECIFIED";
+
+// GTLRSQLAdmin_SqlSubOperationType.maintenanceType
+NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_InstanceMaintenance = @"INSTANCE_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_InstanceSelfServiceMaintenance = @"INSTANCE_SELF_SERVICE_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_ReplicaIncludedMaintenance = @"REPLICA_INCLUDED_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_ReplicaIncludedSelfServiceMaintenance = @"REPLICA_INCLUDED_SELF_SERVICE_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_SqlMaintenanceTypeUnspecified = @"SQL_MAINTENANCE_TYPE_UNSPECIFIED";
 
 // GTLRSQLAdmin_User.dualPasswordType
 NSString * const kGTLRSQLAdmin_User_DualPasswordType_DualPassword = @"DUAL_PASSWORD";
@@ -734,11 +742,12 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ConnectSettings
-@dynamic backendType, databaseVersion, dnsName, ipAddresses, kind, pscEnabled,
-         region, serverCaCert, serverCaMode;
+@dynamic backendType, customSubjectAlternativeNames, databaseVersion, dnsName,
+         ipAddresses, kind, pscEnabled, region, serverCaCert, serverCaMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"customSubjectAlternativeNames" : [NSString class],
     @"ipAddresses" : [GTLRSQLAdmin_IpMapping class]
   };
   return map;
@@ -802,8 +811,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          satisfiesPzs, scheduledMaintenance, secondaryGceZone, selfLink,
          serverCaCert, serviceAccountEmailAddress, settings,
          sqlNetworkArchitecture, state, suspensionReason,
-         switchTransactionLogsToCloudStorageEnabled, upgradableDatabaseVersions,
-         writeEndpoint;
+         switchTransactionLogsToCloudStorageEnabled, tags,
+         upgradableDatabaseVersions, writeEndpoint;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -836,6 +845,20 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_DatabaseInstance_FailoverReplica
 @dynamic available, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_DatabaseInstance_Tags
+//
+
+@implementation GTLRSQLAdmin_DatabaseInstance_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1498,13 +1521,14 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_IpConfiguration
-@dynamic allocatedIpRange, authorizedNetworks,
+@dynamic allocatedIpRange, authorizedNetworks, customSubjectAlternativeNames,
          enablePrivatePathForGoogleCloudServices, ipv4Enabled, privateNetwork,
-         pscConfig, requireSsl, serverCaMode, sslMode;
+         pscConfig, requireSsl, serverCaMode, serverCaPool, sslMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"authorizedNetworks" : [GTLRSQLAdmin_AclEntry class]
+    @"authorizedNetworks" : [GTLRSQLAdmin_AclEntry class],
+    @"customSubjectAlternativeNames" : [NSString class]
   };
   return map;
 }
@@ -1630,7 +1654,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_Operation
 @dynamic acquireSsrsLeaseContext, apiWarning, backupContext, endTime, error,
          exportContext, importContext, insertTime, kind, name, operationType,
-         selfLink, startTime, status, targetId, targetLink, targetProject, user;
+         selfLink, startTime, status, subOperationType, targetId, targetLink,
+         targetProject, user;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -2149,6 +2174,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlSubOperationType
+//
+
+@implementation GTLRSQLAdmin_SqlSubOperationType
+@dynamic maintenanceType;
 @end
 
 

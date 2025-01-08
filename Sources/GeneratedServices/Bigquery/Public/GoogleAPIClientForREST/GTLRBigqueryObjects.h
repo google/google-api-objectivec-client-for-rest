@@ -1320,7 +1320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_LinkedDatasetMetadata_LinkState
 /**
  *  View is invalidated because of a data change in one or more base tables. It
  *  could be any recent change if the
- *  [`max_staleness`](https://cloud.google.com/bigquery/docs/materialized-views-create#max_staleness)
+ *  [`maxStaleness`](https://cloud.google.com/bigquery/docs/reference/rest/v2/tables#Table.FIELDS.max_staleness)
  *  option is not set for the view, or otherwise any change outside of the
  *  staleness window.
  *
@@ -4959,8 +4959,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  One or more fields on which data should be clustered. Only top-level,
  *  non-repeated, simple-type fields are supported. The ordering of the
  *  clustering fields should be prioritized from most to least important for
- *  filtering purposes. Additional information on limitations can be found here:
- *  https://cloud.google.com/bigquery/docs/creating-clustered-tables#limitations
+ *  filtering purposes. For additional information, see [Introduction to
+ *  clustered
+ *  tables](https://cloud.google.com/bigquery/docs/clustered-tables#limitations).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fields;
 
@@ -6442,7 +6443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Options defining open source compatible datasets living in the BigQuery
- *  catalog. Contains metadata of open source database, schema or namespace
+ *  catalog. Contains metadata of open source database, schema, or namespace
  *  represented by the current dataset.
  */
 @interface GTLRBigquery_ExternalCatalogDatasetOptions : GTLRObject
@@ -6455,7 +6456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Optional. A map of key value pairs defining the parameters and properties of
- *  the open source schema. Maximum size of 2Mib.
+ *  the open source schema. Maximum size of 2MiB.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_ExternalCatalogDatasetOptions_Parameters *parameters;
 
@@ -6464,7 +6465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Optional. A map of key value pairs defining the parameters and properties of
- *  the open source schema. Maximum size of 2Mib.
+ *  the open source schema. Maximum size of 2MiB.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6477,22 +6478,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Metadata about open source compatible table. The fields contained in these
- *  options correspond to hive metastore's table level properties.
+ *  options correspond to Hive metastore's table-level properties.
  */
 @interface GTLRBigquery_ExternalCatalogTableOptions : GTLRObject
 
 /**
- *  Optional. The connection specifying the credentials to be used to read
- *  external storage, such as Azure Blob, Cloud Storage, or S3. The connection
- *  is needed to read the open source table from BigQuery Engine. The
- *  connection_id can have the form `..` or `projects//locations//connections/`.
+ *  Optional. A connection ID that specifies the credentials to be used to read
+ *  external storage, such as Azure Blob, Cloud Storage, or Amazon S3. This
+ *  connection is needed to read the open source table from BigQuery. The
+ *  connection_id format must be either `..` or
+ *  `projects//locations//connections/`.
  */
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
 /**
- *  Optional. A map of key value pairs defining the parameters and properties of
- *  the open source table. Corresponds with hive meta store table parameters.
- *  Maximum size of 4Mib.
+ *  Optional. A map of the key-value pairs defining the parameters and
+ *  properties of the open source table. Corresponds with Hive metastore table
+ *  parameters. Maximum size of 4MiB.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_ExternalCatalogTableOptions_Parameters *parameters;
 
@@ -6506,9 +6508,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  Optional. A map of key value pairs defining the parameters and properties of
- *  the open source table. Corresponds with hive meta store table parameters.
- *  Maximum size of 4Mib.
+ *  Optional. A map of the key-value pairs defining the parameters and
+ *  properties of the open source table. Corresponds with Hive metastore table
+ *  parameters. Maximum size of 4MiB.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -9009,7 +9011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  statement. * `INSERT`:
  *  [`INSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#insert_statement)
  *  statement. * `UPDATE`:
- *  [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#update_statement)
+ *  [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#update_statement)
  *  statement. * `DELETE`:
  *  [`DELETE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language)
  *  statement. * `MERGE`:
@@ -9018,7 +9020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
  *  statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`: [`CREATE TABLE
  *  AS
- *  SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#query_statement)
+ *  SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
  *  statement. * `CREATE_VIEW`: [`CREATE
  *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement)
  *  statement. * `CREATE_MODEL`: [`CREATE
@@ -9070,7 +9072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  statement. * `ALTER_MATERIALIZED_VIEW`: [`ALTER MATERIALIZED
  *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_materialized_view_set_options_statement)
  *  statement. * `ALTER_SCHEMA`: [`ALTER
- *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#aalter_schema_set_options_statement)
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_schema_set_options_statement)
  *  statement. * `SCRIPT`:
  *  [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
  *  * `TRUNCATE_TABLE`: [`TRUNCATE
@@ -9590,7 +9592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableDataChange
  *        View is invalidated because of a data change in one or more base
  *        tables. It could be any recent change if the
- *        [`max_staleness`](https://cloud.google.com/bigquery/docs/materialized-views-create#max_staleness)
+ *        [`maxStaleness`](https://cloud.google.com/bigquery/docs/reference/rest/v2/tables#Table.FIELDS.max_staleness)
  *        option is not set for the view, or otherwise any change outside of the
  *        staleness window. (Value: "BASE_TABLE_DATA_CHANGE")
  *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableExpiredPartition
@@ -10713,8 +10715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryRequest_Labels *labels;
 
 /**
- *  The geographic location where the job should run. See details at
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  The geographic location where the job should run. For more information, see
+ *  how to [specify
+ *  locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -13699,7 +13702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  DATA_SPLIT_EVAL_FRACTION rows (from smallest to largest) in the
  *  corresponding column are used as training data, and the rest are eval data.
  *  It respects the order in Orderable data types:
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data-type-properties
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data_type_properties
  */
 @property(nonatomic, copy, nullable) NSString *dataSplitColumn;
 

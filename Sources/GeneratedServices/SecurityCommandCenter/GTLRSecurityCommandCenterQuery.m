@@ -1211,6 +1211,25 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsAttackPathsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/attackPaths";
+  GTLRSecurityCommandCenterQuery_OrganizationsAttackPathsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListAttackPathsResponse class];
+  query.loggingName = @"securitycenter.organizations.attackPaths.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsCreate
 
 @dynamic bigQueryExportId, parent;

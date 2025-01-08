@@ -87,6 +87,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_M
  *  Value: "OGG_OPUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus;
+/**
+ *  Uncompressed 16-bit signed little-endian samples (Linear PCM). Note that as
+ *  opposed to LINEAR16, audio will not be wrapped in a WAV (or any other)
+ *  header.
+ *
+ *  Value: "PCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Pcm;
 
 // ----------------------------------------------------------------------------
 // GTLRTexttospeech_CustomPronunciationParams.phoneticEncoding
@@ -242,6 +250,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        be played natively on Android, and in browsers (at least Chrome and
  *        Firefox). The quality of the encoding is considerably higher than MP3
  *        while using approximately the same bitrate. (Value: "OGG_OPUS")
+ *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Pcm Uncompressed
+ *        16-bit signed little-endian samples (Linear PCM). Note that as opposed
+ *        to LINEAR16, audio will not be wrapped in a WAV (or any other) header.
+ *        (Value: "PCM")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
 

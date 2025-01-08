@@ -87,6 +87,7 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_Enterpri
 // GTLRDatabaseMigrationService_ConnectionProfile.provider
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Alloydb = @"ALLOYDB";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora = @"AURORA";
+NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_AzureDatabase = @"AZURE_DATABASE";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql = @"CLOUDSQL";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Rds = @"RDS";
@@ -147,6 +148,7 @@ NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Sqlserver = @
 // GTLRDatabaseMigrationService_DatabaseType.provider
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Alloydb = @"ALLOYDB";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora = @"AURORA";
+NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_AzureDatabase = @"AZURE_DATABASE";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql = @"CLOUDSQL";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds = @"RDS";
@@ -320,6 +322,27 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJob_Type_Continuous = @"
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Type_OneTime = @"ONE_TIME";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDatabaseMigrationService_MigrationJobObject.phase
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Cdc = @"CDC";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_DiffBackup = @"DIFF_BACKUP";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_FullDump = @"FULL_DUMP";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_PhaseUnspecified = @"PHASE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Promoted = @"PROMOTED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_PromoteInProgress = @"PROMOTE_IN_PROGRESS";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_ReadyForPromote = @"READY_FOR_PROMOTE";
+
+// GTLRDatabaseMigrationService_MigrationJobObject.state
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Completed = @"COMPLETED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Failed = @"FAILED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_NotSelected = @"NOT_SELECTED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_NotStarted = @"NOT_STARTED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Removing = @"REMOVING";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Restarting = @"RESTARTING";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Running = @"RUNNING";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Stopped = @"STOPPED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Stopping = @"STOPPING";
+
 // GTLRDatabaseMigrationService_MigrationJobVerificationError.errorCode
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_AuthenticationFailure = @"AUTHENTICATION_FAILURE";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_CantRestartRunningMigration = @"CANT_RESTART_RUNNING_MIGRATION";
@@ -384,6 +407,15 @@ NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilter
 NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionLimit = @"NUMERIC_FILTER_OPTION_LIMIT";
 NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionLimitless = @"NUMERIC_FILTER_OPTION_LIMITLESS";
 NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionUnspecified = @"NUMERIC_FILTER_OPTION_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_SourceObjectIdentifier.type
+NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Database = @"DATABASE";
+NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_MigrationJobObjectTypeUnspecified = @"MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_SourceObjectsConfig.objectsSelectionType
+NSString * const kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_AllObjects = @"ALL_OBJECTS";
+NSString * const kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_ObjectsSelectionTypeUnspecified = @"OBJECTS_SELECTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_SpecifiedObjects = @"SPECIFIED_OBJECTS";
 
 // GTLRDatabaseMigrationService_SslConfig.type
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_None = @"NONE";
@@ -724,7 +756,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_ConnectionProfile
 @dynamic alloydb, cloudsql, createTime, displayName, error, labels, mysql, name,
-         oracle, postgresql, provider, role, sqlserver, state, updateTime;
+         oracle, postgresql, provider, role, satisfiesPzi, satisfiesPzs,
+         sqlserver, state, updateTime;
 @end
 
 
@@ -1402,6 +1435,28 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ListMigrationJobObjectsResponse
+//
+
+@implementation GTLRDatabaseMigrationService_ListMigrationJobObjectsResponse
+@dynamic migrationJobObjects, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"migrationJobObjects" : [GTLRDatabaseMigrationService_MigrationJobObject class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"migrationJobObjects";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_ListMigrationJobsResponse
 //
 
@@ -1527,6 +1582,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest
+//
+
+@implementation GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest
+@dynamic sourceObjectIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_MachineConfig
 //
 
@@ -1574,7 +1639,15 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_MaterializedViewEntity
-@dynamic customFeatures, sqlCode;
+@dynamic customFeatures, indices, sqlCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indices" : [GTLRDatabaseMigrationService_IndexEntity class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1600,8 +1673,9 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 @implementation GTLRDatabaseMigrationService_MigrationJob
 @dynamic cmekKeyName, conversionWorkspace, createTime, destination,
          destinationDatabase, displayName, dumpFlags, dumpPath, dumpType,
-         duration, endTime, error, filter, labels, name, oracleToPostgresConfig,
-         performanceConfig, phase, reverseSshConnectivity, source,
+         duration, endTime, error, filter, labels, name, objectsConfig,
+         oracleToPostgresConfig, performanceConfig, phase,
+         reverseSshConnectivity, satisfiesPzi, satisfiesPzs, source,
          sourceDatabase, sqlserverHomogeneousMigrationJobConfig, state,
          staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
 @end
@@ -1618,6 +1692,26 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MigrationJobObject
+//
+
+@implementation GTLRDatabaseMigrationService_MigrationJobObject
+@dynamic createTime, error, name, phase, sourceObject, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MigrationJobObjectsConfig
+//
+
+@implementation GTLRDatabaseMigrationService_MigrationJobObjectsConfig
+@dynamic sourceObjectsConfig;
 @end
 
 
@@ -1914,8 +2008,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PrivateConnection
-@dynamic createTime, displayName, error, labels, name, state, updateTime,
-         vpcPeeringConfig;
+@dynamic createTime, displayName, error, labels, name, satisfiesPzi,
+         satisfiesPzs, state, updateTime, vpcPeeringConfig;
 @end
 
 
@@ -1959,6 +2053,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PromoteMigrationJobRequest
+@dynamic objectsFilter;
 @end
 
 
@@ -1968,7 +2063,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_RestartMigrationJobRequest
-@dynamic skipValidation;
+@dynamic objectsFilter, restartFailedObjects, skipValidation;
 @end
 
 
@@ -2198,6 +2293,44 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 @implementation GTLRDatabaseMigrationService_SourceNumericFilter
 @dynamic numericFilterOption, sourceMaxPrecisionFilter, sourceMaxScaleFilter,
          sourceMinPrecisionFilter, sourceMinScaleFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SourceObjectConfig
+//
+
+@implementation GTLRDatabaseMigrationService_SourceObjectConfig
+@dynamic objectIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SourceObjectIdentifier
+//
+
+@implementation GTLRDatabaseMigrationService_SourceObjectIdentifier
+@dynamic database, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SourceObjectsConfig
+//
+
+@implementation GTLRDatabaseMigrationService_SourceObjectsConfig
+@dynamic objectConfigs, objectsSelectionType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"objectConfigs" : [GTLRDatabaseMigrationService_SourceObjectConfig class]
+  };
+  return map;
+}
+
 @end
 
 

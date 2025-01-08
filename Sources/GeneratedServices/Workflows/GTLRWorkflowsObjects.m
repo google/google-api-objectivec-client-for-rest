@@ -269,7 +269,7 @@ NSString * const kGTLRWorkflows_Workflow_State_Unavailable     = @"UNAVAILABLE";
 @dynamic allKmsKeys, allKmsKeysVersions, callLogLevel, createTime,
          cryptoKeyName, cryptoKeyVersion, descriptionProperty,
          executionHistoryLevel, labels, name, revisionCreateTime, revisionId,
-         serviceAccount, sourceContents, state, stateError, updateTime,
+         serviceAccount, sourceContents, state, stateError, tags, updateTime,
          userEnvVars;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -293,6 +293,20 @@ NSString * const kGTLRWorkflows_Workflow_State_Unavailable     = @"UNAVAILABLE";
 //
 
 @implementation GTLRWorkflows_Workflow_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflows_Workflow_Tags
+//
+
+@implementation GTLRWorkflows_Workflow_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

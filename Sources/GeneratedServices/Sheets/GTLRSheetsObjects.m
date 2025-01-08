@@ -3207,7 +3207,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_SetDataValidationRequest
-@dynamic range, rule;
+@dynamic filteredRowsIncluded, range, rule;
 @end
 
 

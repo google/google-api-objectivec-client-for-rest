@@ -150,6 +150,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Area120Tables"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AreaInsights",
+            targets: ["GoogleAPIClientForREST_AreaInsights"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_ArtifactRegistry",
             targets: ["GoogleAPIClientForREST_ArtifactRegistry"]
         ),
@@ -998,6 +1002,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_SecurityCommandCenter"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_SecurityPosture",
+            targets: ["GoogleAPIClientForREST_SecurityPosture"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_ServerlessVPCAccess",
             targets: ["GoogleAPIClientForREST_ServerlessVPCAccess"]
         ),
@@ -1415,6 +1423,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Area120Tables",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Area120Tables",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AreaInsights",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AreaInsights",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2687,6 +2701,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/SecurityCommandCenter",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_SecurityPosture",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/SecurityPosture",
             publicHeadersPath: "Public"
         ),
         .target(

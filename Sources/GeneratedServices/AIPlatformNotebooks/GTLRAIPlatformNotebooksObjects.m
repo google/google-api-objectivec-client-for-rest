@@ -343,10 +343,10 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_Instance
-@dynamic createTime, creator, disableProxyAccess, gceSetup, healthInfo,
-         healthState, identifier, instanceOwners, labels, name, proxyUri,
-         satisfiesPzi, satisfiesPzs, state, thirdPartyProxyUrl, updateTime,
-         upgradeHistory;
+@dynamic createTime, creator, disableProxyAccess, enableThirdPartyIdentity,
+         gceSetup, healthInfo, healthState, identifier, instanceOwners, labels,
+         name, proxyUri, satisfiesPzi, satisfiesPzs, state, thirdPartyProxyUrl,
+         updateTime, upgradeHistory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

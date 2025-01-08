@@ -436,6 +436,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Port;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PrebuiltVoiceConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PredefinedSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PredictRequestResponseLoggingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PredictSchemata;
@@ -444,6 +445,10 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Probe;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ProbeGrpcAction;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpGetAction;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpHeader;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ProbeTcpSocketAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction;
@@ -491,6 +496,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigFilter;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigPinecone;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigVertexVectorSearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RayLogsSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RayMetricSpec;
@@ -650,13 +656,17 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequestStatsAnomaliesObjective;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Segment;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SharePointSourcesSharePointSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ShieldedVmConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SlackSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannelsSlackChannel;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SmoothGradConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SpecialistPool;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SpeechConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StratifiedSplit;
+@class GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest_Input;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StringArray;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StructFieldValue;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StructValue;
@@ -715,12 +725,14 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1TimestampSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TokensInfo;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tool;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolCall;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidMetricValue;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidResults;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchMetricValue;
@@ -739,6 +751,37 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Trajectory;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Trial;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Trial_WebAccessUris;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrialContext;
@@ -757,6 +800,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStore;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VideoMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1VoiceConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1WorkerPoolSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1WriteFeatureValuesPayload;
 @class GTLRAiplatform_GoogleCloudAiplatformV1WriteFeatureValuesPayload_FeatureValues;
@@ -2077,6 +2121,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Genera
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Safety;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig.mediaResolution
+
+/**
+ *  Media resolution set to high (zoomed reframing with 256 tokens).
+ *
+ *  Value: "MEDIA_RESOLUTION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionHigh;
+/**
+ *  Media resolution set to low (64 tokens).
+ *
+ *  Value: "MEDIA_RESOLUTION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionLow;
+/**
+ *  Media resolution set to medium (256 tokens).
+ *
+ *  Value: "MEDIA_RESOLUTION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionMedium;
+/**
+ *  Media resolution has not been set.
+ *
+ *  Value: "MEDIA_RESOLUTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig.responseModalities
+
+/**
+ *  Audio modality.
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_Audio;
+/**
+ *  Image modality.
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_Image;
+/**
+ *  Unspecified modality. Will be processed as text.
+ *
+ *  Value: "MODALITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_ModalityUnspecified;
+/**
+ *  Text modality.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_Text;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode.modelRoutingPreference
 
 /**
@@ -2296,6 +2396,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Machin
  *  Value: "NVIDIA_H100_80GB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH10080gb;
+/**
+ *  Nvidia H100 Mega 80Gb GPU.
+ *
+ *  Value: "NVIDIA_H100_MEGA_80GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH100Mega80gb;
 /**
  *  Nvidia L4 GPU.
  *
@@ -5603,12 +5709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  */
 @interface GTLRAiplatform_CloudAiLargeModelsVisionVideo : GTLRObject
 
-/**
- *  Base 64 encoded video bytes.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
+/** Base 64 encoded video bytes. */
 @property(nonatomic, copy, nullable) NSString *encodedVideo;
 
 /** Video encoding, for example "video/mp4". */
@@ -7304,7 +7405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
- *  Content blob. It's preferred to send as text directly rather than raw bytes.
+ *  Content blob.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Blob : GTLRObject
 
@@ -9494,7 +9595,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  */
 @property(nonatomic, copy, nullable) NSString *modelReference;
 
-/** Output only. Identifier. The resource name of the Dataset. */
+/**
+ *  Output only. Identifier. The resource name of the Dataset. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -11142,6 +11246,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 /** Input for tool parameter key value match metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInput *toolParameterKvMatchInput;
 
+/** Input for trajectory match any order metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput *trajectoryAnyOrderMatchInput;
+
+/** Input for trajectory exact match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInput *trajectoryExactMatchInput;
+
+/** Input for trajectory in order match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInput *trajectoryInOrderMatchInput;
+
+/** Input for trajectory precision metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInput *trajectoryPrecisionInput;
+
+/** Input for trajectory recall metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInput *trajectoryRecallInput;
+
+/** Input for trajectory single tool use metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInput *trajectorySingleToolUseInput;
+
 @end
 
 
@@ -11230,6 +11352,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 /** Results for tool parameter key value match metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchResults *toolParameterKvMatchResults;
+
+/** Result for trajectory any order match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchResults *trajectoryAnyOrderMatchResults;
+
+/** Result for trajectory exact match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchResults *trajectoryExactMatchResults;
+
+/** Result for trajectory in order match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchResults *trajectoryInOrderMatchResults;
+
+/** Result for trajectory precision metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionResults *trajectoryPrecisionResults;
+
+/** Results for trajectory recall metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallResults *trajectoryRecallResults;
+
+/** Results for trajectory single tool use metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseResults *trajectorySingleToolUseResults;
 
 @end
 
@@ -15199,6 +15339,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) NSNumber *maxOutputTokens;
 
 /**
+ *  Optional. If specified, the media resolution specified will be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionHigh
+ *        Media resolution set to high (zoomed reframing with 256 tokens).
+ *        (Value: "MEDIA_RESOLUTION_HIGH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionLow
+ *        Media resolution set to low (64 tokens). (Value:
+ *        "MEDIA_RESOLUTION_LOW")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionMedium
+ *        Media resolution set to medium (256 tokens). (Value:
+ *        "MEDIA_RESOLUTION_MEDIUM")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionUnspecified
+ *        Media resolution has not been set. (Value:
+ *        "MEDIA_RESOLUTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mediaResolution;
+
+/**
  *  Optional. Positive penalties.
  *
  *  Uses NSNumber of floatValue.
@@ -15221,6 +15380,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  */
 @property(nonatomic, copy, nullable) NSString *responseMimeType;
 
+/** Optional. The modalities of the response. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *responseModalities;
+
 /**
  *  Optional. The `Schema` object allows the definition of input and output data
  *  types. These types can be objects, but also primitives and arrays.
@@ -15240,6 +15402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *seed;
+
+/** Optional. The speech generation config. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SpeechConfig *speechConfig;
 
 /** Optional. Stop sequences. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *stopSequences;
@@ -16112,6 +16277,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 /** Specifies the transformation config for RagFiles. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagFileTransformationConfig *ragFileTransformationConfig;
+
+/** SharePoint sources. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources *sharePointSources;
 
 /** Slack channels with their corresponding access tokens. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SlackSource *slackSource;
@@ -18352,6 +18520,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *        Nvidia A100 80GB GPU. (Value: "NVIDIA_A100_80GB")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH10080gb
  *        Nvidia H100 80Gb GPU. (Value: "NVIDIA_H100_80GB")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH100Mega80gb
+ *        Nvidia H100 Mega 80Gb GPU. (Value: "NVIDIA_H100_MEGA_80GB")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaL4
  *        Nvidia L4 GPU. (Value: "NVIDIA_L4")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaA100
@@ -19423,6 +19593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  in this field.
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
+
+/** Immutable. Specification for Kubernetes liveness probe. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Probe *livenessProbe;
 
 /**
  *  Immutable. List of ports to expose from the container. Vertex AI sends any
@@ -21812,6 +21985,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The specification of persistent disk attached to the notebook
+ *  runtime as data disk storage.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec *dataPersistentDiskSpec;
+
+/**
  *  The description of the NotebookRuntime.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -21828,6 +22007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  Output only. Customer-managed encryption key spec for the notebook runtime.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec *encryptionSpec;
+
+/** Output only. EUC configuration of the notebook runtime. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookEucConfig *eucConfig;
 
 /**
  *  Output only. Timestamp when this NotebookRuntime will be expired: 1. System
@@ -21881,8 +22063,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_Labels *labels;
 
+/**
+ *  Output only. The specification of a single machine used by the notebook
+ *  runtime.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec *machineSpec;
+
 /** Output only. The resource name of the NotebookRuntime. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Network spec of the notebook runtime. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NetworkSpec *networkSpec;
 
 /**
  *  Optional. The Compute Engine tags to add to runtime (see [Tagging
@@ -21958,9 +22149,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
- *  Output only. The service account that the NotebookRuntime workload runs as.
+ *  Output only. Deprecated: This field is no longer used and the "Vertex AI
+ *  Notebook Service Account"
+ *  (service-PROJECT_NUMBER\@gcp-sa-aiplatform-vm.iam.gserviceaccount.com) is
+ *  used for the runtime workload identity. See
+ *  https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account
+ *  for more details. The service account that the NotebookRuntime workload runs
+ *  as.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Output only. Runtime Shielded VM spec. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ShieldedVmConfig *shieldedVmConfig;
 
 /**
  *  Output only. Timestamp when this NotebookRuntime was most recently updated.
@@ -22046,11 +22246,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookIdleShutdownConfig *idleShutdownConfig;
 
 /**
- *  Output only. The default template to use if not specified.
+ *  Output only. Deprecated: This field has no behavior. Use
+ *  notebook_runtime_type = 'ONE_CLICK' instead. The default template to use if
+ *  not specified.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *isDefault;
+@property(nonatomic, strong, nullable) NSNumber *isDefault GTLR_DEPRECATED;
 
 /**
  *  The labels with user-defined metadata to organize the
@@ -22095,14 +22297,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, copy, nullable) NSString *notebookRuntimeType;
 
 /**
- *  The service account that the runtime workload runs as. You can use any
- *  service account within the same project, but you must have the service
- *  account user permission to use the instance. If not specified, the [Compute
- *  Engine default service
+ *  Deprecated: This field is ignored and the "Vertex AI Notebook Service
+ *  Account"
+ *  (service-PROJECT_NUMBER\@gcp-sa-aiplatform-vm.iam.gserviceaccount.com) is
+ *  used for the runtime workload identity. See
+ *  https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account
+ *  for more details. For NotebookExecutionJob, use
+ *  NotebookExecutionJob.service_account instead. The service account that the
+ *  runtime workload runs as. You can use any service account within the same
+ *  project, but you must have the service account user permission to use the
+ *  instance. If not specified, the [Compute Engine default service
  *  account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
  *  is used.
  */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
+@property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
 
 /** Optional. Immutable. Runtime Shielded VM spec. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ShieldedVmConfig *shieldedVmConfig;
@@ -23294,6 +23502,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The configuration for the prebuilt speaker to use.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PrebuiltVoiceConfig : GTLRObject
+
+/** The name of the preset voice to use. */
+@property(nonatomic, copy, nullable) NSString *voiceName;
+
+@end
+
+
+/**
  *  Assigns input data to training, validation, and test sets based on the value
  *  of a provided key. Supported only for tabular Datasets.
  */
@@ -23601,6 +23820,15 @@ GTLR_DEPRECATED
 /** ExecAction probes the health of a container by executing a command. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction *exec;
 
+/** GrpcAction probes the health of a container by sending a gRPC request. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ProbeGrpcAction *grpc;
+
+/**
+ *  HttpGetAction probes the health of a container by sending an HTTP GET
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpGetAction *httpGet;
+
 /**
  *  How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
  *  value is 1. Must be less than timeout_seconds. Maps to Kubernetes probe
@@ -23609,6 +23837,12 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *periodSeconds;
+
+/**
+ *  TcpSocketAction probes the health of a container by opening a TCP socket
+ *  connection.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ProbeTcpSocketAction *tcpSocket;
 
 /**
  *  Number of seconds after which the probe times out. Defaults to 1 second.
@@ -23636,6 +23870,102 @@ GTLR_DEPRECATED
  *  non-zero is unhealthy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *command;
+
+@end
+
+
+/**
+ *  GrpcAction checks the health of a container using a gRPC service.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ProbeGrpcAction : GTLRObject
+
+/**
+ *  Port number of the gRPC service. Number must be in the range 1 to 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Service is the name of the service to place in the gRPC HealthCheckRequest
+ *  (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If
+ *  this is not specified, the default behavior is defined by gRPC.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  HttpGetAction describes an action based on HTTP Get requests.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpGetAction : GTLRObject
+
+/**
+ *  Host name to connect to, defaults to the model serving container's IP. You
+ *  probably want to set "Host" in httpHeaders instead.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** Custom headers to set in the request. HTTP allows repeated headers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpHeader *> *httpHeaders;
+
+/** Path to access on the HTTP server. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Number of the port to access on the container. Number must be in the range 1
+ *  to 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Scheme to use for connecting to the host. Defaults to HTTP. Acceptable
+ *  values are "HTTP" or "HTTPS".
+ */
+@property(nonatomic, copy, nullable) NSString *scheme;
+
+@end
+
+
+/**
+ *  HttpHeader describes a custom header to be used in HTTP probes
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpHeader : GTLRObject
+
+/**
+ *  The header field name. This will be canonicalized upon output, so
+ *  case-variant names will be understood as the same header.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The header field value */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  TcpSocketAction probes the health of a container by opening a TCP socket
+ *  connection.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ProbeTcpSocketAction : GTLRObject
+
+/**
+ *  Optional: Host name to connect to, defaults to the model serving container's
+ *  IP.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Number of the port to access on the container. Number must be in the range 1
+ *  to 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
 
 @end
 
@@ -24870,6 +25200,9 @@ GTLR_DEPRECATED
 /** Output only. The resource name of the RagFile. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The RagFile is imported from a SharePoint source. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources *sharePointSources;
+
 /** The RagFile is imported from a Slack channel. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SlackSource *slackSource;
 
@@ -24996,6 +25329,9 @@ GTLR_DEPRECATED
 /** Optional. Immutable. The embedding model config of the Vector DB. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagEmbeddingModelConfig *ragEmbeddingModelConfig;
 
+/** The config for the RAG-managed Vector DB. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb *ragManagedDb;
+
 /** The config for the Vertex Vector Search. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigVertexVectorSearch *vertexVectorSearch;
 
@@ -25010,6 +25346,13 @@ GTLR_DEPRECATED
 /** Pinecone index name. This value cannot be changed after it's set. */
 @property(nonatomic, copy, nullable) NSString *indexName;
 
+@end
+
+
+/**
+ *  The config for the default RAG-managed Vector DB.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb : GTLRObject
 @end
 
 
@@ -32540,6 +32883,59 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The SharePointSources to pass to ImportRagFiles.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources : GTLRObject
+
+/** The SharePoint sources. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SharePointSourcesSharePointSource *> *sharePointSources;
+
+@end
+
+
+/**
+ *  An individual SharePointSource.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SharePointSourcesSharePointSource : GTLRObject
+
+/**
+ *  The Application ID for the app registered in Microsoft Azure Portal. The
+ *  application must also be configured with MS Graph permissions
+ *  "Files.ReadAll", "Sites.ReadAll" and BrowserSiteLists.Read.All.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** The application secret for the app registered in Azure. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ApiAuthApiKeyConfig *clientSecret;
+
+/** The ID of the drive to download from. */
+@property(nonatomic, copy, nullable) NSString *driveId;
+
+/** The name of the drive to download from. */
+@property(nonatomic, copy, nullable) NSString *driveName;
+
+/** Output only. The SharePoint file id. Output only. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** The ID of the SharePoint folder to download from. */
+@property(nonatomic, copy, nullable) NSString *sharepointFolderId;
+
+/** The path of the SharePoint folder to download from. */
+@property(nonatomic, copy, nullable) NSString *sharepointFolderPath;
+
+/**
+ *  The name of the SharePoint site to download from. This can be the site name
+ *  or the site id.
+ */
+@property(nonatomic, copy, nullable) NSString *sharepointSiteName;
+
+/** Unique identifier of the Azure Active Directory Instance. */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+@end
+
+
+/**
  *  A set of Shielded Instance options. See [Images using supported Shielded VM
  *  features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
  */
@@ -32692,6 +33088,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The speech generation config.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SpeechConfig : GTLRObject
+
+/** The configuration for the speaker to use. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1VoiceConfig *voiceConfig;
+
+@end
+
+
+/**
  *  Metadata information for NotebookService.StartNotebookRuntime.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeOperationMetadata : GTLRObject
@@ -32824,6 +33231,39 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureSelector *featureSelector;
 
+@end
+
+
+/**
+ *  Request message for ReasoningEngineExecutionService.StreamQuery.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest : GTLRObject
+
+/**
+ *  Optional. Class method to be used for the stream query. It is optional and
+ *  defaults to "stream_query" if unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *classMethod;
+
+/**
+ *  Optional. Input content provided by users in JSON object format. Examples
+ *  include text query, function calling parameters, media bytes, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest_Input *input;
+
+@end
+
+
+/**
+ *  Optional. Input content provided by users in JSON object format. Examples
+ *  include text query, function calling parameters, media bytes, etc.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest_Input : GTLRObject
 @end
 
 
@@ -34886,6 +35326,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration *> *functionDeclarations;
 
 /**
+ *  Optional. GoogleSearch tool type. Tool to support Google Search in Model.
+ *  Powered by Google.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch *googleSearch;
+
+/**
  *  Optional. GoogleSearchRetrieval tool type. Specialized retrieval tool that
  *  is powered by Google search.
  */
@@ -34897,6 +35343,20 @@ GTLR_DEPRECATED
  *  results are presented to the model for generation.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Retrieval *retrieval;
+
+@end
+
+
+/**
+ *  Spec for tool call.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolCall : GTLRObject
+
+/** Optional. Spec for tool input */
+@property(nonatomic, copy, nullable) NSString *toolInput;
+
+/** Required. Spec for tool name */
+@property(nonatomic, copy, nullable) NSString *toolName;
 
 @end
 
@@ -34970,6 +35430,14 @@ GTLR_DEPRECATED
 /** Optional. Function calling config. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig *functionCallingConfig;
 
+@end
+
+
+/**
+ *  GoogleSearch tool type. Tool to support Google Search in Model. Powered by
+ *  Google.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch : GTLRObject
 @end
 
 
@@ -35358,6 +35826,394 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline_Labels : GTLRObject
+@end
+
+
+/**
+ *  Spec for trajectory.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Trajectory : GTLRObject
+
+/** Required. Tool calls in the trajectory. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolCall *> *toolCalls;
+
+@end
+
+
+/**
+ *  Instances and metric spec for TrajectoryAnyOrderMatch metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput : GTLRObject
+
+/** Required. Repeated TrajectoryAnyOrderMatch instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInstance *> *instances;
+
+/** Required. Spec for TrajectoryAnyOrderMatch metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryAnyOrderMatch instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInstance : GTLRObject
+
+/** Required. Spec for predicted tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *predictedTrajectory;
+
+/** Required. Spec for reference tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *referenceTrajectory;
+
+@end
+
+
+/**
+ *  TrajectoryAnyOrderMatch metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchMetricValue : GTLRObject
+
+/**
+ *  Output only. TrajectoryAnyOrderMatch score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for TrajectoryAnyOrderMatch metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchResults : GTLRObject
+
+/** Output only. TrajectoryAnyOrderMatch metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchMetricValue *> *trajectoryAnyOrderMatchMetricValues;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryAnyOrderMatch metric - returns 1 if all tool calls in the
+ *  reference trajectory appear in the predicted trajectory in any order, else
+ *  0.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchSpec : GTLRObject
+@end
+
+
+/**
+ *  Instances and metric spec for TrajectoryExactMatch metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInput : GTLRObject
+
+/** Required. Repeated TrajectoryExactMatch instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInstance *> *instances;
+
+/** Required. Spec for TrajectoryExactMatch metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryExactMatch instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInstance : GTLRObject
+
+/** Required. Spec for predicted tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *predictedTrajectory;
+
+/** Required. Spec for reference tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *referenceTrajectory;
+
+@end
+
+
+/**
+ *  TrajectoryExactMatch metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchMetricValue : GTLRObject
+
+/**
+ *  Output only. TrajectoryExactMatch score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for TrajectoryExactMatch metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchResults : GTLRObject
+
+/** Output only. TrajectoryExactMatch metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchMetricValue *> *trajectoryExactMatchMetricValues;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryExactMatch metric - returns 1 if tool calls in the
+ *  reference trajectory exactly match the predicted trajectory, else 0.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchSpec : GTLRObject
+@end
+
+
+/**
+ *  Instances and metric spec for TrajectoryInOrderMatch metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInput : GTLRObject
+
+/** Required. Repeated TrajectoryInOrderMatch instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInstance *> *instances;
+
+/** Required. Spec for TrajectoryInOrderMatch metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryInOrderMatch instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInstance : GTLRObject
+
+/** Required. Spec for predicted tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *predictedTrajectory;
+
+/** Required. Spec for reference tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *referenceTrajectory;
+
+@end
+
+
+/**
+ *  TrajectoryInOrderMatch metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchMetricValue : GTLRObject
+
+/**
+ *  Output only. TrajectoryInOrderMatch score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for TrajectoryInOrderMatch metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchResults : GTLRObject
+
+/** Output only. TrajectoryInOrderMatch metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchMetricValue *> *trajectoryInOrderMatchMetricValues;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryInOrderMatch metric - returns 1 if tool calls in the
+ *  reference trajectory appear in the predicted trajectory in the same order,
+ *  else 0.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchSpec : GTLRObject
+@end
+
+
+/**
+ *  Instances and metric spec for TrajectoryPrecision metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInput : GTLRObject
+
+/** Required. Repeated TrajectoryPrecision instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInstance *> *instances;
+
+/** Required. Spec for TrajectoryPrecision metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryPrecision instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInstance : GTLRObject
+
+/** Required. Spec for predicted tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *predictedTrajectory;
+
+/** Required. Spec for reference tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *referenceTrajectory;
+
+@end
+
+
+/**
+ *  TrajectoryPrecision metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionMetricValue : GTLRObject
+
+/**
+ *  Output only. TrajectoryPrecision score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for TrajectoryPrecision metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionResults : GTLRObject
+
+/** Output only. TrajectoryPrecision metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionMetricValue *> *trajectoryPrecisionMetricValues;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryPrecision metric - returns a float score based on average
+ *  precision of individual tool calls.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionSpec : GTLRObject
+@end
+
+
+/**
+ *  Instances and metric spec for TrajectoryRecall metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInput : GTLRObject
+
+/** Required. Repeated TrajectoryRecall instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInstance *> *instances;
+
+/** Required. Spec for TrajectoryRecall metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryRecall instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInstance : GTLRObject
+
+/** Required. Spec for predicted tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *predictedTrajectory;
+
+/** Required. Spec for reference tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *referenceTrajectory;
+
+@end
+
+
+/**
+ *  TrajectoryRecall metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallMetricValue : GTLRObject
+
+/**
+ *  Output only. TrajectoryRecall score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for TrajectoryRecall metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallResults : GTLRObject
+
+/** Output only. TrajectoryRecall metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallMetricValue *> *trajectoryRecallMetricValues;
+
+@end
+
+
+/**
+ *  Spec for TrajectoryRecall metric - returns a float score based on average
+ *  recall of individual tool calls.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallSpec : GTLRObject
+@end
+
+
+/**
+ *  Instances and metric spec for TrajectorySingleToolUse metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInput : GTLRObject
+
+/** Required. Repeated TrajectorySingleToolUse instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInstance *> *instances;
+
+/** Required. Spec for TrajectorySingleToolUse metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for TrajectorySingleToolUse instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInstance : GTLRObject
+
+/** Required. Spec for predicted tool call trajectory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Trajectory *predictedTrajectory;
+
+@end
+
+
+/**
+ *  TrajectorySingleToolUse metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseMetricValue : GTLRObject
+
+/**
+ *  Output only. TrajectorySingleToolUse score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for TrajectorySingleToolUse metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseResults : GTLRObject
+
+/** Output only. TrajectorySingleToolUse metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseMetricValue *> *trajectorySingleToolUseMetricValues;
+
+@end
+
+
+/**
+ *  Spec for TrajectorySingleToolUse metric - returns 1 if tool is present in
+ *  the predicted trajectory, else 0.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseSpec : GTLRObject
+
+/**
+ *  Required. Spec for tool name to be checked for in the predicted trajectory.
+ */
+@property(nonatomic, copy, nullable) NSString *toolName;
+
 @end
 
 
@@ -36323,6 +37179,17 @@ GTLR_DEPRECATED
 
 /** Optional. The start offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *startOffset;
+
+@end
+
+
+/**
+ *  The configuration for the voice to use.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1VoiceConfig : GTLRObject
+
+/** The configuration for the prebuilt voice to use. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PrebuiltVoiceConfig *prebuiltVoiceConfig;
 
 @end
 

@@ -2279,8 +2279,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Account hold period of the subscription, specified in ISO 8601
- *  format. Acceptable values must be in DAYS and in the range P0D (zero days)
- *  to P30D (30 days). If not specified, the default value is P30D (30 days).
+ *  format. Acceptable values must be in days and between P0D and P60D. If not
+ *  specified, the default value is P30D. The sum of gracePeriodDuration and
+ *  accountHoldDuration must be between P30D and P60D days, inclusive.
  */
 @property(nonatomic, copy, nullable) NSString *accountHoldDuration;
 
@@ -2293,9 +2294,10 @@ GTLR_DEPRECATED
 
 /**
  *  Grace period of the subscription, specified in ISO 8601 format. Acceptable
- *  values are P0D (zero days), P3D (3 days), P7D (7 days), P14D (14 days), and
- *  P30D (30 days). If not specified, a default value will be used based on the
- *  recurring period duration.
+ *  values must be in days and between P0D and the lesser of 30D and base plan
+ *  billing period. If not specified, a default value will be used based on the
+ *  billing period. The sum of gracePeriodDuration and accountHoldDuration must
+ *  be between P30D and P60D days, inclusive.
  */
 @property(nonatomic, copy, nullable) NSString *gracePeriodDuration;
 
@@ -2379,6 +2381,9 @@ GTLR_DEPRECATED
  *  signup.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails *priceChangeDetails;
+
+/** The current recurring price of the auto renewing plan. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *recurringPrice;
 
 @end
 
@@ -4271,9 +4276,10 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_InstallmentsBasePlanType : GTLRObject
 
 /**
- *  Optional. Account hold period of the subscription, specified exclusively in
- *  days and in ISO 8601 format. Acceptable values are P0D (zero days) to P30D
- *  (30days). If not specified, the default value is P30D (30 days).
+ *  Optional. Account hold period of the subscription, specified in ISO 8601
+ *  format. Acceptable values must be in days and between P0D and P60D. If not
+ *  specified, the default value is P30D. The sum of gracePeriodDuration and
+ *  accountHoldDuration must be between P30D and P60D days, inclusive.
  */
 @property(nonatomic, copy, nullable) NSString *accountHoldDuration;
 
@@ -4294,9 +4300,10 @@ GTLR_DEPRECATED
 
 /**
  *  Grace period of the subscription, specified in ISO 8601 format. Acceptable
- *  values are P0D (zero days), P3D (3 days), P7D (7 days), P14D (14 days), and
- *  P30D (30 days). If not specified, a default value will be used based on the
- *  recurring period duration.
+ *  values must be in days and between P0D and the lesser of 30D and base plan
+ *  billing period. If not specified, a default value will be used based on the
+ *  billing period. The sum of gracePeriodDuration and accountHoldDuration must
+ *  be between P30D and P60D days, inclusive.
  */
 @property(nonatomic, copy, nullable) NSString *gracePeriodDuration;
 
@@ -4875,7 +4882,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Represents a custom tag specified for base plans and subscription offers.
+ *  Represents a custom tag specified for a product offer.
  */
 @interface GTLRAndroidPublisher_OfferTag : GTLRObject
 

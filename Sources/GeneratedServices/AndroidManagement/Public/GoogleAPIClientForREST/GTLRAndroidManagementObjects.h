@@ -3000,6 +3000,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PersonalUsagePolicies.privateSpacePolicy
+
+/**
+ *  Users can create a private space profile.
+ *
+ *  Value: "PRIVATE_SPACE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceAllowed;
+/**
+ *  Users cannot create a private space profile. Supported only for
+ *  company-owned devices with a work profile. Caution: Any existing private
+ *  space will be removed.
+ *
+ *  Value: "PRIVATE_SPACE_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceDisallowed;
+/**
+ *  Unspecified. Defaults to PRIVATE_SPACE_ALLOWED.
+ *
+ *  Value: "PRIVATE_SPACE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpacePolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
 
 /**
@@ -4324,6 +4348,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_Wif
  *  Value: "WIFI_ROAMING_DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault;
+/**
+ *  Wi-Fi roaming is disabled. Supported on Android 15 and above on fully
+ *  managed devices and work profiles on company-owned devices. A
+ *  nonComplianceDetail with MANAGEMENT_MODE is reported for other management
+ *  modes. A nonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 15.
+ *
+ *  Value: "WIFI_ROAMING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDisabled;
 /**
  *  Unspecified. Defaults to WIFI_ROAMING_DEFAULT.
  *
@@ -9126,6 +9160,23 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *personalPlayStoreMode;
 
 /**
+ *  Optional. Controls whether a private space is allowed on the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceAllowed
+ *        Users can create a private space profile. (Value:
+ *        "PRIVATE_SPACE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceDisallowed
+ *        Users cannot create a private space profile. Supported only for
+ *        company-owned devices with a work profile. Caution: Any existing
+ *        private space will be removed. (Value: "PRIVATE_SPACE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpacePolicyUnspecified
+ *        Unspecified. Defaults to PRIVATE_SPACE_ALLOWED. (Value:
+ *        "PRIVATE_SPACE_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *privateSpacePolicy;
+
+/**
  *  If true, screen capture is disabled for all users.
  *
  *  Uses NSNumber of boolValue.
@@ -9510,7 +9561,8 @@ GTLR_DEPRECATED
 /**
  *  If true, this disables the Lock Screen
  *  (https://source.android.com/docs/core/display/multi_display/lock-screen) for
- *  primary and/or secondary displays.
+ *  primary and/or secondary displays. This policy is supported only in
+ *  dedicated device management mode.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -11494,6 +11546,12 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault
  *        Default Wi-Fi roaming mode of the device. (Value:
  *        "WIFI_ROAMING_DEFAULT")
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDisabled
+ *        Wi-Fi roaming is disabled. Supported on Android 15 and above on fully
+ *        managed devices and work profiles on company-owned devices. A
+ *        nonComplianceDetail with MANAGEMENT_MODE is reported for other
+ *        management modes. A nonComplianceDetail with API_LEVEL is reported if
+ *        the Android version is less than 15. (Value: "WIFI_ROAMING_DISABLED")
  *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingModeUnspecified
  *        Unspecified. Defaults to WIFI_ROAMING_DEFAULT. (Value:
  *        "WIFI_ROAMING_MODE_UNSPECIFIED")

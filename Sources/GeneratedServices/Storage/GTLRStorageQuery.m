@@ -1639,6 +1639,35 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_ObjectsMove
+
+@dynamic bucket, destinationObject, ifGenerationMatch, ifGenerationNotMatch,
+         ifMetagenerationMatch, ifMetagenerationNotMatch,
+         ifSourceGenerationMatch, ifSourceGenerationNotMatch,
+         ifSourceMetagenerationMatch, ifSourceMetagenerationNotMatch,
+         sourceObject, userProject;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   sourceObject:(NSString *)sourceObject
+              destinationObject:(NSString *)destinationObject {
+  NSArray *pathParams = @[
+    @"bucket", @"destinationObject", @"sourceObject"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/o/{sourceObject}/moveTo/o/{destinationObject}";
+  GTLRStorageQuery_ObjectsMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.sourceObject = sourceObject;
+  query.destinationObject = destinationObject;
+  query.expectedObjectClass = [GTLRStorage_Object class];
+  query.loggingName = @"storage.objects.move";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_ObjectsPatch
 
 @dynamic bucket, generation, ifGenerationMatch, ifGenerationNotMatch,

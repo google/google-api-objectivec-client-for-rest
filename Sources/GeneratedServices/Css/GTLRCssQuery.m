@@ -63,6 +63,33 @@
 
 @end
 
+@implementation GTLRCssQuery_AccountsCssProductInputsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCss_ProductInput *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCssQuery_AccountsCssProductInputsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCss_ProductInput class];
+  query.loggingName = @"css.accounts.cssProductInputs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCssQuery_AccountsCssProductsGet
 
 @dynamic name;

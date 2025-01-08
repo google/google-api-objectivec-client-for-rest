@@ -3597,6 +3597,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo *egressTo;
 
+/**
+ *  Optional. Human-readable title for the egress rule. The title must be unique
+ *  within the perimeter and can not exceed 100 characters. Within the access
+ *  policy, the combined length of all rule titles must not exceed 240,000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 
@@ -3617,6 +3625,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  is specified for `access_level`, then all EgressSources will be allowed.
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
+
+/**
+ *  A Google Cloud resource that you want to allow to egress the perimeter.
+ *  These resources can access data outside the perimeter. This field only
+ *  supports projects. The project format is `projects/{project_number}`. The
+ *  resource can be in any Google Cloud organization, not just the organization
+ *  where the perimeter is defined. You can't use `*` in this field to allow all
+ *  Google Cloud resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 @end
 
@@ -3732,6 +3750,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  cause this IngressPolicy to apply.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo *ingressTo;
+
+/**
+ *  Optional. Human-readable title for the ingress rule. The title must be
+ *  unique within the perimeter and can not exceed 100 characters. Within the
+ *  access policy, the combined length of all rule titles must not exceed
+ *  240,000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

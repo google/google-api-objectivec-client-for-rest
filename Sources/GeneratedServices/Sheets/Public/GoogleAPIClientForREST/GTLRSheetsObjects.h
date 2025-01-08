@@ -10415,6 +10415,14 @@ GTLR_DEPRECATED
  */
 @interface GTLRSheets_SetDataValidationRequest : GTLRObject
 
+/**
+ *  Optional. If true, the data validation rule will be applied to the filtered
+ *  rows as well.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filteredRowsIncluded;
+
 /** The range the data validation rule should apply to. */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 

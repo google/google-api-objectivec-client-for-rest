@@ -1938,7 +1938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /** The default page size is 200 (max 1000). */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The next_page_token value returned from a previous list request, if any */
+/**
+ *  The `next_page_token` value returned from a previous list request, if any
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -2002,7 +2004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous list request, if any.
+ *  The `next_page_token` value returned from a previous list request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2025,7 +2027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  operators on the parent of the group restricting the search within a
  *  particular customer, e.g. `parent == 'customers/{customer_id}'`. The
  *  `customer_id` must begin with "C" (for example, 'C046psxkn'). This filtering
- *  is only supported for Admins with groups read permissons on the input
+ *  is only supported for Admins with groups read permissions on the input
  *  customer. Example query: `member_key_id == 'member_key_id_value' && in
  *  labels && parent == 'customers/C046psxkn'`
  */
@@ -2080,7 +2082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous list request, if any.
+ *  The `next_page_token` value returned from a previous list request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2853,6 +2855,94 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSsoAssignment *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Get a Policy
+ *
+ *  Method: cloudidentity.policies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPolicies
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPoliciesReadonly
+ */
+@interface GTLRCloudIdentityQuery_PoliciesGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The name of the policy to retrieve. Format: "policies/{policy}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Policy.
+ *
+ *  Get a Policy
+ *
+ *  @param name Required. The name of the policy to retrieve. Format:
+ *    "policies/{policy}".
+ *
+ *  @return GTLRCloudIdentityQuery_PoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Policies
+ *
+ *  Method: cloudidentity.policies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPolicies
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPoliciesReadonly
+ */
+@interface GTLRCloudIdentityQuery_PoliciesList : GTLRCloudIdentityQuery
+
+/**
+ *  Optional. A CEL expression for filtering the results. Policies can be
+ *  filtered by application with this expression: setting.name =
+ *  'settings/gmail.*' Policies can be filtered by setting type with this
+ *  expression: setting.name = '*.service_status' A maximum of one of the above
+ *  setting.name clauses can be used. Policies can be filtered by customer with
+ *  this expression: customer = "customers/{customer}" Where `customer` is the
+ *  `id` from the [Admin SDK `Customer`
+ *  resource](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers).
+ *  You may use `customers/my_customer` to specify your own organization. When
+ *  no customer is mentioned it will be default to customers/my_customer. A
+ *  maximum of one customer clause can be used. The above clauses can only be
+ *  combined together in a single filter expression with the `&&` operator.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return. The service can return
+ *  fewer than this number. If omitted or set to 0, the default is 50 results
+ *  per page. The maximum allowed value is 100. `page_size` values greater than
+ *  100 default to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The pagination token received from a prior call to
+ *  PoliciesService.ListPolicies to retrieve the next page of results. When
+ *  paginating, all other parameters provided to `ListPoliciesRequest` must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListPoliciesResponse.
+ *
+ *  List Policies
+ *
+ *  @return GTLRCloudIdentityQuery_PoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 

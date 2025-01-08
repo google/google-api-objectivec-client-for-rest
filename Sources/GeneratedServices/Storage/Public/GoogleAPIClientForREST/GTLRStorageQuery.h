@@ -3600,6 +3600,130 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Moves the source object to the destination object in the same bucket.
+ *
+ *  Method: storage.objects.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ObjectsMove : GTLRStorageQuery
+
+/** Name of the bucket in which the object resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Name of the destination object. For information about how to URL encode
+ *  object names to be path safe, see [Encoding URI Path
+ *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ */
+@property(nonatomic, copy, nullable) NSString *destinationObject;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  generation matches the given value. Setting to 0 makes the operation succeed
+ *  only if there are no live versions of the object. `ifGenerationMatch` and
+ *  `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for
+ *  both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifGenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  generation does not match the given value. If no live object exists, the
+ *  precondition fails. Setting to 0 makes the operation succeed only if there
+ *  is a live version of the object.`ifGenerationMatch` and
+ *  `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for
+ *  both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifGenerationNotMatch;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  metageneration matches the given value. `ifMetagenerationMatch` and
+ *  `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error
+ *  for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  metageneration does not match the given value. `ifMetagenerationMatch` and
+ *  `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error
+ *  for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  generation matches the given value. `ifSourceGenerationMatch` and
+ *  `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an
+ *  error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceGenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  generation does not match the given value. `ifSourceGenerationMatch` and
+ *  `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an
+ *  error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceGenerationNotMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  metageneration matches the given value. `ifSourceMetagenerationMatch` and
+ *  `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's an
+ *  error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceMetagenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  metageneration does not match the given value. `ifSourceMetagenerationMatch`
+ *  and `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's
+ *  an error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceMetagenerationNotMatch;
+
+/**
+ *  Name of the source object. For information about how to URL encode object
+ *  names to be path safe, see [Encoding URI Path
+ *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ */
+@property(nonatomic, copy, nullable) NSString *sourceObject;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_Object.
+ *
+ *  Moves the source object to the destination object in the same bucket.
+ *
+ *  @param bucket Name of the bucket in which the object resides.
+ *  @param sourceObject Name of the source object. For information about how to
+ *    URL encode object names to be path safe, see [Encoding URI Path
+ *    Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ *  @param destinationObject Name of the destination object. For information
+ *    about how to URL encode object names to be path safe, see [Encoding URI
+ *    Path
+ *    Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ *
+ *  @return GTLRStorageQuery_ObjectsMove
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   sourceObject:(NSString *)sourceObject
+              destinationObject:(NSString *)destinationObject;
+
+@end
+
+/**
  *  Patches an object's metadata.
  *
  *  Method: storage.objects.patch

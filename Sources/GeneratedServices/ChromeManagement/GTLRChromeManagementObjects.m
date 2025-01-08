@@ -8,7 +8,7 @@
 //   administrators to view, manage and gain insights on their Chrome OS and
 //   Chrome Browser devices.
 // Documentation:
-//   http://developers.google.com/chrome/management/
+//   https://developers.google.com/chrome/management/
 
 #import <GoogleAPIClientForREST/GTLRChromeManagementObjects.h>
 
@@ -407,6 +407,11 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Attestati
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_EcKey = @"EC_KEY";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey = @"RSA_KEY";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256 = @"SIGNATURE_ALGORITHM_ECDSA_SHA256";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256 = @"SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.affiliationState
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliatedCloudManaged = @"AFFILIATED_CLOUD_MANAGED";
@@ -1889,6 +1894,19 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess
+@dynamic caConnectionAdapterConfigReference, chromeOsDevice,
+         chromeOsUserSession, failureMessage, issuedCertificate, name,
+         profileAdapterConfigReference, provisioningProfileId, signature,
+         signatureAlgorithm, signData, startTime, subjectPublicKeyInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile
 //
 
@@ -1905,6 +1923,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
   return @{ @"ETag" : @"etag" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice
+@dynamic deviceDirectoryApiId, serialNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession
+@dynamic chromeOsDevice, userDirectoryApiId, userPrimaryEmail;
 @end
 
 
@@ -2028,6 +2066,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata
+@dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataResponse
+@dynamic certificateProvisioningProcess;
 @end
 
 

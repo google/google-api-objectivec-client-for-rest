@@ -1246,3 +1246,39 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 }
 
 @end
+
+@implementation GTLRCloudIdentityQuery_PoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_PoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Policy class];
+  query.loggingName = @"cloudidentity.policies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_PoliciesList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/policies";
+  GTLRCloudIdentityQuery_PoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudIdentity_ListPoliciesResponse class];
+  query.loggingName = @"cloudidentity.policies.list";
+  return query;
+}
+
+@end

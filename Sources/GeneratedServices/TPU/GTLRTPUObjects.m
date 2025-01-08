@@ -20,6 +20,7 @@ NSString * const kGTLRTPU_AcceleratorConfig_Type_V3            = @"V3";
 NSString * const kGTLRTPU_AcceleratorConfig_Type_V4            = @"V4";
 NSString * const kGTLRTPU_AcceleratorConfig_Type_V5litePod     = @"V5LITE_POD";
 NSString * const kGTLRTPU_AcceleratorConfig_Type_V5p           = @"V5P";
+NSString * const kGTLRTPU_AcceleratorConfig_Type_V6e           = @"V6E";
 
 // GTLRTPU_AttachedDisk.mode
 NSString * const kGTLRTPU_AttachedDisk_Mode_DiskModeUnspecified = @"DISK_MODE_UNSPECIFIED";

@@ -898,9 +898,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) NSNumber *storageBytes;
 
 /**
- *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Backup_Tags *tags;
 
@@ -920,9 +924,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1082,14 +1090,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxIops;
-
-/**
- *  Optional. Deprecated: `max_iops` should be used instead of this parameter.
- *  Maximum read IOPS.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxReadIops GTLR_DEPRECATED;
 
 @end
 
@@ -1740,9 +1740,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
 /**
- *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Instance_Tags *tags;
 
@@ -1793,9 +1797,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1817,14 +1825,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxIopsPerTb;
-
-/**
- *  Optional. Deprecated: `max_iops_per_tb` should be used instead of this
- *  parameter. Maximum read IOPS per TiB.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxReadIopsPerTb GTLR_DEPRECATED;
 
 @end
 
@@ -1857,7 +1857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Locations that could not be reached. */
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1891,7 +1891,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Locations that could not be reached. */
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1968,6 +1968,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_Snapshot *> *snapshots;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2340,8 +2343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2639,9 +2642,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Snapshot_Tags *tags;
 
@@ -2661,9 +2668,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

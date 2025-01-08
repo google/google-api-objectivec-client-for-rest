@@ -1785,6 +1785,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *signature;
 
+/**
+ *  The developer id of the community gallery template. This value is set
+ *  whenever the template is created from the gallery.
+ */
+@property(nonatomic, copy, nullable) NSString *templateDeveloperId;
+
 /** The version of the community gallery template. */
 @property(nonatomic, copy, nullable) NSString *version;
 

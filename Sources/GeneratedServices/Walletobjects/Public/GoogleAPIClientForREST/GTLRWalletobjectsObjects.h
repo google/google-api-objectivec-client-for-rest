@@ -3236,7 +3236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /**
  *  Information about how a class may be discovered and instantiated from within
- *  the Android Pay app. This is done by searching for a loyalty or gift card
+ *  the Google Wallet app. This is done by searching for a loyalty or gift card
  *  program and scanning or manually entering.
  */
 @interface GTLRWalletobjects_DiscoverableProgram : GTLRObject

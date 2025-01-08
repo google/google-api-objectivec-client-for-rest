@@ -1419,15 +1419,23 @@
 
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect
 
-@dynamic ets, parent, prebuiltRule, rawJson, uri, userEvent;
+@dynamic parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent {
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v2/{+parent}/userEvents:collect";
   GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleApiHttpBody class];
   query.loggingName = @"retail.projects.locations.catalogs.userEvents.collect";

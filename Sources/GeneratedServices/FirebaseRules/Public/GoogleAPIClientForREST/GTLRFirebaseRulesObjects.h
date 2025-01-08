@@ -772,15 +772,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @interface GTLRFirebaseRules_TestRulesetRequest : GTLRObject
 
 /**
- *  Optional `Source` to be checked for correctness. This field must not be set
- *  when the resource name refers to a `Ruleset`.
+ *  Optional. Optional `Source` to be checked for correctness. This field must
+ *  not be set when the resource name refers to a `Ruleset`.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_Source *source;
 
 /**
- *  The tests to execute against the `Source`. When `Source` is provided inline,
- *  the test cases will only be run if the `Source` is syntactically and
- *  semantically valid. Inline `TestSuite` to run.
+ *  Required. The tests to execute against the `Source`. When `Source` is
+ *  provided inline, the test cases will only be run if the `Source` is
+ *  syntactically and semantically valid. Inline `TestSuite` to run.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_TestSuite *testSuite;
 
@@ -834,7 +834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_Release *releaseProperty;
 
 /**
- *  Specifies which fields to update.
+ *  Optional. Specifies which fields to update.
  *
  *  String format is a comma-separated list of fields.
  */

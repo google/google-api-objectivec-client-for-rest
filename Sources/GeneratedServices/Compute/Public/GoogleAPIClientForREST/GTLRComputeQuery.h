@@ -11688,6 +11688,88 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  Method: compute.instanceGroupManagers.resumeInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersResumeInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagersResumeInstancesRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersResumeInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersResumeInstancesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Specifies the instance template to use when creating new instances in this
  *  group. The templates for existing instances in the group do not change
  *  unless you run recreateInstances, run applyUpdatesToInstances, or set the
@@ -11814,6 +11896,273 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_InstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersSetTargetPoolsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  Method: compute.instanceGroupManagers.startInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersStartInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagersStartInstancesRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersStartInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersStartInstancesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.instanceGroupManagers.stopInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersStopInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagersStopInstancesRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersStopInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersStopInstancesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.instanceGroupManagers.suspendInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersSuspendInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_InstanceGroupManagersSuspendInstancesRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersSuspendInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersSuspendInstancesRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -13523,7 +13872,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  property value. You can also provide a negative start position, which
  *  translates to the most recent number of bytes written to the serial port.
  *  For example, -3 is interpreted as the most recent 3 bytes written to the
- *  serial console.
+ *  serial console. Note that the negative start is bounded by the retained
+ *  buffer size, and the returned serial console output will not exceed the max
+ *  buffer size.
  */
 @property(nonatomic, assign) long long start;
 
@@ -20728,6 +21079,130 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Retrieves an aggregated list of network firewall policies, listing network
+ *  firewall policies from all applicable scopes (global and regional) and
+ *  grouping the results per scope. To prevent failure, Google recommends that
+ *  you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.networkFirewallPolicies.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkFirewallPolicyAggregatedList.
+ *
+ *  Retrieves an aggregated list of network firewall policies, listing network
+ *  firewall policies from all applicable scopes (global and regional) and
+ *  grouping the results per scope. To prevent failure, Google recommends that
+ *  you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
  *  Copies rules to the specified firewall policy.
  *
  *  Method: compute.networkFirewallPolicies.cloneRules
@@ -21377,6 +21852,144 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the specified network profile.
+ *
+ *  Method: compute.networkProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkProfilesGet : GTLRComputeQuery
+
+/** Name of the network profile to return. */
+@property(nonatomic, copy, nullable) NSString *networkProfile;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkProfile.
+ *
+ *  Returns the specified network profile.
+ *
+ *  @param project Project ID for this request.
+ *  @param networkProfile Name of the network profile to return.
+ *
+ *  @return GTLRComputeQuery_NetworkProfilesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  networkProfile:(NSString *)networkProfile;
+
+@end
+
+/**
+ *  Retrieves a list of network profiles available to the specified project.
+ *
+ *  Method: compute.networkProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkProfilesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkProfilesListResponse.
+ *
+ *  Retrieves a list of network profiles available to the specified project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 
@@ -30311,6 +30924,84 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.resumeInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersResumeInstances : GTLRComputeQuery
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersResumeInstancesRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersResumeInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersResumeInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Sets the instance template to use when creating new instances or recreating
  *  instances in this group. Existing instances are not affected.
  *
@@ -30416,6 +31107,260 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.startInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersStartInstances : GTLRComputeQuery
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersStartInstancesRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersStartInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersStartInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.stopInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersStopInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersStopInstancesRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersStopInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersStopInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.suspendInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersSuspendInstances : GTLRComputeQuery
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersSuspendInstancesRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersSuspendInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSuspendInstancesRequest *)object
                         project:(NSString *)project
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -33959,6 +34904,61 @@ GTLR_DEPRECATED
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
                   securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Sets the labels on a security policy. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  Method: compute.regionSecurityPolicies.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesSetLabels : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a security policy. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_RegionSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetLabelsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 

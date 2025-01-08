@@ -209,13 +209,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Creates a space with no members. Can be used to create a named space, or a
- *  group chat in `Import mode`. For an example, see [Create a
- *  space](https://developers.google.com/workspace/chat/create-spaces). If you
- *  receive the error message `ALREADY_EXISTS` when creating a space, try a
- *  different `displayName`. An existing space within the Google Workspace
- *  organization might already use this display name. Supports the following
- *  types of
+ *  Creates a space. Can be used to create a named space, or a group chat in
+ *  `Import mode`. For an example, see [Create a
+ *  space](https://developers.google.com/workspace/chat/create-spaces). Supports
+ *  the following types of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
@@ -224,7 +221,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When authenticating as an app, the `space.customer` field must be set in the
- *  request.
+ *  request. Space membership upon creation depends on whether the space is
+ *  created in `Import mode`: * **Import mode:** No members are created. * **All
+ *  other modes:** The calling user is added as a member. This is: * The app
+ *  itself when using app authentication. * The human user when using user
+ *  authentication. If you receive the error message `ALREADY_EXISTS` when
+ *  creating a space, try a different `displayName`. An existing space within
+ *  the Google Workspace organization might already use this display name.
  *
  *  Method: chat.spaces.create
  *
@@ -249,13 +252,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Space.
  *
- *  Creates a space with no members. Can be used to create a named space, or a
- *  group chat in `Import mode`. For an example, see [Create a
- *  space](https://developers.google.com/workspace/chat/create-spaces). If you
- *  receive the error message `ALREADY_EXISTS` when creating a space, try a
- *  different `displayName`. An existing space within the Google Workspace
- *  organization might already use this display name. Supports the following
- *  types of
+ *  Creates a space. Can be used to create a named space, or a group chat in
+ *  `Import mode`. For an example, see [Create a
+ *  space](https://developers.google.com/workspace/chat/create-spaces). Supports
+ *  the following types of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
@@ -264,7 +264,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When authenticating as an app, the `space.customer` field must be set in the
- *  request.
+ *  request. Space membership upon creation depends on whether the space is
+ *  created in `Import mode`: * **Import mode:** No members are created. * **All
+ *  other modes:** The calling user is added as a member. This is: * The app
+ *  itself when using app authentication. * The human user when using user
+ *  authentication. If you receive the error message `ALREADY_EXISTS` when
+ *  creating a space, try a different `displayName`. An existing space within
+ *  the Google Workspace organization might already use this display name.
  *
  *  @param object The @c GTLRHangoutsChat_Space to include in the query.
  *

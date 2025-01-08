@@ -122,22 +122,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
 // GTLRCertificateManager_Certificate.scope
 
 /**
- *  Certificates with ALL_REGIONS scope are served from all Google Cloud
- *  regions. See https://cloud.google.com/compute/docs/regions-zones.
+ *  Use the ALL_REGIONS scope if you plan to use the certificate with
+ *  cross-region internal Application Load Balancer. The certificates are served
+ *  from all Google Cloud regions. See
+ *  https://cloud.google.com/compute/docs/regions-zones.
  *
  *  Value: "ALL_REGIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_AllRegions;
 /**
- *  Certificates with default scope are served from core Google data centers. If
- *  unsure, choose this option.
+ *  Use the DEFAULT scope if you plan to use the certificate with global
+ *  external Application Load Balancer, global external proxy Network Load
+ *  Balancer, or any of the regional Google Cloud services.
  *
  *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_Default;
 /**
- *  Certificates with scope EDGE_CACHE are special-purposed certificates, served
- *  from Edge Points of Presence. See
+ *  Use the EDGE_CACHE scope if you plan to use the certificate with Media CDN.
+ *  The certificates are served from Edge Points of Presence. See
  *  https://cloud.google.com/vpc/docs/edge-locations.
  *
  *  Value: "EDGE_CACHE"
@@ -408,16 +411,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  Optional. Immutable. The scope of the certificate.
  *
  *  Likely values:
- *    @arg @c kGTLRCertificateManager_Certificate_Scope_AllRegions Certificates
- *        with ALL_REGIONS scope are served from all Google Cloud regions. See
+ *    @arg @c kGTLRCertificateManager_Certificate_Scope_AllRegions Use the
+ *        ALL_REGIONS scope if you plan to use the certificate with cross-region
+ *        internal Application Load Balancer. The certificates are served from
+ *        all Google Cloud regions. See
  *        https://cloud.google.com/compute/docs/regions-zones. (Value:
  *        "ALL_REGIONS")
- *    @arg @c kGTLRCertificateManager_Certificate_Scope_Default Certificates
- *        with default scope are served from core Google data centers. If
- *        unsure, choose this option. (Value: "DEFAULT")
- *    @arg @c kGTLRCertificateManager_Certificate_Scope_EdgeCache Certificates
- *        with scope EDGE_CACHE are special-purposed certificates, served from
- *        Edge Points of Presence. See
+ *    @arg @c kGTLRCertificateManager_Certificate_Scope_Default Use the DEFAULT
+ *        scope if you plan to use the certificate with global external
+ *        Application Load Balancer, global external proxy Network Load
+ *        Balancer, or any of the regional Google Cloud services. (Value:
+ *        "DEFAULT")
+ *    @arg @c kGTLRCertificateManager_Certificate_Scope_EdgeCache Use the
+ *        EDGE_CACHE scope if you plan to use the certificate with Media CDN.
+ *        The certificates are served from Edge Points of Presence. See
  *        https://cloud.google.com/vpc/docs/edge-locations. (Value:
  *        "EDGE_CACHE")
  */
@@ -1303,8 +1310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have Operation.error value
- *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *  Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */

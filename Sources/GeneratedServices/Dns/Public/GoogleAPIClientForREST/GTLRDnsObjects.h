@@ -42,6 +42,8 @@
 @class GTLRDns_Policy;
 @class GTLRDns_PolicyAlternativeNameServerConfig;
 @class GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer;
+@class GTLRDns_PolicyDns64Config;
+@class GTLRDns_PolicyDns64ConfigScope;
 @class GTLRDns_PolicyNetwork;
 @class GTLRDns_Quota;
 @class GTLRDns_ResourceRecordSet;
@@ -1615,6 +1617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Configurations related to DNS64 for this Policy. */
+@property(nonatomic, strong, nullable) GTLRDns_PolicyDns64Config *dns64Config;
+
 /**
  *  Allows networks bound to this policy to receive DNS queries sent by VMs or
  *  applications over VPN connections. When enabled, a virtual IP address is
@@ -1703,6 +1708,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  populated. Public preview as of November 2022.
  */
 @property(nonatomic, copy, nullable) NSString *ipv6Address;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  DNS64 policies
+ */
+@interface GTLRDns_PolicyDns64Config : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The scope to which DNS64 config will be applied to. */
+@property(nonatomic, strong, nullable) GTLRDns_PolicyDns64ConfigScope *scope;
+
+@end
+
+
+/**
+ *  GTLRDns_PolicyDns64ConfigScope
+ */
+@interface GTLRDns_PolicyDns64ConfigScope : GTLRObject
+
+/**
+ *  Controls whether DNS64 is enabled globally at the network level.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allQueries;
 
 @property(nonatomic, copy, nullable) NSString *kind;
 

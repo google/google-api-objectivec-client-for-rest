@@ -686,7 +686,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo
-@dynamic agentId, agentType, displayName, dispositionCode, team;
+@dynamic agentId, agentType, displayName, dispositionCode, location, team,
+         teams;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"teams" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -798,6 +807,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueMetadata
+@dynamic createTime, endTime, request;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelMetadata
 //
 
@@ -813,6 +832,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelRequest
 @dynamic issueModel, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest
+@dynamic issue, parent;
 @end
 
 
@@ -1165,6 +1194,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelResponse
+@dynamic issueModel;
 @end
 
 
@@ -1323,6 +1353,25 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InterruptionData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Issue
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Issue
+@dynamic createTime, displayDescription, displayName, name, sampleUtterances,
+         updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sampleUtterances" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2442,7 +2491,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo
-@dynamic agentId, agentType, displayName, dispositionCode, team;
+@dynamic agentId, agentType, displayName, dispositionCode, location, team,
+         teams;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"teams" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2554,6 +2612,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueMetadata
+@dynamic createTime, endTime, request;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueModelMetadata
 //
 
@@ -2569,6 +2637,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueModelRequest
 @dynamic issueModel, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest
+@dynamic issue, parent;
 @end
 
 
@@ -2940,6 +3018,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelResponse
+@dynamic issueModel;
 @end
 
 

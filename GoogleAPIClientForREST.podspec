@@ -224,6 +224,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Area120Tables/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Area120Tables/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'AreaInsights' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AreaInsights/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AreaInsights/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'ArtifactRegistry' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/ArtifactRegistry/**/*.{h,m}'
@@ -1283,6 +1288,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/SecurityCommandCenter/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/SecurityCommandCenter/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'SecurityPosture' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/SecurityPosture/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/SecurityPosture/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'ServerlessVPCAccess' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

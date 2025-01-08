@@ -611,7 +611,7 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsDataScansDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

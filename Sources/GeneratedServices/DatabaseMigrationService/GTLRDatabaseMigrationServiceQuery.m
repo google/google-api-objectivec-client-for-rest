@@ -846,6 +846,25 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
 
 @end
 
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsFetchSourceObjects
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchSourceObjects";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsFetchSourceObjects *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_Operation class];
+  query.loggingName = @"datamigration.projects.locations.migrationJobs.fetchSourceObjects";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateSshScript
 
 @dynamic migrationJob;
@@ -961,6 +980,25 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
 
 @end
 
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_MigrationJobObject class];
+  query.loggingName = @"datamigration.projects.locations.migrationJobs.objects.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -979,6 +1017,52 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
   query.resource = resource;
   query.expectedObjectClass = [GTLRDatabaseMigrationService_Policy class];
   query.loggingName = @"datamigration.projects.locations.migrationJobs.objects.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/objects";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_ListMigrationJobObjectsResponse class];
+  query.loggingName = @"datamigration.projects.locations.migrationJobs.objects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsLookup
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/objects:lookup";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsLookup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_MigrationJobObject class];
+  query.loggingName = @"datamigration.projects.locations.migrationJobs.objects.lookup";
   return query;
 }
 

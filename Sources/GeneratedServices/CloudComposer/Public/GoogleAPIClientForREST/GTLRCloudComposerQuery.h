@@ -924,7 +924,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists workloads in a Cloud Composer environment. Workload is a unit that
  *  runs a single Composer component. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-2.*.*-airflow-*.*.* and newer.
  *
  *  Method: composer.projects.locations.environments.workloads.list
  *
@@ -962,7 +962,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists workloads in a Cloud Composer environment. Workload is a unit that
  *  runs a single Composer component. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-2.*.*-airflow-*.*.* and newer.
  *
  *  @param parent Required. The environment name to get workloads for, in the
  *    form:

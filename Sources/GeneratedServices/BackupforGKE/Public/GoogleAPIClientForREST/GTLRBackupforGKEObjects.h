@@ -986,7 +986,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. Human-readable description of why the backup is in the current
- *  `state`.
+ *  `state`. This field is only meant for human readability and should not be
+ *  used programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
 
@@ -1198,7 +1199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. Human-readable description of why BackupPlan is in the current
- *  `state`
+ *  `state`. This field is only meant for human readability and should not be
+ *  used programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
 
@@ -2129,8 +2131,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2460,7 +2462,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. Human-readable description of why the Restore is in its current
- *  state.
+ *  state. This field is only meant for human readability and should not be used
+ *  programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
 
@@ -2777,7 +2780,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. Human-readable description of why RestorePlan is in the current
- *  `state`
+ *  `state`. This field is only meant for human readability and should not be
+ *  used programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
 
@@ -3262,7 +3266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. A human readable message explaining why the VolumeBackup is in
- *  its current state.
+ *  its current state. This field is only meant for human consumption and should
+ *  not be used programmatically as this field is not guaranteed to be
+ *  consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 

@@ -220,7 +220,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. The resource name for this CertificateRevocationList in the
+ *  Identifier. The resource name for this CertificateRevocationList in the
  *  format `projects/ * /locations/ * /caPools/ *certificateAuthorities/ * /
  *  certificateRevocationLists/ *`.
  */
@@ -255,9 +255,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRCertificateAuthorityService_CertificateRevocationList to include in
  *    the query.
- *  @param name Output only. The resource name for this
- *    CertificateRevocationList in the format `projects/ * /locations/ *
- *    /caPools/ *certificateAuthorities/ * / certificateRevocationLists/ *`.
+ *  @param name Identifier. The resource name for this CertificateRevocationList
+ *    in the format `projects/ * /locations/ * /caPools/
+ *    *certificateAuthorities/ * / certificateRevocationLists/ *`.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsPatch
  */
@@ -673,9 +673,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. Identifier. The resource name for this CertificateAuthority in
- *  the format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/
- *  *`.
+ *  Identifier. The resource name for this CertificateAuthority in the format
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -707,9 +706,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateAuthorityService_CertificateAuthority to
  *    include in the query.
- *  @param name Output only. Identifier. The resource name for this
- *    CertificateAuthority in the format `projects/ * /locations/ * /caPools/ *
- *    /certificateAuthorities/ *`.
+ *  @param name Identifier. The resource name for this CertificateAuthority in
+ *    the format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/
+ *    *`.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch
  */
@@ -931,7 +930,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. The resource name for this Certificate in the format `projects/
+ *  Identifier. The resource name for this Certificate in the format `projects/
  *  * /locations/ * /caPools/ * /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -965,8 +964,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateAuthorityService_Certificate to include
  *    in the query.
- *  @param name Output only. The resource name for this Certificate in the
- *    format `projects/ * /locations/ * /caPools/ * /certificates/ *`.
+ *  @param name Identifier. The resource name for this Certificate in the format
+ *    `projects/ * /locations/ * /caPools/ * /certificates/ *`.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesPatch
  */
@@ -1291,8 +1290,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. Identifier. The resource name for this CaPool in the format
- *  `projects/ * /locations/ * /caPools/ *`.
+ *  Identifier. The resource name for this CaPool in the format `projects/ *
+ *  /locations/ * /caPools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1324,8 +1323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateAuthorityService_CaPool to include in
  *    the query.
- *  @param name Output only. Identifier. The resource name for this CaPool in
- *    the format `projects/ * /locations/ * /caPools/ *`.
+ *  @param name Identifier. The resource name for this CaPool in the format
+ *    `projects/ * /locations/ * /caPools/ *`.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch
  */
@@ -1658,7 +1657,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. The resource name for this CertificateTemplate in the format
+ *  Identifier. The resource name for this CertificateTemplate in the format
  *  `projects/ * /locations/ * /certificateTemplates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1691,7 +1690,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateAuthorityService_CertificateTemplate to
  *    include in the query.
- *  @param name Output only. The resource name for this CertificateTemplate in
+ *  @param name Identifier. The resource name for this CertificateTemplate in
  *    the format `projects/ * /locations/ * /certificateTemplates/ *`.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesPatch
@@ -1869,7 +1868,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: privateca.projects.locations.operations.cancel
@@ -1892,7 +1891,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCertificateAuthorityService_CancelOperationRequest

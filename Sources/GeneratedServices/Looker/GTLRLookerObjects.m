@@ -39,6 +39,9 @@ NSString * const kGTLRLooker_ExportMetadata_Source_SourceUnspecified = @"SOURCE_
 // GTLRLooker_Instance.platformEdition
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEmbedAnnual = @"LOOKER_CORE_EMBED_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEnterpriseAnnual = @"LOOKER_CORE_ENTERPRISE_ANNUAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEmbedAnnual = @"LOOKER_CORE_NONPROD_EMBED_ANNUAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEnterpriseAnnual = @"LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodStandardAnnual = @"LOOKER_CORE_NONPROD_STANDARD_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandard = @"LOOKER_CORE_STANDARD";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandardAnnual = @"LOOKER_CORE_STANDARD_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial = @"LOOKER_CORE_TRIAL";

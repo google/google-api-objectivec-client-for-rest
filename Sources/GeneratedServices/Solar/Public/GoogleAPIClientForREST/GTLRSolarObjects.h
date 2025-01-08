@@ -187,7 +187,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  */
 @property(nonatomic, copy, nullable) NSString *imageryQuality;
 
-/** The resource name for the building, of the format `building/`. */
+/**
+ *  The resource name for the building, of the format `buildings/{place_id}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Postal code (e.g., US zip code) this building is contained by. */

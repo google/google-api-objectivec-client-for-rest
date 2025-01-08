@@ -61,6 +61,7 @@
 @class GTLRServiceManagement_GenerateConfigReportRequest_OldConfig;
 @class GTLRServiceManagement_GetPolicyOptions;
 @class GTLRServiceManagement_GoSettings;
+@class GTLRServiceManagement_GoSettings_RenamedServices;
 @class GTLRServiceManagement_Http;
 @class GTLRServiceManagement_HttpRule;
 @class GTLRServiceManagement_JavaSettings;
@@ -2181,6 +2182,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @interface GTLRServiceManagement_Documentation : GTLRObject
 
+/**
+ *  Optional information about the IAM configuration. This is typically used to
+ *  link to documentation about a product's IAM roles and permissions.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalIamInfo;
+
 /** The URL to the root of documentation. */
 @property(nonatomic, copy, nullable) NSString *documentationRootUrl;
 
@@ -2823,6 +2830,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_CommonLanguageSettings *common;
 
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_GoSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceManagement_GoSettings_RenamedServices : GTLRObject
 @end
 
 

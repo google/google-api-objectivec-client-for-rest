@@ -340,6 +340,31 @@ NSString * const kGTLRNetworkManagement_Step_State_StartFromStorageBucket = @"ST
 NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing = @"VIEWER_PERMISSION_MISSING";
 
+// GTLRNetworkManagement_VpcFlowLogsConfig.aggregationInterval
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_AggregationIntervalUnspecified = @"AGGREGATION_INTERVAL_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval10Min = @"INTERVAL_10_MIN";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval15Min = @"INTERVAL_15_MIN";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval1Min = @"INTERVAL_1_MIN";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval30Sec = @"INTERVAL_30_SEC";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Min = @"INTERVAL_5_MIN";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Sec = @"INTERVAL_5_SEC";
+
+// GTLRNetworkManagement_VpcFlowLogsConfig.metadata
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_CustomMetadata = @"CUSTOM_METADATA";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_ExcludeAllMetadata = @"EXCLUDE_ALL_METADATA";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_IncludeAllMetadata = @"INCLUDE_ALL_METADATA";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_MetadataUnspecified = @"METADATA_UNSPECIFIED";
+
+// GTLRNetworkManagement_VpcFlowLogsConfig.state
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_State_Disabled = @"DISABLED";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_State_Enabled = @"ENABLED";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkManagement_VpcFlowLogsConfig.targetResourceState
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceDoesNotExist = @"TARGET_RESOURCE_DOES_NOT_EXIST";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceExists = @"TARGET_RESOURCE_EXISTS";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceStateUnspecified = @"TARGET_RESOURCE_STATE_UNSPECIFIED";
+
 // GTLRNetworkManagement_VpnTunnelInfo.routingType
 NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_Dynamic = @"DYNAMIC";
 NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_PolicyBased = @"POLICY_BASED";
@@ -505,7 +530,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 @implementation GTLRNetworkManagement_ConnectivityTest
 @dynamic bypassFirewallChecks, createTime, descriptionProperty, destination,
          displayName, labels, name, probingDetails, protocol,
-         reachabilityDetails, relatedProjects, source, updateTime;
+         reachabilityDetails, relatedProjects, returnReachabilityDetails,
+         roundTrip, source, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -791,6 +817,29 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_ListVpcFlowLogsConfigsResponse
+//
+
+@implementation GTLRNetworkManagement_ListVpcFlowLogsConfigsResponse
+@dynamic nextPageToken, unreachable, vpcFlowLogsConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"vpcFlowLogsConfigs" : [GTLRNetworkManagement_VpcFlowLogsConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"vpcFlowLogsConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_LoadBalancerBackend
 //
 
@@ -1051,9 +1100,11 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_RouteInfo
 @dynamic advertisedRouteNextHopUri, advertisedRouteSourceRouterUri, destIpRange,
-         destPortRanges, displayName, instanceTags, nccHubUri, nccSpokeUri,
-         networkUri, nextHop, nextHopType, priority, protocols, region,
-         routeScope, routeType, srcIpRange, srcPortRanges, uri;
+         destPortRanges, displayName, instanceTags, nccHubRouteUri, nccHubUri,
+         nccSpokeUri, networkUri, nextHop, nextHopNetworkUri, nextHopType,
+         nextHopUri, originatingRouteDisplayName, originatingRouteUri, priority,
+         protocols, region, routeScope, routeType, srcIpRange, srcPortRanges,
+         uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1211,6 +1262,44 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_VpcConnectorInfo
 @dynamic displayName, location, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_VpcFlowLogsConfig
+//
+
+@implementation GTLRNetworkManagement_VpcFlowLogsConfig
+@dynamic aggregationInterval, createTime, descriptionProperty, filterExpr,
+         flowSampling, interconnectAttachment, labels, metadata, metadataFields,
+         name, state, targetResourceState, updateTime, vpnTunnel;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metadataFields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_VpcFlowLogsConfig_Labels
+//
+
+@implementation GTLRNetworkManagement_VpcFlowLogsConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

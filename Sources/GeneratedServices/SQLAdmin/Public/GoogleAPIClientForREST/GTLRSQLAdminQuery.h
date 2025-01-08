@@ -1196,12 +1196,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdminQuery_InstancesPromoteReplica : GTLRSQLAdminQuery
 
 /**
- *  Set to true to invoke a replica failover to the designated DR replica. As
- *  part of replica failover, the promote operation attempts to add the original
- *  primary instance as a replica of the promoted DR replica when the original
- *  primary instance comes back online. If set to false or not specified, then
- *  the original primary instance becomes an independent Cloud SQL primary
- *  instance. Only applicable to MySQL.
+ *  Set to true to invoke a replica failover to the DR replica. As part of
+ *  replica failover, the promote operation attempts to add the original primary
+ *  instance as a replica of the promoted DR replica when the original primary
+ *  instance comes back online. If set to false or not specified, then the
+ *  original primary instance becomes an independent Cloud SQL primary instance.
  */
 @property(nonatomic, assign) BOOL failover;
 
@@ -1553,8 +1552,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Switches over from the primary instance to the designated DR replica
- *  instance.
+ *  Switches over from the primary instance to the DR replica instance.
  *
  *  Method: sql.instances.switchover
  *
@@ -1565,9 +1563,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdminQuery_InstancesSwitchover : GTLRSQLAdminQuery
 
 /**
- *  Optional. (MySQL only) Cloud SQL instance operations timeout, which is a sum
- *  of all database operations. Default value is 10 minutes and can be modified
- *  to a maximum value of 24 hours.
+ *  Optional. (MySQL and PostgreSQL only) Cloud SQL instance operations timeout,
+ *  which is a sum of all database operations. Default value is 10 minutes and
+ *  can be modified to a maximum value of 24 hours.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *dbTimeout;
 
@@ -1580,8 +1578,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Switches over from the primary instance to the designated DR replica
- *  instance.
+ *  Switches over from the primary instance to the DR replica instance.
  *
  *  @param project ID of the project that contains the replica.
  *  @param instance Cloud SQL read replica instance name.

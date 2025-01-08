@@ -507,7 +507,7 @@
 //
 
 @implementation GTLRTranslate_GlossaryConfig
-@dynamic glossary, ignoreCase;
+@dynamic contextualTranslationEnabled, glossary, ignoreCase;
 @end
 
 
@@ -1128,7 +1128,7 @@
 //
 
 @implementation GTLRTranslate_TextGlossaryConfig
-@dynamic glossary, ignoreCase;
+@dynamic contextualTranslationEnabled, glossary, ignoreCase;
 @end
 
 

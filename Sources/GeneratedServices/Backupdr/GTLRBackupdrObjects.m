@@ -416,8 +416,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 @dynamic backupApplianceBackupProperties, backupApplianceLocks, backupType,
          computeInstanceBackupProperties, consistencyTime, createTime,
          descriptionProperty, enforcedRetentionEndTime, ETag, expireTime,
-         gcpBackupPlanInfo, labels, name, resourceSizeBytes, serviceLocks,
-         state, updateTime;
+         gcpBackupPlanInfo, labels, name, resourceSizeBytes, satisfiesPzi,
+         satisfiesPzs, serviceLocks, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1021,6 +1021,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_InitializeServiceRequest
+//
+
+@implementation GTLRBackupdr_InitializeServiceRequest
+@dynamic requestId, resourceType;
 @end
 
 

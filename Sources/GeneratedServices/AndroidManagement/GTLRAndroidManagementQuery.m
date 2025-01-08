@@ -725,7 +725,14 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @implementation GTLRAndroidManagementQuery_SignupUrlsCreate
 
-@dynamic adminEmail, callbackUrl, projectId;
+@dynamic adminEmail, allowedDomains, callbackUrl, projectId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedDomains" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/signupUrls";

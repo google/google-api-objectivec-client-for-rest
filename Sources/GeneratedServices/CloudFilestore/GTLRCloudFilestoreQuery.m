@@ -406,7 +406,7 @@
 
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

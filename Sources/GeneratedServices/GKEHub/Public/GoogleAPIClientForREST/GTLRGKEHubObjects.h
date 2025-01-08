@@ -48,7 +48,6 @@
 @class GTLRGKEHub_ConfigManagementState;
 @class GTLRGKEHub_ConfigManagementSyncError;
 @class GTLRGKEHub_ConfigManagementSyncState;
-@class GTLRGKEHub_FeatureConfigRef;
 @class GTLRGKEHub_FeatureSpec;
 @class GTLRGKEHub_FeatureState;
 @class GTLRGKEHub_GoogleRpcStatus;
@@ -3259,29 +3258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 
 /**
- *  Information of the FeatureConfig applied on the MembershipFeature.
- */
-@interface GTLRGKEHub_FeatureConfigRef : GTLRObject
-
-/**
- *  Input only. Resource name of FeatureConfig, in the format:
- *  `projects/{project}/locations/global/featureConfigs/{feature_config}`.
- */
-@property(nonatomic, copy, nullable) NSString *config;
-
-/**
- *  Output only. When the FeatureConfig was last applied and copied to
- *  FeatureSpec.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *configUpdateTime;
-
-/** Output only. An id that uniquely identify a FeatureConfig object. */
-@property(nonatomic, copy, nullable) NSString *uuid;
-
-@end
-
-
-/**
  *  FeatureSpec contains user input per-feature spec information.
  */
 @interface GTLRGKEHub_FeatureSpec : GTLRObject
@@ -4061,11 +4037,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 /** Output only. When the MembershipFeature resource was deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
-/**
- *  Reference information for a FeatureConfig applied on the MembershipFeature.
- */
-@property(nonatomic, strong, nullable) GTLRGKEHub_FeatureConfigRef *featureConfigRef;
-
 /** GCP labels for this MembershipFeature. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_MembershipFeature_Labels *labels;
 
@@ -4080,7 +4051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Spec of this membershipFeature. */
+/** Optional. Spec of this membershipFeature. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FeatureSpec *spec;
 
 /** Output only. State of the this membershipFeature. */

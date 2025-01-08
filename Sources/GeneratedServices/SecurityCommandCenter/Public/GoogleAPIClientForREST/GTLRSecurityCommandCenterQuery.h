@@ -2729,6 +2729,67 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  Method: securitycenter.organizations.attackPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsAttackPathsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the attack path in the response.
+ *  Supported fields: * `valued_resources` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAttackPathsResponse`; indicates that
+ *  this is a continuation of a prior `ListAttackPaths` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list attack paths. Valid formats:
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *  `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListAttackPathsResponse.
+ *
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  @param parent Required. Name of parent to list attack paths. Valid formats:
+ *    `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *    `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsAttackPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a BigQuery export.
  *
  *  Method: securitycenter.organizations.bigQueryExports.create
@@ -4038,7 +4099,7 @@ GTLR_DEPRECATED
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: securitycenter.organizations.operations.cancel
@@ -4061,7 +4122,7 @@ GTLR_DEPRECATED
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.

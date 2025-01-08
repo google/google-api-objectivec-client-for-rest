@@ -40,6 +40,11 @@ NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePriva
 NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePublic = @"DISCOVERY_TYPE_PUBLIC";
 NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypeUnspecified = @"DISCOVERY_TYPE_UNSPECIFIED";
 
+// GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo.commercialState
+NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Active = @"ACTIVE";
+NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_CommercialStateUnspecified = @"COMMERCIAL_STATE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Onboarding = @"ONBOARDING";
+
 // GTLRAnalyticsHub_GooglePubsubV1Subscription.state
 NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_Active = @"ACTIVE";
 NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_ResourceError = @"RESOURCE_ERROR";
@@ -358,6 +363,46 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo
+//
+
+@implementation GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo
+@dynamic cloudMarketplace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo
+//
+
+@implementation GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo
+@dynamic commercialState, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfo
+//
+
+@implementation GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfo
+@dynamic cloudMarketplace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfoGoogleCloudMarketplaceInfo
+//
+
+@implementation GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfoGoogleCloudMarketplaceInfo
+@dynamic order;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_GooglePubsubV1Subscription
 //
 
@@ -422,10 +467,10 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_Listing
-@dynamic bigqueryDataset, categories, dataProvider, descriptionProperty,
-         discoveryType, displayName, documentation, icon, name, primaryContact,
-         publisher, pubsubTopic, requestAccess, resourceType,
-         restrictedExportConfig, state;
+@dynamic bigqueryDataset, categories, commercialInfo, dataProvider,
+         descriptionProperty, discoveryType, displayName, documentation, icon,
+         name, primaryContact, publisher, pubsubTopic, requestAccess,
+         resourceType, restrictedExportConfig, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -857,9 +902,10 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_Subscription
-@dynamic creationTime, dataExchange, lastModifyTime, linkedDatasetMap,
-         linkedResources, listing, name, organizationDisplayName,
-         organizationId, resourceType, state, subscriberContact;
+@dynamic commercialInfo, creationTime, dataExchange, lastModifyTime,
+         linkedDatasetMap, linkedResources, listing, name,
+         organizationDisplayName, organizationId, resourceType, state,
+         subscriberContact;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -1637,8 +1637,8 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 //
 
 @implementation GTLRDirectory_RoleAssignment
-@dynamic assignedTo, assigneeType, ETag, kind, orgUnitId, roleAssignmentId,
-         roleId, scopeType;
+@dynamic assignedTo, assigneeType, condition, ETag, kind, orgUnitId,
+         roleAssignmentId, roleId, scopeType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -261,7 +261,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. Update the connection profile without validating it. */
 @property(nonatomic, assign) BOOL force;
 
-/** Output only. The resource's name. */
+/** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -303,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDatastream_ConnectionProfile to include in the
  *    query.
- *  @param name Output only. The resource's name.
+ *  @param name Output only. Identifier. The resource's name.
  *
  *  @return GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesPatch
  */
@@ -436,7 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: datastream.projects.locations.operations.cancel
@@ -459,7 +459,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRDatastream_CancelOperationRequest to include in the
@@ -1279,7 +1279,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. Update the stream without validating it. */
 @property(nonatomic, assign) BOOL force;
 
-/** Output only. The stream's name. */
+/** Output only. Identifier. The stream's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1320,7 +1320,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Use this method to update the configuration of a stream.
  *
  *  @param object The @c GTLRDatastream_Stream to include in the query.
- *  @param name Output only. The stream's name.
+ *  @param name Output only. Identifier. The stream's name.
  *
  *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsPatch
  */

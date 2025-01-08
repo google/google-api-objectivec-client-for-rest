@@ -1667,6 +1667,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest
+@dynamic ets, prebuiltRule, rawJson, uri, userEvent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2ColorInfo
 //
 
@@ -2994,7 +3004,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2Rule
 @dynamic boostAction, condition, doNotAssociateAction, filterAction,
-         forceReturnFacetAction, ignoreAction, onewaySynonymsAction,
+         forceReturnFacetAction, ignoreAction, onewaySynonymsAction, pinAction,
          redirectAction, removeFacetAction, replacementAction,
          twowaySynonymsAction;
 @end
@@ -3101,6 +3111,30 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
     @"synonyms" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RulePinAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RulePinAction
+@dynamic pinMap;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RulePinAction_PinMap
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RulePinAction_PinMap
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

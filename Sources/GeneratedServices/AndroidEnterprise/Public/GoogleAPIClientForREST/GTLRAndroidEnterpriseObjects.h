@@ -35,7 +35,6 @@
 @class GTLRAndroidEnterprise_Device;
 @class GTLRAndroidEnterprise_DeviceReport;
 @class GTLRAndroidEnterprise_DeviceReportUpdateEvent;
-@class GTLRAndroidEnterprise_EnrollmentToken;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig;
 @class GTLRAndroidEnterprise_Entitlement;
@@ -1506,22 +1505,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 /** The variable set that is attributed to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_VariableSet *> *variableSet;
-
-@end
-
-
-/**
- *  Response message for create enrollment token.
- */
-@interface GTLRAndroidEnterprise_CreateEnrollmentTokenResponse : GTLRObject
-
-/**
- *  Deprecated: Use token instead. This field will be removed in the future.
- */
-@property(nonatomic, copy, nullable) NSString *enrollmentToken GTLR_DEPRECATED;
-
-/** [Required] The created enrollment token. */
-@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_EnrollmentToken *token;
 
 @end
 

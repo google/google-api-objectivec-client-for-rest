@@ -30,6 +30,7 @@
 @class GTLRSQLAdmin_DatabaseFlags;
 @class GTLRSQLAdmin_DatabaseInstance;
 @class GTLRSQLAdmin_DatabaseInstance_FailoverReplica;
+@class GTLRSQLAdmin_DatabaseInstance_Tags;
 @class GTLRSQLAdmin_DataCacheConfig;
 @class GTLRSQLAdmin_DemoteContext;
 @class GTLRSQLAdmin_DemoteMasterConfiguration;
@@ -86,6 +87,7 @@
 @class GTLRSQLAdmin_SqlServerAuditConfig;
 @class GTLRSQLAdmin_SqlServerDatabaseDetails;
 @class GTLRSQLAdmin_SqlServerUserDetails;
+@class GTLRSQLAdmin_SqlSubOperationType;
 @class GTLRSQLAdmin_SslCert;
 @class GTLRSQLAdmin_SslCertDetail;
 @class GTLRSQLAdmin_SyncFlags;
@@ -1555,6 +1557,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CaModeUnspecified;
 /**
+ *  Customer-managed CA hosted on Google Cloud's Certificate Authority Service
+ *  (CAS).
+ *
+ *  Value: "CUSTOMER_MANAGED_CAS_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CustomerManagedCasCa;
+/**
  *  Google-managed regional CA part of root CA hierarchy hosted on Google
  *  Cloud's Certificate Authority Service (CAS).
  *
@@ -2743,6 +2752,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDisk
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SqlOutOfDiskStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlSubOperationType.maintenanceType
+
+/**
+ *  Indicates that a standalone instance is undergoing maintenance. The instance
+ *  can be either a primary instance or a replica.
+ *
+ *  Value: "INSTANCE_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_InstanceMaintenance;
+/**
+ *  Indicates that the standalone instance is undergoing maintenance, initiated
+ *  by self-service. The instance can be either a primary instance or a replica.
+ *
+ *  Value: "INSTANCE_SELF_SERVICE_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_InstanceSelfServiceMaintenance;
+/**
+ *  Indicates that the primary instance and all of its replicas, including
+ *  cascading replicas, are undergoing maintenance. Maintenance is performed on
+ *  groups of replicas first, followed by the primary instance.
+ *
+ *  Value: "REPLICA_INCLUDED_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_ReplicaIncludedMaintenance;
+/**
+ *  Indicates that the primary instance and all of its replicas are undergoing
+ *  maintenance, initiated by self-service. Maintenance is performed on groups
+ *  of replicas first, followed by the primary instance.
+ *
+ *  Value: "REPLICA_INCLUDED_SELF_SERVICE_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_ReplicaIncludedSelfServiceMaintenance;
+/**
+ *  Maintenance type is unspecified.
+ *
+ *  Value: "SQL_MAINTENANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_SqlMaintenanceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_User.dualPasswordType
 
 /**
@@ -3383,6 +3432,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *backendType;
 
+/** Custom subject alternative names for the server certificate. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customSubjectAlternativeNames;
+
 /**
  *  The database engine type and version. The `databaseVersion` field cannot be
  *  changed after instance creation. MySQL instances: `MYSQL_8_0`, `MYSQL_5_7`
@@ -3931,8 +3983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  Optional. A primary instance and disaster recovery (DR) replica pair. A DR
  *  replica is a cross-region replica that you designate for failover in the
- *  event that the primary instance experiences regional failure. Only
- *  applicable to MySQL.
+ *  event that the primary instance experiences regional failure. Applicable to
+ *  MySQL and PostgreSQL.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ReplicationCluster *replicationCluster;
 
@@ -4036,6 +4088,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *switchTransactionLogsToCloudStorageEnabled;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys and tag values that are bound to
+ *  this instance. You must represent each item in the map as: `"" : ""`. For
+ *  example, a single resource can have the following tags: ```
+ *  "123/environment": "production", "123/costCenter": "marketing", ``` For more
+ *  information on tag creation and management, see
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance_Tags *tags;
+
 /** Output only. All database versions that are available for upgrade. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AvailableDatabaseVersion *> *upgradableDatabaseVersions;
 
@@ -4068,6 +4130,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys and tag values that are bound to
+ *  this instance. You must represent each item in the map as: `"" : ""`. For
+ *  example, a single resource can have the following tags: ```
+ *  "123/environment": "production", "123/costCenter": "marketing", ``` For more
+ *  information on tag creation and management, see
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSQLAdmin_DatabaseInstance_Tags : GTLRObject
 @end
 
 
@@ -5309,6 +5388,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AclEntry *> *authorizedNetworks;
 
 /**
+ *  Optional. Custom Subject Alternative Name(SAN)s for a Cloud SQL instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customSubjectAlternativeNames;
+
+/**
  *  Controls connectivity to private IP instances from Google services, such as
  *  BigQuery.
  *
@@ -5354,6 +5438,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CaModeUnspecified CA
  *        mode is unspecified. It is effectively the same as
  *        `GOOGLE_MANAGED_INTERNAL_CA`. (Value: "CA_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CustomerManagedCasCa
+ *        Customer-managed CA hosted on Google Cloud's Certificate Authority
+ *        Service (CAS). (Value: "CUSTOMER_MANAGED_CAS_CA")
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedCasCa
  *        Google-managed regional CA part of root CA hierarchy hosted on Google
  *        Cloud's Certificate Authority Service (CAS). (Value:
@@ -5363,6 +5450,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "GOOGLE_MANAGED_INTERNAL_CA")
  */
 @property(nonatomic, copy, nullable) NSString *serverCaMode;
+
+/**
+ *  Optional. The resource name of the server CA pool for an instance with
+ *  `CUSTOMER_MANAGED_CAS_CA` as the `server_ca_mode`. Format:
+ *  projects//locations//caPools/
+ */
+@property(nonatomic, copy, nullable) NSString *serverCaPool;
 
 /**
  *  Specify how SSL/TLS is enforced in database connections. If you must use the
@@ -5889,9 +5983,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** Name of the database instance related to this operation. */
-@property(nonatomic, copy, nullable) NSString *targetId;
+/** Optional. The sub operation based on the operation type. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlSubOperationType *subOperationType;
 
+@property(nonatomic, copy, nullable) NSString *targetId;
 @property(nonatomic, copy, nullable) NSString *targetLink;
 
 /** The project ID of the target instance related to this operation. */
@@ -5945,8 +6040,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6203,7 +6298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  A primary instance and disaster recovery (DR) replica pair. A DR replica is
  *  a cross-region replica that you designate for failover in the event that the
- *  primary instance experiences regional failure. Only applicable to MySQL.
+ *  primary instance experiences regional failure. Applicable to MySQL and
+ *  PostgreSQL.
  */
 @interface GTLRSQLAdmin_ReplicationCluster : GTLRObject
 
@@ -6226,13 +6322,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *failoverDrReplicaName;
 
 /**
- *  Output only. If set, it indicates this instance has a private service access
- *  (PSA) dns endpoint that is pointing to the primary instance of the cluster.
- *  If this instance is the primary, the dns should be pointing to this
- *  instance. After Switchover or Replica failover, this DNS endpoint points to
- *  the promoted instance. This is a read-only field, returned to the user as
- *  information. This field can exist even if a standalone instance does not yet
- *  have a replica, or had a DR replica that was deleted.
+ *  Output only. If set, this field indicates this instance has a private
+ *  service access (PSA) DNS endpoint that is pointing to the primary instance
+ *  of the cluster. If this instance is the primary, then the DNS endpoint
+ *  points to this instance. After a switchover or replica failover operation,
+ *  this DNS endpoint points to the promoted instance. This is a read-only
+ *  field, returned to the user as information. This field can exist even if a
+ *  standalone instance doesn't have a DR replica yet or the DR replica is
+ *  deleted.
  */
 @property(nonatomic, copy, nullable) NSString *psaWriteEndpoint;
 
@@ -7207,6 +7304,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The server roles for this user */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serverRoles;
+
+@end
+
+
+/**
+ *  The sub operation type based on the operation type.
+ */
+@interface GTLRSQLAdmin_SqlSubOperationType : GTLRObject
+
+/**
+ *  The type of maintenance to be performed on the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_InstanceMaintenance
+ *        Indicates that a standalone instance is undergoing maintenance. The
+ *        instance can be either a primary instance or a replica. (Value:
+ *        "INSTANCE_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_InstanceSelfServiceMaintenance
+ *        Indicates that the standalone instance is undergoing maintenance,
+ *        initiated by self-service. The instance can be either a primary
+ *        instance or a replica. (Value: "INSTANCE_SELF_SERVICE_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_ReplicaIncludedMaintenance
+ *        Indicates that the primary instance and all of its replicas, including
+ *        cascading replicas, are undergoing maintenance. Maintenance is
+ *        performed on groups of replicas first, followed by the primary
+ *        instance. (Value: "REPLICA_INCLUDED_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_ReplicaIncludedSelfServiceMaintenance
+ *        Indicates that the primary instance and all of its replicas are
+ *        undergoing maintenance, initiated by self-service. Maintenance is
+ *        performed on groups of replicas first, followed by the primary
+ *        instance. (Value: "REPLICA_INCLUDED_SELF_SERVICE_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_SqlSubOperationType_MaintenanceType_SqlMaintenanceTypeUnspecified
+ *        Maintenance type is unspecified. (Value:
+ *        "SQL_MAINTENANCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceType;
 
 @end
 
