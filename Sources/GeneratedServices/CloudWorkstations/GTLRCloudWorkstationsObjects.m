@@ -256,6 +256,25 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_GceInstanceHost
+//
+
+@implementation GTLRCloudWorkstations_GceInstanceHost
+@dynamic identifier, name, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_GcePersistentDisk
 //
 
@@ -643,6 +662,16 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_RuntimeHost
+//
+
+@implementation GTLRCloudWorkstations_RuntimeHost
+@dynamic gceInstanceHost;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_SetIamPolicyRequest
 //
 
@@ -657,7 +686,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_StartWorkstationRequest
-@dynamic ETag, validateOnly;
+@dynamic boostConfig, ETag, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -756,7 +785,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_Workstation
 @dynamic annotations, createTime, deleteTime, displayName, env, ETag, host,
-         kmsKey, labels, name, reconciling, startTime, state, uid, updateTime;
+         kmsKey, labels, name, reconciling, runtimeHost, sourceWorkstation,
+         startTime, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -388,12 +388,15 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SpeechWordInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
@@ -462,6 +465,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SpeechWordInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
@@ -2597,6 +2602,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewMessage;
 /**
+ *  An existing conversation has received a new speech recognition result. This
+ *  is mainly for delivering intermediate transcripts. The notification is
+ *  configured in ConversationProfile.new_recognition_event_notification_config.
+ *
+ *  Value: "NEW_RECOGNITION_RESULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewRecognitionResult;
+/**
  *  Type not set.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -3250,6 +3263,154 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult.messageType
+
+/**
+ *  Message contains DTMF digits.
+ *
+ *  Value: "DTMF_DIGITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_DtmfDigits;
+/**
+ *  This event indicates that the server has detected the end of the user's
+ *  speech utterance and expects no additional speech. Therefore, the server
+ *  will not process additional audio (although it may subsequently return
+ *  additional results). The client should stop sending additional audio data,
+ *  half-close the gRPC connection, and wait for any additional results until
+ *  the server closes the gRPC connection. This message is only sent if
+ *  `single_utterance` was set to `true`, and is not used otherwise.
+ *
+ *  Value: "END_OF_SINGLE_UTTERANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_EndOfSingleUtterance;
+/**
+ *  Not specified. Should never be used.
+ *
+ *  Value: "MESSAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_MessageTypeUnspecified;
+/**
+ *  Message contains DTMF digits. Before a message with DTMF_DIGITS is sent, a
+ *  message with PARTIAL_DTMF_DIGITS may be sent with DTMF digits collected up
+ *  to the time of sending, which represents an intermediate result.
+ *
+ *  Value: "PARTIAL_DTMF_DIGITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_PartialDtmfDigits;
+/**
+ *  Message contains a (possibly partial) transcript.
+ *
+ *  Value: "TRANSCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_Transcript;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents.dtmfEvents
+
+/**
+ *  Letter: 'A'.
+ *
+ *  Value: "DTMF_A"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfA;
+/**
+ *  Letter: 'B'.
+ *
+ *  Value: "DTMF_B"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfB;
+/**
+ *  Letter: 'C'.
+ *
+ *  Value: "DTMF_C"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfC;
+/**
+ *  Letter: 'D'.
+ *
+ *  Value: "DTMF_D"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfD;
+/**
+ *  Number: '8'.
+ *
+ *  Value: "DTMF_EIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfEight;
+/**
+ *  Number: '5'.
+ *
+ *  Value: "DTMF_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfFive;
+/**
+ *  Number: '4'.
+ *
+ *  Value: "DTMF_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfFour;
+/**
+ *  Number: '9'.
+ *
+ *  Value: "DTMF_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfNine;
+/**
+ *  Number: '1'.
+ *
+ *  Value: "DTMF_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfOne;
+/**
+ *  Pound/diamond/hash/square/gate/octothorpe: '#'.
+ *
+ *  Value: "DTMF_POUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfPound;
+/**
+ *  Number: '7'.
+ *
+ *  Value: "DTMF_SEVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfSeven;
+/**
+ *  Number: '6'.
+ *
+ *  Value: "DTMF_SIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfSix;
+/**
+ *  Asterisk/star: '*'.
+ *
+ *  Value: "DTMF_STAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfStar;
+/**
+ *  Number: '3'.
+ *
+ *  Value: "DTMF_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfThree;
+/**
+ *  Number: '2'.
+ *
+ *  Value: "DTMF_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfTwo;
+/**
+ *  Number: '0'.
+ *
+ *  Value: "DTMF_ZERO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfZero;
+/**
+ *  Not specified. This value may be used to indicate an absent digit.
+ *
+ *  Value: "TELEPHONY_DTMF_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_TelephonyDtmfUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.participantRole
 
 /**
@@ -3350,6 +3511,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Conver
  *  Value: "NEW_MESSAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage;
+/**
+ *  An existing conversation has received a new speech recognition result. This
+ *  is mainly for delivering intermediate transcripts. The notification is
+ *  configured in ConversationProfile.new_recognition_event_notification_config.
+ *
+ *  Value: "NEW_RECOGNITION_RESULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewRecognitionResult;
 /**
  *  Type not set.
  *
@@ -4022,6 +4191,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartR
  *  Value: "SMART_REPLY_DUAL_ENCODER_MODEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyDualEncoderModel;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult.messageType
+
+/**
+ *  This event indicates that the server has detected the end of the user's
+ *  speech utterance and expects no additional inputs. Therefore, the server
+ *  will not process additional audio (although it may subsequently return
+ *  additional results). The client should stop sending additional audio data,
+ *  half-close the gRPC connection, and wait for any additional results until
+ *  the server closes the gRPC connection. This message is only sent if
+ *  `single_utterance` was set to `true`, and is not used otherwise.
+ *
+ *  Value: "END_OF_SINGLE_UTTERANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_EndOfSingleUtterance;
+/**
+ *  Not specified. Should never be used.
+ *
+ *  Value: "MESSAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_MessageTypeUnspecified;
+/**
+ *  Message contains a (possibly partial) transcript.
+ *
+ *  Value: "TRANSCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_Transcript;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals.failureReasons
@@ -15376,6 +15573,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Payload of NEW_MESSAGE event. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Message *newMessagePayload NS_RETURNS_NOT_RETAINED;
 
+/** Payload of NEW_RECOGNITION_RESULT event. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult *newRecognitionResultPayload NS_RETURNS_NOT_RETAINED;
+
 /**
  *  Required. The type of the event that this notification refers to.
  *
@@ -15397,6 +15597,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        or telephony. It is configured in
  *        ConversationProfile.new_message_event_notification_config (Value:
  *        "NEW_MESSAGE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewRecognitionResult
+ *        An existing conversation has received a new speech recognition result.
+ *        This is mainly for delivering intermediate transcripts. The
+ *        notification is configured in
+ *        ConversationProfile.new_recognition_event_notification_config. (Value:
+ *        "NEW_RECOGNITION_RESULT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified
  *        Type not set. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError
@@ -18031,6 +18237,161 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Information for a word recognized by the speech recognizer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SpeechWordInfo : GTLRObject
+
+/**
+ *  The Speech confidence between 0.0 and 1.0 for this word. A higher number
+ *  indicates an estimated greater likelihood that the recognized word is
+ *  correct. The default of 0.0 is a sentinel value indicating that confidence
+ *  was not set. This field is not guaranteed to be fully stable over time for
+ *  the same audio input. Users should also not rely on it to always be
+ *  provided.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Time offset relative to the beginning of the audio that corresponds to the
+ *  end of the spoken word. This is an experimental feature and the accuracy of
+ *  the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endOffset;
+
+/**
+ *  Time offset relative to the beginning of the audio that corresponds to the
+ *  start of the spoken word. This is an experimental feature and the accuracy
+ *  of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startOffset;
+
+/** The word this info is for. */
+@property(nonatomic, copy, nullable) NSString *word;
+
+@end
+
+
+/**
+ *  Contains a speech recognition result corresponding to a portion of the audio
+ *  that is currently being processed or an indication that this is the end of
+ *  the single requested utterance. While end-user audio is being processed,
+ *  Dialogflow sends a series of results. Each result may contain a `transcript`
+ *  value. A transcript represents a portion of the utterance. While the
+ *  recognizer is processing audio, transcript values may be interim values or
+ *  finalized values. Once a transcript is finalized, the `is_final` value is
+ *  set to true and processing continues for the next transcript. If
+ *  `StreamingDetectIntentRequest.query_input.audio_config.single_utterance` was
+ *  true, and the recognizer has completed processing audio, the `message_type`
+ *  value is set to `END_OF_SINGLE_UTTERANCE and the following (last) result
+ *  contains the last finalized transcript. The complete end-user utterance is
+ *  determined by concatenating the finalized transcript values received for the
+ *  series of results. In the following example, single utterance is enabled. In
+ *  the case where single utterance is not enabled, result 7 would not occur.
+ *  ``` Num | transcript | message_type | is_final --- | -----------------------
+ *  | ----------------------- | -------- 1 | "tube" | TRANSCRIPT | false 2 | "to
+ *  be a" | TRANSCRIPT | false 3 | "to be" | TRANSCRIPT | false 4 | "to be or
+ *  not to be" | TRANSCRIPT | true 5 | "that's" | TRANSCRIPT | false 6 | "that
+ *  is | TRANSCRIPT | false 7 | unset | END_OF_SINGLE_UTTERANCE | unset 8 | "
+ *  that is the question" | TRANSCRIPT | true ``` Concatenating the finalized
+ *  transcripts with `is_final` set to true, the complete utterance becomes "to
+ *  be or not to be that is the question".
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult : GTLRObject
+
+/**
+ *  The Speech confidence between 0.0 and 1.0 for the current portion of audio.
+ *  A higher number indicates an estimated greater likelihood that the
+ *  recognized words are correct. The default of 0.0 is a sentinel value
+ *  indicating that confidence was not set. This field is typically only
+ *  provided if `is_final` is true and you should not rely on it being accurate
+ *  or even set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** DTMF digits. Populated if and only if `message_type` = `DTMF_DIGITS`. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents *dtmfDigits;
+
+/**
+ *  If `false`, the `StreamingRecognitionResult` represents an interim result
+ *  that may change. If `true`, the recognizer will not return any further
+ *  hypotheses about this piece of the audio. May only be populated for
+ *  `message_type` = `TRANSCRIPT`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFinal;
+
+/** Detected language code for the transcript. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Type of the result message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_DtmfDigits
+ *        Message contains DTMF digits. (Value: "DTMF_DIGITS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_EndOfSingleUtterance
+ *        This event indicates that the server has detected the end of the
+ *        user's speech utterance and expects no additional speech. Therefore,
+ *        the server will not process additional audio (although it may
+ *        subsequently return additional results). The client should stop
+ *        sending additional audio data, half-close the gRPC connection, and
+ *        wait for any additional results until the server closes the gRPC
+ *        connection. This message is only sent if `single_utterance` was set to
+ *        `true`, and is not used otherwise. (Value: "END_OF_SINGLE_UTTERANCE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_MessageTypeUnspecified
+ *        Not specified. Should never be used. (Value:
+ *        "MESSAGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_PartialDtmfDigits
+ *        Message contains DTMF digits. Before a message with DTMF_DIGITS is
+ *        sent, a message with PARTIAL_DTMF_DIGITS may be sent with DTMF digits
+ *        collected up to the time of sending, which represents an intermediate
+ *        result. (Value: "PARTIAL_DTMF_DIGITS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_Transcript
+ *        Message contains a (possibly partial) transcript. (Value:
+ *        "TRANSCRIPT")
+ */
+@property(nonatomic, copy, nullable) NSString *messageType;
+
+/**
+ *  Time offset of the end of this Speech recognition result relative to the
+ *  beginning of the audio. Only populated for `message_type` = `TRANSCRIPT`.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *speechEndOffset;
+
+/**
+ *  Word-specific information for the words recognized by Speech in transcript.
+ *  Populated if and only if `message_type` = `TRANSCRIPT` and
+ *  [InputAudioConfig.enable_word_info] is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SpeechWordInfo *> *speechWordInfo;
+
+/**
+ *  An estimate of the likelihood that the speech recognizer will not change its
+ *  guess about this interim recognition result: * If the value is unspecified
+ *  or 0.0, Dialogflow didn't compute the stability. In particular, Dialogflow
+ *  will only provide stability for `TRANSCRIPT` results with `is_final =
+ *  false`. * Otherwise, the value is in (0.0, 1.0] where 0.0 means completely
+ *  unstable and 1.0 means completely stable.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stability;
+
+/**
+ *  Transcript text representing the words that the user spoke. Populated if and
+ *  only if `message_type` = `TRANSCRIPT`.
+ */
+@property(nonatomic, copy, nullable) NSString *transcript;
+
+@end
+
+
+/**
  *  The response message for Participants.SuggestArticles.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse : GTLRObject
@@ -18197,6 +18558,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the returned replies is set in SmartReplyConfig.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer *> *smartReplyAnswers;
+
+@end
+
+
+/**
+ *  A wrapper of repeated TelephonyDtmf digits.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents : GTLRObject
+
+/** A sequence of TelephonyDtmf digits. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dtmfEvents;
 
 @end
 
@@ -18507,6 +18879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Payload of NEW_MESSAGE event. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Message *newMessagePayload NS_RETURNS_NOT_RETAINED;
 
+/** Payload of NEW_RECOGNITION_RESULT event. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult *newRecognitionResultPayload NS_RETURNS_NOT_RETAINED;
+
 /**
  *  The type of the event that this notification refers to.
  *
@@ -18528,6 +18903,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        or telephony. It is configured in
  *        ConversationProfile.new_message_event_notification_config (Value:
  *        "NEW_MESSAGE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewRecognitionResult
+ *        An existing conversation has received a new speech recognition result.
+ *        This is mainly for delivering intermediate transcripts. The
+ *        notification is configured in
+ *        ConversationProfile.new_recognition_event_notification_config. (Value:
+ *        "NEW_RECOGNITION_RESULT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified
  *        Type not set. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError
@@ -20821,6 +21202,139 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        "SMART_REPLY_DUAL_ENCODER_MODEL")
  */
 @property(nonatomic, copy, nullable) NSString *trainingModelType;
+
+@end
+
+
+/**
+ *  Information for a word recognized by the speech recognizer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SpeechWordInfo : GTLRObject
+
+/**
+ *  The Speech confidence between 0.0 and 1.0 for this word. A higher number
+ *  indicates an estimated greater likelihood that the recognized word is
+ *  correct. The default of 0.0 is a sentinel value indicating that confidence
+ *  was not set. This field is not guaranteed to be fully stable over time for
+ *  the same audio input. Users should also not rely on it to always be
+ *  provided.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Time offset relative to the beginning of the audio that corresponds to the
+ *  end of the spoken word. This is an experimental feature and the accuracy of
+ *  the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endOffset;
+
+/**
+ *  Time offset relative to the beginning of the audio that corresponds to the
+ *  start of the spoken word. This is an experimental feature and the accuracy
+ *  of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startOffset;
+
+/** The word this info is for. */
+@property(nonatomic, copy, nullable) NSString *word;
+
+@end
+
+
+/**
+ *  Contains a speech recognition result corresponding to a portion of the audio
+ *  that is currently being processed or an indication that this is the end of
+ *  the single requested utterance. While end-user audio is being processed,
+ *  Dialogflow sends a series of results. Each result may contain a `transcript`
+ *  value. A transcript represents a portion of the utterance. While the
+ *  recognizer is processing audio, transcript values may be interim values or
+ *  finalized values. Once a transcript is finalized, the `is_final` value is
+ *  set to true and processing continues for the next transcript. If
+ *  `StreamingDetectIntentRequest.query_input.audio_config.single_utterance` was
+ *  true, and the recognizer has completed processing audio, the `message_type`
+ *  value is set to `END_OF_SINGLE_UTTERANCE and the following (last) result
+ *  contains the last finalized transcript. The complete end-user utterance is
+ *  determined by concatenating the finalized transcript values received for the
+ *  series of results. In the following example, single utterance is enabled. In
+ *  the case where single utterance is not enabled, result 7 would not occur.
+ *  ``` Num | transcript | message_type | is_final --- | -----------------------
+ *  | ----------------------- | -------- 1 | "tube" | TRANSCRIPT | false 2 | "to
+ *  be a" | TRANSCRIPT | false 3 | "to be" | TRANSCRIPT | false 4 | "to be or
+ *  not to be" | TRANSCRIPT | true 5 | "that's" | TRANSCRIPT | false 6 | "that
+ *  is | TRANSCRIPT | false 7 | unset | END_OF_SINGLE_UTTERANCE | unset 8 | "
+ *  that is the question" | TRANSCRIPT | true ``` Concatenating the finalized
+ *  transcripts with `is_final` set to true, the complete utterance becomes "to
+ *  be or not to be that is the question".
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult : GTLRObject
+
+/**
+ *  The Speech confidence between 0.0 and 1.0 for the current portion of audio.
+ *  A higher number indicates an estimated greater likelihood that the
+ *  recognized words are correct. The default of 0.0 is a sentinel value
+ *  indicating that confidence was not set. This field is typically only
+ *  provided if `is_final` is true and you should not rely on it being accurate
+ *  or even set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  If `false`, the `StreamingRecognitionResult` represents an interim result
+ *  that may change. If `true`, the recognizer will not return any further
+ *  hypotheses about this piece of the audio. May only be populated for
+ *  `message_type` = `TRANSCRIPT`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFinal;
+
+/** Detected language code for the transcript. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Type of the result message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_EndOfSingleUtterance
+ *        This event indicates that the server has detected the end of the
+ *        user's speech utterance and expects no additional inputs. Therefore,
+ *        the server will not process additional audio (although it may
+ *        subsequently return additional results). The client should stop
+ *        sending additional audio data, half-close the gRPC connection, and
+ *        wait for any additional results until the server closes the gRPC
+ *        connection. This message is only sent if `single_utterance` was set to
+ *        `true`, and is not used otherwise. (Value: "END_OF_SINGLE_UTTERANCE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_MessageTypeUnspecified
+ *        Not specified. Should never be used. (Value:
+ *        "MESSAGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_Transcript
+ *        Message contains a (possibly partial) transcript. (Value:
+ *        "TRANSCRIPT")
+ */
+@property(nonatomic, copy, nullable) NSString *messageType;
+
+/**
+ *  Time offset of the end of this Speech recognition result relative to the
+ *  beginning of the audio. Only populated for `message_type` = `TRANSCRIPT`.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *speechEndOffset;
+
+/**
+ *  Word-specific information for the words recognized by Speech in transcript.
+ *  Populated if and only if `message_type` = `TRANSCRIPT` and
+ *  [InputAudioConfig.enable_word_info] is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SpeechWordInfo *> *speechWordInfo;
+
+/**
+ *  Transcript text representing the words that the user spoke. Populated if and
+ *  only if `message_type` = `TRANSCRIPT`.
+ */
+@property(nonatomic, copy, nullable) NSString *transcript;
 
 @end
 

@@ -2574,8 +2574,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
-@dynamic categories, descriptionProperty, displayName, name, sensitivityScore,
-         supportedBy, versions;
+@dynamic categories, descriptionProperty, displayName, example, name,
+         sensitivityScore, supportedBy, versions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

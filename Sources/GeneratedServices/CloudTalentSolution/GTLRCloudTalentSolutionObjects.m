@@ -309,6 +309,13 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_Key
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchModeUnspecified = @"KEYWORD_MATCH_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchTitleOnly = @"KEYWORD_MATCH_TITLE_ONLY";
 
+// GTLRCloudTalentSolution_SearchJobsRequest.relevanceThreshold
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_High = @"HIGH";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Low = @"LOW";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Lowest = @"LOWEST";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Medium = @"MEDIUM";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_RelevanceThresholdUnspecified = @"RELEVANCE_THRESHOLD_UNSPECIFIED";
+
 // GTLRCloudTalentSolution_SearchJobsRequest.searchMode
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_FeaturedJobSearch = @"FEATURED_JOB_SEARCH";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_JobSearch = @"JOB_SEARCH";
@@ -1023,7 +1030,7 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 @dynamic customRankingInfo, disableKeywordMatch, diversificationLevel,
          enableBroadening, histogramQueries, jobQuery, jobView,
          keywordMatchMode, maxPageSize, offset, orderBy, pageToken,
-         requestMetadata, searchMode;
+         relevanceThreshold, requestMetadata, searchMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

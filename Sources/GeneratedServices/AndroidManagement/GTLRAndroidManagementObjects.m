@@ -529,6 +529,11 @@ NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreM
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blocklist = @"BLOCKLIST";
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified = @"PLAY_STORE_MODE_UNSPECIFIED";
 
+// GTLRAndroidManagement_PersonalUsagePolicies.privateSpacePolicy
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceAllowed = @"PRIVATE_SPACE_ALLOWED";
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceDisallowed = @"PRIVATE_SPACE_DISALLOWED";
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpacePolicyUnspecified = @"PRIVATE_SPACE_POLICY_UNSPECIFIED";
+
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
 NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Beta = @"BETA";
@@ -774,6 +779,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 // GTLRAndroidManagement_WifiRoamingSetting.wifiRoamingMode
 NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingAggressive = @"WIFI_ROAMING_AGGRESSIVE";
 NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault = @"WIFI_ROAMING_DEFAULT";
+NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDisabled = @"WIFI_ROAMING_DISABLED";
 NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingModeUnspecified = @"WIFI_ROAMING_MODE_UNSPECIFIED";
 
 // GTLRAndroidManagement_WifiSsidPolicy.wifiSsidPolicyType
@@ -2232,7 +2238,8 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_PersonalUsagePolicies
 @dynamic accountTypesWithManagementDisabled, cameraDisabled, maxDaysWithWorkOff,
-         personalApplications, personalPlayStoreMode, screenCaptureDisabled;
+         personalApplications, personalPlayStoreMode, privateSpacePolicy,
+         screenCaptureDisabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

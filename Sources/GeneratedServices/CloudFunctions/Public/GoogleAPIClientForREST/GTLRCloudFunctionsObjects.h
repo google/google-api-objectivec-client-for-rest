@@ -274,6 +274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Ope
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction;
 /**
+ *  DetachFunction
+ *
+ *  Value: "DETACH_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DetachFunction;
+/**
  *  Unspecified
  *
  *  Value: "OPERATIONTYPE_UNSPECIFIED"
@@ -1390,6 +1396,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        CreateFunction (Value: "CREATE_FUNCTION")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction
  *        DeleteFunction (Value: "DELETE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DetachFunction
+ *        DetachFunction (Value: "DETACH_FUNCTION")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_OperationtypeUnspecified
  *        Unspecified (Value: "OPERATIONTYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RedirectFunctionUpgradeTraffic

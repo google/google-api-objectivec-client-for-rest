@@ -549,8 +549,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
-         serviceRootUrl, summary;
+@dynamic additionalIamInfo, documentationRootUrl, overview, pages, rules,
+         sectionOverrides, serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

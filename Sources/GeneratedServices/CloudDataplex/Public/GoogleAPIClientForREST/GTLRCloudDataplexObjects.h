@@ -5110,10 +5110,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels *labels;
 
 /**
- *  Output only. The relative resource name of the scan, of the form:
- *  projects/{project}/locations/{location_id}/dataScans/{datascan_id}, where
- *  project refers to a project_id or project_number and location_id refers to a
- *  GCP region.
+ *  Output only. Identifier. The relative resource name of the scan, of the
+ *  form: projects/{project}/locations/{location_id}/dataScans/{datascan_id},
+ *  where project refers to a project_id or project_number and location_id
+ *  refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5511,10 +5511,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** Optional. The time when the DataScanJob execution was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *latestJobCreateTime;
 
-/** The time when the latest DataScanJob ended. */
+/** Optional. The time when the latest DataScanJob ended. */
 @property(nonatomic, strong, nullable) GTLRDateTime *latestJobEndTime;
 
-/** The time when the latest DataScanJob started. */
+/** Optional. The time when the latest DataScanJob started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *latestJobStartTime;
 
 @end
@@ -5553,7 +5553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *message;
 
 /**
- *  Output only. The relative resource name of the DataScanJob, of the form:
+ *  Output only. Identifier. The relative resource name of the DataScanJob, of
+ *  the form:
  *  projects/{project}/locations/{location_id}/dataScans/{datascan_id}/jobs/{job_id},
  *  where project refers to a project_id or project_number and location_id
  *  refers to a GCP region.
@@ -6800,8 +6801,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  {aspect_type_reference}: matches aspects that belong to the specified aspect
  *  type and are attached directly to the entry.
  *  {aspect_type_reference}\@{path}: matches aspects that belong to the
- *  specified aspect type and path. {aspect_type_reference}\@*: matches aspects
- *  that belong to the specified aspect type for all paths.Replace
+ *  specified aspect type and path. \@* : matches aspects of the given type for
+ *  all paths. *\@path : matches aspects of all types on the given path. Replace
  *  {aspect_type_reference} with a reference to the aspect type, in the format
  *  {project_id_or_number}.{location_id}.{aspect_type_id}.If you leave this
  *  field empty, it is treated as specifying exactly those aspects that are

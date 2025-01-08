@@ -1648,6 +1648,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @end
 
 /**
+ *  Retrieves objects from the source database that can be selected for data
+ *  migration. This is applicable for the following migrations: 1. PostgreSQL to
+ *  Cloud SQL for PostgreSQL 2. PostgreSQL to AlloyDB for PostgreSQL.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.fetchSourceObjects
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsFetchSourceObjects : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. The resource name for the migration job for which source objects
+ *  should be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Retrieves objects from the source database that can be selected for data
+ *  migration. This is applicable for the following migrations: 1. PostgreSQL to
+ *  Cloud SQL for PostgreSQL 2. PostgreSQL to AlloyDB for PostgreSQL.
+ *
+ *  @param name Required. The resource name for the migration job for which
+ *    source objects should be returned.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsFetchSourceObjects
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Generate a SSH configuration script to configure the reverse SSH
  *  connectivity.
  *
@@ -1854,6 +1888,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @end
 
 /**
+ *  Use this method to get details about a migration job object.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGet : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The name of the migration job object resource to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_MigrationJobObject.
+ *
+ *  Use this method to get details about a migration job object.
+ *
+ *  @param name Required. The name of the migration job object resource to get.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1899,6 +1959,84 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Use this method to list the objects of a specific migration job.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsList : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Maximum number of objects to return. Default is 50. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token received from a previous `ListMigrationJObObjectsRequest` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListMigrationJobObjectsRequest` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent migration job that owns the collection of objects. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_ListMigrationJobObjectsResponse.
+ *
+ *  Use this method to list the objects of a specific migration job.
+ *
+ *  @param parent Required. The parent migration job that owns the collection of
+ *    objects.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Use this method to look up a migration job object by its source object
+ *  identifier.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsLookup : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The parent migration job that owns the collection of objects. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_MigrationJobObject.
+ *
+ *  Use this method to look up a migration job object by its source object
+ *  identifier.
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest to include in
+ *    the query.
+ *  @param parent Required. The parent migration job that owns the collection of
+ *    objects.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsLookup
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -2312,7 +2450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: datamigration.projects.locations.operations.cancel
@@ -2335,7 +2473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRDatabaseMigrationService_CancelOperationRequest to

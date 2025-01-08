@@ -35,6 +35,7 @@
 @class GTLRNetworkSecurity_CertificateProviderInstance;
 @class GTLRNetworkSecurity_ClientTlsPolicy;
 @class GTLRNetworkSecurity_ClientTlsPolicy_Labels;
+@class GTLRNetworkSecurity_CustomInterceptProfile;
 @class GTLRNetworkSecurity_CustomMirroringProfile;
 @class GTLRNetworkSecurity_Destination;
 @class GTLRNetworkSecurity_Expr;
@@ -370,6 +371,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_SecurityProfile.type
 
+/**
+ *  Profile type for TPPI.
+ *
+ *  Value: "CUSTOM_INTERCEPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomIntercept;
 /**
  *  Profile type for packet mirroring v2
  *
@@ -907,10 +914,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  */
 @interface GTLRNetworkSecurity_AuthzPolicyAuthzRule : GTLRObject
 
-/** Optional. Describes properties of one or more sources of a request. */
+/** Optional. Describes properties of a source of a request. */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleFrom *from;
 
-/** Optional. Describes properties of one or more targets of a request. */
+/** Optional. Describes properties of a target of a request. */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleTo *to;
 
 /**
@@ -937,9 +944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Optional. Describes the properties of a request's sources. At least one of
- *  sources or notSources must be specified. Limited to 5 sources. A match
- *  occurs when ANY source (in sources or notSources) matches the request.
- *  Within a single source, the match follows AND semantics across fields and OR
+ *  sources or notSources must be specified. Limited to 1 source. A match occurs
+ *  when ANY source (in sources or notSources) matches the request. Within a
+ *  single source, the match follows AND semantics across fields and OR
  *  semantics within a single field, i.e. a match occurs when ANY principal
  *  matches AND ANY ipBlocks match.
  */
@@ -1085,8 +1092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Optional. Describes properties of one or more targets of a request. At least
- *  one of operations or notOperations must be specified. Limited to 5
- *  operations. A match occurs when ANY operation (in operations or
+ *  one of operations or notOperations must be specified. Limited to 1
+ *  operation. A match occurs when ANY operation (in operations or
  *  notOperations) matches. Within an operation, the match follows AND semantics
  *  across fields and OR semantics within a field, i.e. a match occurs when ANY
  *  path matches AND ANY header matches and ANY method matches.
@@ -1346,6 +1353,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /** Required. Source address group to clone items from. */
 @property(nonatomic, copy, nullable) NSString *sourceAddressGroup;
+
+@end
+
+
+/**
+ *  CustomInterceptProfile defines the Packet Intercept Endpoint Group used to
+ *  intercept traffic to a third-party firewall in a Firewall rule.
+ */
+@interface GTLRNetworkSecurity_CustomInterceptProfile : GTLRObject
+
+/**
+ *  Required. The InterceptEndpointGroup to which traffic associated with the SP
+ *  should be mirrored.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptEndpointGroup;
 
 @end
 
@@ -2859,12 +2881,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  SecurityProfile is a resource that defines the behavior for one of many
- *  ProfileTypes. Next ID: 12
+ *  ProfileTypes.
  */
 @interface GTLRNetworkSecurity_SecurityProfile : GTLRObject
 
 /** Output only. Resource creation timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The custom TPPI configuration for the SecurityProfile. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_CustomInterceptProfile *customInterceptProfile;
 
 /** The custom Packet Mirroring v2 configuration for the SecurityProfile. */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_CustomMirroringProfile *customMirroringProfile;
@@ -2901,6 +2926,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  configures.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_CustomIntercept Profile
+ *        type for TPPI. (Value: "CUSTOM_INTERCEPT")
  *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring Profile
  *        type for packet mirroring v2 (Value: "CUSTOM_MIRRORING")
  *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified
@@ -2930,12 +2957,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  SecurityProfileGroup is a resource that defines the behavior for various
- *  ProfileTypes. Next ID: 11
+ *  ProfileTypes.
  */
 @interface GTLRNetworkSecurity_SecurityProfileGroup : GTLRObject
 
 /** Output only. Resource creation timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Reference to a SecurityProfile with the CustomIntercept
+ *  configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *customInterceptProfile;
 
 /**
  *  Optional. Reference to a SecurityProfile with the CustomMirroring

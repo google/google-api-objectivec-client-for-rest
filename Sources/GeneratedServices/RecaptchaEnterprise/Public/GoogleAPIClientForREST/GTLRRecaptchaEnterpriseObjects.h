@@ -341,8 +341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
 
 /**
- *  Disable Fraud Prevention for this assessment, regardless of opt-in status or
- *  Google Cloud console settings.
+ *  Disable Fraud Prevention for this assessment, regardless of Google Cloud
+ *  console settings.
  *
  *  Value: "DISABLED"
  */
@@ -355,10 +355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled;
 /**
- *  Default, unspecified setting. If opted in for automatic detection,
- *  `fraud_prevention_assessment` is returned based on the request. Otherwise,
- *  `fraud_prevention_assessment` is returned if `transaction_data` is present
- *  in the `Event` and Fraud Prevention is enabled in the Google Cloud console.
+ *  Default, unspecified setting. `fraud_prevention_assessment` is returned if
+ *  `transaction_data` is present in `Event` and Fraud Prevention is enabled in
+ *  the Google Cloud console.
  *
  *  Value: "FRAUD_PREVENTION_UNSPECIFIED"
  */
@@ -1281,17 +1280,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled
- *        Disable Fraud Prevention for this assessment, regardless of opt-in
- *        status or Google Cloud console settings. (Value: "DISABLED")
+ *        Disable Fraud Prevention for this assessment, regardless of Google
+ *        Cloud console settings. (Value: "DISABLED")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled
  *        Enable Fraud Prevention for this assessment, if Fraud Prevention is
  *        enabled in the Google Cloud console. (Value: "ENABLED")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_FraudPreventionUnspecified
- *        Default, unspecified setting. If opted in for automatic detection,
- *        `fraud_prevention_assessment` is returned based on the request.
- *        Otherwise, `fraud_prevention_assessment` is returned if
- *        `transaction_data` is present in the `Event` and Fraud Prevention is
- *        enabled in the Google Cloud console. (Value:
+ *        Default, unspecified setting. `fraud_prevention_assessment` is
+ *        returned if `transaction_data` is present in `Event` and Fraud
+ *        Prevention is enabled in the Google Cloud console. (Value:
  *        "FRAUD_PREVENTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *fraudPrevention;

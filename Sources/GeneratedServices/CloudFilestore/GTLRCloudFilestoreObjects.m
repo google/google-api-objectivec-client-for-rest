@@ -263,7 +263,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_FixedIOPS
-@dynamic maxIops, maxReadIops;
+@dynamic maxIops;
 @end
 
 
@@ -564,7 +564,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_IOPSPerTB
-@dynamic maxIopsPerTb, maxReadIopsPerTb;
+@dynamic maxIopsPerTb;
 @end
 
 
@@ -664,11 +664,12 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_ListSnapshotsResponse
-@dynamic nextPageToken, snapshots;
+@dynamic nextPageToken, snapshots, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"snapshots" : [GTLRCloudFilestore_Snapshot class]
+    @"snapshots" : [GTLRCloudFilestore_Snapshot class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

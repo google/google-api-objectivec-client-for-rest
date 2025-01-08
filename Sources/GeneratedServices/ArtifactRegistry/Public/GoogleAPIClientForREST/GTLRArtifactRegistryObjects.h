@@ -2749,6 +2749,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The repository endpoint, for example:
+ *  `us-docker.pkg.dev/my-proj/my-repo`.
+ */
+@property(nonatomic, copy, nullable) NSString *registryUri;
+
 /** Configuration specific for a Remote Repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_RemoteRepositoryConfig *remoteRepositoryConfig;
 

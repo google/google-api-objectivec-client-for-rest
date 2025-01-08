@@ -194,7 +194,7 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_Auth
-@dynamic accessLevels, audiences, claims, credentialId, presenter, principal;
+@dynamic accessLevels, audiences, claims, presenter, principal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -289,7 +289,21 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_CheckResponse
-@dynamic headers, status;
+@dynamic dynamicMetadata, headers, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_CheckResponse_DynamicMetadata
+//
+
+@implementation GTLRServiceControl_CheckResponse_DynamicMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

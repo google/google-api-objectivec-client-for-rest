@@ -197,6 +197,11 @@ NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Info = @"INFO"
 NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Warning = @"WARNING";
 
+// GTLRShoppingContent_ProductSustainabilityIncentive.type
+NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvPriceDiscount = @"EV_PRICE_DISCOUNT";
+NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvTaxCredit = @"EV_TAX_CREDIT";
+NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRShoppingContent_ProductView.aggregatedDestinationStatus
 NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_AggregatedStatusUnspecified = @"AGGREGATED_STATUS_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Eligible = @"ELIGIBLE";
@@ -3663,8 +3668,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          shippingLength, shippingWeight, shippingWidth,
          shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
          structuredDescription, structuredTitle, subscriptionCost,
-         targetCountry, taxCategory, taxes, title, transitTimeLabel,
-         unitPricingBaseMeasure, unitPricingMeasure, virtualModelLink;
+         sustainabilityIncentives, targetCountry, taxCategory, taxes, title,
+         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure,
+         virtualModelLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3694,6 +3700,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"shipping" : [GTLRShoppingContent_ProductShipping class],
     @"shoppingAdsExcludedCountries" : [NSString class],
     @"sizes" : [NSString class],
+    @"sustainabilityIncentives" : [GTLRShoppingContent_ProductSustainabilityIncentive class],
     @"taxes" : [GTLRShoppingContent_ProductTax class]
   };
   return map;
@@ -4175,6 +4182,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_ProductSubscriptionCost
 @dynamic amount, period, periodLength;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductSustainabilityIncentive
+//
+
+@implementation GTLRShoppingContent_ProductSustainabilityIncentive
+@dynamic amount, percentage, type;
 @end
 
 

@@ -219,11 +219,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_EkmMetadata_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_EkmMetadata_EkmSolution_Thales;
 /**
- *  EKM Partner Virtu
+ *  This enum value is never used.
  *
  *  Value: "VIRTRU"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_EkmMetadata_EkmSolution_Virtru;
+FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_EkmMetadata_EkmSolution_Virtru GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudControlsPartnerService_PartnerPermissions.partnerPermissions
@@ -714,7 +714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_WorkloadOnbo
  *    @arg @c kGTLRCloudControlsPartnerService_EkmMetadata_EkmSolution_Thales
  *        EKM Partner Thales (Value: "THALES")
  *    @arg @c kGTLRCloudControlsPartnerService_EkmMetadata_EkmSolution_Virtru
- *        EKM Partner Virtu (Value: "VIRTRU")
+ *        This enum value is never used. (Value: "VIRTRU")
  */
 @property(nonatomic, copy, nullable) NSString *ekmSolution;
 

@@ -74,7 +74,7 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint
 @dynamic booleanConstraint, constraintDefault, descriptionProperty, displayName,
-         listConstraint, name, supportsDryRun;
+         listConstraint, name, supportsDryRun, supportsSimulation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -294,7 +294,21 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 //
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpecPolicyRule
-@dynamic allowAll, condition, denyAll, enforce, values;
+@dynamic allowAll, condition, denyAll, enforce, parameters, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters
+//
+
+@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

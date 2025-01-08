@@ -3752,6 +3752,126 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Applies the admin Consent resources for the FHIR store and reindexes the
+ *  underlying resources in the FHIR store according to the aggregate consents.
+ *  This method also updates the `consent_config.enforced_admin_consents` field
+ *  of the FhirStore unless `validate_only=true` in ApplyAdminConsentsRequest.
+ *  Any admin Consent resource change after this operation execution (including
+ *  deletion) requires you to call ApplyAdminConsents again for the change to
+ *  take effect. This method returns an Operation that can be used to track the
+ *  progress of the resources that were reindexed, by calling GetOperation. Upon
+ *  completion, the ApplyAdminConsentsResponse additionally contains the number
+ *  of resources that were reindexed. If at least one Consent resource contains
+ *  an error or fails be be enforced for any reason, the method returns an error
+ *  instead of an Operation. No resources will be reindexed and the
+ *  `consent_config.enforced_admin_consents` field will be unchanged. To enforce
+ *  a consent check for data access, `consent_config.access_enforced` must be
+ *  set to true for the FhirStore.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.applyAdminConsents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyAdminConsents : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to enforce, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Applies the admin Consent resources for the FHIR store and reindexes the
+ *  underlying resources in the FHIR store according to the aggregate consents.
+ *  This method also updates the `consent_config.enforced_admin_consents` field
+ *  of the FhirStore unless `validate_only=true` in ApplyAdminConsentsRequest.
+ *  Any admin Consent resource change after this operation execution (including
+ *  deletion) requires you to call ApplyAdminConsents again for the change to
+ *  take effect. This method returns an Operation that can be used to track the
+ *  progress of the resources that were reindexed, by calling GetOperation. Upon
+ *  completion, the ApplyAdminConsentsResponse additionally contains the number
+ *  of resources that were reindexed. If at least one Consent resource contains
+ *  an error or fails be be enforced for any reason, the method returns an error
+ *  instead of an Operation. No resources will be reindexed and the
+ *  `consent_config.enforced_admin_consents` field will be unchanged. To enforce
+ *  a consent check for data access, `consent_config.access_enforced` must be
+ *  set to true for the FhirStore.
+ *
+ *  @param object The @c GTLRCloudHealthcare_ApplyAdminConsentsRequest to
+ *    include in the query.
+ *  @param name Required. The name of the FHIR store to enforce, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyAdminConsents
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ApplyAdminConsentsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Apply the Consent resources for the FHIR store and reindex the underlying
+ *  resources in the FHIR store according to the aggregate consent. The
+ *  aggregate consent of the patient in scope in this request replaces any
+ *  previous call of this method. Any Consent resource change after this
+ *  operation execution (including deletion) requires you to call ApplyConsents
+ *  again to have effect. This method returns an Operation that can be used to
+ *  track the progress of the consent resources that were processed by calling
+ *  GetOperation. Upon completion, the ApplyConsentsResponse additionally
+ *  contains the number of resources that was reindexed. Errors are logged to
+ *  Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). To
+ *  enforce consent check for data access, `consent_config.access_enforced` must
+ *  be set to true for the FhirStore.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.applyConsents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyConsents : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to enforce, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Apply the Consent resources for the FHIR store and reindex the underlying
+ *  resources in the FHIR store according to the aggregate consent. The
+ *  aggregate consent of the patient in scope in this request replaces any
+ *  previous call of this method. Any Consent resource change after this
+ *  operation execution (including deletion) requires you to call ApplyConsents
+ *  again to have effect. This method returns an Operation that can be used to
+ *  track the progress of the consent resources that were processed by calling
+ *  GetOperation. Upon completion, the ApplyConsentsResponse additionally
+ *  contains the number of resources that was reindexed. Errors are logged to
+ *  Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). To
+ *  enforce consent check for data access, `consent_config.access_enforced` must
+ *  be set to true for the FhirStore.
+ *
+ *  @param object The @c GTLRCloudHealthcare_ApplyConsentsRequest to include in
+ *    the query.
+ *  @param name Required. The name of the FHIR store to enforce, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyConsents
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ApplyConsentsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new FHIR store within the parent dataset.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.create
@@ -3852,6 +3972,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param name Required. The resource name of the FHIR store to delete.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Explains all the permitted/denied actor, purpose and environment for a given
+ *  resource.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.explainDataAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExplainDataAccess : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to enforce, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The ID (`{resourceType}/{id}`) of the resource to explain data
+ *  access on.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_ExplainDataAccessResponse.
+ *
+ *  Explains all the permitted/denied actor, purpose and environment for a given
+ *  resource.
+ *
+ *  @param name Required. The name of the FHIR store to enforce, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExplainDataAccess
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -4470,6 +4629,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Returns the consent enforcement status of a single consent resource. On
+ *  success, the response body contains a JSON-encoded representation of a
+ *  `Parameters` (http://hl7.org/fhir/parameters.html) FHIR resource, containing
+ *  the current enforcement status. Does not support DSTU2.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Consent-enforcement-status
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConsentEnforcementStatus : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the consent resource to find enforcement status, in
+ *  the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Consent/{consent_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Returns the consent enforcement status of a single consent resource. On
+ *  success, the response body contains a JSON-encoded representation of a
+ *  `Parameters` (http://hl7.org/fhir/parameters.html) FHIR resource, containing
+ *  the current enforcement status. Does not support DSTU2.
+ *
+ *  @param name Required. The name of the consent resource to find enforcement
+ *    status, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Consent/{consent_id}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConsentEnforcementStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a FHIR resource. Implements the FHIR standard create interaction
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
@@ -4849,6 +5047,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the consent enforcement status of all consent resources for a
+ *  patient. On success, the response body contains a JSON-encoded
+ *  representation of a bundle of `Parameters`
+ *  (http://hl7.org/fhir/parameters.html) FHIR resources, containing the current
+ *  enforcement status for each consent resource of the patient. Does not
+ *  support DSTU2.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Patient-consent-enforcement-status
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientConsentEnforcementStatus : GTLRCloudHealthcareQuery
+
+/**
+ *  Optional. The maximum number of results on a page. If not specified, 100 is
+ *  used. May not be larger than 1000.
+ */
+@property(nonatomic, assign) NSInteger xCount;
+
+/**
+ *  Optional. Used to retrieve the first, previous, next, or last page of
+ *  consent enforcement statuses when using pagination. Value should be set to
+ *  the value of `_page_token` set in next or previous page links' URLs. Next
+ *  and previous page are returned in the response bundle's links field, where
+ *  `link.relation` is "previous" or "next". Omit `_page_token` if no previous
+ *  request has been made.
+ */
+@property(nonatomic, copy, nullable) NSString *xPageToken;
+
+/**
+ *  Required. The name of the patient to find enforcement statuses, in the
+ *  format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Patient/{patient_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Returns the consent enforcement status of all consent resources for a
+ *  patient. On success, the response body contains a JSON-encoded
+ *  representation of a bundle of `Parameters`
+ *  (http://hl7.org/fhir/parameters.html) FHIR resources, containing the current
+ *  enforcement status for each consent resource of the patient. Does not
+ *  support DSTU2.
+ *
+ *  @param name Required. The name of the patient to find enforcement statuses,
+ *    in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Patient/{patient_id}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientConsentEnforcementStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -7123,7 +7380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: healthcare.projects.locations.datasets.operations.cancel
@@ -7147,7 +7404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudHealthcare_CancelOperationRequest to include

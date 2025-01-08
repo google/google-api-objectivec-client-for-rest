@@ -4,7 +4,7 @@
 // API:
 //   Google Play Game Services (games/v1)
 // Description:
-//   The Google Play games service allows developers to enhance games with
+//   The Google Play Games Service allows developers to enhance games with
 //   social leaderboards, achievements, game state, sign-in with Google, and
 //   more.
 // Documentation:
@@ -54,7 +54,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
 /**
  *  Service for executing Google Play Game Services queries.
  *
- *  The Google Play games service allows developers to enhance games with social
+ *  The Google Play Games Service allows developers to enhance games with social
  *  leaderboards, achievements, game state, sign-in with Google, and more.
  */
 @interface GTLRGamesService : GTLRService

@@ -965,6 +965,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_GaugeValue
+//
+
+@implementation GTLRDataflow_GaugeValue
+@dynamic measuredTime, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_GetDebugConfigRequest
 //
 
@@ -1717,7 +1727,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_MetricValue
-@dynamic metric, metricLabels, valueHistogram, valueInt64;
+@dynamic metric, metricLabels, valueGauge64, valueHistogram, valueInt64;
 @end
 
 

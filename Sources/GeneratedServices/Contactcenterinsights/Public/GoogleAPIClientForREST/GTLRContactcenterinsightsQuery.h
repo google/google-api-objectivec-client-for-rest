@@ -244,12 +244,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 /**
  *  Gets conversation statistics.
  *
- *  Method: contactcenterinsights.projects.locations.authorizedViewSet.authorizedView.calculateStats
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.calculateStats
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
  */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewCalculateStats : GTLRContactcenterinsightsQuery
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsCalculateStats : GTLRContactcenterinsightsQuery
 
 /**
  *  A filter to reduce results to a specific subset. This field is useful for
@@ -268,7 +268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *
  *  @param location Required. The location of the conversations.
  *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewCalculateStats
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsCalculateStats
  */
 + (instancetype)queryWithLocation:(NSString *)location;
 
@@ -277,12 +277,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 /**
  *  Query metrics.
  *
- *  Method: contactcenterinsights.projects.locations.authorizedViewSet.authorizedView.queryMetrics
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.queryMetrics
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
  */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewQueryMetrics : GTLRContactcenterinsightsQuery
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsQueryMetrics : GTLRContactcenterinsightsQuery
 
 /**
  *  Required. The location of the data.
@@ -301,7 +301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @param location Required. The location of the data.
  *    "projects/{project}/locations/{location}"
  *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewQueryMetrics
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsQueryMetrics
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest *)object
                        location:(NSString *)location;
@@ -1424,6 +1424,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsImport
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an issue.
+ *
+ *  Method: contactcenterinsights.projects.locations.issueModels.issues.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the issue. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Creates an issue.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Issue to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the issue.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Issue *)object
                          parent:(NSString *)parent;
 
 @end

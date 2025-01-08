@@ -21,6 +21,7 @@ NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16 = @"LINEAR
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 = @"MP3";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw = @"MULAW";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus = @"OGG_OPUS";
+NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Pcm = @"PCM";
 
 // GTLRTexttospeech_CustomPronunciationParams.phoneticEncoding
 NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingIpa = @"PHONETIC_ENCODING_IPA";

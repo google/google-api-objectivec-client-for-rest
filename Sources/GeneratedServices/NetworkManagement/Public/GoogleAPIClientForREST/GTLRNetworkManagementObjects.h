@@ -67,6 +67,8 @@
 @class GTLRNetworkManagement_StorageBucketInfo;
 @class GTLRNetworkManagement_Trace;
 @class GTLRNetworkManagement_VpcConnectorInfo;
+@class GTLRNetworkManagement_VpcFlowLogsConfig;
+@class GTLRNetworkManagement_VpcFlowLogsConfig_Labels;
 @class GTLRNetworkManagement_VpnGatewayInfo;
 @class GTLRNetworkManagement_VpnTunnelInfo;
 
@@ -1651,8 +1653,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Re
 // GTLRNetworkManagement_RouteInfo.nextHopType
 
 /**
- *  Next hop is blackhole; that is, the next hop either does not exist or is not
- *  running.
+ *  Next hop is blackhole; that is, the next hop either does not exist or is
+ *  unusable.
  *
  *  Value: "NEXT_HOP_BLACKHOLE"
  */
@@ -1688,7 +1690,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp;
 /**
- *  Next hop is an NCC hub.
+ *  Next hop is an NCC hub. This scenario only happens when the user doesn't
+ *  have permissions to the project where the next hop resource is located.
  *
  *  Value: "NEXT_HOP_NCC_HUB"
  */
@@ -1700,7 +1703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNetwork;
 /**
- *  Next hop is a peering VPC.
+ *  Next hop is a peering VPC. This scenario only happens when the user doesn't
+ *  have permissions to the project where the next hop resource is located.
  *
  *  Value: "NEXT_HOP_PEERING"
  */
@@ -1773,7 +1777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Ad
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic;
 /**
- *  A dynamic route received from peering network.
+ *  A dynamic route received from peering network or NCC Hub.
  *
  *  Value: "PEERING_DYNAMIC"
  */
@@ -1785,7 +1789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Pe
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringStatic;
 /**
- *  A subnet route received from peering network.
+ *  A subnet route received from peering network or NCC Hub.
  *
  *  Value: "PEERING_SUBNET"
  */
@@ -2043,6 +2047,124 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StateUnspec
  *  Value: "VIEWER_PERMISSION_MISSING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_VpcFlowLogsConfig.aggregationInterval
+
+/**
+ *  If not specified, will default to INTERVAL_5_SEC.
+ *
+ *  Value: "AGGREGATION_INTERVAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_AggregationIntervalUnspecified;
+/**
+ *  Aggregate logs in 10m intervals.
+ *
+ *  Value: "INTERVAL_10_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval10Min;
+/**
+ *  Aggregate logs in 15m intervals.
+ *
+ *  Value: "INTERVAL_15_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval15Min;
+/**
+ *  Aggregate logs in 1m intervals.
+ *
+ *  Value: "INTERVAL_1_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval1Min;
+/**
+ *  Aggregate logs in 30s intervals.
+ *
+ *  Value: "INTERVAL_30_SEC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval30Sec;
+/**
+ *  Aggregate logs in 5m intervals.
+ *
+ *  Value: "INTERVAL_5_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Min;
+/**
+ *  Aggregate logs in 5s intervals.
+ *
+ *  Value: "INTERVAL_5_SEC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Sec;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_VpcFlowLogsConfig.metadata
+
+/**
+ *  Include only custom fields (specified in metadata_fields).
+ *
+ *  Value: "CUSTOM_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_CustomMetadata;
+/**
+ *  Exclude all metadata fields.
+ *
+ *  Value: "EXCLUDE_ALL_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_ExcludeAllMetadata;
+/**
+ *  Include all metadata fields.
+ *
+ *  Value: "INCLUDE_ALL_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_IncludeAllMetadata;
+/**
+ *  If not specified, will default to INCLUDE_ALL_METADATA.
+ *
+ *  Value: "METADATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_MetadataUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_VpcFlowLogsConfig.state
+
+/**
+ *  When DISABLED, this configuration will not generate logs.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_State_Disabled;
+/**
+ *  When ENABLED, this configuration will generate logs.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_State_Enabled;
+/**
+ *  If not specified, will default to ENABLED.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_VpcFlowLogsConfig.targetResourceState
+
+/**
+ *  Indicates that the target resource does not exist.
+ *
+ *  Value: "TARGET_RESOURCE_DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceDoesNotExist;
+/**
+ *  Indicates that the target resource exists.
+ *
+ *  Value: "TARGET_RESOURCE_EXISTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceExists;
+/**
+ *  Unspecified target resource state.
+ *
+ *  Value: "TARGET_RESOURCE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_VpnTunnelInfo.routingType
@@ -2588,6 +2710,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  applicable to scenarios where a test can cross project boundaries.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedProjects;
+
+/**
+ *  Output only. The reachability details of this test from the latest run for
+ *  the return path. The details are updated when creating a new test, updating
+ *  an existing test, or triggering a one-time rerun of an existing test.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_ReachabilityDetails *returnReachabilityDetails;
+
+/**
+ *  Whether run analysis for the return path from destination to source. Default
+ *  value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *roundTrip;
 
 /**
  *  Required. Source specification of the Connectivity Test. You can use a
@@ -3740,6 +3877,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  Response for the `ListVpcFlowLogsConfigs` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "vpcFlowLogsConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkManagement_ListVpcFlowLogsConfigsResponse : GTLRCollectionObject
+
+/** Page token to fetch the next set of configurations. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached (when querying all locations with `-`).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/**
+ *  List of VPC Flow Log configurations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_VpcFlowLogsConfig *> *vpcFlowLogsConfigs;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with a specific load balancer backend.
  */
 @interface GTLRNetworkManagement_LoadBalancerBackend : GTLRObject
@@ -4570,15 +4736,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @interface GTLRNetworkManagement_RouteInfo : GTLRObject
 
 /**
- *  For advertised routes, the URI of their next hop, i.e. the URI of the hybrid
+ *  For ADVERTISED routes, the URI of their next hop, i.e. the URI of the hybrid
  *  endpoint (VPN tunnel, Interconnect attachment, NCC router appliance) the
  *  advertised prefix is advertised through, or URI of the source peered
- *  network.
+ *  network. Deprecated in favor of the next_hop_uri field, not used in new
+ *  tests.
  */
-@property(nonatomic, copy, nullable) NSString *advertisedRouteNextHopUri;
+@property(nonatomic, copy, nullable) NSString *advertisedRouteNextHopUri GTLR_DEPRECATED;
 
 /**
- *  For advertised dynamic routes, the URI of the Cloud Router that advertised
+ *  For ADVERTISED dynamic routes, the URI of the Cloud Router that advertised
  *  the corresponding IP prefix.
  */
 @property(nonatomic, copy, nullable) NSString *advertisedRouteSourceRouterUri;
@@ -4586,7 +4753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Destination IP range of the route. */
 @property(nonatomic, copy, nullable) NSString *destIpRange;
 
-/** Destination port ranges of the route. Policy based routes only. */
+/** Destination port ranges of the route. POLICY_BASED routes only. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destPortRanges;
 
 /** Name of a route. */
@@ -4595,17 +4762,36 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Instance tags of the route. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceTags;
 
-/** URI of a NCC Hub. NCC_HUB routes only. */
+/**
+ *  For PEERING_SUBNET and PEERING_DYNAMIC routes that are advertised by NCC
+ *  Hub, the URI of the corresponding route in NCC Hub's routing table.
+ */
+@property(nonatomic, copy, nullable) NSString *nccHubRouteUri;
+
+/**
+ *  URI of the NCC Hub the route is advertised by. PEERING_SUBNET and
+ *  PEERING_DYNAMIC routes that are advertised by NCC Hub only.
+ */
 @property(nonatomic, copy, nullable) NSString *nccHubUri;
 
-/** URI of a NCC Spoke. NCC_HUB routes only. */
+/**
+ *  URI of the destination NCC Spoke. PEERING_SUBNET and PEERING_DYNAMIC routes
+ *  that are advertised by NCC Hub only.
+ */
 @property(nonatomic, copy, nullable) NSString *nccSpokeUri;
 
-/** URI of a Compute Engine network. NETWORK routes only. */
+/** URI of a VPC network where route is located. */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
-/** Next hop of the route. */
-@property(nonatomic, copy, nullable) NSString *nextHop;
+/**
+ *  String type of the next hop of the route (for example, "VPN tunnel").
+ *  Deprecated in favor of the next_hop_type and next_hop_uri fields, not used
+ *  in new tests.
+ */
+@property(nonatomic, copy, nullable) NSString *nextHop GTLR_DEPRECATED;
+
+/** URI of a VPC network where the next hop resource is located. */
+@property(nonatomic, copy, nullable) NSString *nextHopNetworkUri;
 
 /**
  *  Type of next hop.
@@ -4613,7 +4799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopBlackhole Next
  *        hop is blackhole; that is, the next hop either does not exist or is
- *        not running. (Value: "NEXT_HOP_BLACKHOLE")
+ *        unusable. (Value: "NEXT_HOP_BLACKHOLE")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIlb Next hop
  *        is the forwarding rule of an Internal Load Balancer. (Value:
  *        "NEXT_HOP_ILB")
@@ -4626,11 +4812,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp Next hop is
  *        an IP address. (Value: "NEXT_HOP_IP")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNccHub Next
- *        hop is an NCC hub. (Value: "NEXT_HOP_NCC_HUB")
+ *        hop is an NCC hub. This scenario only happens when the user doesn't
+ *        have permissions to the project where the next hop resource is
+ *        located. (Value: "NEXT_HOP_NCC_HUB")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNetwork Next
  *        hop is a VPC network gateway. (Value: "NEXT_HOP_NETWORK")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering Next
- *        hop is a peering VPC. (Value: "NEXT_HOP_PEERING")
+ *        hop is a peering VPC. This scenario only happens when the user doesn't
+ *        have permissions to the project where the next hop resource is
+ *        located. (Value: "NEXT_HOP_PEERING")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppliance
  *        Next hop is a [router appliance
  *        instance](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview).
@@ -4648,6 +4838,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *nextHopType;
 
+/** URI of the next hop resource. */
+@property(nonatomic, copy, nullable) NSString *nextHopUri;
+
+/**
+ *  For PEERING_SUBNET, PEERING_STATIC and PEERING_DYNAMIC routes, the name of
+ *  the originating SUBNET/STATIC/DYNAMIC route.
+ */
+@property(nonatomic, copy, nullable) NSString *originatingRouteDisplayName;
+
+/**
+ *  For PEERING_SUBNET and PEERING_STATIC routes, the URI of the originating
+ *  SUBNET/STATIC route.
+ */
+@property(nonatomic, copy, nullable) NSString *originatingRouteUri;
+
 /**
  *  Priority of the route.
  *
@@ -4655,14 +4860,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, strong, nullable) NSNumber *priority;
 
-/** Protocols of the route. Policy based routes only. */
+/** Protocols of the route. POLICY_BASED routes only. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *protocols;
 
-/** Region of the route (if applicable). */
+/**
+ *  Region of the route. DYNAMIC, PEERING_DYNAMIC, POLICY_BASED and ADVERTISED
+ *  routes only. If set for POLICY_BASED route, this is a region of VLAN
+ *  attachments for Cloud Interconnect the route applies to.
+ */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Indicates where route is applicable.
+ *  Indicates where route is applicable. Deprecated, routes with NCC_HUB scope
+ *  are not included in the trace in new tests.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteScope_NccHub Route is
@@ -4673,7 +4883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteScope_RouteScopeUnspecified
  *        Unspecified scope. Default value. (Value: "ROUTE_SCOPE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *routeScope;
+@property(nonatomic, copy, nullable) NSString *routeScope GTLR_DEPRECATED;
 
 /**
  *  Type of route.
@@ -4686,12 +4896,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic Dynamic route
  *        exchanged between BGP peers. (Value: "DYNAMIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PeeringDynamic A
- *        dynamic route received from peering network. (Value:
+ *        dynamic route received from peering network or NCC Hub. (Value:
  *        "PEERING_DYNAMIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PeeringStatic A static
  *        route received from peering network. (Value: "PEERING_STATIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PeeringSubnet A subnet
- *        route received from peering network. (Value: "PEERING_SUBNET")
+ *        route received from peering network or NCC Hub. (Value:
+ *        "PEERING_SUBNET")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBased Policy
  *        based route. (Value: "POLICY_BASED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified
@@ -4704,13 +4915,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *routeType;
 
-/** Source IP address range of the route. Policy based routes only. */
+/** Source IP address range of the route. POLICY_BASED routes only. */
 @property(nonatomic, copy, nullable) NSString *srcIpRange;
 
-/** Source port ranges of the route. Policy based routes only. */
+/** Source port ranges of the route. POLICY_BASED routes only. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcPortRanges;
 
-/** URI of a route (if applicable). */
+/**
+ *  URI of a route. SUBNET, STATIC, PEERING_SUBNET (only for peering network)
+ *  and POLICY_BASED routes only.
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -5121,6 +5335,156 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** URI of a VPC connector. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
+@end
+
+
+/**
+ *  A configuration to generate VPC Flow Logs.
+ */
+@interface GTLRNetworkManagement_VpcFlowLogsConfig : GTLRObject
+
+/**
+ *  Optional. The aggregation interval for the logs. Default value is
+ *  INTERVAL_5_SEC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_AggregationIntervalUnspecified
+ *        If not specified, will default to INTERVAL_5_SEC. (Value:
+ *        "AGGREGATION_INTERVAL_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval10Min
+ *        Aggregate logs in 10m intervals. (Value: "INTERVAL_10_MIN")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval15Min
+ *        Aggregate logs in 15m intervals. (Value: "INTERVAL_15_MIN")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval1Min
+ *        Aggregate logs in 1m intervals. (Value: "INTERVAL_1_MIN")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval30Sec
+ *        Aggregate logs in 30s intervals. (Value: "INTERVAL_30_SEC")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Min
+ *        Aggregate logs in 5m intervals. (Value: "INTERVAL_5_MIN")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Sec
+ *        Aggregate logs in 5s intervals. (Value: "INTERVAL_5_SEC")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationInterval;
+
+/** Output only. The time the config was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The user-supplied description of the VPC Flow Logs configuration.
+ *  Maximum of 512 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Export filter used to define which VPC Flow Logs should be logged.
+ */
+@property(nonatomic, copy, nullable) NSString *filterExpr;
+
+/**
+ *  Optional. The value of the field must be in (0, 1]. The sampling rate of VPC
+ *  Flow Logs where 1.0 means all collected logs are reported. Setting the
+ *  sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs,
+ *  use the state field instead. Default value is 1.0.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowSampling;
+
+/**
+ *  Traffic will be logged from the Interconnect Attachment. Format:
+ *  projects/{project_id}/regions/{region}/interconnectAttachments/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachment;
+
+/** Optional. Resource labels to represent user-provided metadata. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_VpcFlowLogsConfig_Labels *labels;
+
+/**
+ *  Optional. Configures whether all, none or a subset of metadata fields should
+ *  be added to the reported VPC flow logs. Default value is
+ *  INCLUDE_ALL_METADATA.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_CustomMetadata
+ *        Include only custom fields (specified in metadata_fields). (Value:
+ *        "CUSTOM_METADATA")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_ExcludeAllMetadata
+ *        Exclude all metadata fields. (Value: "EXCLUDE_ALL_METADATA")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_IncludeAllMetadata
+ *        Include all metadata fields. (Value: "INCLUDE_ALL_METADATA")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_Metadata_MetadataUnspecified
+ *        If not specified, will default to INCLUDE_ALL_METADATA. (Value:
+ *        "METADATA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metadata;
+
+/**
+ *  Optional. Custom metadata fields to include in the reported VPC flow logs.
+ *  Can only be specified if "metadata" was set to CUSTOM_METADATA.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metadataFields;
+
+/**
+ *  Identifier. Unique name of the configuration using the form:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The state of the VPC Flow Log configuration. Default value is
+ *  ENABLED. When creating a new configuration, it must be enabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_State_Disabled When
+ *        DISABLED, this configuration will not generate logs. (Value:
+ *        "DISABLED")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_State_Enabled When
+ *        ENABLED, this configuration will generate logs. (Value: "ENABLED")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_State_StateUnspecified If
+ *        not specified, will default to ENABLED. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. A diagnostic bit - describes the state of the configured target
+ *  resource for diagnostic purposes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceDoesNotExist
+ *        Indicates that the target resource does not exist. (Value:
+ *        "TARGET_RESOURCE_DOES_NOT_EXIST")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceExists
+ *        Indicates that the target resource exists. (Value:
+ *        "TARGET_RESOURCE_EXISTS")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceStateUnspecified
+ *        Unspecified target resource state. (Value:
+ *        "TARGET_RESOURCE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetResourceState;
+
+/** Output only. The time the config was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Traffic will be logged from the VPN Tunnel. Format:
+ *  projects/{project_id}/regions/{region}/vpnTunnels/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *vpnTunnel;
+
+@end
+
+
+/**
+ *  Optional. Resource labels to represent user-provided metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkManagement_VpcFlowLogsConfig_Labels : GTLRObject
 @end
 
 

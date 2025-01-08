@@ -430,6 +430,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_T
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted = @"CONVERSATION_STARTED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_HumanInterventionNeeded = @"HUMAN_INTERVENTION_NEEDED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewMessage = @"NEW_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewRecognitionResult = @"NEW_RECOGNITION_RESULT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError = @"UNRECOVERABLE_ERROR";
 
@@ -561,6 +562,32 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatur
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult.messageType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_DtmfDigits = @"DTMF_DIGITS";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_EndOfSingleUtterance = @"END_OF_SINGLE_UTTERANCE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_PartialDtmfDigits = @"PARTIAL_DTMF_DIGITS";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_Transcript = @"TRANSCRIPT";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents.dtmfEvents
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfA = @"DTMF_A";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfB = @"DTMF_B";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfC = @"DTMF_C";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfD = @"DTMF_D";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfEight = @"DTMF_EIGHT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfFive = @"DTMF_FIVE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfFour = @"DTMF_FOUR";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfNine = @"DTMF_NINE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfOne = @"DTMF_ONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfPound = @"DTMF_POUND";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfSeven = @"DTMF_SEVEN";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfSix = @"DTMF_SIX";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfStar = @"DTMF_STAR";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfThree = @"DTMF_THREE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfTwo = @"DTMF_TWO";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfZero = @"DTMF_ZERO";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_TelephonyDtmfUnspecified = @"TELEPHONY_DTMF_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.participantRole
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent = @"AUTOMATED_AGENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser = @"END_USER";
@@ -580,6 +607,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_C
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted = @"CONVERSATION_STARTED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_HumanInterventionNeeded = @"HUMAN_INTERVENTION_NEEDED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage = @"NEW_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewRecognitionResult = @"NEW_RECOGNITION_RESULT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError = @"UNRECOVERABLE_ERROR";
 
@@ -712,6 +740,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConf
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyBertModel = @"SMART_REPLY_BERT_MODEL";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyDualEncoderModel = @"SMART_REPLY_DUAL_ENCODER_MODEL";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult.messageType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_EndOfSingleUtterance = @"END_OF_SINGLE_UTTERANCE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_Transcript = @"TRANSCRIPT";
 
 // GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals.failureReasons
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailedIntent = @"FAILED_INTENT";
@@ -6194,7 +6227,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent
-@dynamic conversation, errorStatus, newMessagePayload, type;
+@dynamic conversation, errorStatus, newMessagePayload,
+         newRecognitionResultPayload, type;
 @end
 
 
@@ -7509,6 +7543,35 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1SpeechWordInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SpeechWordInfo
+@dynamic confidence, endOffset, startOffset, word;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult
+@dynamic confidence, dtmfDigits, isFinal, languageCode, messageType,
+         speechEndOffset, speechWordInfo, stability, transcript;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"speechWordInfo" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1SpeechWordInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse
 //
 
@@ -7594,6 +7657,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"smartReplyAnswers" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents
+@dynamic dtmfEvents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dtmfEvents" : [NSString class]
   };
   return map;
 }
@@ -7697,7 +7778,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent
-@dynamic conversation, errorStatus, newMessagePayload, type;
+@dynamic conversation, errorStatus, newMessagePayload,
+         newRecognitionResultPayload, type;
 @end
 
 
@@ -8789,6 +8871,35 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata
 @dynamic trainingModelType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SpeechWordInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SpeechWordInfo
+@dynamic confidence, endOffset, startOffset, word;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult
+@dynamic confidence, isFinal, languageCode, messageType, speechEndOffset,
+         speechWordInfo, transcript;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"speechWordInfo" : [GTLRDialogflow_GoogleCloudDialogflowV2SpeechWordInfo class]
+  };
+  return map;
+}
+
 @end
 
 

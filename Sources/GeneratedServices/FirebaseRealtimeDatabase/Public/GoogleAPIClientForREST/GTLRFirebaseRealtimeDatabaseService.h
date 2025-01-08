@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase Realtime Database API (firebasedatabase/v1beta)
+//   Firebase Realtime Database Management API (firebasedatabase/v1beta)
 // Description:
 //   The Firebase Realtime Database API enables programmatic provisioning and
 //   management of Realtime Database instances.
@@ -57,7 +57,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseRealtimeDatabaseFirebas
 //
 
 /**
- *  Service for executing Firebase Realtime Database API queries.
+ *  Service for executing Firebase Realtime Database Management API queries.
  *
  *  The Firebase Realtime Database API enables programmatic provisioning and
  *  management of Realtime Database instances.

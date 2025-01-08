@@ -107,6 +107,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V5litePod;
  *  Value: "V5P"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V5p;
+/**
+ *  TPU v6e
+ *
+ *  Value: "V6E"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V6e;
 
 // ----------------------------------------------------------------------------
 // GTLRTPU_AttachedDisk.mode
@@ -472,6 +478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5litePod TPU v5lite pod. (Value:
  *        "V5LITE_POD")
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5p TPU v5p (Value: "V5P")
+ *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V6e TPU v6e (Value: "V6E")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

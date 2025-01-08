@@ -71,6 +71,7 @@
 @class GTLRCloudRedis_OutputConfig;
 @class GTLRCloudRedis_PersistenceConfig;
 @class GTLRCloudRedis_Product;
+@class GTLRCloudRedis_PscAutoConnection;
 @class GTLRCloudRedis_PscConfig;
 @class GTLRCloudRedis_PscConnection;
 @class GTLRCloudRedis_PscServiceAttachment;
@@ -267,6 +268,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Backup_State_Deleting;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Backup_State_StateUnspecified;
+/**
+ *  The backup is currently suspended due to reasons like project deletion,
+ *  billing account closure, etc.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Backup_State_Suspended;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_BackupRun.status
@@ -939,6 +947,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
 /**
+ *  Detects if a database instance has no user password policy set.
+ *
+ *  Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -1176,6 +1190,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_VIOLATES_SOC2_V2017"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesSoc2V2017;
+/**
+ *  Detects if a database instance is using a weak password hash algorithm.
+ *
+ *  Value: "SIGNAL_TYPE_WEAK_PASSWORD_HASH_ALGORITHM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeWeakPasswordHashAlgorithm;
 /**
  *  Represents if a Cloud SQL database has a weak password configured for the
  *  root account.
@@ -1730,6 +1750,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
 /**
+ *  Detects if a database instance has no user password policy set.
+ *
+ *  Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -1967,6 +1993,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_VIOLATES_SOC2_V2017"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017;
+/**
+ *  Detects if a database instance is using a weak password hash algorithm.
+ *
+ *  Value: "SIGNAL_TYPE_WEAK_PASSWORD_HASH_ALGORITHM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakPasswordHashAlgorithm;
 /**
  *  Represents if a Cloud SQL database has a weak password configured for the
  *  root account.
@@ -2559,6 +2591,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeSpann
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_PscAutoConnection.connectionType
+
+/**
+ *  Cluster endpoint that will be used as for cluster topology discovery.
+ *
+ *  Value: "CONNECTION_TYPE_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypeDiscovery;
+/**
+ *  Cluster endpoint that will be used as primary endpoint to access primary.
+ *
+ *  Value: "CONNECTION_TYPE_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypePrimary;
+/**
+ *  Cluster endpoint that will be used as reader endpoint to access replicas.
+ *
+ *  Value: "CONNECTION_TYPE_READER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypeReader;
+/**
+ *  Cluster endpoint Type is not set
+ *
+ *  Value: "CONNECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_PscAutoConnection.pscConnectionStatus
+
+/**
+ *  The connection is active
+ *
+ *  Value: "PSC_CONNECTION_STATUS_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PscAutoConnection_PscConnectionStatus_PscConnectionStatusActive;
+/**
+ *  Connection not found
+ *
+ *  Value: "PSC_CONNECTION_STATUS_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PscAutoConnection_PscConnectionStatus_PscConnectionStatusNotFound;
+/**
+ *  PSC connection status is not specified.
+ *
+ *  Value: "PSC_CONNECTION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PscAutoConnection_PscConnectionStatus_PscConnectionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_PscConnection.connectionType
 
 /**
@@ -2910,8 +2992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /**
  *  Optional. How long to keep automated backups before the backups are deleted.
- *  If not specified, the default value is 100 years which is also the maximum
- *  value supported. The minimum value is 1 day.
+ *  The value should be between 1 day and 365 days. If not specified, the
+ *  default value is 35 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *retention;
 
@@ -3064,6 +3146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        (Value: "DELETING")
  *    @arg @c kGTLRCloudRedis_Backup_State_StateUnspecified The default value,
  *        not set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_Backup_State_Suspended The backup is currently
+ *        suspended due to reasons like project deletion, billing account
+ *        closure, etc. (Value: "SUSPENDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3073,6 +3158,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSizeBytes;
+
+/** Output only. System assigned unique identifier of the backup. */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 
@@ -3114,6 +3202,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Identifier. Full resource path of the backup collection. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. System assigned unique identifier of the backup collection.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 
@@ -3597,6 +3690,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_ConnectionDetail : GTLRObject
 
 /**
+ *  Detailed information of a PSC connection that is created through service
+ *  connectivity automation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_PscAutoConnection *pscAutoConnection;
+
+/**
  *  Detailed information of a PSC connection that is created by the customer who
  *  owns the cluster.
  */
@@ -4015,6 +4114,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        for resources that are configured to have redundancy within a region
  *        that enables automatic failover. (Value:
  *        "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy
+ *        Detects if a database instance has no user password policy set.
+ *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned
@@ -4135,6 +4237,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesSoc2V2017
  *        Represents if a resource violates SOC2 v2017. (Value:
  *        "SIGNAL_TYPE_VIOLATES_SOC2_V2017")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeWeakPasswordHashAlgorithm
+ *        Detects if a database instance is using a weak password hash
+ *        algorithm. (Value: "SIGNAL_TYPE_WEAK_PASSWORD_HASH_ALGORITHM")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeWeakRootPassword
  *        Represents if a Cloud SQL database has a weak password configured for
  *        the root account. (Value: "SIGNAL_TYPE_WEAK_ROOT_PASSWORD")
@@ -4625,6 +4730,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        for resources that are configured to have redundancy within a region
  *        that enables automatic failover. (Value:
  *        "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy
+ *        Detects if a database instance has no user password policy set.
+ *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned
@@ -4745,6 +4853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017
  *        Represents if a resource violates SOC2 v2017. (Value:
  *        "SIGNAL_TYPE_VIOLATES_SOC2_V2017")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakPasswordHashAlgorithm
+ *        Detects if a database instance is using a weak password hash
+ *        algorithm. (Value: "SIGNAL_TYPE_WEAK_PASSWORD_HASH_ALGORITHM")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword
  *        Represents if a Cloud SQL database has a weak password configured for
  *        the root account. (Value: "SIGNAL_TYPE_WEAK_ROOT_PASSWORD")
@@ -4895,11 +5006,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_FixedFrequencySchedule : GTLRObject
 
 /**
- *  Optional. The start time of every automated backup in UTC. It must be set to
- *  the start of an hour. If not specified, the default value is the start of
- *  the hour when the automated backup config is enabled. For example, if the
- *  automated backup config is enabled at 10:13 AM UTC without specifying
- *  start_time, the default start time is 10:00 AM UTC.
+ *  Required. The start time of every automated backup in UTC. It must be set to
+ *  the start of an hour. This field is required.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
 
@@ -6244,6 +6352,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  could be "8.0", "5.7" etc.. For Postgres, it could be "14", "15" etc..
  */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Details of consumer resources in a PSC connection that is created through
+ *  Service Connectivity Automation.
+ */
+@interface GTLRCloudRedis_PscAutoConnection : GTLRObject
+
+/**
+ *  Output only. The IP allocated on the consumer network for the PSC forwarding
+ *  rule.
+ */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  Output only. Type of the PSC connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypeDiscovery
+ *        Cluster endpoint that will be used as for cluster topology discovery.
+ *        (Value: "CONNECTION_TYPE_DISCOVERY")
+ *    @arg @c kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypePrimary
+ *        Cluster endpoint that will be used as primary endpoint to access
+ *        primary. (Value: "CONNECTION_TYPE_PRIMARY")
+ *    @arg @c kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypeReader
+ *        Cluster endpoint that will be used as reader endpoint to access
+ *        replicas. (Value: "CONNECTION_TYPE_READER")
+ *    @arg @c kGTLRCloudRedis_PscAutoConnection_ConnectionType_ConnectionTypeUnspecified
+ *        Cluster endpoint Type is not set (Value:
+ *        "CONNECTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+/**
+ *  Output only. The URI of the consumer side forwarding rule. Example:
+ *  projects/{projectNumOrId}/regions/us-east1/forwardingRules/{resourceId}.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/**
+ *  Required. The consumer network where the IP address resides, in the form of
+ *  projects/{project_id}/global/networks/{network_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Required. The consumer project_id where the forwarding rule is created from.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. The PSC connection id of the forwarding rule connected to the
+ *  service attachment.
+ */
+@property(nonatomic, copy, nullable) NSString *pscConnectionId;
+
+/**
+ *  Output only. The status of the PSC connection. Please note that this value
+ *  is updated periodically. Please use Private Service Connect APIs for the
+ *  latest status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_PscAutoConnection_PscConnectionStatus_PscConnectionStatusActive
+ *        The connection is active (Value: "PSC_CONNECTION_STATUS_ACTIVE")
+ *    @arg @c kGTLRCloudRedis_PscAutoConnection_PscConnectionStatus_PscConnectionStatusNotFound
+ *        Connection not found (Value: "PSC_CONNECTION_STATUS_NOT_FOUND")
+ *    @arg @c kGTLRCloudRedis_PscAutoConnection_PscConnectionStatus_PscConnectionStatusUnspecified
+ *        PSC connection status is not specified. (Value:
+ *        "PSC_CONNECTION_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *pscConnectionStatus;
+
+/**
+ *  Output only. The service attachment which is the target of the PSC
+ *  connection, in the form of
+ *  projects/{project-id}/regions/{region}/serviceAttachments/{service-attachment-id}.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAttachment;
 
 @end
 

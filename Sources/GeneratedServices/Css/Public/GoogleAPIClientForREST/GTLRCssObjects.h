@@ -915,18 +915,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @property(nonatomic, copy, nullable) NSString *finalName;
 
 /**
- *  Represents the existing version (freshness) of the CSS Product, which can be
- *  used to preserve the right order when multiple updates are done at the same
- *  time. This field must not be set to the future time. If set, the update is
- *  prevented if a newer version of the item already exists in our system (that
- *  is the last update time of the existing CSS products is later than the
- *  freshness time set in the update). If the update happens, the last update
- *  time is then set to this freshness time. If not set, the update will not be
- *  prevented and the last update time will default to when this request was
- *  received by the CSS API. If the operation is prevented, the aborted
- *  exception will be thrown.
+ *  DEPRECATED. Use expiration_date instead. Represents the existing version
+ *  (freshness) of the CSS Product, which can be used to preserve the right
+ *  order when multiple updates are done at the same time. This field must not
+ *  be set to the future time. If set, the update is prevented if a newer
+ *  version of the item already exists in our system (that is the last update
+ *  time of the existing CSS products is later than the freshness time set in
+ *  the update). If the update happens, the last update time is then set to this
+ *  freshness time. If not set, the update will not be prevented and the last
+ *  update time will default to when this request was received by the CSS API.
+ *  If the operation is prevented, the aborted exception will be thrown.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *freshnessTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *freshnessTime GTLR_DEPRECATED;
 
 /**
  *  The name of the CSS Product input. Format:

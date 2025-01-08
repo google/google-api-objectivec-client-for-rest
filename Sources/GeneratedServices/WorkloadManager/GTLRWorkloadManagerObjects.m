@@ -15,6 +15,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWorkloadManager_Evaluation.evaluationType
+NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_EvaluationTypeUnspecified = @"EVALUATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_Other = @"OTHER";
+NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_Sap = @"SAP";
+NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_SccIac = @"SCC_IAC";
+NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_SqlServer = @"SQL_SERVER";
+
 // GTLRWorkloadManager_Execution.runType
 NSString * const kGTLRWorkloadManager_Execution_RunType_OneTime = @"ONE_TIME";
 NSString * const kGTLRWorkloadManager_Execution_RunType_Scheduled = @"SCHEDULED";
@@ -127,6 +134,12 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_I
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os = @"OS";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified = @"SQLSERVER_VALIDATION_TYPE_UNSPECIFIED";
 
+// GTLRWorkloadManager_TorsoValidation.workloadType
+NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Mysql = @"MYSQL";
+NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Oracle = @"ORACLE";
+NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Redis = @"REDIS";
+NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRWorkloadManager_AgentCommand
@@ -196,8 +209,8 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_Evaluation
 @dynamic bigQueryDestination, createTime, customRulesBucket,
-         descriptionProperty, labels, name, resourceFilter, resourceStatus,
-         ruleNames, ruleVersions, schedule, updateTime;
+         descriptionProperty, evaluationType, labels, name, resourceFilter,
+         resourceStatus, ruleNames, ruleVersions, schedule, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -235,7 +248,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_Execution
 @dynamic endTime, evaluationId, externalDataSources, inventoryTime, labels,
-         name, notices, ruleResults, runType, startTime, state;
+         name, notices, resultSummary, ruleResults, runType, startTime, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -316,7 +329,8 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_Insight
-@dynamic instanceId, sapDiscovery, sapValidation, sentTime, sqlserverValidation;
+@dynamic instanceId, sapDiscovery, sapValidation, sentTime, sqlserverValidation,
+         torsoValidation;
 @end
 
 
@@ -982,6 +996,40 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Summary
+//
+
+@implementation GTLRWorkloadManager_Summary
+@dynamic failures, newFailures, newFixes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_TorsoValidation
+//
+
+@implementation GTLRWorkloadManager_TorsoValidation
+@dynamic agentVersion, instanceName, projectId, validationDetails, workloadType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_TorsoValidation_ValidationDetails
+//
+
+@implementation GTLRWorkloadManager_TorsoValidation_ValidationDetails
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

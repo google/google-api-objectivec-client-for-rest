@@ -81,6 +81,8 @@
 @class GTLRDatabaseMigrationService_MaterializedViewEntity_CustomFeatures;
 @class GTLRDatabaseMigrationService_MigrationJob;
 @class GTLRDatabaseMigrationService_MigrationJob_Labels;
+@class GTLRDatabaseMigrationService_MigrationJobObject;
+@class GTLRDatabaseMigrationService_MigrationJobObjectsConfig;
 @class GTLRDatabaseMigrationService_MultiColumnDatatypeChange;
 @class GTLRDatabaseMigrationService_MultiColumnDatatypeChange_CustomFeatures;
 @class GTLRDatabaseMigrationService_MultiEntityRename;
@@ -121,6 +123,9 @@
 @class GTLRDatabaseMigrationService_SingleEntityRename;
 @class GTLRDatabaseMigrationService_SinglePackageChange;
 @class GTLRDatabaseMigrationService_SourceNumericFilter;
+@class GTLRDatabaseMigrationService_SourceObjectConfig;
+@class GTLRDatabaseMigrationService_SourceObjectIdentifier;
+@class GTLRDatabaseMigrationService_SourceObjectsConfig;
 @class GTLRDatabaseMigrationService_SourceSqlChange;
 @class GTLRDatabaseMigrationService_SourceTextFilter;
 @class GTLRDatabaseMigrationService_SqlAclEntry;
@@ -537,6 +542,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora;
 /**
+ *  Microsoft Azure Database for MySQL/PostgreSQL.
+ *
+ *  Value: "AZURE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_AzureDatabase;
+/**
  *  Cloud SQL is the source instance provider.
  *
  *  Value: "CLOUDSQL"
@@ -840,6 +851,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Pr
  *  Value: "AURORA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora;
+/**
+ *  Microsoft Azure Database for MySQL/PostgreSQL.
+ *
+ *  Value: "AZURE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_AzureDatabase;
 /**
  *  Cloud SQL is the source instance provider.
  *
@@ -1747,6 +1764,116 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Ty
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_MigrationJobObject.phase
+
+/**
+ *  The migration job object is in CDC phase.
+ *
+ *  Value: "CDC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Cdc;
+/**
+ *  The migration job object is in the differential backup phase.
+ *
+ *  Value: "DIFF_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_DiffBackup;
+/**
+ *  The migration job object is in the full dump phase.
+ *
+ *  Value: "FULL_DUMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_FullDump;
+/**
+ *  The phase of the migration job is unknown.
+ *
+ *  Value: "PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_PhaseUnspecified;
+/**
+ *  The migration job is promoted.
+ *
+ *  Value: "PROMOTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Promoted;
+/**
+ *  The migration job object is in running the promote phase.
+ *
+ *  Value: "PROMOTE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_PromoteInProgress;
+/**
+ *  The migration job object is ready to be promoted.
+ *
+ *  Value: "READY_FOR_PROMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_ReadyForPromote;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_MigrationJobObject.state
+
+/**
+ *  The migration job object is completed.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Completed;
+/**
+ *  The migration job object failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Failed;
+/**
+ *  The migration job object is not selected for migration.
+ *
+ *  Value: "NOT_SELECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_NotSelected;
+/**
+ *  The migration job object is not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_NotStarted;
+/**
+ *  The migration job object is deleting.
+ *
+ *  Value: "REMOVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Removing;
+/**
+ *  The migration job object is restarting.
+ *
+ *  Value: "RESTARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Restarting;
+/**
+ *  The migration job object is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Running;
+/**
+ *  The state of the migration job object is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_StateUnspecified;
+/**
+ *  The migration job object is currently stopped.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Stopped;
+/**
+ *  The migration job object is being stopped.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_State_Stopping;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_MigrationJobVerificationError.errorCode
 
 /**
@@ -2089,6 +2216,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceNumericFi
  *  Value: "NUMERIC_FILTER_OPTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_SourceObjectIdentifier.type
+
+/**
+ *  The migration job object is a database.
+ *
+ *  Value: "DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Database;
+/**
+ *  The type of the migration job object is unknown.
+ *
+ *  Value: "MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_MigrationJobObjectTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_SourceObjectsConfig.objectsSelectionType
+
+/**
+ *  Migrate all of the objects.
+ *
+ *  Value: "ALL_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_AllObjects;
+/**
+ *  The type of the objects selection is unknown, indicating that the migration
+ *  job is at instance level.
+ *
+ *  Value: "OBJECTS_SELECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_ObjectsSelectionTypeUnspecified;
+/**
+ *  Migrate specific objects.
+ *
+ *  Value: "SPECIFIED_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_SpecifiedObjects;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_SslConfig.type
@@ -3207,6 +3373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        "ALLOYDB")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora
  *        Amazon Aurora is the source instance provider. (Value: "AURORA")
+ *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_AzureDatabase
+ *        Microsoft Azure Database for MySQL/PostgreSQL. (Value:
+ *        "AZURE_DATABASE")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql
  *        Cloud SQL is the source instance provider. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified
@@ -3229,6 +3398,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        role is source. (Value: "SOURCE")
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+/**
+ *  Output only. Zone Isolation compliance state of the resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Zone Separation compliance state of the resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Connection profile for a SQL Server data source. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerConnectionProfile *sqlserver;
@@ -3700,6 +3883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        "ALLOYDB")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora Amazon
  *        Aurora is the source instance provider. (Value: "AURORA")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_AzureDatabase
+ *        Microsoft Azure Database for MySQL/PostgreSQL. (Value:
+ *        "AZURE_DATABASE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql Cloud
  *        SQL is the source instance provider. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified
@@ -4369,8 +4555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4683,6 +4869,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Response containing the objects for a migration job.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "migrationJobObjects" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDatabaseMigrationService_ListMigrationJobObjectsResponse : GTLRCollectionObject
+
+/**
+ *  List of migration job objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_MigrationJobObject *> *migrationJobObjects;
+
+/** A token, which can be sent as `page_token` to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for 'ListMigrationJobs' request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4845,6 +5055,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Configuration to use LogMiner CDC method.
  */
 @interface GTLRDatabaseMigrationService_LogMiner : GTLRObject
+@end
+
+
+/**
+ *  Request for looking up a specific migration job object by its source object
+ *  identifier.
+ */
+@interface GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest : GTLRObject
+
+/**
+ *  Required. The source object identifier which maps to the migration job
+ *  object.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SourceObjectIdentifier *sourceObjectIdentifier;
+
 @end
 
 
@@ -5061,6 +5286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MaterializedViewEntity_CustomFeatures *customFeatures;
 
+/** View indices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_IndexEntity *> *indices;
+
 /** The SQL code which creates the view. */
 @property(nonatomic, copy, nullable) NSString *sqlCode;
 
@@ -5183,6 +5411,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Optional. The objects that need to be migrated. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MigrationJobObjectsConfig *objectsConfig;
+
 /**
  *  Configuration for heterogeneous **Oracle to Cloud SQL for PostgreSQL** and
  *  **Oracle to AlloyDB for PostgreSQL** migrations.
@@ -5223,6 +5454,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  connectivity.
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ReverseSshConnectivity *reverseSshConnectivity;
+
+/**
+ *  Output only. Zone Isolation compliance state of the resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Zone Separation compliance state of the resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Required. The resource name (URI) of the source connection profile. */
 @property(nonatomic, copy, nullable) NSString *source;
@@ -5315,6 +5560,95 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        fetch them all at once.
  */
 @interface GTLRDatabaseMigrationService_MigrationJob_Labels : GTLRObject
+@end
+
+
+/**
+ *  A specific Migration Job Object (e.g. a specifc DB Table)
+ */
+@interface GTLRDatabaseMigrationService_MigrationJobObject : GTLRObject
+
+/** Output only. The creation time of the migration job object. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The error details in case of failure. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_Status *error;
+
+/** The object's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The phase of the migration job object.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Cdc The
+ *        migration job object is in CDC phase. (Value: "CDC")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_DiffBackup
+ *        The migration job object is in the differential backup phase. (Value:
+ *        "DIFF_BACKUP")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_FullDump
+ *        The migration job object is in the full dump phase. (Value:
+ *        "FULL_DUMP")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_PhaseUnspecified
+ *        The phase of the migration job is unknown. (Value:
+ *        "PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Promoted
+ *        The migration job is promoted. (Value: "PROMOTED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_PromoteInProgress
+ *        The migration job object is in running the promote phase. (Value:
+ *        "PROMOTE_IN_PROGRESS")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_ReadyForPromote
+ *        The migration job object is ready to be promoted. (Value:
+ *        "READY_FOR_PROMOTE")
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/** The object identifier in the data source. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SourceObjectIdentifier *sourceObject;
+
+/**
+ *  The state of the migration job object.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_Completed
+ *        The migration job object is completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_Failed The
+ *        migration job object failed. (Value: "FAILED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_NotSelected
+ *        The migration job object is not selected for migration. (Value:
+ *        "NOT_SELECTED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_NotStarted
+ *        The migration job object is not started. (Value: "NOT_STARTED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_Removing
+ *        The migration job object is deleting. (Value: "REMOVING")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_Restarting
+ *        The migration job object is restarting. (Value: "RESTARTING")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_Running The
+ *        migration job object is running. (Value: "RUNNING")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_StateUnspecified
+ *        The state of the migration job object is unknown. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_Stopped The
+ *        migration job object is currently stopped. (Value: "STOPPED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_State_Stopping
+ *        The migration job object is being stopped. (Value: "STOPPING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The last update time of the migration job object. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Configuration for the objects to be migrated.
+ */
+@interface GTLRDatabaseMigrationService_MigrationJobObjectsConfig : GTLRObject
+
+/** The list of the migration job objects. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SourceObjectsConfig *sourceObjectsConfig;
+
 @end
 
 
@@ -6237,6 +6571,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Zone Isolation compliance state of the resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Zone Separation compliance state of the resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The state of the private connection.
  *
  *  Likely values:
@@ -6315,6 +6663,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Request message for 'PromoteMigrationJob' request.
  */
 @interface GTLRDatabaseMigrationService_PromoteMigrationJobRequest : GTLRObject
+
+/** Optional. The object filter to apply to the migration job. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MigrationJobObjectsConfig *objectsFilter;
+
 @end
 
 
@@ -6322,6 +6674,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Request message for 'RestartMigrationJob' request.
  */
 @interface GTLRDatabaseMigrationService_RestartMigrationJobRequest : GTLRObject
+
+/** Optional. The object filter to apply to the migration job. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MigrationJobObjectsConfig *objectsFilter;
+
+/**
+ *  Optional. If true, only failed objects will be restarted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restartFailedObjects;
 
 /**
  *  Optional. Restart the migration job without running prior configuration
@@ -6814,6 +7176,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Config for a single migration job object.
+ */
+@interface GTLRDatabaseMigrationService_SourceObjectConfig : GTLRObject
+
+/** Optional. The object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SourceObjectIdentifier *objectIdentifier;
+
+@end
+
+
+/**
+ *  An identifier for the Migration Job Object.
+ */
+@interface GTLRDatabaseMigrationService_SourceObjectIdentifier : GTLRObject
+
+/**
+ *  Optional. The database name. This will be required only if the object uses a
+ *  database name as part of its unique identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Required. The type of the migration job object.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Database
+ *        The migration job object is a database. (Value: "DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_MigrationJobObjectTypeUnspecified
+ *        The type of the migration job object is unknown. (Value:
+ *        "MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  List of configurations for the source objects to be migrated.
+ */
+@interface GTLRDatabaseMigrationService_SourceObjectsConfig : GTLRObject
+
+/** Optional. The list of the objects to be migrated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_SourceObjectConfig *> *objectConfigs;
+
+/**
+ *  Optional. The objects selection type of the migration job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_AllObjects
+ *        Migrate all of the objects. (Value: "ALL_OBJECTS")
+ *    @arg @c kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_ObjectsSelectionTypeUnspecified
+ *        The type of the objects selection is unknown, indicating that the
+ *        migration job is at instance level. (Value:
+ *        "OBJECTS_SELECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_SpecifiedObjects
+ *        Migrate specific objects. (Value: "SPECIFIED_OBJECTS")
+ */
+@property(nonatomic, copy, nullable) NSString *objectsSelectionType;
+
+@end
+
+
+/**
  *  Options to configure rule type SourceSqlChange. The rule is used to alter
  *  the sql code for database entities. The rule filter field can refer to one
  *  entity. The rule scope can be: StoredProcedure, Function, Trigger, View
@@ -7038,13 +7463,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @interface GTLRDatabaseMigrationService_SqlServerEncryptionOptions : GTLRObject
 
-/** Required. Path to certificate. */
+/**
+ *  Required. Path to the Certificate (.cer) in Cloud Storage, in the form
+ *  `gs://bucketName/fileName`. The instance must have write permissions to the
+ *  bucket and read access to the file.
+ */
 @property(nonatomic, copy, nullable) NSString *certPath;
 
-/** Required. Input only. Private key password. */
+/** Required. Input only. Password that encrypts the private key. */
 @property(nonatomic, copy, nullable) NSString *pvkPassword;
 
-/** Required. Path to certificate private key. */
+/**
+ *  Required. Path to the Certificate Private Key (.pvk) in Cloud Storage, in
+ *  the form `gs://bucketName/fileName`. The instance must have write
+ *  permissions to the bucket and read access to the file.
+ */
 @property(nonatomic, copy, nullable) NSString *pvkPath;
 
 @end

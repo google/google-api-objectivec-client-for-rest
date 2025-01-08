@@ -185,6 +185,24 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEnterpriseAnnual;
 /**
+ *  Nonprod Subscription Embed.
+ *
+ *  Value: "LOOKER_CORE_NONPROD_EMBED_ANNUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEmbedAnnual;
+/**
+ *  Nonprod Subscription Enterprise.
+ *
+ *  Value: "LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEnterpriseAnnual;
+/**
+ *  Nonprod Subscription Standard.
+ *
+ *  Value: "LOOKER_CORE_NONPROD_STANDARD_ANNUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodStandardAnnual;
+/**
  *  Standard.
  *
  *  Value: "LOOKER_CORE_STANDARD"
@@ -919,6 +937,15 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *        Subscription Embed. (Value: "LOOKER_CORE_EMBED_ANNUAL")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreEnterpriseAnnual
  *        Subscription Enterprise. (Value: "LOOKER_CORE_ENTERPRISE_ANNUAL")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEmbedAnnual
+ *        Nonprod Subscription Embed. (Value:
+ *        "LOOKER_CORE_NONPROD_EMBED_ANNUAL")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEnterpriseAnnual
+ *        Nonprod Subscription Enterprise. (Value:
+ *        "LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodStandardAnnual
+ *        Nonprod Subscription Standard. (Value:
+ *        "LOOKER_CORE_NONPROD_STANDARD_ANNUAL")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreStandard Standard.
  *        (Value: "LOOKER_CORE_STANDARD")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreStandardAnnual

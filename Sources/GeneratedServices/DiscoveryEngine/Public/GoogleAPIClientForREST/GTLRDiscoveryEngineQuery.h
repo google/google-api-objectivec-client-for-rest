@@ -163,8 +163,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned. This field must be unique among all Documents with the
  *  same parent. Otherwise, an `ALREADY_EXISTS` error is returned. This field
  *  must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard
- *  with a length limit of 63 characters. Otherwise, an `INVALID_ARGUMENT` error
- *  is returned.
+ *  with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT`
+ *  error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
@@ -1970,6 +1970,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided ServingConfig to update. The
+ *  following are NOT supported: * ServingConfig.name If not set, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig to include
+ *    in the query.
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend
@@ -2121,6 +2166,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Answer query method (streaming). It takes one AnswerQueryRequest and returns
+ *  multiple AnswerQueryResponse messages in a stream.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.streamAnswer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsStreamAnswer : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Search serving config, such as `projects/
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/ *
+ *  /servingConfigs/default_serving_config`. This field is used to identify the
+ *  serving configuration name, set of models used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryResponse.
+ *
+ *  Answer query method (streaming). It takes one AnswerQueryRequest and returns
+ *  multiple AnswerQueryResponse messages in a stream.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest to
+ *    include in the query.
+ *  @param servingConfig Required. The resource name of the Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/ *
+ *    /servingConfigs/default_serving_config`. This field is used to identify
+ *    the serving configuration name, set of models used to make the search.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsStreamAnswer
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
  *  Gets a Answer.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.sessions.answers.get
@@ -2228,6 +2319,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsGet : GTLRDiscoveryEngineQuery
 
 /**
+ *  Optional. If set to true, the full session including all answer details will
+ *  be returned.
+ */
+@property(nonatomic, assign) BOOL includeAnswerDetails;
+
+/**
  *  Required. The resource name of the Session to get. Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
@@ -2266,7 +2363,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
  *  "desc" after a field name for descending. Supported fields: * `update_time`
- *  * `create_time` * `session_name` Example: "update_time desc" "create_time"
+ *  * `create_time` * `session_name` * `is_pinned` Example: * "update_time desc"
+ *  * "create_time" * "is_pinned desc,update_time desc": list sessions by
+ *  is_pinned first, then by update_time.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3065,8 +3164,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) long long ets;
 
 /**
- *  Required. The parent DataStore resource name, such as
+ *  Required. The parent resource name. If the collect user event action is
+ *  applied in DataStore level, the format is:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *  If the collect user event action is applied in Location level, for example,
+ *  the event with Document across multiple DataStore, the format is:
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3091,8 +3194,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  used only by the Discovery Engine API JavaScript pixel and Google Tag
  *  Manager. Users should not call this method directly.
  *
- *  @param parent Required. The parent DataStore resource name, such as
+ *  @param parent Required. The parent resource name. If the collect user event
+ *    action is applied in DataStore level, the format is:
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *    If the collect user event action is applied in Location level, for
+ *    example, the event with Document across multiple DataStore, the format is:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsCollect
  */
@@ -4016,6 +4123,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided ServingConfig to update. The
+ *  following are NOT supported: * ServingConfig.name If not set, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig to include
+ *    in the query.
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.recommend
@@ -4167,6 +4319,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Answer query method (streaming). It takes one AnswerQueryRequest and returns
+ *  multiple AnswerQueryResponse messages in a stream.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.streamAnswer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsStreamAnswer : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Search serving config, such as `projects/
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/ *
+ *  /servingConfigs/default_serving_config`. This field is used to identify the
+ *  serving configuration name, set of models used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryResponse.
+ *
+ *  Answer query method (streaming). It takes one AnswerQueryRequest and returns
+ *  multiple AnswerQueryResponse messages in a stream.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest to
+ *    include in the query.
+ *  @param servingConfig Required. The resource name of the Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/ *
+ *    /servingConfigs/default_serving_config`. This field is used to identify
+ *    the serving configuration name, set of models used to make the search.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsStreamAnswer
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
  *  Gets a Answer.
  *
  *  Method: discoveryengine.projects.locations.collections.engines.sessions.answers.get
@@ -4274,6 +4472,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsGet : GTLRDiscoveryEngineQuery
 
 /**
+ *  Optional. If set to true, the full session including all answer details will
+ *  be returned.
+ */
+@property(nonatomic, assign) BOOL includeAnswerDetails;
+
+/**
  *  Required. The resource name of the Session to get. Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
@@ -4312,7 +4516,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
  *  "desc" after a field name for descending. Supported fields: * `update_time`
- *  * `create_time` * `session_name` Example: "update_time desc" "create_time"
+ *  * `create_time` * `session_name` * `is_pinned` Example: * "update_time desc"
+ *  * "create_time" * "is_pinned desc,update_time desc": list sessions by
+ *  is_pinned first, then by update_time.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4529,8 +4735,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned. This field must be unique among all Documents with the
  *  same parent. Otherwise, an `ALREADY_EXISTS` error is returned. This field
  *  must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard
- *  with a length limit of 63 characters. Otherwise, an `INVALID_ARGUMENT` error
- *  is returned.
+ *  with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT`
+ *  error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
@@ -6229,6 +6435,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided ServingConfig to update. The
+ *  following are NOT supported: * ServingConfig.name If not set, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig to include
+ *    in the query.
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.recommend
@@ -6380,6 +6631,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Answer query method (streaming). It takes one AnswerQueryRequest and returns
+ *  multiple AnswerQueryResponse messages in a stream.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.streamAnswer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsStreamAnswer : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Search serving config, such as `projects/
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/ *
+ *  /servingConfigs/default_serving_config`. This field is used to identify the
+ *  serving configuration name, set of models used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryResponse.
+ *
+ *  Answer query method (streaming). It takes one AnswerQueryRequest and returns
+ *  multiple AnswerQueryResponse messages in a stream.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest to
+ *    include in the query.
+ *  @param servingConfig Required. The resource name of the Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/ *
+ *    /servingConfigs/default_serving_config`. This field is used to identify
+ *    the serving configuration name, set of models used to make the search.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsStreamAnswer
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
  *  Gets a Answer.
  *
  *  Method: discoveryengine.projects.locations.dataStores.sessions.answers.get
@@ -6487,6 +6784,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsGet : GTLRDiscoveryEngineQuery
 
 /**
+ *  Optional. If set to true, the full session including all answer details will
+ *  be returned.
+ */
+@property(nonatomic, assign) BOOL includeAnswerDetails;
+
+/**
  *  Required. The resource name of the Session to get. Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
@@ -6525,7 +6828,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
  *  "desc" after a field name for descending. Supported fields: * `update_time`
- *  * `create_time` * `session_name` Example: "update_time desc" "create_time"
+ *  * `create_time` * `session_name` * `is_pinned` Example: * "update_time desc"
+ *  * "create_time" * "is_pinned desc,update_time desc": list sessions by
+ *  is_pinned first, then by update_time.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -7051,8 +7356,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) long long ets;
 
 /**
- *  Required. The parent DataStore resource name, such as
+ *  Required. The parent resource name. If the collect user event action is
+ *  applied in DataStore level, the format is:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *  If the collect user event action is applied in Location level, for example,
+ *  the event with Document across multiple DataStore, the format is:
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7077,8 +7386,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  used only by the Discovery Engine API JavaScript pixel and Google Tag
  *  Manager. Users should not call this method directly.
  *
- *  @param parent Required. The parent DataStore resource name, such as
+ *  @param parent Required. The parent resource name. If the collect user event
+ *    action is applied in DataStore level, the format is:
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *    If the collect user event action is applied in Location level, for
+ *    example, the event with Document across multiple DataStore, the format is:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsCollect
  */
@@ -7215,6 +7528,41 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Generates grounded content.
+ *
+ *  Method: discoveryengine.projects.locations.generateGroundedContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsGenerateGroundedContent : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Location resource. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponse.
+ *
+ *  Generates grounded content.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest
+ *    to include in the query.
+ *  @param location Required. Location resource. Format:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsGenerateGroundedContent
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest *)object
+                       location:(NSString *)location;
 
 @end
 
@@ -7452,8 +7800,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) long long ets;
 
 /**
- *  Required. The parent DataStore resource name, such as
+ *  Required. The parent resource name. If the collect user event action is
+ *  applied in DataStore level, the format is:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *  If the collect user event action is applied in Location level, for example,
+ *  the event with Document across multiple DataStore, the format is:
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7478,8 +7830,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  used only by the Discovery Engine API JavaScript pixel and Google Tag
  *  Manager. Users should not call this method directly.
  *
- *  @param parent Required. The parent DataStore resource name, such as
+ *  @param parent Required. The parent resource name. If the collect user event
+ *    action is applied in DataStore level, the format is:
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *    If the collect user event action is applied in Location level, for
+ *    example, the event with Document across multiple DataStore, the format is:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsCollect
  */

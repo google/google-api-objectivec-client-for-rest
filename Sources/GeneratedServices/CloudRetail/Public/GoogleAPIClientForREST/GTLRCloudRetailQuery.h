@@ -2634,10 +2634,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Writes a single user event from the browser. This uses a GET request to due
- *  to browser restriction of POST-ing to a 3rd party domain. This method is
- *  used only by the Retail API JavaScript pixel and Google Tag Manager. Users
- *  should not call this method directly.
+ *  Writes a single user event from the browser. For larger user event payload
+ *  over 16 KB, the POST method should be used instead, otherwise a 400 Bad
+ *  Request error is returned. This method is used only by the Retail API
+ *  JavaScript pixel and Google Tag Manager. Users should not call this method
+ *  directly.
  *
  *  Method: retail.projects.locations.catalogs.userEvents.collect
  *
@@ -2647,59 +2648,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect : GTLRCloudRetailQuery
 
 /**
- *  The event timestamp in milliseconds. This prevents browser caching of
- *  otherwise identical get requests. The name is abbreviated to reduce the
- *  payload bytes.
- */
-@property(nonatomic, assign) long long ets;
-
-/**
  *  Required. The parent catalog name, such as
  *  `projects/1234/locations/global/catalogs/default_catalog`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The prebuilt rule name that can convert a specific type of raw_json. For
- *  example: "ga4_bq" rule for the GA4 user event schema.
- */
-@property(nonatomic, copy, nullable) NSString *prebuiltRule;
-
-/**
- *  An arbitrary serialized JSON string that contains necessary information that
- *  can comprise a user event. When this field is specified, the user_event
- *  field will be ignored. Note: line-delimited JSON is not supported, a single
- *  JSON only.
- */
-@property(nonatomic, copy, nullable) NSString *rawJson;
-
-/**
- *  The URL including cgi-parameters but excluding the hash fragment with a
- *  length limit of 5,000 characters. This is often more useful than the referer
- *  URL, because many browsers only send the domain for 3rd party requests.
- */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-/**
- *  Required. URL encoded UserEvent proto with a length limit of 2,000,000
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *userEvent;
-
-/**
  *  Fetches a @c GTLRCloudRetail_GoogleApiHttpBody.
  *
- *  Writes a single user event from the browser. This uses a GET request to due
- *  to browser restriction of POST-ing to a 3rd party domain. This method is
- *  used only by the Retail API JavaScript pixel and Google Tag Manager. Users
- *  should not call this method directly.
+ *  Writes a single user event from the browser. For larger user event payload
+ *  over 16 KB, the POST method should be used instead, otherwise a 400 Bad
+ *  Request error is returned. This method is used only by the Retail API
+ *  JavaScript pixel and Google Tag Manager. Users should not call this method
+ *  directly.
  *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest to include in
+ *    the query.
  *  @param parent Required. The parent catalog name, such as
  *    `projects/1234/locations/global/catalogs/default_catalog`.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect
  */
-+ (instancetype)queryWithParent:(NSString *)parent;
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

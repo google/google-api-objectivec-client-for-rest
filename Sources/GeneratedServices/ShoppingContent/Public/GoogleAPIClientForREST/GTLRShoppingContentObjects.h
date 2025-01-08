@@ -183,6 +183,7 @@
 @class GTLRShoppingContent_ProductStructuredDescription;
 @class GTLRShoppingContent_ProductStructuredTitle;
 @class GTLRShoppingContent_ProductSubscriptionCost;
+@class GTLRShoppingContent_ProductSustainabilityIncentive;
 @class GTLRShoppingContent_ProductTax;
 @class GTLRShoppingContent_ProductUnitPricingBaseMeasure;
 @class GTLRShoppingContent_ProductUnitPricingMeasure;
@@ -1181,6 +1182,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductIssueImpact_Sever
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductSustainabilityIncentive.type
+
+/**
+ *  A subsidy program, often called an environmental bonus, provides a purchase
+ *  grant for electric vehicles and, in some countries, plug-in hybrids. The
+ *  grant amount may be a fixed sum or a percentage of the sale price.
+ *
+ *  Value: "EV_PRICE_DISCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvPriceDiscount;
+/**
+ *  Program offering tax liability reductions for electric vehicles and, in some
+ *  countries, plug-in hybrids. These reductions can be based on a specific
+ *  amount or a percentage of the sale price.
+ *
+ *  Value: "EV_TAX_CREDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvTaxCredit;
+/**
+ *  Unspecified or unknown sustainability incentive type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_ProductView.aggregatedDestinationStatus
@@ -9715,6 +9742,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductSubscriptionCost *subscriptionCost;
 
+/** Optional. The list of sustainability incentive programs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductSustainabilityIncentive *> *sustainabilityIncentives;
+
 /** Required. The CLDR territory code for the item's country of sale. */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
@@ -10699,6 +10729,45 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *periodLength;
+
+@end
+
+
+/**
+ *  Information regarding sustainability related incentive programs such as
+ *  rebates or tax relief.
+ */
+@interface GTLRShoppingContent_ProductSustainabilityIncentive : GTLRObject
+
+/** Optional. The fixed amount of the incentive. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
+
+/**
+ *  Optional. The percentage of the sale price that the incentive is applied to.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+/**
+ *  Required. Sustainability incentive program.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvPriceDiscount
+ *        A subsidy program, often called an environmental bonus, provides a
+ *        purchase grant for electric vehicles and, in some countries, plug-in
+ *        hybrids. The grant amount may be a fixed sum or a percentage of the
+ *        sale price. (Value: "EV_PRICE_DISCOUNT")
+ *    @arg @c kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvTaxCredit
+ *        Program offering tax liability reductions for electric vehicles and,
+ *        in some countries, plug-in hybrids. These reductions can be based on a
+ *        specific amount or a percentage of the sale price. (Value:
+ *        "EV_TAX_CREDIT")
+ *    @arg @c kGTLRShoppingContent_ProductSustainabilityIncentive_Type_TypeUnspecified
+ *        Unspecified or unknown sustainability incentive type. (Value:
+ *        "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

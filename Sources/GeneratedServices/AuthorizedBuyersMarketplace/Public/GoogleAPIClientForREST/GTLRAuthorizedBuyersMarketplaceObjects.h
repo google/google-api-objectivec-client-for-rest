@@ -1151,6 +1151,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *creator;
 
 /**
+ *  Output only. If set, this field contains the DSP specific seat id set by the
+ *  media planner account that is considered the owner of this deal. The seat ID
+ *  is in the calling DSP's namespace.
+ */
+@property(nonatomic, copy, nullable) NSString *dealOwnerSeatId;
+
+/**
  *  Output only. A description of the auction package.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1161,9 +1168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. If set, this field contains the list of DSP specific seat ids
- *  set by media planners that are eligible to transact on this deal. The seat
- *  ID is in the calling DSP's namespace.
+ *  Output only. If set, this field identifies a seat that the media planner
+ *  selected as the owner of this auction package. This is a seat ID in the
+ *  DSP's namespace that was provided to the media planner.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eligibleSeatIds;
 

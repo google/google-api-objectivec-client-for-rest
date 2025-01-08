@@ -29,6 +29,7 @@
 @class GTLRCloudWorkstations_GceConfidentialInstanceConfig;
 @class GTLRCloudWorkstations_GceInstance;
 @class GTLRCloudWorkstations_GceInstance_VmTags;
+@class GTLRCloudWorkstations_GceInstanceHost;
 @class GTLRCloudWorkstations_GcePersistentDisk;
 @class GTLRCloudWorkstations_GceRegionalPersistentDisk;
 @class GTLRCloudWorkstations_GceShieldedInstanceConfig;
@@ -44,6 +45,7 @@
 @class GTLRCloudWorkstations_PortRange;
 @class GTLRCloudWorkstations_PrivateClusterConfig;
 @class GTLRCloudWorkstations_ReadinessCheck;
+@class GTLRCloudWorkstations_RuntimeHost;
 @class GTLRCloudWorkstations_Status;
 @class GTLRCloudWorkstations_Status_Details_Item;
 @class GTLRCloudWorkstations_Workstation;
@@ -329,7 +331,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  A configuration that workstations can boost to.
+ *  A boost configuration is a set of resources that a workstation can use to
+ *  increase its performance. If you specify a boost configuration, upon
+ *  startup, workstation users can choose to use a VM provisioned under the
+ *  boost config by passing the boost config ID in the start request. If the
+ *  workstation user does not provide a boost config ID in the start request,
+ *  the system will choose a VM from the pool provisioned under the default
+ *  config.
  */
 @interface GTLRCloudWorkstations_BoostConfig : GTLRObject
 
@@ -372,7 +380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
 /**
- *  Optional. Required. The id to be used for the boost configuration.
+ *  Required. The ID to be used for the boost configuration.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -594,7 +602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Optional. A list of the boost configurations that workstations created using
- *  this workstation configuration are allowed to use.
+ *  this workstation configuration are allowed to use. If specified, users will
+ *  have the option to choose from the list of boost configs when starting a
+ *  workstation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_BoostConfig *> *boostConfigs;
 
@@ -741,6 +751,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *        fetch them all at once.
  */
 @interface GTLRCloudWorkstations_GceInstance_VmTags : GTLRObject
+@end
+
+
+/**
+ *  The Compute Engine instance host.
+ */
+@interface GTLRCloudWorkstations_GceInstanceHost : GTLRObject
+
+/**
+ *  Optional. Output only. The ID of the Compute Engine instance.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. Output only. The name of the Compute Engine instance. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Output only. The zone of the Compute Engine instance.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -1317,7 +1352,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  A directory to persist across workstation sessions.
+ *  A directory to persist across workstation sessions. Updates to this field
+ *  will not update existing workstations and will only take effect on new
+ *  workstations.
  */
 @interface GTLRCloudWorkstations_PersistentDirectory : GTLRObject
 
@@ -1505,6 +1542,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
+ *  Runtime host for the workstation.
+ */
+@interface GTLRCloudWorkstations_RuntimeHost : GTLRObject
+
+/** Specifies a Compute Engine instance as the host. */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceInstanceHost *gceInstanceHost;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRCloudWorkstations_SetIamPolicyRequest : GTLRObject
@@ -1532,6 +1580,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  Request message for StartWorkstation.
  */
 @interface GTLRCloudWorkstations_StartWorkstationRequest : GTLRObject
+
+/**
+ *  Optional. If set, the workstation starts using the boost configuration with
+ *  the specified ID.
+ */
+@property(nonatomic, copy, nullable) NSString *boostConfig;
 
 /**
  *  Optional. If set, the request will be rejected if the latest version of the
@@ -1710,6 +1764,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Optional. Output only. Runtime host for the workstation when in
+ *  STATE_RUNNING.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_RuntimeHost *runtimeHost;
+
+/**
+ *  Optional. The source workstation from which this workstation's persistent
+ *  directories were cloned on creation.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceWorkstation;
 
 /**
  *  Output only. Time when this workstation was most recently successfully

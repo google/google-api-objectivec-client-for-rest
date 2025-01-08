@@ -4,7 +4,7 @@
 // API:
 //   Google Play Game Services (games/v1)
 // Description:
-//   The Google Play games service allows developers to enhance games with
+//   The Google Play Games Service allows developers to enhance games with
 //   social leaderboards, achievements, game state, sign-in with Google, and
 //   more.
 // Documentation:

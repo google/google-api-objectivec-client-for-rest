@@ -8,7 +8,7 @@
 //   administrators to view, manage and gain insights on their Chrome OS and
 //   Chrome Browser devices.
 // Documentation:
-//   http://developers.google.com/chrome/management/
+//   https://developers.google.com/chrome/management/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -95,7 +95,10 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData;
@@ -208,23 +211,26 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote;
 /**
- *  Application type standalone browser (Lacros browser app).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Application type standalone browser chrome app (hosted in Lacros).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Application type standalone browser extension.
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
 /**
  *  Application type system web.
  *
@@ -1196,23 +1202,26 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote;
 /**
- *  Application type standalone browser (Lacros browser app).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Application type standalone browser chrome app (hosted in Lacros).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Application type standalone browser extension.
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
 /**
  *  Application type system web.
  *
@@ -1567,23 +1576,26 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote;
 /**
- *  Application type standalone browser (Lacros browser app).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Application type standalone browser chrome app (hosted in Lacros).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Application type standalone browser extension.
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
 /**
  *  Application type system web.
  *
@@ -1667,23 +1679,26 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote;
 /**
- *  Application type standalone browser (Lacros browser app).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Application type standalone browser chrome app (hosted in Lacros).
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Application type standalone browser extension.
+ *  Deprecated. This vaule is no longer used. Application type standalone
+ *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
 /**
  *  Application type system web.
  *
@@ -2156,6 +2171,32 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
+
+/**
+ *  The PKCS#1 digest info is built by the server-side and sent to the client
+ *  unhashed. The client is responsible for signing and hashing. Uses the P-256
+ *  curve.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256;
+/**
+ *  The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
+ *  constructed on the server-side. The client should sign using RSA with PKCS#1
+ *  v1.5 padding.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.affiliationState
 
 /**
@@ -2584,13 +2625,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser
- *        Application type standalone browser (Lacros browser app). (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Application type standalone browser chrome app (hosted in Lacros).
- *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Application type standalone browser extension. (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeSystemWeb
  *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
@@ -5228,13 +5272,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser
- *        Application type standalone browser (Lacros browser app). (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Application type standalone browser chrome app (hosted in Lacros).
- *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Application type standalone browser extension. (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeSystemWeb
  *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
@@ -5428,13 +5475,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser
- *        Application type standalone browser (Lacros browser app). (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Application type standalone browser chrome app (hosted in Lacros).
- *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Application type standalone browser extension. (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeSystemWeb
  *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
@@ -5486,13 +5536,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser
- *        Application type standalone browser (Lacros browser app). (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Application type standalone browser chrome app (hosted in Lacros).
- *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Application type standalone browser extension. (Value:
+ *        Deprecated. This vaule is no longer used. Application type standalone
+ *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeSystemWeb
  *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
@@ -6547,6 +6600,121 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  A certificate provisioning process.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess : GTLRObject
+
+/**
+ *  Output only. A JSON string that contains the administrator-provided
+ *  configuration for the certification authority service. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *caConnectionAdapterConfigReference;
+
+/**
+ *  Output only. The client certificate is being provisioned for a ChromeOS
+ *  device. This contains information about the device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice *chromeOsDevice;
+
+/**
+ *  Output only. The client certificate is being provisioned for a ChromeOS user
+ *  session. This contains information about the user session.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession *chromeOsUserSession;
+
+/**
+ *  Output only. A message describing why this `CertificateProvisioningProcess`
+ *  failed. Presence of this field indicates that the
+ *  `CertificateProvisioningProcess` has failed.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/**
+ *  Output only. The issued certificate for this
+ *  `CertificateProvisioningProcess` in PEM format.
+ */
+@property(nonatomic, copy, nullable) NSString *issuedCertificate;
+
+/**
+ *  Identifier. Resource name of the `CertificateProvisioningProcess`. The name
+ *  pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. A JSON string that contains the administrator-provided
+ *  configuration for the certificate provisioning profile. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *profileAdapterConfigReference;
+
+/** Output only. The ID of the certificate provisioning profile. */
+@property(nonatomic, copy, nullable) NSString *provisioningProfileId;
+
+/**
+ *  Output only. The signature of `signature_algorithm`, generated using the
+ *  client's private key using `signature_algorithm`. This field is only present
+ *  after the`SignData` operation has finished.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+/**
+ *  Output only. The signature algorithm that the adapter expects the client and
+ *  backend components to use when processing `sign_data`. This field is only
+ *  present after the `SignData` operation has been initiated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256
+ *        The PKCS#1 digest info is built by the server-side and sent to the
+ *        client unhashed. The client is responsible for signing and hashing.
+ *        Uses the P-256 curve. (Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256
+ *        The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
+ *        constructed on the server-side. The client should sign using RSA with
+ *        PKCS#1 v1.5 padding. (Value:
+ *        "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SIGNATURE_ALGORITHM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signatureAlgorithm;
+
+/**
+ *  Output only. The data that the client was asked to sign. This field is only
+ *  present after the `SignData` operation has been initiated.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signData;
+
+/**
+ *  Output only. Server-generated timestamp of when the certificate provisioning
+ *  process has been created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The public key for which a certificate should be provisioned.
+ *  Represented as a DER-encoded X.509 SubjectPublicKeyInfo.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *subjectPublicKeyInfo;
+
+@end
+
+
+/**
  *  A representation of a Chrome browser profile.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile : GTLRObject
@@ -6693,6 +6861,50 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  SDK Users API.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Describes the ChromeOS device that a `CertificateProvisioningProcess`
+ *  belongs to.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice : GTLRObject
+
+/**
+ *  Output only. The unique Directory API ID of the device. This value is the
+ *  same as the Admin Console's Directory API ID in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceDirectoryApiId;
+
+/**
+ *  Output only. Device serial number. This value is the same as the Admin
+ *  Console's Serial Number in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+@end
+
+
+/**
+ *  Describes the ChromeOS user session that a `CertificateProvisioningProcess`
+ *  belongs to.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession : GTLRObject
+
+/**
+ *  Output only. This field contains information about the ChromeOS device that
+ *  the user session is running on. It is only set if the user session is
+ *  affiliated, i.e. if the user is managed by the same organization that
+ *  managed the ChromeOS device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice *chromeOsDevice;
+
+/** Output only. The unique Directory API ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userDirectoryApiId;
+
+/** Output only. The primary e-mail address of the user. */
+@property(nonatomic, copy, nullable) NSString *userPrimaryEmail;
 
 @end
 
@@ -6981,6 +7193,33 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Value of the policy. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Metadata for the long-running operation returned by signData.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata : GTLRObject
+
+/** Output only. Start time of the SignData operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Response message for requesting a signature from the client that initated a
+ *  certificate provisioning process.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataResponse : GTLRObject
+
+/**
+ *  Output only. The certificate provisioning process. The signature generated
+ *  by the client will be available in the `signature` field of
+ *  `CertificateProvisioningProcess`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess *certificateProvisioningProcess;
 
 @end
 

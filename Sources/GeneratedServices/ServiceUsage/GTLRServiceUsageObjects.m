@@ -17,6 +17,7 @@
 
 // GTLRServiceUsage_Analysis.analysisType
 NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceExistence = @"ANALYSIS_TYPE_RESOURCE_EXISTENCE";
 NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
 NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified = @"ANALYSIS_TYPE_UNSPECIFIED";
 
@@ -113,6 +114,7 @@ NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_
 // GTLRServiceUsage_Impact.impactType
 NSString * const kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
 NSString * const kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_Impact_ImpactType_ResourceExistenceProject = @"RESOURCE_EXISTENCE_PROJECT";
 
 // GTLRServiceUsage_LabelDescriptor.valueType
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Bool = @"BOOL";
@@ -790,8 +792,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
-         serviceRootUrl, summary;
+@dynamic additionalIamInfo, documentationRootUrl, overview, pages, rules,
+         sectionOverrides, serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1412,7 +1414,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Impact
-@dynamic detail, impactType;
+@dynamic detail, impactType, parent;
 @end
 
 

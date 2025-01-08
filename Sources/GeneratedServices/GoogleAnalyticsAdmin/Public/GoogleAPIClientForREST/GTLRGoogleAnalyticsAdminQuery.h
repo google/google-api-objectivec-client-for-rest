@@ -343,7 +343,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Searches through all changes to an account or its children given the
- *  specified set of filters.
+ *  specified set of filters. Only returns the subset of changes supported by
+ *  the API. The UI may return additional changes.
  *
  *  Method: analyticsadmin.accounts.searchChangeHistoryEvents
  *
@@ -363,7 +364,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsResponse.
  *
  *  Searches through all changes to an account or its children given the
- *  specified set of filters.
+ *  specified set of filters. Only returns the subset of changes supported by
+ *  the API. The UI may return additional changes.
  *
  *  @param object The @c
  *    GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest to include

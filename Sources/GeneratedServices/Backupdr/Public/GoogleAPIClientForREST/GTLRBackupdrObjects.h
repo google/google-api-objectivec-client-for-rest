@@ -1888,6 +1888,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) NSNumber *resourceSizeBytes;
 
 /**
+ *  Optional. Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Optional. Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The list of BackupLocks taken by the service to prevent the
  *  deletion of the backup.
  */
@@ -2172,7 +2186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /**
  *  Required. The resource type to which the `BackupPlan` will be applied.
  *  Examples include, "compute.googleapis.com/Instance",
- *  "sqladmin.googleapis.com/Instance" and "storage.googleapis.com/Bucket".
+ *  "sqladmin.googleapis.com/Instance", or "alloydb.googleapis.com/Cluster".
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -2229,8 +2243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. Output Only. Resource name of data source which will be used as
- *  storage location for backups taken. Format :
+ *  Output only. Resource name of data source which will be used as storage
+ *  location for backups taken. Format :
  *  projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}
  */
 @property(nonatomic, copy, nullable) NSString *dataSource;
@@ -2249,7 +2263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
- *  Optional. Required. Resource type of workload on which backupplan is applied
+ *  Required. Immutable. Resource type of workload on which backupplan is
+ *  applied
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -2293,7 +2308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  is 90 for hourly backups. Minimum value is 1 and maximum value is 90 for
  *  daily backups. Minimum value is 7 and maximum value is 186 for weekly
  *  backups. Minimum value is 30 and maximum value is 732 for monthly backups.
- *  Minimum value is 30 and maximum value is 36159 for yearly backups.
+ *  Minimum value is 365 and maximum value is 36159 for yearly backups.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2323,9 +2338,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  Optional. Note: This field is added for future use case and will not be
- *  supported in the current release. Optional. Access restriction for the
- *  backup vault. Default value is WITHIN_ORGANIZATION if not provided during
- *  creation.
+ *  supported in the current release. Access restriction for the backup vault.
+ *  Default value is WITHIN_ORGANIZATION if not provided during creation.
  *
  *  Likely values:
  *    @arg @c kGTLRBackupdr_BackupVault_AccessRestriction_AccessRestrictionUnspecified
@@ -2440,10 +2454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *totalStoredBytes;
 
-/**
- *  Output only. Output only Immutable after resource creation until resource
- *  deletion.
- */
+/** Output only. Immutable after resource creation until resource deletion. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
 /** Output only. The time when the instance was updated. */
@@ -3539,6 +3550,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Request message for initializing the service.
+ */
+@interface GTLRBackupdr_InitializeServiceRequest : GTLRObject
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The resource type to which the default service config will be
+ *  applied. Examples include, "compute.googleapis.com/Instance" and
+ *  "storage.googleapis.com/Bucket".
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
  *  request message for InitiateBackup.
  */
 @interface GTLRBackupdr_InitiateBackupRequest : GTLRObject
@@ -4397,8 +4438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  'Code.CANCELLED'.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to 'Code.CANCELLED'.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4590,10 +4631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_RuleConfigInfo : GTLRObject
 
-/**
- *  Output only. Output Only. google.rpc.Status object to store the last backup
- *  error.
- */
+/** Output only. google.rpc.Status object to store the last backup error. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_Status *lastBackupError;
 
 /**
@@ -4620,7 +4658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupConsistencyTime;
 
-/** Output only. Output Only. Backup Rule id fetched from backup plan. */
+/** Output only. Backup Rule id fetched from backup plan. */
 @property(nonatomic, copy, nullable) NSString *ruleId;
 
 @end

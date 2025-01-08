@@ -484,14 +484,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  New parent task identifier. If the task is moved to the top level, this
- *  parameter is omitted. Assigned tasks can not be set as parent task (have
+ *  parameter is omitted. The task set as parent must exist in the task list and
+ *  can not be hidden. Assigned tasks can not be set as parent task (have
  *  subtasks) or be moved under a parent task (become subtasks). Optional.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  New previous sibling task identifier. If the task is moved to the first
- *  position among its siblings, this parameter is omitted. Optional.
+ *  position among its siblings, this parameter is omitted. The task set as
+ *  previous must exist in the task list and can not be hidden. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *previous;
 

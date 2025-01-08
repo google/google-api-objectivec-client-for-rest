@@ -11289,9 +11289,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `200`. If unspecified will
- *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
- *  is specified.
+ *  Requested page size. Must be between `1` and `5000`. If unspecified, this
+ *  value defaults to `100`. Returns error code `INVALID_ARGUMENT` if an invalid
+ *  value is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

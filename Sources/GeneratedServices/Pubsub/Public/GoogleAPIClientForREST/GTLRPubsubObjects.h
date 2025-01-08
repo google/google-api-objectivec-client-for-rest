@@ -19,10 +19,13 @@
 @class GTLRPubsub_AvroConfig;
 @class GTLRPubsub_AvroFormat;
 @class GTLRPubsub_AwsKinesis;
+@class GTLRPubsub_AwsMsk;
+@class GTLRPubsub_AzureEventHubs;
 @class GTLRPubsub_BigQueryConfig;
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CloudStorage;
 @class GTLRPubsub_CloudStorageConfig;
+@class GTLRPubsub_ConfluentCloud;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
 @class GTLRPubsub_DeadLetterPolicy;
 @class GTLRPubsub_ExpirationPolicy;
@@ -107,6 +110,100 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_StateUnspecified
  *  Value: "STREAM_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_StreamNotFound;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_AwsMsk.state
+
+/**
+ *  Ingestion is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_Active;
+/**
+ *  The provided MSK cluster wasn't found.
+ *
+ *  Value: "CLUSTER_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_ClusterNotFound;
+/**
+ *  Permission denied encountered while consuming data from Amazon MSK.
+ *
+ *  Value: "MSK_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_MskPermissionDenied;
+/**
+ *  Permission denied encountered while publishing to the topic.
+ *
+ *  Value: "PUBLISH_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_PublishPermissionDenied;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_StateUnspecified;
+/**
+ *  The provided topic wasn't found.
+ *
+ *  Value: "TOPIC_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_TopicNotFound;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_AzureEventHubs.state
+
+/**
+ *  Ingestion is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_Active;
+/**
+ *  The provided Event Hub couldn't be found.
+ *
+ *  Value: "EVENT_HUB_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_EventHubNotFound;
+/**
+ *  Permission denied encountered while consuming data from Event Hubs. This can
+ *  happen when `client_id`, or `tenant_id` are invalid. Or the right
+ *  permissions haven't been granted.
+ *
+ *  Value: "EVENT_HUBS_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_EventHubsPermissionDenied;
+/**
+ *  The provided Event Hubs namespace couldn't be found.
+ *
+ *  Value: "NAMESPACE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_NamespaceNotFound;
+/**
+ *  Permission denied encountered while publishing to the topic.
+ *
+ *  Value: "PUBLISH_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_PublishPermissionDenied;
+/**
+ *  The provided Event Hubs resource group couldn't be found.
+ *
+ *  Value: "RESOURCE_GROUP_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_ResourceGroupNotFound;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_StateUnspecified;
+/**
+ *  The provided Event Hubs subscription couldn't be found.
+ *
+ *  Value: "SUBSCRIPTION_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_SubscriptionNotFound;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsub_BigQueryConfig.state
@@ -243,6 +340,52 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_ConfluentCloud.state
+
+/**
+ *  Ingestion is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_Active;
+/**
+ *  The provided cluster wasn't found.
+ *
+ *  Value: "CLUSTER_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_ClusterNotFound;
+/**
+ *  Permission denied encountered while consuming data from Confluent Cloud.
+ *
+ *  Value: "CONFLUENT_CLOUD_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_ConfluentCloudPermissionDenied;
+/**
+ *  Permission denied encountered while publishing to the topic.
+ *
+ *  Value: "PUBLISH_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_PublishPermissionDenied;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_StateUnspecified;
+/**
+ *  The provided topic wasn't found.
+ *
+ *  Value: "TOPIC_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_TopicNotFound;
+/**
+ *  The provided bootstrap server address is unreachable.
+ *
+ *  Value: "UNREACHABLE_BOOTSTRAP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_UnreachableBootstrapServer;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsub_PlatformLogsSettings.severity
@@ -415,8 +558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  Information about an associated Analytics Hub subscription
- *  (https://cloud.google.com/bigquery/docs/analytics-hub-manage-subscriptions).
+ *  Information about an associated [Analytics Hub
+ *  subscription](https://cloud.google.com/bigquery/docs/analytics-hub-manage-subscriptions).
  */
 @interface GTLRPubsub_AnalyticsHubSubscriptionInfo : GTLRObject
 
@@ -532,6 +675,135 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /** Required. The Kinesis stream ARN to ingest data from. */
 @property(nonatomic, copy, nullable) NSString *streamArn;
+
+@end
+
+
+/**
+ *  Ingestion settings for Amazon MSK.
+ */
+@interface GTLRPubsub_AwsMsk : GTLRObject
+
+/**
+ *  Required. AWS role ARN to be used for Federated Identity authentication with
+ *  Amazon MSK. Check the Pub/Sub docs for how to set up this role and the
+ *  required permissions that need to be attached to it.
+ */
+@property(nonatomic, copy, nullable) NSString *awsRoleArn;
+
+/**
+ *  Required. The Amazon Resource Name (ARN) that uniquely identifies the
+ *  cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterArn;
+
+/**
+ *  Required. The GCP service account to be used for Federated Identity
+ *  authentication with Amazon MSK (via a `AssumeRoleWithWebIdentity` call for
+ *  the provided role). The `aws_role_arn` must be set up with
+ *  `accounts.google.com:sub` equals to this service account number.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpServiceAccount;
+
+/**
+ *  Output only. An output-only field that indicates the state of the Amazon MSK
+ *  ingestion source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_AwsMsk_State_Active Ingestion is active. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRPubsub_AwsMsk_State_ClusterNotFound The provided MSK cluster
+ *        wasn't found. (Value: "CLUSTER_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_AwsMsk_State_MskPermissionDenied Permission denied
+ *        encountered while consuming data from Amazon MSK. (Value:
+ *        "MSK_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_AwsMsk_State_PublishPermissionDenied Permission denied
+ *        encountered while publishing to the topic. (Value:
+ *        "PUBLISH_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_AwsMsk_State_StateUnspecified Default value. This
+ *        value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_AwsMsk_State_TopicNotFound The provided topic wasn't
+ *        found. (Value: "TOPIC_NOT_FOUND")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. The name of the topic in the Amazon MSK cluster that Pub/Sub will
+ *  import from.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  Ingestion settings for Azure Event Hubs.
+ */
+@interface GTLRPubsub_AzureEventHubs : GTLRObject
+
+/**
+ *  Optional. The client id of the Azure application that is being used to
+ *  authenticate Pub/Sub.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Optional. The name of the Event Hub. */
+@property(nonatomic, copy, nullable) NSString *eventHub;
+
+/**
+ *  Optional. The GCP service account to be used for Federated Identity
+ *  authentication.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpServiceAccount;
+
+/**
+ *  Optional. The name of the Event Hubs namespace.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+/** Optional. Name of the resource group within the azure subscription. */
+@property(nonatomic, copy, nullable) NSString *resourceGroup;
+
+/**
+ *  Output only. An output-only field that indicates the state of the Event Hubs
+ *  ingestion source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_Active Ingestion is active.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_EventHubNotFound The provided
+ *        Event Hub couldn't be found. (Value: "EVENT_HUB_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_EventHubsPermissionDenied
+ *        Permission denied encountered while consuming data from Event Hubs.
+ *        This can happen when `client_id`, or `tenant_id` are invalid. Or the
+ *        right permissions haven't been granted. (Value:
+ *        "EVENT_HUBS_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_NamespaceNotFound The provided
+ *        Event Hubs namespace couldn't be found. (Value: "NAMESPACE_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_PublishPermissionDenied
+ *        Permission denied encountered while publishing to the topic. (Value:
+ *        "PUBLISH_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_ResourceGroupNotFound The
+ *        provided Event Hubs resource group couldn't be found. (Value:
+ *        "RESOURCE_GROUP_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_StateUnspecified Default value.
+ *        This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_SubscriptionNotFound The provided
+ *        Event Hubs subscription couldn't be found. (Value:
+ *        "SUBSCRIPTION_NOT_FOUND")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. The Azure subscription id. */
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
+
+/**
+ *  Optional. The tenant id of the Azure application that is being used to
+ *  authenticate Pub/Sub.
+ */
+@property(nonatomic, copy, nullable) NSString *tenantId;
 
 @end
 
@@ -904,6 +1176,64 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
+ *  Ingestion settings for Confluent Cloud.
+ */
+@interface GTLRPubsub_ConfluentCloud : GTLRObject
+
+/** Required. The address of the bootstrap server. The format is url:port. */
+@property(nonatomic, copy, nullable) NSString *bootstrapServer;
+
+/** Required. The id of the cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  Required. The GCP service account to be used for Federated Identity
+ *  authentication with `identity_pool_id`.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpServiceAccount;
+
+/**
+ *  Required. The id of the identity pool to be used for Federated Identity
+ *  authentication with Confluent Cloud. See
+ *  https://docs.confluent.io/cloud/current/security/authenticate/workload-identities/identity-providers/oauth/identity-pools.html#add-oauth-identity-pools.
+ */
+@property(nonatomic, copy, nullable) NSString *identityPoolId;
+
+/**
+ *  Output only. An output-only field that indicates the state of the Confluent
+ *  Cloud ingestion source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_Active Ingestion is active.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_ClusterNotFound The provided
+ *        cluster wasn't found. (Value: "CLUSTER_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_ConfluentCloudPermissionDenied
+ *        Permission denied encountered while consuming data from Confluent
+ *        Cloud. (Value: "CONFLUENT_CLOUD_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_PublishPermissionDenied
+ *        Permission denied encountered while publishing to the topic. (Value:
+ *        "PUBLISH_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_StateUnspecified Default value.
+ *        This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_TopicNotFound The provided topic
+ *        wasn't found. (Value: "TOPIC_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_UnreachableBootstrapServer The
+ *        provided bootstrap server address is unreachable. (Value:
+ *        "UNREACHABLE_BOOTSTRAP_SERVER")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. The name of the topic in the Confluent Cloud cluster that Pub/Sub
+ *  will import from.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
  *  Request for the `CreateSnapshot` method.
  */
 @interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
@@ -1071,8 +1401,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /** Optional. Amazon Kinesis Data Streams. */
 @property(nonatomic, strong, nullable) GTLRPubsub_AwsKinesis *awsKinesis;
 
+/** Optional. Amazon MSK. */
+@property(nonatomic, strong, nullable) GTLRPubsub_AwsMsk *awsMsk;
+
+/** Optional. Azure Event Hubs. */
+@property(nonatomic, strong, nullable) GTLRPubsub_AzureEventHubs *azureEventHubs;
+
 /** Optional. Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRPubsub_CloudStorage *cloudStorage;
+
+/** Optional. Confluent Cloud. */
+@property(nonatomic, strong, nullable) GTLRPubsub_ConfluentCloud *confluentCloud;
 
 /**
  *  Optional. Platform Logs settings. If unset, no Platform Logs will be

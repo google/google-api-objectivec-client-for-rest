@@ -86,6 +86,7 @@
 @class GTLRDatastream_SpecificStartPosition;
 @class GTLRDatastream_SqlServerChangeTables;
 @class GTLRDatastream_SqlServerColumn;
+@class GTLRDatastream_SqlServerLsnPosition;
 @class GTLRDatastream_SqlServerObjectIdentifier;
 @class GTLRDatastream_SqlServerProfile;
 @class GTLRDatastream_SqlServerRdbms;
@@ -606,7 +607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** MySQL ConnectionProfile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlProfile *mysqlProfile;
 
-/** Output only. The resource's name. */
+/** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Oracle ConnectionProfile configuration. */
@@ -1599,8 +1600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1624,7 +1625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Configuration for Oracle Automatic Storage Management (ASM) connection.
+ *  Configuration for Oracle Automatic Storage Management (ASM) connection. .
  */
 @interface GTLRDatastream_OracleAsmConfig : GTLRObject
 
@@ -1640,7 +1641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Optional. SSL configuration for the Oracle connection. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleSslConfig *oracleSslConfig;
 
-/** Required. Password for the Oracle ASM connection. */
+/** Optional. Password for the Oracle ASM connection. */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
@@ -2123,7 +2124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Labels. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PrivateConnection_Labels *labels;
 
-/** Output only. The resource's name. */
+/** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2208,7 +2209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Labels. */
 @property(nonatomic, strong, nullable) GTLRDatastream_Route_Labels *labels;
 
-/** Output only. The resource's name. */
+/** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. The update time of the resource. */
@@ -2333,6 +2334,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Oracle SCN to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleScnPosition *oracleScnPosition;
 
+/** SqlServer LSN to start replicating from. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerLsnPosition *sqlServerLsnPosition;
+
 @end
 
 
@@ -2395,6 +2399,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scale;
+
+@end
+
+
+/**
+ *  SQL Server LSN position
+ */
+@interface GTLRDatastream_SqlServerLsnPosition : GTLRObject
+
+/** Required. Log sequence number (LSN) from where Logs will be read */
+@property(nonatomic, copy, nullable) NSString *lsn;
 
 @end
 
@@ -2660,7 +2675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRecoveryTime;
 
-/** Output only. The stream's name. */
+/** Output only. Identifier. The stream's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Required. Source connection profile configuration. */
@@ -2735,7 +2750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. Active errors on the object. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_Error *> *errors;
 
-/** Output only. The object resource's name. */
+/** Output only. Identifier. The object resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The object identifier in the data source. */

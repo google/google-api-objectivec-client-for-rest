@@ -88,6 +88,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport;
 /**
+ *  Canada Controlled Goods
+ *
+ *  Value: "CANADA_CONTROLLED_GOODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaControlledGoods;
+/**
  *  Assured Workloads for Canada Protected B regime
  *
  *  Value: "CA_PROTECTED_B"
@@ -368,6 +374,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "AU_REGIONS_AND_US_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport;
+/**
+ *  Canada Controlled Goods
+ *
+ *  Value: "CANADA_CONTROLLED_GOODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaControlledGoods;
 /**
  *  Assured Workloads for Canada Protected B regime
  *
@@ -916,6 +928,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
  *        Assured Workloads for Australia Regions and Support controls (Value:
  *        "AU_REGIONS_AND_US_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaControlledGoods
+ *        Canada Controlled Goods (Value: "CANADA_CONTROLLED_GOODS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB
  *        Assured Workloads for Canada Protected B regime (Value:
  *        "CA_PROTECTED_B")
@@ -1440,6 +1454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport
  *        Assured Workloads for Australia Regions and Support controls (Value:
  *        "AU_REGIONS_AND_US_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaControlledGoods
+ *        Canada Controlled Goods (Value: "CANADA_CONTROLLED_GOODS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB
  *        Assured Workloads for Canada Protected B regime (Value:
  *        "CA_PROTECTED_B")
@@ -1766,7 +1782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *ekmProvisioningErrorMapping;
 
 /**
- *  Indicates Ekm enrollment Provisioning of a given workload.
+ *  Output only. Indicates Ekm enrollment Provisioning of a given workload.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateCompleted
@@ -1830,7 +1846,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *assuredWorkloadsMonitoring;
 
 /**
- *  Allow the partner to view inspectability logs and monitoring violations.
+ *  Optional. Allow the partner to view inspectability logs and monitoring
+ *  violations.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1852,7 +1869,8 @@ GTLR_DEPRECATED
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo : GTLRObject
 
 /**
- *  Resource identifier. For a project this represents project_number.
+ *  Output only. Resource identifier. For a project this represents
+ *  project_number.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1934,7 +1952,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setupErrors;
 
 /**
- *  Indicates SAA enrollment status of a given workload.
+ *  Output only. Indicates SAA enrollment status of a given workload.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified

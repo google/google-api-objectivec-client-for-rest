@@ -70,6 +70,7 @@ NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_ClientVali
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid = @"REJECT_INVALID";
 
 // GTLRNetworkSecurity_SecurityProfile.type
+NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomIntercept = @"CUSTOM_INTERCEPT";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring = @"CUSTOM_MIRRORING";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified = @"PROFILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention = @"THREAT_PREVENTION";
@@ -519,6 +520,16 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_CloneAddressGroupItemsRequest
 @dynamic requestId, sourceAddressGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_CustomInterceptProfile
+//
+
+@implementation GTLRNetworkSecurity_CustomInterceptProfile
+@dynamic interceptEndpointGroup;
 @end
 
 
@@ -1351,8 +1362,9 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_SecurityProfile
-@dynamic createTime, customMirroringProfile, descriptionProperty, ETag, labels,
-         name, threatPreventionProfile, type, updateTime;
+@dynamic createTime, customInterceptProfile, customMirroringProfile,
+         descriptionProperty, ETag, labels, name, threatPreventionProfile, type,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1385,8 +1397,9 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_SecurityProfileGroup
-@dynamic createTime, customMirroringProfile, descriptionProperty, ETag, labels,
-         name, threatPreventionProfile, updateTime;
+@dynamic createTime, customInterceptProfile, customMirroringProfile,
+         descriptionProperty, ETag, labels, name, threatPreventionProfile,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

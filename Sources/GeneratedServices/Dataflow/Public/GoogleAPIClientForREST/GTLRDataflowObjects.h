@@ -59,6 +59,7 @@
 @class GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
+@class GTLRDataflow_GaugeValue;
 @class GTLRDataflow_GPUUsage;
 @class GTLRDataflow_GPUUtilization;
 @class GTLRDataflow_Histogram;
@@ -3701,6 +3702,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  The gauge value of a metric.
+ */
+@interface GTLRDataflow_GaugeValue : GTLRObject
+
+/** The timestamp when the gauge was recorded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *measuredTime;
+
+/**
+ *  The value of the gauge.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
  *  Request to get updated debug configuration for component.
  */
 @interface GTLRDataflow_GetDebugConfigRequest : GTLRObject
@@ -5281,6 +5300,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Optional. Set of metric labels for this metric. */
 @property(nonatomic, strong, nullable) GTLRDataflow_MetricValue_MetricLabels *metricLabels;
+
+/** Non-cumulative int64 value of this metric. */
+@property(nonatomic, strong, nullable) GTLRDataflow_GaugeValue *valueGauge64;
 
 /** Histogram value of this metric. */
 @property(nonatomic, strong, nullable) GTLRDataflow_HistogramValue *valueHistogram;

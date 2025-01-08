@@ -27,7 +27,7 @@
 @class GTLRDeploymentManager_DeploymentUpdate;
 @class GTLRDeploymentManager_DeploymentUpdateLabelEntry;
 @class GTLRDeploymentManager_ErrorInfo;
-@class GTLRDeploymentManager_ErrorInfo_Metadata;
+@class GTLRDeploymentManager_ErrorInfo_Metadatas;
 @class GTLRDeploymentManager_Expr;
 @class GTLRDeploymentManager_Help;
 @class GTLRDeploymentManager_HelpLink;
@@ -1478,15 +1478,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Additional structured details about this error. Keys must match /a-z+/ but
- *  should ideally be lowerCamelCase. Also they must be limited to 64 characters
- *  in length. When identifying the current value of an exceeded limit, the
- *  units should be contained in the key, not the value. For example, rather
- *  than {"instanceLimit": "100/request"}, should be returned as,
- *  {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
- *  instances that can be created in a single (batch) request.
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
  */
-@property(nonatomic, strong, nullable) GTLRDeploymentManager_ErrorInfo_Metadata *metadata;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ErrorInfo_Metadatas *metadatas;
 
 /**
  *  The reason of the error. This is a constant value that identifies the
@@ -1500,20 +1500,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  Additional structured details about this error. Keys must match /a-z+/ but
- *  should ideally be lowerCamelCase. Also they must be limited to 64 characters
- *  in length. When identifying the current value of an exceeded limit, the
- *  units should be contained in the key, not the value. For example, rather
- *  than {"instanceLimit": "100/request"}, should be returned as,
- *  {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
- *  instances that can be created in a single (batch) request.
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDeploymentManager_ErrorInfo_Metadata : GTLRObject
+@interface GTLRDeploymentManager_ErrorInfo_Metadatas : GTLRObject
 @end
 
 

@@ -33,6 +33,10 @@
 @class GTLRAnalyticsHub_ExpirationPolicy;
 @class GTLRAnalyticsHub_Expr;
 @class GTLRAnalyticsHub_GetPolicyOptions;
+@class GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo;
+@class GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo;
+@class GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfo;
+@class GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfoGoogleCloudMarketplaceInfo;
 @class GTLRAnalyticsHub_GooglePubsubV1Subscription;
 @class GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels;
 @class GTLRAnalyticsHub_LinkedResource;
@@ -207,6 +211,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_
  *  Value: "DISCOVERY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo.commercialState
+
+/**
+ *  Commercialization is complete and available for use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Active;
+/**
+ *  Commercialization is incomplete and cannot be used.
+ *
+ *  Value: "COMMERCIAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_CommercialStateUnspecified;
+/**
+ *  Commercialization has been initialized.
+ *
+ *  Value: "ONBOARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Onboarding;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_GooglePubsubV1Subscription.state
@@ -1171,6 +1197,75 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Commercial info contains the information about the commercial data products
+ *  associated with the listing.
+ */
+@interface GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo : GTLRObject
+
+/**
+ *  Output only. Details of the Marketplace Data Product associated with the
+ *  Listing.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo *cloudMarketplace;
+
+@end
+
+
+/**
+ *  Specifies the details of the Marketplace Data Product associated with the
+ *  Listing.
+ */
+@interface GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo : GTLRObject
+
+/**
+ *  Output only. Commercial state of the Marketplace Data Product.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Active
+ *        Commercialization is complete and available for use. (Value: "ACTIVE")
+ *    @arg @c kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_CommercialStateUnspecified
+ *        Commercialization is incomplete and cannot be used. (Value:
+ *        "COMMERCIAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Onboarding
+ *        Commercialization has been initialized. (Value: "ONBOARDING")
+ */
+@property(nonatomic, copy, nullable) NSString *commercialState;
+
+/**
+ *  Output only. Resource name of the commercial service associated with the
+ *  Marketplace Data Product. e.g. example.com
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Commercial info metadata for this subscription.
+ */
+@interface GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfo : GTLRObject
+
+/**
+ *  Output only. This is set when the subscription is commercialised via Cloud
+ *  Marketplace.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfoGoogleCloudMarketplaceInfo *cloudMarketplace;
+
+@end
+
+
+/**
+ *  Cloud Marketplace commercial metadata for this subscription.
+ */
+@interface GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfoGoogleCloudMarketplaceInfo : GTLRObject
+
+/** Resource name of the Marketplace Order. */
+@property(nonatomic, copy, nullable) NSString *order;
+
+@end
+
+
+/**
  *  A subscription resource. If none of `push_config`, `bigquery_config`, or
  *  `cloud_storage_config` is set, then the subscriber will pull and ack
  *  messages using API methods. At most one of these fields may be set.
@@ -1431,6 +1526,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /** Optional. Categories of the listing. Up to two categories are allowed. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
+
+/**
+ *  Output only. Commercial info contains the information about the commercial
+ *  data products associated with the listing.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo *commercialInfo;
 
 /** Optional. Details of the data provider who owns the source data. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_DataProvider *dataProvider;
@@ -2305,6 +2406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @interface GTLRAnalyticsHub_Subscription : GTLRObject
 
+/**
+ *  Output only. This is set if this is a commercial subscription i.e. if this
+ *  subscription was created from subscribing to a commercial listing.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfo *commercialInfo;
+
 /** Output only. Timestamp when the subscription was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
@@ -2402,8 +2509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
- *  Information about an associated Analytics Hub subscription
- *  (https://cloud.google.com/bigquery/docs/analytics-hub-manage-subscriptions).
+ *  Information about an associated [Analytics Hub
+ *  subscription](https://cloud.google.com/bigquery/docs/analytics-hub-manage-subscriptions).
  */
 @interface GTLRAnalyticsHub_SubscriptionInfo : GTLRObject
 

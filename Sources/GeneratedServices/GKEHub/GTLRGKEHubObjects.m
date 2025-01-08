@@ -827,16 +827,6 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGKEHub_FeatureConfigRef
-//
-
-@implementation GTLRGKEHub_FeatureConfigRef
-@dynamic config, configUpdateTime, uuid;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRGKEHub_FeatureSpec
 //
 
@@ -1197,8 +1187,8 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 //
 
 @implementation GTLRGKEHub_MembershipFeature
-@dynamic createTime, deleteTime, featureConfigRef, labels, lifecycleState, name,
-         spec, state, updateTime;
+@dynamic createTime, deleteTime, labels, lifecycleState, name, spec, state,
+         updateTime;
 @end
 
 

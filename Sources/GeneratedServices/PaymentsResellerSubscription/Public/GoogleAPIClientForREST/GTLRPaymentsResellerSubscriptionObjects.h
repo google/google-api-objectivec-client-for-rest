@@ -35,6 +35,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionMigrationDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UserSession;
@@ -1400,6 +1401,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem *> *lineItems;
 
 /**
+ *  Output only. Describes the details of the migrated subscription. Only
+ *  populated if this subscription is migrated from another system.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionMigrationDetails *migrationDetails;
+
+/**
  *  Identifier. Resource name of the subscription. It will have the format of
  *  "partners/{partner_id}/subscriptions/{subscription_id}". This is available
  *  for authorizeAddon, but otherwise is response only.
@@ -1719,6 +1726,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 /** Output only. The service period of the ONE_TIME line item. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ServicePeriod *servicePeriod;
+
+@end
+
+
+/**
+ *  Describes the details of the migrated subscription.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionMigrationDetails : GTLRObject
+
+/** Output only. The migrated subscription id in the legacy system. */
+@property(nonatomic, copy, nullable) NSString *migratedSubscriptionId;
 
 @end
 

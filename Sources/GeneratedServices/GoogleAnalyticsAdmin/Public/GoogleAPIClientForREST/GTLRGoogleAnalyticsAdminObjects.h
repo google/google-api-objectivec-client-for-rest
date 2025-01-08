@@ -412,7 +412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_
 
 /**
  *  The data retention time duration is 50 months. Available to 360 properties
- *  only.
+ *  only. Available for event data only.
  *
  *  Value: "FIFTY_MONTHS"
  */
@@ -431,14 +431,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetention
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified;
 /**
  *  The data retention time duration is 38 months. Available to 360 properties
- *  only.
+ *  only. Available for event data only.
  *
  *  Value: "THIRTY_EIGHT_MONTHS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_ThirtyEightMonths;
 /**
  *  The data retention time duration is 26 months. Available to 360 properties
- *  only.
+ *  only. Available for event data only.
  *
  *  Value: "TWENTY_SIX_MONTHS"
  */
@@ -1785,12 +1785,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @interface GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings : GTLRObject
 
 /**
- *  The length of time that event-level data is retained.
+ *  Required. The length of time that event-level data is retained.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_FiftyMonths
  *        The data retention time duration is 50 months. Available to 360
- *        properties only. (Value: "FIFTY_MONTHS")
+ *        properties only. Available for event data only. (Value:
+ *        "FIFTY_MONTHS")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_FourteenMonths
  *        The data retention time duration is 14 months. (Value:
  *        "FOURTEEN_MONTHS")
@@ -1799,10 +1800,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *        "RETENTION_DURATION_UNSPECIFIED")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_ThirtyEightMonths
  *        The data retention time duration is 38 months. Available to 360
- *        properties only. (Value: "THIRTY_EIGHT_MONTHS")
+ *        properties only. Available for event data only. (Value:
+ *        "THIRTY_EIGHT_MONTHS")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwentySixMonths
  *        The data retention time duration is 26 months. Available to 360
- *        properties only. (Value: "TWENTY_SIX_MONTHS")
+ *        properties only. Available for event data only. (Value:
+ *        "TWENTY_SIX_MONTHS")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwoMonths
  *        The data retention time duration is 2 months. (Value: "TWO_MONTHS")
  */
@@ -2919,10 +2922,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, strong, nullable) GTLRDateTime *latestChangeTime;
 
 /**
- *  Optional. The maximum number of ChangeHistoryEvent items to return. The
- *  service may return fewer than this value, even if there are additional
- *  pages. If unspecified, at most 50 items will be returned. The maximum value
- *  is 200 (higher values will be coerced to the maximum).
+ *  Optional. The maximum number of ChangeHistoryEvent items to return. If
+ *  unspecified, at most 50 items will be returned. The maximum value is 200
+ *  (higher values will be coerced to the maximum). Note that the service may
+ *  return a page with fewer items than this value specifies (potentially even
+ *  zero), and that there still may be additional pages. If you want a
+ *  particular number of items, you'll need to continue requesting additional
+ *  pages using `page_token` until you get the needed number.
  *
  *  Uses NSNumber of intValue.
  */

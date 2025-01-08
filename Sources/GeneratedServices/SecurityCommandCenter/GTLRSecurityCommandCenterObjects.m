@@ -134,6 +134,10 @@ NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Move = @"MOV
 NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Read = @"READ";
 
+// GTLRSecurityCommandCenter_DataRetentionDeletionEvent.eventType
+NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded = @"EVENT_TYPE_MAX_TTL_EXCEEDED";
+NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.cloudProvider
 NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_AmazonWebServices = @"AMAZON_WEB_SERVICES";
 NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
@@ -375,6 +379,10 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowE
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Read = @"READ";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent.eventType
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded = @"EVENT_TYPE_MAX_TTL_EXCEEDED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding.findingClass
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
@@ -412,6 +420,44 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMemb
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding_Action_Add = @"ADD";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding_Action_Remove = @"REMOVE";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue.issueType
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_Chokepoint = @"CHOKEPOINT";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_Insight = @"INSIGHT";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_IssueTypeUnspecified = @"ISSUE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_IssueType_ToxicCombination = @"TOXIC_COMBINATION";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue.severity
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue.state
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_Active = @"ACTIVE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_Inactive = @"INACTIVE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain.domainCategory
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Ai = @"AI";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Code = @"CODE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Container = @"CONTAINER";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Data = @"DATA";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_DomainCategoryUnspecified = @"DOMAIN_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_IdentityAndAccess = @"IDENTITY_AND_ACCESS";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Vulnerability = @"VULNERABILITY";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute.muteState
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_Muted = @"MUTED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_MuteStateUnspecified = @"MUTE_STATE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute_MuteState_NotMuted = @"NOT_MUTED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource.cloudProvider
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_AmazonWebServices = @"AMAZON_WEB_SERVICES";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_GoogleCloud = @"GOOGLE_CLOUD";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_MicrosoftAzure = @"MICROSOFT_AZURE";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack.additionalTactics
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTactics_Collection = @"COLLECTION";
@@ -1020,7 +1066,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_Attack
-@dynamic classification, volumeBps, volumePps;
+@dynamic classification, volumeBps, volumeBpsLong, volumePps, volumePpsLong;
 @end
 
 
@@ -1621,6 +1667,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_DataRetentionDeletionEvent
+//
+
+@implementation GTLRSecurityCommandCenter_DataRetentionDeletionEvent
+@dynamic dataObjectCount, eventDetectionTime, eventType, maxRetentionAllowed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Detection
 //
 
@@ -1810,13 +1866,14 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          canonicalName, category, cloudArmor, cloudDlpDataProfile,
          cloudDlpInspection, compliances, connections, contacts, containers,
          createTime, dataAccessEvents, database, dataFlowEvents,
-         descriptionProperty, disk, eventTime, exfiltration, externalSystems,
-         externalUri, files, findingClass, groupMemberships, iamBindings,
-         indicator, kernelRootkit, kubernetes, loadBalancers, logEntries,
-         mitreAttack, moduleName, mute, muteInfo, muteInitiator, muteUpdateTime,
-         name, nextSteps, notebook, orgPolicies, parent, parentDisplayName,
-         processes, resourceName, securityMarks, securityPosture, severity,
-         sourceProperties, state, toxicCombination, vulnerability;
+         dataRetentionDeletionEvents, descriptionProperty, disk, eventTime,
+         exfiltration, externalSystems, externalUri, files, findingClass,
+         groupMemberships, iamBindings, indicator, kernelRootkit, kubernetes,
+         loadBalancers, logEntries, mitreAttack, moduleName, mute, muteInfo,
+         muteInitiator, muteUpdateTime, name, nextSteps, notebook, orgPolicies,
+         parent, parentDisplayName, processes, resourceName, securityMarks,
+         securityPosture, severity, sourceProperties, state, toxicCombination,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1829,6 +1886,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
     @"containers" : [GTLRSecurityCommandCenter_Container class],
     @"dataAccessEvents" : [GTLRSecurityCommandCenter_DataAccessEvent class],
     @"dataFlowEvents" : [GTLRSecurityCommandCenter_DataFlowEvent class],
+    @"dataRetentionDeletionEvents" : [GTLRSecurityCommandCenter_DataRetentionDeletionEvent class],
     @"files" : [GTLRSecurityCommandCenter_File class],
     @"groupMemberships" : [GTLRSecurityCommandCenter_GroupMembership class],
     @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class],
@@ -2357,7 +2415,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack
-@dynamic classification, volumeBps, volumePps;
+@dynamic classification, volumeBps, volumeBpsLong, volumePps, volumePpsLong;
 @end
 
 
@@ -2769,6 +2827,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent
+@dynamic dataObjectCount, eventDetectionTime, eventType, maxRetentionAllowed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection
 //
 
@@ -2894,13 +2962,14 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          canonicalName, category, cloudArmor, cloudDlpDataProfile,
          cloudDlpInspection, compliances, connections, contacts, containers,
          createTime, dataAccessEvents, database, dataFlowEvents,
-         descriptionProperty, disk, eventTime, exfiltration, externalSystems,
-         externalUri, files, findingClass, groupMemberships, iamBindings,
-         indicator, kernelRootkit, kubernetes, loadBalancers, logEntries,
-         mitreAttack, moduleName, mute, muteInfo, muteInitiator, muteUpdateTime,
-         name, nextSteps, notebook, orgPolicies, parent, parentDisplayName,
-         processes, resourceName, securityMarks, securityPosture, severity,
-         sourceProperties, state, toxicCombination, vulnerability;
+         dataRetentionDeletionEvents, descriptionProperty, disk, eventTime,
+         exfiltration, externalSystems, externalUri, files, findingClass,
+         groupMemberships, iamBindings, indicator, kernelRootkit, kubernetes,
+         loadBalancers, logEntries, mitreAttack, moduleName, mute, muteInfo,
+         muteInitiator, muteUpdateTime, name, nextSteps, notebook, orgPolicies,
+         parent, parentDisplayName, processes, resourceName, securityMarks,
+         securityPosture, severity, sourceProperties, state, toxicCombination,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2913,6 +2982,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
     @"containers" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Container class],
     @"dataAccessEvents" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent class],
     @"dataFlowEvents" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent class],
+    @"dataRetentionDeletionEvents" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent class],
     @"files" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File class],
     @"groupMemberships" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership class],
     @"iamBindings" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding class],
@@ -3023,6 +3093,194 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
     @"ipAddresses" : [NSString class],
     @"signatures" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ProcessSignature class],
     @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue
+@dynamic createTime, descriptionProperty, detection, domains, exposureScore,
+         issueType, lastObservationTime, mute, name, primaryResource,
+         relatedFindings, remediations, secondaryResources, securityContexts,
+         severity, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain class],
+    @"relatedFindings" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFinding class],
+    @"remediations" : [NSString class],
+    @"secondaryResources" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource class],
+    @"securityContexts" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContext class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain
+@dynamic domainCategory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFinding
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFinding
+@dynamic cve, name, securityBulletin;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingCve
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingCve
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingSecurityBulletin
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingSecurityBulletin
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute
+@dynamic muteInitiator, muteReason, muteState, muteUpdateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource
+@dynamic awsMetadata, azureMetadata, cloudProvider, displayName,
+         googleCloudMetadata, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadata
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadata
+@dynamic account;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadataAwsAccount
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadataAwsAccount
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadata
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadata
+@dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadataAzureSubscription
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadataAzureSubscription
+@dynamic displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceGoogleCloudMetadata
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceGoogleCloudMetadata
+@dynamic projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContext
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContext
+@dynamic aggregatedCount, context;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextAggregatedCount
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextAggregatedCount
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextContext
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextContext
+@dynamic type, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
   };
   return map;
 }

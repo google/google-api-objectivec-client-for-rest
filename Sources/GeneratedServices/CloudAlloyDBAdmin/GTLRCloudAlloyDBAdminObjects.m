@@ -858,7 +858,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_CsvExportOptions
-@dynamic selectQuery;
+@dynamic escapeCharacter, fieldDelimiter, quoteCharacter, selectQuery;
 @end
 
 
@@ -905,7 +905,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_ExportClusterRequest
-@dynamic csvExportOptions, database, gcsDestination;
+@dynamic csvExportOptions, database, gcsDestination, sqlExportOptions;
 @end
 
 
@@ -1538,6 +1538,24 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_SqlExportOptions
+//
+
+@implementation GTLRCloudAlloyDBAdmin_SqlExportOptions
+@dynamic cleanTargetObjects, ifExistTargetObjects, schemaOnly, tables;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_SslConfig
 //
 
@@ -1787,7 +1805,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration
-@dynamic cpuCount, memorySizeInBytes, shardCount;
+@dynamic cpuCount, memorySizeInBytes, shardCount, vcpuCount;
 @end
 
 

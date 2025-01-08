@@ -13,16 +13,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// deviceType
-NSString * const kGTLRAndroidEnterpriseDeviceTypeDedicatedDevice = @"dedicatedDevice";
-NSString * const kGTLRAndroidEnterpriseDeviceTypeKnowledgeWorker = @"knowledgeWorker";
-NSString * const kGTLRAndroidEnterpriseDeviceTypeUnknown       = @"unknown";
-
-// enrollmentTokenEnrollmentTokenType
-NSString * const kGTLRAndroidEnterpriseEnrollmentTokenEnrollmentTokenTypeEnrollmentTokenTypeUnspecified = @"enrollmentTokenTypeUnspecified";
-NSString * const kGTLRAndroidEnterpriseEnrollmentTokenEnrollmentTokenTypeUserDevice = @"userDevice";
-NSString * const kGTLRAndroidEnterpriseEnrollmentTokenEnrollmentTokenTypeUserlessDevice = @"userlessDevice";
-
 // keyType
 NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials = @"googleCredentials";
 NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12           = @"pkcs12";
@@ -239,27 +229,25 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken
 
-@dynamic deviceType, enrollmentTokenDuration,
-         enrollmentTokenEnrollmentTokenType, enrollmentTokenToken, enterpriseId;
+@dynamic enterpriseId;
 
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"enrollmentTokenDuration" : @"enrollmentToken.duration",
-    @"enrollmentTokenEnrollmentTokenType" : @"enrollmentToken.enrollmentTokenType",
-    @"enrollmentTokenToken" : @"enrollmentToken.token"
-  };
-  return map;
-}
-
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_EnrollmentToken *)object
+                   enterpriseId:(NSString *)enterpriseId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"enterpriseId" ];
   NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/createEnrollmentToken";
   GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.enterpriseId = enterpriseId;
-  query.expectedObjectClass = [GTLRAndroidEnterprise_CreateEnrollmentTokenResponse class];
+  query.expectedObjectClass = [GTLRAndroidEnterprise_EnrollmentToken class];
   query.loggingName = @"androidenterprise.enterprises.createEnrollmentToken";
   return query;
 }

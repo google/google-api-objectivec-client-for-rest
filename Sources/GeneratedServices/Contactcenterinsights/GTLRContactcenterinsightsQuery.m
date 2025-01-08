@@ -137,26 +137,26 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewCalculateStats
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsCalculateStats
 
 @dynamic filter, location;
 
 + (instancetype)queryWithLocation:(NSString *)location {
   NSArray *pathParams = @[ @"location" ];
-  NSString *pathURITemplate = @"v1/{+location}:calculateStats";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewCalculateStats *query =
+  NSString *pathURITemplate = @"v1/{+location}/conversations:calculateStats";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsCalculateStats *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.location = location;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse class];
-  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSet.authorizedView.calculateStats";
+  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.calculateStats";
   return query;
 }
 
 @end
 
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewQueryMetrics
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsQueryMetrics
 
 @dynamic location;
 
@@ -170,14 +170,14 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   }
   NSArray *pathParams = @[ @"location" ];
   NSString *pathURITemplate = @"v1/{+location}:queryMetrics";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewQueryMetrics *query =
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsQueryMetrics *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.location = location;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
-  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSet.authorizedView.queryMetrics";
+  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.queryMetrics";
   return query;
 }
 
@@ -922,6 +922,33 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
   query.loggingName = @"contactcenterinsights.projects.locations.issueModels.import";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Issue *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/issues";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.issueModels.issues.create";
   return query;
 }
 

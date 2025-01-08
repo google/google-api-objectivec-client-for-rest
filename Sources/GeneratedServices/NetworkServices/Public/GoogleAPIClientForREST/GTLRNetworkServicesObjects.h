@@ -3585,7 +3585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  The configuration for Platform Telemetry logging for Eventarc Avdvanced
+ *  The configuration for Platform Telemetry logging for Eventarc Advanced
  *  resources.
  */
 @interface GTLRNetworkServices_LoggingConfig : GTLRObject

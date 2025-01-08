@@ -661,7 +661,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_AutoRenewingPlan
-@dynamic autoRenewEnabled, installmentDetails, priceChangeDetails;
+@dynamic autoRenewEnabled, installmentDetails, priceChangeDetails,
+         recurringPrice;
 @end
 
 

@@ -172,6 +172,11 @@ NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Fo
 NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_NonCompliant = @"NON_COMPLIANT";
 NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudIdentity_Policy.type
+NSString * const kGTLRCloudIdentity_Policy_Type_Admin          = @"ADMIN";
+NSString * const kGTLRCloudIdentity_Policy_Type_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_Policy_Type_System         = @"SYSTEM";
+
 // GTLRCloudIdentity_RestrictionEvaluation.state
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_Compliant = @"COMPLIANT";
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_Evaluating = @"EVALUATING";
@@ -1141,6 +1146,28 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_ListPoliciesResponse
+//
+
+@implementation GTLRCloudIdentity_ListPoliciesResponse
+@dynamic nextPageToken, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRCloudIdentity_Policy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_ListUserInvitationsResponse
 //
 
@@ -1374,6 +1401,26 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_Policy
+//
+
+@implementation GTLRCloudIdentity_Policy
+@dynamic customer, name, policyQuery, setting, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_PolicyQuery
+//
+
+@implementation GTLRCloudIdentity_PolicyQuery
+@dynamic group, orgUnit, query, sortOrder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_RestrictionEvaluation
 //
 
@@ -1536,6 +1583,30 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_SendUserInvitationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_Setting
+//
+
+@implementation GTLRCloudIdentity_Setting
+@dynamic type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_Setting_Value
+//
+
+@implementation GTLRCloudIdentity_Setting_Value
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

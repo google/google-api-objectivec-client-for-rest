@@ -26,6 +26,7 @@
 @class GTLRWorkflows_Status_Details_Item;
 @class GTLRWorkflows_Workflow;
 @class GTLRWorkflows_Workflow_Labels;
+@class GTLRWorkflows_Workflow_Tags;
 @class GTLRWorkflows_Workflow_UserEnvVars;
 
 // Generated comments include content from the discovery document; avoid them
@@ -626,6 +627,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  */
 @property(nonatomic, strong, nullable) GTLRWorkflows_StateError *stateError;
 
+/** Optional. Input only. Immutable. Tags associated with this workflow. */
+@property(nonatomic, strong, nullable) GTLRWorkflows_Workflow_Tags *tags;
+
 /**
  *  Output only. The timestamp for when the workflow was last updated. This is a
  *  workflow-wide field and is not tied to a specific revision.
@@ -656,6 +660,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *        fetch them all at once.
  */
 @interface GTLRWorkflows_Workflow_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tags associated with this workflow.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkflows_Workflow_Tags : GTLRObject
 @end
 
 

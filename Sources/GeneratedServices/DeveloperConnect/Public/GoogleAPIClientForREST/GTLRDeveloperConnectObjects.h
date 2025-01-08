@@ -184,10 +184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
-/**
- *  Output only. A system-assigned unique identifier for a the
- *  GitRepositoryLink.
- */
+/** Output only. A system-assigned unique identifier for the Connection. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
 /** Output only. [Output only] Update timestamp */
@@ -583,8 +580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
- *  Output only. A system-assigned unique identifier for a the
- *  GitRepositoryLink.
+ *  Output only. A system-assigned unique identifier for the GitRepositoryLink.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 

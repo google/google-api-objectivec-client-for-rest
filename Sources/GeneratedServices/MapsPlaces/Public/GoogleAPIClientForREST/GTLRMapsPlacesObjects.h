@@ -1975,8 +1975,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /**
  *  The regular hours of operation. Note that if a place is always open (24
  *  hours), the `close` field will not be set. Clients can rely on always open
- *  (24 hours) being represented as an `open` period containing day with value
- *  `0`, hour with value `0`, and minute with value `0`.
+ *  (24 hours) being represented as an `open` period containing `day` with value
+ *  `0`, `hour` with value `0`, and `minute` with value `0`.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours *regularOpeningHours;
 

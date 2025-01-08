@@ -55,6 +55,7 @@ NSString * const kGTLRAdsenseDimensionsDomainCode            = @"DOMAIN_CODE";
 NSString * const kGTLRAdsenseDimensionsDomainName            = @"DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsDomainRegistrant      = @"DOMAIN_REGISTRANT";
 NSString * const kGTLRAdsenseDimensionsHostedAdClientId      = @"HOSTED_AD_CLIENT_ID";
+NSString * const kGTLRAdsenseDimensionsHostedCustomChannelId = @"HOSTED_CUSTOM_CHANNEL_ID";
 NSString * const kGTLRAdsenseDimensionsMonth                 = @"MONTH";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteDomainName   = @"OWNED_SITE_DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteId           = @"OWNED_SITE_ID";

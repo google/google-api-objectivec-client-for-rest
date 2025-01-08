@@ -1935,7 +1935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: backupdr.projects.locations.operations.cancel
@@ -1958,7 +1958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRBackupdr_CancelOperationRequest to include in the
@@ -2072,6 +2072,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Initializes the service related config for a project.
+ *
+ *  Method: backupdr.projects.locations.serviceConfig.initialize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the serviceConfig used to initialize the
+ *  service. Format: `projects/{project_id}/locations/{location}/serviceConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Initializes the service related config for a project.
+ *
+ *  @param object The @c GTLRBackupdr_InitializeServiceRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the serviceConfig used to
+ *    initialize the service. Format:
+ *    `projects/{project_id}/locations/{location}/serviceConfig`.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_InitializeServiceRequest *)object
+                           name:(NSString *)name;
 
 @end
 

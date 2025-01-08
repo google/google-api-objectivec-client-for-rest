@@ -1507,7 +1507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  List of Previewss.
+ *  List of Previews.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1538,7 +1538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  List of Resourcess.
+ *  List of Resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1813,8 +1813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2602,14 +2602,14 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 /** URI of a public Git repo. */
 @property(nonatomic, strong, nullable) GTLRConfig_GitSource *gitSource;
 
-/** Input variable values for the Terraform blueprint. */
+/** Optional. Input variable values for the Terraform blueprint. */
 @property(nonatomic, strong, nullable) GTLRConfig_TerraformBlueprint_InputValues *inputValues;
 
 @end
 
 
 /**
- *  Input variable values for the Terraform blueprint.
+ *  Optional. Input variable values for the Terraform blueprint.
  *
  *  @note This class is documented as having more properties of
  *        GTLRConfig_TerraformVariable. Use @c -additionalJSONKeys and @c
@@ -2625,7 +2625,10 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  */
 @interface GTLRConfig_TerraformError : GTLRObject
 
-/** Original error response from underlying Google API, if available. */
+/**
+ *  Output only. Original error response from underlying Google API, if
+ *  available.
+ */
 @property(nonatomic, strong, nullable) GTLRConfig_Status *error;
 
 /** A human-readable error description. */
@@ -2678,7 +2681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @interface GTLRConfig_TerraformVariable : GTLRObject
 
 /**
- *  Input variable value.
+ *  Optional. Input variable value.
  *
  *  Can be any valid JSON type.
  */

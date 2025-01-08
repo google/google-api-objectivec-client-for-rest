@@ -342,6 +342,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_DeviceIntegrity.legacyDeviceRecognitionVerdict
+
+/**
+ *  App is running on a device that passes basic system integrity checks, but
+ *  may not meet Android platform compatibility requirements and may not be
+ *  approved to run Google Play services.
+ *
+ *  Value: "MEETS_BASIC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsBasicIntegrity;
+/**
+ *  App is running on GMS Android device with Google Play services.
+ *
+ *  Value: "MEETS_DEVICE_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsDeviceIntegrity;
+/**
+ *  App is running on GMS Android device with Google Play services and has a
+ *  strong guarantee of system integrity such as a hardware-backed keystore.
+ *
+ *  Value: "MEETS_STRONG_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsStrongIntegrity;
+/**
+ *  App is running on an Android emulator with Google Play services which meets
+ *  core Android compatibility requirements.
+ *
+ *  Value: "MEETS_VIRTUAL_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsVirtualIntegrity;
+/**
+ *  Play does not have sufficient information to evaluate device integrity
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
 
 /**
@@ -668,6 +706,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 
 /** Details about the integrity of the device the app is running on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceRecognitionVerdict;
+
+/**
+ *  Contains legacy details about the integrity of the device the app is running
+ *  on. Only for devices with Android version T or higher and only for apps
+ *  opted in to the new verdicts. Only available during the transition period to
+ *  the new verdicts system and will be removed afterwards.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *legacyDeviceRecognitionVerdict;
 
 /** Details about the device activity of the device the app is running on. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_RecentDeviceActivity *recentDeviceActivity;

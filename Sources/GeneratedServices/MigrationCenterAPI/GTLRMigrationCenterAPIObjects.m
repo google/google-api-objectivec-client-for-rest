@@ -1795,8 +1795,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_MachineArchitectureDetails
-@dynamic bios, cpuArchitecture, cpuName, cpuSocketCount, cpuThreadCount,
-         firmwareType, hyperthreading, vendor;
+@dynamic bios, cpuArchitecture, cpuManufacturer, cpuName, cpuSocketCount,
+         cpuThreadCount, firmwareType, hyperthreading, vendor;
 @end
 
 

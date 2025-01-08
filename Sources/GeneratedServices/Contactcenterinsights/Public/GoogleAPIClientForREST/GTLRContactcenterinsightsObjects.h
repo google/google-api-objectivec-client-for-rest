@@ -47,6 +47,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent;
@@ -81,6 +82,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Intent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IntentMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InterruptionData;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Issue;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueAssignment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel;
@@ -159,6 +161,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowIntent;
@@ -2510,8 +2513,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, copy, nullable) NSString *dispositionCode;
 
-/** A user-specified string representing the agent's team. */
-@property(nonatomic, copy, nullable) NSString *team;
+/** The agent's location. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  A user-specified string representing the agent's team. Deprecated in favor
+ *  of the `teams` field.
+ */
+@property(nonatomic, copy, nullable) NSString *team GTLR_DEPRECATED;
+
+/** User-specified strings representing the agent's teams. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *teams;
 
 @end
 
@@ -2718,6 +2730,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Metadata for creating an issue.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The original request for creation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest *request;
+
+@end
+
+
+/**
  *  Metadata for creating an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelMetadata : GTLRObject
@@ -2743,6 +2772,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel *issueModel;
 
 /** Required. The parent resource of the issue model. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  The request to create an issue.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest : GTLRObject
+
+/** Required. The values for the new issue. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Issue *issue;
+
+/** Required. The parent resource of the issue. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 @end
@@ -3458,6 +3501,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Response from import issue model
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelResponse : GTLRObject
+
+/** The issue model that was imported. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel *issueModel;
+
 @end
 
 
@@ -3762,6 +3809,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  The data for an interruption annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InterruptionData : GTLRObject
+@end
+
+
+/**
+ *  The issue resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Issue : GTLRObject
+
+/** Output only. The time at which this issue was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Representative description of the issue. */
+@property(nonatomic, copy, nullable) NSString *displayDescription;
+
+/** The representative name for the issue. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. The resource name of the issue. Format:
+ *  projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Resource names of the sample representative utterances that
+ *  match to this issue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sampleUtterances;
+
+/** Output only. The most recent time that this issue was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -6224,8 +6303,17 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *dispositionCode;
 
-/** A user-specified string representing the agent's team. */
-@property(nonatomic, copy, nullable) NSString *team;
+/** The agent's location. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  A user-specified string representing the agent's team. Deprecated in favor
+ *  of the `teams` field.
+ */
+@property(nonatomic, copy, nullable) NSString *team GTLR_DEPRECATED;
+
+/** User-specified strings representing the agent's teams. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *teams;
 
 @end
 
@@ -6432,6 +6520,23 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata for creating an issue.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The original request for creation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest *request;
+
+@end
+
+
+/**
  *  Metadata for creating an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueModelMetadata : GTLRObject
@@ -6457,6 +6562,20 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel *issueModel;
 
 /** Required. The parent resource of the issue model. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  The request to create an issue.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest : GTLRObject
+
+/** Required. The values for the new issue. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Issue *issue;
+
+/** Required. The parent resource of the issue. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 @end
@@ -7194,6 +7313,10 @@ GTLR_DEPRECATED
  *  Response from import issue model
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelResponse : GTLRObject
+
+/** The issue model that was imported. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel *issueModel;
+
 @end
 
 

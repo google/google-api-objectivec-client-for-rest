@@ -736,7 +736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_CodeUnspecified;
 /**
- *  The PSC connection propagation failed because the
+ *  The Private Service Connect connection propagation failed because the
  *  `PSC_PROPAGATED_CONNECTIONS_PER_VPC_NETWORK` quota in the consumer VPC
  *  network has been exceeded.
  *
@@ -744,23 +744,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorConsumerQuotaExceeded;
 /**
- *  The PSC connection propagation failed because the NAT IP subnet space has
- *  been exhausted. It is equivalent to the `Needs attention` status of the PSC
- *  connection. See
+ *  The Private Service Connect connection propagation failed because the NAT IP
+ *  subnet space has been exhausted. It is equivalent to the `Needs attention`
+ *  status of the Private Service Connect connection. See
  *  https://cloud.google.com/vpc/docs/about-accessing-vpc-hosted-services-endpoints#connection-statuses.
  *
  *  Value: "ERROR_PRODUCER_NAT_IP_SPACE_EXHAUSTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerNatIpSpaceExhausted;
 /**
- *  The PSC connection propagation failed because the VPC network or the project
- *  of the target spoke has exceeded the connection limit set by the producer.
+ *  The Private Service Connect connection propagation failed because the VPC
+ *  network or the project of the target spoke has exceeded the connection limit
+ *  set by the producer.
  *
  *  Value: "ERROR_PRODUCER_PROPAGATED_CONNECTION_LIMIT_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerPropagatedConnectionLimitExceeded;
 /**
- *  PSC connection propagation failed because the
+ *  The Private Service Connect connection propagation failed because the
  *  `PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK` quota in the
  *  producer VPC network has been exceeded.
  *
@@ -768,13 +769,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerQuotaExceeded;
 /**
- *  PSC connection is propagating. This is a transient state.
+ *  The Private Service Connect connection is propagating. This is a transient
+ *  state.
  *
  *  Value: "PROPAGATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscPropagationStatus_Code_Propagating;
 /**
- *  The propagated PSC connection is ready.
+ *  The propagated Private Service Connect connection is ready.
  *
  *  Value: "READY"
  */
@@ -1427,9 +1429,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_AutoAccept : GTLRObject
 
 /**
- *  A list of project ids or project numbers for which you want to enable
- *  auto-accept. The auto-accept setting is applied to spokes being created or
- *  updated in these projects.
+ *  Optional. A list of project ids or project numbers for which you want to
+ *  enable auto-accept. The auto-accept setting is applied to spokes being
+ *  created or updated in these projects.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoAcceptProjects;
 
@@ -2019,13 +2021,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Additional structured details about this error. Keys must match /a-z+/ but
- *  should ideally be lowerCamelCase. Also they must be limited to 64 characters
- *  in length. When identifying the current value of an exceeded limit, the
- *  units should be contained in the key, not the value. For example, rather
- *  than {"instanceLimit": "100/request"}, should be returned as,
- *  {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
- *  instances that can be created in a single (batch) request.
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcErrorInfo_Metadata *metadata;
 
@@ -2041,13 +2043,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Additional structured details about this error. Keys must match /a-z+/ but
- *  should ideally be lowerCamelCase. Also they must be limited to 64 characters
- *  in length. When identifying the current value of an exceeded limit, the
- *  units should be contained in the key, not the value. For example, rather
- *  than {"instanceLimit": "100/request"}, should be returned as,
- *  {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
- *  instances that can be created in a single (batch) request.
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2209,7 +2211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  An optional description of the hub.
+ *  Optional. An optional description of the hub.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2350,22 +2352,27 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The hub status entry.
+ *  A hub status entry represents the status of a set of propagated Private
+ *  Service Connect connections grouped by certain fields.
  */
 @interface GTLRNetworkconnectivity_HubStatusEntry : GTLRObject
 
 /**
- *  The number of status. If group_by is not set in the request, the default is
- *  1.
+ *  The number of propagated Private Service Connect connections with this
+ *  status. If the `group_by` field was not set in the request message, the
+ *  value of this field is 1.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
-/** The same group_by field from the request. */
+/**
+ *  The fields that this entry is grouped by. This has the same value as the
+ *  `group_by` field in the request message.
+ */
 @property(nonatomic, copy, nullable) NSString *groupBy;
 
-/** The PSC propagation status. */
+/** The Private Service Connect propagation status. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_PscPropagationStatus *pscPropagationStatus;
 
 @end
@@ -2387,9 +2394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /**
  *  The internal range resource for IPAM operations within a VPC network. Used
- *  to represent a private address range along with behavioral characterstics of
- *  that range (its usage and peering behavior). Networking resources can link
- *  to this range if they are created as belonging to it.
+ *  to represent a private address range along with behavioral characteristics
+ *  of that range (its usage and peering behavior). Networking resources can
+ *  link to this range if they are created as belonging to it.
  */
 @interface GTLRNetworkconnectivity_InternalRange : GTLRObject
 
@@ -2860,7 +2867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Response for PolicyBasedRouting.ListPolicyBasedRoutes method.
+ *  Response for PolicyBasedRoutingService.ListPolicyBasedRoutes method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "policyBasedRoutes" property. If returned as the result of a
@@ -3325,8 +3332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3754,7 +3761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The PSC propagation status in a hub.
+ *  The status of one or more propagated Private Service Connect connections in
+ *  a hub.
  */
 @interface GTLRNetworkconnectivity_PscPropagationStatus : GTLRObject
 
@@ -3765,34 +3773,38 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_CodeUnspecified
  *        The code is unspecified. (Value: "CODE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorConsumerQuotaExceeded
- *        The PSC connection propagation failed because the
+ *        The Private Service Connect connection propagation failed because the
  *        `PSC_PROPAGATED_CONNECTIONS_PER_VPC_NETWORK` quota in the consumer VPC
  *        network has been exceeded. (Value: "ERROR_CONSUMER_QUOTA_EXCEEDED")
  *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerNatIpSpaceExhausted
- *        The PSC connection propagation failed because the NAT IP subnet space
- *        has been exhausted. It is equivalent to the `Needs attention` status
- *        of the PSC connection. See
+ *        The Private Service Connect connection propagation failed because the
+ *        NAT IP subnet space has been exhausted. It is equivalent to the `Needs
+ *        attention` status of the Private Service Connect connection. See
  *        https://cloud.google.com/vpc/docs/about-accessing-vpc-hosted-services-endpoints#connection-statuses.
  *        (Value: "ERROR_PRODUCER_NAT_IP_SPACE_EXHAUSTED")
  *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerPropagatedConnectionLimitExceeded
- *        The PSC connection propagation failed because the VPC network or the
- *        project of the target spoke has exceeded the connection limit set by
- *        the producer. (Value:
+ *        The Private Service Connect connection propagation failed because the
+ *        VPC network or the project of the target spoke has exceeded the
+ *        connection limit set by the producer. (Value:
  *        "ERROR_PRODUCER_PROPAGATED_CONNECTION_LIMIT_EXCEEDED")
  *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_ErrorProducerQuotaExceeded
- *        PSC connection propagation failed because the
+ *        The Private Service Connect connection propagation failed because the
  *        `PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK` quota in the
  *        producer VPC network has been exceeded. (Value:
  *        "ERROR_PRODUCER_QUOTA_EXCEEDED")
- *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_Propagating PSC
- *        connection is propagating. This is a transient state. (Value:
- *        "PROPAGATING")
+ *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_Propagating The
+ *        Private Service Connect connection is propagating. This is a transient
+ *        state. (Value: "PROPAGATING")
  *    @arg @c kGTLRNetworkconnectivity_PscPropagationStatus_Code_Ready The
- *        propagated PSC connection is ready. (Value: "READY")
+ *        propagated Private Service Connect connection is ready. (Value:
+ *        "READY")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
-/** The human-readable summary of the PSC connection propagation status. */
+/**
+ *  The human-readable summary of the Private Service Connect connection
+ *  propagation status.
+ */
 @property(nonatomic, copy, nullable) NSString *message;
 
 /** The name of the forwarding rule exported to the hub. */
@@ -3866,7 +3878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  Optional. The IP Address of the Regional Endpoint. When no address is
  *  provided, an IP from the subnetwork is allocated. Use one of the following
  *  formats: * IPv4 address as in `10.0.0.1` * Address resource URI as in
- *  `projects/{project}/regions/{region}/addresses/{address_name}`
+ *  `projects/{project}/regions/{region}/addresses/{address_name}` for an IPv4
+ *  or IPv6 address.
  */
 @property(nonatomic, copy, nullable) NSString *address;
 
@@ -4367,7 +4380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /**
  *  The token provided by the consumer. This token authenticates that the
- *  consumer can create a connecton within the specified project and network.
+ *  consumer can create a connection within the specified project and network.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
@@ -4578,7 +4591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  An optional description of the spoke.
+ *  Optional. An optional description of the spoke.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -4597,19 +4610,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Spoke_Labels *labels;
 
-/** VLAN attachments that are associated with the spoke. */
+/** Optional. VLAN attachments that are associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedInterconnectAttachments *linkedInterconnectAttachments;
 
 /** Optional. The linked producer VPC that is associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedProducerVpcNetwork *linkedProducerVpcNetwork;
 
-/** Router appliance instances that are associated with the spoke. */
+/**
+ *  Optional. Router appliance instances that are associated with the spoke.
+ */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedRouterApplianceInstances *linkedRouterApplianceInstances;
 
 /** Optional. VPC network that is associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedVpcNetwork *linkedVpcNetwork;
 
-/** VPN tunnels that are associated with the spoke. */
+/** Optional. VPN tunnels that are associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedVpnTunnels *linkedVpnTunnels;
 
 /**

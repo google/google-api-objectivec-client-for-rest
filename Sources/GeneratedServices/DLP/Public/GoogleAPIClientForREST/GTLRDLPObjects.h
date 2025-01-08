@@ -7135,9 +7135,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary *> *fileStoreInfoTypeSummaries;
 
 /**
- *  True if no files exist in this cluster. If the bucket had more files than
- *  could be listed, this will be false even if no files for this cluster were
- *  seen and file_extensions_seen is empty.
+ *  True if no files exist in this cluster. If the file store had more files
+ *  than could be listed, this will be false even if no files for this cluster
+ *  were seen and file_extensions_seen is empty.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7306,8 +7306,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedTime;
 
 /**
- *  The location type of the bucket (region, dual-region, multi-region, etc). If
- *  dual-region, expect data_storage_locations to be populated.
+ *  The location type of the file store (region, dual-region, multi-region,
+ *  etc). If dual-region, expect data_storage_locations to be populated.
  */
 @property(nonatomic, copy, nullable) NSString *locationType;
 
@@ -8187,6 +8187,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Human readable form of the infoType name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** A sample true positive for this infoType. */
+@property(nonatomic, copy, nullable) NSString *example;
 
 /** Internal name of the infoType. */
 @property(nonatomic, copy, nullable) NSString *name;

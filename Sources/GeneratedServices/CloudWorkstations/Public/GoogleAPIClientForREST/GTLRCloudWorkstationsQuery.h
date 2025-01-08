@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: workstations.projects.locations.operations.cancel
@@ -140,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudWorkstations_CancelOperationRequest to include
@@ -905,7 +905,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns a short-lived credential that can be used to send authenticated and
- *  authorized traffic to a workstation.
+ *  authorized traffic to a workstation. Once generated this token cannot be
+ *  revoked and is good for the lifetime of the token.
  *
  *  Method: workstations.projects.locations.workstationClusters.workstationConfigs.workstations.generateAccessToken
  *
@@ -924,7 +925,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudWorkstations_GenerateAccessTokenResponse.
  *
  *  Returns a short-lived credential that can be used to send authenticated and
- *  authorized traffic to a workstation.
+ *  authorized traffic to a workstation. Once generated this token cannot be
+ *  revoked and is good for the lifetime of the token.
  *
  *  @param object The @c GTLRCloudWorkstations_GenerateAccessTokenRequest to
  *    include in the query.

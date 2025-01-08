@@ -1824,14 +1824,35 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Environment
-@dynamic apiProxyType, createdAt, deploymentType, descriptionProperty,
-         displayName, forwardProxyUri, hasAttachedFlowHooks, lastModifiedAt,
-         name, nodeConfig, properties, state, type;
+@dynamic apiProxyType, clientIpResolutionConfig, createdAt, deploymentType,
+         descriptionProperty, displayName, forwardProxyUri,
+         hasAttachedFlowHooks, lastModifiedAt, name, nodeConfig, properties,
+         state, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig
+@dynamic headerIndexAlgorithm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm
+@dynamic ipHeaderIndex, ipHeaderName;
 @end
 
 

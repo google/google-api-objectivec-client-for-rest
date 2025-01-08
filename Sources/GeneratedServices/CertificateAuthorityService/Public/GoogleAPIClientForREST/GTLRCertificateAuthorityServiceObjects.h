@@ -972,8 +972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CaPool_Labels *labels;
 
 /**
- *  Output only. Identifier. The resource name for this CaPool in the format
- *  `projects/ * /locations/ * /caPools/ *`.
+ *  Identifier. The resource name for this CaPool in the format `projects/ *
+ *  /locations/ * /caPools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1067,7 +1067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Output only. The resource name for this Certificate in the format `projects/
+ *  Identifier. The resource name for this Certificate in the format `projects/
  *  * /locations/ * /caPools/ * /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1198,9 +1198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Output only. Identifier. The resource name for this CertificateAuthority in
- *  the format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/
- *  *`.
+ *  Identifier. The resource name for this CertificateAuthority in the format
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1507,7 +1506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateRevocationList_Labels *labels;
 
 /**
- *  Output only. The resource name for this CertificateRevocationList in the
+ *  Identifier. The resource name for this CertificateRevocationList in the
  *  format `projects/ * /locations/ * /caPools/ *certificateAuthorities/ * /
  *  certificateRevocationLists/ *`.
  */
@@ -1605,7 +1604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *maximumLifetime;
 
 /**
- *  Output only. The resource name for this CertificateTemplate in the format
+ *  Identifier. The resource name for this CertificateTemplate in the format
  *  `projects/ * /locations/ * /certificateTemplates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

@@ -266,8 +266,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersDevicesList : GTLRAndroidProvisioningPartnerQuery
 
 /**
- *  The maximum number of devices to show in a page of results. Must be between
- *  1 and 100 inclusive.
+ *  Required. The maximum number of devices to show in a page of results. Must
+ *  be between 1 and 100 inclusive.
  */
 @property(nonatomic, assign) long long pageSize;
 
@@ -402,8 +402,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersList : GTLRAndroidProvisioningPartnerQuery
 
 /**
- *  The maximum number of customers to show in a page of results. A number
- *  between 1 and 100 (inclusive).
+ *  Required. The maximum number of customers to show in a page of results. A
+ *  number between 1 and 100 (inclusive).
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

@@ -718,8 +718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Query PSC propagation status the status of a Network Connectivity Center
- *  hub.
+ *  Query the Private Service Connect propagation status of a Network
+ *  Connectivity Center hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.queryStatus
  *
@@ -731,20 +731,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Optional. An expression that filters the list of results. The filter can be
  *  used to filter the results by the following fields: *
- *  psc_propagation_status.source_spoke * psc_propagation_status.source_group *
- *  psc_propagation_status.source_forwarding_rule *
- *  psc_propagation_status.target_spoke * psc_propagation_status.target_group *
- *  psc_propagation_status.code * psc_propagation_status.message
+ *  `psc_propagation_status.source_spoke` *
+ *  `psc_propagation_status.source_group` *
+ *  `psc_propagation_status.source_forwarding_rule` *
+ *  `psc_propagation_status.target_spoke` *
+ *  `psc_propagation_status.target_group` * `psc_propagation_status.code` *
+ *  `psc_propagation_status.message`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. A field that counts are grouped by. A comma-separated list of any
- *  of these fields: * psc_propagation_status.source_spoke *
- *  psc_propagation_status.source_group *
- *  psc_propagation_status.source_forwarding_rule *
- *  psc_propagation_status.target_spoke * psc_propagation_status.target_group *
- *  psc_propagation_status.code
+ *  Optional. Aggregate the results by the specified fields. A comma-separated
+ *  list of any of these fields: * `psc_propagation_status.source_spoke` *
+ *  `psc_propagation_status.source_group` *
+ *  `psc_propagation_status.source_forwarding_rule` *
+ *  `psc_propagation_status.target_spoke` *
+ *  `psc_propagation_status.target_group` * `psc_propagation_status.code`
  */
 @property(nonatomic, copy, nullable) NSString *groupBy;
 
@@ -752,13 +754,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Sort the results in the ascending order by specific fields
- *  returned in the response. A comma-separated list of any of these fields: *
- *  psc_propagation_status.source_spoke * psc_propagation_status.source_group *
- *  psc_propagation_status.source_forwarding_rule *
- *  psc_propagation_status.target_spoke * psc_propagation_status.target_group *
- *  psc_propagation_status.code If `group_by` is set, the value of the
- *  `order_by` field must be the same as or a subset of the `group_by` field.
+ *  Optional. Sort the results in ascending order by the specified fields. A
+ *  comma-separated list of any of these fields: *
+ *  `psc_propagation_status.source_spoke` *
+ *  `psc_propagation_status.source_group` *
+ *  `psc_propagation_status.source_forwarding_rule` *
+ *  `psc_propagation_status.target_spoke` *
+ *  `psc_propagation_status.target_group` * `psc_propagation_status.code` If
+ *  `group_by` is set, the value of the `order_by` field must be the same as or
+ *  a subset of the `group_by` field.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -771,8 +775,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_QueryHubStatusResponse.
  *
- *  Query PSC propagation status the status of a Network Connectivity Center
- *  hub.
+ *  Query the Private Service Connect propagation status of a Network
+ *  Connectivity Center hub.
  *
  *  @param name Required. The name of the hub.
  *
@@ -1608,7 +1612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: networkconnectivity.projects.locations.operations.cancel
@@ -1631,7 +1635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c

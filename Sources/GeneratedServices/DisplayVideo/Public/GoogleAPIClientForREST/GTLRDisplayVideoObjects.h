@@ -1745,6 +1745,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeConnatix;
 /**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCore;
+/**
  *  Dailymotion.
  *
  *  Value: "EXCHANGE_DAILYMOTION"
@@ -2314,25 +2320,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalCompari
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_Equal;
 /**
- *  First value is greater than the comparison value.
+ *  Signal value is greater than the comparison value.
  *
  *  Value: "GREATER_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThan;
 /**
- *  First value is greater than or equal to the second.
+ *  Signal value is greater than or equal to the second.
  *
  *  Value: "GREATER_THAN_OR_EQUAL_TO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThanOrEqualTo;
 /**
- *  First value is less than the second.
+ *  Signal value is less than the second.
  *
  *  Value: "LESS_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThan;
 /**
- *  First value is less or equals to the comparison value.
+ *  Signal value is less or equals to the comparison value.
  *
  *  Value: "LESS_THAN_OR_EQUAL_TO"
  */
@@ -2426,6 +2432,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
 // GTLRDisplayVideo_AssetAssociation.role
 
 /**
+ *  The accent color to use in a creative. This role is only supported and
+ *  required in following creative_type: * `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_ACCENT_COLOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAccentColor;
+/**
  *  The text that identifies the advertiser or brand name. The content must be
  *  UTF-8 encoded with a length of no more than 25 characters. This role is only
  *  supported in following creative_type: * `CREATIVE_TYPE_NATIVE` *
@@ -2443,6 +2456,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Value: "ASSET_ROLE_ANDROID_APP_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAndroidAppId;
+/**
+ *  The main color to use in a creative. This role is only supported and
+ *  required in following creative_type: * `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_BACKGROUND_COLOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackgroundColor;
 /**
  *  The asset is a backup asset of the creative.
  *
@@ -2489,6 +2509,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Value: "ASSET_ROLE_COVER_IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCoverImage;
+/**
+ *  Whether asset enhancements can be applied to the creative. This role is only
+ *  supported and required in following creative_type: *
+ *  `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_ENABLE_ASSET_ENHANCEMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleEnableAssetEnhancements;
 /**
  *  Headline of a native creative. The content must be UTF-8 encoded with a
  *  length of no more than 25 characters. This role is only supported in
@@ -2564,6 +2592,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Value: "ASSET_ROLE_RATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRating;
+/**
+ *  Whether the creative must use an image asset. This role is only supported
+ *  and required in following creative_type: *
+ *  `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_REQUIRE_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireImage;
+/**
+ *  Whether the creative must use a logo asset. This role is only supported and
+ *  required in following creative_type: * `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_REQUIRE_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireLogo;
 /**
  *  Asset role is not specified or is unknown in this version.
  *
@@ -4355,6 +4398,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeAttributes
 // GTLRDisplayVideo_Creative.creativeType
 
 /**
+ *  Asset based creative. Create and update methods are supported for this
+ *  creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *
+ *  Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAssetBasedCreative;
+/**
  *  Audio creative. Create and update methods are supported for this creative
  *  type if the hosting_source is `HOSTING_SOURCE_HOSTED`
  *
@@ -4631,6 +4681,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_Host
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CreativeConfig.creativeType
 
+/**
+ *  Asset based creative. Create and update methods are supported for this
+ *  creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *
+ *  Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAssetBasedCreative;
 /**
  *  Audio creative. Create and update methods are supported for this creative
  *  type if the hosting_source is `HOSTING_SOURCE_HOSTED`
@@ -6418,6 +6475,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix;
 /**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCore;
+/**
  *  Dailymotion.
  *
  *  Value: "EXCHANGE_DAILYMOTION"
@@ -6926,6 +6989,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix;
 /**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCore;
+/**
  *  Dailymotion.
  *
  *  Value: "EXCHANGE_DAILYMOTION"
@@ -7433,6 +7502,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -7969,6 +8044,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -9534,6 +9615,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix;
 /**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCore;
+/**
  *  Dailymotion.
  *
  *  Value: "EXCHANGE_DAILYMOTION"
@@ -10781,6 +10868,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -16270,6 +16363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDax
@@ -16587,15 +16682,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_Equal
  *        Values are equal. (Value: "EQUAL")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThan
- *        First value is greater than the comparison value. (Value:
+ *        Signal value is greater than the comparison value. (Value:
  *        "GREATER_THAN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThanOrEqualTo
- *        First value is greater than or equal to the second. (Value:
+ *        Signal value is greater than or equal to the second. (Value:
  *        "GREATER_THAN_OR_EQUAL_TO")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThan
- *        First value is less than the second. (Value: "LESS_THAN")
+ *        Signal value is less than the second. (Value: "LESS_THAN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThanOrEqualTo
- *        First value is less or equals to the comparison value. (Value:
+ *        Signal value is less or equals to the comparison value. (Value:
  *        "LESS_THAN_OR_EQUAL_TO")
  */
 @property(nonatomic, copy, nullable) NSString *comparisonOperator;
@@ -16767,6 +16862,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The role of this asset for the creative.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAccentColor The
+ *        accent color to use in a creative. This role is only supported and
+ *        required in following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_ACCENT_COLOR")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAdvertiserName
  *        The text that identifies the advertiser or brand name. The content
  *        must be UTF-8 encoded with a length of no more than 25 characters.
@@ -16779,6 +16879,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        https://play.google.com/store/apps/details?id=com.company.appname the
  *        identifier is com.company.appname. Assets of this role are read-only.
  *        (Value: "ASSET_ROLE_ANDROID_APP_ID")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackgroundColor
+ *        The main color to use in a creative. This role is only supported and
+ *        required in following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_BACKGROUND_COLOR")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackup The asset
  *        is a backup asset of the creative. (Value: "ASSET_ROLE_BACKUP")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBody Body text of
@@ -16808,6 +16913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        cover image of a native video creative. This role is only supported
  *        and required in following creative_type: * `CREATIVE_TYPE_VIDEO`
  *        (Value: "ASSET_ROLE_COVER_IMAGE")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleEnableAssetEnhancements
+ *        Whether asset enhancements can be applied to the creative. This role
+ *        is only supported and required in following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_ENABLE_ASSET_ENHANCEMENTS")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleHeadline Headline
  *        of a native creative. The content must be UTF-8 encoded with a length
  *        of no more than 25 characters. This role is only supported in
@@ -16854,6 +16964,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        value is not automatically synced with the actual rating in the store.
  *        It will always be the one provided when save the creative. Assets of
  *        this role are read-only. (Value: "ASSET_ROLE_RATING")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireImage
+ *        Whether the creative must use an image asset. This role is only
+ *        supported and required in following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_REQUIRE_IMAGE")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireLogo
+ *        Whether the creative must use a logo asset. This role is only
+ *        supported and required in following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_REQUIRE_LOGO")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleUnspecified Asset
  *        role is not specified or is unknown in this version. (Value:
  *        "ASSET_ROLE_UNSPECIFIED")
@@ -20267,6 +20387,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Required. Immutable. The type of the creative.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAssetBasedCreative
+ *        Asset based creative. Create and update methods are supported for this
+ *        creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *        (Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAudio Audio
  *        creative. Create and update methods are supported for this creative
  *        type if the hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
@@ -20726,6 +20850,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `CREATIVE_TYPE_VIDEO`
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAssetBasedCreative
+ *        Asset based creative. Create and update methods are supported for this
+ *        creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *        (Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAudio
  *        Audio creative. Create and update methods are supported for this
  *        creative type if the hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
@@ -22448,6 +22576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDax
@@ -22649,6 +22779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax
@@ -22851,6 +22983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCore Core.
+ *        (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax DAX.
@@ -23056,6 +23190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax
@@ -24381,6 +24517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCore Core.
+ *        (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax DAX.
@@ -25476,6 +25614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCore Core.
+ *        (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax DAX.

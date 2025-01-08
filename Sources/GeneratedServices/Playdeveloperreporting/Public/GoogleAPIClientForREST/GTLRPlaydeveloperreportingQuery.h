@@ -373,7 +373,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `deviceBrand = "Google". * `deviceType`: Matches error issues that occurred
  *  in the requested device types. Example: `deviceType = "PHONE"`. *
  *  `errorIssueType`: Matches error issues of the requested types only. Valid
- *  candidates: `CRASH`, `ANR`. Example: `errorIssueType = CRASH OR
+ *  candidates: `CRASH`, `ANR`, `NON_FATAL`. Example: `errorIssueType = CRASH OR
  *  errorIssueType = ANR`. * `appProcessState`: Matches error issues on the
  *  process state of an app, indicating whether an app runs in the foreground
  *  (user-visible) or background. Valid candidates: `FOREGROUND`, `BACKGROUND`.
@@ -578,7 +578,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `deviceBrand = "Google". * `deviceType`: Matches error reports that occurred
  *  in the requested device types. Example: `deviceType = "PHONE"`. *
  *  `errorIssueType`: Matches error reports of the requested types only. Valid
- *  candidates: `CRASH`, `ANR`. Example: `errorIssueType = CRASH OR
+ *  candidates: `CRASH`, `ANR`, `NON_FATAL`. Example: `errorIssueType = CRASH OR
  *  errorIssueType = ANR`. * `errorIssueId`: Matches error reports belonging to
  *  the requested error issue ids only. Example: `errorIssueId = 1234 OR
  *  errorIssueId = 4567`. * `errorReportId`: Matches error reports with the

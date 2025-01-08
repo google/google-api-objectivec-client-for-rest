@@ -1245,7 +1245,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressPolicy
-@dynamic egressFrom, egressTo;
+@dynamic egressFrom, egressTo, title;
 @end
 
 
@@ -1255,7 +1255,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource
-@dynamic accessLevel;
+@dynamic accessLevel, resource;
 @end
 
 
@@ -1304,7 +1304,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressPolicy
-@dynamic ingressFrom, ingressTo;
+@dynamic ingressFrom, ingressTo, title;
 @end
 
 

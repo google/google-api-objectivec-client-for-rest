@@ -515,9 +515,9 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
 @dynamic cancellationDetails, createTime, cycleEndTime, endUserEntitled,
-         freeTrialEndTime, lineItems, name, partnerUserToken, processingState,
-         products, promotions, promotionSpecs, purchaseTime, redirectUri,
-         renewalTime, serviceLocation, state, updateTime,
+         freeTrialEndTime, lineItems, migrationDetails, name, partnerUserToken,
+         processingState, products, promotions, promotionSpecs, purchaseTime,
+         redirectUri, renewalTime, serviceLocation, state, updateTime,
          upgradeDowngradeDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -585,6 +585,16 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails
 @dynamic servicePeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionMigrationDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionMigrationDetails
+@dynamic migratedSubscriptionId;
 @end
 
 

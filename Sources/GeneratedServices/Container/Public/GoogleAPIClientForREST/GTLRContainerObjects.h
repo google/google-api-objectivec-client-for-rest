@@ -2559,7 +2559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
-/** Workload policy configuration for Autopilot. */
+/**
+ *  WorkloadPolicyConfig is the configuration related to GCW workload policy
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadPolicyConfig *workloadPolicyConfig;
 
 @end
@@ -3548,7 +3550,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired authenticator groups config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *desiredAuthenticatorGroupsConfig;
 
-/** The desired workload policy configuration for the autopilot cluster. */
+/**
+ *  WorkloadPolicyConfig is the configuration related to GCW workload policy
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadPolicyConfig *desiredAutopilotWorkloadPolicyConfig;
 
 /** The desired configuration options for the Binary Authorization feature. */
@@ -6087,6 +6091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  the default machine type is `e2-medium`.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  The maximum duration for the nodes to exist. If unspecified, the nodes can
+ *  exist indefinitely.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 
 /**
  *  The metadata key/value pairs assigned to instances in the cluster. Keys must
@@ -9082,6 +9092,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
+ *  The maximum duration for the nodes to exist. If unspecified, the nodes can
+ *  exist indefinitely.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
+
+/**
  *  The name (project, location, cluster, node pool) of the node pool to update.
  *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
  *  *`.
@@ -9624,8 +9640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  WorkloadPolicyConfig is the configuration of workload policy for autopilot
- *  clusters.
+ *  WorkloadPolicyConfig is the configuration related to GCW workload policy
  */
 @interface GTLRContainer_WorkloadPolicyConfig : GTLRObject
 

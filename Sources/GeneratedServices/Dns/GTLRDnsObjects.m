@@ -681,7 +681,7 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_Policy
-@dynamic alternativeNameServerConfig, descriptionProperty,
+@dynamic alternativeNameServerConfig, descriptionProperty, dns64Config,
          enableInboundForwarding, enableLogging, identifier, kind, name,
          networks;
 
@@ -728,6 +728,26 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 @implementation GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer
 @dynamic forwardingPath, ipv4Address, ipv6Address, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PolicyDns64Config
+//
+
+@implementation GTLRDns_PolicyDns64Config
+@dynamic kind, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PolicyDns64ConfigScope
+//
+
+@implementation GTLRDns_PolicyDns64ConfigScope
+@dynamic allQueries, kind;
 @end
 
 

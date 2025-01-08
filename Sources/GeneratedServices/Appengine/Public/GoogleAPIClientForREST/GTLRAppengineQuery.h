@@ -2022,6 +2022,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
+ *  Deletes the specified service and all enclosed versions.
+ *
+ *  Method: appengine.projects.locations.applications.services.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsServicesDelete : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the resource requested. Example:
+ *  apps/myapp/services/default.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *servicesId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Deletes the specified service and all enclosed versions.
+ *
+ *  @param projectsId Part of `name`. Name of the resource requested. Example:
+ *    apps/myapp/services/default.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param servicesId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsServicesDelete
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                         servicesId:(NSString *)servicesId;
+
+@end
+
+/**
  *  Deletes an existing Version resource.
  *
  *  Method: appengine.projects.locations.applications.services.versions.delete

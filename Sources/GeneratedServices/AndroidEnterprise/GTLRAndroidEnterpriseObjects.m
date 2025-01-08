@@ -541,16 +541,6 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidEnterprise_CreateEnrollmentTokenResponse
-//
-
-@implementation GTLRAndroidEnterprise_CreateEnrollmentTokenResponse
-@dynamic enrollmentToken, token;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidEnterprise_Device
 //
 

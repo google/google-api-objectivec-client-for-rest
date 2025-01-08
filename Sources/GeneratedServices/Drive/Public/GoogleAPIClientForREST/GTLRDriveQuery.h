@@ -58,6 +58,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Gets information about the user, the user's Drive, and system capabilities.
+ *  For more information, see [Return user
+ *  info](https://developers.google.com/drive/api/guides/user-info). Required:
+ *  The `fields` parameter must be set. To return the exact fields you need, see
+ *  [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  Method: drive.about.get
  *
@@ -76,6 +81,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_About.
  *
  *  Gets information about the user, the user's Drive, and system capabilities.
+ *  For more information, see [Return user
+ *  info](https://developers.google.com/drive/api/guides/user-info). Required:
+ *  The `fields` parameter must be set. To return the exact fields you need, see
+ *  [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  @return GTLRDriveQuery_AboutGet
  */
@@ -197,7 +207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets a specific app.
+ *  Gets a specific app. For more information, see [Return user
+ *  info](https://developers.google.com/drive/api/guides/user-info).
  *
  *  Method: drive.apps.get
  *
@@ -218,7 +229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_App.
  *
- *  Gets a specific app.
+ *  Gets a specific app. For more information, see [Return user
+ *  info](https://developers.google.com/drive/api/guides/user-info).
  *
  *  @param appId The ID of the app.
  *
@@ -229,7 +241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists a user's installed apps.
+ *  Lists a user's installed apps. For more information, see [Return user
+ *  info](https://developers.google.com/drive/api/guides/user-info).
  *
  *  Method: drive.apps.list
  *
@@ -263,7 +276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_AppList.
  *
- *  Lists a user's installed apps.
+ *  Lists a user's installed apps. For more information, see [Return user
+ *  info](https://developers.google.com/drive/api/guides/user-info).
  *
  *  @return GTLRDriveQuery_AppsList
  */
@@ -272,7 +286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets the starting pageToken for listing future changes.
+ *  Gets the starting pageToken for listing future changes. For more
+ *  information, see [Retrieve
+ *  changes](https://developers.google.com/drive/api/guides/manage-changes).
  *
  *  Method: drive.changes.getStartPageToken
  *
@@ -315,7 +331,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_StartPageToken.
  *
- *  Gets the starting pageToken for listing future changes.
+ *  Gets the starting pageToken for listing future changes. For more
+ *  information, see [Retrieve
+ *  changes](https://developers.google.com/drive/api/guides/manage-changes).
  *
  *  @return GTLRDriveQuery_ChangesGetStartPageToken
  */
@@ -324,7 +342,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists the changes for a user or shared drive.
+ *  Lists the changes for a user or shared drive. For more information, see
+ *  [Retrieve
+ *  changes](https://developers.google.com/drive/api/guides/manage-changes).
  *
  *  Method: drive.changes.list
  *
@@ -444,7 +464,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_ChangeList.
  *
- *  Lists the changes for a user or shared drive.
+ *  Lists the changes for a user or shared drive. For more information, see
+ *  [Retrieve
+ *  changes](https://developers.google.com/drive/api/guides/manage-changes).
  *
  *  @param pageToken The token for continuing a previous list request on the
  *    next page. This should be set to the value of 'nextPageToken' from the
@@ -461,7 +483,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Subscribes to changes for a user.
+ *  Subscribes to changes for a user. For more information, see [Notifications
+ *  for resource changes](https://developers.google.com/drive/api/guides/push).
  *
  *  Method: drive.changes.watch
  *
@@ -581,7 +604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Channel.
  *
- *  Subscribes to changes for a user.
+ *  Subscribes to changes for a user. For more information, see [Notifications
+ *  for resource changes](https://developers.google.com/drive/api/guides/push).
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param pageToken The token for continuing a previous list request on the
@@ -596,7 +620,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Stops watching resources through this channel.
+ *  Stops watching resources through this channel. For more information, see
+ *  [Notifications for resource
+ *  changes](https://developers.google.com/drive/api/guides/push).
  *
  *  Method: drive.channels.stop
  *
@@ -616,7 +642,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Stops watching resources through this channel.
+ *  Stops watching resources through this channel. For more information, see
+ *  [Notifications for resource
+ *  changes](https://developers.google.com/drive/api/guides/push).
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *
@@ -627,7 +655,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a comment on a file.
+ *  Creates a comment on a file. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.create
  *
@@ -643,7 +675,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Comment.
  *
- *  Creates a comment on a file.
+ *  Creates a comment on a file. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  @param object The @c GTLRDrive_Comment to include in the query.
  *  @param fileId The ID of the file.
@@ -656,7 +692,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Deletes a comment.
+ *  Deletes a comment. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.delete
  *
@@ -676,7 +716,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a comment.
+ *  Deletes a comment. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -689,7 +733,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets a comment by ID.
+ *  Gets a comment by ID. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.get
  *
@@ -718,7 +766,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Comment.
  *
- *  Gets a comment by ID.
+ *  Gets a comment by ID. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -731,7 +783,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists a file's comments.
+ *  Lists a file's comments. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.list
  *
@@ -777,7 +833,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_CommentList.
  *
- *  Lists a file's comments.
+ *  Lists a file's comments. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  @param fileId The ID of the file.
  *
@@ -792,7 +852,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates a comment with patch semantics.
+ *  Updates a comment with patch semantics. For more information, see [Manage
+ *  comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.update
  *
@@ -811,7 +876,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Comment.
  *
- *  Updates a comment with patch semantics.
+ *  Updates a comment with patch semantics. For more information, see [Manage
+ *  comments and
+ *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
  *
  *  @param object The @c GTLRDrive_Comment to include in the query.
  *  @param fileId The ID of the file.

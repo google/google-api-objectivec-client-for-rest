@@ -1206,7 +1206,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ServiceScaling
-@dynamic minInstanceCount, scalingMode;
+@dynamic manualInstanceCount, maxInstanceCount, minInstanceCount, scalingMode;
 @end
 
 

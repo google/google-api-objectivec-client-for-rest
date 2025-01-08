@@ -49,12 +49,16 @@
 @class GTLRCloudIdentity_MembershipRoleRestrictionEvaluation;
 @class GTLRCloudIdentity_Operation_Metadata;
 @class GTLRCloudIdentity_Operation_Response;
+@class GTLRCloudIdentity_Policy;
+@class GTLRCloudIdentity_PolicyQuery;
 @class GTLRCloudIdentity_RestrictionEvaluation;
 @class GTLRCloudIdentity_RestrictionEvaluations;
 @class GTLRCloudIdentity_RsaPublicKeyInfo;
 @class GTLRCloudIdentity_SamlIdpConfig;
 @class GTLRCloudIdentity_SamlSpConfig;
 @class GTLRCloudIdentity_SamlSsoInfo;
+@class GTLRCloudIdentity_Setting;
+@class GTLRCloudIdentity_Setting_Value;
 @class GTLRCloudIdentity_SignInBehavior;
 @class GTLRCloudIdentity_Status;
 @class GTLRCloudIdentity_Status_Details_Item;
@@ -839,6 +843,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionE
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_Policy.type
+
+/**
+ *  Policy type denoting the admin-configurable policies.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Policy_Type_Admin;
+/**
+ *  Unspecified policy type.
+ *
+ *  Value: "POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Policy_Type_PolicyTypeUnspecified;
+/**
+ *  Policy type denoting the system-configured policies.
+ *
+ *  Value: "SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Policy_Type_System;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIdentity_RestrictionEvaluation.state
@@ -2063,7 +2089,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Output only. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
  *  format: `devices/{device}`, where device is the unique id assigned to the
- *  Device.
+ *  Device. Important: Device API scopes require that you use domain-wide
+ *  delegation to access the API. For more information, see [Set up the Devices
+ *  API](https://cloud.google.com/identity/docs/how-to/setup-devices).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2899,6 +2927,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  The response message for PoliciesService.ListPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "policies" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_ListPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  The pagination token to retrieve the next page of results. If this field is
+ *  empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The results
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_Policy *> *policies;
+
+@end
+
+
+/**
  *  Response message for UserInvitation listing request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3102,7 +3157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  Each edge contains information about the member that belongs to this group.
  *  Note: Fields returned here will help identify the specific Membership
- *  resource (e.g name, preferred_member_key and role), but may not be a
+ *  resource (e.g `name`, `preferred_member_key` and `role`), but may not be a
  *  comprehensive list of all fields.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_Membership *> *edges;
@@ -3343,6 +3398,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudIdentity_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  A Policy resource binds an instance of a single Setting with the scope of a
+ *  PolicyQuery. The Setting instance will be applied to all entities that
+ *  satisfy the query.
+ */
+@interface GTLRCloudIdentity_Policy : GTLRObject
+
+/**
+ *  Immutable. Customer that the Policy belongs to. The value is in the format
+ *  'customers/{customerId}'. The `customerId` must begin with "C" To find your
+ *  customer ID in Admin Console see
+ *  https://support.google.com/a/answer/10070793.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Output only. Identifier. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the Policy.
+ *  Format: policies/{policy}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The PolicyQuery the Setting applies to. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_PolicyQuery *policyQuery;
+
+/** Required. The Setting configured by this Policy. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_Setting *setting;
+
+/**
+ *  Output only. The type of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_Policy_Type_Admin Policy type denoting the
+ *        admin-configurable policies. (Value: "ADMIN")
+ *    @arg @c kGTLRCloudIdentity_Policy_Type_PolicyTypeUnspecified Unspecified
+ *        policy type. (Value: "POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_Policy_Type_System Policy type denoting the
+ *        system-configured policies. (Value: "SYSTEM")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  PolicyQuery
+ */
+@interface GTLRCloudIdentity_PolicyQuery : GTLRObject
+
+/**
+ *  Immutable. The group that the query applies to. This field is only set if
+ *  there is a single value for group that satisfies all clauses of the query.
+ *  If no group applies, this will be the empty string.
+ */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/**
+ *  Required. Immutable. Non-empty default. The OrgUnit the query applies to.
+ *  This field is only set if there is a single value for org_unit that
+ *  satisfies all clauses of the query.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnit;
+
+/**
+ *  Immutable. The CEL query that defines which entities the Policy applies to
+ *  (ex. a User entity). For details about CEL see
+ *  https://opensource.google.com/projects/cel. The OrgUnits the Policy applies
+ *  to are represented by a clause like so: entity.org_units.exists(org_unit,
+ *  org_unit.org_unit_id == orgUnitId('{orgUnitId}')) The Group the Policy
+ *  applies to are represented by a clause like so: entity.groups.exists(group,
+ *  group.group_id == groupId('{groupId}')) The Licenses the Policy applies to
+ *  are represented by a clause like so: entity.licenses.exists(license, license
+ *  in ['/product/{productId}/sku/{skuId}']) The above clauses can be present in
+ *  any combination, and used in conjunction with the &&, || and ! operators.
+ *  The org_unit and group fields below are helper fields that contain the
+ *  corresponding value(s) as the query to make the query easier to use.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Output only. The decimal sort order of this PolicyQuery. The value is
+ *  relative to all other policies with the same setting type for the customer.
+ *  (There are no duplicates within this set).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sortOrder;
+
 @end
 
 
@@ -3600,6 +3746,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  UserInvitation.
  */
 @interface GTLRCloudIdentity_SendUserInvitationRequest : GTLRObject
+@end
+
+
+/**
+ *  Setting
+ */
+@interface GTLRCloudIdentity_Setting : GTLRObject
+
+/** Required. Immutable. The type of the Setting. . */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Required. The value of the Setting. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_Setting_Value *value;
+
+@end
+
+
+/**
+ *  Required. The value of the Setting.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudIdentity_Setting_Value : GTLRObject
 @end
 
 
