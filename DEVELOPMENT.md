@@ -52,6 +52,32 @@ also be updated. The goal is that normal generation shouldn't produce any
 info/warning messages, that way it is more obvious when something might need
 attention.
 
+Or…
+
+Google APIs also maintains a repo with the latest discovery data so the
+generation is less likely to run into networking issues. To generate off that,
+fetch the states of https://github.com/googleapis/discovery-artifact-manager and
+use `Tools/preferred_paths_from_cache.py` to exact what is currently preferred.
+
+*Note:* Just like network based discovery, the directory in that repo can have
+entries for which the documents aren't reachable, so they aren't actually in the
+repo; `Tools/preferred_paths_from_cache.py` thus supports a `--skip` argument
+also to skip things.
+
+Since the `admin` api has some services under odd versions, you have to explictly
+pass those also.
+
+Example generation assuming _discovery-artifact-manager_ is checked out as a per
+directory to this project:
+
+```sh
+Tools/GenerateCheckedInServices \
+  --no-preferred \
+  `Tools/preferred_paths_from_cache.py  --skip poly ../discovery-artifact-manager/discoveries` \
+  ../discovery-artifact-manager/discoveries/admin.directory_v1.json \
+  ../discovery-artifact-manager/discoveries/admin.datatransfer_v1.json
+```
+
 ---
 
 ## Releasing
