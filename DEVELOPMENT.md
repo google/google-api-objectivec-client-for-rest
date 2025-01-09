@@ -66,7 +66,7 @@ To update the version number and push a release:
     new version number, by passing in the new version (must be in X.Y.Z format).
 
     ```sh
-    $ ./update_version.py 3.2.1
+    ./update_version.py 3.2.1
     ```
 
     Submit the changes to the repo.
@@ -92,7 +92,7 @@ To update the version number and push a release:
     and owner and can be used for releases.
 
     ```sh
-    $ pod trunk push --skip-import-validation --skip-tests GoogleAPIClientForREST.podspec
+    pod trunk push --skip-import-validation --skip-tests GoogleAPIClientForREST.podspec
     ```
 
     NOTE: Since validations are run on CI during every PR/commit, they are skipped here
