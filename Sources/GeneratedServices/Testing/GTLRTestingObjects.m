@@ -858,7 +858,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_LabInfo
-@dynamic name;
+@dynamic name, regionCode;
 @end
 
 

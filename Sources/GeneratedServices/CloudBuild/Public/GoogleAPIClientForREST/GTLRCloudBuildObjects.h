@@ -1643,6 +1643,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1690,6 +1693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Repository *> *repositories;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

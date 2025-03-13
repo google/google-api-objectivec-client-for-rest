@@ -738,6 +738,91 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
+@implementation GTLRBigqueryQuery_RowAccessPoliciesBatchDelete
+
+@dynamic datasetId, projectId, tableId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_BatchDeleteRowAccessPoliciesRequest *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies:batchDelete";
+  GTLRBigqueryQuery_RowAccessPoliciesBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.loggingName = @"bigquery.rowAccessPolicies.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesDelete
+
+@dynamic datasetId, force, policyId, projectId, tableId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId {
+  NSArray *pathParams = @[
+    @"datasetId", @"policyId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies/{+policyId}";
+  GTLRBigqueryQuery_RowAccessPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.policyId = policyId;
+  query.loggingName = @"bigquery.rowAccessPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesGet
+
+@dynamic datasetId, policyId, projectId, tableId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId {
+  NSArray *pathParams = @[
+    @"datasetId", @"policyId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies/{+policyId}";
+  GTLRBigqueryQuery_RowAccessPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.policyId = policyId;
+  query.expectedObjectClass = [GTLRBigquery_RowAccessPolicy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy
 
 @dynamic resource;
@@ -760,6 +845,39 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigquery_Policy class];
   query.loggingName = @"bigquery.rowAccessPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesInsert
+
+@dynamic datasetId, projectId, tableId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies";
+  GTLRBigqueryQuery_RowAccessPoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.expectedObjectClass = [GTLRBigquery_RowAccessPolicy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.insert";
   return query;
 }
 
@@ -812,6 +930,41 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigquery_TestIamPermissionsResponse class];
   query.loggingName = @"bigquery.rowAccessPolicies.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesUpdate
+
+@dynamic datasetId, policyId, projectId, tableId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId
+                       policyId:(NSString *)policyId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"policyId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies/{+policyId}";
+  GTLRBigqueryQuery_RowAccessPoliciesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.policyId = policyId;
+  query.expectedObjectClass = [GTLRBigquery_RowAccessPolicy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.update";
   return query;
 }
 

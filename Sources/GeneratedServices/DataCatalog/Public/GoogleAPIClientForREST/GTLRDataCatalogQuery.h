@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_CatalogSearch : GTLRDataCatalogQuery
 
 /**
@@ -86,6 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_EntriesLookup : GTLRDataCatalogQuery
 
 /**
@@ -159,6 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_OrganizationsLocationsRetrieveConfig : GTLRDataCatalogQuery
 
 /** Required. The organization whose config is being retrieved. */
@@ -191,6 +194,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_OrganizationsLocationsRetrieveEffectiveConfig : GTLRDataCatalogQuery
 
 /** Required. The resource whose effective config is being retrieved. */
@@ -223,6 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_OrganizationsLocationsSetConfig : GTLRDataCatalogQuery
 
 /** Required. The organization or project whose config is being specified. */
@@ -270,6 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsCreate : GTLRDataCatalogQuery
 
 /**
@@ -330,6 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsDelete : GTLRDataCatalogQuery
 
 /** Optional. If true, deletes all entries in the entry group. */
@@ -368,6 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesCreate : GTLRDataCatalogQuery
 
 /**
@@ -420,6 +428,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesDelete : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to delete. */
@@ -450,6 +459,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGet : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to get. */
@@ -484,6 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -536,6 +547,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesImport : GTLRDataCatalogQuery
 
 /** Required. Target entry group for ingested entries. */
@@ -576,6 +588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList : GTLRDataCatalogQuery
 
 /**
@@ -635,6 +648,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryContacts : GTLRDataCatalogQuery
 
 /** Required. The full resource name of the entry. */
@@ -669,6 +683,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryOverview : GTLRDataCatalogQuery
 
 /** Required. The full resource name of the entry. */
@@ -704,6 +719,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch : GTLRDataCatalogQuery
 
 /**
@@ -758,6 +774,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesStar : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to mark as starred. */
@@ -796,6 +813,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsCreate : GTLRDataCatalogQuery
 
 /**
@@ -840,6 +858,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsDelete : GTLRDataCatalogQuery
 
 /** Required. The name of the tag to delete. */
@@ -866,6 +885,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsList : GTLRDataCatalogQuery
 
 /**
@@ -913,6 +933,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch : GTLRDataCatalogQuery
 
 /**
@@ -963,6 +984,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsReconcile : GTLRDataCatalogQuery
 
 /** Required. Name of Entry to be tagged. */
@@ -1003,6 +1025,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTestIamPermissions : GTLRDataCatalogQuery
 
 /**
@@ -1045,6 +1068,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesUnstar : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to mark as **not** starred. */
@@ -1076,6 +1100,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGet : GTLRDataCatalogQuery
 
 /** Required. The name of the entry group to get. */
@@ -1117,6 +1142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -1161,6 +1187,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList : GTLRDataCatalogQuery
 
 /**
@@ -1212,6 +1239,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch : GTLRDataCatalogQuery
 
 /**
@@ -1267,6 +1295,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsSetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -1317,6 +1346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsCreate : GTLRDataCatalogQuery
 
 /**
@@ -1361,6 +1391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsDelete : GTLRDataCatalogQuery
 
 /** Required. The name of the tag to delete. */
@@ -1387,6 +1418,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsList : GTLRDataCatalogQuery
 
 /**
@@ -1434,6 +1466,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch : GTLRDataCatalogQuery
 
 /**
@@ -1484,6 +1517,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTestIamPermissions : GTLRDataCatalogQuery
 
 /**
@@ -1674,6 +1708,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsRetrieveEffectiveConfig : GTLRDataCatalogQuery
 
 /** Required. The resource whose effective config is being retrieved. */
@@ -1706,6 +1741,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsSetConfig : GTLRDataCatalogQuery
 
 /** Required. The organization or project whose config is being specified. */
@@ -1741,6 +1777,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesCreate : GTLRDataCatalogQuery
 
 /**
@@ -1788,6 +1825,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesDelete : GTLRDataCatalogQuery
 
 /**
@@ -1826,6 +1864,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsCreate : GTLRDataCatalogQuery
 
 /**
@@ -1876,6 +1915,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsDelete : GTLRDataCatalogQuery
 
 /**
@@ -1913,6 +1953,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename : GTLRDataCatalogQuery
 
 /** Required. The name of the enum field value. */
@@ -1947,6 +1988,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsPatch : GTLRDataCatalogQuery
 
 /** Required. The name of the tag template field. */
@@ -1998,6 +2040,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsRename : GTLRDataCatalogQuery
 
 /** Required. The name of the tag template field. */
@@ -2031,6 +2074,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGet : GTLRDataCatalogQuery
 
 /** Required. The name of the tag template to get. */
@@ -2065,6 +2109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -2114,6 +2159,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesPatch : GTLRDataCatalogQuery
 
 /**
@@ -2173,6 +2219,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesSetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -2221,6 +2268,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesTestIamPermissions : GTLRDataCatalogQuery
 
 /**

@@ -30,6 +30,13 @@ NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_Low = @"LOW";
 NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_Normal = @"NORMAL";
 NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_RiskLevelUnspecified = @"RISK_LEVEL_UNSPECIFIED";
 
+// GTLRWebSecurityScanner_ScanConfig.targetPlatforms
+NSString * const kGTLRWebSecurityScanner_ScanConfig_TargetPlatforms_AppEngine = @"APP_ENGINE";
+NSString * const kGTLRWebSecurityScanner_ScanConfig_TargetPlatforms_CloudFunctions = @"CLOUD_FUNCTIONS";
+NSString * const kGTLRWebSecurityScanner_ScanConfig_TargetPlatforms_CloudRun = @"CLOUD_RUN";
+NSString * const kGTLRWebSecurityScanner_ScanConfig_TargetPlatforms_Compute = @"COMPUTE";
+NSString * const kGTLRWebSecurityScanner_ScanConfig_TargetPlatforms_TargetPlatformUnspecified = @"TARGET_PLATFORM_UNSPECIFIED";
+
 // GTLRWebSecurityScanner_ScanConfig.userAgent
 NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_ChromeAndroid = @"CHROME_ANDROID";
 NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_ChromeLinux = @"CHROME_LINUX";
@@ -393,14 +400,15 @@ NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_LocationUnspecified
 
 @implementation GTLRWebSecurityScanner_ScanConfig
 @dynamic authentication, blacklistPatterns, displayName,
-         exportToSecurityCommandCenter, ignoreHttpStatusErrors, managedScan,
-         maxQps, name, riskLevel, schedule, startingUrls, staticIpScan,
-         userAgent;
+         exportToSecurityCommandCenter, ignoreHttpStatusErrors, latestRun,
+         managedScan, maxQps, name, riskLevel, schedule, startingUrls,
+         staticIpScan, targetPlatforms, userAgent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"blacklistPatterns" : [NSString class],
-    @"startingUrls" : [NSString class]
+    @"startingUrls" : [NSString class],
+    @"targetPlatforms" : [NSString class]
   };
   return map;
 }

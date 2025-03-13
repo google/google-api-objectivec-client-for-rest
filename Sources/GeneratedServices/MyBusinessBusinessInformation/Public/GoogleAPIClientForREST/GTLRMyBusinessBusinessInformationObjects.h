@@ -1095,11 +1095,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 @property(nonatomic, strong, nullable) NSNumber *canOperateHealthData;
 
 /**
- *  Output only. Indicates if the listing can manage local posts.
+ *  Output only. Indicates if the listing can manage local posts. Deprecated:
+ *  This field is no longer populated and will be removed in a future version.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canOperateLocalPost;
+@property(nonatomic, strong, nullable) NSNumber *canOperateLocalPost GTLR_DEPRECATED;
 
 /**
  *  Output only. Indicates whether the location can operate on Lodging data.

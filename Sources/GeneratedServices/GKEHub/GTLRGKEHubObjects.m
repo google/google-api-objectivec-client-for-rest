@@ -267,6 +267,7 @@ NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_LevelUnspecifi
 NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_Warning = @"WARNING";
 
 // GTLRGKEHub_ServiceMeshCondition.code
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CanonicalServiceError = @"CANONICAL_SERVICE_ERROR";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ClusterHasZeroNodes = @"CLUSTER_HAS_ZERO_NODES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniConfigUnsupported = @"CNI_CONFIG_UNSUPPORTED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniInstallationFailed = @"CNI_INSTALLATION_FAILED";
@@ -284,6 +285,7 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted = @"
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompleted = @"MODERNIZATION_COMPLETED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress = @"MODERNIZATION_IN_PROGRESS";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled = @"MODERNIZATION_SCHEDULED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationWillBeScheduled = @"MODERNIZATION_WILL_BE_SCHEDULED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired = @"NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededBackendServices = @"QUOTA_EXCEEDED_BACKEND_SERVICES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededClientTlsPolicies = @"QUOTA_EXCEEDED_CLIENT_TLS_POLICIES";
@@ -505,8 +507,16 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSync
-@dynamic allowVerticalScale, enabled, git, metricsGcpServiceAccountEmail, oci,
+@dynamic deploymentOverrides, enabled, git, metricsGcpServiceAccountEmail, oci,
          preventDrift, sourceFormat, stopSyncing;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentOverrides" : [GTLRGKEHub_ConfigManagementDeploymentOverride class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -560,6 +570,34 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 @dynamic admissionWebhook, gitSync, importer, monitor, otelCollector,
          reconcilerManager, resourceGroupControllerManager, rootReconciler,
          syncer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementContainerOverride
+//
+
+@implementation GTLRGKEHub_ConfigManagementContainerOverride
+@dynamic containerName, cpuLimit, cpuRequest, memoryLimit, memoryRequest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementDeploymentOverride
+//
+
+@implementation GTLRGKEHub_ConfigManagementDeploymentOverride
+@dynamic containers, deploymentName, deploymentNamespace;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containers" : [GTLRGKEHub_ConfigManagementContainerOverride class]
+  };
+  return map;
+}
+
 @end
 
 

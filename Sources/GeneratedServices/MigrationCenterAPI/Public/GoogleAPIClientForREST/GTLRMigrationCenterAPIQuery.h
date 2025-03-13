@@ -43,6 +43,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewBasic;
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewFull;
 /**
+ *  The asset view includes asset name and labels.
+ *
+ *  Value: "ASSET_VIEW_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewLabels;
+/**
+ *  The asset view includes the standard metadata of an asset.
+ *
+ *  Value: "ASSET_VIEW_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewStandard;
+/**
+ *  The asset view includes fields needed by UI.
+ *
+ *  Value: "ASSET_VIEW_UI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewUi;
+/**
  *  The asset view is not specified. The API displays the basic view by default.
  *
  *  Value: "ASSET_VIEW_UNSPECIFIED"
@@ -281,6 +299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *    @arg @c kGTLRMigrationCenterAPIViewAssetViewFull The asset view includes
  *        all the metadata of an asset and performance data. (Value:
  *        "ASSET_VIEW_FULL")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewStandard The asset view
+ *        includes the standard metadata of an asset. (Value:
+ *        "ASSET_VIEW_STANDARD")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewUi The asset view includes
+ *        fields needed by UI. (Value: "ASSET_VIEW_UI")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewLabels The asset view includes
+ *        asset name and labels. (Value: "ASSET_VIEW_LABELS")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -339,6 +364,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *    @arg @c kGTLRMigrationCenterAPIViewAssetViewFull The asset view includes
  *        all the metadata of an asset and performance data. (Value:
  *        "ASSET_VIEW_FULL")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewStandard The asset view
+ *        includes the standard metadata of an asset. (Value:
+ *        "ASSET_VIEW_STANDARD")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewUi The asset view includes
+ *        fields needed by UI. (Value: "ASSET_VIEW_UI")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewLabels The asset view includes
+ *        asset name and labels. (Value: "ASSET_VIEW_LABELS")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1927,6 +1959,82 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRMigrationCenterAPI_PreferenceSet *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of an relation.
+ *
+ *  Method: migrationcenter.projects.locations.relations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsGet : GTLRMigrationCenterAPIQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Relation.
+ *
+ *  Gets the details of an relation.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the relations in a given project and location.
+ *
+ *  Method: migrationcenter.projects.locations.relations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsList : GTLRMigrationCenterAPIQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field to sort by. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for `ListRelationsRequest`. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_ListRelationsResponse.
+ *
+ *  Lists all the relations in a given project and location.
+ *
+ *  @param parent Required. Parent value for `ListRelationsRequest`.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

@@ -203,6 +203,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 /**
  *  The CSS/MC account's parent resource. CSS group for CSS domains; CSS domain
  *  for MC accounts. Returned only if the user has access to the parent account.
+ *  Note: For MC sub-accounts, this is also the CSS domain that is the parent
+ *  resource of the MCA account, since we are effectively flattening the
+ *  hierarchy."
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -930,7 +933,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 
 /**
  *  The name of the CSS Product input. Format:
- *  `accounts/{account}/cssProductInputs/{css_product_input}`
+ *  `accounts/{account}/cssProductInputs/{css_product_input}`, where the last
+ *  section `css_product_input` consists of 3 parts:
+ *  contentLanguage~feedLabel~offerId. Example:
+ *  accounts/123/cssProductInputs/de~DE~rawProvidedId123
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

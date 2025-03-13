@@ -30,6 +30,7 @@ NSString * const kGTLRMerchant_ProductChange_ReportingContext_ReportingContextEn
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_VideoAds = @"VIDEO_ADS";
+NSString * const kGTLRMerchant_ProductChange_ReportingContext_YoutubeAffiliate = @"YOUTUBE_AFFILIATE";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_YoutubeCheckout = @"YOUTUBE_CHECKOUT";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_YoutubeShopping = @"YOUTUBE_SHOPPING";
 
@@ -55,6 +56,7 @@ NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_R
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_VideoAds = @"VIDEO_ADS";
+NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_YoutubeAffiliate = @"YOUTUBE_AFFILIATE";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_YoutubeCheckout = @"YOUTUBE_CHECKOUT";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_YoutubeShopping = @"YOUTUBE_SHOPPING";
 
@@ -75,6 +77,7 @@ NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_Repo
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_VideoAds = @"VIDEO_ADS";
+NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_YoutubeAffiliate = @"YOUTUBE_AFFILIATE";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_YoutubeCheckout = @"YOUTUBE_CHECKOUT";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_YoutubeShopping = @"YOUTUBE_SHOPPING";
 
@@ -114,6 +117,7 @@ NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_Reportin
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_VideoAds = @"VIDEO_ADS";
+NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_YoutubeAffiliate = @"YOUTUBE_AFFILIATE";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_YoutubeCheckout = @"YOUTUBE_CHECKOUT";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_YoutubeShopping = @"YOUTUBE_SHOPPING";
 
@@ -134,6 +138,7 @@ NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ReportingCo
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_VideoAds = @"VIDEO_ADS";
+NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_YoutubeAffiliate = @"YOUTUBE_AFFILIATE";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_YoutubeCheckout = @"YOUTUBE_CHECKOUT";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_YoutubeShopping = @"YOUTUBE_SHOPPING";
 
@@ -330,8 +335,8 @@ NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRMerchant_ProductStatusChangeMessage
-@dynamic account, attribute, changes, expirationTime, managingAccount, resource,
-         resourceId, resourceType;
+@dynamic account, attribute, changes, eventTime, expirationTime,
+         managingAccount, resource, resourceId, resourceType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

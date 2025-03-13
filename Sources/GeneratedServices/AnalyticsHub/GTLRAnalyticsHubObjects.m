@@ -209,7 +209,8 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 @implementation GTLRAnalyticsHub_DataExchange
 @dynamic descriptionProperty, discoveryType, displayName, documentation, icon,
-         listingCount, name, primaryContact, sharingEnvironmentConfig;
+         listingCount, logLinkedDatasetQueryUserEmail, name, primaryContact,
+         sharingEnvironmentConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -410,8 +411,17 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 @dynamic ackDeadlineSeconds, analyticsHubSubscriptionInfo, bigqueryConfig,
          cloudStorageConfig, deadLetterPolicy, detached,
          enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
-         filter, labels, messageRetentionDuration, name, pushConfig,
-         retainAckedMessages, retryPolicy, state, topicMessageRetentionDuration;
+         filter, labels, messageRetentionDuration, messageTransforms, name,
+         pushConfig, retainAckedMessages, retryPolicy, state,
+         topicMessageRetentionDuration;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messageTransforms" : [GTLRAnalyticsHub_MessageTransform class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -426,6 +436,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_JavaScriptUDF
+//
+
+@implementation GTLRAnalyticsHub_JavaScriptUDF
+@dynamic code, functionName;
 @end
 
 
@@ -469,8 +489,9 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 @implementation GTLRAnalyticsHub_Listing
 @dynamic bigqueryDataset, categories, commercialInfo, dataProvider,
          descriptionProperty, discoveryType, displayName, documentation, icon,
-         name, primaryContact, publisher, pubsubTopic, requestAccess,
-         resourceType, restrictedExportConfig, state;
+         logLinkedDatasetQueryUserEmail, name, primaryContact, publisher,
+         pubsubTopic, requestAccess, resourceType, restrictedExportConfig,
+         state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -571,6 +592,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
   return @"subscriptions";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_MessageTransform
+//
+
+@implementation GTLRAnalyticsHub_MessageTransform
+@dynamic enabled, javascriptUdf;
 @end
 
 
@@ -782,6 +813,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_RevokeSubscriptionRequest
+@dynamic revokeCommercial;
 @end
 
 
@@ -800,7 +832,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_SelectedResource
-@dynamic table;
+@dynamic routine, table;
 @end
 
 
@@ -903,9 +935,9 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 @implementation GTLRAnalyticsHub_Subscription
 @dynamic commercialInfo, creationTime, dataExchange, lastModifyTime,
-         linkedDatasetMap, linkedResources, listing, name,
-         organizationDisplayName, organizationId, resourceType, state,
-         subscriberContact;
+         linkedDatasetMap, linkedResources, listing,
+         logLinkedDatasetQueryUserEmail, name, organizationDisplayName,
+         organizationId, resourceType, state, subscriberContact;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

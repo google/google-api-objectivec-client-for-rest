@@ -241,6 +241,7 @@ NSString * const kGTLRDataflow_SDKInfo_Language_Go      = @"GO";
 NSString * const kGTLRDataflow_SDKInfo_Language_Java    = @"JAVA";
 NSString * const kGTLRDataflow_SDKInfo_Language_Python  = @"PYTHON";
 NSString * const kGTLRDataflow_SDKInfo_Language_Unknown = @"UNKNOWN";
+NSString * const kGTLRDataflow_SDKInfo_Language_Yaml    = @"YAML";
 
 // GTLRDataflow_SdkVersion.sdkSupportStatus
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated = @"DEPRECATED";
@@ -422,6 +423,48 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_BoundedTrie
+//
+
+@implementation GTLRDataflow_BoundedTrie
+@dynamic bound, root, singleton;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"singleton" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_BoundedTrieNode
+//
+
+@implementation GTLRDataflow_BoundedTrieNode
+@dynamic children, truncated;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_BoundedTrieNode_Children
+//
+
+@implementation GTLRDataflow_BoundedTrieNode_Children
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataflow_BoundedTrieNode class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_BucketOptions
 //
 
@@ -543,9 +586,10 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_CounterUpdate
-@dynamic boolean, cumulative, distribution, floatingPoint, floatingPointList,
-         floatingPointMean, integer, integerGauge, integerList, integerMean,
-         internal, nameAndKind, shortId, stringList, structuredNameAndMetadata;
+@dynamic boolean, boundedTrie, cumulative, distribution, floatingPoint,
+         floatingPointList, floatingPointMean, integer, integerGauge,
+         integerList, integerMean, internal, nameAndKind, shortId, stringList,
+         structuredNameAndMetadata;
 @end
 
 
@@ -899,13 +943,13 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_FlexTemplateRuntimeEnvironment
-@dynamic additionalExperiments, additionalUserLabels, autoscalingAlgorithm,
-         diskSizeGb, dumpHeapOnOom, enableLauncherVmSerialPortLogging,
-         enableStreamingEngine, flexrsGoal, ipConfiguration, kmsKeyName,
-         launcherMachineType, machineType, maxWorkers, network, numWorkers,
-         saveHeapDumpsToGcsPath, sdkContainerImage, serviceAccountEmail,
-         stagingLocation, streamingMode, subnetwork, tempLocation, workerRegion,
-         workerZone, zoneProperty;
+@dynamic additionalExperiments, additionalPipelineOptions, additionalUserLabels,
+         autoscalingAlgorithm, diskSizeGb, dumpHeapOnOom,
+         enableLauncherVmSerialPortLogging, enableStreamingEngine, flexrsGoal,
+         ipConfiguration, kmsKeyName, launcherMachineType, machineType,
+         maxWorkers, network, numWorkers, saveHeapDumpsToGcsPath,
+         sdkContainerImage, serviceAccountEmail, stagingLocation, streamingMode,
+         subnetwork, tempLocation, workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -913,7 +957,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalExperiments" : [NSString class]
+    @"additionalExperiments" : [NSString class],
+    @"additionalPipelineOptions" : [NSString class]
   };
   return map;
 }
@@ -1710,7 +1755,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_MetricUpdate
 @dynamic cumulative, distribution, gauge, internal, kind, meanCount, meanSum,
-         name, scalar, set, updateTime;
+         name, scalar, set, trie, updateTime;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -2222,11 +2267,11 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_RuntimeEnvironment
-@dynamic additionalExperiments, additionalUserLabels, bypassTempDirValidation,
-         diskSizeGb, enableStreamingEngine, ipConfiguration, kmsKeyName,
-         machineType, maxWorkers, network, numWorkers, serviceAccountEmail,
-         streamingMode, subnetwork, tempLocation, workerRegion, workerZone,
-         zoneProperty;
+@dynamic additionalExperiments, additionalPipelineOptions, additionalUserLabels,
+         bypassTempDirValidation, diskSizeGb, enableStreamingEngine,
+         ipConfiguration, kmsKeyName, machineType, maxWorkers, network,
+         numWorkers, serviceAccountEmail, streamingMode, subnetwork,
+         tempLocation, workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2234,7 +2279,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalExperiments" : [NSString class]
+    @"additionalExperiments" : [NSString class],
+    @"additionalPipelineOptions" : [NSString class]
   };
   return map;
 }
@@ -3234,7 +3280,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_TemplateMetadata
 @dynamic defaultStreamingMode, descriptionProperty, name, parameters, streaming,
-         supportsAtLeastOnce, supportsExactlyOnce;
+         supportsAtLeastOnce, supportsExactlyOnce, yamlDefinition;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

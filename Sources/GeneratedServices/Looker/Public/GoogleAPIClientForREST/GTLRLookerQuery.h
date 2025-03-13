@@ -58,134 +58,138 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Backup Looker instance.
  *
- *  Method: looker.projects.locations.instances.backups.getIamPolicy
+ *  Method: looker.projects.locations.instances.backups.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeLookerCloudPlatform
  */
-@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsGetIamPolicy : GTLRLookerQuery
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate : GTLRLookerQuery
 
 /**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
  */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
+ *  Fetches a @c GTLRLooker_Operation.
+ *
+ *  Backup Looker instance.
+ *
+ *  @param object The @c GTLRLooker_InstanceBackup to include in the query.
+ *  @param parent Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate
  */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRLooker_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
++ (instancetype)queryWithObject:(GTLRLooker_InstanceBackup *)object
+                         parent:(NSString *)parent;
 
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
+ *  Delete backup.
  *
- *  Method: looker.projects.locations.instances.backups.setIamPolicy
+ *  Method: looker.projects.locations.instances.backups.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeLookerCloudPlatform
  */
-@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsSetIamPolicy : GTLRLookerQuery
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete : GTLRLookerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}/backups/{backup}
  */
-@property(nonatomic, copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRLooker_Policy.
+ *  Fetches a @c GTLRLooker_Operation.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
+ *  Delete backup.
  *
- *  @param object The @c GTLRLooker_SetIamPolicyRequest to include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
+ *  @param name Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}/backups/{backup}
  *
- *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsSetIamPolicy
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete
  */
-+ (instancetype)queryWithObject:(GTLRLooker_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
+ *  GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet
  *
- *  Method: looker.projects.locations.instances.backups.testIamPermissions
+ *  Method: looker.projects.locations.instances.backups.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeLookerCloudPlatform
  */
-@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsTestIamPermissions : GTLRLookerQuery
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet : GTLRLookerQuery
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
+ *  Required. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}/backups/{backup}`.
  */
-@property(nonatomic, copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRLooker_TestIamPermissionsResponse.
+ *  Fetches a @c GTLRLooker_InstanceBackup.
  *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
+ *  @param name Required. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}/backups/{backup}`.
  *
- *  @param object The @c GTLRLooker_TestIamPermissionsRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsTestIamPermissions
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet
  */
-+ (instancetype)queryWithObject:(GTLRLooker_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List backups of Looker instance.
+ *
+ *  Method: looker.projects.locations.instances.backups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsList : GTLRLookerQuery
+
+/**
+ *  Sort results. Default order is "create_time desc". Other supported fields
+ *  are "state" and "expire_time". https://google.aip.dev/132#ordering
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of instances to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token received from a previous ListInstances request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLooker_ListInstanceBackupsResponse.
+ *
+ *  List backups of Looker instance.
+ *
+ *  @param parent Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}.
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -317,55 +321,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLookerQuery_ProjectsLocationsInstancesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: looker.projects.locations.instances.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeLookerCloudPlatform
- */
-@interface GTLRLookerQuery_ProjectsLocationsInstancesGetIamPolicy : GTLRLookerQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRLooker_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRLookerQuery_ProjectsLocationsInstancesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -517,85 +472,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
+ *  Restore Looker instance.
  *
- *  Method: looker.projects.locations.instances.setIamPolicy
+ *  Method: looker.projects.locations.instances.restore
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeLookerCloudPlatform
  */
-@interface GTLRLookerQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRLookerQuery
+@interface GTLRLookerQuery_ProjectsLocationsInstancesRestore : GTLRLookerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
+ *  Required. Instance being restored Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
  */
-@property(nonatomic, copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRLooker_Policy.
+ *  Fetches a @c GTLRLooker_Operation.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
+ *  Restore Looker instance.
  *
- *  @param object The @c GTLRLooker_SetIamPolicyRequest to include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRLookerQuery_ProjectsLocationsInstancesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRLooker_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: looker.projects.locations.instances.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeLookerCloudPlatform
- */
-@interface GTLRLookerQuery_ProjectsLocationsInstancesTestIamPermissions : GTLRLookerQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRLooker_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRLooker_TestIamPermissionsRequest to include in the
+ *  @param object The @c GTLRLooker_RestoreInstanceRequest to include in the
  *    query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
+ *  @param name Required. Instance being restored Format:
+ *    projects/{project}/locations/{location}/instances/{instance}
  *
- *  @return GTLRLookerQuery_ProjectsLocationsInstancesTestIamPermissions
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesRestore
  */
-+ (instancetype)queryWithObject:(GTLRLooker_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
++ (instancetype)queryWithObject:(GTLRLooker_RestoreInstanceRequest *)object
+                           name:(NSString *)name;
 
 @end
 

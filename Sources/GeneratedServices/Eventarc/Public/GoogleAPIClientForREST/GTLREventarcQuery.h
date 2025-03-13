@@ -1010,7 +1010,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get a GoogleChannelConfig
+ *  Get a GoogleChannelConfig. The name of the GoogleChannelConfig in the
+ *  response is ALWAYS coded with projectID.
  *
  *  Method: eventarc.projects.locations.getGoogleChannelConfig
  *
@@ -1025,7 +1026,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLREventarc_GoogleChannelConfig.
  *
- *  Get a GoogleChannelConfig
+ *  Get a GoogleChannelConfig. The name of the GoogleChannelConfig in the
+ *  response is ALWAYS coded with projectID.
  *
  *  @param name Required. The name of the config to get.
  *
@@ -2916,7 +2918,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the config. Must be in the format of,
- *  `projects/{project}/locations/{location}/googleChannelConfig`.
+ *  `projects/{project}/locations/{location}/googleChannelConfig`. In API
+ *  responses, the config name always includes the projectID, regardless of
+ *  whether the projectID or projectNumber was provided.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2937,7 +2941,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_GoogleChannelConfig to include in the
  *    query.
  *  @param name Required. The resource name of the config. Must be in the format
- *    of, `projects/{project}/locations/{location}/googleChannelConfig`.
+ *    of, `projects/{project}/locations/{location}/googleChannelConfig`. In API
+ *    responses, the config name always includes the projectID, regardless of
+ *    whether the projectID or projectNumber was provided.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsUpdateGoogleChannelConfig
  */

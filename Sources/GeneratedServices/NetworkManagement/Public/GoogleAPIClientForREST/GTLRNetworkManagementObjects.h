@@ -29,6 +29,7 @@
 @class GTLRNetworkManagement_ConnectivityTest;
 @class GTLRNetworkManagement_ConnectivityTest_Labels;
 @class GTLRNetworkManagement_DeliverInfo;
+@class GTLRNetworkManagement_DirectVpcEgressConnectionInfo;
 @class GTLRNetworkManagement_DropInfo;
 @class GTLRNetworkManagement_EdgeLocation;
 @class GTLRNetworkManagement_Endpoint;
@@ -60,6 +61,7 @@
 @class GTLRNetworkManagement_RedisClusterInfo;
 @class GTLRNetworkManagement_RedisInstanceInfo;
 @class GTLRNetworkManagement_RouteInfo;
+@class GTLRNetworkManagement_ServerlessExternalConnectionInfo;
 @class GTLRNetworkManagement_ServerlessNegInfo;
 @class GTLRNetworkManagement_Status;
 @class GTLRNetworkManagement_Status_Details_Item;
@@ -183,6 +185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExte
  *  Value: "NON_ROUTABLE_IP_ADDRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress;
+/**
+ *  Aborted because the source endpoint is a Cloud Run revision with direct VPC
+ *  access enabled, but there are no reserved serverless IP ranges.
+ *
+ *  Value: "NO_SERVERLESS_IP_RANGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoServerlessIpRanges;
 /**
  *  Aborted because no valid source or destination endpoint is derived from the
  *  input test request.
@@ -711,6 +720,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridN
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched;
 /**
+ *  Matching ingress firewall rules by network tags for packets sent via
+ *  serverless VPC direct egress is unsupported. Behavior is undefined.
+ *  https://cloud.google.com/run/docs/configuring/vpc-direct-vpc#limitations
+ *
+ *  Value: "INGRESS_FIREWALL_TAGS_UNSUPPORTED_BY_DIRECT_VPC_EGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_IngressFirewallTagsUnsupportedByDirectVpcEgress;
+/**
  *  Packet is sent from or to a Compute Engine instance that is not in a running
  *  state.
  *
@@ -1185,6 +1202,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_N
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_FirewallInfo.firewallRuleType
 
+/**
+ *  Firewall analysis was skipped due to executing Connectivity Test in the
+ *  BypassFirewallChecks mode
+ *
+ *  Value: "ANALYSIS_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_AnalysisSkipped;
 /**
  *  Unspecified type.
  *
@@ -1902,6 +1926,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpn
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Deliver;
 /**
+ *  Forwarding state: for packets originating from a serverless endpoint
+ *  forwarded through Direct VPC egress.
+ *
+ *  Value: "DIRECT_VPC_EGRESS_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_DirectVpcEgressConnection;
+/**
  *  Final state: packet could be dropped.
  *
  *  Value: "DROP"
@@ -1927,6 +1958,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Nat;
  *  Value: "PROXY_CONNECTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection;
+/**
+ *  Forwarding state: for packets originating from a serverless endpoint
+ *  forwarded through public (external) connectivity.
+ *
+ *  Value: "SERVERLESS_EXTERNAL_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ServerlessExternalConnection;
 /**
  *  Config checking state: packet sent or received under foreign IP address and
  *  allowed.
@@ -2254,6 +2292,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress
  *        Aborted because one of the endpoints is a non-routable IP address
  *        (loopback, link-local, etc). (Value: "NON_ROUTABLE_IP_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoServerlessIpRanges
+ *        Aborted because the source endpoint is a Cloud Run revision with
+ *        direct VPC access enabled, but there are no reserved serverless IP
+ *        ranges. (Value: "NO_SERVERLESS_IP_RANGES")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation Aborted
  *        because no valid source or destination endpoint is derived from the
  *        input test request. (Value: "NO_SOURCE_LOCATION")
@@ -2839,6 +2881,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a serverless direct VPC egress
+ *  connection.
+ */
+@interface GTLRNetworkManagement_DirectVpcEgressConnectionInfo : GTLRObject
+
+/** URI of direct access network. */
+@property(nonatomic, copy, nullable) NSString *networkUri;
+
+/** Region in which the Direct VPC egress is deployed. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Selected starting IP address, from the selected IP range. */
+@property(nonatomic, copy, nullable) NSString *selectedIpAddress;
+
+/** Selected IP range. */
+@property(nonatomic, copy, nullable) NSString *selectedIpRange;
+
+/** URI of direct access subnetwork. */
+@property(nonatomic, copy, nullable) NSString *subnetworkUri;
+
+@end
+
+
+/**
  *  Details of the final state "drop" and associated resource.
  */
 @interface GTLRNetworkManagement_DropInfo : GTLRObject
@@ -2973,6 +3039,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        The packet sent from the hybrid NEG proxy matches a dynamic route with
  *        a next hop in a different region, but such a configuration is not
  *        supported. (Value: "HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_IngressFirewallTagsUnsupportedByDirectVpcEgress
+ *        Matching ingress firewall rules by network tags for packets sent via
+ *        serverless VPC direct egress is unsupported. Behavior is undefined.
+ *        https://cloud.google.com/run/docs/configuring/vpc-direct-vpc#limitations
+ *        (Value: "INGRESS_FIREWALL_TAGS_UNSUPPORTED_BY_DIRECT_VPC_EGRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning Packet is
  *        sent from or to a Compute Engine instance that is not in a running
  *        state. (Value: "INSTANCE_NOT_RUNNING")
@@ -3477,6 +3548,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  The firewall rule's type.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_AnalysisSkipped
+ *        Firewall analysis was skipped due to executing Connectivity Test in
+ *        the BypassFirewallChecks mode (Value: "ANALYSIS_SKIPPED")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRuleTypeUnspecified
  *        Unspecified type. (Value: "FIREWALL_RULE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule
@@ -4680,7 +4754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  URI of a Redis Cluster network in format
+ *  URI of the network containing the Redis Cluster endpoints in format
  *  "projects/{project_id}/global/networks/{network_id}".
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
@@ -4931,6 +5005,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a serverless public connection.
+ */
+@interface GTLRNetworkManagement_ServerlessExternalConnectionInfo : GTLRObject
+
+/** Selected starting IP address, from the Google dynamic address pool. */
+@property(nonatomic, copy, nullable) NSString *selectedIpAddress;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with the serverless network endpoint
  *  group backend.
  */
@@ -5049,6 +5134,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Display information of a serverless direct VPC egress connection. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_DirectVpcEgressConnectionInfo *directVpcEgressConnection;
+
 /** Display information of the final state "drop" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_DropInfo *drop;
 
@@ -5107,6 +5195,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a Compute Engine route. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_RouteInfo *route;
 
+/** Display information of a serverless public (external) connection. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_ServerlessExternalConnectionInfo *serverlessExternalConnection;
+
 /**
  *  Display information of a Serverless network endpoint group backend. Used
  *  only for return traces.
@@ -5151,6 +5242,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        state: arriving at a Cloud VPN tunnel. (Value: "ARRIVE_AT_VPN_TUNNEL")
  *    @arg @c kGTLRNetworkManagement_Step_State_Deliver Final state: packet
  *        could be delivered. (Value: "DELIVER")
+ *    @arg @c kGTLRNetworkManagement_Step_State_DirectVpcEgressConnection
+ *        Forwarding state: for packets originating from a serverless endpoint
+ *        forwarded through Direct VPC egress. (Value:
+ *        "DIRECT_VPC_EGRESS_CONNECTION")
  *    @arg @c kGTLRNetworkManagement_Step_State_Drop Final state: packet could
  *        be dropped. (Value: "DROP")
  *    @arg @c kGTLRNetworkManagement_Step_State_Forward Final state: packet
@@ -5161,6 +5256,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_ProxyConnection Transition
  *        state: original connection is terminated and a new proxied connection
  *        is initiated. (Value: "PROXY_CONNECTION")
+ *    @arg @c kGTLRNetworkManagement_Step_State_ServerlessExternalConnection
+ *        Forwarding state: for packets originating from a serverless endpoint
+ *        forwarded through public (external) connectivity. (Value:
+ *        "SERVERLESS_EXTERNAL_CONNECTION")
  *    @arg @c kGTLRNetworkManagement_Step_State_SpoofingApproved Config checking
  *        state: packet sent or received under foreign IP address and allowed.
  *        (Value: "SPOOFING_APPROVED")

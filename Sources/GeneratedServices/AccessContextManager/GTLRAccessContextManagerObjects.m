@@ -435,7 +435,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_EgressSource
-@dynamic accessLevel;
+@dynamic accessLevel, resource;
 @end
 
 

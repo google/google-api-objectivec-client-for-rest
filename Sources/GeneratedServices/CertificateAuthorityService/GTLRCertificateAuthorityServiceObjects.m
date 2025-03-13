@@ -325,7 +325,7 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 @dynamic accessUrls, caCertificateDescriptions, config, createTime, deleteTime,
          expireTime, gcsBucket, keySpec, labels, lifetime, name,
          pemCaCertificates, satisfiesPzi, satisfiesPzs, state,
-         subordinateConfig, tier, type, updateTime;
+         subordinateConfig, tier, type, updateTime, userDefinedAccessUrls;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -616,8 +616,9 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_IssuancePolicy
-@dynamic allowedIssuanceModes, allowedKeyTypes, baselineValues,
-         identityConstraints, maximumLifetime, passthroughExtensions;
+@dynamic allowedIssuanceModes, allowedKeyTypes, backdateDuration,
+         baselineValues, identityConstraints, maximumLifetime,
+         passthroughExtensions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1229,6 +1230,25 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest
 @dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_UserDefinedAccessUrls
+//
+
+@implementation GTLRCertificateAuthorityService_UserDefinedAccessUrls
+@dynamic aiaIssuingCertificateUrls, crlAccessUrls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aiaIssuingCertificateUrls" : [NSString class],
+    @"crlAccessUrls" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

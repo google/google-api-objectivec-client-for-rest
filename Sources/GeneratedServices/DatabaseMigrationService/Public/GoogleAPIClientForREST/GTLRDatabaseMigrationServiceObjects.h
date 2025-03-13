@@ -486,6 +486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
 // GTLRDatabaseMigrationService_CloudSqlSettings.dataDiskType
 
 /**
+ *  A Hyperdisk Balanced data disk.
+ *
+ *  Value: "HYPERDISK_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_HyperdiskBalanced;
+/**
  *  HDD disk.
  *
  *  Value: "PD_HDD"
@@ -909,6 +915,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DoubleCompariso
  *  Value: "VALUE_COMPARISON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DoubleComparisonFilter_ValueComparison_ValueComparisonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityDdl.ddlKind
+
+/**
+ *  Gemini AI converted DDL
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_DdlKind_Ai;
+/**
+ *  The kind of the DDL is unknown.
+ *
+ *  Value: "DDL_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_DdlKind_DdlKindUnspecified;
+/**
+ *  Deterministic converted DDL
+ *
+ *  Value: "DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_DdlKind_Deterministic;
+/**
+ *  DDL of the source entity
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_DdlKind_Source;
+/**
+ *  User edited DDL
+ *
+ *  Value: "USER_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_DdlKind_UserEdit;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityDdl.editedDdlKind
+
+/**
+ *  Gemini AI converted DDL
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_Ai;
+/**
+ *  The kind of the DDL is unknown.
+ *
+ *  Value: "DDL_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_DdlKindUnspecified;
+/**
+ *  Deterministic converted DDL
+ *
+ *  Value: "DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_Deterministic;
+/**
+ *  DDL of the source entity
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_Source;
+/**
+ *  User edited DDL
+ *
+ *  Value: "USER_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_UserEdit;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_EntityDdl.entityType
@@ -3019,6 +3093,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_DataCacheConfig *dataCacheConfig;
 
 /**
+ *  Optional. Provisioned number of I/O operations per second for the data disk.
+ *  This field is only used for hyperdisk-balanced disk types.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataDiskProvisionedIops;
+
+/**
+ *  Optional. Provisioned throughput measured in MiB per second for the data
+ *  disk. This field is only used for hyperdisk-balanced disk types.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataDiskProvisionedThroughput;
+
+/**
  *  The storage capacity available to the database, in GB. The minimum (and
  *  default) size is 10GB.
  *
@@ -3027,9 +3117,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) NSNumber *dataDiskSizeGb;
 
 /**
- *  The type of storage: `PD_SSD` (default) or `PD_HDD`.
+ *  The type of storage: `PD_SSD` (default) or `PD_HDD` or `HYPERDISK_BALANCED`.
  *
  *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_HyperdiskBalanced
+ *        A Hyperdisk Balanced data disk. (Value: "HYPERDISK_BALANCED")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_PdHdd
  *        HDD disk. (Value: "PD_HDD")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_PdSsd
@@ -3182,6 +3274,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Comment associated with the column. */
 @property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  Is the column a computed column.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computed;
 
 /** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ColumnEntity_CustomFeatures *customFeatures;
@@ -3400,14 +3499,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *role;
 
 /**
- *  Output only. Zone Isolation compliance state of the resource.
+ *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
- *  Output only. Zone Separation compliance state of the resource.
+ *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4058,8 +4157,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /** The actual ddl code. */
 @property(nonatomic, copy, nullable) NSString *ddl;
 
+/**
+ *  The DDL Kind selected for apply, or UNSPECIFIED if the entity wasn't
+ *  converted yet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_DdlKind_Ai Gemini AI
+ *        converted DDL (Value: "AI")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_DdlKind_DdlKindUnspecified
+ *        The kind of the DDL is unknown. (Value: "DDL_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_DdlKind_Deterministic
+ *        Deterministic converted DDL (Value: "DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_DdlKind_Source DDL of the
+ *        source entity (Value: "SOURCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_DdlKind_UserEdit User
+ *        edited DDL (Value: "USER_EDIT")
+ */
+@property(nonatomic, copy, nullable) NSString *ddlKind;
+
 /** Type of DDL (Create, Alter). */
 @property(nonatomic, copy, nullable) NSString *ddlType;
+
+/**
+ *  If ddl_kind is USER_EDIT, this holds the DDL kind of the original content -
+ *  DETERMINISTIC or AI. Otherwise, this is DDL_KIND_UNSPECIFIED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_Ai Gemini AI
+ *        converted DDL (Value: "AI")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_DdlKindUnspecified
+ *        The kind of the DDL is unknown. (Value: "DDL_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_Deterministic
+ *        Deterministic converted DDL (Value: "DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_Source DDL
+ *        of the source entity (Value: "SOURCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityDdl_EditedDdlKind_UserEdit
+ *        User edited DDL (Value: "USER_EDIT")
+ */
+@property(nonatomic, copy, nullable) NSString *editedDdlKind;
 
 /** The name of the database entity the ddl refers to. */
 @property(nonatomic, copy, nullable) NSString *entity;
@@ -5456,14 +5591,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ReverseSshConnectivity *reverseSshConnectivity;
 
 /**
- *  Output only. Zone Isolation compliance state of the resource.
+ *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
- *  Output only. Zone Separation compliance state of the resource.
+ *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6571,14 +6706,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Zone Isolation compliance state of the resource.
+ *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
- *  Output only. Zone Separation compliance state of the resource.
+ *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */

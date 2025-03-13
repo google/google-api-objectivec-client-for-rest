@@ -17,12 +17,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRIDS_AuditLogConfig.logType
-NSString * const kGTLRIDS_AuditLogConfig_LogType_AdminRead     = @"ADMIN_READ";
-NSString * const kGTLRIDS_AuditLogConfig_LogType_DataRead      = @"DATA_READ";
-NSString * const kGTLRIDS_AuditLogConfig_LogType_DataWrite     = @"DATA_WRITE";
-NSString * const kGTLRIDS_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
 // GTLRIDS_Endpoint.severity
 NSString * const kGTLRIDS_Endpoint_Severity_Critical           = @"CRITICAL";
 NSString * const kGTLRIDS_Endpoint_Severity_High               = @"HIGH";
@@ -37,60 +31,6 @@ NSString * const kGTLRIDS_Endpoint_State_Deleting         = @"DELETING";
 NSString * const kGTLRIDS_Endpoint_State_Ready            = @"READY";
 NSString * const kGTLRIDS_Endpoint_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRIDS_Endpoint_State_Updating         = @"UPDATING";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIDS_AuditConfig
-//
-
-@implementation GTLRIDS_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRIDS_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIDS_AuditLogConfig
-//
-
-@implementation GTLRIDS_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIDS_Binding
-//
-
-@implementation GTLRIDS_Binding
-@dynamic condition, members, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -143,21 +83,6 @@ NSString * const kGTLRIDS_Endpoint_State_Updating         = @"UPDATING";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIDS_Expr
-//
-
-@implementation GTLRIDS_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -319,39 +244,6 @@ NSString * const kGTLRIDS_Endpoint_State_Updating         = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIDS_Policy
-//
-
-@implementation GTLRIDS_Policy
-@dynamic auditConfigs, bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRIDS_AuditConfig class],
-    @"bindings" : [GTLRIDS_Binding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIDS_SetIamPolicyRequest
-//
-
-@implementation GTLRIDS_SetIamPolicyRequest
-@dynamic policy, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRIDS_Status
 //
 
@@ -377,42 +269,6 @@ NSString * const kGTLRIDS_Endpoint_State_Updating         = @"UPDATING";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIDS_TestIamPermissionsRequest
-//
-
-@implementation GTLRIDS_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIDS_TestIamPermissionsResponse
-//
-
-@implementation GTLRIDS_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
 }
 
 @end

@@ -208,6 +208,201 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a backup for a Cloud SQL instance. This API can be used only to
+ *  create on-demand backups.
+ *
+ *  Method: sql.Backups.CreateBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsCreateBackup : GTLRSQLAdminQuery
+
+/**
+ *  Required. The parent resource where this backup is created. Format:
+ *  projects/{project}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Creates a backup for a Cloud SQL instance. This API can be used only to
+ *  create on-demand backups.
+ *
+ *  @param object The @c GTLRSQLAdmin_Backup to include in the query.
+ *  @param parent Required. The parent resource where this backup is created.
+ *    Format: projects/{project}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsCreateBackup
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the backup.
+ *
+ *  Method: sql.Backups.DeleteBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsDeleteBackup : GTLRSQLAdminQuery
+
+/**
+ *  Required. The name of the backup to delete. Format:
+ *  projects/{project}/backups/{backup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Deletes the backup.
+ *
+ *  @param name Required. The name of the backup to delete. Format:
+ *    projects/{project}/backups/{backup}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsDeleteBackup
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a resource containing information about a backup.
+ *
+ *  Method: sql.Backups.GetBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsGetBackup : GTLRSQLAdminQuery
+
+/**
+ *  Required. The name of the backup to retrieve. Format:
+ *  projects/{project}/backups/{backup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Backup.
+ *
+ *  Retrieves a resource containing information about a backup.
+ *
+ *  @param name Required. The name of the backup to retrieve. Format:
+ *    projects/{project}/backups/{backup}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsGetBackup
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all backups associated with the project.
+ *
+ *  Method: sql.Backups.ListBackups
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsListBackups : GTLRSQLAdminQuery
+
+/**
+ *  Multiple filter queries are separated by spaces. For example, 'instance:abc
+ *  AND type:FINAL, 'location:us',
+ *  'backupInterval.startTime>=1950-01-01T01:01:25.771Z'. You can filter by
+ *  type, instance, backupInterval.startTime (creation time), or location.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of backups to return per response. The service might
+ *  return fewer backups than this value. If a value for this parameter isn't
+ *  specified, then, at most, 500 backups are returned. The maximum value is
+ *  2,000. Any values that you set, which are greater than 2,000, are changed to
+ *  2,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListBackups` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListBackups` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent that owns this collection of backups. Format:
+ *  projects/{project}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_ListBackupsResponse.
+ *
+ *  Lists all backups associated with the project.
+ *
+ *  @param parent Required. The parent that owns this collection of backups.
+ *    Format: projects/{project}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsListBackups
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the retention period and description of the backup. You can use this
+ *  API to update final backups only.
+ *
+ *  Method: sql.Backups.UpdateBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsUpdateBackup : GTLRSQLAdminQuery
+
+/**
+ *  Output only. The resource name of the backup. Format:
+ *  projects/{project}/backups/{backup}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields that you can update. You can update only the description
+ *  and retention period of the final backup.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Updates the retention period and description of the backup. You can use this
+ *  API to update final backups only.
+ *
+ *  @param object The @c GTLRSQLAdmin_Backup to include in the query.
+ *  @param name Output only. The resource name of the backup. Format:
+ *    projects/{project}/backups/{backup}.
+ *
+ *  @return GTLRSQLAdminQuery_BackupsUpdateBackup
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Generates a short-lived X509 certificate containing the provided public key
  *  and signed by a private key specific to the target instance. Users may use
  *  the certificate to authenticate as themselves when connecting to the
@@ -727,6 +922,21 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesDelete : GTLRSQLAdminQuery
+
+/** Flag to opt-in for final backup. By default, it is turned off. */
+@property(nonatomic, assign) BOOL enableFinalBackup;
+
+/** Optional. The description of the final backup. */
+@property(nonatomic, copy, nullable) NSString *finalBackupDescription;
+
+/**
+ *  Optional. Final Backup expiration time. Timestamp in UTC of when this
+ *  resource is considered expired.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *finalBackupExpiryTime;
+
+/** Optional. Retention period of the final backup. */
+@property(nonatomic, assign) long long finalBackupTtlDays;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;

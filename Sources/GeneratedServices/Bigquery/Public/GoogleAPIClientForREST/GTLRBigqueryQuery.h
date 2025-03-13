@@ -318,9 +318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  An expression for filtering the results of the request by label. The syntax
- *  is `labels.[:]`. Multiple filters can be ANDed together by connecting with a
- *  space. Example: `labels.department:receiving labels.active`. See [Filtering
- *  datasets using
+ *  is `labels.[:]`. Multiple filters can be AND-ed together by connecting with
+ *  a space. Example: `labels.department:receiving labels.active`. See
+ *  [Filtering datasets using
  *  labels](https://cloud.google.com/bigquery/docs/filtering-labels#filtering_datasets_using_labels)
  *  for details.
  */
@@ -1452,6 +1452,150 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
+ *  Deletes provided row access policies.
+ *
+ *  Method: bigquery.rowAccessPolicies.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesBatchDelete : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to delete the row access policies. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the table to delete the row access policies. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to delete the row access policies. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes provided row access policies.
+ *
+ *  @param object The @c GTLRBigquery_BatchDeleteRowAccessPoliciesRequest to
+ *    include in the query.
+ *  @param projectId Required. Project ID of the table to delete the row access
+ *    policies.
+ *  @param datasetId Required. Dataset ID of the table to delete the row access
+ *    policies.
+ *  @param tableId Required. Table ID of the table to delete the row access
+ *    policies.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_BatchDeleteRowAccessPoliciesRequest *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId;
+
+@end
+
+/**
+ *  Deletes a row access policy.
+ *
+ *  Method: bigquery.rowAccessPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesDelete : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to delete the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  If set to true, it deletes the row access policy even if it's the last row
+ *  access policy on the table and the deletion will widen the access rather
+ *  narrowing it.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. Policy ID of the row access policy. */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/** Required. Project ID of the table to delete the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to delete the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a row access policy.
+ *
+ *  @param projectId Required. Project ID of the table to delete the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to delete the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to delete the row access
+ *    policy.
+ *  @param policyId Required. Policy ID of the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesDelete
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId;
+
+@end
+
+/**
+ *  Gets the specified row access policy by policy ID.
+ *
+ *  Method: bigquery.rowAccessPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesGet : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Policy ID of the row access policy. */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/** Required. Project ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRBigquery_RowAccessPolicy.
+ *
+ *  Gets the specified row access policy by policy ID.
+ *
+ *  @param projectId Required. Project ID of the table to get the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to get the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to get the row access policy.
+ *  @param policyId Required. Policy ID of the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1488,6 +1632,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 + (instancetype)queryWithObject:(GTLRBigquery_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a row access policy.
+ *
+ *  Method: bigquery.rowAccessPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesInsert : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRBigquery_RowAccessPolicy.
+ *
+ *  Creates a row access policy.
+ *
+ *  @param object The @c GTLRBigquery_RowAccessPolicy to include in the query.
+ *  @param projectId Required. Project ID of the table to get the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to get the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to get the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId;
 
 @end
 
@@ -1588,6 +1774,53 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 + (instancetype)queryWithObject:(GTLRBigquery_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates a row access policy.
+ *
+ *  Method: bigquery.rowAccessPolicies.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesUpdate : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Policy ID of the row access policy. */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/** Required. Project ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRBigquery_RowAccessPolicy.
+ *
+ *  Updates a row access policy.
+ *
+ *  @param object The @c GTLRBigquery_RowAccessPolicy to include in the query.
+ *  @param projectId Required. Project ID of the table to get the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to get the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to get the row access policy.
+ *  @param policyId Required. Policy ID of the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId
+                       policyId:(NSString *)policyId;
 
 @end
 

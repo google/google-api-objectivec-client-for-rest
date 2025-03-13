@@ -31,6 +31,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggre
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeCcsCombo2 = @"EV_CONNECTOR_TYPE_CCS_COMBO_2";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeChademo = @"EV_CONNECTOR_TYPE_CHADEMO";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeJ1772 = @"EV_CONNECTOR_TYPE_J1772";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeNacs = @"EV_CONNECTOR_TYPE_NACS";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeOther = @"EV_CONNECTOR_TYPE_OTHER";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeTesla = @"EV_CONNECTOR_TYPE_TESLA";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeType2 = @"EV_CONNECTOR_TYPE_TYPE_2";
@@ -41,6 +42,8 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggre
 // GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice.type
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_BioDiesel = @"BIO_DIESEL";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Diesel = @"DIESEL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_DieselPlus = @"DIESEL_PLUS";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E100 = @"E100";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E80 = @"E80";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E85 = @"E85";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_FuelTypeUnspecified = @"FUEL_TYPE_UNSPECIFIED";
@@ -125,6 +128,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeCcsCombo2 = @"EV_CONNECTOR_TYPE_CCS_COMBO_2";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeChademo = @"EV_CONNECTOR_TYPE_CHADEMO";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeJ1772 = @"EV_CONNECTOR_TYPE_J1772";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeNacs = @"EV_CONNECTOR_TYPE_NACS";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeOther = @"EV_CONNECTOR_TYPE_OTHER";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeTesla = @"EV_CONNECTOR_TYPE_TESLA";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeType2 = @"EV_CONNECTOR_TYPE_TYPE_2";
@@ -542,8 +546,8 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
          restroom, reviews, servesBeer, servesBreakfast, servesBrunch,
          servesCocktails, servesCoffee, servesDessert, servesDinner,
          servesLunch, servesVegetarianFood, servesWine, shortFormattedAddress,
-         subDestinations, takeout, types, userRatingCount, utcOffsetMinutes,
-         viewport, websiteUri;
+         subDestinations, takeout, timeZone, types, userRatingCount,
+         utcOffsetMinutes, viewport, websiteUri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1039,4 +1043,19 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 @implementation GTLRMapsPlaces_GoogleTypeMoney
 @dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleTypeTimeZone
+//
+
+@implementation GTLRMapsPlaces_GoogleTypeTimeZone
+@dynamic identifier, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end

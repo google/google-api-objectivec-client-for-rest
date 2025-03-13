@@ -611,11 +611,12 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_ListConnectionsResponse
-@dynamic connections, nextPageToken;
+@dynamic connections, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"connections" : [GTLRCloudBuild_Connection class]
+    @"connections" : [GTLRCloudBuild_Connection class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -655,11 +656,12 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_ListRepositoriesResponse
-@dynamic nextPageToken, repositories;
+@dynamic nextPageToken, repositories, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"repositories" : [GTLRCloudBuild_Repository class]
+    @"repositories" : [GTLRCloudBuild_Repository class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

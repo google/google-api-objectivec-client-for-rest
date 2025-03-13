@@ -2408,6 +2408,27 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @end
 
+@implementation GTLRYouTubeQuery_VideoTrainabilityGet
+
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/videoTrainability";
+  GTLRYouTubeQuery_VideoTrainabilityGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRYouTube_VideoTrainability class];
+  query.loggingName = @"youtube.videoTrainability.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRYouTubeQuery_WatermarksSet
 
 @dynamic channelId, onBehalfOfContentOwner;

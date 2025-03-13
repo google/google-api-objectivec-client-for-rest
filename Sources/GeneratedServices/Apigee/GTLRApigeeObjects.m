@@ -593,6 +593,21 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ApiDebugSession
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ApiDebugSession
+@dynamic apiProxyRevisionId, createTime, environmentId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ApiDoc
 //
 
@@ -659,7 +674,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @dynamic apiResources, approvalType, attributes, createdAt, descriptionProperty,
          displayName, environments, graphqlOperationGroup, grpcOperationGroup,
          lastModifiedAt, name, operationGroup, proxies, quota,
-         quotaCounterScope, quotaInterval, quotaTimeUnit, scopes;
+         quotaCounterScope, quotaInterval, quotaTimeUnit, scopes, space;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -706,7 +721,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProxy
 @dynamic apiProxyType, labels, latestRevisionId, metaData, name, readOnly,
-         revision;
+         revision, space;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2404,6 +2419,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListApiDebugSessionsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListApiDebugSessionsResponse
+@dynamic nextPageToken, sessions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sessions" : [GTLRApigee_GoogleCloudApigeeV1ApiDebugSession class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sessions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse
 //
 
@@ -3114,6 +3151,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListSpacesResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSpacesResponse
+@dynamic nextPageToken, spaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spaces" : [GTLRApigee_GoogleCloudApigeeV1Space class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"spaces";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListTraceConfigOverridesResponse
 //
 
@@ -3188,6 +3247,36 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1MonetizationConfig
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1MoveApiProductRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1MoveApiProductRequest
+@dynamic space;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1MoveApiProxyRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1MoveApiProxyRequest
+@dynamic space;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1MoveSharedFlowRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1MoveSharedFlowRequest
+@dynamic space;
 @end
 
 
@@ -4687,7 +4776,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SharedFlow
-@dynamic latestRevisionId, metaData, name, revision;
+@dynamic latestRevisionId, metaData, name, revision, space;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4736,6 +4825,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1Space
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1Space
+@dynamic createTime, displayName, name, updateTime;
 @end
 
 

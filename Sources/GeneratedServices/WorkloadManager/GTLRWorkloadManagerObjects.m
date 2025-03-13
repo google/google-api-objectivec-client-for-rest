@@ -15,6 +15,47 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWorkloadManager_BackupProperties.latestBackupStatus
+NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateFailure = @"BACKUP_STATE_FAILURE";
+NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateSuccess = @"BACKUP_STATE_SUCCESS";
+NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateUnspecified = @"BACKUP_STATE_UNSPECIFIED";
+
+// GTLRWorkloadManager_CloudResource.kind
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindAddress = @"RESOURCE_KIND_ADDRESS";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindBackendService = @"RESOURCE_KIND_BACKEND_SERVICE";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindDisk = @"RESOURCE_KIND_DISK";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindFilestore = @"RESOURCE_KIND_FILESTORE";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindForwardingRule = @"RESOURCE_KIND_FORWARDING_RULE";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindHealthCheck = @"RESOURCE_KIND_HEALTH_CHECK";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindInstance = @"RESOURCE_KIND_INSTANCE";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindInstanceGroup = @"RESOURCE_KIND_INSTANCE_GROUP";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindNetwork = @"RESOURCE_KIND_NETWORK";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindPublicAddress = @"RESOURCE_KIND_PUBLIC_ADDRESS";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindSubnetwork = @"RESOURCE_KIND_SUBNETWORK";
+NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindUnspecified = @"RESOURCE_KIND_UNSPECIFIED";
+
+// GTLRWorkloadManager_ComponentHealth.componentHealthType
+NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeOptional = @"TYPE_OPTIONAL";
+NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeRequired = @"TYPE_REQUIRED";
+NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeSpecial = @"TYPE_SPECIAL";
+NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRWorkloadManager_ComponentHealth.state
+NSString * const kGTLRWorkloadManager_ComponentHealth_State_Critical = @"CRITICAL";
+NSString * const kGTLRWorkloadManager_ComponentHealth_State_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_ComponentHealth_State_Healthy = @"HEALTHY";
+NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unhealthy = @"UNHEALTHY";
+NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unsupported = @"UNSUPPORTED";
+
+// GTLRWorkloadManager_DatabaseProperties.databaseType
+NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Ase = @"ASE";
+NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Db2 = @"DB2";
+NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Hana = @"HANA";
+NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_MaxDb = @"MAX_DB";
+NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Oracle = @"ORACLE";
+NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Sqlserver = @"SQLSERVER";
+
 // GTLRWorkloadManager_Evaluation.evaluationType
 NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_EvaluationTypeUnspecified = @"EVALUATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_Other = @"OTHER";
@@ -42,6 +83,43 @@ NSString * const kGTLRWorkloadManager_ExecutionResult_Type_TypeViolated = @"TYPE
 NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_BigQueryTable = @"BIG_QUERY_TABLE";
 NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRWorkloadManager_HealthCheck.state
+NSString * const kGTLRWorkloadManager_HealthCheck_State_Degraded = @"DEGRADED";
+NSString * const kGTLRWorkloadManager_HealthCheck_State_Failed = @"FAILED";
+NSString * const kGTLRWorkloadManager_HealthCheck_State_Passed = @"PASSED";
+NSString * const kGTLRWorkloadManager_HealthCheck_State_Skipped = @"SKIPPED";
+NSString * const kGTLRWorkloadManager_HealthCheck_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_HealthCheck_State_Unsupported = @"UNSUPPORTED";
+
+// GTLRWorkloadManager_Instance.status
+NSString * const kGTLRWorkloadManager_Instance_Status_Deprovisioning = @"DEPROVISIONING";
+NSString * const kGTLRWorkloadManager_Instance_Status_InstancestateUnspecified = @"INSTANCESTATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_Instance_Status_Provisioning = @"PROVISIONING";
+NSString * const kGTLRWorkloadManager_Instance_Status_Repairing = @"REPAIRING";
+NSString * const kGTLRWorkloadManager_Instance_Status_Running  = @"RUNNING";
+NSString * const kGTLRWorkloadManager_Instance_Status_Staging  = @"STAGING";
+NSString * const kGTLRWorkloadManager_Instance_Status_Stopped  = @"STOPPED";
+NSString * const kGTLRWorkloadManager_Instance_Status_Stopping = @"STOPPING";
+NSString * const kGTLRWorkloadManager_Instance_Status_Suspended = @"SUSPENDED";
+NSString * const kGTLRWorkloadManager_Instance_Status_Suspending = @"SUSPENDING";
+NSString * const kGTLRWorkloadManager_Instance_Status_Terminated = @"TERMINATED";
+
+// GTLRWorkloadManager_InstanceProperties.role
+NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAppServer = @"INSTANCE_ROLE_APP_SERVER";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAscs = @"INSTANCE_ROLE_ASCS";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleErs = @"INSTANCE_ROLE_ERS";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaPrimary = @"INSTANCE_ROLE_HANA_PRIMARY";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaSecondary = @"INSTANCE_ROLE_HANA_SECONDARY";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleUnspecified = @"INSTANCE_ROLE_UNSPECIFIED";
+
+// GTLRWorkloadManager_InstanceProperties.roles
+NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleAppServer = @"INSTANCE_ROLE_APP_SERVER";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleAscs = @"INSTANCE_ROLE_ASCS";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleErs = @"INSTANCE_ROLE_ERS";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleHanaPrimary = @"INSTANCE_ROLE_HANA_PRIMARY";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleHanaSecondary = @"INSTANCE_ROLE_HANA_SECONDARY";
+NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleUnspecified = @"INSTANCE_ROLE_UNSPECIFIED";
+
 // GTLRWorkloadManager_ResourceStatus.state
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Active = @"ACTIVE";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING";
@@ -53,6 +131,11 @@ NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateFailure = @
 NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateSkipped = @"STATE_SKIPPED";
 NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateSuccess = @"STATE_SUCCESS";
 NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRWorkloadManager_SapComponent.topologyType
+NSString * const kGTLRWorkloadManager_SapComponent_TopologyType_TopologyScaleOut = @"TOPOLOGY_SCALE_OUT";
+NSString * const kGTLRWorkloadManager_SapComponent_TopologyType_TopologyScaleUp = @"TOPOLOGY_SCALE_UP";
+NSString * const kGTLRWorkloadManager_SapComponent_TopologyType_TopologyTypeUnspecified = @"TOPOLOGY_TYPE_UNSPECIFIED";
 
 // GTLRWorkloadManager_SapDiscoveryComponent.topologyType
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleOut = @"TOPOLOGY_SCALE_OUT";
@@ -66,10 +149,13 @@ NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_NetweaverJava = @"NETWEAVER_JAVA";
 
 // GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties.databaseType
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Ase = @"ASE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Db2 = @"DB2";
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Hana = @"HANA";
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_MaxDb = @"MAX_DB";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Oracle = @"ORACLE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Sqlserver = @"SQLSERVER";
 
 // GTLRWorkloadManager_SapDiscoveryResource.resourceKind
 NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindAddress = @"RESOURCE_KIND_ADDRESS";
@@ -119,6 +205,15 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_SapValidationTypeUnspecified = @"SAP_VALIDATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_System = @"SYSTEM";
 
+// GTLRWorkloadManager_SapWorkload.architecture
+NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_Centralized = @"CENTRALIZED";
+NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_Distributed = @"DISTRIBUTED";
+NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_DistributedHa = @"DISTRIBUTED_HA";
+NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_Invalid = @"INVALID";
+NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabase = @"STANDALONE_DATABASE";
+NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabaseHa = @"STANDALONE_DATABASE_HA";
+
 // GTLRWorkloadManager_SqlserverValidationValidationDetail.type
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBackupPolicy = @"DB_BACKUP_POLICY";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension = @"DB_BUFFER_POOL_EXTENSION";
@@ -139,6 +234,26 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Mysql = @"MYS
 NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Oracle = @"ORACLE";
 NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Redis = @"REDIS";
 NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
+
+// GTLRWorkloadManager_WorkloadProfile.state
+NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Active = @"ACTIVE";
+NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Deploying = @"DEPLOYING";
+NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Destroying = @"DESTROYING";
+NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Maintenance = @"MAINTENANCE";
+NSString * const kGTLRWorkloadManager_WorkloadProfile_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRWorkloadManager_WorkloadProfile.workloadType
+NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_S4Hana = @"S4_HANA";
+NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_SqlServer = @"SQL_SERVER";
+NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_ThreeTierWebApp = @"THREE_TIER_WEB_APP";
+NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
+
+// GTLRWorkloadManager_WorkloadProfileHealth.state
+NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Critical = @"CRITICAL";
+NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Healthy = @"HEALTHY";
+NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unhealthy = @"UNHEALTHY";
+NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = @"UNSUPPORTED";
 
 // ----------------------------------------------------------------------------
 //
@@ -166,6 +281,71 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_APILayerServer
+//
+
+@implementation GTLRWorkloadManager_APILayerServer
+@dynamic name, osVersion, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRWorkloadManager_CloudResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AvailabilityGroup
+//
+
+@implementation GTLRWorkloadManager_AvailabilityGroup
+@dynamic databases, name, primaryServer, secondaryServers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databases" : [NSString class],
+    @"secondaryServers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_BackendServer
+//
+
+@implementation GTLRWorkloadManager_BackendServer
+@dynamic backupFile, backupSchedule, name, osVersion, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRWorkloadManager_CloudResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_BackupProperties
+//
+
+@implementation GTLRWorkloadManager_BackupProperties
+@dynamic latestBackupStatus, latestBackupTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_BigQueryDestination
 //
 
@@ -185,11 +365,86 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_CloudResource
+//
+
+@implementation GTLRWorkloadManager_CloudResource
+@dynamic instanceProperties, kind, name;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Cluster
+//
+
+@implementation GTLRWorkloadManager_Cluster
+@dynamic nodes, witnessServer;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Command
 //
 
 @implementation GTLRWorkloadManager_Command
 @dynamic agentCommand, shellCommand;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ComponentHealth
+//
+
+@implementation GTLRWorkloadManager_ComponentHealth
+@dynamic component, componentHealthChecks, componentHealthType, isRequired,
+         state, subComponentHealthes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"componentHealthChecks" : [GTLRWorkloadManager_HealthCheck class],
+    @"subComponentHealthes" : [GTLRWorkloadManager_ComponentHealth class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Database
+//
+
+@implementation GTLRWorkloadManager_Database
+@dynamic backupFile, backupSchedule, hostVm, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_DatabaseProperties
+//
+
+@implementation GTLRWorkloadManager_DatabaseProperties
+@dynamic backupProperties, databaseType;
 @end
 
 
@@ -307,6 +562,24 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_FrontEndServer
+//
+
+@implementation GTLRWorkloadManager_FrontEndServer
+@dynamic name, osVersion, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRWorkloadManager_CloudResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_GceInstanceFilter
 //
 
@@ -325,12 +598,92 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_HealthCheck
+//
+
+@implementation GTLRWorkloadManager_HealthCheck
+@dynamic message, metric, resource, source, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Insight
 //
 
 @implementation GTLRWorkloadManager_Insight
 @dynamic instanceId, sapDiscovery, sapValidation, sentTime, sqlserverValidation,
          torsoValidation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Instance
+//
+
+@implementation GTLRWorkloadManager_Instance
+@dynamic name, region, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_InstanceProperties
+//
+
+@implementation GTLRWorkloadManager_InstanceProperties
+@dynamic instanceNumber, machineType, role, roles, sapInstanceProperties,
+         status, upcomingMaintenanceEvent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"roles" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Layer
+//
+
+@implementation GTLRWorkloadManager_Layer
+@dynamic applicationType, databaseType, instances, sid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRWorkloadManager_Instance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ListDiscoveredProfilesResponse
+//
+
+@implementation GTLRWorkloadManager_ListDiscoveredProfilesResponse
+@dynamic nextPageToken, unreachable, workloadProfiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"workloadProfiles" : [GTLRWorkloadManager_WorkloadProfile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workloadProfiles";
+}
+
 @end
 
 
@@ -492,6 +845,16 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_LoadBalancerServer
+//
+
+@implementation GTLRWorkloadManager_LoadBalancerServer
+@dynamic ip, vm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Location
 //
 
@@ -584,6 +947,16 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 @implementation GTLRWorkloadManager_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Product
+//
+
+@implementation GTLRWorkloadManager_Product
+@dynamic name, version;
 @end
 
 
@@ -693,12 +1066,31 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SapComponent
+//
+
+@implementation GTLRWorkloadManager_SapComponent
+@dynamic databaseProperties, haHosts, resources, sid, topologyType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"haHosts" : [NSString class],
+    @"resources" : [GTLRWorkloadManager_CloudResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_SapDiscovery
 //
 
 @implementation GTLRWorkloadManager_SapDiscovery
 @dynamic applicationLayer, databaseLayer, metadata, projectNumber, systemId,
-         updateTime, workloadProperties;
+         updateTime, useDrReconciliation, workloadProperties;
 @end
 
 
@@ -709,12 +1101,12 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 @implementation GTLRWorkloadManager_SapDiscoveryComponent
 @dynamic applicationProperties, databaseProperties, haHosts, hostProject,
-         replicationSites, resources, sid, topologyType;
+         region, replicationSites, resources, sid, topologyType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"haHosts" : [NSString class],
-    @"replicationSites" : [GTLRWorkloadManager_SapDiscoveryComponent class],
+    @"replicationSites" : [GTLRWorkloadManager_SapDiscoveryComponentReplicationSite class],
     @"resources" : [GTLRWorkloadManager_SapDiscoveryResource class]
   };
   return map;
@@ -741,7 +1133,17 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 @implementation GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties
 @dynamic databaseSid, databaseType, databaseVersion, instanceNumber,
-         primaryInstanceUri, sharedNfsUri;
+         landscapeId, primaryInstanceUri, sharedNfsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapDiscoveryComponentReplicationSite
+//
+
+@implementation GTLRWorkloadManager_SapDiscoveryComponentReplicationSite
+@dynamic component, sourceSite;
 @end
 
 
@@ -780,13 +1182,14 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties
-@dynamic appInstances, clusterInstances, instanceNumber, instanceRole, isDrSite,
-         virtualHostname;
+@dynamic appInstances, clusterInstances, diskMounts, instanceNumber,
+         instanceRole, isDrSite, virtualHostname;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"appInstances" : [GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesAppInstance class],
-    @"clusterInstances" : [NSString class]
+    @"clusterInstances" : [NSString class],
+    @"diskMounts" : [GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount class]
   };
   return map;
 }
@@ -801,6 +1204,16 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 @implementation GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesAppInstance
 @dynamic name, number;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount
+//
+
+@implementation GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount
+@dynamic mountPoint, name;
 @end
 
 
@@ -845,6 +1258,24 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SapInstanceProperties
+//
+
+@implementation GTLRWorkloadManager_SapInstanceProperties
+@dynamic numbers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"numbers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_SapValidation
 //
 
@@ -881,6 +1312,38 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 //
 
 @implementation GTLRWorkloadManager_SapValidationValidationDetail_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapWorkload
+//
+
+@implementation GTLRWorkloadManager_SapWorkload
+@dynamic application, architecture, database, metadata, products;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [GTLRWorkloadManager_Product class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapWorkload_Metadata
+//
+
+@implementation GTLRWorkloadManager_SapWorkload_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -971,6 +1434,25 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SqlserverWorkload
+//
+
+@implementation GTLRWorkloadManager_SqlserverWorkload
+@dynamic ags, cluster, databases, loadBalancerServer;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ags" : [GTLRWorkloadManager_AvailabilityGroup class],
+    @"databases" : [GTLRWorkloadManager_Database class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Status
 //
 
@@ -1013,6 +1495,16 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_ThreeTierWorkload
+//
+
+@implementation GTLRWorkloadManager_ThreeTierWorkload
+@dynamic apiLayer, backend, endpoint, frontend;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_TorsoValidation
 //
 
@@ -1037,6 +1529,16 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_UpcomingMaintenanceEvent
+//
+
+@implementation GTLRWorkloadManager_UpcomingMaintenanceEvent
+@dynamic endTime, maintenanceStatus, startTime, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_ViolationDetails
 //
 
@@ -1054,6 +1556,49 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_WorkloadProfile
+//
+
+@implementation GTLRWorkloadManager_WorkloadProfile
+@dynamic application, ascs, database, labels, name, refreshedTime, sapWorkload,
+         sqlserverWorkload, state, threeTierWorkload, workloadType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_WorkloadProfile_Labels
+//
+
+@implementation GTLRWorkloadManager_WorkloadProfile_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_WorkloadProfileHealth
+//
+
+@implementation GTLRWorkloadManager_WorkloadProfileHealth
+@dynamic checkTime, componentHealthes, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"componentHealthes" : [GTLRWorkloadManager_ComponentHealth class]
+  };
+  return map;
 }
 
 @end

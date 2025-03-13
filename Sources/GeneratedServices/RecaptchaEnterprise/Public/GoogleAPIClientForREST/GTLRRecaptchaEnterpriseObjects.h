@@ -297,7 +297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_PaymentHeuristics;
 /**
- *  Default unspecified reason.
+ *  Unspecified reason. Do not use.
  *
  *  Value: "REASON_UNSPECIFIED"
  */
@@ -341,7 +341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
 
 /**
- *  Disable Fraud Prevention for this assessment, regardless of Google Cloud
+ *  Disable Fraud Prevention for this assessment, regardless of the Google Cloud
  *  console settings.
  *
  *  Value: "DISABLED"
@@ -1280,7 +1280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled
- *        Disable Fraud Prevention for this assessment, regardless of Google
+ *        Disable Fraud Prevention for this assessment, regardless of the Google
  *        Cloud console settings. (Value: "DISABLED")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled
  *        Enable Fraud Prevention for this assessment, if Fraud Prevention is
@@ -1306,8 +1306,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Optional. HTTP header information about the request. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
 
-/** Optional. JA3 fingerprint for SSL clients. */
+/**
+ *  Optional. JA3 fingerprint for SSL clients. To learn how to compute this
+ *  fingerprint, please refer to https://github.com/salesforce/ja3.
+ */
 @property(nonatomic, copy, nullable) NSString *ja3;
+
+/**
+ *  Optional. JA4 fingerprint for SSL clients. To learn how to compute this
+ *  fingerprint, please refer to https://github.com/FoxIO-LLC/ja4.
+ */
+@property(nonatomic, copy, nullable) NSString *ja4;
 
 /**
  *  Optional. The URI resource the user requested that triggered an assessment.
@@ -1959,7 +1968,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics *> *scoreMetrics;
 
-/** Inclusive start time aligned to a day (UTC). */
+/**
+ *  Inclusive start time aligned to a day in the America/Los_Angeles (Pacific)
+ *  timezone.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end

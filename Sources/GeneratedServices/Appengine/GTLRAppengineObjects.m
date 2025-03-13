@@ -43,6 +43,11 @@ NSString * const kGTLRAppengine_Application_ServingStatus_SystemDisabled = @"SYS
 NSString * const kGTLRAppengine_Application_ServingStatus_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled = @"USER_DISABLED";
 
+// GTLRAppengine_Application.sslPolicy
+NSString * const kGTLRAppengine_Application_SslPolicy_Default  = @"DEFAULT";
+NSString * const kGTLRAppengine_Application_SslPolicy_Modern   = @"MODERN";
+NSString * const kGTLRAppengine_Application_SslPolicy_SslPolicyUnspecified = @"SSL_POLICY_UNSPECIFIED";
+
 // GTLRAppengine_ContainerState.state
 NSString * const kGTLRAppengine_ContainerState_State_Deleted   = @"DELETED";
 NSString * const kGTLRAppengine_ContainerState_State_Off       = @"OFF";
@@ -252,7 +257,7 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 @dynamic authDomain, codeBucket, databaseType, defaultBucket,
          defaultCookieExpiration, defaultHostname, dispatchRules,
          featureSettings, gcrDomain, generatedCustomerMetadata, iap, identifier,
-         locationId, name, serviceAccount, servingStatus;
+         locationId, name, serviceAccount, servingStatus, sslPolicy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

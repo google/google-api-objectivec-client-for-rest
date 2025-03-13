@@ -698,6 +698,33 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints
+
+@dynamic database;
+
++ (instancetype)queryWithObject:(GTLRSpanner_AddSplitPointsRequest *)object
+                       database:(NSString *)database {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"database" ];
+  NSString *pathURITemplate = @"v1/{+database}:addSplitPoints";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.database = database;
+  query.expectedObjectClass = [GTLRSpanner_AddSplitPointsResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.addSplitPoints";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesCreate
 
 @dynamic backupScheduleId, parent;
@@ -1237,6 +1264,60 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.parent = parent;
   query.expectedObjectClass = [GTLRSpanner_Operation class];
   query.loggingName = @"spanner.projects.instances.databases.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdapter
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSpanner_AdapterSession *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sessions:adapter";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdapter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_AdapterSession class];
+  query.loggingName = @"spanner.projects.instances.databases.sessions.adapter";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdaptMessage
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSpanner_AdaptMessageRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:adaptMessage";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdaptMessage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_AdaptMessageResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.sessions.adaptMessage";
   return query;
 }
 

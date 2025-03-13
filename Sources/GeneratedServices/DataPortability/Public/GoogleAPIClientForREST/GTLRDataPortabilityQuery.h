@@ -37,6 +37,197 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access type of the token.
+ *
+ *  Method: dataportability.accessType.check
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
+ *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
+ *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
+ *    @c kGTLRAuthScopeDataPortabilityChromeExtensions
+ *    @c kGTLRAuthScopeDataPortabilityChromeHistory
+ *    @c kGTLRAuthScopeDataPortabilityChromeReadingList
+ *    @c kGTLRAuthScopeDataPortabilityChromeSettings
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverFollows
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverLikes
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverNotInterested
+ *    @c kGTLRAuthScopeDataPortabilityMapsAliasedPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
+ *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsFactualContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
+ *    @c kGTLRAuthScopeDataPortabilityMapsReviews
+ *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
+ *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
+ *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPlayDevices
+ *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
+ *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
+ *    @c kGTLRAuthScopeDataPortabilityPlayLibrary
+ *    @c kGTLRAuthScopeDataPortabilityPlayPlaypoints
+ *    @c kGTLRAuthScopeDataPortabilityPlayPromotions
+ *    @c kGTLRAuthScopeDataPortabilityPlayPurchases
+ *    @c kGTLRAuthScopeDataPortabilityPlayRedemptions
+ *    @c kGTLRAuthScopeDataPortabilityPlaySubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityPlayUsersettings
+ *    @c kGTLRAuthScopeDataPortabilitySavedCollections
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcComments
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaWatched
+ *    @c kGTLRAuthScopeDataPortabilityShoppingAddresses
+ *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
+ *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePosts
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePrivatePlaylists
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePrivateVideos
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePublicPlaylists
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePublicVideos
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeShopping
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeUnlistedPlaylists
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeUnlistedVideos
+ */
+@interface GTLRDataPortabilityQuery_AccessTypeCheck : GTLRDataPortabilityQuery
+
+/**
+ *  Fetches a @c GTLRDataPortability_CheckAccessTypeResponse.
+ *
+ *  Gets the access type of the token.
+ *
+ *  @param object The @c GTLRDataPortability_CheckAccessTypeRequest to include
+ *    in the query.
+ *
+ *  @return GTLRDataPortabilityQuery_AccessTypeCheck
+ */
++ (instancetype)queryWithObject:(GTLRDataPortability_CheckAccessTypeRequest *)object;
+
+@end
+
+/**
+ *  Cancels a Portability Archive job.
+ *
+ *  Method: dataportability.archiveJobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
+ *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
+ *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
+ *    @c kGTLRAuthScopeDataPortabilityChromeExtensions
+ *    @c kGTLRAuthScopeDataPortabilityChromeHistory
+ *    @c kGTLRAuthScopeDataPortabilityChromeReadingList
+ *    @c kGTLRAuthScopeDataPortabilityChromeSettings
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverFollows
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverLikes
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverNotInterested
+ *    @c kGTLRAuthScopeDataPortabilityMapsAliasedPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
+ *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsFactualContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
+ *    @c kGTLRAuthScopeDataPortabilityMapsReviews
+ *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
+ *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
+ *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPlayDevices
+ *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
+ *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
+ *    @c kGTLRAuthScopeDataPortabilityPlayLibrary
+ *    @c kGTLRAuthScopeDataPortabilityPlayPlaypoints
+ *    @c kGTLRAuthScopeDataPortabilityPlayPromotions
+ *    @c kGTLRAuthScopeDataPortabilityPlayPurchases
+ *    @c kGTLRAuthScopeDataPortabilityPlayRedemptions
+ *    @c kGTLRAuthScopeDataPortabilityPlaySubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityPlayUsersettings
+ *    @c kGTLRAuthScopeDataPortabilitySavedCollections
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcComments
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaWatched
+ *    @c kGTLRAuthScopeDataPortabilityShoppingAddresses
+ *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
+ *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePosts
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePrivatePlaylists
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePrivateVideos
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePublicPlaylists
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePublicVideos
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeShopping
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeUnlistedPlaylists
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeUnlistedVideos
+ */
+@interface GTLRDataPortabilityQuery_ArchiveJobsCancel : GTLRDataPortabilityQuery
+
+/**
+ *  Required. The Archive job ID you're canceling. This is returned by the
+ *  InitiatePortabilityArchive response. The format is:
+ *  archiveJobs/{archive_job}. Canceling is only executed if the job is in
+ *  progress.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataPortability_CancelPortabilityArchiveResponse.
+ *
+ *  Cancels a Portability Archive job.
+ *
+ *  @param object The @c GTLRDataPortability_CancelPortabilityArchiveRequest to
+ *    include in the query.
+ *  @param name Required. The Archive job ID you're canceling. This is returned
+ *    by the InitiatePortabilityArchive response. The format is:
+ *    archiveJobs/{archive_job}. Canceling is only executed if the job is in
+ *    progress.
+ *
+ *  @return GTLRDataPortabilityQuery_ArchiveJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRDataPortability_CancelPortabilityArchiveRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the state of an Archive job for the Portability API.
  *
  *  Method: dataportability.archiveJobs.getPortabilityArchiveState
@@ -85,6 +276,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilitySavedCollections
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcComments
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
@@ -183,6 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilitySavedCollections
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcComments
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
@@ -286,6 +479,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilitySavedCollections
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcComments
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
@@ -378,6 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilitySavedCollections
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
  *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcComments
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
  *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs

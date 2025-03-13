@@ -435,6 +435,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Issue;
 /**
+ *  The dimension is keyed by issue names.
+ *
+ *  Value: "ISSUE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_IssueName;
+/**
  *  The dimension is keyed by QaQuestionIds-Answer value pairs. Note that: We
  *  only group by the QuestionId and not the revision-id of the scorecard this
  *  question is a part of. This allows for showing distribution of answers per
@@ -570,6 +576,64 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PROPER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData_Type_Proper;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest.exportSchemaVersion
+
+/**
+ *  Unspecified. Defaults to EXPORT_V3.
+ *
+ *  Value: "EXPORT_SCHEMA_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportSchemaVersionUnspecified;
+/**
+ *  Export schema version 1.
+ *
+ *  Value: "EXPORT_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV1;
+/**
+ *  Export schema version 2.
+ *
+ *  Value: "EXPORT_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2;
+/**
+ *  Export schema version 3.
+ *
+ *  Value: "EXPORT_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3;
+/**
+ *  Export schema version 4.
+ *
+ *  Value: "EXPORT_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4;
+/**
+ *  Export schema version 5.
+ *
+ *  Value: "EXPORT_V5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV5;
+/**
+ *  Export schema version 6.
+ *
+ *  Value: "EXPORT_V6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV6;
+/**
+ *  Export schema version 7.
+ *
+ *  Value: "EXPORT_V7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV7;
+/**
+ *  Export schema version latest available.
+ *
+ *  Value: "EXPORT_VERSION_LATEST_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportVersionLatestAvailable;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest.writeDisposition
@@ -1032,6 +1096,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Issue;
 /**
+ *  The dimension is keyed by issue names.
+ *
+ *  Value: "ISSUE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_IssueName;
+/**
  *  The dimension is keyed by QaQuestionIds-Answer value pairs. Note that: We
  *  only group by the QuestionId and not the revision-id of the scorecard this
  *  question is a part of. This allows for showing distribution of answers per
@@ -1167,6 +1237,64 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PROPER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_Proper;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest.exportSchemaVersion
+
+/**
+ *  Unspecified. Defaults to EXPORT_V3.
+ *
+ *  Value: "EXPORT_SCHEMA_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportSchemaVersionUnspecified;
+/**
+ *  Export schema version 1.
+ *
+ *  Value: "EXPORT_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV1;
+/**
+ *  Export schema version 2.
+ *
+ *  Value: "EXPORT_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2;
+/**
+ *  Export schema version 3.
+ *
+ *  Value: "EXPORT_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3;
+/**
+ *  Export schema version 4.
+ *
+ *  Value: "EXPORT_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4;
+/**
+ *  Export schema version 5.
+ *
+ *  Value: "EXPORT_V5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV5;
+/**
+ *  Export schema version 6.
+ *
+ *  Value: "EXPORT_V6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV6;
+/**
+ *  Export schema version 7.
+ *
+ *  Value: "EXPORT_V7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV7;
+/**
+ *  Export schema version latest available.
+ *
+ *  Value: "EXPORT_VERSION_LATEST_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportVersionLatestAvailable;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest.writeDisposition
@@ -1874,6 +2002,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, copy, nullable) NSString *conversationProfile;
 
 /**
+ *  The resource name of the existing created generator. Format:
+ *  projects//locations//generators/
+ */
+@property(nonatomic, copy, nullable) NSString *generator;
+
+/**
  *  Default summarization model to be used.
  *
  *  Likely values:
@@ -2259,8 +2393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /**
  *  Input only. JSON metadata encoded as a string. This field is primarily used
- *  by Insights integrations with various telphony systems and must be in one of
- *  Insight's supported formats.
+ *  by Insights integrations with various telephony systems and must be in one
+ *  of Insight's supported formats.
  */
 @property(nonatomic, copy, nullable) NSString *metadataJson;
 
@@ -2934,6 +3068,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        "DIMENSION_KEY_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Issue
  *        The dimension is keyed by issues. (Value: "ISSUE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_IssueName
+ *        The dimension is keyed by issue names. (Value: "ISSUE_NAME")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionAnswerValue
  *        The dimension is keyed by QaQuestionIds-Answer value pairs. Note that:
  *        We only group by the QuestionId and not the revision-id of the
@@ -3190,11 +3326,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataMetadata : GTLRObject
 
+/**
+ *  The number of conversations that were exported successfully.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedExportCount;
+
 /** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The number of conversations that failed to be exported.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedExportCount;
 
 /**
  *  Partial errors during export operation that might cause the operation output
@@ -3215,6 +3365,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Specified if sink is a BigQuery table. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequestBigQueryDestination *bigQueryDestination;
+
+/**
+ *  Optional. Version of the export schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportSchemaVersionUnspecified
+ *        Unspecified. Defaults to EXPORT_V3. (Value:
+ *        "EXPORT_SCHEMA_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV1
+ *        Export schema version 1. (Value: "EXPORT_V1")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
+ *        Export schema version 2. (Value: "EXPORT_V2")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
+ *        Export schema version 3. (Value: "EXPORT_V3")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4
+ *        Export schema version 4. (Value: "EXPORT_V4")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV5
+ *        Export schema version 5. (Value: "EXPORT_V5")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV6
+ *        Export schema version 6. (Value: "EXPORT_V6")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV7
+ *        Export schema version 7. (Value: "EXPORT_V7")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportVersionLatestAvailable
+ *        Export schema version latest available. (Value:
+ *        "EXPORT_VERSION_LATEST_AVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *exportSchemaVersion;
 
 /**
  *  A filter to reduce results to a specific subset. Useful for exporting
@@ -3391,17 +3568,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  Represents a conversation, resource, and label provided by the user.
+ *  Represents a conversation, resource, and label provided by the user. Can
+ *  take the form of a string label or a QaAnswer label. QaAnswer labels are
+ *  used for Quality AI example conversations. String labels are used for Topic
+ *  Modeling.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FeedbackLabel : GTLRObject
 
 /** Output only. Create time of the label. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** String label. */
+/** String label used for Topic Modeling. */
 @property(nonatomic, copy, nullable) NSString *label;
 
-/** Resource name of the resource to be labeled. */
+/**
+ *  Resource name of the resource to be labeled. Supported resources: -
+ *  qaScorecards/{scorecard}/revisions/{revision}/qaQuestions/{question} -
+ *  issueModels/{issue_model}
+ */
 @property(nonatomic, copy, nullable) NSString *labeledResource;
 
 /**
@@ -3410,7 +3594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** QaAnswer label. */
+/** QaAnswer label used for Quality AI example conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue *qaAnswerLabel;
 
 /** Output only. Update time of the label. */
@@ -3851,7 +4035,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /**
  *  Immutable. Display name of the assigned issue. This field is set at time of
- *  analyis and immutable since then.
+ *  analysis and immutable since then.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3962,7 +4146,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /**
  *  A filter to reduce the conversations used for training the model to a
- *  specific subset.
+ *  specific subset. Refer to
+ *  https://cloud.google.com/contact-center/insights/docs/filtering for details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4404,6 +4589,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  The metadata from querying metrics.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsMetadata : GTLRObject
+
+/**
+ *  Whether the result rows were truncated because the result row size is too
+ *  large to materialize.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultIsTruncated;
+
 @end
 
 
@@ -4703,7 +4897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SentimentData : GTLRObject
 
 /**
- *  A non-negative number from 0 to infinity which represents the abolute
+ *  A non-negative number from 0 to infinity which represents the absolute
  *  magnitude of sentiment regardless of score.
  *
  *  Uses NSNumber of floatValue.
@@ -5087,7 +5281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /**
  *  Filter for the conversations that should apply this analysis rule. An empty
- *  filter means this analysis rule applies to all conversations.
+ *  filter means this analysis rule applies to all conversations. Refer to
+ *  https://cloud.google.com/contact-center/insights/docs/filtering for details.
  */
 @property(nonatomic, copy, nullable) NSString *conversationFilter;
 
@@ -5263,6 +5458,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  projects/{project}/locations/{location}/conversationProfiles/{conversation_profile}
  */
 @property(nonatomic, copy, nullable) NSString *conversationProfile;
+
+/**
+ *  The resource name of the existing created generator. Format:
+ *  projects//locations//generators/
+ */
+@property(nonatomic, copy, nullable) NSString *generator;
 
 /**
  *  Default summarization model to be used.
@@ -6049,8 +6250,8 @@ GTLR_DEPRECATED
 
 /**
  *  Input only. JSON metadata encoded as a string. This field is primarily used
- *  by Insights integrations with various telphony systems and must be in one of
- *  Insight's supported formats.
+ *  by Insights integrations with various telephony systems and must be in one
+ *  of Insight's supported formats.
  */
 @property(nonatomic, copy, nullable) NSString *metadataJson;
 
@@ -6731,6 +6932,8 @@ GTLR_DEPRECATED
  *        "DIMENSION_KEY_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Issue
  *        The dimension is keyed by issues. (Value: "ISSUE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_IssueName
+ *        The dimension is keyed by issue names. (Value: "ISSUE_NAME")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionAnswerValue
  *        The dimension is keyed by QaQuestionIds-Answer value pairs. Note that:
  *        We only group by the QuestionId and not the revision-id of the
@@ -7002,11 +7205,25 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataMetadata : GTLRObject
 
+/**
+ *  The number of conversations that were exported successfully.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedExportCount;
+
 /** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The number of conversations that failed to be exported.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedExportCount;
 
 /**
  *  Partial errors during export operation that might cause the operation output
@@ -7027,6 +7244,33 @@ GTLR_DEPRECATED
 
 /** Specified if sink is a BigQuery table. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequestBigQueryDestination *bigQueryDestination;
+
+/**
+ *  Optional. Version of the export schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportSchemaVersionUnspecified
+ *        Unspecified. Defaults to EXPORT_V3. (Value:
+ *        "EXPORT_SCHEMA_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV1
+ *        Export schema version 1. (Value: "EXPORT_V1")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
+ *        Export schema version 2. (Value: "EXPORT_V2")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
+ *        Export schema version 3. (Value: "EXPORT_V3")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4
+ *        Export schema version 4. (Value: "EXPORT_V4")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV5
+ *        Export schema version 5. (Value: "EXPORT_V5")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV6
+ *        Export schema version 6. (Value: "EXPORT_V6")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV7
+ *        Export schema version 7. (Value: "EXPORT_V7")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportVersionLatestAvailable
+ *        Export schema version latest available. (Value:
+ *        "EXPORT_VERSION_LATEST_AVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *exportSchemaVersion;
 
 /**
  *  A filter to reduce results to a specific subset. Useful for exporting
@@ -7203,17 +7447,24 @@ GTLR_DEPRECATED
 
 
 /**
- *  Represents a conversation, resource, and label provided by the user.
+ *  Represents a conversation, resource, and label provided by the user. Can
+ *  take the form of a string label or a QaAnswer label. QaAnswer labels are
+ *  used for Quality AI example conversations. String labels are used for Topic
+ *  Modeling.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel : GTLRObject
 
 /** Output only. Create time of the label. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** String label. */
+/** String label used for Topic Modeling. */
 @property(nonatomic, copy, nullable) NSString *label;
 
-/** Resource name of the resource to be labeled. */
+/**
+ *  Resource name of the resource to be labeled. Supported resources: -
+ *  qaScorecards/{scorecard}/revisions/{revision}/qaQuestions/{question} -
+ *  issueModels/{issue_model}
+ */
 @property(nonatomic, copy, nullable) NSString *labeledResource;
 
 /**
@@ -7222,7 +7473,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** QaAnswer label. */
+/** QaAnswer label used for Quality AI example conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue *qaAnswerLabel;
 
 /** Output only. Update time of the label. */
@@ -7663,7 +7914,7 @@ GTLR_DEPRECATED
 
 /**
  *  Immutable. Display name of the assigned issue. This field is set at time of
- *  analyis and immutable since then.
+ *  analysis and immutable since then.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -7774,7 +8025,8 @@ GTLR_DEPRECATED
 
 /**
  *  A filter to reduce the conversations used for training the model to a
- *  specific subset.
+ *  specific subset. Refer to
+ *  https://cloud.google.com/contact-center/insights/docs/filtering for details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8850,6 +9102,15 @@ GTLR_DEPRECATED
  *  The metadata from querying metrics.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsMetadata : GTLRObject
+
+/**
+ *  Whether the result rows were truncated because the result row size is too
+ *  large to materialize.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultIsTruncated;
+
 @end
 
 
@@ -9215,7 +9476,7 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SentimentData : GTLRObject
 
 /**
- *  A non-negative number from 0 to infinity which represents the abolute
+ *  A non-negative number from 0 to infinity which represents the absolute
  *  magnitude of sentiment regardless of score.
  *
  *  Uses NSNumber of floatValue.
@@ -9624,7 +9885,10 @@ GTLR_DEPRECATED
 /** Output only. The most recent time at which the view was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** String with specific view properties, must be non-empty. */
+/**
+ *  A filter to reduce conversation results to a specific subset. Refer to
+ *  https://cloud.google.com/contact-center/insights/docs/filtering for details.
+ */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end

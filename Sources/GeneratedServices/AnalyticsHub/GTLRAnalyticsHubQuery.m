@@ -175,7 +175,7 @@
 
 @implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsDelete
 
-@dynamic name;
+@dynamic deleteCommercial, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

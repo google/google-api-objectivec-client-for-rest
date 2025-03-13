@@ -245,6 +245,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningMo
 // GTLRCloudBatch_JobStatus.state
 
 /**
+ *  The Job cancellation is in progress, this is because the resources used by
+ *  the Job are still being cleaned up.
+ *
+ *  Value: "CANCELLATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_JobStatus_State_CancellationInProgress;
+/**
+ *  The Job has been cancelled, the task executions were stopped and the
+ *  resources were cleaned up.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_JobStatus_State_Cancelled;
+/**
  *  The Job will be deleted, but has not been deleted yet. Typically this is
  *  because resources used by the Job are still being cleaned up.
  *
@@ -339,6 +353,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_LogsPolicy_Destination_Path;
 // ----------------------------------------------------------------------------
 // GTLRCloudBatch_Message.newJobState
 
+/**
+ *  The Job cancellation is in progress, this is because the resources used by
+ *  the Job are still being cleaned up.
+ *
+ *  Value: "CANCELLATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_NewJobState_CancellationInProgress;
+/**
+ *  The Job has been cancelled, the task executions were stopped and the
+ *  resources were cleaned up.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_NewJobState_Cancelled;
 /**
  *  The Job will be deleted, but has not been deleted yet. Typically this is
  *  because resources used by the Job are still being cleaned up.
@@ -1219,6 +1247,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
+ *  CancelJob Request.
+ */
+@interface GTLRCloudBatch_CancelJobRequest : GTLRObject
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudBatch_CancelOperationRequest : GTLRObject
@@ -1827,6 +1878,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  Job state
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBatch_JobStatus_State_CancellationInProgress The Job
+ *        cancellation is in progress, this is because the resources used by the
+ *        Job are still being cleaned up. (Value: "CANCELLATION_IN_PROGRESS")
+ *    @arg @c kGTLRCloudBatch_JobStatus_State_Cancelled The Job has been
+ *        cancelled, the task executions were stopped and the resources were
+ *        cleaned up. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudBatch_JobStatus_State_DeletionInProgress The Job will be
  *        deleted, but has not been deleted yet. Typically this is because
  *        resources used by the Job are still being cleaned up. (Value:
@@ -2159,6 +2216,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  The new job state.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBatch_Message_NewJobState_CancellationInProgress The Job
+ *        cancellation is in progress, this is because the resources used by the
+ *        Job are still being cleaned up. (Value: "CANCELLATION_IN_PROGRESS")
+ *    @arg @c kGTLRCloudBatch_Message_NewJobState_Cancelled The Job has been
+ *        cancelled, the task executions were stopped and the resources were
+ *        cleaned up. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudBatch_Message_NewJobState_DeletionInProgress The Job
  *        will be deleted, but has not been deleted yet. Typically this is
  *        because resources used by the Job are still being cleaned up. (Value:

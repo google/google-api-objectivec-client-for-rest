@@ -1007,6 +1007,25 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceBackupConfigs";
+  GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListResourceBackupConfigsResponse class];
+  query.loggingName = @"backupdr.projects.locations.resourceBackupConfigs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize
 
 @dynamic name;

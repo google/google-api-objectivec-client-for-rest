@@ -320,6 +320,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsDelete : GTLRAnalyticsHubQuery
 
 /**
+ *  Optional. If the listing is commercial then this field must be set to true,
+ *  otherwise a failure is thrown. This acts as a safety guard to avoid deleting
+ *  commercial listings accidentally.
+ */
+@property(nonatomic, assign) BOOL deleteCommercial;
+
+/**
  *  Required. Resource name of the listing to delete. e.g.
  *  `projects/myproject/locations/US/dataExchanges/123/listings/456`.
  */

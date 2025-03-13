@@ -687,6 +687,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
+ *  Generates an enterprise upgrade URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain.Note: This feature is
+ *  not generally available.
+ *
+ *  Method: androidmanagement.enterprises.generateEnterpriseUpgradeUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the enterprise to be upgraded in the form
+ *  enterprises/{enterpriseId}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse.
+ *
+ *  Generates an enterprise upgrade URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain.Note: This feature is
+ *  not generally available.
+ *
+ *  @param object The @c
+ *    GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest to include in
+ *    the query.
+ *  @param name Required. The name of the enterprise to be upgraded in the form
+ *    enterprises/{enterpriseId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets an enterprise.
  *
  *  Method: androidmanagement.enterprises.get
@@ -1309,7 +1347,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  Optional. Email address used to prefill the admin field of the enterprise
- *  signup form. This value is a hint only and can be altered by the user.
+ *  signup form. This value is a hint only and can be altered by the user. If
+ *  allowedDomains is non-empty then this must belong to one of the
+ *  allowedDomains.
  */
 @property(nonatomic, copy, nullable) NSString *adminEmail;
 

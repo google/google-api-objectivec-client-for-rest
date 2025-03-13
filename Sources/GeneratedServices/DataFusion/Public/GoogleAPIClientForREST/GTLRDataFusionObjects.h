@@ -34,6 +34,8 @@
 @class GTLRDataFusion_Location;
 @class GTLRDataFusion_Location_Labels;
 @class GTLRDataFusion_Location_Metadata;
+@class GTLRDataFusion_LoggingConfig;
+@class GTLRDataFusion_MaintenanceEvent;
 @class GTLRDataFusion_MaintenancePolicy;
 @class GTLRDataFusion_MaintenanceWindow;
 @class GTLRDataFusion_NetworkConfig;
@@ -273,6 +275,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_MaintenanceEvent.state
+
+/**
+ *  The maintenance has been completed.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_Completed;
+/**
+ *  The maintenance is scheduled but has not started.
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_Scheduled;
+/**
+ *  The maintenance has been started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_Started;
+/**
+ *  The state of the maintenance event is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataFusion_NetworkConfig.connectionType
@@ -721,7 +751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *enableRbac;
 
 /**
- *  Optional. Option to enable Stackdriver Logging.
+ *  Optional. Option to enable Dataproc Stackdriver Logging.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -757,6 +787,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Labels *labels;
 
+/**
+ *  Optional. The logging configuration for this instance. This field is
+ *  supported only in CDF versions 6.11.0 and above.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_LoggingConfig *loggingConfig;
+
+/** Output only. The maintenance events for this instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_MaintenanceEvent *> *maintenanceEvents;
+
 /** Optional. Configure the maintenance policy for this instance. */
 @property(nonatomic, strong, nullable) GTLRDataFusion_MaintenancePolicy *maintenancePolicy;
 
@@ -773,8 +812,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) GTLRDataFusion_NetworkConfig *networkConfig;
 
 /**
- *  Map of additional options used to configure the behavior of Data Fusion
- *  instance.
+ *  Optional. Map of additional options used to configure the behavior of Data
+ *  Fusion instance.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Options *options;
 
@@ -792,6 +831,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *privateInstance;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  Output only. Reserved for future use.
@@ -911,8 +957,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
- *  Map of additional options used to configure the behavior of Data Fusion
- *  instance.
+ *  Optional. Map of additional options used to configure the behavior of Data
+ *  Fusion instance.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1113,6 +1159,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Logging configuration for a Data Fusion instance.
+ */
+@interface GTLRDataFusion_LoggingConfig : GTLRObject
+
+/**
+ *  Optional. Option to determine whether instance logs should be written to
+ *  Cloud Logging. By default, instance logs are written to Cloud Logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *instanceCloudLoggingDisabled;
+
+@end
+
+
+/**
+ *  Represents a maintenance event.
+ */
+@interface GTLRDataFusion_MaintenanceEvent : GTLRObject
+
+/**
+ *  Output only. The end time of the maintenance event provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. Example:
+ *  "2024-01-02T12:04:06-06:00" This field will be empty if the maintenance
+ *  event is not yet complete.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The start time of the maintenance event provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. Example:
+ *  "2024-01-01T12:04:06-04:00"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The state of the maintenance event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_Completed The maintenance
+ *        has been completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_Scheduled The maintenance
+ *        is scheduled but has not started. (Value: "SCHEDULED")
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_Started The maintenance has
+ *        been started. (Value: "STARTED")
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_StateUnspecified The state
+ *        of the maintenance event is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Maintenance policy of the instance.
  */
 @interface GTLRDataFusion_MaintenancePolicy : GTLRObject
@@ -1296,8 +1396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have Operation.error value
- *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *  Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */

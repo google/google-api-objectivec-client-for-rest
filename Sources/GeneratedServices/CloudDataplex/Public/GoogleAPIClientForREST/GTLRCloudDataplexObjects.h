@@ -487,6 +487,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Asset
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetSecurityStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent.eventType
+
+/**
+ *  An unspecified event type.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_EventTypeUnspecified;
+/**
+ *  Glossary category create event.
+ *
+ *  Value: "GLOSSARY_CATEGORY_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryCreate;
+/**
+ *  Glossary category delete event.
+ *
+ *  Value: "GLOSSARY_CATEGORY_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryDelete;
+/**
+ *  Glossary category update event.
+ *
+ *  Value: "GLOSSARY_CATEGORY_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryUpdate;
+/**
+ *  Glossary create event.
+ *
+ *  Value: "GLOSSARY_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCreate;
+/**
+ *  Glossary delete event.
+ *
+ *  Value: "GLOSSARY_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryDelete;
+/**
+ *  Glossary term create event.
+ *
+ *  Value: "GLOSSARY_TERM_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermCreate;
+/**
+ *  Glossary term delete event.
+ *
+ *  Value: "GLOSSARY_TERM_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermDelete;
+/**
+ *  Glossary term update event.
+ *
+ *  Value: "GLOSSARY_TERM_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermUpdate;
+/**
+ *  Glossary update event.
+ *
+ *  Value: "GLOSSARY_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryUpdate;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook.kernelType
 
 /**
@@ -1664,19 +1728,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Metad
  *  All resources in the job's scope are modified. If a resource exists in
  *  Dataplex but isn't included in the metadata import file, the resource is
  *  deleted when you run the metadata job. Use this mode to perform a full sync
- *  of the set of entries in the job scope.
+ *  of the set of entries in the job scope.This sync mode is supported for
+ *  entries.
  *
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Full;
 /**
- *  Only the entries and aspects that are explicitly included in the metadata
- *  import file are modified. Use this mode to modify a subset of resources
- *  while leaving unreferenced resources unchanged.
+ *  Only the resources that are explicitly included in the metadata import file
+ *  are modified. Use this mode to modify a subset of resources while leaving
+ *  unreferenced resources unchanged.This sync mode is supported for aspects.
  *
  *  Value: "INCREMENTAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Incremental;
+/**
+ *  If entry sync mode is NONE, then aspects are modified according to the
+ *  aspect sync mode. Other metadata that belongs to entries in the job's scope
+ *  isn't modified.This sync mode is supported for entries.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_None;
 /**
  *  Sync mode unspecified.
  *
@@ -1691,19 +1764,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Metad
  *  All resources in the job's scope are modified. If a resource exists in
  *  Dataplex but isn't included in the metadata import file, the resource is
  *  deleted when you run the metadata job. Use this mode to perform a full sync
- *  of the set of entries in the job scope.
+ *  of the set of entries in the job scope.This sync mode is supported for
+ *  entries.
  *
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Full;
 /**
- *  Only the entries and aspects that are explicitly included in the metadata
- *  import file are modified. Use this mode to modify a subset of resources
- *  while leaving unreferenced resources unchanged.
+ *  Only the resources that are explicitly included in the metadata import file
+ *  are modified. Use this mode to modify a subset of resources while leaving
+ *  unreferenced resources unchanged.This sync mode is supported for aspects.
  *
  *  Value: "INCREMENTAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Incremental;
+/**
+ *  If entry sync mode is NONE, then aspects are modified according to the
+ *  aspect sync mode. Other metadata that belongs to entries in the job's scope
+ *  isn't modified.This sync mode is supported for entries.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_None;
 /**
  *  Sync mode unspecified.
  *
@@ -3407,6 +3489,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Payload associated with Business Glossary related log events.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent : GTLRObject
+
+/**
+ *  The type of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_EventTypeUnspecified
+ *        An unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryCreate
+ *        Glossary category create event. (Value: "GLOSSARY_CATEGORY_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryDelete
+ *        Glossary category delete event. (Value: "GLOSSARY_CATEGORY_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryUpdate
+ *        Glossary category update event. (Value: "GLOSSARY_CATEGORY_UPDATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCreate
+ *        Glossary create event. (Value: "GLOSSARY_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryDelete
+ *        Glossary delete event. (Value: "GLOSSARY_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermCreate
+ *        Glossary term create event. (Value: "GLOSSARY_TERM_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermDelete
+ *        Glossary term delete event. (Value: "GLOSSARY_TERM_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermUpdate
+ *        Glossary term update event. (Value: "GLOSSARY_TERM_UPDATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryUpdate
+ *        Glossary update event. (Value: "GLOSSARY_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/** The log message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
  *  Cancel task jobs.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1CancelJobRequest : GTLRObject
@@ -3548,6 +3671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  contain specs of multiple types PII - ResourceAccessSpec : - readers
  *  :foo\@bar.com - DataAccessSpec : - readers :bar\@foo.com
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute : GTLRObject
 
 /**
@@ -3635,6 +3759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  DataAttributeBinding represents binding of attributes to resources. Eg: Bind
  *  'CustomerInfo' entity with 'PII' attribute.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding : GTLRObject
 
 /**
@@ -3755,9 +3880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing : GTLRObject
 
 /**
- *  Output only. The BigQuery dataset to publish to. It takes the form
- *  projects/{project_id}/datasets/{dataset_id}. If not set, the service creates
- *  a default publishing dataset.
+ *  Output only. The BigQuery dataset the discovered tables are published to.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
@@ -3789,6 +3912,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  projects/{project_id}/locations/{location_id}/connections/{connection_id}
  */
 @property(nonatomic, copy, nullable) NSString *connection;
+
+/**
+ *  Optional. The location of the BigQuery dataset to publish BigLake external
+ *  or non-BigLake external tables to. 1. If the Cloud Storage bucket is located
+ *  in a multi-region bucket, then BigQuery dataset can be in the same
+ *  multi-region bucket or any single region that is included in the same
+ *  multi-region bucket. The datascan can be created in any single region that
+ *  is included in the same multi-region bucket 2. If the Cloud Storage bucket
+ *  is located in a dual-region bucket, then BigQuery dataset can be located in
+ *  regions that are included in the dual-region bucket, or in a multi-region
+ *  that includes the dual-region. The datascan can be created in any single
+ *  region that is included in the same dual-region bucket. 3. If the Cloud
+ *  Storage bucket is located in a single region, then BigQuery dataset can be
+ *  in the same single region or any multi-region bucket that includes the same
+ *  single region. The datascan will be created in the same single region as the
+ *  bucket. 4. If the BigQuery dataset is in single region, it must be in the
+ *  same single region as the datascan.For supported values, refer to
+ *  https://cloud.google.com/bigquery/docs/locations#supported_locations.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. Determines whether to publish discovered tables as BigLake
@@ -4234,8 +4377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Optional. A filter applied to all rows in a single DataScan job. The filter
- *  needs to be a valid SQL expression for a WHERE clause in BigQuery standard
- *  SQL syntax. Example: col1 >= 0 AND col2 < 10
+ *  needs to be a valid SQL expression for a WHERE clause in GoogleSQL syntax
+ *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#where_clause).Example:
+ *  col1 >= 0 AND col2 < 10
  */
 @property(nonatomic, copy, nullable) NSString *rowFilter;
 
@@ -4633,7 +4777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  The number of rows a rule was evaluated against.This field is only valid for
  *  row-level type rules.Evaluated count can be configured to either include all
  *  rows (default) - with null rows automatically failing rule evaluation, or
- *  exclude null rows from the evaluated_count, by setting ignore_nulls = true.
+ *  exclude null rows from the evaluated_count, by setting ignore_nulls =
+ *  true.This field is not set for rule SqlAssertion.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4660,8 +4805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) NSNumber *passed;
 
 /**
- *  The number of rows which passed a rule evaluation.This field is only valid
- *  for row-level type rules.
+ *  This field is not set for rule SqlAssertion.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4683,8 +4827,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Evaluates whether each row passes the specified condition.The SQL expression
- *  needs to use BigQuery standard SQL syntax and should produce a boolean value
- *  per row as the result.Example: col1 >= 0 AND col2 < 10
+ *  needs to use GoogleSQL syntax
+ *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax)
+ *  and should produce a boolean value per row as the result.Example: col1 >= 0
+ *  AND col2 < 10
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation : GTLRObject
 
@@ -4708,11 +4854,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  A SQL statement that is evaluated to return rows that match an invalid
  *  state. If any rows are are returned, this rule fails.The SQL statement must
- *  use BigQuery standard SQL syntax, and must not contain any semicolons.You
- *  can use the data reference parameter ${data()} to reference the source table
- *  with all of its precondition filters applied. Examples of precondition
- *  filters include row filters, incremental data filters, and sampling. For
- *  more information, see Data reference parameter
+ *  use GoogleSQL syntax
+ *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax),
+ *  and must not contain any semicolons.You can use the data reference parameter
+ *  ${data()} to reference the source table with all of its precondition filters
+ *  applied. Examples of precondition filters include row filters, incremental
+ *  data filters, and sampling. For more information, see Data reference
+ *  parameter
  *  (https://cloud.google.com/dataplex/docs/auto-data-quality-overview#data-reference-parameter).Example:
  *  SELECT * FROM ${data()} WHERE price < 0
  */
@@ -4780,8 +4928,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Evaluates whether the provided expression is true.The SQL expression needs
- *  to use BigQuery standard SQL syntax and should produce a scalar boolean
- *  result.Example: MIN(col1) >= 0
+ *  to use GoogleSQL syntax
+ *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax)
+ *  and should produce a scalar boolean result.Example: MIN(col1) >= 0
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation : GTLRObject
 
@@ -4929,8 +5078,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Optional. A filter applied to all rows in a single DataScan job. The filter
- *  needs to be a valid SQL expression for a WHERE clause in BigQuery standard
- *  SQL syntax. Example: col1 >= 0 AND col2 < 10
+ *  needs to be a valid SQL expression for a WHERE clause in GoogleSQL syntax
+ *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#where_clause).Example:
+ *  col1 >= 0 AND col2 < 10
  */
 @property(nonatomic, copy, nullable) NSString *rowFilter;
 
@@ -5055,11 +5205,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Represents a user-visible job which provides the insights for the related
- *  data source.For example: Data Quality: generates queries based on the rules
- *  and runs against the data to get data quality check results. Data Profile:
- *  analyzes the data in table(s) and generates insights about the structure,
- *  content and relationships (such as null percent, cardinality, min/max/mean,
- *  etc).
+ *  data source.For example: Data quality: generates queries based on the rules
+ *  and runs against the data to get data quality check results. For more
+ *  information, see Auto data quality overview
+ *  (https://cloud.google.com/dataplex/docs/auto-data-quality-overview). Data
+ *  profile: analyzes the data in tables and generates insights about the
+ *  structure, content and relationships (such as null percent, cardinality,
+ *  min/max/mean, etc). For more information, see About data profiling
+ *  (https://cloud.google.com/dataplex/docs/data-profiling-overview). Data
+ *  discovery: scans data in Cloud Storage buckets to extract and then catalog
+ *  metadata. For more information, see Discover and catalog Cloud Storage data
+ *  (https://cloud.google.com/bigquery/docs/automatic-discovery).
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScan : GTLRObject
 
@@ -5637,6 +5793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  grouped with a common theme Eg: 'SensitiveDataTaxonomy' can have attributes
  *  to manage PII data. It is defined at project level.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy : GTLRObject
 
 /**
@@ -6133,7 +6290,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. Immutable. The resource name of the parent entry. */
+/**
+ *  Optional. Immutable. The resource name of the parent entry, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}.
+ */
 @property(nonatomic, copy, nullable) NSString *parentEntry;
 
 /** Output only. The time when the entry was last updated in Dataplex. */
@@ -6801,12 +6961,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  {aspect_type_reference}: matches aspects that belong to the specified aspect
  *  type and are attached directly to the entry.
  *  {aspect_type_reference}\@{path}: matches aspects that belong to the
- *  specified aspect type and path. \@* : matches aspects of the given type for
- *  all paths. *\@path : matches aspects of all types on the given path. Replace
- *  {aspect_type_reference} with a reference to the aspect type, in the format
- *  {project_id_or_number}.{location_id}.{aspect_type_id}.If you leave this
- *  field empty, it is treated as specifying exactly those aspects that are
- *  present within the specified entry.In FULL entry sync mode, Dataplex
+ *  specified aspect type and path. {aspect_type_reference}\@* : matches aspects
+ *  of the given type for all paths. *\@path : matches aspects of all types on
+ *  the given path.Replace {aspect_type_reference} with a reference to the
+ *  aspect type, in the format
+ *  {project_id_or_number}.{location_id}.{aspect_type_id}.In FULL entry sync
+ *  mode, if you leave this field empty, it is treated as specifying exactly
+ *  those aspects that are present within the specified entry. Dataplex
  *  implicitly adds the keys for all of the required aspects of an entry.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectKeys;
@@ -6822,10 +6983,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  in the metadata import file. All modifiable fields are updated, regardless
  *  of the fields that are listed in the update mask, and regardless of whether
  *  a field is present in the entry object.The update_mask field is ignored when
- *  an entry is created or re-created.Dataplex also determines which entries and
- *  aspects to modify by comparing the values and timestamps that you provide in
- *  the metadata import file with the values and timestamps that exist in your
- *  project. For more information, see Comparison logic
+ *  an entry is created or re-created.In an aspect-only metadata job (when entry
+ *  sync mode is NONE), set this value to aspects.Dataplex also determines which
+ *  entries and aspects to modify by comparing the values and timestamps that
+ *  you provide in the metadata import file with the values and timestamps that
+ *  exist in your project. For more information, see Comparison logic
  *  (https://cloud.google.com/dataplex/docs/import-metadata#data-modification-logic).
  *
  *  String format is a comma-separated list of fields.
@@ -7882,48 +8044,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Job specification for a metadata import job
+ *  Job specification for a metadata import job.You can run the following kinds
+ *  of metadata import jobs: Full sync of entries with incremental import of
+ *  their aspects. Supported for custom entries. Incremental import of aspects
+ *  only. Supported for aspects that belong to custom entries and system
+ *  entries. For custom entries, you can modify both optional aspects and
+ *  required aspects. For system entries, you can modify optional aspects.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec : GTLRObject
 
 /**
- *  Required. The sync mode for aspects. Only INCREMENTAL mode is supported for
- *  aspects. An aspect is modified only if the metadata import file includes a
- *  reference to the aspect in the update_mask field and the aspect_keys field.
+ *  Required. The sync mode for aspects.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Full
  *        All resources in the job's scope are modified. If a resource exists in
  *        Dataplex but isn't included in the metadata import file, the resource
  *        is deleted when you run the metadata job. Use this mode to perform a
- *        full sync of the set of entries in the job scope. (Value: "FULL")
+ *        full sync of the set of entries in the job scope.This sync mode is
+ *        supported for entries. (Value: "FULL")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Incremental
- *        Only the entries and aspects that are explicitly included in the
- *        metadata import file are modified. Use this mode to modify a subset of
- *        resources while leaving unreferenced resources unchanged. (Value:
- *        "INCREMENTAL")
+ *        Only the resources that are explicitly included in the metadata import
+ *        file are modified. Use this mode to modify a subset of resources while
+ *        leaving unreferenced resources unchanged.This sync mode is supported
+ *        for aspects. (Value: "INCREMENTAL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_None
+ *        If entry sync mode is NONE, then aspects are modified according to the
+ *        aspect sync mode. Other metadata that belongs to entries in the job's
+ *        scope isn't modified.This sync mode is supported for entries. (Value:
+ *        "NONE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_SyncModeUnspecified
  *        Sync mode unspecified. (Value: "SYNC_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *aspectSyncMode;
 
 /**
- *  Required. The sync mode for entries. Only FULL mode is supported for
- *  entries. All entries in the job's scope are modified. If an entry exists in
- *  Dataplex but isn't included in the metadata import file, the entry is
- *  deleted when you run the metadata job.
+ *  Required. The sync mode for entries.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Full
  *        All resources in the job's scope are modified. If a resource exists in
  *        Dataplex but isn't included in the metadata import file, the resource
  *        is deleted when you run the metadata job. Use this mode to perform a
- *        full sync of the set of entries in the job scope. (Value: "FULL")
+ *        full sync of the set of entries in the job scope.This sync mode is
+ *        supported for entries. (Value: "FULL")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Incremental
- *        Only the entries and aspects that are explicitly included in the
- *        metadata import file are modified. Use this mode to modify a subset of
- *        resources while leaving unreferenced resources unchanged. (Value:
- *        "INCREMENTAL")
+ *        Only the resources that are explicitly included in the metadata import
+ *        file are modified. Use this mode to modify a subset of resources while
+ *        leaving unreferenced resources unchanged.This sync mode is supported
+ *        for aspects. (Value: "INCREMENTAL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_None
+ *        If entry sync mode is NONE, then aspects are modified according to the
+ *        aspect sync mode. Other metadata that belongs to entries in the job's
+ *        scope isn't modified.This sync mode is supported for entries. (Value:
+ *        "NONE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_SyncModeUnspecified
  *        Sync mode unspecified. (Value: "SYNC_MODE_UNSPECIFIED")
  */
@@ -7996,11 +8170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Optional. The aspect types that are in scope for the import job, specified
  *  as relative resource names in the format
  *  projects/{project_number_or_id}/locations/{location_id}/aspectTypes/{aspect_type_id}.
- *  The job modifies only the aspects that belong to these aspect types.If the
- *  metadata import file attempts to modify an aspect whose type isn't included
- *  in this list, the import job is halted before modifying any entries or
- *  aspects.The location of an aspect type must either match the location of the
- *  job, or the aspect type must be global.
+ *  The job modifies only the aspects that belong to these aspect types.This
+ *  field is required when creating an aspect-only import job.If the metadata
+ *  import file attempts to modify an aspect whose type isn't included in this
+ *  list, the import job is halted before modifying any entries or aspects.The
+ *  location of an aspect type must either match the location of the job, or the
+ *  aspect type must be global.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectTypes;
 
@@ -8008,9 +8183,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Required. The entry group that is in scope for the import job, specified as
  *  a relative resource name in the format
  *  projects/{project_number_or_id}/locations/{location_id}/entryGroups/{entry_group_id}.
- *  Only entries that belong to the specified entry group are affected by the
- *  job.Must contain exactly one element. The entry group and the job must be in
- *  the same location.
+ *  Only entries and aspects that belong to the specified entry group are
+ *  affected by the job.Must contain exactly one element. The entry group and
+ *  the job must be in the same location.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryGroups;
 
@@ -8018,11 +8193,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Required. The entry types that are in scope for the import job, specified as
  *  relative resource names in the format
  *  projects/{project_number_or_id}/locations/{location_id}/entryTypes/{entry_type_id}.
- *  The job modifies only the entries that belong to these entry types.If the
- *  metadata import file attempts to modify an entry whose type isn't included
- *  in this list, the import job is halted before modifying any entries or
- *  aspects.The location of an entry type must either match the location of the
- *  job, or the entry type must be global.
+ *  The job modifies only the entries and aspects that belong to these entry
+ *  types.If the metadata import file attempts to modify an entry whose type
+ *  isn't included in this list, the import job is halted before modifying any
+ *  entries or aspects.The location of an entry type must either match the
+ *  location of the job, or the entry type must be global.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryTypes;
 

@@ -5,7 +5,7 @@
 //   Firebase Cloud Messaging API (fcm/v1)
 // Description:
 //   FCM send API that provides a cross-platform messaging solution to reliably
-//   deliver messages at no cost.
+//   deliver messages.
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
@@ -186,6 +186,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  server](https://goo.gl/4GLdUl).
  */
 @interface GTLRFirebaseCloudMessaging_AndroidConfig : GTLRObject
+
+/**
+ *  Optional. If set to true, messages will be allowed to be delivered to the
+ *  app while the device is in bandwidth constrained mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bandwidthConstrainedOk;
 
 /**
  *  An identifier of a group of messages that can be collapsed, so that only the

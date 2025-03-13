@@ -588,6 +588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
  *    @c kGTLRAuthScopeMeetMeetingsSpaceReadonly
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceSettings
  */
 @interface GTLRMeetQuery_SpacesGet : GTLRMeetQuery
 
@@ -642,6 +643,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceSettings
  */
 @interface GTLRMeetQuery_SpacesPatch : GTLRMeetQuery
 

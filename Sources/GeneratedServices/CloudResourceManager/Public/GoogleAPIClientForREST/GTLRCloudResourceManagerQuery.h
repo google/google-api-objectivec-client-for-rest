@@ -1084,9 +1084,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  checked by retrieving the project with GetProject, and the project remains
  *  visible to ListProjects. However, you cannot update the project. After the
  *  deletion completes, the project is not retrievable by the GetProject,
- *  ListProjects, and SearchProjects methods. This method behaves idempotently,
- *  such that deleting a `DELETE_REQUESTED` project will not cause an error, but
- *  also won't do anything. The caller must have
+ *  ListProjects, and SearchProjects methods. The caller must have
  *  `resourcemanager.projects.delete` permissions for this project.
  *
  *  Method: cloudresourcemanager.projects.delete
@@ -1113,9 +1111,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  checked by retrieving the project with GetProject, and the project remains
  *  visible to ListProjects. However, you cannot update the project. After the
  *  deletion completes, the project is not retrievable by the GetProject,
- *  ListProjects, and SearchProjects methods. This method behaves idempotently,
- *  such that deleting a `DELETE_REQUESTED` project will not cause an error, but
- *  also won't do anything. The caller must have
+ *  ListProjects, and SearchProjects methods. The caller must have
  *  `resourcemanager.projects.delete` permissions for this project.
  *
  *  @param name Required. The name of the Project (for example,

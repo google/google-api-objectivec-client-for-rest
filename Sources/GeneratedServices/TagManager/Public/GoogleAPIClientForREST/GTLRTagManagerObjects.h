@@ -458,7 +458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Parameter_Type_Map;
 /** Value: "tagReference" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Parameter_Type_TagReference;
 /**
- *  May include variable references (such as "{{myVariable}}").
+ *  May include variable references.
  *
  *  Value: "template"
  */
@@ -624,10 +624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/**
- *  Account display name. \@mutable tagmanager.accounts.create \@mutable
- *  tagmanager.accounts.update
- */
+/** Account display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** GTM Account's API relative path. */
@@ -638,8 +635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  flag enables benchmarking by sharing your data in an anonymous form. Google
  *  will remove all identifiable information about your website, combine the
  *  data with hundreds of other anonymous sites and report aggregate trends in
- *  the benchmarking service. \@mutable tagmanager.accounts.create \@mutable
- *  tagmanager.accounts.update
+ *  the benchmarking service.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -658,8 +654,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  Whether the user has no access, user access, or admin access to an account.
- *  \@mutable tagmanager.accounts.permissions.create \@mutable
- *  tagmanager.accounts.permissions.update
  *
  *  Likely values:
  *    @arg @c kGTLRTagManager_AccountAccess_Permission_AccountPermissionUnspecified
@@ -719,8 +713,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  Type of built-in variable.
- *  \@required.tagmanager.accounts.containers.workspaces.built_in_variable.update
- *  \@mutable tagmanager.accounts.containers.workspaces.built_in_variable.update
  *
  *  Likely values:
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AdvertiserId Value
@@ -953,25 +945,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/**
- *  Client display name. \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.create \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.update
- */
+/** Client display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  User notes on how to apply this tag in the container. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** User notes on how to apply this tag in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
-/**
- *  The client's parameters. \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.create \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.update
- */
+/** The client's parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
@@ -981,9 +961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Priority determines relative firing order. \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.create \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.update
+ *  Priority determines relative firing order.
  *
  *  Uses NSNumber of intValue.
  */
@@ -992,11 +970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Auto generated link to the tag manager UI */
 @property(nonatomic, copy, nullable) NSString *tagManagerUrl;
 
-/**
- *  Client type. \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.create \@mutable
- *  tagmanager.accounts.containers.workspaces.clients.update
- */
+/** Client type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** GTM Workspace ID. */
@@ -1019,15 +993,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  ignore_case that is set to true. If not specified or set to any other value,
  *  the matching will be case sensitive. - To negate an operator, include a
  *  boolean parameter named negate boolean parameter that is set to true.
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /**
- *  The type of operator for this condition. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  The type of operator for this condition.
  *
  *  Likely values:
  *    @arg @c kGTLRTagManager_Condition_Type_ConditionTypeUnspecified Value
@@ -1062,11 +1032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** The Container ID uniquely identifies the GTM Container. */
 @property(nonatomic, copy, nullable) NSString *containerId;
 
-/**
- *  List of domain names associated with the Container. \@mutable
- *  tagmanager.accounts.containers.create \@mutable
- *  tagmanager.accounts.containers.update
- */
+/** List of domain names associated with the Container. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domainName;
 
 /** Read-only Container feature set. */
@@ -1078,16 +1044,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/**
- *  Container display name. \@mutable tagmanager.accounts.containers.create
- *  \@mutable tagmanager.accounts.containers.update
- */
+/** Container display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Container Notes. \@mutable tagmanager.accounts.containers.create \@mutable
- *  tagmanager.accounts.containers.update
- */
+/** Container Notes. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
 /** GTM Container's API relative path. */
@@ -1098,9 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  List of server-side container URLs for the Container. If multiple URLs are
- *  provided, all URL paths must match. \@mutable
- *  tagmanager.accounts.containers.create \@mutable
- *  tagmanager.accounts.containers.update
+ *  provided, all URL paths must match.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *taggingServerUrls;
 
@@ -1112,8 +1070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  List of Usage Contexts for the Container. Valid values include: web,
- *  android, or ios. \@mutable tagmanager.accounts.containers.create \@mutable
- *  tagmanager.accounts.containers.update
+ *  android, or ios.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usageContext;
 
@@ -1125,16 +1082,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @interface GTLRTagManager_ContainerAccess : GTLRObject
 
-/**
- *  GTM Container ID. \@mutable tagmanager.accounts.permissions.create \@mutable
- *  tagmanager.accounts.permissions.update
- */
+/** GTM Container ID. */
 @property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
- *  List of Container permissions. \@mutable
- *  tagmanager.accounts.permissions.create \@mutable
- *  tagmanager.accounts.permissions.update
+ *  List of Container permissions.
  *
  *  Likely values:
  *    @arg @c kGTLRTagManager_ContainerAccess_Permission_Approve Value "approve"
@@ -1293,8 +1245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
- *  Container version description. \@mutable
- *  tagmanager.accounts.containers.versions.update
+ *  Container version description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1314,10 +1265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_GtagConfig *> *gtagConfig;
 
-/**
- *  Container version display name. \@mutable
- *  tagmanager.accounts.containers.versions.update
- */
+/** Container version display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** GTM Container Version's API relative path. */
@@ -1624,17 +1572,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  The environment description. Can be set or changed only on USER type
- *  environments. \@mutable tagmanager.accounts.containers.environments.create
- *  \@mutable tagmanager.accounts.containers.environments.update
+ *  environments.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Whether or not to enable debug by default for the environment. \@mutable
- *  tagmanager.accounts.containers.environments.create \@mutable
- *  tagmanager.accounts.containers.environments.update
+ *  Whether or not to enable debug by default for the environment.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1651,8 +1596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  The environment display name. Can be set or changed only on USER type
- *  environments. \@mutable tagmanager.accounts.containers.environments.create
- *  \@mutable tagmanager.accounts.containers.environments.update
+ *  environments.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1678,11 +1622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/**
- *  Default preview page url for the environment. \@mutable
- *  tagmanager.accounts.containers.environments.create \@mutable
- *  tagmanager.accounts.containers.environments.update
- */
+/** Default preview page url for the environment. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 /** Represents a link to a quick preview of a workspace. */
@@ -1711,18 +1651,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** The Folder ID uniquely identifies the GTM Folder. */
 @property(nonatomic, copy, nullable) NSString *folderId;
 
-/**
- *  Folder display name. \@mutable
- *  tagmanager.accounts.containers.workspaces.folders.create \@mutable
- *  tagmanager.accounts.containers.workspaces.folders.update
- */
+/** Folder display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  User notes on how to apply this folder in the container. \@mutable
- *  tagmanager.accounts.containers.workspaces.folders.create \@mutable
- *  tagmanager.accounts.containers.workspaces.folders.update
- */
+/** User notes on how to apply this folder in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
 /** GTM Folder's API relative path. */
@@ -1763,6 +1695,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @interface GTLRTagManager_GalleryReference : GTLRObject
 
+/**
+ *  ID for the gallery template that is generated once during first sync and
+ *  travels with the template redirects.
+ */
+@property(nonatomic, copy, nullable) NSString *galleryTemplateId;
+
 /** The name of the host for the community gallery template. */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -1801,6 +1739,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  GTLRTagManager_GetContainerSnippetResponse
  */
 @interface GTLRTagManager_GetContainerSnippetResponse : GTLRObject
+
+/**
+ *  Server container config param for manually provisioning a tagging server.
+ */
+@property(nonatomic, copy, nullable) NSString *containerConfig;
 
 /** Tagging snippet for a Container. */
 @property(nonatomic, copy, nullable) NSString *snippet;
@@ -1843,11 +1786,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** The ID uniquely identifies the Google tag config. */
 @property(nonatomic, copy, nullable) NSString *gtagConfigId;
 
-/**
- *  The Google tag config's parameters. \@mutable
- *  tagmanager.accounts.containers.workspaces.gtag_config.create \@mutable
- *  tagmanager.accounts.containers.workspaces.gtag_config.update
- */
+/** The Google tag config's parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Google tag config's API relative path. */
@@ -1856,13 +1795,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Auto generated link to the tag manager UI */
 @property(nonatomic, copy, nullable) NSString *tagManagerUrl;
 
-/**
- *  Google tag config type. \@required
- *  tagmanager.accounts.containers.workspaces.gtag_config.create \@required
- *  tagmanager.accounts.containers.workspaces.gtag_config.update \@mutable
- *  tagmanager.accounts.containers.workspaces.gtag_config.create \@mutable
- *  tagmanager.accounts.containers.workspaces.gtag_config.update
- */
+/** Google tag config type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
@@ -2314,9 +2247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  Whether or not a reference type parameter is strongly or weakly referenced.
- *  Only used by Transformations. \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.update
+ *  Only used by Transformations.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2324,36 +2255,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  The named key that uniquely identifies a parameter. Required for top-level
- *  parameters, as well as map values. Ignored for list values. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  parameters, as well as map values. Ignored for list values.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/**
- *  This list parameter's parameters (keys will be ignored). \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** This list parameter's parameters (keys will be ignored). */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *list;
 
-/**
- *  This map parameter's parameters (must have keys; keys must be unique).
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.create
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.update
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
- *  \@mutable tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** This map parameter's parameters (must have keys; keys must be unique). */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *map;
 
 /**
@@ -2365,12 +2274,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  variable references that might return non-string types) - trigger_reference:
  *  The value represents a trigger, represented as the trigger id -
  *  tag_reference: The value represents a tag, represented as the tag name
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.create
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.update
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
- *  \@mutable tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
  *
  *  Likely values:
  *    @arg @c kGTLRTagManager_Parameter_Type_Boolean Value "boolean"
@@ -2379,7 +2282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_Parameter_Type_Map Value "map"
  *    @arg @c kGTLRTagManager_Parameter_Type_TagReference Value "tagReference"
  *    @arg @c kGTLRTagManager_Parameter_Type_Template May include variable
- *        references (such as "{{myVariable}}"). (Value: "template")
+ *        references. (Value: "template")
  *    @arg @c kGTLRTagManager_Parameter_Type_TriggerReference Value
  *        "triggerReference"
  *    @arg @c kGTLRTagManager_Parameter_Type_TypeUnspecified Value
@@ -2388,14 +2291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  A parameter's value (may contain variable references such as
- *  "{{myVariable}}") as appropriate to the specified type. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  A parameter's value (may contain variable references). as appropriate to the
+ *  specified type.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -2656,24 +2553,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  Blocking rule IDs. If any of the listed rules evaluate to true, the tag will
- *  not fire. \@mutable tagmanager.accounts.containers.workspaces.tags.create
- *  \@mutable tagmanager.accounts.containers.workspaces.tags.update
+ *  not fire.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blockingRuleId GTLR_DEPRECATED;
 
 /**
  *  Blocking trigger IDs. If any of the listed triggers evaluate to true, the
- *  tag will not fire. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  tag will not fire.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blockingTriggerId;
 
-/**
- *  Consent settings of a tag. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** Consent settings of a tag. */
 @property(nonatomic, strong, nullable) GTLRTagManager_TagConsentSetting *consentSettings;
 
 /** GTM Container ID. */
@@ -2687,25 +2577,19 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  Firing rule IDs. A tag will fire when any of the listed rules are true and
- *  all of its blockingRuleIds (if any specified) are false. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  all of its blockingRuleIds (if any specified) are false.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *firingRuleId GTLR_DEPRECATED;
 
 /**
  *  Firing trigger IDs. A tag will fire when any of the listed triggers are true
- *  and all of its blockingTriggerIds (if any specified) are false. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  and all of its blockingTriggerIds (if any specified) are false.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *firingTriggerId;
 
 /**
  *  If set to true, this tag will only fire in the live environment (e.g. not in
- *  preview or debug mode). \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  preview or debug mode).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2715,38 +2599,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  A map of key-value pairs of tag metadata to be included in the event data
  *  for tag monitoring. Notes: - This parameter must be type MAP. - Each
  *  parameter in the map are type TEMPLATE, however cannot contain variable
- *  references. \@mutable tagmanager.accounts.containers.workspaces.tags.create
- *  \@mutable tagmanager.accounts.containers.workspaces.tags.update
+ *  references.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *monitoringMetadata;
 
 /**
  *  If non-empty, then the tag display name will be included in the monitoring
- *  metadata map using the key specified. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  metadata map using the key specified.
  */
 @property(nonatomic, copy, nullable) NSString *monitoringMetadataTagNameKey;
 
-/**
- *  Tag display name. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** Tag display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  User notes on how to apply this tag in the container. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** User notes on how to apply this tag in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
-/**
- *  The tag's parameters. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** The tag's parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
@@ -2757,8 +2626,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  Indicates whether the tag is paused, which prevents the tag from firing.
- *  \@mutable tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2768,24 +2635,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  User defined numeric priority of the tag. Tags are fired asynchronously in
  *  order of priority. Tags with higher numeric value fire first. A tag's
  *  priority can be a positive or negative value. The default value is 0.
- *  \@mutable tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *priority;
 
 /**
- *  The end timestamp in milliseconds to schedule a tag. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  The end timestamp in milliseconds to schedule a tag.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scheduleEndMs;
 
 /**
- *  The start timestamp in milliseconds to schedule a tag. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
+ *  The start timestamp in milliseconds to schedule a tag.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2819,11 +2680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** The list of teardown tags. Currently we only allow one. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_TeardownTag *> *teardownTag;
 
-/**
- *  GTM Tag Type. \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
- *  tagmanager.accounts.containers.workspaces.tags.update
- */
+/** GTM Tag Type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** GTM Workspace ID. */
@@ -2900,25 +2757,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/**
- *  Transformation display name. \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.update
- */
+/** Transformation display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  User notes on how to apply this transformation in the container. \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.update
- */
+/** User notes on how to apply this transformation in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
-/**
- *  The transformation's parameters. \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.update
- */
+/** The transformation's parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
@@ -2933,11 +2778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** The Transformation ID uniquely identifies the GTM transformation. */
 @property(nonatomic, copy, nullable) NSString *transformationId;
 
-/**
- *  Transformation type. \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
- *  tagmanager.accounts.containers.workspaces.transformations.update
- */
+/** Transformation type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** GTM Workspace ID. */
@@ -2954,19 +2795,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** GTM Account ID. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/**
- *  Used in the case of auto event tracking. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
- */
+/** Used in the case of auto event tracking. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *autoEventFilter;
 
 /**
  *  Whether or not we should only fire tags if the form submit or link click
  *  event is not cancelled by some other event handler (e.g. because of
  *  validation). Only valid for Form Submission and Link Click triggers.
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *checkValidation;
 
@@ -2975,31 +2810,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  A visibility trigger minimum continuous visible time (in milliseconds). Only
- *  valid for AMP Visibility trigger. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  valid for AMP Visibility trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *continuousTimeMinMilliseconds;
 
 /**
  *  Used in the case of custom event, which is fired iff all Conditions are
- *  true. \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
+ *  true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *customEventFilter;
 
-/**
- *  Name of the GTM event that is fired. Only valid for Timer triggers.
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
- */
+/** Name of the GTM event that is fired. Only valid for Timer triggers. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *eventName;
 
-/**
- *  The trigger will only fire iff all Conditions are true. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
- */
+/** The trigger will only fire iff all Conditions are true. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *filter;
 
 /**
@@ -3011,62 +2835,42 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /**
  *  List of integer percentage values for scroll triggers. The trigger will fire
  *  when each percentage is reached when the view is scrolled horizontally. Only
- *  valid for AMP scroll triggers. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  valid for AMP scroll triggers.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *horizontalScrollPercentageList;
 
 /**
  *  Time between triggering recurring Timer Events (in milliseconds). Only valid
- *  for Timer triggers. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  for Timer triggers.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *interval;
 
 /**
  *  Time between Timer Events to fire (in seconds). Only valid for AMP Timer
- *  trigger. \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
+ *  trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *intervalSeconds;
 
 /**
  *  Limit of the number of GTM events this Timer Trigger will fire. If no limit
  *  is set, we will continue to fire GTM events until the user leaves the page.
- *  Only valid for Timer triggers. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  Only valid for Timer triggers.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *limit;
 
 /**
  *  Max time to fire Timer Events (in seconds). Only valid for AMP Timer
- *  trigger. \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
+ *  trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *maxTimerLengthSeconds;
 
-/**
- *  Trigger display name. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
- */
+/** Trigger display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  User notes on how to apply this trigger in the container. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
- */
+/** User notes on how to apply this trigger in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
-/**
- *  Additional parameters. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
- */
+/** Additional parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
@@ -3077,9 +2881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  A click trigger CSS selector (i.e. "a", "button" etc.). Only valid for AMP
- *  Click trigger. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  Click trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *selector;
 
@@ -3088,9 +2890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /**
  *  A visibility trigger minimum total visible time (in milliseconds). Only
- *  valid for AMP Visibility trigger. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  valid for AMP Visibility trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *totalTimeMinMilliseconds;
 
@@ -3098,9 +2898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
- *  Defines the data layer event that causes this trigger. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  Defines the data layer event that causes this trigger.
  *
  *  Likely values:
  *    @arg @c kGTLRTagManager_Trigger_Type_Always Value "always"
@@ -3161,41 +2959,31 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  work together with trigger filtering based on trigger ids. This value is
  *  populated during output generation since the tags implied by triggers don't
  *  exist until then. Only valid for Form Submit, Link Click and Timer triggers.
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.create
- *  \@mutable tagmanager.accounts.containers.workspaces.triggers.update
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *uniqueTriggerId;
 
 /**
  *  List of integer percentage values for scroll triggers. The trigger will fire
  *  when each percentage is reached when the view is scrolled vertically. Only
- *  valid for AMP scroll triggers. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  valid for AMP scroll triggers.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *verticalScrollPercentageList;
 
 /**
  *  A visibility trigger CSS selector (i.e. "#id"). Only valid for AMP
- *  Visibility trigger. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  Visibility trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *visibilitySelector;
 
 /**
  *  A visibility trigger maximum percent visibility. Only valid for AMP
- *  Visibility trigger. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  Visibility trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *visiblePercentageMax;
 
 /**
  *  A visibility trigger minimum percent visibility. Only valid for AMP
- *  Visibility trigger. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  Visibility trigger.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *visiblePercentageMin;
 
@@ -3203,18 +2991,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  Whether or not we should delay the form submissions or link opening until
  *  all of the tags have fired (by preventing the default action and later
  *  simulating the default action). Only valid for Form Submission and Link
- *  Click triggers. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  Click triggers.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *waitForTags;
 
 /**
  *  How long to wait (in milliseconds) for tags to fire when 'waits_for_tags'
  *  above evaluates to true. Only valid for Form Submission and Link Click
- *  triggers. \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.create \@mutable
- *  tagmanager.accounts.containers.workspaces.triggers.update
+ *  triggers.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *waitForTagsTimeout;
 
@@ -3229,24 +3013,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @interface GTLRTagManager_UserPermission : GTLRObject
 
-/**
- *  GTM Account access permissions. \@mutable
- *  tagmanager.accounts.permissions.create \@mutable
- *  tagmanager.accounts.permissions.update
- */
+/** GTM Account access permissions. */
 @property(nonatomic, strong, nullable) GTLRTagManager_AccountAccess *accountAccess;
 
 /** The Account ID uniquely identifies the GTM Account. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/**
- *  GTM Container access permissions. \@mutable
- *  tagmanager.accounts.permissions.create \@mutable
- *  tagmanager.accounts.permissions.update
- */
+/** GTM Container access permissions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_ContainerAccess *> *containerAccess;
 
-/** User's email address. \@mutable tagmanager.accounts.permissions.create */
+/** User's email address. */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /** GTM UserPermission's API relative path. */
@@ -3270,8 +3046,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  For mobile containers only: A list of trigger IDs for disabling conditional
  *  variables; the variable is enabled if one of the enabling trigger is true
  *  while all the disabling trigger are false. Treated as an unordered set.
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.create
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.update
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *disablingTriggerId;
 
@@ -3279,8 +3053,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  For mobile containers only: A list of trigger IDs for enabling conditional
  *  variables; the variable is enabled if one of the enabling triggers is true
  *  while all the disabling triggers are false. Treated as an unordered set.
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.create
- *  \@mutable tagmanager.accounts.containers.workspaces.variables.update
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enablingTriggerId;
 
@@ -3293,25 +3065,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Option to convert a variable value to other value. */
 @property(nonatomic, strong, nullable) GTLRTagManager_VariableFormatValue *formatValue;
 
-/**
- *  Variable display name. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update
- */
+/** Variable display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  User notes on how to apply this variable in the container. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update
- */
+/** User notes on how to apply this variable in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
-/**
- *  The variable's parameters. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update
- */
+/** The variable's parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
@@ -3321,18 +3081,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  The end timestamp in milliseconds to schedule a variable. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update
+ *  The end timestamp in milliseconds to schedule a variable.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scheduleEndMs;
 
 /**
- *  The start timestamp in milliseconds to schedule a variable. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update
+ *  The start timestamp in milliseconds to schedule a variable.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3341,11 +3097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Auto generated link to the tag manager UI */
 @property(nonatomic, copy, nullable) NSString *tagManagerUrl;
 
-/**
- *  GTM Variable Type. \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.create \@mutable
- *  tagmanager.accounts.containers.workspaces.variables.update
- */
+/** GTM Variable Type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** The Variable ID uniquely identifies the GTM Variable. */
@@ -3405,9 +3157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
- *  Workspace description. \@mutable
- *  tagmanager.accounts.containers.workspaces.create \@mutable
- *  tagmanager.accounts.containers.workspaces.update
+ *  Workspace description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -3419,11 +3169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/**
- *  Workspace display name. \@mutable
- *  tagmanager.accounts.containers.workspaces.create \@mutable
- *  tagmanager.accounts.containers.workspaces.update
- */
+/** Workspace display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** GTM Workspace's API relative path. */

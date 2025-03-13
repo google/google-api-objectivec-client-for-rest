@@ -2022,6 +2022,63 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
+ *  Updates the specified Application resource. You can update the following
+ *  fields: auth_domain - Google authentication domain for controlling user
+ *  access to the application. default_cookie_expiration - Cookie expiration
+ *  policy for the application. iap - Identity-Aware Proxy properties for the
+ *  application.
+ *
+ *  Method: appengine.projects.locations.applications.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsPatch : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the Application resource to update. Example:
+ *  apps/myapp.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Required. Standard field mask for the set of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Updates the specified Application resource. You can update the following
+ *  fields: auth_domain - Google authentication domain for controlling user
+ *  access to the application. default_cookie_expiration - Cookie expiration
+ *  policy for the application. iap - Identity-Aware Proxy properties for the
+ *  application.
+ *
+ *  @param object The @c GTLRAppengine_Application to include in the query.
+ *  @param projectsId Part of `name`. Name of the Application resource to
+ *    update. Example: apps/myapp.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_Application *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId;
+
+@end
+
+/**
  *  Deletes the specified service and all enclosed versions.
  *
  *  Method: appengine.projects.locations.applications.services.delete

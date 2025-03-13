@@ -3482,6 +3482,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Provide Google with information about awaiting private pass update. This
+ *  will allow Google to provide the update notification to the device that
+ *  currently holds this pass.
+ *
+ *  Method: walletobjects.walletobjects.v1.privateContent.setPassUpdateNotice
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWalletobjectsWalletObjectIssuer
+ */
+@interface GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentSetPassUpdateNotice : GTLRWalletobjectsQuery
+
+/**
+ *  Fetches a @c GTLRWalletobjects_SetPassUpdateNoticeResponse.
+ *
+ *  Provide Google with information about awaiting private pass update. This
+ *  will allow Google to provide the update notification to the device that
+ *  currently holds this pass.
+ *
+ *  @param object The @c GTLRWalletobjects_SetPassUpdateNoticeRequest to include
+ *    in the query.
+ *
+ *  @return GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentSetPassUpdateNotice
+ */
++ (instancetype)queryWithObject:(GTLRWalletobjects_SetPassUpdateNoticeRequest *)object;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

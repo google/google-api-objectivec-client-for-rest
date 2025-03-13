@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRVerifiedaccess_Antivirus.state
+NSString * const kGTLRVerifiedaccess_Antivirus_State_Disabled  = @"DISABLED";
+NSString * const kGTLRVerifiedaccess_Antivirus_State_Enabled   = @"ENABLED";
+NSString * const kGTLRVerifiedaccess_Antivirus_State_Missing   = @"MISSING";
+NSString * const kGTLRVerifiedaccess_Antivirus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRVerifiedaccess_DeviceSignals.diskEncryption
 NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryptionDisabled = @"DISK_ENCRYPTION_DISABLED";
 NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryptionEncrypted = @"DISK_ENCRYPTION_ENCRYPTED";
@@ -87,6 +93,16 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVerifiedaccess_Antivirus
+//
+
+@implementation GTLRVerifiedaccess_Antivirus
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVerifiedaccess_Challenge
 //
 
@@ -111,7 +127,7 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTru
 //
 
 @implementation GTLRVerifiedaccess_DeviceSignals
-@dynamic allowScreenLock, browserVersion, builtInDnsClientEnabled,
+@dynamic allowScreenLock, antivirus, browserVersion, builtInDnsClientEnabled,
          chromeRemoteDesktopAppBlocked, crowdStrikeAgent, deviceAffiliationIds,
          deviceEnrollmentDomain, deviceManufacturer, deviceModel,
          diskEncryption, displayName, hostname, imei, macAddresses, meid,
@@ -165,6 +181,6 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTru
 @implementation GTLRVerifiedaccess_VerifyChallengeResponseResult
 @dynamic attestedDeviceId, customerId, deviceEnrollmentId, devicePermanentId,
          deviceSignal, deviceSignals, keyTrustLevel, profileCustomerId,
-         profileKeyTrustLevel, signedPublicKeyAndChallenge, virtualDeviceId,
-         virtualProfileId;
+         profileKeyTrustLevel, profilePermanentId, signedPublicKeyAndChallenge,
+         virtualDeviceId, virtualProfileId;
 @end

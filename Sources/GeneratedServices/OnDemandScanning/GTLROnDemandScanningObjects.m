@@ -331,6 +331,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_BaseImage
+//
+
+@implementation GTLROnDemandScanning_BaseImage
+@dynamic layerCount, name, repository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_BinarySourceInfo
 //
 
@@ -664,7 +674,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_FileLocation
-@dynamic filePath;
+@dynamic filePath, layerDetails;
 @end
 
 
@@ -708,11 +718,39 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_GrafeasV1BaseImage
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1BaseImage
+@dynamic layerCount, name, repository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_GrafeasV1FileLocation
 //
 
 @implementation GTLROnDemandScanning_GrafeasV1FileLocation
-@dynamic filePath;
+@dynamic filePath, layerDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1LayerDetails
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1LayerDetails
+@dynamic baseImages, command, diffId, index;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"baseImages" : [GTLROnDemandScanning_GrafeasV1BaseImage class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -981,6 +1019,24 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_LayerDetails
+//
+
+@implementation GTLROnDemandScanning_LayerDetails
+@dynamic baseImages, command, diffId, index;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"baseImages" : [GTLROnDemandScanning_BaseImage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_License
 //
 
@@ -1170,8 +1226,9 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_PackageData
 @dynamic architecture, binarySourceInfo, binaryVersion, cpeUri, dependencyChain,
-         fileLocation, hashDigest, licenses, maintainer, os, osVersion, package,
-         packageType, patchedCve, sourceVersion, unused, version;
+         fileLocation, hashDigest, layerDetails, licenses, maintainer, os,
+         osVersion, package, packageType, patchedCve, sourceVersion, unused,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -1434,6 +1434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_UtilizationReport_Tim
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityGvnicNetworkInterface;
 /**
+ *  IDPF virtual NIC driver supported.
+ *
+ *  Value: "OS_CAPABILITY_IDPF_NETWORK_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityIdpfNetworkInterface;
+/**
  *  NVMe driver installed and the VM can use NVMe PD or local SSD.
  *
  *  Value: "OS_CAPABILITY_NVME_STORAGE_ACCESS"
@@ -1651,7 +1657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  Holds informatiom about the available versions for upgrade.
+ *  Holds information about the available versions for upgrade.
  */
 @interface GTLRVMMigrationService_AvailableUpdates : GTLRObject
 
@@ -2935,7 +2941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /**
  *  CutoverJob message describes a cutover of a migrating VM. The CutoverJob is
- *  the operation of shutting down the VM, creating a snapshot and clonning the
+ *  the operation of shutting down the VM, creating a snapshot and cloning the
  *  VM using the replicated snapshot.
  */
 @interface GTLRVMMigrationService_CutoverJob : GTLRObject

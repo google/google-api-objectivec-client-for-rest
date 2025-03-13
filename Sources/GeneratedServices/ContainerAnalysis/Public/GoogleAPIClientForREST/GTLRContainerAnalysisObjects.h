@@ -69,6 +69,7 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Artifacts;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsGoModule;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsNpmPackage;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsPythonPackage;
@@ -82,6 +83,9 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Dependency;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceDependency;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceRepository;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfig;
@@ -103,6 +107,7 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSourceManifest;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedNpmPackage;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedPythonPackage;
@@ -1146,6 +1151,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
 
 /**
+ *  Dirhash of a Go module's source code which is then hex-encoded.
+ *
+ *  Value: "GO_MODULE_H1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_GoModuleH1;
+/**
  *  Use a md5 hash.
  *
  *  Value: "MD5"
@@ -1283,6 +1294,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash.type
 
+/**
+ *  Dirhash of a Go module's source code which is then hex-encoded.
+ *
+ *  Value: "GO_MODULE_H1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1;
 /**
  *  Use a md5 hash.
  *
@@ -3603,8 +3620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_ExportSBOMRequest : GTLRObject
 
 /**
- *  Empty placeholder to denote that this is a Google Cloud Storage export
- *  request.
+ *  Optional. Empty placeholder to denote that this is a Google Cloud Storage
+ *  export request.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CloudStorageLocation *cloudStorageLocation;
 
@@ -3899,6 +3916,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Artifacts : GTLRObject
 
 /**
+ *  Optional. A list of Go modules to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. If any objects fail to be pushed,
+ *  the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsGoModule *> *goModules;
+
+/**
  *  A list of images to be pushed upon the successful completion of all build
  *  steps. The images will be pushed using the builder service account's
  *  credentials. The digests of the pushed images will be stored in the Build
@@ -3968,6 +3992,52 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Output only. Stores timing information for pushing all artifact objects.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan *timing;
+
+@end
+
+
+/**
+ *  Go module to upload to Artifact Registry upon successful completion of all
+ *  build steps. A module refers to all dependencies in a go.mod file.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsGoModule : GTLRObject
+
+/** Optional. The Go module's "module path". e.g. example.com/foo/v2 */
+@property(nonatomic, copy, nullable) NSString *modulePath;
+
+/**
+ *  Optional. The Go module's semantic version in the form vX.Y.Z. e.g. v0.1.1
+ *  Pre-release identifiers can also be added by appending a dash and dot
+ *  separated ASCII alphanumeric characters and hyphens. e.g.
+ *  v0.2.3-alpha.x.12m.5
+ */
+@property(nonatomic, copy, nullable) NSString *moduleVersion;
+
+/**
+ *  Optional. Location of the Artifact Registry repository. i.e. us-east1
+ *  Defaults to the build’s location.
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryLocation;
+
+/**
+ *  Optional. Artifact Registry repository name. Specified Go modules will be
+ *  zipped and uploaded to Artifact Registry with this location as a prefix.
+ *  e.g. my-go-repo
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryName;
+
+/**
+ *  Optional. Project ID of the Artifact Registry repository. Defaults to the
+ *  build project.
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryProjectId;
+
+/**
+ *  Optional. Source path of the go.mod file in the build's workspace. If not
+ *  specified, this will default to the current directory. e.g.
+ *  ~/code/go/mypackage
+ */
+@property(nonatomic, copy, nullable) NSString *sourcePath;
 
 @end
 
@@ -4098,6 +4168,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Output only. Time at which the request to create the build was received.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Dependencies that the Cloud Build worker will fetch before
+ *  executing user steps.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Dependency *> *dependencies;
 
 /** Output only. Contains information about the build when status=FAILURE. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo *failureInfo;
@@ -4400,6 +4476,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) NSNumber *dynamicSubstitutions;
 
 /**
+ *  Optional. Option to specify whether structured logging is enabled. If true,
+ *  JSON-formatted logs are parsed as structured logs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStructuredLogging;
+
+/**
  *  A list of global environment variable definitions that will exist for all
  *  build steps in this build. If a variable is defined in both globally and in
  *  a build step, the variable will use the build step value. The elements are
@@ -4476,6 +4560,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOption *pool;
+
+/**
+ *  Optional. Option to specify the Pub/Sub topic to receive build status
+ *  updates.
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
  *  Requested verifiability options.
@@ -4801,6 +4891,76 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  A dependency that the Cloud Build worker will fetch before executing user
+ *  steps.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Dependency : GTLRObject
+
+/**
+ *  If set to true disable all dependency fetching (ignoring the default source
+ *  as well).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *empty;
+
+/** Represents a git repository as a build dependency. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceDependency *gitSource;
+
+@end
+
+
+/**
+ *  Represents a git repository as a build dependency.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceDependency : GTLRObject
+
+/**
+ *  Optional. How much history should be fetched for the build (default 1, -1
+ *  for all history).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *depth;
+
+/** Required. Where should the files be placed on the worker. */
+@property(nonatomic, copy, nullable) NSString *destPath;
+
+/**
+ *  Optional. True if submodules should be fetched too (default false).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recurseSubmodules;
+
+/** Required. The kind of repo (url or dev connect). */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceRepository *repository;
+
+/** Required. The revision that we will fetch the repo at. */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  A repository for a git source.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceRepository : GTLRObject
+
+/**
+ *  The Developer Connect Git repository link or the url that matches a
+ *  repository link in the current project, formatted as `projects/ *
+ *  /locations/ * /connections/ * /gitRepositoryLink/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *developerConnect;
+
+/** Location of the Git repository. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  This config defines the location of a source through Developer Connect.
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig : GTLRObject
@@ -4905,6 +5065,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  The type of hash that was performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1
+ *        Dirhash of a Go module's source code which is then hex-encoded.
+ *        (Value: "GO_MODULE_H1")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 Use
  *        a md5 hash. (Value: "MD5")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_None No
@@ -5066,6 +5229,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  web-safe format).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepOutputs;
+
+/**
+ *  Optional. Go module artifacts uploaded to Artifact Registry at the end of
+ *  the build.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule *> *goModules;
 
 /** Container images that were built as a part of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage *> *images;
@@ -5357,6 +5526,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Start of time span. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  A Go module artifact uploaded to Artifact Registry using the GoModule
+ *  directive.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule : GTLRObject
+
+/** Hash types and values of the Go Module Artifact. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+/** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

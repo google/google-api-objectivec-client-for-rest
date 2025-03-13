@@ -835,7 +835,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The network that the consumer is using to connect with services.
  *  Must be in the form of
- *  services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+ *  services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName}
  *  Where {service} is the peering service that is managing connectivity for the
  *  service producer's organization. For Google services that support this
  *  {project} is the project number, as in '12345' {network} is the network
@@ -851,7 +851,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The network that the consumer is using to connect with
  *    services. Must be in the form of
- *    services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+ *    services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName}
  *    Where {service} is the peering service that is managing connectivity for
  *    the service producer's organization. For Google services that support this
  *    {project} is the project number, as in '12345' {network} is the network

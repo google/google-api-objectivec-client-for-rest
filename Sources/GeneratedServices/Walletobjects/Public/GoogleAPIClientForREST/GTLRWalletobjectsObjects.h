@@ -6265,7 +6265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
- *  Wrapping type for Google hosted images. Next ID: 7
+ *  Wrapping type for Google hosted images.
  */
 @interface GTLRWalletobjects_Image : GTLRObject
 
@@ -9001,6 +9001,45 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, copy, nullable) NSString *animationType;
 
+@end
+
+
+/**
+ *  Request to send a private pass update notice information to Google, so that
+ *  devices can then fetch the notice prompting the user to update a pass.
+ */
+@interface GTLRWalletobjects_SetPassUpdateNoticeRequest : GTLRObject
+
+/**
+ *  Required. A fully qualified identifier of the pass that the issuer wants to
+ *  notify the pass holder(s) about. Formatted as .
+ */
+@property(nonatomic, copy, nullable) NSString *externalPassId;
+
+/**
+ *  Required. The JWT signature of the updated pass that the issuer wants to
+ *  notify Google about. Only devices that report a different JWT signature than
+ *  this JWT signature will receive the update notification.
+ */
+@property(nonatomic, copy, nullable) NSString *updatedPassJwtSignature;
+
+/**
+ *  Required. The issuer endpoint URI the pass holder needs to follow in order
+ *  to receive an updated pass JWT. It can not contain any sensitive
+ *  information. The endpoint needs to authenticate the user before giving the
+ *  user the updated JWT. Example update URI
+ *  https://someissuer.com/update/passId=someExternalPassId
+ */
+@property(nonatomic, copy, nullable) NSString *updateUri;
+
+@end
+
+
+/**
+ *  A response to a request to notify Google of an awaiting update to a private
+ *  pass.
+ */
+@interface GTLRWalletobjects_SetPassUpdateNoticeResponse : GTLRObject
 @end
 
 

@@ -321,6 +321,37 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_Aspect
+//
+
+@implementation GTLRServiceUsage_Aspect
+@dynamic kind, spec;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Aspect_Spec
+//
+
+@implementation GTLRServiceUsage_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Authentication
 //
 
@@ -412,9 +443,9 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, overridesByRequestProtocol, pathTranslation,
-         protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, loadBalancingPolicy,
+         minDeadline, operationDeadline, overridesByRequestProtocol,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -991,7 +1022,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_ExperimentalFeatures
-@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled;
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled,
+         unversionedPackageDisabled;
 @end
 
 
@@ -1055,8 +1087,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiService
-@dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, http,
+@dynamic apis, aspects, authentication, backend, billing, configVersion,
+         context, control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
          name, producerProjectId, publishing, quota, sourceInfo,
          systemParameters, systemTypes, title, types, usage;
@@ -1068,6 +1100,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apis" : [GTLRServiceUsage_Api class],
+    @"aspects" : [GTLRServiceUsage_Aspect class],
     @"endpoints" : [GTLRServiceUsage_Endpoint class],
     @"enums" : [GTLRServiceUsage_Enum class],
     @"logs" : [GTLRServiceUsage_LogDescriptor class],
@@ -1220,7 +1253,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis
-@dynamic analysis, analysisType, displayName, service;
+@dynamic analysisResult, analysisType, displayName, service;
 @end
 
 
@@ -2129,7 +2162,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_SelectiveGapicGeneration
-@dynamic methods;
+@dynamic generateOmittedAsInternal, methods;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

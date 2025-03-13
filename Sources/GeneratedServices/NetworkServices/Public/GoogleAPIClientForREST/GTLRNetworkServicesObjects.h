@@ -180,7 +180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalan
  *  The extension service uses ExtProc GRPC API over a gRPC stream. This is the
  *  default value if the wire format is not specified. The backend service for
  *  the extension must use HTTP2 or H2C as the protocol. All `supported_events`
- *  for a client request will be sent as part of the same gRPC stream.
+ *  for a client request are sent as part of the same gRPC stream.
  *
  *  Value: "EXT_PROC_GRPC"
  */
@@ -866,15 +866,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Optional. The format of communication supported by the callout extension. If
- *  not specified, the default is `EXT_PROC_GRPC`.
+ *  not specified, the default value `EXT_PROC_GRPC` is used.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc The
  *        extension service uses ExtProc GRPC API over a gRPC stream. This is
  *        the default value if the wire format is not specified. The backend
  *        service for the extension must use HTTP2 or H2C as the protocol. All
- *        `supported_events` for a client request will be sent as part of the
- *        same gRPC stream. (Value: "EXT_PROC_GRPC")
+ *        `supported_events` for a client request are sent as part of the same
+ *        gRPC stream. (Value: "EXT_PROC_GRPC")
  *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_WireFormatUnspecified
  *        Not specified. (Value: "WIRE_FORMAT_UNSPECIFIED")
  */
@@ -1350,8 +1350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. A set of events during request or response processing for which
  *  this extension is called. This field is required for the
- *  `LbTrafficExtension` resource. It must not be set for the `LbRouteExtension`
- *  resource, otherwise a validation error is returned.
+ *  `LbTrafficExtension` resource. It is optional for the `LbRouteExtension`
+ *  resource. If unspecified `REQUEST_HEADERS` event is assumed as supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
 
@@ -1406,7 +1406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Gateway represents the configuration for a proxy, typically a load balancer.
  *  It captures the ip:port over which the services are exposed by the proxy,
  *  along with any policy configurations. Routes have reference to to Gateways
- *  to dictate how requests should be routed by this Gateway. Next id: 33
+ *  to dictate how requests should be routed by this Gateway.
  */
 @interface GTLRNetworkServices_Gateway : GTLRObject
 
@@ -1526,7 +1526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Scope determines how configuration across multiple Gateway
  *  instances are merged. The configuration for multiple Gateway instances with
- *  the same scope will be merged as presented as a single coniguration to the
+ *  the same scope will be merged as presented as a single configuration to the
  *  proxy/load balancer. Max length 64 characters. Scope should start with a
  *  letter and can only have letters, numbers, hyphens.
  */
@@ -2955,7 +2955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Required. All backend services and forwarding rules referenced by this
  *  extension must share the same load balancing scheme. Supported values:
- *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+ *  `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`. For more information, refer to
  *  [Backend services
  *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
@@ -3107,6 +3107,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -3301,6 +3308,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  `return_partial_success` and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -3327,6 +3341,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -3380,6 +3401,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceBinding *> *serviceBindings;
 
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -3407,6 +3435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceLbPolicy *> *serviceLbPolicies;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -3958,8 +3993,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  ServiceBinding is the resource that defines a Service Directory Service to
- *  be used in a BackendService resource.
+ *  ServiceBinding can be used to: - Bind a Service Directory Service to be used
+ *  in a BackendService resource. - Bind a Private Service Connect producer
+ *  service to be used in consumer Cloud Service Mesh or Application Load
+ *  Balancers.
  */
 @interface GTLRNetworkServices_ServiceBinding : GTLRObject
 
@@ -3981,19 +4018,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Identifier. Name of the ServiceBinding resource. It matches pattern
- *  `projects/ * /locations/global/serviceBindings/service_binding_name`.
+ *  `projects/ * /locations/ * /serviceBindings/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The full Service Directory Service name of the format projects/ *
- *  /locations/ * /namespaces/ * /services/ *
+ *  Optional. The full Service Directory Service name of the format `projects/ *
+ *  /locations/ * /namespaces/ * /services/ *`. This field must be set.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
  *  Output only. The unique identifier of the Service Directory Service against
- *  which the Service Binding resource is validated. This is populated when the
+ *  which the ServiceBinding resource is validated. This is populated when the
  *  Service Binding resource is used in another resource (like Backend Service).
  *  This is of the UUID4 format.
  */
@@ -4522,8 +4559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  RouteMatch defines the predicate used to match requests to a given action.
- *  Multiple match types are "AND"ed for evaluation. If no routeMatch field is
- *  specified, this rule will unconditionally match traffic.
+ *  Multiple match types are "AND"ed for evaluation.
  */
 @interface GTLRNetworkServices_TlsRouteRouteMatch : GTLRObject
 
@@ -4558,7 +4594,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Required. RouteMatch defines the predicate used to match requests to a given
- *  action. Multiple match types are "OR"ed for evaluation.
+ *  action. Multiple match types are "OR"ed for evaluation. Atleast one
+ *  RouteMatch must be supplied.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRouteRouteMatch *> *matches;
 

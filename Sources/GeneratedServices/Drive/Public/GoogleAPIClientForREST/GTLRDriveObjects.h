@@ -29,6 +29,7 @@
 @class GTLRDrive_Comment;
 @class GTLRDrive_Comment_QuotedFileContent;
 @class GTLRDrive_ContentRestriction;
+@class GTLRDrive_DownloadRestriction;
 @class GTLRDrive_Drive;
 @class GTLRDrive_Drive_BackgroundImageFile;
 @class GTLRDrive_Drive_Capabilities;
@@ -914,6 +915,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 
 /**
+ *  A restriction for copy and download of the file.
+ */
+@interface GTLRDrive_DownloadRestriction : GTLRObject
+
+/**
+ *  Whether download and copy is restricted for readers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictedForReaders;
+
+/**
+ *  Whether download and copy is restricted for writers. If true, download is
+ *  also restricted for readers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictedForWriters;
+
+@end
+
+
+/**
  *  Representation of a shared drive. Some resource methods (such as
  *  `drives.update`) require a `driveId`. Use the `drives.list` method to
  *  retrieve the ID for a shared drive.
@@ -1249,6 +1273,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  */
 @property(nonatomic, strong, nullable) NSNumber *domainUsersOnly;
 
+/** Download restrictions applied by shared drive managers. */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *downloadRestriction;
+
 /**
  *  Whether access to items inside this shared drive is restricted to its
  *  members.
@@ -1437,6 +1464,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /** Output only. Additional metadata about image media, if available. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ImageMediaMetadata *imageMediaMetadata;
+
+/**
+ *  Whether this file has inherited permissions disabled. Inherited permissions
+ *  are enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inheritedPermissionsDisabled;
 
 /**
  *  Output only. Whether the file was created or opened by the requesting app.
@@ -1836,6 +1871,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSNumber *canDeleteChildren;
 
 /**
+ *  Whether a user can disable inherited permissions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDisableInheritedPermissions;
+
+/**
  *  Output only. Whether the current user can download this file.
  *
  *  Uses NSNumber of boolValue.
@@ -1850,6 +1892,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canEdit;
+
+/**
+ *  Whether a user can re-enable inherited permissions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canEnableInheritedPermissions;
 
 /**
  *  Output only. Whether the current user can list the children of this folder.
@@ -2868,6 +2917,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  When true, only organizers, owners, and users with permissions added
+ *  directly on the item can access it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inheritedPermissionsDisabled;
+
+/**
  *  Output only. Identifies what kind of resource this is. Value: the fixed
  *  string `"drive#permission"`.
  */
@@ -2883,9 +2940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSNumber *pendingOwner;
 
 /**
- *  Output only. Details of whether the permissions on this shared drive item
- *  are inherited or directly on this item. This is an output-only field which
- *  is present only for shared drive items.
+ *  Output only. Details of whether the permissions on this item are inherited
+ *  or directly on this item.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_PermissionDetails_Item *> *permissionDetails;
 
@@ -2913,7 +2969,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Indicates the view for this permission. Only populated for permissions that
- *  belong to a view. 'published' is the only supported value.
+ *  belong to a view. published and metadata are the only supported values. -
+ *  published: The permission's role is published_reader. - metadata: The item
+ *  is only visible to the metadata view because the item has limited access and
+ *  the scope has at least read access to the parent. Note: The metadata view is
+ *  currently only supported on folders.
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -2935,7 +2995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. The ID of the item from which this permission is inherited.
- *  This is an output-only field.
+ *  This is only populated for items in shared drives.
  */
 @property(nonatomic, copy, nullable) NSString *inheritedFrom;
 
@@ -2947,8 +3007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. The primary role for this user. While new values may be added
- *  in the future, the following are currently possible: * `organizer` *
- *  `fileOrganizer` * `writer` * `commenter` * `reader`
+ *  in the future, the following are currently possible: * `owner` * `organizer`
+ *  * `fileOrganizer` * `writer` * `commenter` * `reader`
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -3237,7 +3297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. A link to the published revision. This is only populated for
- *  Google Sites files.
+ *  Docs Editors files.
  */
 @property(nonatomic, copy, nullable) NSString *publishedLink;
 
@@ -3693,6 +3753,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *domainUsersOnly;
+
+/** Download restrictions applied by shared drive managers. */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *downloadRestriction;
 
 /**
  *  If true, only users with the organizer role can share folders. If false,

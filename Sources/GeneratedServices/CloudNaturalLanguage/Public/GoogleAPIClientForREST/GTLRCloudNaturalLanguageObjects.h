@@ -349,6 +349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu4g;
 /** Value: "A2_ULTRAGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu8g;
+/** Value: "A3_EDGEGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Edgegpu8g;
 /** Value: "A3_HIGHGPU_1G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu1g;
 /** Value: "A3_HIGHGPU_2G" */
@@ -821,6 +823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaA10080gb;
 /** Value: "NVIDIA_H100_80GB" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH10080gb;
+/** Value: "NVIDIA_H200_141GB" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH200141gb;
 /** Value: "NVIDIA_L4" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4;
 /** Value: "NVIDIA_TESLA_A100" */
@@ -859,6 +863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu4g;
 /** Value: "A2_ULTRAGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu8g;
+/** Value: "A3_EDGEGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Edgegpu8g;
 /** Value: "A3_HIGHGPU_1G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu1g;
 /** Value: "A3_HIGHGPU_2G" */
@@ -1214,6 +1220,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu4g;
 /** Value: "A2_ULTRAGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu8g;
+/** Value: "A3_EDGEGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Edgegpu8g;
 /** Value: "A3_HIGHGPU_1G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu1g;
 /** Value: "A3_HIGHGPU_2G" */
@@ -2864,6 +2872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu8g Value
  *        "A2_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Edgegpu8g Value
+ *        "A3_EDGEGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu1g Value
  *        "A3_HIGHGPU_1G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu2g Value
@@ -3431,6 +3441,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "NVIDIA_A100_80GB"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH10080gb Value
  *        "NVIDIA_H100_80GB"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH200141gb Value
+ *        "NVIDIA_H200_141GB"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4 Value
  *        "NVIDIA_L4"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaA100 Value
@@ -3472,6 +3484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu8g Value
  *        "A2_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Edgegpu8g Value
+ *        "A3_EDGEGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu1g Value
  *        "A3_HIGHGPU_1G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu2g Value
@@ -3810,7 +3824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 
 
 /**
- *  Infra Usage of billing metrics.
+ *  LINT: LEGACY_NAMES Infra Usage of billing metrics.
  */
 @interface GTLRCloudNaturalLanguage_InfraUsage : GTLRObject
 
@@ -3922,6 +3936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu8g Value
  *        "A2_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Edgegpu8g Value
+ *        "A3_EDGEGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu1g Value
  *        "A3_HIGHGPU_1G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu2g Value

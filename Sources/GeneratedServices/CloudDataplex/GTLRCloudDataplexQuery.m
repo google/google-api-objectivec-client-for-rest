@@ -31,6 +31,9 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRCloudDataplexQuery
 
 @dynamic fields;
@@ -4114,3 +4117,5 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 }
 
 @end
+
+#pragma clang diagnostic pop

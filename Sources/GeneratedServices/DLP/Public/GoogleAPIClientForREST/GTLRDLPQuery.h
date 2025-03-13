@@ -3751,7 +3751,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
- *  updated.
+ *  updated. Only the first frame of each multiframe image is redacted. Metadata
+ *  and other frames are omitted in the response.
  *
  *  Method: dlp.projects.image.redact
  *
@@ -3782,7 +3783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
- *  updated.
+ *  updated. Only the first frame of each multiframe image is redacted. Metadata
+ *  and other frames are omitted in the response.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.
@@ -5841,7 +5843,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
- *  updated.
+ *  updated. Only the first frame of each multiframe image is redacted. Metadata
+ *  and other frames are omitted in the response.
  *
  *  Method: dlp.projects.locations.image.redact
  *
@@ -5872,7 +5875,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
- *  updated.
+ *  updated. Only the first frame of each multiframe image is redacted. Metadata
+ *  and other frames are omitted in the response.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.

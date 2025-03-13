@@ -331,6 +331,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Creating
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Deleting;
 /**
+ *  The resource is in an undefined state due to resource creation or deletion
+ *  failure. You can try to delete the resource later or contact support for
+ *  help.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Failed;
+/**
  *  The resource is inactive.
  *
  *  Value: "INACTIVE"
@@ -432,6 +440,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Creating;
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting;
+/**
+ *  The resource is in an undefined state due to resource creation or deletion
+ *  failure. You can try to delete the resource later or contact support for
+ *  help.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Failed;
 /**
  *  The resource is inactive.
  *
@@ -542,8 +558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_
 /**
  *  Ranges created FOR_MIGRATION can be used to lock a CIDR range between a
  *  source and target subnet. If usage is set to FOR_MIGRATION, the peering
- *  value has to be set to FOR_SELF or default to FOR_SELF when unset. This
- *  value is for internal use.
+ *  value has to be set to FOR_SELF or default to FOR_SELF when unset.
  *
  *  Value: "FOR_MIGRATION"
  */
@@ -833,6 +848,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Creating
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Deleting;
 /**
+ *  The resource is in an undefined state due to resource creation or deletion
+ *  failure. You can try to delete the resource later or contact support for
+ *  help.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Failed;
+/**
  *  The resource is inactive.
  *
  *  Value: "INACTIVE"
@@ -923,6 +946,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Cre
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Deleting;
+/**
+ *  The resource is in an undefined state due to resource creation or deletion
+ *  failure. You can try to delete the resource later or contact support for
+ *  help.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Failed;
 /**
  *  The resource is inactive.
  *
@@ -1055,6 +1086,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Creating
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Deleting;
 /**
+ *  The resource is in an undefined state due to resource creation or deletion
+ *  failure. You can try to delete the resource later or contact support for
+ *  help.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Failed;
+/**
  *  The resource is inactive.
  *
  *  Value: "INACTIVE"
@@ -1113,6 +1152,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_Stat
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Deleting;
+/**
+ *  The resource is in an undefined state due to resource creation or deletion
+ *  failure. You can try to delete the resource later or contact support for
+ *  help.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Failed;
 /**
  *  The resource is inactive.
  *
@@ -1348,6 +1395,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /** The spoke that was operated on. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Spoke *spoke;
+
+@end
+
+
+/**
+ *  The request for HubService.AcceptSpokeUpdate.
+ */
+@interface GTLRNetworkconnectivity_AcceptSpokeUpdateRequest : GTLRObject
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. The etag of the spoke to accept update. */
+@property(nonatomic, copy, nullable) NSString *spokeEtag;
+
+/** Required. The URI of the spoke to accept update. */
+@property(nonatomic, copy, nullable) NSString *spokeUri;
 
 @end
 
@@ -2156,6 +2232,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        create operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_Group_State_Deleting The resource's
  *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Failed The resource is in an
+ *        undefined state due to resource creation or deletion failure. You can
+ *        try to delete the resource later or contact support for help. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRNetworkconnectivity_Group_State_Inactive The resource is
  *        inactive. (Value: "INACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Group_State_Obsolete The hub associated
@@ -2218,10 +2298,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Whether Private Service Connect transitivity is enabled for the
- *  hub. If true, Private Service Connect endpoints in VPC spokes attached to
- *  the hub are made accessible to other VPC spokes attached to the hub. The
- *  default value is false.
+ *  Optional. Whether Private Service Connect connection propagation is enabled
+ *  for the hub. If true, Private Service Connect endpoints in VPC spokes
+ *  attached to the hub are made accessible to other VPC spokes attached to the
+ *  hub. The default value is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2310,6 +2390,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Deleting The resource's delete
  *        operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Failed The resource is in an
+ *        undefined state due to resource creation or deletion failure. You can
+ *        try to delete the resource later or contact support for help. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Inactive The resource is
  *        inactive. (Value: "INACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Obsolete The hub associated
@@ -2420,10 +2504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** User-defined labels. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_InternalRange_Labels *labels;
 
-/**
- *  Optional. Must be present if usage is set to FOR_MIGRATION. This field is
- *  for internal use.
- */
+/** Optional. Must be present if usage is set to FOR_MIGRATION. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Migration *migration;
 
 /**
@@ -2517,7 +2598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        created FOR_MIGRATION can be used to lock a CIDR range between a
  *        source and target subnet. If usage is set to FOR_MIGRATION, the
  *        peering value has to be set to FOR_SELF or default to FOR_SELF when
- *        unset. This value is for internal use. (Value: "FOR_MIGRATION")
+ *        unset. (Value: "FOR_MIGRATION")
  *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc A VPC resource
  *        can use the reserved CIDR block by associating it with the internal
  *        range resource if usage is set to FOR_VPC. (Value: "FOR_VPC")
@@ -2617,6 +2698,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** Output only. The URI of the Producer VPC. */
 @property(nonatomic, copy, nullable) NSString *producerNetwork;
 
+/**
+ *  Optional. The proposed include export IP ranges waiting for hub
+ *  administration's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
+
 /** Output only. The Service Consumer Network spoke. */
 @property(nonatomic, copy, nullable) NSString *serviceConsumerVpcSpoke;
 
@@ -2675,9 +2762,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /**
  *  Output only. The list of Producer VPC spokes that this VPC spoke is a
  *  service consumer VPC spoke for. These producer VPCs are connected through
- *  VPC peering to this spoke's backing VPC network.
+ *  VPC peering to this spoke's backing VPC network. Because they are directly
+ *  connected throuh VPC peering, NCC export filters do not apply between the
+ *  service consumer VPC spoke and any of its producer VPC spokes. This VPC
+ *  spoke cannot be deleted as long as any of these producer VPC spokes are
+ *  connected to the NCC Hub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *producerVpcSpokes;
+
+/**
+ *  Optional. The proposed include export IP ranges waiting for hub
+ *  administration's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
 
 /** Required. The URI of the VPC network resource. */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -3226,8 +3323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /**
  *  Immutable. Resource path of the target resource. The target project can be
- *  different, as in the cases when migrating to peer networks. The resource For
- *  example: /projects/{project}/regions/{region}/subnetworks/{subnet}
+ *  different, as in the cases when migrating to peer networks. For example:
+ *  /projects/{project}/regions/{region}/subnetworks/{subnet}
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -3903,8 +4000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_RegionalEndpoint_Labels *labels;
 
 /**
- *  Output only. The name of a RegionalEndpoint. Format:
- *  `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`.
+ *  Output only. The name of a RegionalEndpoint. Pattern:
+ *  `projects/{project}/locations/{location}/regionalEndpoints/^[-a-z0-9](?:[-a-z0-9]{0,44})[a-z0-9]$`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3993,6 +4090,38 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  The request for HubService.RejectSpokeUpdate.
+ */
+@interface GTLRNetworkconnectivity_RejectSpokeUpdateRequest : GTLRObject
+
+/** Optional. Additional information provided by the hub administrator. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. The etag of the spoke to reject update. */
+@property(nonatomic, copy, nullable) NSString *spokeEtag;
+
+/** Required. The URI of the spoke to reject update. */
+@property(nonatomic, copy, nullable) NSString *spokeUri;
+
+@end
+
+
+/**
  *  A route defines a path from VM instances within a spoke to a specific
  *  destination resource. Only VPC spokes have routes.
  */
@@ -4073,6 +4202,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        create operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_Route_State_Deleting The resource's
  *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Failed The resource is in an
+ *        undefined state due to resource creation or deletion failure. You can
+ *        try to delete the resource later or contact support for help. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRNetworkconnectivity_Route_State_Inactive The resource is
  *        inactive. (Value: "INACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Route_State_Obsolete The hub associated
@@ -4193,6 +4326,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        create operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Deleting The resource's
  *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Failed The resource is
+ *        in an undefined state due to resource creation or deletion failure.
+ *        You can try to delete the resource later or contact support for help.
+ *        (Value: "FAILED")
  *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Inactive The resource is
  *        inactive. (Value: "INACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Obsolete The hub
@@ -4597,6 +4734,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. The list of fields waiting for hub administration's approval. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fieldPathsPendingUpdate;
+
 /** Optional. The name of the group that this spoke is associated with. */
 @property(nonatomic, copy, nullable) NSString *group;
 
@@ -4671,6 +4818,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        create operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Deleting The resource's
  *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Failed The resource is in an
+ *        undefined state due to resource creation or deletion failure. You can
+ *        try to delete the resource later or contact support for help. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Inactive The resource is
  *        inactive. (Value: "INACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Obsolete The hub associated
@@ -4738,6 +4889,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        resource's create operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Deleting The
  *        resource's delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Failed The resource
+ *        is in an undefined state due to resource creation or deletion failure.
+ *        You can try to delete the resource later or contact support for help.
+ *        (Value: "FAILED")
  *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Inactive The
  *        resource is inactive. (Value: "INACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Obsolete The hub

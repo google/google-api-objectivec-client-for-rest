@@ -8659,7 +8659,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRSheets_InsertRangeRequest : GTLRObject
 
-/** The range to insert new cells into. */
+/**
+ *  The range to insert new cells into. The range is constrained to the current
+ *  sheet boundaries.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**

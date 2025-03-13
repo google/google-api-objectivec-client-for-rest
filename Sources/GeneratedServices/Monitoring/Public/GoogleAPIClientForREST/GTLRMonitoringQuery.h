@@ -2630,6 +2630,19 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ProjectsMetricDescriptorsList : GTLRMonitoringQuery
 
 /**
+ *  Optional. If true, only metrics and monitored resource types that have
+ *  recent data (within roughly 25 hours) will be included in the response. - If
+ *  a metric descriptor enumerates monitored resource types, only the monitored
+ *  resource types for which the metric type has recent data will be included in
+ *  the returned metric descriptor, and if none of them have recent data, the
+ *  metric descriptor will not be returned. - If a metric descriptor does not
+ *  enumerate the compatible monitored resource types, it will be returned only
+ *  if the metric type has recent data for some monitored resource type. The
+ *  returned descriptor will not enumerate any monitored resource types.
+ */
+@property(nonatomic, assign) BOOL activeOnly;
+
+/**
  *  Optional. If this field is empty, all custom and system-defined metric
  *  descriptors are returned. Otherwise, the filter
  *  (https://cloud.google.com/monitoring/api/v3/filters) specifies which metric
@@ -3365,8 +3378,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Optional. Optional filter to restrict results to the given criteria. The
  *  following fields are supported. interval.start_time interval.end_timeFor
- *  example: ``` interval.start_time > "2022-03-11T00:00:00-08:00" AND
- *  interval.end_time < "2022-03-12T00:00:00-08:00" ```
+ *  example: interval.start_time > "2022-03-11T00:00:00-08:00" AND
+ *  interval.end_time < "2022-03-12T00:00:00-08:00"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

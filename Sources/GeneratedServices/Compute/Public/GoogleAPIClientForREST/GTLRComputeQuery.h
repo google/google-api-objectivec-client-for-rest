@@ -27,6 +27,16 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// addressFamily
+
+/** Value: "IPV4" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeAddressFamilyIpv4;
+/** Value: "IPV6" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeAddressFamilyIpv6;
+/** Value: "UNSPECIFIED_IP_VERSION" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeAddressFamilyUnspecifiedIpVersion;
+
+// ----------------------------------------------------------------------------
 // direction
 
 /**
@@ -89,6 +99,16 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRefres
  *  Value: "RESTART"
  */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
+
+// ----------------------------------------------------------------------------
+// routeType
+
+/** Value: "ADVERTISED" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeAdvertised;
+/** Value: "LEARNED" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeLearned;
+/** Value: "UNSPECIFIED_ROUTE_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -14374,6 +14394,63 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Mark the host as faulty and try to restart the instance on a new host.
+ *
+ *  Method: compute.instances.reportHostAsFaulty
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesReportHostAsFaulty : GTLRComputeQuery
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Mark the host as faulty and try to restart the instance on a new host.
+ *
+ *  @param object The @c GTLRCompute_InstancesReportHostAsFaultyRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesReportHostAsFaulty
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesReportHostAsFaultyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Performs a reset on the instance. This is a hard reset. The VM does not do a
  *  graceful shutdown. For more information, see Resetting an instance.
  *
@@ -21020,6 +21097,65 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Inserts a packet mirroring rule into a firewall policy.
+ *
+ *  Method: compute.networkFirewallPolicies.addPacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesAddPacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger maxPriority;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger minPriority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a packet mirroring rule into a firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesAddPacketMirroringRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
  *  Inserts a rule into a firewall policy.
  *
  *  Method: compute.networkFirewallPolicies.addRule
@@ -21404,6 +21540,43 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Gets a packet mirroring rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.getPacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesGetPacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to get from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyRule.
+ *
+ *  Gets a packet mirroring rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesGetPacketMirroringRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
  *  Gets a rule of the specified priority.
  *
  *  Method: compute.networkFirewallPolicies.getRule
@@ -21637,6 +21810,56 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Patches a packet mirroring rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.patchPacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesPatchPacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a packet mirroring rule of the specified priority.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesPatchPacketMirroringRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
  *  Patches a rule of the specified priority.
  *
  *  Method: compute.networkFirewallPolicies.patchRule
@@ -21728,6 +21951,54 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param firewallPolicy Name of the firewall policy to update.
  *
  *  @return GTLRComputeQuery_NetworkFirewallPoliciesRemoveAssociation
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes a packet mirroring rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.removePacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesRemovePacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to remove from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a packet mirroring rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesRemovePacketMirroringRule
  */
 + (instancetype)queryWithProject:(NSString *)project
                   firewallPolicy:(NSString *)firewallPolicy;
@@ -27899,7 +28170,7 @@ GTLR_DEPRECATED
 /**
  *  Updates the specified commitment with the data included in the request.
  *  Update is performed only on selected fields included as part of update-mask.
- *  Only the following fields can be modified: auto_renew.
+ *  Only the following fields can be updated: auto_renew and plan.
  *
  *  Method: compute.regionCommitments.update
  *
@@ -27909,7 +28180,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionCommitmentsUpdate : GTLRComputeQuery
 
-/** Name of the commitment for which auto renew is being updated. */
+/** Name of the commitment that you want to update. */
 @property(nonatomic, copy, nullable) NSString *commitment;
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
@@ -27945,13 +28216,12 @@ GTLR_DEPRECATED
  *
  *  Updates the specified commitment with the data included in the request.
  *  Update is performed only on selected fields included as part of update-mask.
- *  Only the following fields can be modified: auto_renew.
+ *  Only the following fields can be updated: auto_renew and plan.
  *
  *  @param object The @c GTLRCompute_Commitment to include in the query.
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param commitment Name of the commitment for which auto renew is being
- *    updated.
+ *  @param commitment Name of the commitment that you want to update.
  *
  *  @return GTLRComputeQuery_RegionCommitmentsUpdate
  */
@@ -38646,6 +38916,59 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Deletes Route Policy
+ *
+ *  Method: compute.routers.deleteRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersDeleteRoutePolicy : GTLRComputeQuery
+
+/** The Policy name for this request. Name must conform to RFC1035 */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the Router resource where Route Policy is defined. */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes Route Policy
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource where Route Policy is defined.
+ *
+ *  @return GTLRComputeQuery_RoutersDeleteRoutePolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
  *  Returns the specified Router resource.
  *
  *  Method: compute.routers.get
@@ -38858,6 +39181,51 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Returns specified Route Policy
+ *
+ *  Method: compute.routers.getRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersGetRoutePolicy : GTLRComputeQuery
+
+/** The Policy name for this request. Name must conform to RFC1035 */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Name of the Router resource to query for the route policy. The name should
+ *  conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_RoutersGetRoutePolicyResponse.
+ *
+ *  Returns specified Route Policy
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to query for the route policy. The
+ *    name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RoutersGetRoutePolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
  *  Retrieves runtime information of the specified router.
  *
  *  Method: compute.routers.getRouterStatus
@@ -39055,6 +39423,290 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Retrieves a list of router bgp routes available to the specified project.
+ *
+ *  Method: compute.routers.listBgpRoutes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersListBgpRoutes : GTLRComputeQuery
+
+/**
+ *  (Required) limit results to this address family (either IPv4 or IPv6)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeAddressFamilyIpv4 Value "IPV4"
+ *    @arg @c kGTLRComputeAddressFamilyIpv6 Value "IPV6"
+ *    @arg @c kGTLRComputeAddressFamilyUnspecifiedIpVersion Value
+ *        "UNSPECIFIED_IP_VERSION"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRComputeAddressFamilyUnspecifiedIpVersion.
+ */
+@property(nonatomic, copy, nullable) NSString *addressFamily;
+
+/** Limit results to destinations that are subnets of this CIDR range */
+@property(nonatomic, copy, nullable) NSString *destinationPrefix;
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  (Required) limit results to the BGP peer with the given name. Name should
+ *  conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *peer;
+
+/**
+ *  When true, the method returns post-policy routes. Otherwise, it returns
+ *  pre-policy routes.
+ *
+ *  @note If not set, the documented server-side default will be true.
+ */
+@property(nonatomic, assign) BOOL policyApplied;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name or id of the resource for this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  (Required) limit results to this type of route (either LEARNED or
+ *  ADVERTISED)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeRouteTypeAdvertised Value "ADVERTISED"
+ *    @arg @c kGTLRComputeRouteTypeLearned Value "LEARNED"
+ *    @arg @c kGTLRComputeRouteTypeUnspecifiedRouteType Value
+ *        "UNSPECIFIED_ROUTE_TYPE"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRComputeRouteTypeUnspecifiedRouteType.
+ */
+@property(nonatomic, copy, nullable) NSString *routeType;
+
+/**
+ *  Fetches a @c GTLRCompute_RoutersListBgpRoutes.
+ *
+ *  Retrieves a list of router bgp routes available to the specified project.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name or id of the resource for this request. Name should
+ *    conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RoutersListBgpRoutes
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Retrieves a list of router route policy subresources available to the
+ *  specified project.
+ *
+ *  Method: compute.routers.listRoutePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersListRoutePolicies : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name or id of the resource for this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_RoutersListRoutePolicies.
+ *
+ *  Retrieves a list of router route policy subresources available to the
+ *  specified project.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name or id of the resource for this request. Name should
+ *    conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RoutersListRoutePolicies
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
  *  Patches the specified Router resource with the data included in the request.
  *  This method supports PATCH semantics and uses JSON merge patch format and
  *  processing rules.
@@ -39104,6 +39756,58 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_RoutersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router;
+
+@end
+
+/**
+ *  Patches Route Policy
+ *
+ *  Method: compute.routers.patchRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersPatchRoutePolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the Router resource where Route Policy is defined. */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches Route Policy
+ *
+ *  @param object The @c GTLRCompute_RoutePolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource where Route Policy is defined.
+ *
+ *  @return GTLRComputeQuery_RoutersPatchRoutePolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RoutePolicy *)object
                         project:(NSString *)project
                          region:(NSString *)region
                          router:(NSString *)router;
@@ -39204,6 +39908,58 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_RoutersUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router;
+
+@end
+
+/**
+ *  Updates or creates new Route Policy
+ *
+ *  Method: compute.routers.updateRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersUpdateRoutePolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the Router resource where Route Policy is defined. */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates or creates new Route Policy
+ *
+ *  @param object The @c GTLRCompute_RoutePolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource where Route Policy is defined.
+ *
+ *  @return GTLRComputeQuery_RoutersUpdateRoutePolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RoutePolicy *)object
                         project:(NSString *)project
                          region:(NSString *)region
                          router:(NSString *)router;

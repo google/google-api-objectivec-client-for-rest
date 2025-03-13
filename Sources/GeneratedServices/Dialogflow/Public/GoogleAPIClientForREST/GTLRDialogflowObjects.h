@@ -307,7 +307,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1FreeFormSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponseGeneratorSuggestionAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
@@ -396,6 +400,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestionSummarySection;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
@@ -408,7 +414,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2ExportOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FreeFormSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponseGeneratorSuggestionAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
@@ -472,6 +482,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestionSummarySection;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals;
 @class GTLRDialogflow_GoogleCloudLocationLocation;
@@ -566,6 +578,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "UNSTRUCTURED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_Unstructured;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection.documentProcessingMode
+
+/**
+ *  Documents are converted to chunks.
+ *
+ *  Value: "CHUNKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DocumentProcessingMode_Chunks;
+/**
+ *  Not specified. This should be set for STRUCTURED type data stores. Due to
+ *  legacy reasons this is considered as DOCUMENTS for STRUCTURED and PUBLIC_WEB
+ *  data stores.
+ *
+ *  Value: "DOCUMENT_PROCESSING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DocumentProcessingMode_DocumentProcessingModeUnspecified;
+/**
+ *  Documents are processed as documents.
+ *
+ *  Value: "DOCUMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DocumentProcessingMode_Documents;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig.audioEncoding
@@ -1020,6 +1056,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Data
  *  Value: "UNSTRUCTURED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_Unstructured;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection.documentProcessingMode
+
+/**
+ *  Documents are converted to chunks.
+ *
+ *  Value: "CHUNKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DocumentProcessingMode_Chunks;
+/**
+ *  Not specified. This should be set for STRUCTURED type data stores. Due to
+ *  legacy reasons this is considered as DOCUMENTS for STRUCTURED and PUBLIC_WEB
+ *  data stores.
+ *
+ *  Value: "DOCUMENT_PROCESSING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DocumentProcessingMode_DocumentProcessingModeUnspecified;
+/**
+ *  Documents are processed as documents.
+ *
+ *  Value: "DOCUMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DocumentProcessingMode_Documents;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals.decision
@@ -3449,6 +3509,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearS
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
 /**
+ *  Run conversation summarization model for chat.
+ *
+ *  Value: "CONVERSATION_SUMMARIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization;
+/**
  *  Run FAQ model for chat.
  *
  *  Value: "FAQ"
@@ -4140,6 +4206,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSug
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
 /**
+ *  Run conversation summarization model for chat.
+ *
+ *  Value: "CONVERSATION_SUMMARIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization;
+/**
  *  Run FAQ model for chat.
  *
  *  Value: "FAQ"
@@ -4375,8 +4447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDuration *noSpeechTimeout;
 
 /**
- *  Use timeout based endpointing, interpreting endpointer sensitivy as seconds
- *  of timeout value.
+ *  Use timeout based endpointing, interpreting endpointer sensitivity as
+ *  seconds of timeout value.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4499,6 +4571,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Optional. Settings for end user personalization. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentPersonalizationSettings *personalizationSettings;
+
+/**
+ *  Optional. Output only. A read only boolean field reflecting Zone Isolation
+ *  status of the agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Optional. Output only. A read only boolean field reflecting Zone Separation
+ *  status of the agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Name of the SecuritySettings reference for the agent. Format:
@@ -4986,8 +5074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDuration *noSpeechTimeout;
 
 /**
- *  Use timeout based endpointing, interpreting endpointer sensitivy as seconds
- *  of timeout value.
+ *  Use timeout based endpointing, interpreting endpointer sensitivity as
+ *  seconds of timeout value.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5318,6 +5406,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        "UNSTRUCTURED")
  */
 @property(nonatomic, copy, nullable) NSString *dataStoreType;
+
+/**
+ *  The document processing mode for the data store connection. Should only be
+ *  set for PUBLIC_WEB and UNSTRUCTURED data stores. If not set it is considered
+ *  as DOCUMENTS, as this is the legacy mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DocumentProcessingMode_Chunks
+ *        Documents are converted to chunks. (Value: "CHUNKS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DocumentProcessingMode_DocumentProcessingModeUnspecified
+ *        Not specified. This should be set for STRUCTURED type data stores. Due
+ *        to legacy reasons this is considered as DOCUMENTS for STRUCTURED and
+ *        PUBLIC_WEB data stores. (Value:
+ *        "DOCUMENT_PROCESSING_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DocumentProcessingMode_Documents
+ *        Documents are processed as documents. (Value: "DOCUMENTS")
+ */
+@property(nonatomic, copy, nullable) NSString *documentProcessingMode;
 
 @end
 
@@ -6560,7 +6666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  A list of transitions for the transition rules of this page. They route the
  *  conversation to another page in the same flow, or another flow. When we are
- *  in a certain page, the TransitionRoutes are evalauted in the following
+ *  in a certain page, the TransitionRoutes are evaluated in the following
  *  order: * TransitionRoutes defined in the page with intent specified. *
  *  TransitionRoutes defined in the transition route groups with intent
  *  specified. * TransitionRoutes defined in flow with intent specified. *
@@ -7729,7 +7835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Required. The client ID provided by the 3rd party platform. */
 @property(nonatomic, copy, nullable) NSString *clientId;
 
-/** Required. The client secret provided by the 3rd party platform. */
+/** Optional. The client secret provided by the 3rd party platform. */
 @property(nonatomic, copy, nullable) NSString *clientSecret;
 
 /** Optional. The OAuth scopes to grant. */
@@ -8055,7 +8161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Optional. Condition boost specifications. If a document matches multiple
- *  conditions in the specifictions, boost scores from these specifications are
+ *  conditions in the specifications, boost scores from these specifications are
  *  all applied and combined in a non-linear way. Maximum number of
  *  specifications is 20.
  */
@@ -8531,6 +8637,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        "UNSTRUCTURED")
  */
 @property(nonatomic, copy, nullable) NSString *dataStoreType;
+
+/**
+ *  The document processing mode for the data store connection. Should only be
+ *  set for PUBLIC_WEB and UNSTRUCTURED data stores. If not set it is considered
+ *  as DOCUMENTS, as this is the legacy mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DocumentProcessingMode_Chunks
+ *        Documents are converted to chunks. (Value: "CHUNKS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DocumentProcessingMode_DocumentProcessingModeUnspecified
+ *        Not specified. This should be set for STRUCTURED type data stores. Due
+ *        to legacy reasons this is considered as DOCUMENTS for STRUCTURED and
+ *        PUBLIC_WEB data stores. (Value:
+ *        "DOCUMENT_PROCESSING_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DocumentProcessingMode_Documents
+ *        Documents are processed as documents. (Value: "DOCUMENTS")
+ */
+@property(nonatomic, copy, nullable) NSString *documentProcessingMode;
 
 @end
 
@@ -10009,7 +10133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  saying "help" or "can I talk to a human?", which can be handled in a common
  *  way regardless of the current page. Transition routes defined in the page
  *  have higher priority than those defined in the flow. TransitionRoutes are
- *  evalauted in the following order: * TransitionRoutes with intent specified.
+ *  evaluated in the following order: * TransitionRoutes with intent specified.
  *  * TransitionRoutes with only condition specified. TransitionRoutes with
  *  intent specified are inherited by pages in the flow.
  */
@@ -12311,7 +12435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  A list of transitions for the transition rules of this page. They route the
  *  conversation to another page in the same flow, or another flow. When we are
- *  in a certain page, the TransitionRoutes are evalauted in the following
+ *  in a certain page, the TransitionRoutes are evaluated in the following
  *  order: * TransitionRoutes defined in the page with intent specified. *
  *  TransitionRoutes defined in the transition route groups with intent
  *  specified. * TransitionRoutes defined in flow with intent specified. *
@@ -12568,7 +12692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *populateDataStoreConnectionSignals;
+@property(nonatomic, strong, nullable) NSNumber *populateDataStoreConnectionSignals GTLR_DEPRECATED;
 
 /** Optional. Search configuration for UCS search queries. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig *searchConfig;
@@ -12715,9 +12839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Optional. Data store connection feature output signals. Filled only when
- *  data stores are involved in serving the query and
- *  DetectIntentRequest.populate_data_store_connection_signals is set to true in
- *  the request.
+ *  data stores are involved in serving the query.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignals *dataStoreConnectionSignals;
 
@@ -13457,10 +13579,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig : GTLRObject
 
-/** Optional. Boosting configuration for the datastores. */
+/**
+ *  Optional. Boosting configuration for the datastores. Maps from datastore
+ *  name to their boost configuration. Do not specify more than one BoostSpecs
+ *  for each datastore name. If multiple BoostSpecs are provided for the same
+ *  datastore name, the behavior is undefined.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs *> *boostSpecs;
 
-/** Optional. Filter configuration for the datastores. */
+/**
+ *  Optional. Filter configuration for the datastores. Maps from datastore name
+ *  to the filter expression for that datastore. Do not specify more than one
+ *  FilterSpecs for each datastore name. If multiple FilterSpecs are provided
+ *  for the same datastore name, the behavior is undefined.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3FilterSpecs *> *filterSpecs;
 
 @end
@@ -14870,7 +15002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Required. The client ID provided by the 3rd party platform. */
 @property(nonatomic, copy, nullable) NSString *clientId;
 
-/** Required. The client secret provided by the 3rd party platform. */
+/** Optional. The client secret provided by the 3rd party platform. */
 @property(nonatomic, copy, nullable) NSString *clientSecret;
 
 /** Optional. The OAuth scopes to grant. */
@@ -15906,6 +16038,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Suggestion generated using free form generator.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1FreeFormSuggestion : GTLRObject
+
+/** Required. Free form suggestion. */
+@property(nonatomic, copy, nullable) NSString *response;
+
+@end
+
+
+/**
  *  Google Cloud Storage location for the output.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination : GTLRObject
@@ -15917,6 +16060,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the bucket.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The response message for Conversations.GenerateSuggestions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse : GTLRObject
+
+/** The answers generated for the conversation based on context. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponseGeneratorSuggestionAnswer *> *generatorSuggestionAnswers;
+
+/**
+ *  The name of the latest conversation message used as context for compiling
+ *  suggestion. Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  A GeneratorSuggestion answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponseGeneratorSuggestionAnswer : GTLRObject
+
+/**
+ *  Answer record that uniquely identifies the suggestion. This can be used to
+ *  provide suggestion feedback.
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/** Suggestion details. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion *generatorSuggestion;
+
+/**
+ *  The name of the generator used to generate this suggestion. Format:
+ *  `projects//locations//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceGenerator;
+
+@end
+
+
+/**
+ *  Suggestion generated using a Generator.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion : GTLRObject
+
+/** Optional. Free form suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1FreeFormSuggestion *freeFormSuggestion;
+
+/** Optional. Suggested summary. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestion *summarySuggestion;
 
 @end
 
@@ -17609,7 +17806,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Optional. Automated agent responses. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessage *> *responseMessages;
 
-/** Optional. The time when the message was sent. */
+/**
+ *  Optional. The time when the message was sent. For voice messages, this is
+ *  the time when an utterance started.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
 
 /** Output only. The sentiment analysis result for the message. */
@@ -17940,9 +18140,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Dialogflow only uses this to determine which conversations were handed off
  *  to a human agent for measurement purposes. What else to do with this signal
  *  is up to you and your handoff procedures. You may set this, for example: *
- *  In the entry fulfillment of a CX Page if entering the page indicates
- *  something went extremely wrong in the conversation. * In a webhook response
- *  when you determine that the customer issue can only be handled by a human.
+ *  In the entry fulfillment of a Dialogflow CX Page if entering the page
+ *  indicates something went extremely wrong in the conversation. * In a webhook
+ *  response when you determine that the customer issue can only be handled by a
+ *  human.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageLiveAgentHandoff : GTLRObject
 
@@ -18483,6 +18684,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Error status if the request failed. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
 
+/**
+ *  Suggestions generated using generators triggered by customer or agent
+ *  messages.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse *generateSuggestionsResponse;
+
 /** SuggestArticlesResponse if request is for ARTICLE_SUGGESTION. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse *suggestArticlesResponse;
 
@@ -18558,6 +18765,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the returned replies is set in SmartReplyConfig.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer *> *smartReplyAnswers;
+
+@end
+
+
+/**
+ *  Suggested summary of the conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestion : GTLRObject
+
+/** Required. All the parts of generated summary. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestionSummarySection *> *summarySections;
+
+@end
+
+
+/**
+ *  A component of the generated summary.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestionSummarySection : GTLRObject
+
+/** Required. Name of the section. */
+@property(nonatomic, copy, nullable) NSString *section;
+
+/** Required. Summary text for the section. */
+@property(nonatomic, copy, nullable) NSString *summary;
 
 @end
 
@@ -18762,6 +18994,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization
+ *        Run conversation summarization model for chat. (Value:
+ *        "CONVERSATION_SUMMARIZATION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model for chat. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist
@@ -19424,6 +19659,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Suggestion generated using free form generator.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FreeFormSuggestion : GTLRObject
+
+/** Required. Free form suggestion. */
+@property(nonatomic, copy, nullable) NSString *response;
+
+@end
+
+
+/**
  *  Google Cloud Storage location for the output.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination : GTLRObject
@@ -19435,6 +19681,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  bucket.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The response message for Conversations.GenerateSuggestions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse : GTLRObject
+
+/** The answers generated for the conversation based on context. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponseGeneratorSuggestionAnswer *> *generatorSuggestionAnswers;
+
+/**
+ *  The name of the latest conversation message used as context for compiling
+ *  suggestion. Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  A GeneratorSuggestion answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponseGeneratorSuggestionAnswer : GTLRObject
+
+/**
+ *  Answer record that uniquely identifies the suggestion. This can be used to
+ *  provide suggestion feedback.
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/** Suggestion details. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion *generatorSuggestion;
+
+/**
+ *  The name of the generator used to generate this suggestion. Format:
+ *  `projects//locations//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceGenerator;
+
+@end
+
+
+/**
+ *  Suggestion generated using a Generator.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion : GTLRObject
+
+/** Optional. Free form suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FreeFormSuggestion *freeFormSuggestion;
+
+/** Optional. Suggested summary. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestion *summarySuggestion;
 
 @end
 
@@ -20732,7 +21032,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *participantRole;
 
-/** Optional. The time when the message was sent. */
+/**
+ *  Optional. The time when the message was sent. For voice messages, this is
+ *  the time when an utterance started.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
 
 /** Output only. The sentiment analysis result for the message. */
@@ -21139,6 +21442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization
+ *        Run conversation summarization model for chat. (Value:
+ *        "CONVERSATION_SUMMARIZATION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model for chat. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist
@@ -21401,6 +21707,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Error status if the request failed. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
 
+/**
+ *  Suggestions generated using generators triggered by customer or agent
+ *  messages.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse *generateSuggestionsResponse;
+
 /** SuggestArticlesResponse if request is for ARTICLE_SUGGESTION. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse *suggestArticlesResponse;
 
@@ -21470,6 +21782,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the returned replies is set in SmartReplyConfig.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer *> *smartReplyAnswers;
+
+@end
+
+
+/**
+ *  Suggested summary of the conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestion : GTLRObject
+
+/** Required. All the parts of generated summary. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestionSummarySection *> *summarySections;
+
+@end
+
+
+/**
+ *  A component of the generated summary.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestionSummarySection : GTLRObject
+
+/** Required. Name of the section. */
+@property(nonatomic, copy, nullable) NSString *section;
+
+/** Required. Summary text for the section. */
+@property(nonatomic, copy, nullable) NSString *summary;
 
 @end
 

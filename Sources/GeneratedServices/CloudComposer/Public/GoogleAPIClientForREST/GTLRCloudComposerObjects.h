@@ -714,7 +714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 /**
  *  Configuration for resources used by Airflow DAG processors. This field is
  *  supported for Cloud Composer environments in versions
- *  composer-3.*.*-airflow-*.*.* and newer.
+ *  composer-3-airflow-*.*.*-build.* and newer.
  */
 @interface GTLRCloudComposer_DagProcessorResource : GTLRObject
 
@@ -1586,7 +1586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_CidrBlock *> *cidrBlocks;
 
 /**
- *  Whether or not master authorized networks feature is enabled.
+ *  Optional. Whether or not master authorized networks feature is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1602,7 +1602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 @interface GTLRCloudComposer_NetworkingConfig : GTLRObject
 
 /**
- *  Optional. Indicates the user requested specifc connection type between
+ *  Optional. Indicates the user requested specific connection type between
  *  Tenant and Customer projects. You cannot set networking connection type in
  *  public IP environment.
  *
@@ -1636,7 +1636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  not be accessible in the user's VPC network. Cannot be updated. If not
  *  specified, the default value of '100.64.128.0/20' is used. This field is
  *  supported for Cloud Composer environments in versions
- *  composer-3.*.*-airflow-*.*.* and newer.
+ *  composer-3-airflow-*.*.*-build.* and newer.
  */
 @property(nonatomic, copy, nullable) NSString *composerInternalIpv4CidrBlock;
 
@@ -1650,7 +1650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  format
  *  projects/{project}/regions/{region}/networkAttachments/{networkAttachment}.
  *  This field is supported for Cloud Composer environments in versions
- *  composer-3.*.*-airflow-*.*.* and newer.
+ *  composer-3-airflow-*.*.*-build.* and newer.
  */
 @property(nonatomic, copy, nullable) NSString *composerNetworkAttachment;
 
@@ -2040,7 +2040,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  `NodeConfig.subnetwork` fields or `NodeConfig.composer_network_attachment`
  *  field are specified). If `false`, the builds also have access to the
  *  internet. This field is supported for Cloud Composer environments in
- *  versions composer-3.*.*-airflow-*.*.* and newer.
+ *  versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2298,7 +2298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 /**
  *  Optional. Whether or not the web server uses custom plugins. If unspecified,
  *  the field defaults to `PLUGINS_ENABLED`. This field is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-3-airflow-*.*.*-build.* and
+ *  newer.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsDisabled
@@ -2719,8 +2720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 /**
  *  Optional. Resources used by Airflow DAG processors. This field is supported
- *  for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and
- *  newer.
+ *  for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.*
+ *  and newer.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_DagProcessorResource *dagProcessor;
 

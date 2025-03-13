@@ -50,9 +50,15 @@ NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Unknown = @"UNKNOWN";
 
 // GTLRHangoutsChat_Annotation.type
 NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified = @"ANNOTATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Annotation_Type_CustomEmoji = @"CUSTOM_EMOJI";
 NSString * const kGTLRHangoutsChat_Annotation_Type_RichLink    = @"RICH_LINK";
 NSString * const kGTLRHangoutsChat_Annotation_Type_SlashCommand = @"SLASH_COMMAND";
 NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention = @"USER_MENTION";
+
+// GTLRHangoutsChat_AppCommandMetadata.appCommandType
+NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_AppCommandTypeUnspecified = @"APP_COMMAND_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_QuickCommand = @"QUICK_COMMAND";
+NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_SlashCommand = @"SLASH_COMMAND";
 
 // GTLRHangoutsChat_Attachment.source
 NSString * const kGTLRHangoutsChat_Attachment_Source_DriveFile = @"DRIVE_FILE";
@@ -89,6 +95,7 @@ NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_AppMessageExpir
 NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_Creator = @"CREATOR";
 NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_CreatorViaApp = @"CREATOR_VIA_APP";
 NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_DeletionTypeUnspecified = @"DELETION_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_SpaceMember = @"SPACE_MEMBER";
 NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_SpaceOwner = @"SPACE_OWNER";
 NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_SpaceOwnerViaApp = @"SPACE_OWNER_VIA_APP";
 
@@ -100,6 +107,7 @@ NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecifi
 
 // GTLRHangoutsChat_DeprecatedEvent.type
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace = @"ADDED_TO_SPACE";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AppCommand = @"APP_COMMAND";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked = @"CARD_CLICKED";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message = @"MESSAGE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace = @"REMOVED_FROM_SPACE";
@@ -345,6 +353,18 @@ NSString * const kGTLRHangoutsChat_Space_Type_Dm              = @"DM";
 NSString * const kGTLRHangoutsChat_Space_Type_Room            = @"ROOM";
 NSString * const kGTLRHangoutsChat_Space_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRHangoutsChat_SpaceNotificationSetting.muteSetting
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_MuteSetting_Muted = @"MUTED";
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_MuteSetting_MuteSettingUnspecified = @"MUTE_SETTING_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_MuteSetting_Unmuted = @"UNMUTED";
+
+// GTLRHangoutsChat_SpaceNotificationSetting.notificationSetting
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_NotificationSetting_All = @"ALL";
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_NotificationSetting_ForYou = @"FOR_YOU";
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_NotificationSetting_MainConversations = @"MAIN_CONVERSATIONS";
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_NotificationSetting_NotificationSettingUnspecified = @"NOTIFICATION_SETTING_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_SpaceNotificationSetting_NotificationSetting_Off = @"OFF";
+
 // GTLRHangoutsChat_User.type
 NSString * const kGTLRHangoutsChat_User_Type_Bot             = @"BOT";
 NSString * const kGTLRHangoutsChat_User_Type_Human           = @"HUMAN";
@@ -411,7 +431,18 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Annotation
-@dynamic length, richLinkMetadata, slashCommand, startIndex, type, userMention;
+@dynamic customEmojiMetadata, length, richLinkMetadata, slashCommand,
+         startIndex, type, userMention;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_AppCommandMetadata
+//
+
+@implementation GTLRHangoutsChat_AppCommandMetadata
+@dynamic appCommandId, appCommandType;
 @end
 
 
@@ -615,6 +646,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_CustomEmojiMetadata
+//
+
+@implementation GTLRHangoutsChat_CustomEmojiMetadata
+@dynamic customEmoji;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_DateInput
 //
 
@@ -649,8 +690,9 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_DeprecatedEvent
-@dynamic action, common, configCompleteRedirectUrl, dialogEventType, eventTime,
-         isDialogEvent, message, space, threadKey, token, type, user;
+@dynamic action, appCommandMetadata, common, configCompleteRedirectUrl,
+         dialogEventType, eventTime, isDialogEvent, message, space, thread,
+         threadKey, token, type, user;
 @end
 
 
@@ -1997,6 +2039,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
          reactionBatchDeletedEventData, reactionCreatedEventData,
          reactionDeletedEventData, spaceBatchUpdatedEventData,
          spaceUpdatedEventData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SpaceNotificationSetting
+//
+
+@implementation GTLRHangoutsChat_SpaceNotificationSetting
+@dynamic muteSetting, name, notificationSetting;
 @end
 
 

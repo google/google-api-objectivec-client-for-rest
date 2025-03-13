@@ -259,6 +259,7 @@ NSString * const kGTLROracleDatabase_Entitlement_State_AccountNotActive = @"ACCO
 NSString * const kGTLROracleDatabase_Entitlement_State_AccountNotLinked = @"ACCOUNT_NOT_LINKED";
 NSString * const kGTLROracleDatabase_Entitlement_State_AccountSuspended = @"ACCOUNT_SUSPENDED";
 NSString * const kGTLROracleDatabase_Entitlement_State_Active  = @"ACTIVE";
+NSString * const kGTLROracleDatabase_Entitlement_State_NotApprovedInPrivateMarketplace = @"NOT_APPROVED_IN_PRIVATE_MARKETPLACE";
 NSString * const kGTLROracleDatabase_Entitlement_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest.type

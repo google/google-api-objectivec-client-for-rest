@@ -334,6 +334,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
+ *  Returns a token for device enrollment. The DPC can encode this token within
+ *  the QR/NFC/zero-touch enrollment payload or fetch it before calling the
+ *  on-device API to authenticate the user. The token can be generated for each
+ *  device or reused across multiple devices.
+ *
+ *  Method: androidenterprise.enrollmentTokens.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnrollmentTokensCreate : GTLRAndroidEnterpriseQuery
+
+/** Required. The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_EnrollmentToken.
+ *
+ *  Returns a token for device enrollment. The DPC can encode this token within
+ *  the QR/NFC/zero-touch enrollment payload or fetch it before calling the
+ *  on-device API to authenticate the user. The token can be generated for each
+ *  device or reused across multiple devices.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_EnrollmentToken to include in the
+ *    query.
+ *  @param enterpriseId Required. The ID of the enterprise.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_EnrollmentTokensCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_EnrollmentToken *)object
+                   enterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
  *  Acknowledges notifications that were received from
  *  Enterprises.PullNotificationSet to prevent subsequent calls from returning
  *  the same notifications.
@@ -393,41 +428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  @return GTLRAndroidEnterpriseQuery_EnterprisesCompleteSignup
  */
 + (instancetype)query;
-
-@end
-
-/**
- *  Returns a token for device enrollment. The DPC can encode this token within
- *  the QR/NFC/zero-touch enrollment payload or fetch it before calling the
- *  on-device API to authenticate the user. The token can be generated for each
- *  device or reused across multiple devices.
- *
- *  Method: androidenterprise.enterprises.createEnrollmentToken
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken : GTLRAndroidEnterpriseQuery
-
-/** Required. The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_EnrollmentToken.
- *
- *  Returns a token for device enrollment. The DPC can encode this token within
- *  the QR/NFC/zero-touch enrollment payload or fetch it before calling the
- *  on-device API to authenticate the user. The token can be generated for each
- *  device or reused across multiple devices.
- *
- *  @param object The @c GTLRAndroidEnterprise_EnrollmentToken to include in the
- *    query.
- *  @param enterpriseId Required. The ID of the enterprise.
- *
- *  @return GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_EnrollmentToken *)object
-                   enterpriseId:(NSString *)enterpriseId;
 
 @end
 
@@ -497,6 +497,56 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
+ *  Generates an enterprise upgrade URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain. **Note:** This feature
+ *  is not generally available.
+ *
+ *  Method: androidenterprise.enterprises.generateEnterpriseUpgradeUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesGenerateEnterpriseUpgradeUrl : GTLRAndroidEnterpriseQuery
+
+/**
+ *  Optional. Email address used to prefill the admin field of the enterprise
+ *  signup form as part of the upgrade process. This value is a hint only and
+ *  can be altered by the user. Personal email addresses are not allowed. If
+ *  `allowedDomains` is non-empty then this must belong to one of the
+ *  `allowedDomains`.
+ */
+@property(nonatomic, copy, nullable) NSString *adminEmail;
+
+/**
+ *  Optional. A list of domains that are permitted for the admin email. The IT
+ *  admin cannot enter an email address with a domain name that is not in this
+ *  list. Subdomains of domains in this list are not allowed but can be allowed
+ *  by adding a second entry which has `*.` prefixed to the domain name (e.g.
+ *  *.example.com). If the field is not present or is an empty list then the IT
+ *  admin is free to use any valid domain name. Personal email domains are not
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDomains;
+
+/** Required. The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse.
+ *
+ *  Generates an enterprise upgrade URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain. **Note:** This feature
+ *  is not generally available.
+ *
+ *  @param enterpriseId Required. The ID of the enterprise.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_EnterprisesGenerateEnterpriseUpgradeUrl
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
  *  Generates a sign-up URL.
  *
  *  Method: androidenterprise.enterprises.generateSignupUrl
@@ -508,9 +558,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  Optional. Email address used to prefill the admin field of the enterprise
- *  signup form. This value is a hint only and can be altered by the user.
+ *  signup form. This value is a hint only and can be altered by the user. If
+ *  `allowedDomains` is non-empty then this must belong to one of the
+ *  `allowedDomains`.
  */
 @property(nonatomic, copy, nullable) NSString *adminEmail;
+
+/**
+ *  Optional. A list of domains that are permitted for the admin email. The IT
+ *  admin cannot enter an email address with a domain name that is not in this
+ *  list. Subdomains of domains in this list are not allowed but can be allowed
+ *  by adding a second entry which has `*.` prefixed to the domain name (e.g.
+ *  *.example.com). If the field is not present or is an empty list then the IT
+ *  admin is free to use any valid domain name. Personal email domains are
+ *  always allowed, but will result in the creation of a managed Google Play
+ *  Accounts enterprise.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDomains;
 
 /**
  *  The callback URL to which the Admin will be redirected after successfully
@@ -2079,6 +2143,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysDelete : GTLRAndroidEnterpriseQuery
 
 /** The ID of the enterprise. */
@@ -2118,6 +2183,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysInsert : GTLRAndroidEnterpriseQuery
 
 /** The ID of the enterprise. */
@@ -2155,6 +2221,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysList : GTLRAndroidEnterpriseQuery
 
 /** The ID of the enterprise. */

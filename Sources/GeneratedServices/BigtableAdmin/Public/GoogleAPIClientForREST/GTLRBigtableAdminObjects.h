@@ -36,6 +36,8 @@
 @class GTLRBigtableAdmin_CreateClusterRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest_Clusters;
+@class GTLRBigtableAdmin_CreateLogicalViewRequest;
+@class GTLRBigtableAdmin_CreateMaterializedViewRequest;
 @class GTLRBigtableAdmin_DataBoostIsolationReadOnly;
 @class GTLRBigtableAdmin_DataBoostReadLocalWrites;
 @class GTLRBigtableAdmin_EncryptionConfig;
@@ -62,14 +64,20 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding;
 @class GTLRBigtableAdmin_HotTablet;
 @class GTLRBigtableAdmin_Instance;
 @class GTLRBigtableAdmin_Instance_Labels;
@@ -77,6 +85,8 @@
 @class GTLRBigtableAdmin_Location;
 @class GTLRBigtableAdmin_Location_Labels;
 @class GTLRBigtableAdmin_Location_Metadata;
+@class GTLRBigtableAdmin_LogicalView;
+@class GTLRBigtableAdmin_MaterializedView;
 @class GTLRBigtableAdmin_Modification;
 @class GTLRBigtableAdmin_MultiClusterRoutingUseAny;
 @class GTLRBigtableAdmin_Operation;
@@ -102,6 +112,7 @@
 @class GTLRBigtableAdmin_Type;
 @class GTLRBigtableAdmin_Union;
 @class GTLRBigtableAdmin_UpdateAuthorizedViewRequest;
+@class GTLRBigtableAdmin_UpdateLogicalViewRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1570,6 +1581,92 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  The metadata for the Operation returned by CreateLogicalView.
+ */
+@interface GTLRBigtableAdmin_CreateLogicalViewMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The request that prompted the initiation of this CreateLogicalView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateLogicalViewRequest *originalRequest;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Request message for BigtableInstanceAdmin.CreateLogicalView.
+ */
+@interface GTLRBigtableAdmin_CreateLogicalViewRequest : GTLRObject
+
+/** Required. The logical view to create. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_LogicalView *logicalView;
+
+/**
+ *  Required. The ID to use for the logical view, which will become the final
+ *  component of the logical view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *logicalViewId;
+
+/**
+ *  Required. The parent instance where this logical view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by CreateMaterializedView.
+ */
+@interface GTLRBigtableAdmin_CreateMaterializedViewMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The request that prompted the initiation of this CreateMaterializedView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateMaterializedViewRequest *originalRequest;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Request message for BigtableInstanceAdmin.CreateMaterializedView.
+ */
+@interface GTLRBigtableAdmin_CreateMaterializedViewRequest : GTLRObject
+
+/** Required. The materialized view to create. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_MaterializedView *materializedView;
+
+/**
+ *  Required. The ID to use for the materialized view, which will become the
+ *  final component of the materialized view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *materializedViewId;
+
+/**
+ *  Required. The parent instance where this materialized view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
  *  Request message for google.bigtable.admin.v2.BigtableTableAdmin.CreateTable
  */
 @interface GTLRBigtableAdmin_CreateTableRequest : GTLRObject
@@ -2048,6 +2145,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  mode: all values are supported.
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw : GTLRObject
+
+/**
+ *  If set, allows NULL values to be encoded as the empty string "". The actual
+ *  empty string, or any value which only contains the null byte 0x00, has one
+ *  more null byte appended.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *escapeNulls;
+
 @end
 
 
@@ -2091,6 +2198,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /** Use `BigEndianBytes` encoding. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes *bigEndianBytes;
 
+/** Use `OrderedCodeBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes *orderedCodeBytes;
+
 @end
 
 
@@ -2105,6 +2215,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /** Deprecated: ignored if set. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes *bytesType GTLR_DEPRECATED;
 
+@end
+
+
+/**
+ *  Encodes the value in a variable length binary format of up to 10 bytes.
+ *  Values that are closer to zero use fewer bytes. Sorted mode: all values are
+ *  supported. Distinct mode: all values are supported.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes : GTLRObject
 @end
 
 
@@ -2162,6 +2281,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  `String#getBytes(StandardCharsets.UTF_8)`
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes : GTLRObject
+
+/**
+ *  Single-character escape sequence used to support NULL values. If set, allows
+ *  NULL values to be encoded as the empty string "". The actual empty string,
+ *  or any value where every character equals `null_escape_char`, has one more
+ *  `null_escape_char` appended. If `null_escape_char` is set and does not equal
+ *  the ASCII null character 0x00, then the encoding will not support sorted
+ *  mode. .
+ */
+@property(nonatomic, copy, nullable) NSString *nullEscapeChar;
+
 @end
 
 
@@ -2180,9 +2310,86 @@ GTLR_DEPRECATED
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct : GTLRObject
 
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding *encoding;
+
 /** The names and types of the fields in this struct. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField *> *fields;
 
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding : GTLRObject
+
+/** Use `DelimitedBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes *delimitedBytes;
+
+/** User `OrderedCodeBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes *orderedCodeBytes;
+
+/** Use `Singleton` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton *singleton;
+
+@end
+
+
+/**
+ *  Fields are encoded independently and concatenated with a configurable
+ *  `delimiter` in between. A struct with no fields defined is encoded as a
+ *  single `delimiter`. Sorted mode: - Fields are encoded in sorted mode. -
+ *  Encoded field values must not contain any bytes <= `delimiter[0]` -
+ *  Element-wise order is preserved: `A < B` if `A[0] < B[0]`, or if `A[0] ==
+ *  B[0] && A[1] < B[1]`, etc. Strict prefixes sort first. Distinct mode: -
+ *  Fields are encoded in distinct mode. - Encoded field values must not contain
+ *  `delimiter[0]`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes : GTLRObject
+
+/**
+ *  Byte sequence used to delimit concatenated fields. The delimiter must
+ *  contain at least 1 character and at most 50 characters.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *delimiter;
+
+@end
+
+
+/**
+ *  Fields are encoded independently and concatenated with the fixed byte pair
+ *  {0x00, 0x01} in between. Any null (0x00) byte in an encoded field is
+ *  replaced by the fixed byte pair {0x00, 0xFF}. Fields that encode to the
+ *  empty string "" have special handling: - If *every* field encodes to "", or
+ *  if the STRUCT has no fields defined, then the STRUCT is encoded as the fixed
+ *  byte pair {0x00, 0x00}. - Otherwise, the STRUCT only encodes until the last
+ *  non-empty field, omitting any trailing empty fields. Any empty fields that
+ *  aren't omitted are replaced with the fixed byte pair {0x00, 0x00}. Examples:
+ *  - STRUCT() -> "\\00\\00" - STRUCT("") -> "\\00\\00" - STRUCT("", "") ->
+ *  "\\00\\00" - STRUCT("", "B") -> "\\00\\00" + "\\00\\01" + "B" - STRUCT("A",
+ *  "") -> "A" - STRUCT("", "B", "") -> "\\00\\00" + "\\00\\01" + "B" -
+ *  STRUCT("A", "", "C") -> "A" + "\\00\\01" + "\\00\\00" + "\\00\\01" + "C"
+ *  Since null bytes are always escaped, this encoding can cause size blowup for
+ *  encodings like `Int64.BigEndianBytes` that are likely to produce many such
+ *  bytes. Sorted mode: - Fields are encoded in sorted mode. - All values
+ *  supported by the field encodings are allowed - Element-wise order is
+ *  preserved: `A < B` if `A[0] < B[0]`, or if `A[0] == B[0] && A[1] < B[1]`,
+ *  etc. Strict prefixes sort first. Distinct mode: - Fields are encoded in
+ *  distinct mode. - All values supported by the field encodings are allowed.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes : GTLRObject
+@end
+
+
+/**
+ *  Uses the encoding of `fields[0].type` as-is. Only valid if `fields.size ==
+ *  1`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton : GTLRObject
 @end
 
 
@@ -2207,6 +2414,25 @@ GTLR_DEPRECATED
  *  Timestamp Values of type `Timestamp` are stored in `Value.timestamp_value`.
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp : GTLRObject
+
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding *encoding;
+
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding : GTLRObject
+
+/**
+ *  Encodes the number of microseconds since the Unix epoch using the given
+ *  `Int64` encoding. Values must be microsecond-aligned. Compatible with: -
+ *  Java `Instant.truncatedTo()` with `ChronoUnit.MICROS`
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding *unixMicrosInt64;
+
 @end
 
 
@@ -2695,6 +2921,61 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigtableAdmin_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  A SQL logical view object that can be referenced in SQL queries.
+ */
+@interface GTLRBigtableAdmin_LogicalView : GTLRObject
+
+/**
+ *  Optional. The etag for this logical view. This may be sent on update
+ *  requests to ensure that the client has an up-to-date value before
+ *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique name of the logical view. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The logical view's select query. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
+ *  A materialized view object that can be referenced in SQL queries.
+ */
+@interface GTLRBigtableAdmin_MaterializedView : GTLRObject
+
+/**
+ *  Set to true to make the MaterializedView protected against deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
+
+/**
+ *  Optional. The etag for this materialized view. This may be sent on update
+ *  requests to ensure that the client has an up-to-date value before
+ *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique name of the materialized view. Format:
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Immutable. The materialized view's select query. */
+@property(nonatomic, copy, nullable) NSString *query;
+
 @end
 
 
@@ -3729,6 +4010,48 @@ GTLR_DEPRECATED
 
 /** The time at which the original request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by UpdateLogicalView.
+ */
+@interface GTLRBigtableAdmin_UpdateLogicalViewMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The request that prompted the initiation of this UpdateLogicalView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_UpdateLogicalViewRequest *originalRequest;
+
+/** The time at which this operation was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Request message for BigtableInstanceAdmin.UpdateLogicalView.
+ */
+@interface GTLRBigtableAdmin_UpdateLogicalViewRequest : GTLRObject
+
+/**
+ *  Required. The logical view to update. The logical view's `name` field is
+ *  used to identify the view to update. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_LogicalView *logicalView;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

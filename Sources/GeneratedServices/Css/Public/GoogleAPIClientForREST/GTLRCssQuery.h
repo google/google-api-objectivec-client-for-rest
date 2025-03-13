@@ -47,7 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the CSS product input resource to delete. Format:
- *  accounts/{account}/cssProductInputs/{css_product_input}
+ *  accounts/{account}/cssProductInputs/{css_product_input}, where the last
+ *  section `css_product_input` consists of 3 parts:
+ *  contentLanguage~feedLabel~offerId. Example:
+ *  accounts/123/cssProductInputs/de~DE~rawProvidedId123
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -65,7 +68,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  may take several minutes until the input is no longer available.
  *
  *  @param name Required. The name of the CSS product input resource to delete.
- *    Format: accounts/{account}/cssProductInputs/{css_product_input}
+ *    Format: accounts/{account}/cssProductInputs/{css_product_input}, where the
+ *    last section `css_product_input` consists of 3 parts:
+ *    contentLanguage~feedLabel~offerId. Example:
+ *    accounts/123/cssProductInputs/de~DE~rawProvidedId123
  *
  *  @return GTLRCssQuery_AccountsCssProductInputsDelete
  */
@@ -136,7 +142,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the CSS Product input. Format:
- *  `accounts/{account}/cssProductInputs/{css_product_input}`
+ *  `accounts/{account}/cssProductInputs/{css_product_input}`, where the last
+ *  section `css_product_input` consists of 3 parts:
+ *  contentLanguage~feedLabel~offerId. Example:
+ *  accounts/123/cssProductInputs/de~DE~rawProvidedId123
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -163,7 +172,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCss_ProductInput to include in the query.
  *  @param name The name of the CSS Product input. Format:
- *    `accounts/{account}/cssProductInputs/{css_product_input}`
+ *    `accounts/{account}/cssProductInputs/{css_product_input}`, where the last
+ *    section `css_product_input` consists of 3 parts:
+ *    contentLanguage~feedLabel~offerId. Example:
+ *    accounts/123/cssProductInputs/de~DE~rawProvidedId123
  *
  *  @return GTLRCssQuery_AccountsCssProductInputsPatch
  */

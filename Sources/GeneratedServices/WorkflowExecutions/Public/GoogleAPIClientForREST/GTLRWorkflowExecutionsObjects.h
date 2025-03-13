@@ -495,11 +495,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Error *error;
 
 /**
- *  Optional. Describes the level of the execution history feature to apply to
- *  this execution. If not specified, the level of the execution history feature
- *  will be determined by its workflow's execution history level. If the value
- *  is different from its workflow's value, it will override the workflow's
- *  execution history level for this exeuction.
+ *  Optional. Describes the execution history level to apply to this execution.
+ *  If not specified, the execution history level is determined by its
+ *  workflow's execution history level. If the levels are different, the
+ *  executionHistoryLevel overrides the workflow's execution history level for
+ *  this execution.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryBasic
@@ -956,7 +956,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. The NavigationInfo associated to this step. */
+/** Output only. The NavigationInfo associated with this step. */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_NavigationInfo *navigationInfo;
 
 /**
@@ -986,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 /** Output only. The name of the step this step entry belongs to. */
 @property(nonatomic, copy, nullable) NSString *step;
 
-/** Output only. The StepEntryMetadata associated to this step. */
+/** Output only. The StepEntryMetadata associated with this step. */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_StepEntryMetadata *stepEntryMetadata;
 
 /**
@@ -1045,7 +1045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 /** Output only. The most recently updated time of the step entry. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Output only. The VariableData associated to this step. */
+/** Output only. The VariableData associated with this step. */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_VariableData *variableData;
 
 @end

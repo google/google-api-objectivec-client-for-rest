@@ -133,9 +133,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
 @end
 
 /**
- *  Locates the closest building to a query point. Returns an error with code
- *  `NOT_FOUND` if there are no buildings within approximately 50m of the query
- *  point.
+ *  Locates the building whose centroid is closest to a query point. Returns an
+ *  error with code `NOT_FOUND` if there are no buildings within approximately
+ *  50m of the query point.
  *
  *  Method: solar.buildingInsights.findClosest
  *
@@ -185,9 +185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
 /**
  *  Fetches a @c GTLRSolar_BuildingInsights.
  *
- *  Locates the closest building to a query point. Returns an error with code
- *  `NOT_FOUND` if there are no buildings within approximately 50m of the query
- *  point.
+ *  Locates the building whose centroid is closest to a query point. Returns an
+ *  error with code `NOT_FOUND` if there are no buildings within approximately
+ *  50m of the query point.
  *
  *  @return GTLRSolarQuery_BuildingInsightsFindClosest
  */

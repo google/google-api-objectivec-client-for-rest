@@ -68,6 +68,12 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise = @"ENT
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STANDARD";
 
+// GTLRBigQueryReservation_Reservation.scalingMode
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_AllSlots = @"ALL_SLOTS";
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_AutoscaleOnly = @"AUTOSCALE_ONLY";
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_IdleSlotsOnly = @"IDLE_SLOTS_ONLY";
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUnspecified = @"SCALING_MODE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBigQueryReservation_Assignment
@@ -232,13 +238,24 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryReservation_ReplicationStatus
+//
+
+@implementation GTLRBigQueryReservation_ReplicationStatus
+@dynamic error, lastErrorTime, lastReplicationTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryReservation_Reservation
 //
 
 @implementation GTLRBigQueryReservation_Reservation
 @dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots, labels,
-         multiRegionAuxiliary, name, originalPrimaryLocation, primaryLocation,
-         secondaryLocation, slotCapacity, updateTime;
+         maxSlots, multiRegionAuxiliary, name, originalPrimaryLocation,
+         primaryLocation, replicationStatus, scalingMode, secondaryLocation,
+         slotCapacity, updateTime;
 @end
 
 

@@ -42,6 +42,8 @@
 @class GTLRNetAppFiles_Operation;
 @class GTLRNetAppFiles_Operation_Metadata;
 @class GTLRNetAppFiles_Operation_Response;
+@class GTLRNetAppFiles_QuotaRule;
+@class GTLRNetAppFiles_QuotaRule_Labels;
 @class GTLRNetAppFiles_Replication;
 @class GTLRNetAppFiles_Replication_Labels;
 @class GTLRNetAppFiles_RestoreParameters;
@@ -352,6 +354,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_KmsConfig_State_StateUnspeci
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_KmsConfig_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRNetAppFiles_LocationMetadata.supportedFlexPerformance
+
+/**
+ *  Flex Storage Pool with custom performance.
+ *
+ *  Value: "FLEX_PERFORMANCE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedFlexPerformance_FlexPerformanceCustom;
+/**
+ *  Flex Storage Pool with default performance.
+ *
+ *  Value: "FLEX_PERFORMANCE_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedFlexPerformance_FlexPerformanceDefault;
+/**
+ *  Unspecified flex performance.
+ *
+ *  Value: "FLEX_PERFORMANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedFlexPerformance_FlexPerformanceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetAppFiles_LocationMetadata.supportedServiceLevels
 
 /**
@@ -412,6 +436,80 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_MountOption_Protocol_Protoco
  *  Value: "SMB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_MountOption_Protocol_Smb;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_QuotaRule.state
+
+/**
+ *  Quota rule is creating
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_State_Creating;
+/**
+ *  Quota rule is deleting
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_State_Deleting;
+/**
+ *  Quota rule is in error state.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_State_Error;
+/**
+ *  Quota rule is ready
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_State_Ready;
+/**
+ *  Unspecified state for quota rule
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_State_StateUnspecified;
+/**
+ *  Quota rule is updating
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_QuotaRule.type
+
+/**
+ *  Default group quota rule
+ *
+ *  Value: "DEFAULT_GROUP_QUOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_Type_DefaultGroupQuota;
+/**
+ *  Default user quota rule
+ *
+ *  Value: "DEFAULT_USER_QUOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_Type_DefaultUserQuota;
+/**
+ *  Individual group quota rule
+ *
+ *  Value: "INDIVIDUAL_GROUP_QUOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_Type_IndividualGroupQuota;
+/**
+ *  Individual user quota rule
+ *
+ *  Value: "INDIVIDUAL_USER_QUOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_Type_IndividualUserQuota;
+/**
+ *  Unspecified type for quota rule
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_QuotaRule_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_Replication.hybridReplicationType
@@ -1694,6 +1792,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *passphrase;
 
+/**
+ *  Optional. Name of the user's local source cluster to be peered with the
+ *  destination cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *peerClusterName;
+
+/**
+ *  Optional. Name of the user's local source vserver svm to be peered with the
+ *  destination vserver svm.
+ */
+@property(nonatomic, copy, nullable) NSString *peerSvmName;
+
+/**
+ *  Optional. Name of the user's local source volume to be peered with the
+ *  destination volume.
+ */
+@property(nonatomic, copy, nullable) NSString *peerVolumeName;
+
 /** Optional. IP address of the subnet. */
 @property(nonatomic, copy, nullable) NSString *subnetIp;
 
@@ -2040,6 +2156,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  ListQuotaRulesResponse is the response to a ListQuotaRulesRequest.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "quotaRules" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetAppFiles_ListQuotaRulesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of quota rules
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetAppFiles_QuotaRule *> *quotaRules;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  ListReplicationsResponse is the result of ListReplicationsRequest.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2219,6 +2362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @interface GTLRNetAppFiles_LocationMetadata : GTLRObject
 
+/** Output only. Supported flex performance in a location. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedFlexPerformance;
+
 /** Output only. Supported service levels in a location. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedServiceLevels;
 
@@ -2278,6 +2424,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** Instructions for mounting */
 @property(nonatomic, copy, nullable) NSString *instructions;
+
+/** Output only. IP Address. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
  *  Protocol to mount with.
@@ -2412,6 +2561,98 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
+@end
+
+
+/**
+ *  QuotaRule specifies the maximum disk space a user or group can use within a
+ *  volume. They can be used for creating default and individual quota rules.
+ */
+@interface GTLRNetAppFiles_QuotaRule : GTLRObject
+
+/** Output only. Create time of the quota rule */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the quota rule
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The maximum allowed disk space in MiB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskLimitMib;
+
+/** Optional. Labels of the quota rule */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_QuotaRule_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the quota rule. Format:
+ *  `projects/{project_number}/locations/{location_id}/volumes/volumes/{volume_id}/quotaRules/{quota_rule_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the quota rule
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_State_Creating Quota rule is creating
+ *        (Value: "CREATING")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_State_Deleting Quota rule is deleting
+ *        (Value: "DELETING")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_State_Error Quota rule is in error
+ *        state. (Value: "ERROR")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_State_Ready Quota rule is ready (Value:
+ *        "READY")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_State_StateUnspecified Unspecified
+ *        state for quota rule (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_State_Updating Quota rule is updating
+ *        (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. State details of the quota rule */
+@property(nonatomic, copy, nullable) NSString *stateDetails;
+
+/**
+ *  Optional. The quota rule applies to the specified user or group, identified
+ *  by a Unix UID/GID, Windows SID, or null for default.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/**
+ *  Required. The type of quota rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_Type_DefaultGroupQuota Default group
+ *        quota rule (Value: "DEFAULT_GROUP_QUOTA")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_Type_DefaultUserQuota Default user
+ *        quota rule (Value: "DEFAULT_USER_QUOTA")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_Type_IndividualGroupQuota Individual
+ *        group quota rule (Value: "INDIVIDUAL_GROUP_QUOTA")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_Type_IndividualUserQuota Individual
+ *        user quota rule (Value: "INDIVIDUAL_USER_QUOTA")
+ *    @arg @c kGTLRNetAppFiles_QuotaRule_Type_TypeUnspecified Unspecified type
+ *        for quota rule (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Optional. Labels of the quota rule
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetAppFiles_QuotaRule_Labels : GTLRObject
 @end
 
 

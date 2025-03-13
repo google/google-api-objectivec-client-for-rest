@@ -27,6 +27,28 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_BitbucketCloudConfig
+//
+
+@implementation GTLRDeveloperConnect_BitbucketCloudConfig
+@dynamic authorizerCredential, readAuthorizerCredential,
+         webhookSecretSecretVersion, workspace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_BitbucketDataCenterConfig
+//
+
+@implementation GTLRDeveloperConnect_BitbucketDataCenterConfig
+@dynamic authorizerCredential, hostUri, readAuthorizerCredential, serverVersion,
+         serviceDirectoryConfig, sslCaCertificate, webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_CancelOperationRequest
 //
 
@@ -40,10 +62,11 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 //
 
 @implementation GTLRDeveloperConnect_Connection
-@dynamic annotations, createTime, cryptoKeyConfig, deleteTime, disabled, ETag,
-         githubConfig, githubEnterpriseConfig, gitlabConfig,
-         gitlabEnterpriseConfig, installationState, labels, name, reconciling,
-         uid, updateTime;
+@dynamic annotations, bitbucketCloudConfig, bitbucketDataCenterConfig,
+         createTime, cryptoKeyConfig, deleteTime, disabled, ETag, githubConfig,
+         githubEnterpriseConfig, gitlabConfig, gitlabEnterpriseConfig,
+         gitProxyConfig, installationState, labels, name, reconciling, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -241,12 +264,22 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_GitProxyConfig
+//
+
+@implementation GTLRDeveloperConnect_GitProxyConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_GitRepositoryLink
 //
 
 @implementation GTLRDeveloperConnect_GitRepositoryLink
-@dynamic annotations, cloneUri, createTime, deleteTime, ETag, labels, name,
-         reconciling, uid, updateTime, webhookId;
+@dynamic annotations, cloneUri, createTime, deleteTime, ETag, gitProxyUri,
+         labels, name, reconciling, uid, updateTime, webhookId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -534,6 +567,26 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 @implementation GTLRDeveloperConnect_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ProcessBitbucketCloudWebhookRequest
+//
+
+@implementation GTLRDeveloperConnect_ProcessBitbucketCloudWebhookRequest
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ProcessBitbucketDataCenterWebhookRequest
+//
+
+@implementation GTLRDeveloperConnect_ProcessBitbucketDataCenterWebhookRequest
+@dynamic body;
 @end
 
 

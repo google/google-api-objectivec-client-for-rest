@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Forms and responses.
 // Documentation:
-//   https://developers.google.com/forms/api
+//   https://developers.google.com/workspace/forms/api
 
 #import <GoogleAPIClientForREST/GTLRFormsQuery.h>
 
@@ -44,6 +44,8 @@
 @end
 
 @implementation GTLRFormsQuery_FormsCreate
+
+@dynamic unpublished;
 
 + (instancetype)queryWithObject:(GTLRForms_Form *)object {
   if (object == nil) {
@@ -121,6 +123,33 @@
   query.formId = formId;
   query.expectedObjectClass = [GTLRForms_ListFormResponsesResponse class];
   query.loggingName = @"forms.forms.responses.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFormsQuery_FormsSetPublishSettings
+
+@dynamic formId;
+
++ (instancetype)queryWithObject:(GTLRForms_SetPublishSettingsRequest *)object
+                         formId:(NSString *)formId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"formId" ];
+  NSString *pathURITemplate = @"v1/forms/{formId}:setPublishSettings";
+  GTLRFormsQuery_FormsSetPublishSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.formId = formId;
+  query.expectedObjectClass = [GTLRForms_SetPublishSettingsResponse class];
+  query.loggingName = @"forms.forms.setPublishSettings";
   return query;
 }
 

@@ -6019,21 +6019,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /**
  *  The feed labels associated with the feed where your items are uploaded. For
  *  more information, please refer to
- *  https://support.google.com/merchants/answer/12453549. This is a required
- *  field.
+ *  https://support.google.com/merchants/answer/12453549. Providing the feed
+ *  label reduces ambiguity in identifying the right offer details.
  */
 @property(nonatomic, copy, nullable) NSString *merchantFeedLabel;
 
 /**
  *  The language associated with the feed where your items are uploaded. Use ISO
- *  639-1 language codes. This field is needed only when item IDs are not unique
- *  across multiple Merchant Center feeds.
+ *  639-1 language codes. Providing the feed language reduces ambiguity in
+ *  identifying the right offer details.
  */
 @property(nonatomic, copy, nullable) NSString *merchantFeedLanguage;
 
 /**
- *  The Merchant Center ID where the items are uploaded. This is a required
- *  field.
+ *  The Merchant Center ID where the items are uploaded. Providing Merchant
+ *  Center ID reduces ambiguity in identifying the right offer details.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6724,7 +6724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_UserIdentifier *> *userIdentifiers;
 
 /**
- *  The value of the conversion. This is a required field.
+ *  The value of the conversion. Interpreted in CM360 Floodlight config parent
+ *  advertiser's currency code. This is a required field.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -15715,6 +15716,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeClickTracking;
+
+/**
+ *  Optional. Indicates that the unescapedlpurl macro should be included in the
+ *  tag for the static landing page. New placements will default to the value
+ *  set on their site.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeUnescapedlpurlMacro;
 
 /**
  *  Option specifying how keywords are embedded in ad tags. This setting can be

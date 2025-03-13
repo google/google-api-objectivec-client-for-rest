@@ -557,7 +557,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a user workloads ConfigMap. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-3-airflow-*.*.*-build.* and
+ *  newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.create
  *
@@ -576,7 +577,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_UserWorkloadsConfigMap.
  *
  *  Creates a user workloads ConfigMap. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-3-airflow-*.*.*-build.* and
+ *  newer.
  *
  *  @param object The @c GTLRCloudComposer_UserWorkloadsConfigMap to include in
  *    the query.
@@ -593,7 +595,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a user workloads ConfigMap. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-3-airflow-*.*.*-build.* and
+ *  newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.delete
  *
@@ -612,7 +615,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_Empty.
  *
  *  Deletes a user workloads ConfigMap. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-3-airflow-*.*.*-build.* and
+ *  newer.
  *
  *  @param name Required. The ConfigMap to delete, in the form:
  *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
@@ -625,7 +629,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets an existing user workloads ConfigMap. This method is supported for
- *  Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and
+ *  Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and
  *  newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.get
@@ -645,7 +649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_UserWorkloadsConfigMap.
  *
  *  Gets an existing user workloads ConfigMap. This method is supported for
- *  Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and
+ *  Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and
  *  newer.
  *
  *  @param name Required. The resource name of the ConfigMap to get, in the
@@ -660,7 +664,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists user workloads ConfigMaps. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.list
  *
@@ -688,7 +692,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_ListUserWorkloadsConfigMapsResponse.
  *
  *  Lists user workloads ConfigMaps. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  @param parent Required. List ConfigMaps in the given environment, in the
  *    form:
@@ -706,7 +710,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a user workloads ConfigMap. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-3-airflow-*.*.*-build.* and
+ *  newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.update
  *
@@ -725,7 +730,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_UserWorkloadsConfigMap.
  *
  *  Updates a user workloads ConfigMap. This method is supported for Cloud
- *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  Composer environments in versions composer-3-airflow-*.*.*-build.* and
+ *  newer.
  *
  *  @param object The @c GTLRCloudComposer_UserWorkloadsConfigMap to include in
  *    the query.
@@ -741,7 +747,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a user workloads Secret. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsSecrets.create
  *
@@ -760,7 +766,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_UserWorkloadsSecret.
  *
  *  Creates a user workloads Secret. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  @param object The @c GTLRCloudComposer_UserWorkloadsSecret to include in the
  *    query.
@@ -777,7 +783,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a user workloads Secret. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsSecrets.delete
  *
@@ -796,7 +802,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_Empty.
  *
  *  Deletes a user workloads Secret. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  @param name Required. The Secret to delete, in the form:
  *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
@@ -810,7 +816,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gets an existing user workloads Secret. Values of the "data" field in the
  *  response are cleared. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsSecrets.get
  *
@@ -830,7 +836,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an existing user workloads Secret. Values of the "data" field in the
  *  response are cleared. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  @param name Required. The resource name of the Secret to get, in the form:
  *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
@@ -843,7 +849,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists user workloads Secrets. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsSecrets.list
  *
@@ -871,7 +877,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_ListUserWorkloadsSecretsResponse.
  *
  *  Lists user workloads Secrets. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  @param parent Required. List Secrets in the given environment, in the form:
  *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
@@ -888,7 +894,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a user workloads Secret. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  Method: composer.projects.locations.environments.userWorkloadsSecrets.update
  *
@@ -907,7 +913,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudComposer_UserWorkloadsSecret.
  *
  *  Updates a user workloads Secret. This method is supported for Cloud Composer
- *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *  environments in versions composer-3-airflow-*.*.*-build.* and newer.
  *
  *  @param object The @c GTLRCloudComposer_UserWorkloadsSecret to include in the
  *    query.

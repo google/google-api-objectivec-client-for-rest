@@ -574,6 +574,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  ProcessBitbucketCloudWebhook is called by the external Bitbucket Cloud
+ *  instances for notifying events.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.processBitbucketCloudWebhook
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketCloudWebhook : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The GitRepositoryLink where the webhook will be received. Format:
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Empty.
+ *
+ *  ProcessBitbucketCloudWebhook is called by the external Bitbucket Cloud
+ *  instances for notifying events.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_ProcessBitbucketCloudWebhookRequest to include in the
+ *    query.
+ *  @param name Required. The GitRepositoryLink where the webhook will be
+ *    received. Format: `projects/ * /locations/ * /connections/ *
+ *    /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketCloudWebhook
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessBitbucketCloudWebhookRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  ProcessBitbucketDataCenterWebhook is called by the external Bitbucket Data
+ *  Center instances for notifying events.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.processBitbucketDataCenterWebhook
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketDataCenterWebhook : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The GitRepositoryLink where the webhook will be received. Format:
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Empty.
+ *
+ *  ProcessBitbucketDataCenterWebhook is called by the external Bitbucket Data
+ *  Center instances for notifying events.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_ProcessBitbucketDataCenterWebhookRequest to include
+ *    in the query.
+ *  @param name Required. The GitRepositoryLink where the webhook will be
+ *    received. Format: `projects/ * /locations/ * /connections/ *
+ *    /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketDataCenterWebhook
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessBitbucketDataCenterWebhookRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  ProcessGitLabEnterpriseWebhook is called by the external GitLab Enterprise
  *  instances for notifying events.
  *

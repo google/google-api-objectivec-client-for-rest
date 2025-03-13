@@ -1509,8 +1509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Creates a reaction and adds it to a message. Only unicode emojis are
- *  supported. For an example, see [Add a reaction to a
+ *  Creates a reaction and adds it to a message. For an example, see [Add a
+ *  reaction to a
  *  message](https://developers.google.com/workspace/chat/create-reactions).
  *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
@@ -1534,8 +1534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Reaction.
  *
- *  Creates a reaction and adds it to a message. Only unicode emojis are
- *  supported. For an example, see [Add a reaction to a
+ *  Creates a reaction and adds it to a message. For an example, see [Add a
+ *  reaction to a
  *  message](https://developers.google.com/workspace/chat/create-reactions).
  *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
@@ -1552,8 +1552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Deletes a reaction to a message. Only unicode emojis are supported. For an
- *  example, see [Delete a
+ *  Deletes a reaction to a message. For an example, see [Delete a
  *  reaction](https://developers.google.com/workspace/chat/delete-reactions).
  *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
@@ -1576,8 +1575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Empty.
  *
- *  Deletes a reaction to a message. Only unicode emojis are supported. For an
- *  example, see [Delete a
+ *  Deletes a reaction to a message. For an example, see [Delete a
  *  reaction](https://developers.google.com/workspace/chat/delete-reactions).
  *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
@@ -2336,6 +2334,99 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  @return GTLRHangoutsChatQuery_UsersSpacesGetSpaceReadState
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the space notification setting. For an example, see [Get the caller's
+ *  space notification
+ *  setting](https://developers.google.com/workspace/chat/get-space-notification-setting).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.users.spaces.spaceNotificationSetting.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSpacesettings
+ */
+@interface GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingGet : GTLRHangoutsChatQuery
+
+/**
+ *  Required. Format: users/{user}/spaces/{space}/spaceNotificationSetting -
+ *  `users/me/spaces/{space}/spaceNotificationSetting`, OR -
+ *  `users/user\@example.com/spaces/{space}/spaceNotificationSetting`, OR -
+ *  `users/123456789/spaces/{space}/spaceNotificationSetting`. Note: Only the
+ *  caller's user id or email is allowed in the path.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_SpaceNotificationSetting.
+ *
+ *  Gets the space notification setting. For an example, see [Get the caller's
+ *  space notification
+ *  setting](https://developers.google.com/workspace/chat/get-space-notification-setting).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param name Required. Format:
+ *    users/{user}/spaces/{space}/spaceNotificationSetting -
+ *    `users/me/spaces/{space}/spaceNotificationSetting`, OR -
+ *    `users/user\@example.com/spaces/{space}/spaceNotificationSetting`, OR -
+ *    `users/123456789/spaces/{space}/spaceNotificationSetting`. Note: Only the
+ *    caller's user id or email is allowed in the path.
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the space notification setting. For an example, see [Update the
+ *  caller's space notification
+ *  setting](https://developers.google.com/workspace/chat/update-space-notification-setting).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.users.spaces.spaceNotificationSetting.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSpacesettings
+ */
+@interface GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingPatch : GTLRHangoutsChatQuery
+
+/**
+ *  Identifier. The resource name of the space notification setting. Format:
+ *  `users/{user}/spaces/{space}/spaceNotificationSetting`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Supported field paths: - `notification_setting` - `mute_setting`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_SpaceNotificationSetting.
+ *
+ *  Updates the space notification setting. For an example, see [Update the
+ *  caller's space notification
+ *  setting](https://developers.google.com/workspace/chat/update-space-notification-setting).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param object The @c GTLRHangoutsChat_SpaceNotificationSetting to include in
+ *    the query.
+ *  @param name Identifier. The resource name of the space notification setting.
+ *    Format: `users/{user}/spaces/{space}/spaceNotificationSetting`.
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingPatch
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SpaceNotificationSetting *)object
+                           name:(NSString *)name;
 
 @end
 

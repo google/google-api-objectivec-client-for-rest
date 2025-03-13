@@ -778,6 +778,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Looker"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ManagedKafka",
+            targets: ["GoogleAPIClientForREST_ManagedKafka"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_ManagedServiceforMicrosoftActiveDirectoryConsumerAPI",
             targets: ["GoogleAPIClientForREST_ManagedServiceforMicrosoftActiveDirectoryConsumerAPI"]
         ),
@@ -2365,6 +2369,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Looker",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Looker",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ManagedKafka",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/ManagedKafka",
             publicHeadersPath: "Public"
         ),
         .target(

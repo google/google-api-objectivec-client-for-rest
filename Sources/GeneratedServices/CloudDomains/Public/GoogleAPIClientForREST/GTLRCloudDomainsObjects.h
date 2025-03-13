@@ -1745,9 +1745,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdata;
 
 /**
- *  DNSSEC generated signatures for all the `rrdata` within this item. If health
- *  checked targets are provided for DNSSEC enabled zones, there's a restriction
- *  of 1 IP address per item.
+ *  DNSSEC generated signatures for all the `rrdata` within this item. When
+ *  using health-checked targets for DNSSEC-enabled zones, you can only use at
+ *  most one health-checked IP address per item.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdata;
 
@@ -1834,7 +1834,8 @@ GTLR_DEPRECATED
 /**
  *  HealthCheckTargets describes endpoints to health-check when responding to
  *  Routing Policy queries. Only the healthy endpoints will be included in the
- *  response.
+ *  response. Set either `internal_load_balancer` or `external_endpoints`. Do
+ *  not set both.
  */
 @interface GTLRCloudDomains_HealthCheckTargets : GTLRObject
 
@@ -3060,8 +3061,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudDomains_GeoPolicy *geoPolicy GTLR_DEPRECATED;
 
 /**
- *  The selfLink attribute of the HealthCheck resource to use for this
- *  RRSetRoutingPolicy.
+ *  The fully qualified URL of the HealthCheck to use for this
+ *  RRSetRoutingPolicy. Format this URL like
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/healthChecks/{healthCheck}`.
  *  https://cloud.google.com/compute/docs/reference/rest/v1/healthChecks
  */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -3301,9 +3303,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdata;
 
 /**
- *  DNSSEC generated signatures for all the `rrdata` within this item. Note that
- *  if health checked targets are provided for DNSSEC enabled zones, there's a
- *  restriction of 1 IP address per item.
+ *  DNSSEC generated signatures for all the `rrdata` within this item. When
+ *  using health-checked targets for DNSSEC-enabled zones, you can only use at
+ *  most one health-checked IP address per item.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdata;
 

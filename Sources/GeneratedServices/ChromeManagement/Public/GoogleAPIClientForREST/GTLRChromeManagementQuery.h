@@ -355,6 +355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Deletes the data collected from a Chrome browser profile.
  *
  *  Method: chromemanagement.customers.profiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
  */
 @interface GTLRChromeManagementQuery_CustomersProfilesDelete : GTLRChromeManagementQuery
 
@@ -381,6 +384,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Gets a Chrome browser profile with customer ID and profile permanent ID.
  *
  *  Method: chromemanagement.customers.profiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersProfilesGet : GTLRChromeManagementQuery
 
@@ -409,6 +416,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  sorting criteria.
  *
  *  Method: chromemanagement.customers.profiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersProfilesList : GTLRChromeManagementQuery
 

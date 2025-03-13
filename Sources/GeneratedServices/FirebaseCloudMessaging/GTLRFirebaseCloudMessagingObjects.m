@@ -5,7 +5,7 @@
 //   Firebase Cloud Messaging API (fcm/v1)
 // Description:
 //   FCM send API that provides a cross-platform messaging solution to reliably
-//   deliver messages at no cost.
+//   deliver messages.
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
@@ -44,8 +44,8 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_AndroidConfig
-@dynamic collapseKey, data, directBootOk, fcmOptions, notification, priority,
-         restrictedPackageName, ttl;
+@dynamic bandwidthConstrainedOk, collapseKey, data, directBootOk, fcmOptions,
+         notification, priority, restrictedPackageName, ttl;
 @end
 
 

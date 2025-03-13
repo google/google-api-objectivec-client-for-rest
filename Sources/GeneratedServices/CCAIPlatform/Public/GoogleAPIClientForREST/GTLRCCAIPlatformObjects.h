@@ -132,12 +132,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUn
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall;
 /**
- *  Instance Size DEV_EXTRA_SMALL.
- *
- *  Value: "DEV_XSMALL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall;
-/**
  *  The default value. This value is used if the state is omitted.
  *
  *  Value: "INSTANCE_SIZE_UNSPECIFIED"
@@ -243,12 +237,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  *  Value: "DEV_SMALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall;
-/**
- *  Instance Size DEV_EXTRA_SMALL.
- *
- *  Value: "DEV_XSMALL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall;
 /**
  *  The default value. This value is used if the state is omitted.
  *
@@ -645,7 +633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 
 /**
- *  Message describing ContactCenter object Next ID: 24
+ *  Message describing ContactCenter object
  */
 @interface GTLRCCAIPlatform_ContactCenter : GTLRObject
 
@@ -876,8 +864,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *  Likely values:
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall Instance
  *        Size DEV_SMALL (Value: "DEV_SMALL")
- *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall Instance
- *        Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
@@ -1248,8 +1234,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *  Likely values:
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall
  *        Instance Size DEV_SMALL (Value: "DEV_SMALL")
- *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall
- *        Instance Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")

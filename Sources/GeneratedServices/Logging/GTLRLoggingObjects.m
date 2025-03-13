@@ -13,12 +13,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRLogging_AuditLogConfig.logType
-NSString * const kGTLRLogging_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRLogging_AuditLogConfig_LogType_DataRead  = @"DATA_READ";
-NSString * const kGTLRLogging_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRLogging_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
 // GTLRLogging_BucketMetadata.state
 NSString * const kGTLRLogging_BucketMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
 NSString * const kGTLRLogging_BucketMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
@@ -171,42 +165,6 @@ NSString * const kGTLRLogging_SavedQuery_Visibility_VisibilityUnspecified = @"VI
 NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed = @"NOT_CONSUMED";
 NSString * const kGTLRLogging_SuppressionInfo_Reason_RateLimit = @"RATE_LIMIT";
 NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLogging_AuditConfig
-//
-
-@implementation GTLRLogging_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRLogging_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLogging_AuditLogConfig
-//
-
-@implementation GTLRLogging_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -1317,7 +1275,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_Policy
-@dynamic auditConfigs, bindings, ETag, version;
+@dynamic bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1325,7 +1283,6 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRLogging_AuditConfig class],
     @"bindings" : [GTLRLogging_Binding class]
   };
   return map;

@@ -34,6 +34,7 @@
 @class GTLREventarc_GoogleApiSource;
 @class GTLREventarc_GoogleApiSource_Annotations;
 @class GTLREventarc_GoogleApiSource_Labels;
+@class GTLREventarc_GoogleChannelConfig_Labels;
 @class GTLREventarc_GoogleCloudEventarcV1PipelineDestination;
 @class GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfig;
 @class GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfigOAuthToken;
@@ -1152,15 +1153,32 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
+/** Optional. Resource labels. */
+@property(nonatomic, strong, nullable) GTLREventarc_GoogleChannelConfig_Labels *labels;
+
 /**
  *  Required. The resource name of the config. Must be in the format of,
- *  `projects/{project}/locations/{location}/googleChannelConfig`.
+ *  `projects/{project}/locations/{location}/googleChannelConfig`. In API
+ *  responses, the config name always includes the projectID, regardless of
+ *  whether the projectID or projectNumber was provided.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. The last-modified time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Resource labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLREventarc_GoogleChannelConfig_Labels : GTLRObject
 @end
 
 
@@ -1417,7 +1435,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *messageBindingTemplate;
 
 /**
- *  Required. The URI of the HTTP enpdoint. The value must be a RFC2396 URI
+ *  Required. The URI of the HTTP endpoint. The value must be a RFC2396 URI
  *  string. Examples: `https://svc.us-central1.p.local:8080/route`. Only the
  *  HTTPS protocol is supported.
  */
@@ -1744,7 +1762,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @interface GTLREventarc_HttpEndpoint : GTLRObject
 
 /**
- *  Required. The URI of the HTTP enpdoint. The value must be a RFC2396 URI
+ *  Required. The URI of the HTTP endpoint. The value must be a RFC2396 URI
  *  string. Examples: `http://10.10.10.8:80/route`,
  *  `http://svc.us-central1.p.local:8080/`. Only HTTP and HTTPS protocols are
  *  supported. The host can be either a static IP addressable from the VPC

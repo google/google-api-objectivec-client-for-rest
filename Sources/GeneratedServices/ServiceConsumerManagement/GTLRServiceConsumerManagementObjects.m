@@ -203,6 +203,37 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_Aspect
+//
+
+@implementation GTLRServiceConsumerManagement_Aspect
+@dynamic kind, spec;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_Aspect_Spec
+//
+
+@implementation GTLRServiceConsumerManagement_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_AttachTenantProjectRequest
 //
 
@@ -304,9 +335,9 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, overridesByRequestProtocol, pathTranslation,
-         protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, loadBalancingPolicy,
+         minDeadline, operationDeadline, overridesByRequestProtocol,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -699,7 +730,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_ExperimentalFeatures
-@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled;
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled,
+         unversionedPackageDisabled;
 @end
 
 
@@ -1414,7 +1446,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_SelectiveGapicGeneration
-@dynamic methods;
+@dynamic generateOmittedAsInternal, methods;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1432,8 +1464,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Service
-@dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, http,
+@dynamic apis, aspects, authentication, backend, billing, configVersion,
+         context, control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
          name, producerProjectId, publishing, quota, sourceInfo,
          systemParameters, systemTypes, title, types, usage;
@@ -1445,6 +1477,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apis" : [GTLRServiceConsumerManagement_Api class],
+    @"aspects" : [GTLRServiceConsumerManagement_Aspect class],
     @"endpoints" : [GTLRServiceConsumerManagement_Endpoint class],
     @"enums" : [GTLRServiceConsumerManagement_Enum class],
     @"logs" : [GTLRServiceConsumerManagement_LogDescriptor class],

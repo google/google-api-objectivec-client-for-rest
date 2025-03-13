@@ -135,7 +135,7 @@
 
 @implementation GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -794,7 +794,7 @@
 
 @implementation GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1873,6 +1873,450 @@
 
 @end
 
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsCreate
+
+@dynamic mirroringDeploymentGroupId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeploymentGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringDeploymentGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeploymentGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeploymentGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_MirroringDeploymentGroup class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeploymentGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringDeploymentGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListMirroringDeploymentGroupsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeploymentGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeploymentGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeploymentGroups.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsCreate
+
+@dynamic mirroringDeploymentId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeployment *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringDeployments";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeployments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeployments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_MirroringDeployment class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeployments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringDeployments";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListMirroringDeploymentsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeployments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeployment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringDeployments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsCreate
+
+@dynamic mirroringEndpointGroupAssociationId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroupAssociation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringEndpointGroupAssociations";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroupAssociations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroupAssociations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_MirroringEndpointGroupAssociation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroupAssociations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringEndpointGroupAssociations";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListMirroringEndpointGroupAssociationsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroupAssociations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroupAssociation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroupAssociations.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsCreate
+
+@dynamic mirroringEndpointGroupId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringEndpointGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_MirroringEndpointGroup class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mirroringEndpointGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListMirroringEndpointGroupsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.mirroringEndpointGroups.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkSecurityQuery_ProjectsLocationsOperationsCancel
 
 @dynamic name;
@@ -2047,7 +2491,7 @@
 
 @implementation GTLRNetworkSecurityQuery_ProjectsLocationsServerTlsPoliciesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

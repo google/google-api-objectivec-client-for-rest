@@ -29,11 +29,15 @@
 @class GTLRVault_CloudStorageFile;
 @class GTLRVault_CloudStorageSink;
 @class GTLRVault_CorpusQuery;
+@class GTLRVault_DriveDocumentIds;
+@class GTLRVault_DriveDocumentInfo;
 @class GTLRVault_DriveExportOptions;
 @class GTLRVault_DriveOptions;
 @class GTLRVault_Export;
 @class GTLRVault_ExportOptions;
 @class GTLRVault_ExportStats;
+@class GTLRVault_GeminiExportOptions;
+@class GTLRVault_GeminiOptions;
 @class GTLRVault_GroupsCountResult;
 @class GTLRVault_GroupsExportOptions;
 @class GTLRVault_HangoutsChatExportOptions;
@@ -148,6 +152,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat
  *  Value: "PST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Pst;
+/**
+ *  Export as XML. Only available for Gemini.
+ *
+ *  Value: "XML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Xml;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_CalendarOptions.responseStatuses
@@ -295,6 +305,41 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_ExportRegionU
 FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_GeminiExportOptions.exportFormat
+
+/**
+ *  No export format specified.
+ *
+ *  Value: "EXPORT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_ExportFormatUnspecified;
+/**
+ *  Export as ICS. Only available for Calendar.
+ *
+ *  Value: "ICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Ics;
+/**
+ *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
+ *
+ *  Value: "MBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Mbox;
+/**
+ *  Export as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *  Calendar.
+ *
+ *  Value: "PST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Pst;
+/**
+ *  Export as XML. Only available for Gemini.
+ *
+ *  Value: "XML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Xml;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_GroupsExportOptions.exportFormat
 
 /**
@@ -322,6 +367,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_M
  *  Value: "PST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst;
+/**
+ *  Export as XML. Only available for Gemini.
+ *
+ *  Value: "XML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Xml;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_HangoutsChatExportOptions.exportFormat
@@ -351,6 +402,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFo
  *  Value: "PST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst;
+/**
+ *  Export as XML. Only available for Gemini.
+ *
+ *  Value: "XML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Xml;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_HeldVoiceQuery.coveredData
@@ -401,6 +458,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified;
  *  Value: "DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Drive;
+/**
+ *  Gemini.
+ *
+ *  Value: "GEMINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Gemini;
 /**
  *  Groups.
  *
@@ -454,6 +517,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbo
  *  Value: "PST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst;
+/**
+ *  Export as XML. Only available for Gemini.
+ *
+ *  Value: "XML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Xml;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_MailOptions.clientSideEncryptedOption
@@ -584,6 +653,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Drive;
 /**
+ *  Gemini.
+ *
+ *  Value: "GEMINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Gemini;
+/**
  *  Groups.
  *
  *  Value: "GROUPS"
@@ -647,6 +722,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Account;
 /**
+ *  Retrieve the documents specified in DriveDocumentInfo.
+ *
+ *  Value: "DRIVE_DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_DriveDocument;
+/**
  *  Search the data of all accounts in the organization. Supported only for
  *  Gmail. When specified, you don't need to specify **AccountInfo** or
  *  **OrgUnitInfo**.
@@ -705,6 +786,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive GTLR_DEPREC
  *  Value: "ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Account;
+/**
+ *  Retrieve the documents specified in DriveDocumentInfo.
+ *
+ *  Value: "DRIVE_DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_DriveDocument;
 /**
  *  Search the data of all accounts in the organization. Supported only for
  *  Gmail. When specified, you don't need to specify **AccountInfo** or
@@ -782,6 +869,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mb
  *  Value: "PST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Pst;
+/**
+ *  Export as XML. Only available for Gemini.
+ *
+ *  Value: "XML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Xml;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_VoiceOptions.coveredData
@@ -964,6 +1057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Pst Export as PST.
  *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
+ *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Xml Export as XML.
+ *        Only available for Gemini. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1202,6 +1297,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
+ *  Specify Drive documents by document ID.
+ */
+@interface GTLRVault_DriveDocumentIds : GTLRObject
+
+/** Required. A list of Drive document IDs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
+
+@end
+
+
+/**
+ *  The Drive documents to search.
+ */
+@interface GTLRVault_DriveDocumentInfo : GTLRObject
+
+/** Specify Drive documents by document ID. */
+@property(nonatomic, strong, nullable) GTLRVault_DriveDocumentIds *documentIds;
+
+@end
+
+
+/**
  *  Options for Drive exports.
  */
 @interface GTLRVault_DriveExportOptions : GTLRObject
@@ -1219,7 +1336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Additional options for Drive search
+ *  Additional options for Drive search.
  */
 @interface GTLRVault_DriveOptions : GTLRObject
 
@@ -1251,7 +1368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeSharedDrives;
+@property(nonatomic, strong, nullable) NSNumber *includeSharedDrives GTLR_DEPRECATED;
 
 /**
  *  Set to true to include Team Drive.
@@ -1358,6 +1475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 /** Options for Drive exports. */
 @property(nonatomic, strong, nullable) GTLRVault_DriveExportOptions *driveOptions;
 
+/** Option available for Gemini export. */
+@property(nonatomic, strong, nullable) GTLRVault_GeminiExportOptions *geminiOptions;
+
 /** Options for Groups exports. */
 @property(nonatomic, strong, nullable) GTLRVault_GroupsExportOptions *groupsOptions;
 
@@ -1417,6 +1537,39 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
+ *  The options for Gemini exports.
+ */
+@interface GTLRVault_GeminiExportOptions : GTLRObject
+
+/**
+ *  The file format for exported messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_ExportFormatUnspecified
+ *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Ics Export as ICS.
+ *        Only available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Mbox Export as MBOX.
+ *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
+ *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Pst Export as PST.
+ *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
+ *        (Value: "PST")
+ *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Xml Export as XML.
+ *        Only available for Gemini. (Value: "XML")
+ */
+@property(nonatomic, copy, nullable) NSString *exportFormat;
+
+@end
+
+
+/**
+ *  Additional options for Gemini search
+ */
+@interface GTLRVault_GeminiOptions : GTLRObject
+@end
+
+
+/**
  *  Groups specific count metrics.
  */
 @interface GTLRVault_GroupsCountResult : GTLRObject
@@ -1470,6 +1623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Pst Export as PST.
  *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
+ *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Xml Export as XML.
+ *        Only available for Gemini. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1495,6 +1650,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst Export as
  *        PST. Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
+ *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Xml Export as
+ *        XML. Only available for Gemini. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1721,6 +1878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        (Value: "CORPUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVault_Hold_Corpus_Drive Drive, including Meet and Sites.
  *        (Value: "DRIVE")
+ *    @arg @c kGTLRVault_Hold_Corpus_Gemini Gemini. (Value: "GEMINI")
  *    @arg @c kGTLRVault_Hold_Corpus_Groups Groups. (Value: "GROUPS")
  *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat For export, Google Chat only.
  *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
@@ -1946,6 +2104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst Export as PST. Only
  *        available for Gmail, Groups, Hangouts, Voice and Calendar. (Value:
  *        "PST")
+ *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Xml Export as XML. Only
+ *        available for Gemini. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -2215,6 +2375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        specified. (Value: "CORPUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_Corpus_Drive Drive, including Meet and Sites.
  *        (Value: "DRIVE")
+ *    @arg @c kGTLRVault_Query_Corpus_Gemini Gemini. (Value: "GEMINI")
  *    @arg @c kGTLRVault_Query_Corpus_Groups Groups. (Value: "GROUPS")
  *    @arg @c kGTLRVault_Query_Corpus_HangoutsChat For export, Google Chat only.
  *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
@@ -2240,6 +2401,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @property(nonatomic, copy, nullable) NSString *dataScope;
 
+/** Required when **SearchMethod** is **DRIVE_DOCUMENT**. */
+@property(nonatomic, strong, nullable) GTLRVault_DriveDocumentInfo *driveDocumentInfo;
+
 /** Set Drive search-specific options. */
 @property(nonatomic, strong, nullable) GTLRVault_DriveOptions *driveOptions;
 
@@ -2248,6 +2412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  12 AM on the specified date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Set Gemini search-specific options. */
+@property(nonatomic, strong, nullable) GTLRVault_GeminiOptions *geminiOptions;
 
 /** Required when **SearchMethod** is **ROOM**. (read-only) */
 @property(nonatomic, strong, nullable) GTLRVault_HangoutsChatInfo *hangoutsChatInfo;
@@ -2268,6 +2435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        specified in
  *        [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
  *        (Value: "ACCOUNT")
+ *    @arg @c kGTLRVault_Query_Method_DriveDocument Retrieve the documents
+ *        specified in DriveDocumentInfo. (Value: "DRIVE_DOCUMENT")
  *    @arg @c kGTLRVault_Query_Method_EntireOrg Search the data of all accounts
  *        in the organization. Supported only for Gmail. When specified, you
  *        don't need to specify **AccountInfo** or **OrgUnitInfo**. (Value:
@@ -2307,6 +2476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        accounts specified in
  *        [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
  *        (Value: "ACCOUNT")
+ *    @arg @c kGTLRVault_Query_SearchMethod_DriveDocument Retrieve the documents
+ *        specified in DriveDocumentInfo. (Value: "DRIVE_DOCUMENT")
  *    @arg @c kGTLRVault_Query_SearchMethod_EntireOrg Search the data of all
  *        accounts in the organization. Supported only for Gmail. When
  *        specified, you don't need to specify **AccountInfo** or
@@ -2585,6 +2756,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst Export as PST. Only
  *        available for Gmail, Groups, Hangouts, Voice and Calendar. (Value:
  *        "PST")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Xml Export as XML. Only
+ *        available for Gemini. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 

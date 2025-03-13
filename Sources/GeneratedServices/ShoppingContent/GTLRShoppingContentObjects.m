@@ -568,7 +568,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_AccountIssue
-@dynamic actions, impact, prerenderedContent, title;
+@dynamic actions, impact, prerenderedContent,
+         prerenderedOutOfCourtDisputeSettlement, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3810,7 +3811,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ProductIssue
-@dynamic actions, impact, prerenderedContent, title;
+@dynamic actions, impact, prerenderedContent,
+         prerenderedOutOfCourtDisputeSettlement, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

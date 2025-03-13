@@ -19,6 +19,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Extension;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleHomePayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1IntentPayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Location;
@@ -984,6 +985,29 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
+ *  Payload specific for Google Home products.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleHomePayload : GTLRObject
+
+/**
+ *  Output only. Output only. This identifies whether the subscription is
+ *  attached to a Google Home structure.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attachedToGoogleStructure;
+
+/**
+ *  Optional. This identifies the structure ID on partner side that the
+ *  subscription should be applied to. Only required when the partner requires
+ *  structure mapping.
+ */
+@property(nonatomic, copy, nullable) NSString *partnerStructureId;
+
+@end
+
+
+/**
  *  Payload specific to Google One products.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload : GTLRObject
@@ -1199,6 +1223,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  Specifies product specific payload.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload : GTLRObject
+
+/** Payload specific to Google Home products. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleHomePayload *googleHomePayload;
 
 /** Product-specific payloads. Payload specific to Google One products. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload *googleOnePayload;

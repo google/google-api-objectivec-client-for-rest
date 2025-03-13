@@ -128,6 +128,117 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_BackupsCreateBackup
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRSQLAdminQuery_BackupsCreateBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.Backups.CreateBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsDeleteBackup
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BackupsDeleteBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.Backups.DeleteBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsGetBackup
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BackupsGetBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Backup class];
+  query.loggingName = @"sql.Backups.GetBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsListBackups
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRSQLAdminQuery_BackupsListBackups *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_ListBackupsResponse class];
+  query.loggingName = @"sql.Backups.ListBackups";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsUpdateBackup
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BackupsUpdateBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.Backups.UpdateBackup";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_ConnectGenerateEphemeralCert
 
 @dynamic instance, project;
@@ -479,7 +590,8 @@
 
 @implementation GTLRSQLAdminQuery_InstancesDelete
 
-@dynamic instance, project;
+@dynamic enableFinalBackup, finalBackupDescription, finalBackupExpiryTime,
+         finalBackupTtlDays, instance, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {

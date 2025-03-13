@@ -11,6 +11,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRParallelstore_Instance.deploymentType
+NSString * const kGTLRParallelstore_Instance_DeploymentType_DeploymentTypeUnspecified = @"DEPLOYMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRParallelstore_Instance_DeploymentType_Persistent = @"PERSISTENT";
+NSString * const kGTLRParallelstore_Instance_DeploymentType_Scratch = @"SCRATCH";
+
 // GTLRParallelstore_Instance.directoryStripeLevel
 NSString * const kGTLRParallelstore_Instance_DirectoryStripeLevel_DirectoryStripeLevelBalanced = @"DIRECTORY_STRIPE_LEVEL_BALANCED";
 NSString * const kGTLRParallelstore_Instance_DirectoryStripeLevel_DirectoryStripeLevelMax = @"DIRECTORY_STRIPE_LEVEL_MAX";
@@ -28,8 +33,29 @@ NSString * const kGTLRParallelstore_Instance_State_Active      = @"ACTIVE";
 NSString * const kGTLRParallelstore_Instance_State_Creating    = @"CREATING";
 NSString * const kGTLRParallelstore_Instance_State_Deleting    = @"DELETING";
 NSString * const kGTLRParallelstore_Instance_State_Failed      = @"FAILED";
+NSString * const kGTLRParallelstore_Instance_State_Repairing   = @"REPAIRING";
 NSString * const kGTLRParallelstore_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRParallelstore_Instance_State_Upgrading   = @"UPGRADING";
+
+// GTLRParallelstore_ReconciliationOperationMetadata.exclusiveAction
+NSString * const kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
+NSString * const kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
+NSString * const kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
+// GTLRParallelstore_TransferMetadataOptions.gid
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Gid_GidNumberPreserve = @"GID_NUMBER_PRESERVE";
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Gid_GidSkip = @"GID_SKIP";
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Gid_GidUnspecified = @"GID_UNSPECIFIED";
+
+// GTLRParallelstore_TransferMetadataOptions.mode
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Mode_ModePreserve = @"MODE_PRESERVE";
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Mode_ModeSkip = @"MODE_SKIP";
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
+// GTLRParallelstore_TransferMetadataOptions.uid
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Uid_UidNumberPreserve = @"UID_NUMBER_PRESERVE";
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Uid_UidSkip = @"UID_SKIP";
+NSString * const kGTLRParallelstore_TransferMetadataOptions_Uid_UidUnspecified = @"UID_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -66,7 +92,8 @@ NSString * const kGTLRParallelstore_Instance_State_Upgrading   = @"UPGRADING";
 //
 
 @implementation GTLRParallelstore_ExportDataRequest
-@dynamic destinationGcsBucket, requestId, serviceAccount, sourceParallelstore;
+@dynamic destinationGcsBucket, metadataOptions, requestId, serviceAccount,
+         sourceParallelstore;
 @end
 
 
@@ -85,7 +112,8 @@ NSString * const kGTLRParallelstore_Instance_State_Upgrading   = @"UPGRADING";
 //
 
 @implementation GTLRParallelstore_ImportDataRequest
-@dynamic destinationParallelstore, requestId, serviceAccount, sourceGcsBucket;
+@dynamic destinationParallelstore, metadataOptions, requestId, serviceAccount,
+         sourceGcsBucket;
 @end
 
 
@@ -95,7 +123,7 @@ NSString * const kGTLRParallelstore_Instance_State_Upgrading   = @"UPGRADING";
 //
 
 @implementation GTLRParallelstore_Instance
-@dynamic accessPoints, capacityGib, createTime, daosVersion,
+@dynamic accessPoints, capacityGib, createTime, daosVersion, deploymentType,
          descriptionProperty, directoryStripeLevel, effectiveReservedIpRange,
          fileStripeLevel, labels, name, network, reservedIpRange, state,
          updateTime;
@@ -284,6 +312,16 @@ NSString * const kGTLRParallelstore_Instance_State_Upgrading   = @"UPGRADING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRParallelstore_ReconciliationOperationMetadata
+//
+
+@implementation GTLRParallelstore_ReconciliationOperationMetadata
+@dynamic deleteResource, exclusiveAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRParallelstore_SourceGcsBucket
 //
 
@@ -331,4 +369,14 @@ NSString * const kGTLRParallelstore_Instance_State_Upgrading   = @"UPGRADING";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRParallelstore_TransferMetadataOptions
+//
+
+@implementation GTLRParallelstore_TransferMetadataOptions
+@dynamic gid, mode, uid;
 @end

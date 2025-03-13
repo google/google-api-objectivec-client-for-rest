@@ -185,6 +185,11 @@ NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_
 NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusEnabled = @"HYPERTHREADING_STATUS_ENABLED";
 NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified = @"HYPERTHREADING_STATUS_UNSPECIFIED";
 
+// GTLRMigrationCenterAPI_Relation.type
+NSString * const kGTLRMigrationCenterAPI_Relation_Type_DatabaseDeploymentHostingServer = @"DATABASE_DEPLOYMENT_HOSTING_SERVER";
+NSString * const kGTLRMigrationCenterAPI_Relation_Type_LogicalDatabase = @"LOGICAL_DATABASE";
+NSString * const kGTLRMigrationCenterAPI_Relation_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRMigrationCenterAPI_Report.state
 NSString * const kGTLRMigrationCenterAPI_Report_State_Failed   = @"FAILED";
 NSString * const kGTLRMigrationCenterAPI_Report_State_Pending  = @"PENDING";
@@ -627,6 +632,15 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_AwsRds
+//
+
+@implementation GTLRMigrationCenterAPI_AwsRds
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_AzureVmPlatformDetails
 //
 
@@ -838,7 +852,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_DatabaseDeploymentDetails
-@dynamic aggregatedStats, edition, generatedId, manualUniqueId, mysql,
+@dynamic aggregatedStats, awsRds, edition, generatedId, manualUniqueId, mysql,
          postgresql, sqlServer, topology, version;
 @end
 
@@ -1042,6 +1056,16 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 @implementation GTLRMigrationCenterAPI_DiskPartition
 @dynamic capacityBytes, fileSystem, freeBytes, mountPoint, subPartitions, type,
          uuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DiskPartitionDetails
+//
+
+@implementation GTLRMigrationCenterAPI_DiskPartitionDetails
+@dynamic freeSpaceBytes, partitions, totalCapacityBytes;
 @end
 
 
@@ -1684,6 +1708,28 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_ListRelationsResponse
+//
+
+@implementation GTLRMigrationCenterAPI_ListRelationsResponse
+@dynamic nextPageToken, relations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relations" : [GTLRMigrationCenterAPI_Relation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"relations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_ListReportConfigsResponse
 //
 
@@ -1806,8 +1852,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_MachineDetails
-@dynamic architecture, coreCount, createTime, disks, guestOs, machineName,
-         memoryMb, network, platform, powerState, uuid;
+@dynamic architecture, coreCount, createTime, diskPartitions, disks, guestOs,
+         machineName, memoryMb, network, platform, powerState, uuid;
 @end
 
 
@@ -2304,6 +2350,16 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_Relation
+//
+
+@implementation GTLRMigrationCenterAPI_Relation
+@dynamic createTime, dstAsset, name, srcAsset, type;
 @end
 
 

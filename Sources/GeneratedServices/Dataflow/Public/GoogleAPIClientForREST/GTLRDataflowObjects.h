@@ -22,6 +22,9 @@
 @class GTLRDataflow_Base2Exponent;
 @class GTLRDataflow_BigQueryIODetails;
 @class GTLRDataflow_BigTableIODetails;
+@class GTLRDataflow_BoundedTrie;
+@class GTLRDataflow_BoundedTrieNode;
+@class GTLRDataflow_BoundedTrieNode_Children;
 @class GTLRDataflow_BucketOptions;
 @class GTLRDataflow_ComponentSource;
 @class GTLRDataflow_ComponentTransform;
@@ -1510,6 +1513,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Python;
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Unknown;
+/**
+ *  YAML.
+ *
+ *  Value: "YAML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Yaml;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SdkVersion.sdkSupportStatus
@@ -2225,6 +2234,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  The message type used for encoding metrics of type bounded trie.
+ */
+@interface GTLRDataflow_BoundedTrie : GTLRObject
+
+/**
+ *  The maximum number of elements to store before truncation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bound;
+
+/** A compact representation of all the elements in this trie. */
+@property(nonatomic, strong, nullable) GTLRDataflow_BoundedTrieNode *root;
+
+/**
+ *  A more efficient representation for metrics consisting of a single value.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *singleton;
+
+@end
+
+
+/**
+ *  A single node in a BoundedTrie.
+ */
+@interface GTLRDataflow_BoundedTrieNode : GTLRObject
+
+/** Children of this node. Must be empty if truncated is true. */
+@property(nonatomic, strong, nullable) GTLRDataflow_BoundedTrieNode_Children *children;
+
+/**
+ *  Whether this node has been truncated. A truncated leaf represents possibly
+ *  many children with the same prefix.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *truncated;
+
+@end
+
+
+/**
+ *  Children of this node. Must be empty if truncated is true.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataflow_BoundedTrieNode. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_BoundedTrieNode_Children : GTLRObject
+@end
+
+
+/**
  *  `BucketOptions` describes the bucket boundaries used in the histogram.
  */
 @interface GTLRDataflow_BucketOptions : GTLRObject
@@ -2522,7 +2585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  An update to a Counter sent from a worker.
+ *  An update to a Counter sent from a worker. Next ID: 17
  */
 @interface GTLRDataflow_CounterUpdate : GTLRObject
 
@@ -2532,6 +2595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *boolean;
+
+/** Bounded trie data */
+@property(nonatomic, strong, nullable) GTLRDataflow_BoundedTrie *boundedTrie;
 
 /**
  *  True if this counter is reported as the total cumulative aggregate value
@@ -3435,6 +3501,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Additional experiment flags for the job. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
+
+/** Optional. Additional pipeline option flags for the job. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalPipelineOptions;
 
 /**
  *  Additional user labels to be specified for the job. Keys and values must
@@ -5272,13 +5341,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /**
  *  Worker-computed aggregate value for the "Set" aggregation kind. The only
- *  possible value type is a list of Values whose type can be Long, Double, or
- *  String, according to the metric's type. All Values in the list must be of
- *  the same type.
+ *  possible value type is a list of Values whose type can be Long, Double,
+ *  String, or BoundedTrie according to the metric's type. All Values in the
+ *  list must be of the same type.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id set;
+
+/**
+ *  Worker-computed aggregate value for the "Trie" aggregation kind. The only
+ *  possible value type is a BoundedTrieNode.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id trie;
 
 /**
  *  Timestamp associated with the metric value. Optional when workers are
@@ -6178,6 +6255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
 
+/** Optional. Additional pipeline option flags for the job. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalPipelineOptions;
+
 /**
  *  Optional. Additional user labels to be specified for the job. Keys and
  *  values should follow the restrictions specified in the [labeling
@@ -6492,6 +6572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *    @arg @c kGTLRDataflow_SDKInfo_Language_Python Python. (Value: "PYTHON")
  *    @arg @c kGTLRDataflow_SDKInfo_Language_Unknown UNKNOWN Language. (Value:
  *        "UNKNOWN")
+ *    @arg @c kGTLRDataflow_SDKInfo_Language_Yaml YAML. (Value: "YAML")
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -8184,6 +8265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *supportsExactlyOnce;
+
+/** Optional. For future use. */
+@property(nonatomic, copy, nullable) NSString *yamlDefinition;
 
 @end
 

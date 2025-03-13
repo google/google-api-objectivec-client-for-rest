@@ -468,6 +468,46 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_CreateLogicalViewMetadata
+//
+
+@implementation GTLRBigtableAdmin_CreateLogicalViewMetadata
+@dynamic endTime, originalRequest, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CreateLogicalViewRequest
+//
+
+@implementation GTLRBigtableAdmin_CreateLogicalViewRequest
+@dynamic logicalView, logicalViewId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CreateMaterializedViewMetadata
+//
+
+@implementation GTLRBigtableAdmin_CreateMaterializedViewMetadata
+@dynamic endTime, originalRequest, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CreateMaterializedViewRequest
+//
+
+@implementation GTLRBigtableAdmin_CreateMaterializedViewRequest
+@dynamic materializedView, materializedViewId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_CreateTableRequest
 //
 
@@ -753,6 +793,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw
+@dynamic escapeNulls;
 @end
 
 
@@ -799,7 +840,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding
-@dynamic bigEndianBytes;
+@dynamic bigEndianBytes, orderedCodeBytes;
 @end
 
 
@@ -810,6 +851,15 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes
 @dynamic bytesType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes
 @end
 
 
@@ -849,6 +899,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes
+@dynamic nullEscapeChar;
 @end
 
 
@@ -867,7 +918,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct
-@dynamic fields;
+@dynamic encoding, fields;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -876,6 +927,44 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding
+@dynamic delimitedBytes, orderedCodeBytes, singleton;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes
+@dynamic delimiter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton
 @end
 
 
@@ -895,6 +984,17 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp
+@dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding
+@dynamic unixMicrosInt64;
 @end
 
 
@@ -1186,6 +1286,36 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_LogicalView
+//
+
+@implementation GTLRBigtableAdmin_LogicalView
+@dynamic ETag, name, query;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_MaterializedView
+//
+
+@implementation GTLRBigtableAdmin_MaterializedView
+@dynamic deletionProtection, ETag, name, query;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
 }
 
 @end
@@ -1664,6 +1794,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_UpdateInstanceMetadata
 @dynamic finishTime, originalRequest, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateLogicalViewMetadata
+//
+
+@implementation GTLRBigtableAdmin_UpdateLogicalViewMetadata
+@dynamic endTime, originalRequest, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateLogicalViewRequest
+//
+
+@implementation GTLRBigtableAdmin_UpdateLogicalViewRequest
+@dynamic logicalView, updateMask;
 @end
 
 

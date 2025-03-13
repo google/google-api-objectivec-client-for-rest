@@ -5725,6 +5725,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Optional. Config for chunking in layout parser processor. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig *chunkingConfig;
 
+/**
+ *  Optional. Whether to include bounding boxes in layout parser processor
+ *  response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnBoundingBoxes;
+
+/**
+ *  Optional. Whether to include images in layout parser processor response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnImages;
+
 @end
 
 

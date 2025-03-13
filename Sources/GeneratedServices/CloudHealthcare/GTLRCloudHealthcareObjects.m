@@ -483,6 +483,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_BulkExportGcsDestination
+//
+
+@implementation GTLRCloudHealthcare_BulkExportGcsDestination
+@dynamic uriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_CancelOperationRequest
 //
 
@@ -741,7 +751,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_Dataset
-@dynamic encryptionSpec, name, timeZone;
+@dynamic encryptionSpec, name, satisfiesPzi, satisfiesPzs, timeZone;
 @end
 
 
@@ -1198,11 +1208,11 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_FhirStore
-@dynamic complexDataTypeReferenceParsing, consentConfig,
-         defaultSearchHandlingStrict, disableReferentialIntegrity,
-         disableResourceVersioning, enableUpdateCreate, labels, name,
-         notificationConfig, notificationConfigs, streamConfigs,
-         validationConfig, version;
+@dynamic bulkExportGcsDestination, complexDataTypeReferenceParsing,
+         consentConfig, defaultSearchHandlingStrict,
+         disableReferentialIntegrity, disableResourceVersioning,
+         enableUpdateCreate, labels, name, notificationConfig,
+         notificationConfigs, streamConfigs, validationConfig, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -1029,6 +1029,39 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @end
 
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsPatch
+
+@dynamic applicationsId, locationsId, projectsId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAppengine_Application *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesDelete
 
 @dynamic applicationsId, locationsId, projectsId, servicesId;

@@ -101,6 +101,16 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_
 NSString * const kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_Finished = @"FINISHED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_InProgress = @"IN_PROGRESS";
 
+// GTLRCloudRun_GoogleCloudRunV2InstanceSplit.type
+NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeLatest = @"INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeRevision = @"INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeUnspecified = @"INSTANCE_SPLIT_ALLOCATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus.type
+NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeLatest = @"INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeRevision = @"INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeUnspecified = @"INSTANCE_SPLIT_ALLOCATION_TYPE_UNSPECIFIED";
+
 // GTLRCloudRun_GoogleCloudRunV2Job.launchStage
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Beta = @"BETA";
@@ -188,6 +198,26 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_AllTraffic = @"A
 NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_VpcEgressUnspecified = @"VPC_EGRESS_UNSPECIFIED";
 
+// GTLRCloudRun_GoogleCloudRunV2WorkerPool.launchStage
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Ga = @"GA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate.encryptionKeyRevocationAction
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified = @"ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_PreventNew = @"PREVENT_NEW";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_Shutdown = @"SHUTDOWN";
+
+// GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling.scalingMode
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Automatic = @"AUTOMATIC";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Manual = @"MANUAL";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_ScalingModeUnspecified = @"SCALING_MODE_UNSPECIFIED";
+
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult.decision
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Approved = @"APPROVED";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_DecisionUnspecified = @"DECISION_UNSPECIFIED";
@@ -243,6 +273,7 @@ NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedV
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
 
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
+NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_GoModuleH1 = @"GO_MODULE_H1";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_None = @"NONE";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Sha256 = @"SHA256";
@@ -274,6 +305,7 @@ NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushNo
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_UserBuildStep = @"USER_BUILD_STEP";
 
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash.type
+NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1 = @"GO_MODULE_H1";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 = @"MD5";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_None = @"NONE";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Sha256 = @"SHA256";
@@ -303,6 +335,42 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization
 @dynamic breakglassJustification, policy, useDefault;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2BuildConfig
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2BuildConfig
+@dynamic baseImage, enableAutomaticUpdates, environmentVariables,
+         functionTarget, imageUri, name, serviceAccount, sourceLocation,
+         workerPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2BuildConfig_EnvironmentVariables
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2BuildConfig_EnvironmentVariables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2BuildInfo
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2BuildInfo
+@dynamic functionTarget, sourceLocation;
 @end
 
 
@@ -381,8 +449,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Container
-@dynamic args, command, dependsOn, env, image, livenessProbe, name, ports,
-         resources, startupProbe, volumeMounts, workingDir;
+@dynamic args, baseImageUri, buildInfo, command, dependsOn, env, image,
+         livenessProbe, name, ports, resources, startupProbe, volumeMounts,
+         workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -474,8 +543,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Execution
 @dynamic annotations, cancelledCount, completionTime, conditions, createTime,
-         deleteTime, ETag, expireTime, failedCount, generation, job, labels,
-         launchStage, logUri, name, observedGeneration, parallelism,
+         creator, deleteTime, ETag, expireTime, failedCount, generation, job,
+         labels, launchStage, logUri, name, observedGeneration, parallelism,
          reconciling, retriedCount, runningCount, satisfiesPzs, startTime,
          succeededCount, taskCount, templateProperty, uid, updateTime;
 
@@ -684,6 +753,26 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2InstanceSplit
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2InstanceSplit
+@dynamic percent, revision, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus
+@dynamic percent, revision, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2Job
 //
 
@@ -853,6 +942,28 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2ListWorkerPoolsResponse
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2ListWorkerPoolsResponse
+@dynamic nextPageToken, workerPools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workerPools" : [GTLRCloudRun_GoogleCloudRunV2WorkerPool class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workerPools";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2Metadata
 //
 
@@ -958,7 +1069,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Revision
-@dynamic annotations, conditions, containers, createTime, deleteTime,
+@dynamic annotations, conditions, containers, createTime, creator, deleteTime,
          encryptionKey, encryptionKeyRevocationAction,
          encryptionKeyShutdownDuration, ETag, executionEnvironment, expireTime,
          generation, labels, launchStage, logUri, maxInstanceRequestConcurrency,
@@ -1130,9 +1241,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Service
-@dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
-         createTime, creator, customAudiences, defaultUriDisabled, deleteTime,
-         descriptionProperty, ETag, expireTime, generation, ingress,
+@dynamic annotations, binaryAuthorization, buildConfig, client, clientVersion,
+         conditions, createTime, creator, customAudiences, defaultUriDisabled,
+         deleteTime, descriptionProperty, ETag, expireTime, generation, ingress,
          invokerIamDisabled, labels, lastModifier, latestCreatedRevision,
          latestReadyRevision, launchStage, name, observedGeneration,
          reconciling, satisfiesPzs, scaling, templateProperty,
@@ -1258,9 +1369,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @dynamic annotations, completionTime, conditions, containers, createTime,
          deleteTime, encryptionKey, ETag, execution, executionEnvironment,
          expireTime, generation, index, job, labels, lastAttemptResult, logUri,
-         maxRetries, name, observedGeneration, reconciling, retried,
-         satisfiesPzs, scheduledTime, serviceAccount, startTime, timeout, uid,
-         updateTime, volumes, vpcAccess;
+         maxRetries, name, nodeSelector, observedGeneration, reconciling,
+         retried, satisfiesPzs, scheduledTime, serviceAccount, startTime,
+         timeout, uid, updateTime, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1323,7 +1434,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2TaskTemplate
 @dynamic containers, encryptionKey, executionEnvironment, maxRetries,
-         serviceAccount, timeout, volumes, vpcAccess;
+         nodeSelector, serviceAccount, timeout, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1416,6 +1527,129 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2WorkerPool
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2WorkerPool
+@dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
+         createTime, creator, customAudiences, deleteTime, descriptionProperty,
+         ETag, expireTime, generation, instanceSplits, instanceSplitStatuses,
+         labels, lastModifier, latestCreatedRevision, latestReadyRevision,
+         launchStage, name, observedGeneration, reconciling, satisfiesPzs,
+         scaling, templateProperty, terminalCondition, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag",
+    @"templateProperty" : @"template"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRCloudRun_GoogleCloudRunV2Condition class],
+    @"customAudiences" : [NSString class],
+    @"instanceSplits" : [GTLRCloudRun_GoogleCloudRunV2InstanceSplit class],
+    @"instanceSplitStatuses" : [GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2WorkerPool_Annotations
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2WorkerPool_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2WorkerPool_Labels
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2WorkerPool_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate
+@dynamic annotations, containers, encryptionKey, encryptionKeyRevocationAction,
+         encryptionKeyShutdownDuration, labels, nodeSelector, revision,
+         serviceAccount, serviceMesh, sessionAffinity, volumes, vpcAccess;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containers" : [GTLRCloudRun_GoogleCloudRunV2Container class],
+    @"volumes" : [GTLRCloudRun_GoogleCloudRunV2Volume class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Annotations
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Labels
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling
+@dynamic manualInstanceCount, maxInstanceCount, maxSurge, maxUnavailable,
+         minInstanceCount, scalingMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalConfig
 //
 
@@ -1458,10 +1692,12 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1Artifacts
-@dynamic images, mavenArtifacts, npmPackages, objects, pythonPackages;
+@dynamic goModules, images, mavenArtifacts, npmPackages, objects,
+         pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"goModules" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1GoModule class],
     @"images" : [NSString class],
     @"mavenArtifacts" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1MavenArtifact class],
     @"npmPackages" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1NpmPackage class],
@@ -1480,9 +1716,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build
 @dynamic approval, artifacts, availableSecrets, buildTriggerId, createTime,
-         failureInfo, finishTime, gitConfig, identifier, images, logsBucket,
-         logUrl, name, options, projectId, queueTtl, results, secrets,
-         serviceAccount, source, sourceProvenance, startTime, status,
+         dependencies, failureInfo, finishTime, gitConfig, identifier, images,
+         logsBucket, logUrl, name, options, projectId, queueTtl, results,
+         secrets, serviceAccount, source, sourceProvenance, startTime, status,
          statusDetail, steps, substitutions, tags, timeout, timing, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1491,6 +1727,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"dependencies" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1Dependency class],
     @"images" : [NSString class],
     @"secrets" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret class],
     @"steps" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep class],
@@ -1558,8 +1795,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions
 @dynamic automapSubstitutions, defaultLogsBucketBehavior, diskSizeGb,
-         dynamicSubstitutions, env, logging, logStreamingOption, machineType,
-         pool, requestedVerifyOption, secretEnv, sourceProvenanceHash,
+         dynamicSubstitutions, enableStructuredLogging, env, logging,
+         logStreamingOption, machineType, pool, pubsubTopic,
+         requestedVerifyOption, secretEnv, sourceProvenanceHash,
          substitutionOption, volumes, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1626,6 +1864,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1Dependency
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1Dependency
+@dynamic empty, gitSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig
 //
 
@@ -1679,6 +1927,37 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource
 @dynamic dir, revision, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceDependency
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceDependency
+@dynamic depth, destPath, recurseSubmodules, repository, revision;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceRepository
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceRepository
+@dynamic developerConnect, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1GoModule
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1GoModule
+@dynamic modulePath, moduleVersion, repositoryLocation, repositoryName,
+         repositoryProjectId, sourcePath;
 @end
 
 
@@ -1806,12 +2085,14 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results
 @dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
-         images, mavenArtifacts, npmPackages, numArtifacts, pythonPackages;
+         goModules, images, mavenArtifacts, npmPackages, numArtifacts,
+         pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"buildStepImages" : [NSString class],
     @"buildStepOutputs" : [NSString class],
+    @"goModules" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule class],
     @"images" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage class],
     @"mavenArtifacts" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact class],
     @"npmPackages" : [GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedNpmPackage class],
@@ -1944,6 +2225,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan
 @dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule
+@dynamic fileHashes, pushTiming, uri;
 @end
 
 

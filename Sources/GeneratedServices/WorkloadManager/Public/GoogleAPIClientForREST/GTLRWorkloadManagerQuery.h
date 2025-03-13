@@ -36,6 +36,102 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a discovered workload profile.
+ *
+ *  Method: workloadmanager.projects.locations.discoveredprofiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet : GTLRWorkloadManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_WorkloadProfile.
+ *
+ *  Gets details of a discovered workload profile.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the health of a discovered workload profile.
+ *
+ *  Method: workloadmanager.projects.locations.discoveredprofiles.healthes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet : GTLRWorkloadManagerQuery
+
+/** Required. The resource name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_WorkloadProfileHealth.
+ *
+ *  Get the health of a discovered workload profile.
+ *
+ *  @param name Required. The resource name
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List discovered workload profiles
+ *
+ *  Method: workloadmanager.projects.locations.discoveredprofiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList : GTLRWorkloadManagerQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListDiscoveredProfilesRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListDiscoveredProfilesResponse.
+ *
+ *  List discovered workload profiles
+ *
+ *  @param parent Required. Parent value for ListDiscoveredProfilesRequest
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new Evaluation in a given project and location.
  *
  *  Method: workloadmanager.projects.locations.evaluations.create
@@ -471,6 +567,52 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Resource name for the location.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Delete the data insights from workload manager data warehouse.
+ *
+ *  Method: workloadmanager.projects.locations.insights.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete : GTLRWorkloadManagerQuery
+
+/**
+ *  Required. The system id of the SAP system resource to delete. Formatted as
+ *  projects/{project}/locations/{location}/sapSystems/{sap_system_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Empty.
+ *
+ *  Delete the data insights from workload manager data warehouse.
+ *
+ *  @param name Required. The system id of the SAP system resource to delete.
+ *    Formatted as
+ *    projects/{project}/locations/{location}/sapSystems/{sap_system_id}
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 

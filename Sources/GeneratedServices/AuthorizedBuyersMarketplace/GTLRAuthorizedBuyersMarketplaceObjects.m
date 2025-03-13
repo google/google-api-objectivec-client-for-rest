@@ -81,6 +81,11 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_
 NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_TimeZoneTypeUnspecified = @"TIME_ZONE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_User = @"USER";
 
+// GTLRAuthorizedBuyersMarketplace_Deal.buyerPermissionType
+NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_Bidder = @"BIDDER";
+NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_BuyerPermissionTypeUnspecified = @"BUYER_PERMISSION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_NegotiatorOnly = @"NEGOTIATOR_ONLY";
+
 // GTLRAuthorizedBuyersMarketplace_Deal.dealType
 NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_DealType_DealTypeUnspecified = @"DEAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_DealType_PreferredDeal = @"PREFERRED_DEAL";
@@ -453,12 +458,12 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 //
 
 @implementation GTLRAuthorizedBuyersMarketplace_Deal
-@dynamic billedBuyer, buyer, client, createTime, creativeRequirements, dealType,
-         deliveryControl, descriptionProperty, displayName, eligibleSeatIds,
-         estimatedGrossSpend, flightEndTime, flightStartTime, mediaPlanner,
-         name, preferredDealTerms, privateAuctionTerms,
-         programmaticGuaranteedTerms, proposalRevision, publisherProfile,
-         sellerTimeZone, targeting, updateTime;
+@dynamic billedBuyer, buyer, buyerPermissionType, client, createTime,
+         creativeRequirements, dealType, deliveryControl, descriptionProperty,
+         displayName, eligibleSeatIds, estimatedGrossSpend, flightEndTime,
+         flightStartTime, mediaPlanner, name, preferredDealTerms,
+         privateAuctionTerms, programmaticGuaranteedTerms, proposalRevision,
+         publisherProfile, sellerTimeZone, targeting, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

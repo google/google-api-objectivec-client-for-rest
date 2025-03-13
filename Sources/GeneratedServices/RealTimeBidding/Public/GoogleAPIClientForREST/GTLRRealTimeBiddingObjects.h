@@ -6,7 +6,7 @@
 // Description:
 //   Allows external bidders to manage their RTB integration with Google. This
 //   includes managing bidder endpoints, QPS quotas, configuring what ad
-//   inventory to receive via pretargeting, submitting creatives for
+//   inventory to receive with pretargeting, submitting creatives for
 //   verification, and accessing creative metadata such as approval status.
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/rest/
@@ -683,6 +683,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_
  *  Value: "AD_CATEGORY_TAXONOMY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_AdCategoryTaxonomyUnspecified;
+/**
+ *  Google ad categories taxonomy, including product categories and sensitive
+ *  categories. Find the category lists at
+ *  https://developers.google.com/authorized-buyers/rtb/data#reference-data
+ *
+ *  Value: "GOOGLE_AD_CATEGORY_TAXONOMY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_GoogleAdCategoryTaxonomy;
 /**
  *  IAB Content Taxonomy 1.0. See
  *  https://github.com/InteractiveAdvertisingBureau/Taxonomies/blob/main/Content%20Taxonomies/Content%20Taxonomy%201.0.tsv
@@ -1749,9 +1757,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  preferred deals. When true, bid requests from these nonguaranteed deals will
  *  always be sent. When false, bid requests will be subject to regular
  *  pretargeting configurations. Programmatic Guaranteed deals will always be
- *  sent to the bidder, regardless of the value for this flag. Auction packages
- *  are not impacted by this value and are subject to the regular pretargeting
- *  configurations.
+ *  sent to the bidder, regardless of the value for this option. Auction
+ *  packages are not impacted by this value and are subject to the regular
+ *  pretargeting configurations.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1951,7 +1959,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  All declared restricted categories for the ads that may be shown from this
  *  creative. Can be used to filter the response of the creatives.list method.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *declaredRestrictedCategories;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *declaredRestrictedCategories GTLR_DEPRECATED;
 
 /**
  *  IDs for the declared ad technology vendors that may be used by this
@@ -2071,10 +2079,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedAttributes;
 
 /**
- *  Output only. IDs of the detected categories, if any. The taxonomy in which
- *  the categories are expressed is specified by the
- *  detected_categories_taxonomy field. Can be used to filter the response of
- *  the creatives.list method.
+ *  Output only. IDs of the detected categories. The taxonomy in which the
+ *  categories are expressed is specified by the detected_categories_taxonomy
+ *  field. Use this in conjunction with BidRequest.bcat to avoid bidding on
+ *  impressions where a given ad category is blocked, or to troubleshoot
+ *  filtered bids. Can be used to filter the response of the creatives.list
+ *  method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedCategories;
 
@@ -2086,6 +2096,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *    @arg @c kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_AdCategoryTaxonomyUnspecified
  *        Default value that should never be used. (Value:
  *        "AD_CATEGORY_TAXONOMY_UNSPECIFIED")
+ *    @arg @c kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_GoogleAdCategoryTaxonomy
+ *        Google ad categories taxonomy, including product categories and
+ *        sensitive categories. Find the category lists at
+ *        https://developers.google.com/authorized-buyers/rtb/data#reference-data
+ *        (Value: "GOOGLE_AD_CATEGORY_TAXONOMY")
  *    @arg @c kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_IabContent10
  *        IAB Content Taxonomy 1.0. See
  *        https://github.com/InteractiveAdvertisingBureau/Taxonomies/blob/main/Content%20Taxonomies/Content%20Taxonomy%201.0.tsv

@@ -6,7 +6,7 @@
 // Description:
 //   Allows external bidders to manage their RTB integration with Google. This
 //   includes managing bidder endpoints, QPS quotas, configuring what ad
-//   inventory to receive via pretargeting, submitting creatives for
+//   inventory to receive with pretargeting, submitting creatives for
 //   verification, and accessing creative metadata such as approval status.
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/rest/
@@ -129,6 +129,7 @@ NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes
 
 // GTLRRealTimeBidding_CreativeServingDecision.detectedCategoriesTaxonomy
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_AdCategoryTaxonomyUnspecified = @"AD_CATEGORY_TAXONOMY_UNSPECIFIED";
+NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_GoogleAdCategoryTaxonomy = @"GOOGLE_AD_CATEGORY_TAXONOMY";
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_IabContent10 = @"IAB_CONTENT_1_0";
 
 // GTLRRealTimeBidding_DestinationNotCrawlableEvidence.reason

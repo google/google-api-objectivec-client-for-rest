@@ -102,13 +102,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V4;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V5litePod;
 /**
- *  TPU v5p
+ *  TPU v5p.
  *
  *  Value: "V5P"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V5p;
 /**
- *  TPU v6e
+ *  TPU v6e.
  *
  *  Value: "V6E"
  */
@@ -477,8 +477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V4 TPU v4. (Value: "V4")
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5litePod TPU v5lite pod. (Value:
  *        "V5LITE_POD")
- *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5p TPU v5p (Value: "V5P")
- *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V6e TPU v6e (Value: "V6E")
+ *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5p TPU v5p. (Value: "V5P")
+ *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V6e TPU v6e. (Value: "V6E")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -961,7 +961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /**
  *  Required. Number of nodes with this spec. The system will attempt to
- *  provison "node_count" nodes as part of the request. This needs to be > 1.
+ *  provision "node_count" nodes as part of the request. This needs to be > 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1148,8 +1148,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** Output only. Immutable. The name of the TPU. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Network configurations for the TPU node. */
+/**
+ *  Network configurations for the TPU node. network_config and network_configs
+ *  are mutually exclusive, you can only specify one of them. If both are
+ *  specified, an error will be returned.
+ */
 @property(nonatomic, strong, nullable) GTLRTPU_NetworkConfig *networkConfig;
+
+/**
+ *  Optional. Repeated network configurations for the TPU node. This field is
+ *  used to specify multiple networks configs for the TPU node. network_config
+ *  and network_configs are mutually exclusive, you can only specify one of
+ *  them. If both are specified, an error will be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_NetworkConfig *> *networkConfigs;
 
 /**
  *  Output only. The network endpoints where TPU workers can be accessed and

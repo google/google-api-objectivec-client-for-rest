@@ -11,12 +11,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRLooker_AuditLogConfig.logType
-NSString * const kGTLRLooker_AuditLogConfig_LogType_AdminRead  = @"ADMIN_READ";
-NSString * const kGTLRLooker_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
-NSString * const kGTLRLooker_AuditLogConfig_LogType_DataWrite  = @"DATA_WRITE";
-NSString * const kGTLRLooker_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
 // GTLRLooker_CustomDomain.state
 NSString * const kGTLRLooker_CustomDomain_State_Available      = @"AVAILABLE";
 NSString * const kGTLRLooker_CustomDomain_State_CustomDomainStateUnspecified = @"CUSTOM_DOMAIN_STATE_UNSPECIFIED";
@@ -58,6 +52,13 @@ NSString * const kGTLRLooker_Instance_State_StateUnspecified = @"STATE_UNSPECIFI
 NSString * const kGTLRLooker_Instance_State_Suspended        = @"SUSPENDED";
 NSString * const kGTLRLooker_Instance_State_Updating         = @"UPDATING";
 
+// GTLRLooker_InstanceBackup.state
+NSString * const kGTLRLooker_InstanceBackup_State_Active       = @"ACTIVE";
+NSString * const kGTLRLooker_InstanceBackup_State_Creating     = @"CREATING";
+NSString * const kGTLRLooker_InstanceBackup_State_Deleting     = @"DELETING";
+NSString * const kGTLRLooker_InstanceBackup_State_Failed       = @"FAILED";
+NSString * const kGTLRLooker_InstanceBackup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRLooker_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Friday = @"FRIDAY";
@@ -87,60 +88,6 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedEmailDomains" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_AuditConfig
-//
-
-@implementation GTLRLooker_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRLooker_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_AuditLogConfig
-//
-
-@implementation GTLRLooker_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_Binding
-//
-
-@implementation GTLRLooker_Binding
-@dynamic condition, members, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
   };
   return map;
 }
@@ -257,21 +204,6 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLooker_Expr
-//
-
-@implementation GTLRLooker_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRLooker_ImportInstanceRequest
 //
 
@@ -292,7 +224,41 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
          lastDenyMaintenancePeriod, linkedLspProjectNumber, lookerUri,
          lookerVersion, maintenanceSchedule, maintenanceWindow, name,
          oauthConfig, platformEdition, privateIpEnabled, pscConfig, pscEnabled,
-         publicIpEnabled, reservedRange, state, updateTime, userMetadata;
+         publicIpEnabled, reservedRange, satisfiesPzi, satisfiesPzs, state,
+         updateTime, userMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_InstanceBackup
+//
+
+@implementation GTLRLooker_InstanceBackup
+@dynamic createTime, encryptionConfig, expireTime, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_ListInstanceBackupsResponse
+//
+
+@implementation GTLRLooker_ListInstanceBackupsResponse
+@dynamic instanceBackups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instanceBackups" : [GTLRLooker_InstanceBackup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"instanceBackups";
+}
+
 @end
 
 
@@ -482,29 +448,6 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLooker_Policy
-//
-
-@implementation GTLRLooker_Policy
-@dynamic auditConfigs, bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRLooker_AuditConfig class],
-    @"bindings" : [GTLRLooker_Binding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRLooker_PscConfig
 //
 
@@ -533,21 +476,21 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLooker_ServiceAttachment
+//   GTLRLooker_RestoreInstanceRequest
 //
 
-@implementation GTLRLooker_ServiceAttachment
-@dynamic connectionStatus, localFqdn, targetServiceAttachmentUri;
+@implementation GTLRLooker_RestoreInstanceRequest
+@dynamic backup;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLooker_SetIamPolicyRequest
+//   GTLRLooker_ServiceAttachment
 //
 
-@implementation GTLRLooker_SetIamPolicyRequest
-@dynamic policy, updateMask;
+@implementation GTLRLooker_ServiceAttachment
+@dynamic connectionStatus, localFqdn, targetServiceAttachmentUri;
 @end
 
 
@@ -578,42 +521,6 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_TestIamPermissionsRequest
-//
-
-@implementation GTLRLooker_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_TestIamPermissionsResponse
-//
-
-@implementation GTLRLooker_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
 }
 
 @end

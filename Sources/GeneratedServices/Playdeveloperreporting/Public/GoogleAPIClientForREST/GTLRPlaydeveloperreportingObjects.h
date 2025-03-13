@@ -258,6 +258,37 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest_UserCohort_UserCohortUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest.userCohort
+
+/**
+ *  This is the view with data only from users who have opted in to be testers
+ *  for a given app, excluding OS beta data.
+ *
+ *  Value: "APP_TESTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_AppTesters;
+/**
+ *  This is the view with just android beta data excluding released OS version
+ *  data.
+ *
+ *  Value: "OS_BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_OsBeta;
+/**
+ *  This is default view. Contains data from public released android versions
+ *  only.
+ *
+ *  Value: "OS_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_OsPublic;
+/**
+ *  Unspecified User cohort. This will automatically choose the default value.
+ *
+ *  Value: "USER_COHORT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_UserCohortUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest.userCohort
 
 /**
@@ -1105,6 +1136,73 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  Singleton resource representing the set of LMK (Low Memory Kill) metrics.
+ *  This metric set contains LMKs data combined with usage data to produce a
+ *  normalized metric independent of user counts. **Supported aggregation
+ *  periods:** * DAILY: metrics are aggregated in calendar date intervals. Due
+ *  to historical constraints, the only supported timezone is
+ *  `America/Los_Angeles`. **Supported metrics:** * `userPerceivedLmkRate`
+ *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
+ *  period that experienced at least one LMK while they were actively using your
+ *  app (a user-perceived LMK). An app is considered to be in active use if it
+ *  is displaying any activity or executing any foreground service. *
+ *  `userPerceivedLmkRate7dUserWeighted` (`google.type.Decimal`): Rolling
+ *  average value of `userPerceivedLmkRate` in the last 7 days. The daily values
+ *  are weighted by the count of distinct users for the day. *
+ *  `userPerceivedLmkRate28dUserWeighted` (`google.type.Decimal`): Rolling
+ *  average value of `userPerceivedLmkRate` in the last 28 days. The daily
+ *  values are weighted by the count of distinct users for the day. *
+ *  `distinctUsers` (`google.type.Decimal`): Count of distinct users in the
+ *  aggregation period that were used as normalization value for the
+ *  `userPerceivedLmkRate` metrics. A user is counted in this metric if they
+ *  used the app in the foreground during the aggregation period. Care must be
+ *  taken not to aggregate this count further, as it may result in users being
+ *  counted multiple times. The value is rounded to the nearest multiple of 10,
+ *  100, 1,000 or 1,000,000, depending on the magnitude of the value.
+ *  **Supported dimensions:** * `apiLevel` (string): the API level of Android
+ *  that was running on the user's device, e.g., 26. * `versionCode` (int64):
+ *  version of the app that was running on the user's device. * `deviceModel`
+ *  (string): unique identifier of the user's device model. The form of the
+ *  identifier is 'deviceBrand/device', where deviceBrand corresponds to
+ *  Build.BRAND and device corresponds to Build.DEVICE, e.g., google/coral. *
+ *  `deviceBrand` (string): unique identifier of the user's device brand, e.g.,
+ *  google. * `deviceType` (string): the type (also known as form factor) of the
+ *  user's device, e.g., PHONE. * `countryCode` (string): the country or region
+ *  of the user's device based on their IP address, represented as a 2-letter
+ *  ISO-3166 code (e.g. US for the United States). * `deviceRamBucket` (int64):
+ *  RAM of the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
+ *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
+ *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
+ *  e.g., "Exynos 2100".
+ *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MODEL)
+ *  * `deviceCpuMake` (string): Make of the device's CPU, e.g., Qualcomm. *
+ *  `deviceCpuModel` (string): Model of the device's CPU, e.g., "Kryo 240". *
+ *  `deviceGpuMake` (string): Make of the device's GPU, e.g., ARM. *
+ *  `deviceGpuModel` (string): Model of the device's GPU, e.g., Mali. *
+ *  `deviceGpuVersion` (string): Version of the device's GPU, e.g., T750. *
+ *  `deviceVulkanVersion` (string): Vulkan version of the device, e.g.,
+ *  "4198400". * `deviceGlEsVersion` (string): OpenGL ES version of the device,
+ *  e.g., "196610". * `deviceScreenSize` (string): Screen size of the device,
+ *  e.g., NORMAL, LARGE. * `deviceScreenDpi` (string): Screen density of the
+ *  device, e.g., mdpi, hdpi. **Required permissions**: to access this resource,
+ *  the calling user needs the _View app information (read-only)_ permission for
+ *  the app. **Related metric sets:** * vitals.errors contains normalized
+ *  metrics about crashes, another stability metric. * vitals.errors contains
+ *  normalized metrics about ANRs, another stability metric.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1LmkRateMetricSet : GTLRObject
+
+/** Summary about data freshness in this resource. */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
+
+/** Identifier. The resource name. Format: apps/{app}/lmkRateMetricSet */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Represents a row of dimensions and metrics.
  */
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow : GTLRObject
@@ -1679,14 +1777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  User view to select. The output data will correspond to the selected view.
- *  **Supported values:** * `OS_PUBLIC` To select data from all publicly
- *  released Android versions. This is the default. Supports all the above
- *  dimensions. * `APP_TESTERS` To select data from users who have opted in to
- *  be testers. Supports all the above dimensions. * `OS_BETA` To select data
- *  from beta android versions only, excluding data from released android
- *  versions. Only the following dimensions are supported: * `versionCode`
- *  (int64): version of the app that was running on the user's device. *
- *  `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004".
+ *  The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest_UserCohort_AppTesters
@@ -1717,6 +1808,151 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *        enabled).
  */
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetResponse : GTLRCollectionObject
+
+/** Continuation token to fetch the next page of data. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Returned rows of data.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow *> *rows;
+
+@end
+
+
+/**
+ *  Request message for QueryLmkRateMetricSet.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest : GTLRObject
+
+/**
+ *  Optional. Dimensions to slice the metrics by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
+ *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
+ *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
+ *  e.g., "Exynos 2100".
+ *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MODEL)
+ *  * `deviceCpuMake` (string): Make of the device's CPU, e.g., Qualcomm. *
+ *  `deviceCpuModel` (string): Model of the device's CPU, e.g., "Kryo 240". *
+ *  `deviceGpuMake` (string): Make of the device's GPU, e.g., ARM. *
+ *  `deviceGpuModel` (string): Model of the device's GPU, e.g., Mali. *
+ *  `deviceGpuVersion` (string): Version of the device's GPU, e.g., T750. *
+ *  `deviceVulkanVersion` (string): Vulkan version of the device, e.g.,
+ *  "4198400". * `deviceGlEsVersion` (string): OpenGL ES version of the device,
+ *  e.g., "196610". * `deviceScreenSize` (string): Screen size of the device,
+ *  e.g., NORMAL, LARGE. * `deviceScreenDpi` (string): Screen density of the
+ *  device, e.g., mdpi, hdpi.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/**
+ *  Optional. Filters to apply to data. The filtering expression follows
+ *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
+ *  equality of all breakdown dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Metrics to aggregate. **Supported metrics:** *
+ *  `userPerceivedLmkRate` (`google.type.Decimal`): Percentage of distinct users
+ *  in the aggregation period that experienced at least one LMK while they were
+ *  actively using your app (a user-perceived LMK). An app is considered to be
+ *  in active use if it is displaying any activity or executing any foreground
+ *  service. * `userPerceivedLmkRate7dUserWeighted` (`google.type.Decimal`):
+ *  Rolling average value of `userPerceivedLmkRate` in the last 7 days. The
+ *  daily values are weighted by the count of distinct users for the day. *
+ *  `userPerceivedLmkRate28dUserWeighted` (`google.type.Decimal`): Rolling
+ *  average value of `userPerceivedLmkRate` in the last 28 days. The daily
+ *  values are weighted by the count of distinct users for the day. *
+ *  `distinctUsers` (`google.type.Decimal`): Count of distinct users in the
+ *  aggregation period that were used as normalization value for the
+ *  `userPerceivedLmkRate` metrics. A user is counted in this metric if they
+ *  used the app in the foreground during the aggregation period. Care must be
+ *  taken not to aggregate this count further, as it may result in users being
+ *  counted multiple times. The value is rounded to the nearest multiple of 10,
+ *  100, 1,000 or 1,000,000, depending on the magnitude of the value.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
+
+/**
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100,000; values above 100,000
+ *  will be coerced to 100,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
+ *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
+ *  intervals. Due to historical constraints, the default and only supported
+ *  timezone is `America/Los_Angeles`.
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
+
+/**
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. **Supported values:** * `OS_PUBLIC` To select data from all
+ *  publicly released Android versions. This is the default. Supports all the
+ *  above dimensions. * `APP_TESTERS` To select data from users who have opted
+ *  in to be testers. Supports all the above dimensions. * `OS_BETA` To select
+ *  data from beta android versions only, excluding data from released android
+ *  versions. Only the following dimensions are supported: * `versionCode`
+ *  (int64): version of the app that was running on the user's device. *
+ *  `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_AppTesters
+ *        This is the view with data only from users who have opted in to be
+ *        testers for a given app, excluding OS beta data. (Value:
+ *        "APP_TESTERS")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_OsBeta
+ *        This is the view with just android beta data excluding released OS
+ *        version data. (Value: "OS_BETA")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_OsPublic
+ *        This is default view. Contains data from public released android
+ *        versions only. (Value: "OS_PUBLIC")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_UserCohortUnspecified
+ *        Unspecified User cohort. This will automatically choose the default
+ *        value. (Value: "USER_COHORT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userCohort;
+
+@end
+
+
+/**
+ *  Response message for QueryLmkRateMetricSet.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rows" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse : GTLRCollectionObject
 
 /** Continuation token to fetch the next page of data. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -1829,14 +2065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  User view to select. The output data will correspond to the selected view.
- *  **Supported values:** * `OS_PUBLIC` To select data from all publicly
- *  released Android versions. This is the default. Supports all the above
- *  dimensions. * `APP_TESTERS` To select data from users who have opted in to
- *  be testers. Supports all the above dimensions. * `OS_BETA` To select data
- *  from beta Android versions only, excluding data from released Android
- *  versions. Only the following dimensions are supported: * `versionCode`
- *  (int64): version of the app that was running on the user's device. *
- *  `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004".
+ *  The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest_UserCohort_AppTesters
@@ -1971,14 +2200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  User view to select. The output data will correspond to the selected view.
- *  **Supported values:** * `OS_PUBLIC` To select data from all publicly
- *  released Android versions. This is the default. Supports all the above
- *  dimensions. * `APP_TESTERS` To select data from users who have opted in to
- *  be testers. Supports all the above dimensions. * `OS_BETA` To select data
- *  from beta Android versions only, excluding data from released Android
- *  versions. Only the following dimensions are supported: * `versionCode`
- *  (int64): version of the app that was running on the user's device. *
- *  `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004".
+ *  The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest_UserCohort_AppTesters
@@ -2115,14 +2337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  User view to select. The output data will correspond to the selected view.
- *  **Supported values:** * `OS_PUBLIC` To select data from all publicly
- *  released Android versions. This is the default. Supports all the above
- *  dimensions. * `APP_TESTERS` To select data from users who have opted in to
- *  be testers. Supports all the above dimensions. * `OS_BETA` To select data
- *  from beta android versions only, excluding data from released android
- *  versions. Only the following dimensions are supported: * `versionCode`
- *  (int64): version of the app that was running on the user's device. *
- *  `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004".
+ *  The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest_UserCohort_AppTesters

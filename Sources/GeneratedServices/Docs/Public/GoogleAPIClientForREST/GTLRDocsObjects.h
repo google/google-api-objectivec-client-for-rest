@@ -1679,7 +1679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  positioned inside of the image's original bounding rectangle. - If the
  *  offset is negative or greater than 1, the corresponding edge of crop
  *  rectangle is positioned outside of the image's original bounding rectangle.
- *  - If all offsets and rotation angle are 0, the image is not cropped.
+ *  - If all offsets and rotation angles are 0, the image is not cropped.
  */
 @interface GTLRDocs_CropProperties : GTLRObject
 
@@ -2411,7 +2411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Indicates whether DocumentStyle margin_header, SectionStyle margin_header
  *  and DocumentStyle margin_footer, SectionStyle margin_footer are respected.
  *  When false, the default values in the Docs editor for header and footer
- *  margin are used. This property is read-only.
+ *  margin is used. This property is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4113,7 +4113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A custom glyph symbol used by bullets when paragraphs at this level of
- *  nesting are unordered. The glyph symbol replaces placeholders within the
+ *  nesting is unordered. The glyph symbol replaces placeholders within the
  *  glyph_format. For example, if the glyph_symbol is the solid circle
  *  corresponding to Unicode U+25cf code point and the glyph_format is `%0`, the
  *  rendered glyph would be the solid circle.
@@ -4122,12 +4122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The type of glyph used by bullets when paragraphs at this level of nesting
- *  are ordered. The glyph type determines the type of glyph used to replace
+ *  is ordered. The glyph type determines the type of glyph used to replace
  *  placeholders within the glyph_format when paragraphs at this level of
  *  nesting are ordered. For example, if the nesting level is 0, the
  *  glyph_format is `%0.` and the glyph type is DECIMAL, then the rendered glyph
  *  would replace the placeholder `%0` in the glyph format with a number
- *  corresponding to list item's order within the list.
+ *  corresponding to the list item's order within the list.
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_NestingLevel_GlyphType_Alpha A lowercase letter, like

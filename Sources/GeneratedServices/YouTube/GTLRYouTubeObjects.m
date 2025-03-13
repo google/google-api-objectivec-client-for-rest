@@ -370,12 +370,16 @@ NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqCriminalActs
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqDrugs = @"djctqDrugs";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExplicitSex = @"djctqExplicitSex";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExtremeViolence = @"djctqExtremeViolence";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFantasyViolence = @"djctqFantasyViolence";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFear = @"djctqFear";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqIllegalDrugs = @"djctqIllegalDrugs";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqImpactingContent = @"djctqImpactingContent";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqInappropriateLanguage = @"djctqInappropriateLanguage";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqLegalDrugs = @"djctqLegalDrugs";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqMedicalProcedures = @"djctqMedicalProcedures";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqNudity = @"djctqNudity";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqRatingReasonUnspecified = @"djctqRatingReasonUnspecified";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSensitiveTopics = @"djctqSensitiveTopics";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSex = @"djctqSex";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSexualContent = @"djctqSexualContent";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqViolence = @"djctqViolence";
@@ -1876,8 +1880,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ChannelStatus
-@dynamic isLinked, longUploadsStatus, madeForKids, privacyStatus,
-         selfDeclaredMadeForKids;
+@dynamic isChannelMonetizationEnabled, isLinked, longUploadsStatus, madeForKids,
+         privacyStatus, selfDeclaredMadeForKids;
 @end
 
 
@@ -4179,6 +4183,28 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
     @"relevantTopicIds" : [NSString class],
     @"topicCategories" : [NSString class],
     @"topicIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_VideoTrainability
+//
+
+@implementation GTLRYouTube_VideoTrainability
+@dynamic ETag, kind, permitted, videoId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permitted" : [NSString class]
   };
   return map;
 }

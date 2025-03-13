@@ -533,6 +533,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeBackup_Format_VolumeB
 // GTLRBackupforGKE_VolumeBackup.state
 
 /**
+ *  The underlying artifacts of a volume backup (eg: persistent disk snapshots)
+ *  are deleted.
+ *
+ *  Value: "CLEANED_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeBackup_State_CleanedUp;
+/**
  *  A volume for the backup was identified and backup process is about to start.
  *
  *  Value: "CREATING"
@@ -1138,6 +1145,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** Optional. A set of custom labels supplied by user. */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupPlan_Labels *labels;
+
+/**
+ *  Output only. Completion time of the last successful Backup. This is sourced
+ *  from a successful Backup's complete_time field. This field is added to
+ *  maintain consistency with BackupPlanBinding to display last successful
+ *  backup time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupTime;
 
 /**
  *  Output only. The full name of the BackupPlan resource. Format: `projects/ *
@@ -2390,7 +2405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Optional. Immutable. Filters resources for `Restore`. If not specified, the
  *  scope of the restore will remain the same as defined in the `RestorePlan`.
  *  If this is specified and no resources are matched by the `inclusion_filters`
- *  or everyting is excluded by the `exclusion_filters`, nothing will be
+ *  or everything is excluded by the `exclusion_filters`, nothing will be
  *  restored. This filter can only be specified if the value of
  *  namespaced_resource_restore_mode is set to `MERGE_SKIP_ON_CONFLICT`,
  *  `MERGE_REPLACE_VOLUME_ON_CONFLICT` or `MERGE_REPLACE_ON_CONFLICT`.
@@ -3240,6 +3255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Output only. The current state of this VolumeBackup.
  *
  *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_VolumeBackup_State_CleanedUp The underlying
+ *        artifacts of a volume backup (eg: persistent disk snapshots) are
+ *        deleted. (Value: "CLEANED_UP")
  *    @arg @c kGTLRBackupforGKE_VolumeBackup_State_Creating A volume for the
  *        backup was identified and backup process is about to start. (Value:
  *        "CREATING")

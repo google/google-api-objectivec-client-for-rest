@@ -1019,6 +1019,29 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudDeploy_Policy class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -1060,6 +1083,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
   query.loggingName = @"clouddeploy.projects.locations.deployPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudDeploy_Policy class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.setIamPolicy";
   return query;
 }
 

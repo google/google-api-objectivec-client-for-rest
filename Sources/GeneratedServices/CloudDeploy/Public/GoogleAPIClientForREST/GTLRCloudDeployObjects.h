@@ -496,7 +496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_Cl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The deploy job run did not complete within the alloted time.
+ *  The deploy job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -915,7 +915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCaus
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The postdeploy job run did not complete within the alloted time.
+ *  The postdeploy job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -953,7 +953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The predeploy job run did not complete within the alloted time.
+ *  The predeploy job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -1333,7 +1333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable;
 /**
- *  Deployment did not complete within the alloted time.
+ *  Deployment did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -1836,8 +1836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_Cl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable;
 /**
- *  The render operation did not complete successfully because the custom action
- *  required for predeploy or postdeploy was not found in the Skaffold
+ *  The render operation did not complete successfully because the custom
+ *  action(s) required for Rollout jobs were not found in the Skaffold
  *  configuration. See failure_message for additional details.
  *
  *  Value: "CUSTOM_ACTION_NOT_FOUND"
@@ -1923,7 +1923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Cl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The verify job run did not complete within the alloted time.
+ *  The verify job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -2431,7 +2431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @interface GTLRCloudDeploy_AutomationResourceSelector : GTLRObject
 
-/** Contains attributes about a target. */
+/** Optional. Contains attributes about a target. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_TargetAttribute *> *targets;
 
 @end
@@ -2778,12 +2778,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @interface GTLRCloudDeploy_BuildArtifact : GTLRObject
 
-/** Image name in Skaffold configuration. */
+/** Optional. Image name in Skaffold configuration. */
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
- *  Image tag to use. This will generally be the full path to an image, such as
- *  "gcr.io/my-project/busybox:1.2.3" or
+ *  Optional. Image tag to use. This will generally be the full path to an
+ *  image, such as "gcr.io/my-project/busybox:1.2.3" or
  *  "gcr.io/my-project/busybox\@sha256:abc123".
  */
 @property(nonatomic, copy, nullable) NSString *tag;
@@ -2796,12 +2796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @interface GTLRCloudDeploy_Canary : GTLRObject
 
-/** Configures the progressive based deployment for a Target. */
+/** Optional. Configures the progressive based deployment for a Target. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CanaryDeployment *canaryDeployment;
 
 /**
- *  Configures the progressive based deployment for a Target, but allows
- *  customizing at the phase level where a phase represents each of the
+ *  Optional. Configures the progressive based deployment for a Target, but
+ *  allows customizing at the phase level where a phase represents each of the
  *  percentage deployments.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomCanaryDeployment *customCanaryDeployment;
@@ -2844,7 +2844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Whether to run verify tests after each percentage deployment.
+ *  Optional. Whether to run verify tests after each percentage deployment.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2915,9 +2915,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_CloudRunConfig : GTLRObject
 
 /**
- *  Whether Cloud Deploy should update the traffic stanza in a Cloud Run Service
- *  on the user's behalf to facilitate traffic splitting. This is required to be
- *  true for CanaryDeployments, but optional for CustomCanaryDeployments.
+ *  Optional. Whether Cloud Deploy should update the traffic stanza in a Cloud
+ *  Run Service on the user's behalf to facilitate traffic splitting. This is
+ *  required to be true for CanaryDeployments, but optional for
+ *  CustomCanaryDeployments.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3160,8 +3161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Configures render and deploy for the `CustomTargetType` using Skaffold
- *  custom actions.
+ *  Optional. Configures render and deploy for the `CustomTargetType` using
+ *  Skaffold custom actions.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetSkaffoldActions *customActions;
 
@@ -3196,7 +3197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetType_Labels *labels;
 
 /**
- *  Optional. Name of the `CustomTargetType`. Format is
+ *  Identifier. Name of the `CustomTargetType`. Format is
  *  `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
  *  The `customTargetType` component must match
  *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
@@ -3363,8 +3364,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_DeliveryPipeline : GTLRObject
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline_Annotations *annotations;
 
@@ -3375,7 +3376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Description of the `DeliveryPipeline`. Max length is 255 characters.
+ *  Optional. Description of the `DeliveryPipeline`. Max length is 255
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -3400,7 +3402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline_Labels *labels;
 
 /**
- *  Optional. Name of the `DeliveryPipeline`. Format is
+ *  Identifier. Name of the `DeliveryPipeline`. Format is
  *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
  *  The `deliveryPipeline` component must match
  *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
@@ -3408,13 +3410,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`.
+ *  Optional. SerialPipeline defines a sequential set of stages for a
+ *  `DeliveryPipeline`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SerialPipeline *serialPipeline;
 
 /**
- *  When suspended, no new releases or rollouts can be created, but in-progress
- *  ones will complete.
+ *  Optional. When suspended, no new releases or rollouts can be created, but
+ *  in-progress ones will complete.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3430,8 +3433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3466,8 +3469,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_DeliveryPipelineAttribute : GTLRObject
 
 /**
- *  ID of the `DeliveryPipeline`. The value of this field could be one of the
- *  following: * The last segment of a pipeline name * "*", all delivery
+ *  Optional. ID of the `DeliveryPipeline`. The value of this field could be one
+ *  of the following: * The last segment of a pipeline name * "*", all delivery
  *  pipelines in a location
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -3595,7 +3598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded The
- *        deploy job run did not complete within the alloted time. (Value:
+ *        deploy job run did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeployFeatureNotSupported
  *        The deploy operation had a feature configured that is not supported.
@@ -3718,16 +3721,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_DeployPolicy : GTLRObject
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. Annotations must meet the following constraints: *
- *  Annotations are key/value pairs. * Valid annotation keys have two segments:
- *  an optional prefix and name, separated by a slash (`/`). * The name segment
- *  is required and must be 63 characters or less, beginning and ending with an
- *  alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`), underscores (`_`),
- *  dots (`.`), and alphanumerics between. * The prefix is optional. If
- *  specified, the prefix must be a DNS subdomain: a series of DNS labels
- *  separated by dots(`.`), not longer than 253 characters in total, followed by
- *  a slash (`/`). See
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. Annotations must meet the following
+ *  constraints: * Annotations are key/value pairs. * Valid annotation keys have
+ *  two segments: an optional prefix and name, separated by a slash (`/`). * The
+ *  name segment is required and must be 63 characters or less, beginning and
+ *  ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`),
+ *  underscores (`_`), dots (`.`), and alphanumerics between. * The prefix is
+ *  optional. If specified, the prefix must be a DNS subdomain: a series of DNS
+ *  labels separated by dots(`.`), not longer than 253 characters in total,
+ *  followed by a slash (`/`). See
  *  https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/#syntax-and-character-set
  *  for more details.
  */
@@ -3737,7 +3740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Description of the `DeployPolicy`. Max length is 255 characters.
+ *  Optional. Description of the `DeployPolicy`. Max length is 255 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -3781,8 +3784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_DeployPolicyResourceSelector *> *selectors;
 
 /**
- *  When suspended, the policy will not prevent actions from occurring, even if
- *  the action violates the policy.
+ *  Optional. When suspended, the policy will not prevent actions from
+ *  occurring, even if the action violates the policy.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3798,16 +3801,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. Annotations must meet the following constraints: *
- *  Annotations are key/value pairs. * Valid annotation keys have two segments:
- *  an optional prefix and name, separated by a slash (`/`). * The name segment
- *  is required and must be 63 characters or less, beginning and ending with an
- *  alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`), underscores (`_`),
- *  dots (`.`), and alphanumerics between. * The prefix is optional. If
- *  specified, the prefix must be a DNS subdomain: a series of DNS labels
- *  separated by dots(`.`), not longer than 253 characters in total, followed by
- *  a slash (`/`). See
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. Annotations must meet the following
+ *  constraints: * Annotations are key/value pairs. * Valid annotation keys have
+ *  two segments: an optional prefix and name, separated by a slash (`/`). * The
+ *  name segment is required and must be 63 characters or less, beginning and
+ *  ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`),
+ *  underscores (`_`), dots (`.`), and alphanumerics between. * The prefix is
+ *  optional. If specified, the prefix must be a DNS subdomain: a series of DNS
+ *  labels separated by dots(`.`), not longer than 253 characters in total,
+ *  followed by a slash (`/`). See
  *  https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/#syntax-and-character-set
  *  for more details.
  *
@@ -4165,12 +4168,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, copy, nullable) NSString *cluster;
 
 /**
+ *  Optional. If set, the cluster will be accessed using the DNS endpoint. Note
+ *  that both `dns_endpoint` and `internal_ip` cannot be set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dnsEndpoint;
+
+/**
  *  Optional. If true, `cluster` is accessed using the private IP address of the
  *  control plane endpoint. Otherwise, the default IP address of the control
  *  plane endpoint is used. The default IP address is the private IP address for
  *  clusters with private control-plane endpoints and the public IP address
  *  otherwise. Only specify this option when `cluster` is a [private GKE
  *  cluster](https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept).
+ *  Note that `internal_ip` and `dns_endpoint` cannot both be set to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4315,7 +4327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  Optional. Name of the `JobRun`. Format is
+ *  Output only. Name of the `JobRun`. Format is
  *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{releases}/rollouts/{rollouts}/jobRuns/{uuid}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4430,10 +4442,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @interface GTLRCloudDeploy_KubernetesConfig : GTLRObject
 
-/** Kubernetes Gateway API service mesh configuration. */
+/** Optional. Kubernetes Gateway API service mesh configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_GatewayServiceMesh *gatewayServiceMesh;
 
-/** Kubernetes Service networking configuration. */
+/** Optional. Kubernetes Service networking configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_ServiceNetworking *serviceNetworking;
 
 @end
@@ -4698,7 +4710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
- *  ListRolloutsResponse is the response object reutrned by `ListRollouts`.
+ *  ListRolloutsResponse is the response object returned by `ListRollouts`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "rollouts" property. If returned as the result of a query, it
@@ -5104,14 +5116,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Skaffold profiles to use when rendering the manifest for this phase. These
- *  are in addition to the profiles list specified in the `DeliveryPipeline`
- *  stage.
+ *  Optional. Skaffold profiles to use when rendering the manifest for this
+ *  phase. These are in addition to the profiles list specified in the
+ *  `DeliveryPipeline` stage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profiles;
 
 /**
- *  Whether to run verify tests after the deployment.
+ *  Optional. Whether to run verify tests after the deployment.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5258,7 +5270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @interface GTLRCloudDeploy_PolicyRule : GTLRObject
 
-/** Rollout restrictions. */
+/** Optional. Rollout restrictions. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_RolloutRestriction *rolloutRestriction;
 
 @end
@@ -5352,7 +5364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_DeadlineExceeded
- *        The postdeploy job run did not complete within the alloted time.
+ *        The postdeploy job run did not complete within the allotted time.
  *        (Value: "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_ExecutionFailed The
  *        postdeploy operation did not complete successfully; check Cloud Build
@@ -5424,7 +5436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_DeadlineExceeded The
- *        predeploy job run did not complete within the alloted time. (Value:
+ *        predeploy job run did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_ExecutionFailed The
  *        predeploy operation did not complete successfully; check Cloud Build
@@ -5557,13 +5569,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) NSNumber *abandoned;
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_Annotations *annotations;
 
-/** List of artifacts to pass through to Skaffold command. */
+/** Optional. List of artifacts to pass through to Skaffold command. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_BuildArtifact *> *buildArtifacts;
 
 /** Output only. Information around the state of the Release. */
@@ -5587,7 +5599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_DeployParameters *deployParameters;
 
 /**
- *  Description of the `Release`. Max length is 255 characters.
+ *  Optional. Description of the `Release`. Max length is 255 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -5612,7 +5624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_Labels *labels;
 
 /**
- *  Optional. Name of the `Release`. Format is
+ *  Identifier. Name of the `Release`. Format is
  *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}`.
  *  The `release` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
@@ -5640,10 +5652,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, copy, nullable) NSString *renderState;
 
-/** Filepath of the Skaffold config inside of the config URI. */
+/** Optional. Filepath of the Skaffold config inside of the config URI. */
 @property(nonatomic, copy, nullable) NSString *skaffoldConfigPath;
 
-/** Cloud Storage URI of tar.gz archive containing Skaffold configuration. */
+/**
+ *  Optional. Cloud Storage URI of tar.gz archive containing Skaffold
+ *  configuration.
+ */
 @property(nonatomic, copy, nullable) NSString *skaffoldConfigUri;
 
 /**
@@ -5676,9 +5691,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6314,9 +6329,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, copy, nullable) NSString *activeRepairAutomationRun;
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollout_Annotations *annotations;
 
@@ -6368,7 +6383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded
- *        Deployment did not complete within the alloted time. (Value:
+ *        Deployment did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed The
  *        deploy operation did not complete successfully; check Cloud Build
@@ -6400,7 +6415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRDateTime *deployStartTime;
 
 /**
- *  Description of the `Rollout` for user purposes. Max length is 255
+ *  Optional. Description of the `Rollout` for user purposes. Max length is 255
  *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -6437,7 +6452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Metadata *metadata;
 
 /**
- *  Optional. Name of the `Rollout`. Format is
+ *  Identifier. Name of the `Rollout`. Format is
  *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  *  The `rollout` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
@@ -6496,9 +6511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6734,7 +6749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 /**
  *  Optional. Whether to propagate the Kubernetes Service to the route
  *  destination clusters. The Service will always be deployed to the Target
- *  cluster even if the HTTPRoute is not. This option may be used to facilitiate
+ *  cluster even if the HTTPRoute is not. This option may be used to facilitate
  *  successful DNS lookup in the route destination clusters. Can only be set to
  *  true if destinations are specified.
  *
@@ -6751,10 +6766,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @interface GTLRCloudDeploy_RuntimeConfig : GTLRObject
 
-/** Cloud Run runtime configuration. */
+/** Optional. Cloud Run runtime configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunConfig *cloudRun;
 
-/** Kubernetes runtime configuration. */
+/** Optional. Kubernetes runtime configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_KubernetesConfig *kubernetes;
 
 @end
@@ -6766,8 +6781,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_SerialPipeline : GTLRObject
 
 /**
- *  Each stage specifies configuration for a `Target`. The ordering of this list
- *  defines the promotion flow.
+ *  Optional. Each stage specifies configuration for a `Target`. The ordering of
+ *  this list defines the promotion flow.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Stage *> *stages;
 
@@ -6897,13 +6912,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 /** Optional. The Skaffold Config modules to use from the specified source. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *configs;
 
-/** Remote git repository containing the Skaffold Config modules. */
+/** Optional. Remote git repository containing the Skaffold Config modules. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGitSource *git;
 
-/** Cloud Build V2 repository containing the Skaffold Config modules. */
+/**
+ *  Optional. Cloud Build V2 repository containing the Skaffold Config modules.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGCBRepoSource *googleCloudBuildRepo;
 
-/** Cloud Storage bucket containing the Skaffold Config modules. */
+/** Optional. Cloud Storage bucket containing the Skaffold Config modules. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGCSSource *googleCloudStorage;
 
 @end
@@ -6985,8 +7002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_DeployParameters *> *deployParameters;
 
 /**
- *  Skaffold profiles to use when rendering the manifest for this stage's
- *  `Target`.
+ *  Optional. Skaffold profiles to use when rendering the manifest for this
+ *  stage's `Target`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profiles;
 
@@ -6994,9 +7011,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Strategy *strategy;
 
 /**
- *  The target_id to which this stage points. This field refers exclusively to
- *  the last segment of a target name. For example, this field would just be
- *  `my-target` (rather than
+ *  Optional. The target_id to which this stage points. This field refers
+ *  exclusively to the last segment of a target name. For example, this field
+ *  would just be `my-target` (rather than
  *  `projects/project/locations/location/targets/my-target`). The location of
  *  the `Target` is inferred to be the same as the location of the
  *  `DeliveryPipeline` that contains this `Stage`.
@@ -7024,7 +7041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Whether to verify a deployment.
+ *  Optional. Whether to verify a deployment.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7084,14 +7101,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_Strategy : GTLRObject
 
 /**
- *  Canary deployment strategy provides progressive percentage based deployments
- *  to a Target.
+ *  Optional. Canary deployment strategy provides progressive percentage based
+ *  deployments to a Target.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Canary *canary;
 
 /**
- *  Standard deployment strategy executes a single deploy and allows verifying
- *  the deployment.
+ *  Optional. Standard deployment strategy executes a single deploy and allows
+ *  verifying the deployment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Standard *standard;
 
@@ -7150,8 +7167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Configurations for all execution that relates to this `Target`. Each
- *  `ExecutionEnvironmentUsage` value may only be used in a single
+ *  Optional. Configurations for all execution that relates to this `Target`.
+ *  Each `ExecutionEnvironmentUsage` value may only be used in a single
  *  configuration; using the same value multiple times is an error. When one or
  *  more configurations are specified, they must include the `RENDER` and
  *  `DEPLOY` `ExecutionEnvironmentUsage` values. When no configurations are
@@ -7178,7 +7195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_MultiTarget *multiTarget;
 
 /**
- *  Optional. Name of the `Target`. Format is
+ *  Identifier. Name of the `Target`. Format is
  *  `projects/{project}/locations/{location}/targets/{target}`. The `target`
  *  component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
@@ -7282,7 +7299,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, copy, nullable) NSString *artifactUri;
 
-/** Output only. File path of the rendered manifest relative to the URI. */
+/**
+ *  Output only. File path of the rendered manifest relative to the URI for the
+ *  stable phase.
+ */
 @property(nonatomic, copy, nullable) NSString *manifestPath;
 
 /**
@@ -7291,8 +7311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_TargetArtifact_PhaseArtifacts *phaseArtifacts;
 
 /**
- *  Output only. File path of the resolved Skaffold configuration relative to
- *  the URI.
+ *  Output only. File path of the resolved Skaffold configuration for the stable
+ *  phase, relative to the URI.
  */
 @property(nonatomic, copy, nullable) NSString *skaffoldConfigPath;
 
@@ -7318,8 +7338,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_TargetAttribute : GTLRObject
 
 /**
- *  ID of the `Target`. The value of this field could be one of the following: *
- *  The last segment of a target name * "*", all targets in a location
+ *  Optional. ID of the `Target`. The value of this field could be one of the
+ *  following: * The last segment of a target name * "*", all targets in a
+ *  location
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7407,9 +7428,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CustomActionNotFound
  *        The render operation did not complete successfully because the custom
- *        action required for predeploy or postdeploy was not found in the
- *        Skaffold configuration. See failure_message for additional details.
- *        (Value: "CUSTOM_ACTION_NOT_FOUND")
+ *        action(s) required for Rollout jobs were not found in the Skaffold
+ *        configuration. See failure_message for additional details. (Value:
+ *        "CUSTOM_ACTION_NOT_FOUND")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_DeploymentStrategyNotSupported
  *        Release failed during rendering because the release configuration is
  *        not supported with the specified deployment strategy. (Value:
@@ -7777,7 +7798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded The
- *        verify job run did not complete within the alloted time. (Value:
+ *        verify job run did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed The
  *        verify operation did not complete successfully; check Cloud Build

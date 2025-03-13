@@ -26,6 +26,7 @@
 @class GTLRParallelstore_SourceParallelstore;
 @class GTLRParallelstore_Status;
 @class GTLRParallelstore_Status_Details_Item;
+@class GTLRParallelstore_TransferMetadataOptions;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -36,6 +37,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRParallelstore_Instance.deploymentType
+
+/**
+ *  Default Deployment Type It is equivalent to SCRATCH
+ *
+ *  Value: "DEPLOYMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_DeploymentType_DeploymentTypeUnspecified;
+/**
+ *  Persistent
+ *
+ *  Value: "PERSISTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_DeploymentType_Persistent;
+/**
+ *  Scratch
+ *
+ *  Value: "SCRATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_DeploymentType_Scratch;
 
 // ----------------------------------------------------------------------------
 // GTLRParallelstore_Instance.directoryStripeLevel
@@ -121,6 +144,13 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Failed;
 /**
+ *  The instance is being repaired. This should only be used by instances using
+ *  the `PERSISTENT` deployment type.
+ *
+ *  Value: "REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Repairing;
+/**
  *  Not set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -132,6 +162,99 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_StateUnspec
  *  Value: "UPGRADING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLRParallelstore_ReconciliationOperationMetadata.exclusiveAction
+
+/**
+ *  The resource has to be deleted. When using this bit, the CLH should fail the
+ *  operation. DEPRECATED. Instead use DELETE_RESOURCE OperationSignal in
+ *  SideChannel.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_Delete GTLR_DEPRECATED;
+/**
+ *  This resource could not be repaired but the repair should be tried again at
+ *  a later time. This can happen if there is a dependency that needs to be
+ *  resolved first- e.g. if a parent resource must be repaired before a child
+ *  resource.
+ *
+ *  Value: "RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_Retry;
+/**
+ *  Unknown repair action.
+ *
+ *  Value: "UNKNOWN_REPAIR_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
+
+// ----------------------------------------------------------------------------
+// GTLRParallelstore_TransferMetadataOptions.gid
+
+/**
+ *  Preserve GID that is in number format during a transfer job.
+ *
+ *  Value: "GID_NUMBER_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Gid_GidNumberPreserve;
+/**
+ *  Do not preserve GID during a transfer job.
+ *
+ *  Value: "GID_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Gid_GidSkip;
+/**
+ *  default is GID_NUMBER_PRESERVE.
+ *
+ *  Value: "GID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Gid_GidUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRParallelstore_TransferMetadataOptions.mode
+
+/**
+ *  Preserve mode during a transfer job.
+ *
+ *  Value: "MODE_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Mode_ModePreserve;
+/**
+ *  Do not preserve mode during a transfer job.
+ *
+ *  Value: "MODE_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Mode_ModeSkip;
+/**
+ *  default is MODE_PRESERVE.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRParallelstore_TransferMetadataOptions.uid
+
+/**
+ *  Preserve UID that is in number format during a transfer job.
+ *
+ *  Value: "UID_NUMBER_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Uid_UidNumberPreserve;
+/**
+ *  Do not preserve UID during a transfer job.
+ *
+ *  Value: "UID_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Uid_UidSkip;
+/**
+ *  default is UID_NUMBER_PRESERVE.
+ *
+ *  Value: "UID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Uid_UidUnspecified;
 
 /**
  *  The request message for Operations.CancelOperation.
@@ -175,6 +298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
 
 /** Cloud Storage destination. */
 @property(nonatomic, strong, nullable) GTLRParallelstore_DestinationGcsBucket *destinationGcsBucket;
+
+/** Optional. The metadata options for the export data. */
+@property(nonatomic, strong, nullable) GTLRParallelstore_TransferMetadataOptions *metadataOptions;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
@@ -225,6 +351,9 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
 
 /** Parallelstore destination. */
 @property(nonatomic, strong, nullable) GTLRParallelstore_DestinationParallelstore *destinationParallelstore;
+
+/** Optional. The transfer metadata options for the import data. */
+@property(nonatomic, strong, nullable) GTLRParallelstore_TransferMetadataOptions *metadataOptions;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
@@ -282,8 +411,27 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
 /** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. The version of DAOS software running in the instance. */
-@property(nonatomic, copy, nullable) NSString *daosVersion;
+/**
+ *  Output only. Deprecated 'daos_version' field. Output only. The version of
+ *  DAOS software running in the instance.
+ */
+@property(nonatomic, copy, nullable) NSString *daosVersion GTLR_DEPRECATED;
+
+/**
+ *  Optional. Immutable. The deployment type of the instance. Allowed values
+ *  are: * `SCRATCH`: the instance is a scratch instance. * `PERSISTENT`: the
+ *  instance is a persistent instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParallelstore_Instance_DeploymentType_DeploymentTypeUnspecified
+ *        Default Deployment Type It is equivalent to SCRATCH (Value:
+ *        "DEPLOYMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRParallelstore_Instance_DeploymentType_Persistent Persistent
+ *        (Value: "PERSISTENT")
+ *    @arg @c kGTLRParallelstore_Instance_DeploymentType_Scratch Scratch (Value:
+ *        "SCRATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentType;
 
 /**
  *  Optional. The description of the instance. 2048 characters or less.
@@ -293,7 +441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Stripe level for directories. Allowed values are: *
+ *  Optional. Immutable. Stripe level for directories. Allowed values are: *
  *  `DIRECTORY_STRIPE_LEVEL_MIN`: recommended when directories contain a small
  *  number of files. * `DIRECTORY_STRIPE_LEVEL_BALANCED`: balances performance
  *  for workloads involving a mix of small and large directories. *
@@ -322,7 +470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
 @property(nonatomic, copy, nullable) NSString *effectiveReservedIpRange;
 
 /**
- *  Optional. Stripe level for files. Allowed values are: *
+ *  Optional. Immutable. Stripe level for files. Allowed values are: *
  *  `FILE_STRIPE_LEVEL_MIN`: offers the best performance for small size files. *
  *  `FILE_STRIPE_LEVEL_BALANCED`: balances performance for workloads involving a
  *  mix of small and large files. * `FILE_STRIPE_LEVEL_MAX`: higher throughput
@@ -382,6 +530,9 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
  *        deleted. (Value: "DELETING")
  *    @arg @c kGTLRParallelstore_Instance_State_Failed The instance is not
  *        usable. (Value: "FAILED")
+ *    @arg @c kGTLRParallelstore_Instance_State_Repairing The instance is being
+ *        repaired. This should only be used by instances using the `PERSISTENT`
+ *        deployment type. (Value: "REPAIRING")
  *    @arg @c kGTLRParallelstore_Instance_State_StateUnspecified Not set.
  *        (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRParallelstore_Instance_State_Upgrading The instance is being
@@ -665,6 +816,39 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
 
 
 /**
+ *  Operation metadata returned by the CLH during resource state reconciliation.
+ */
+@interface GTLRParallelstore_ReconciliationOperationMetadata : GTLRObject
+
+/**
+ *  DEPRECATED. Use exclusive_action instead.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteResource GTLR_DEPRECATED;
+
+/**
+ *  Excluisive action returned by the CLH.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_Delete
+ *        The resource has to be deleted. When using this bit, the CLH should
+ *        fail the operation. DEPRECATED. Instead use DELETE_RESOURCE
+ *        OperationSignal in SideChannel. (Value: "DELETE")
+ *    @arg @c kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_Retry
+ *        This resource could not be repaired but the repair should be tried
+ *        again at a later time. This can happen if there is a dependency that
+ *        needs to be resolved first- e.g. if a parent resource must be repaired
+ *        before a child resource. (Value: "RETRY")
+ *    @arg @c kGTLRParallelstore_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction
+ *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *exclusiveAction;
+
+@end
+
+
+/**
  *  Cloud Storage as the source of a data transfer.
  */
 @interface GTLRParallelstore_SourceGcsBucket : GTLRObject
@@ -734,6 +918,55 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Upgrading;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRParallelstore_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Transfer metadata options for the instance.
+ */
+@interface GTLRParallelstore_TransferMetadataOptions : GTLRObject
+
+/**
+ *  Optional. The GID preservation behavior.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Gid_GidNumberPreserve
+ *        Preserve GID that is in number format during a transfer job. (Value:
+ *        "GID_NUMBER_PRESERVE")
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Gid_GidSkip Do not
+ *        preserve GID during a transfer job. (Value: "GID_SKIP")
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Gid_GidUnspecified
+ *        default is GID_NUMBER_PRESERVE. (Value: "GID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *gid;
+
+/**
+ *  Optional. The mode preservation behavior.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Mode_ModePreserve
+ *        Preserve mode during a transfer job. (Value: "MODE_PRESERVE")
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Mode_ModeSkip Do not
+ *        preserve mode during a transfer job. (Value: "MODE_SKIP")
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Mode_ModeUnspecified
+ *        default is MODE_PRESERVE. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Optional. The UID preservation behavior.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Uid_UidNumberPreserve
+ *        Preserve UID that is in number format during a transfer job. (Value:
+ *        "UID_NUMBER_PRESERVE")
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Uid_UidSkip Do not
+ *        preserve UID during a transfer job. (Value: "UID_SKIP")
+ *    @arg @c kGTLRParallelstore_TransferMetadataOptions_Uid_UidUnspecified
+ *        default is UID_NUMBER_PRESERVE. (Value: "UID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
 @end
 
 NS_ASSUME_NONNULL_END

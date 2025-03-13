@@ -364,7 +364,21 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 //
 
 @implementation GTLREventarc_GoogleChannelConfig
-@dynamic cryptoKeyName, name, updateTime;
+@dynamic cryptoKeyName, labels, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GoogleChannelConfig_Labels
+//
+
+@implementation GTLREventarc_GoogleChannelConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

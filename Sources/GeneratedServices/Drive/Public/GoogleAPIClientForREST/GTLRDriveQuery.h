@@ -2144,9 +2144,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
- *  Method: drive.operation.cancel
+ *  Method: drive.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
  */
-@interface GTLRDriveQuery_OperationCancel : GTLRDriveQuery
+@interface GTLRDriveQuery_OperationsCancel : GTLRDriveQuery
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2167,7 +2173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLRDriveQuery_OperationCancel
+ *  @return GTLRDriveQuery_OperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2179,9 +2185,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  operation. If the server doesn't support this method, it returns
  *  `google.rpc.Code.UNIMPLEMENTED`.
  *
- *  Method: drive.operation.delete
+ *  Method: drive.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
  */
-@interface GTLRDriveQuery_OperationDelete : GTLRDriveQuery
+@interface GTLRDriveQuery_OperationsDelete : GTLRDriveQuery
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2197,7 +2209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @return GTLRDriveQuery_OperationDelete
+ *  @return GTLRDriveQuery_OperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2241,6 +2253,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: drive.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_OperationsList : GTLRDriveQuery
 
@@ -2377,6 +2395,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_PermissionsDelete : GTLRDriveQuery
+
+/**
+ *  Whether the request should enforce expansive access rules.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceExpansiveAccess;
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -2582,6 +2607,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_PermissionsUpdate : GTLRDriveQuery
+
+/**
+ *  Whether the request should enforce expansive access rules.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceExpansiveAccess;
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;

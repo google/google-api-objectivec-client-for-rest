@@ -16,6 +16,8 @@
 // GTLRAIPlatformNotebooks_AcceleratorConfig.type
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb = @"NVIDIA_H100_80GB";
+NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4 = @"NVIDIA_L4";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";

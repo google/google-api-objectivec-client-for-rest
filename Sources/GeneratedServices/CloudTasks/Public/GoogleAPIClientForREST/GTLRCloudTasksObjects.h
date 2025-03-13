@@ -1734,6 +1734,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  is created, Cloud Tasks will pick the default. -1 indicates unlimited
  *  attempts. This field has the same meaning as [task_retry_limit in
  *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
+ *  Note: Cloud Tasks stops retrying only when `max_attempts` and
+ *  `max_retry_duration` are both satisfied. When the task has been attempted
+ *  `max_attempts` times and when the `max_retry_duration` time has passed, no
+ *  further attempts are made, and the task is deleted. If you want your task to
+ *  retry infinitely, you must set `max_attempts` to -1 and `max_retry_duration`
+ *  to 0.
  *
  *  Uses NSNumber of intValue.
  */

@@ -96,6 +96,7 @@ NSString * const kGTLRBackupforGKE_VolumeBackup_Format_GcePersistentDisk = @"GCE
 NSString * const kGTLRBackupforGKE_VolumeBackup_Format_VolumeBackupFormatUnspecified = @"VOLUME_BACKUP_FORMAT_UNSPECIFIED";
 
 // GTLRBackupforGKE_VolumeBackup.state
+NSString * const kGTLRBackupforGKE_VolumeBackup_State_CleanedUp = @"CLEANED_UP";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Creating = @"CREATING";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Deleting = @"DELETING";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Failed   = @"FAILED";
@@ -224,9 +225,9 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_BackupPlan
 @dynamic backupConfig, backupSchedule, cluster, createTime, deactivated,
-         descriptionProperty, ETag, labels, name, protectedPodCount,
-         retentionPolicy, rpoRiskLevel, rpoRiskReason, state, stateReason, uid,
-         updateTime;
+         descriptionProperty, ETag, labels, lastSuccessfulBackupTime, name,
+         protectedPodCount, retentionPolicy, rpoRiskLevel, rpoRiskReason, state,
+         stateReason, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

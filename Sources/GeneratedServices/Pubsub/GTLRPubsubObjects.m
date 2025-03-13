@@ -352,6 +352,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_JavaScriptUDF
+//
+
+@implementation GTLRPubsub_JavaScriptUDF
+@dynamic code, functionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_ListSchemaRevisionsResponse
 //
 
@@ -535,6 +545,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_MessageTransform
+//
+
+@implementation GTLRPubsub_MessageTransform
+@dynamic enabled, javascriptUdf;
 @end
 
 
@@ -818,9 +838,17 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 @dynamic ackDeadlineSeconds, analyticsHubSubscriptionInfo, bigqueryConfig,
          cloudStorageConfig, deadLetterPolicy, detached,
          enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
-         filter, labels, messageRetentionDuration, name, pushConfig,
-         retainAckedMessages, retryPolicy, state, topic,
+         filter, labels, messageRetentionDuration, messageTransforms, name,
+         pushConfig, retainAckedMessages, retryPolicy, state, topic,
          topicMessageRetentionDuration;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messageTransforms" : [GTLRPubsub_MessageTransform class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -900,8 +928,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_Topic
 @dynamic ingestionDataSourceSettings, kmsKeyName, labels,
-         messageRetentionDuration, messageStoragePolicy, name, satisfiesPzs,
-         schemaSettings, state;
+         messageRetentionDuration, messageStoragePolicy, messageTransforms,
+         name, satisfiesPzs, schemaSettings, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messageTransforms" : [GTLRPubsub_MessageTransform class]
+  };
+  return map;
+}
+
 @end
 
 

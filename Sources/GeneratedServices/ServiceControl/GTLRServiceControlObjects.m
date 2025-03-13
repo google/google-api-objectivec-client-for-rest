@@ -473,8 +473,8 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_Request
-@dynamic auth, headers, host, identifier, method, path, protocol, query, reason,
-         scheme, size, time;
+@dynamic auth, headers, host, identifier, method, origin, path, protocol, query,
+         reason, scheme, size, time;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

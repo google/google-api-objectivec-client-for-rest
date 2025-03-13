@@ -41,7 +41,7 @@ NSString * const kGTLRWebfontsSortTrending      = @"TRENDING";
 
 @implementation GTLRWebfontsQuery_WebfontsList
 
-@dynamic capability, family, sort, subset;
+@dynamic capability, category, family, sort, subset;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

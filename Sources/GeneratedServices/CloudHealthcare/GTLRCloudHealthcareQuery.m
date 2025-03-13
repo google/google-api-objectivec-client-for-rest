@@ -1671,7 +1671,7 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveRendered
 
-@dynamic dicomWebPath, parent;
+@dynamic dicomWebPath, parent, viewport;
 
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath {
@@ -1740,7 +1740,7 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveRendered
 
-@dynamic dicomWebPath, parent;
+@dynamic dicomWebPath, parent, viewport;
 
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath {
@@ -1937,6 +1937,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
   query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.applyConsents";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkExportGroup
+
+@dynamic xSince, xType, name, organizeOutputBy, outputFormat;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"xSince" : @"_since",
+    @"xType" : @"_type"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/$export";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkExportGroup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.bulk-export-group";
   return query;
 }
 
@@ -2148,6 +2175,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
   query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.Binary-vread";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBulkExport
+
+@dynamic xSince, xType, name, outputFormat;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"xSince" : @"_since",
+    @"xType" : @"_type"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/fhir/$export";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBulkExport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.bulk-export";
   return query;
 }
 
@@ -2740,6 +2794,44 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudHealthcare_ListFhirStoresResponse class];
   query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsDeleteFhirOperation
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsDeleteFhirOperation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.operations.delete-fhir-operation";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsGetFhirOperationStatus
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsGetFhirOperationStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.operations.get-fhir-operation-status";
   return query;
 }
 

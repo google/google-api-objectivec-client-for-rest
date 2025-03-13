@@ -319,7 +319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_Resource;
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_PartitionKeyUnspecified;
 /**
  *  The time when the request is received. If specified as partition key, the
- *  result table(s) is partitoned by the RequestTime column, an additional
+ *  result table(s) is partitioned by the RequestTime column, an additional
  *  timestamp column representing when the request was received.
  *
  *  Value: "REQUEST_TIME"
@@ -866,7 +866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Item_Type_TypeUnspecified;
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_PartitionKeyUnspecified;
 /**
  *  The time when the snapshot is taken. If specified as partition key, the
- *  result table(s) is partitoned by the additional timestamp column, readTime.
+ *  result table(s) is partitioned by the additional timestamp column, readTime.
  *  If [read_time] in ExportAssetsRequest is specified, the readTime column's
  *  value will be the same as it. Otherwise, its value will be the current time
  *  that is used to take the snapshot.
@@ -876,7 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_Pa
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime;
 /**
  *  The time when the request is received and started to be processed. If
- *  specified as partition key, the result table(s) is partitoned by the
+ *  specified as partition key, the result table(s) is partitioned by the
  *  requestTime column, an additional timestamp column representing when the
  *  request was received.
  *
@@ -2306,7 +2306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        option. (Value: "PARTITION_KEY_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_RequestTime
  *        The time when the request is received. If specified as partition key,
- *        the result table(s) is partitoned by the RequestTime column, an
+ *        the result table(s) is partitioned by the RequestTime column, an
  *        additional timestamp column representing when the request was
  *        received. (Value: "REQUEST_TIME")
  */
@@ -3627,12 +3627,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
 /**
- *  A Google Cloud resource that you want to allow to egress the perimeter.
- *  These resources can access data outside the perimeter. This field only
- *  supports projects. The project format is `projects/{project_number}`. The
- *  resource can be in any Google Cloud organization, not just the organization
- *  where the perimeter is defined. You can't use `*` in this field to allow all
- *  Google Cloud resources.
+ *  A Google Cloud resource from the service perimeter that you want to allow to
+ *  access data outside the perimeter. This field supports only projects. The
+ *  project format is `projects/{project_number}`. You can't use `*` in this
+ *  field to allow all Google Cloud resources.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3676,6 +3674,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  to all resources outside the perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding EgressFrom. are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
 
@@ -3815,6 +3820,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  specified, then access to all resources inside the perimeter are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding IngressFrom are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
 
@@ -4392,8 +4404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  form of projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource
  *  (like VM instance, Cloud Storage bucket), the project field will indicate
  *  the project that contains the resource. If an IAM policy is set on a folder
- *  or orgnization, this field will be empty. To search against the `project`: *
- *  specify the `scope` field as this project in your search request.
+ *  or organization, this field will be empty. To search against the `project`:
+ *  * specify the `scope` field as this project in your search request.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -4943,16 +4955,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        table. (Value: "PARTITION_KEY_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime The time when
  *        the snapshot is taken. If specified as partition key, the result
- *        table(s) is partitoned by the additional timestamp column, readTime.
+ *        table(s) is partitioned by the additional timestamp column, readTime.
  *        If [read_time] in ExportAssetsRequest is specified, the readTime
  *        column's value will be the same as it. Otherwise, its value will be
  *        the current time that is used to take the snapshot. (Value:
  *        "READ_TIME")
  *    @arg @c kGTLRCloudAsset_PartitionSpec_PartitionKey_RequestTime The time
  *        when the request is received and started to be processed. If specified
- *        as partition key, the result table(s) is partitoned by the requestTime
- *        column, an additional timestamp column representing when the request
- *        was received. (Value: "REQUEST_TIME")
+ *        as partition key, the result table(s) is partitioned by the
+ *        requestTime column, an additional timestamp column representing when
+ *        the request was received. (Value: "REQUEST_TIME")
  */
 @property(nonatomic, copy, nullable) NSString *partitionKey;
 

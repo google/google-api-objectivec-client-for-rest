@@ -1426,7 +1426,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_GkeCluster
-@dynamic cluster, internalIp, proxyUrl;
+@dynamic cluster, dnsEndpoint, internalIp, proxyUrl;
 @end
 
 

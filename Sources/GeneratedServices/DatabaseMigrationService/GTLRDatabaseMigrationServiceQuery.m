@@ -22,6 +22,7 @@ NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
 // view
 NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewBasic = @"DATABASE_ENTITY_VIEW_BASIC";
 NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFull = @"DATABASE_ENTITY_VIEW_FULL";
+NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFullCompact = @"DATABASE_ENTITY_VIEW_FULL_COMPACT";
 NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewRootSummary = @"DATABASE_ENTITY_VIEW_ROOT_SUMMARY";
 NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified = @"DATABASE_ENTITY_VIEW_UNSPECIFIED";
 

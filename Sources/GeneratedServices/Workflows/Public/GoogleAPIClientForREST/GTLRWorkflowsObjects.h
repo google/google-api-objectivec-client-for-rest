@@ -543,8 +543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Describes the level of the execution history feature to apply to
- *  this workflow.
+ *  Optional. Describes the execution history level to apply to this workflow.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryBasic

@@ -518,7 +518,7 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 @implementation GTLRTPU_Node
 @dynamic acceleratorConfig, acceleratorType, apiVersion, cidrBlock, createTime,
          dataDisks, descriptionProperty, health, healthDescription, identifier,
-         labels, metadata, multisliceNode, name, networkConfig,
+         labels, metadata, multisliceNode, name, networkConfig, networkConfigs,
          networkEndpoints, queuedResource, runtimeVersion, schedulingConfig,
          serviceAccount, shieldedInstanceConfig, state, symptoms, tags;
 
@@ -533,6 +533,7 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dataDisks" : [GTLRTPU_AttachedDisk class],
+    @"networkConfigs" : [GTLRTPU_NetworkConfig class],
     @"networkEndpoints" : [GTLRTPU_NetworkEndpoint class],
     @"symptoms" : [GTLRTPU_Symptom class],
     @"tags" : [NSString class]

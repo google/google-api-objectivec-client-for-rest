@@ -5,7 +5,7 @@
 //   Firebase Cloud Messaging API (fcm/v1)
 // Description:
 //   FCM send API that provides a cross-platform messaging solution to reliably
-//   deliver messages at no cost.
+//   deliver messages.
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 

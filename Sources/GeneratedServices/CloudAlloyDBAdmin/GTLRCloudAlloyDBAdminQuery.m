@@ -23,6 +23,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// scope
+NSString * const kGTLRCloudAlloyDBAdminScopeConnectionPool   = @"CONNECTION_POOL";
+NSString * const kGTLRCloudAlloyDBAdminScopeDatabase         = @"DATABASE";
+NSString * const kGTLRCloudAlloyDBAdminScopeScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
 // view
 NSString * const kGTLRCloudAlloyDBAdminViewClusterViewBasic    = @"CLUSTER_VIEW_BASIC";
 NSString * const kGTLRCloudAlloyDBAdminViewClusterViewContinuousBackup = @"CLUSTER_VIEW_CONTINUOUS_BACKUP";
@@ -274,6 +279,33 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
   query.name = name;
   query.expectedObjectClass = [GTLRCloudAlloyDBAdmin_Cluster class];
   query.loggingName = @"alloydb.projects.locations.clusters.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersImport
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_ImportClusterRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:import";
+  GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAlloyDBAdmin_Operation class];
+  query.loggingName = @"alloydb.projects.locations.clusters.import";
   return query;
 }
 
@@ -621,6 +653,33 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
 
 @end
 
+@implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersRestoreFromCloudSQL
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_RestoreFromCloudSQLRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/clusters:restoreFromCloudSQL";
+  GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersRestoreFromCloudSQL *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAlloyDBAdmin_Operation class];
+  query.loggingName = @"alloydb.projects.locations.clusters.restoreFromCloudSQL";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersSwitchover
 
 @dynamic name;
@@ -910,7 +969,7 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
 
 @implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsSupportedDatabaseFlagsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, scope;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

@@ -451,6 +451,49 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetention
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwoMonths;
 
 // ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings.userDataRetention
+
+/**
+ *  The data retention time duration is 50 months. Available to 360 properties
+ *  only. Available for event data only.
+ *
+ *  Value: "FIFTY_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FiftyMonths;
+/**
+ *  The data retention time duration is 14 months.
+ *
+ *  Value: "FOURTEEN_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FourteenMonths;
+/**
+ *  Data retention time duration is not specified.
+ *
+ *  Value: "RETENTION_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_RetentionDurationUnspecified;
+/**
+ *  The data retention time duration is 38 months. Available to 360 properties
+ *  only. Available for event data only.
+ *
+ *  Value: "THIRTY_EIGHT_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_ThirtyEightMonths;
+/**
+ *  The data retention time duration is 26 months. Available to 360 properties
+ *  only. Available for event data only.
+ *
+ *  Value: "TWENTY_SIX_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwentySixMonths;
+/**
+ *  The data retention time duration is 2 months.
+ *
+ *  Value: "TWO_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwoMonths;
+
+// ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1betaDataStream.type
 
 /**
@@ -1825,6 +1868,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  */
 @property(nonatomic, strong, nullable) NSNumber *resetUserDataOnNewActivity;
 
+/**
+ *  Required. The length of time that user-level data is retained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FiftyMonths
+ *        The data retention time duration is 50 months. Available to 360
+ *        properties only. Available for event data only. (Value:
+ *        "FIFTY_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FourteenMonths
+ *        The data retention time duration is 14 months. (Value:
+ *        "FOURTEEN_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_RetentionDurationUnspecified
+ *        Data retention time duration is not specified. (Value:
+ *        "RETENTION_DURATION_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_ThirtyEightMonths
+ *        The data retention time duration is 38 months. Available to 360
+ *        properties only. Available for event data only. (Value:
+ *        "THIRTY_EIGHT_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwentySixMonths
+ *        The data retention time duration is 26 months. Available to 360
+ *        properties only. Available for event data only. (Value:
+ *        "TWENTY_SIX_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwoMonths
+ *        The data retention time duration is 2 months. (Value: "TWO_MONTHS")
+ */
+@property(nonatomic, copy, nullable) NSString *userDataRetention;
+
 @end
 
 
@@ -1841,17 +1911,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Allows any of Google sales to access the data in order to suggest
- *  configuration changes to improve results.
+ *  Deprecated. This field is no longer used and always returns false.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySalesEnabled;
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySalesEnabled GTLR_DEPRECATED;
 
 /**
- *  Allows Google sales teams that are assigned to the customer to access the
- *  data in order to suggest configuration changes to improve results. Sales
- *  team restrictions still apply when enabled.
+ *  Allows Google access to your Google Analytics account data, including
+ *  account usage and configuration data, product spending, and users associated
+ *  with your Google Analytics account, so that Google can help you make the
+ *  most of Google products, providing you with insights, offers,
+ *  recommendations, and optimization tips across Google Analytics and other
+ *  Google products for business. This field maps to the "Recommendations for
+ *  your business" field in the Google Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1859,21 +1932,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /**
  *  Allows Google to use the data to improve other Google products or services.
+ *  This fields maps to the "Google products & services" field in the Google
+ *  Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleProductsEnabled;
 
 /**
- *  Allows Google support to access the data in order to help troubleshoot
- *  issues.
+ *  Allows Google technical support representatives access to your Google
+ *  Analytics data and account when necessary to provide service and find
+ *  solutions to technical issues. This field maps to the "Technical support"
+ *  field in the Google Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSupportEnabled;
 
 /**
- *  Allows Google to share the data anonymously in aggregate form with others.
+ *  Enable features like predictions, modeled data, and benchmarking that can
+ *  provide you with richer business insights when you contribute aggregated
+ *  measurement data. The data you share (including information about the
+ *  property from which it is shared) is aggregated and de-identified before
+ *  being used to generate business insights. This field maps to the "Modeling
+ *  contributions & business insights" field in the Google Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */

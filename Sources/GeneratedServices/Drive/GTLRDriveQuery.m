@@ -818,37 +818,37 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
-@implementation GTLRDriveQuery_OperationCancel
+@implementation GTLRDriveQuery_OperationsCancel
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"operation/{name}:cancel";
-  GTLRDriveQuery_OperationCancel *query =
+  NSString *pathURITemplate = @"operations/{name}:cancel";
+  GTLRDriveQuery_OperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.loggingName = @"drive.operation.cancel";
+  query.loggingName = @"drive.operations.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLRDriveQuery_OperationDelete
+@implementation GTLRDriveQuery_OperationsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"operation/{name}";
-  GTLRDriveQuery_OperationDelete *query =
+  NSString *pathURITemplate = @"operations/{name}";
+  GTLRDriveQuery_OperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.loggingName = @"drive.operation.delete";
+  query.loggingName = @"drive.operations.delete";
   return query;
 }
 
@@ -921,8 +921,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsDelete
 
-@dynamic fileId, permissionId, supportsAllDrives, supportsTeamDrives,
-         useDomainAdminAccess;
+@dynamic enforceExpansiveAccess, fileId, permissionId, supportsAllDrives,
+         supportsTeamDrives, useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId
                    permissionId:(NSString *)permissionId {
@@ -988,8 +988,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsUpdate
 
-@dynamic fileId, permissionId, removeExpiration, supportsAllDrives,
-         supportsTeamDrives, transferOwnership, useDomainAdminAccess;
+@dynamic enforceExpansiveAccess, fileId, permissionId, removeExpiration,
+         supportsAllDrives, supportsTeamDrives, transferOwnership,
+         useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId

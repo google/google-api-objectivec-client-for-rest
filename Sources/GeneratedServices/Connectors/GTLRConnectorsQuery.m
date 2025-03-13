@@ -15,12 +15,15 @@
 // Constants
 
 // view
-NSString * const kGTLRConnectorsViewActionViewBasic           = @"ACTION_VIEW_BASIC";
-NSString * const kGTLRConnectorsViewActionViewFull            = @"ACTION_VIEW_FULL";
-NSString * const kGTLRConnectorsViewActionViewUnspecified     = @"ACTION_VIEW_UNSPECIFIED";
-NSString * const kGTLRConnectorsViewEntityTypeViewBasic       = @"ENTITY_TYPE_VIEW_BASIC";
-NSString * const kGTLRConnectorsViewEntityTypeViewFull        = @"ENTITY_TYPE_VIEW_FULL";
-NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewActionViewBasic            = @"ACTION_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewActionViewFull             = @"ACTION_VIEW_FULL";
+NSString * const kGTLRConnectorsViewActionViewUnspecified      = @"ACTION_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewEntityTypeSchemaViewBasic  = @"ENTITY_TYPE_SCHEMA_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewEntityTypeSchemaViewEnriched = @"ENTITY_TYPE_SCHEMA_VIEW_ENRICHED";
+NSString * const kGTLRConnectorsViewEntityTypeSchemaViewUnspecified = @"ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewEntityTypeViewBasic        = @"ENTITY_TYPE_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewEntityTypeViewFull         = @"ENTITY_TYPE_VIEW_FULL";
+NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -301,7 +304,7 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
