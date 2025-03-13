@@ -49,6 +49,24 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionViewFull;
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionViewUnspecified;
 /**
+ *  Return basic entity type schema.
+ *
+ *  Value: "ENTITY_TYPE_SCHEMA_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeSchemaViewBasic;
+/**
+ *  Return enriched entity types schema.
+ *
+ *  Value: "ENTITY_TYPE_SCHEMA_VIEW_ENRICHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeSchemaViewEnriched;
+/**
+ *  VIEW_UNSPECIFIED. The unset value. Defaults to BASIC View.
+ *
+ *  Value: "ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeSchemaViewUnspecified;
+/**
  *  Return only entity type names.
  *
  *  Value: "ENTITY_TYPE_VIEW_BASIC"
@@ -580,6 +598,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{entityType}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specifies view for entity type schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectorsViewEntityTypeSchemaViewUnspecified
+ *        VIEW_UNSPECIFIED. The unset value. Defaults to BASIC View. (Value:
+ *        "ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRConnectorsViewEntityTypeSchemaViewBasic Return basic entity
+ *        type schema. (Value: "ENTITY_TYPE_SCHEMA_VIEW_BASIC")
+ *    @arg @c kGTLRConnectorsViewEntityTypeSchemaViewEnriched Return enriched
+ *        entity types schema. (Value: "ENTITY_TYPE_SCHEMA_VIEW_ENRICHED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRConnectors_EntityType.

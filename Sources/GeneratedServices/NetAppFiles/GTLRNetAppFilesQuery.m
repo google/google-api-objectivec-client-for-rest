@@ -1025,6 +1025,117 @@
 
 @end
 
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesCreate
+
+@dynamic parent, quotaRuleId;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_QuotaRule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/quotaRules";
+  GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.volumes.quotaRules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.volumes.quotaRules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_QuotaRule class];
+  query.loggingName = @"netapp.projects.locations.volumes.quotaRules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/quotaRules";
+  GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetAppFiles_ListQuotaRulesResponse class];
+  query.loggingName = @"netapp.projects.locations.volumes.quotaRules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_QuotaRule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.volumes.quotaRules.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesReplicationsCreate
 
 @dynamic parent, replicationId;

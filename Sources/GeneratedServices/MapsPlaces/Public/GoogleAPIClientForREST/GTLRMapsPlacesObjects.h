@@ -71,6 +71,7 @@
 @class GTLRMapsPlaces_GoogleTypeLatLng;
 @class GTLRMapsPlaces_GoogleTypeLocalizedText;
 @class GTLRMapsPlaces_GoogleTypeMoney;
+@class GTLRMapsPlaces_GoogleTypeTimeZone;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -185,6 +186,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOpt
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeJ1772;
 /**
+ *  The North American Charging System (NACS), standardized as SAE J3400.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_NACS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeNacs;
+/**
  *  Other connector types.
  *
  *  Value: "EV_CONNECTOR_TYPE_OTHER"
@@ -242,6 +249,18 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Diesel;
 /**
+ *  Diesel plus fuel.
+ *
+ *  Value: "DIESEL_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_DieselPlus;
+/**
+ *  E 100.
+ *
+ *  Value: "E100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E100;
+/**
  *  E 80.
  *
  *  Value: "E80"
@@ -260,7 +279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_FuelTypeUnspecified;
 /**
- *  LPG.
+ *  Liquefied Petroleum Gas.
  *
  *  Value: "LPG"
  */
@@ -693,6 +712,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Value: "EV_CONNECTOR_TYPE_J1772"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeJ1772;
+/**
+ *  The North American Charging System (NACS), standardized as SAE J3400.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_NACS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeNacs;
 /**
  *  Other connector types.
  *
@@ -1512,6 +1537,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        CHAdeMO type connector. (Value: "EV_CONNECTOR_TYPE_CHADEMO")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeJ1772
  *        J1772 type 1 connector. (Value: "EV_CONNECTOR_TYPE_J1772")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeNacs
+ *        The North American Charging System (NACS), standardized as SAE J3400.
+ *        (Value: "EV_CONNECTOR_TYPE_NACS")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeOther
  *        Other connector types. (Value: "EV_CONNECTOR_TYPE_OTHER")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeTesla
@@ -1568,6 +1596,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        Bio-diesel. (Value: "BIO_DIESEL")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Diesel
  *        Diesel fuel. (Value: "DIESEL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_DieselPlus
+ *        Diesel plus fuel. (Value: "DIESEL_PLUS")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E100 E
+ *        100. (Value: "E100")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E80 E
  *        80. (Value: "E80")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E85 E
@@ -1575,7 +1607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_FuelTypeUnspecified
  *        Unspecified fuel type. (Value: "FUEL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Lpg
- *        LPG. (Value: "LPG")
+ *        Liquefied Petroleum Gas. (Value: "LPG")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Methane
  *        Methane. (Value: "METHANE")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Midgrade
@@ -2093,6 +2125,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *takeout;
 
+/** IANA Time Zone Database time zone. For example "America/New_York". */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeTimeZone *timeZone;
+
 /**
  *  A set of type tags for this result. For example, "political" and "locality".
  *  For the complete list of possible values, see Table A and Table B at
@@ -2595,8 +2630,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
- *  Place resource name and id of sub destinations that relate to the place. For
- *  example, different terminals are different destinations of an airport.
+ *  Sub destinations are specific places associated with a main place. These
+ *  provide more specific destinations for users who are searching for a large
+ *  or complex place, like an airport, national park, university, or stadium.
+ *  For example, sub destinations at an airport might include associated
+ *  terminals and parking lots. Sub destinations return the place id and place
+ *  resource name, which can be used in subsequent Place Details (New) requests
+ *  to fetch richer details, including the sub destination's displayName and
+ *  location.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination : GTLRObject
 
@@ -3451,6 +3492,25 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  Represents a time zone from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones).
+ */
+@interface GTLRMapsPlaces_GoogleTypeTimeZone : GTLRObject
+
+/**
+ *  IANA Time Zone Database time zone. For example "America/New_York".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

@@ -317,6 +317,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_EntityType_Site;
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_EntityType_SiteSection;
 
 // ----------------------------------------------------------------------------
+// GTLRAdsense_PolicyTopic.type
+
+/**
+ *  Topics that are related to advertiser preferences. Certain advertisers may
+ *  choose not to bid on content that are labeled with certain policies.
+ *
+ *  Value: "ADVERTISER_PREFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_AdvertiserPreference;
+/**
+ *  Topics that are primarily related to the Google Publisher Policy (GPP)
+ *  https://support.google.com/publisherpolicies/answer/10502938 or the Google
+ *  Publisher Restrictions (GPR) policies
+ *  https://support.google.com/publisherpolicies/answer/10437795.
+ *
+ *  Value: "POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_Policy;
+/**
+ *  The type is unspecified.
+ *
+ *  Value: "POLICY_TOPIC_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_PolicyTopicTypeUnspecified;
+/**
+ *  Any topics that are a result of a country or regional regulatory requirement
+ *  body.
+ *
+ *  Value: "REGULATORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_Regulatory;
+
+// ----------------------------------------------------------------------------
 // GTLRAdsense_Site.state
 
 /**
@@ -1318,21 +1351,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @interface GTLRAdsense_PolicyTopic : GTLRObject
 
 /**
- *  Required. Indicates if this is a policy violation or not. When the value is
- *  true, issues that are instances of this topic must be addressed to remain in
- *  compliance with the partner's agreements with Google. A false value
- *  indicates that it's not mandatory to fix the issues but advertising demand
- *  might be restricted.
+ *  Required. Deprecated. Policy topics no longer have a "must-fix"
+ *  classification.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *mustFix;
+@property(nonatomic, strong, nullable) NSNumber *mustFix GTLR_DEPRECATED;
 
 /**
  *  Required. The policy topic. For example, "sexual-content" or
  *  "ads-obscuring-content"."
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+/**
+ *  Optional. The type of policy topic. For example, "POLICY" represents all the
+ *  policy topics that are related to the Google Publisher Policy (GPP). See
+ *  https://support.google.com/adsense/answer/15689616.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_AdvertiserPreference Topics that are
+ *        related to advertiser preferences. Certain advertisers may choose not
+ *        to bid on content that are labeled with certain policies. (Value:
+ *        "ADVERTISER_PREFERENCE")
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_Policy Topics that are primarily
+ *        related to the Google Publisher Policy (GPP)
+ *        https://support.google.com/publisherpolicies/answer/10502938 or the
+ *        Google Publisher Restrictions (GPR) policies
+ *        https://support.google.com/publisherpolicies/answer/10437795. (Value:
+ *        "POLICY")
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_PolicyTopicTypeUnspecified The type
+ *        is unspecified. (Value: "POLICY_TOPIC_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_Regulatory Any topics that are a
+ *        result of a country or regional regulatory requirement body. (Value:
+ *        "REGULATORY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

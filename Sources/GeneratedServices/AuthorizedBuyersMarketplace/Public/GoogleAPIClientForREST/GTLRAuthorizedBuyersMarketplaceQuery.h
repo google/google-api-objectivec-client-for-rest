@@ -1559,8 +1559,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified in the UpdateProposalRequest.update_mask will be updated; Fields
  *  noted as 'Immutable' or 'Output only' yet specified in the
  *  UpdateProposalRequest.update_mask will be ignored and left unchanged.
- *  Updating a private auction proposal is not allowed and will result in an
- *  error.
+ *  Updating a private auction proposal is only allowed for buyer private data,
+ *  all other fields are immutable.
  *
  *  Method: authorizedbuyersmarketplace.buyers.proposals.patch
  *
@@ -1599,8 +1599,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified in the UpdateProposalRequest.update_mask will be updated; Fields
  *  noted as 'Immutable' or 'Output only' yet specified in the
  *  UpdateProposalRequest.update_mask will be ignored and left unchanged.
- *  Updating a private auction proposal is not allowed and will result in an
- *  error.
+ *  Updating a private auction proposal is only allowed for buyer private data,
+ *  all other fields are immutable.
  *
  *  @param object The @c GTLRAuthorizedBuyersMarketplace_Proposal to include in
  *    the query.

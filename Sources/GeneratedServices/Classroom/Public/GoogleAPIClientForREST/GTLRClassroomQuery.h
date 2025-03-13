@@ -421,6 +421,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.announcements.addOnAttachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsCreate : GTLRClassroomQuery
 
@@ -478,6 +481,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.announcements.addOnAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsDelete : GTLRClassroomQuery
 
@@ -528,6 +534,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.announcements.addOnAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsGet : GTLRClassroomQuery
 
@@ -579,6 +589,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.announcements.addOnAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsList : GTLRClassroomQuery
 
@@ -647,6 +661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.announcements.addOnAttachments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsPatch : GTLRClassroomQuery
 
@@ -861,6 +878,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  Method: classroom.courses.announcements.getAddOnContext
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsGetAddOnContext : GTLRClassroomQuery
 
@@ -1133,6 +1154,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.courseWork.addOnAttachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsCreate : GTLRClassroomQuery
 
@@ -1190,6 +1214,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.courseWork.addOnAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsDelete : GTLRClassroomQuery
 
@@ -1240,6 +1267,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.courseWork.addOnAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsGet : GTLRClassroomQuery
 
@@ -1291,6 +1322,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.courseWork.addOnAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsList : GTLRClassroomQuery
 
@@ -1359,6 +1394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.courseWork.addOnAttachments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsPatch : GTLRClassroomQuery
 
@@ -1422,6 +1460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Method: classroom.courses.courseWork.addOnAttachments.studentSubmissions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsGet : GTLRClassroomQuery
@@ -1478,6 +1518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.courseWork.addOnAttachments.studentSubmissions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsPatch : GTLRClassroomQuery
 
@@ -1712,6 +1755,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  Method: classroom.courses.courseWork.getAddOnContext
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkGetAddOnContext : GTLRClassroomQuery
 
@@ -1869,6 +1916,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsCreate : GTLRClassroomQuery
 
@@ -1926,6 +1976,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsDelete : GTLRClassroomQuery
 
@@ -1976,6 +2029,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsGet : GTLRClassroomQuery
 
@@ -2027,6 +2084,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsList : GTLRClassroomQuery
 
@@ -2095,6 +2156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsPatch : GTLRClassroomQuery
 
@@ -2310,6 +2374,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  Method: classroom.courses.courseWorkMaterials.getAddOnContext
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsGetAddOnContext : GTLRClassroomQuery
 
@@ -3908,6 +3976,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.posts.addOnAttachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsCreate : GTLRClassroomQuery
 
@@ -3963,6 +4034,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.posts.addOnAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsDelete : GTLRClassroomQuery
 
@@ -4011,6 +4085,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.posts.addOnAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsGet : GTLRClassroomQuery
 
@@ -4060,6 +4138,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.posts.addOnAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsList : GTLRClassroomQuery
 
@@ -4127,6 +4209,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  Method: classroom.courses.posts.addOnAttachments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsPatch : GTLRClassroomQuery
 
@@ -4191,6 +4276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Method: classroom.courses.posts.addOnAttachments.studentSubmissions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
  */
 @interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsGet : GTLRClassroomQuery
@@ -4245,6 +4332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  Method: classroom.courses.posts.addOnAttachments.studentSubmissions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsPatch : GTLRClassroomQuery
 
@@ -4316,6 +4406,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  Method: classroom.courses.posts.getAddOnContext
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
  */
 @interface GTLRClassroomQuery_CoursesPostsGetAddOnContext : GTLRClassroomQuery
 
@@ -4806,8 +4900,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Creates a topic. This method returns the following error codes: *
  *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
  *  requested course, create a topic in the requested course, or for access
- *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
- *  the requested course does not exist.
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `ALREADY_EXISTS`
+ *  if there exists a topic in the course with the same name. *
+ *  `FAILED_PRECONDITION` for the following request error: *
+ *  CourseTopicLimitReached * `NOT_FOUND` if the requested course does not
+ *  exist.
  *
  *  Method: classroom.courses.topics.create
  *
@@ -4828,8 +4925,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Creates a topic. This method returns the following error codes: *
  *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
  *  requested course, create a topic in the requested course, or for access
- *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
- *  the requested course does not exist.
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `ALREADY_EXISTS`
+ *  if there exists a topic in the course with the same name. *
+ *  `FAILED_PRECONDITION` for the following request error: *
+ *  CourseTopicLimitReached * `NOT_FOUND` if the requested course does not
+ *  exist.
  *
  *  @param object The @c GTLRClassroom_Topic to include in the query.
  *  @param courseId Identifier of the course. This identifier can be either the
@@ -4994,7 +5094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Updates one or more fields of a topic. This method returns the following
  *  error codes: * `PERMISSION_DENIED` if the requesting developer project did
  *  not create the corresponding topic or for access errors. *
- *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
+ *  there exists a topic in the course with the same name. * `NOT_FOUND` if the
  *  requested course or topic does not exist
  *
  *  Method: classroom.courses.topics.patch
@@ -5036,7 +5137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Updates one or more fields of a topic. This method returns the following
  *  error codes: * `PERMISSION_DENIED` if the requesting developer project did
  *  not create the corresponding topic or for access errors. *
- *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
+ *  there exists a topic in the course with the same name. * `NOT_FOUND` if the
  *  requested course or topic does not exist
  *
  *  @param object The @c GTLRClassroom_Topic to include in the query.

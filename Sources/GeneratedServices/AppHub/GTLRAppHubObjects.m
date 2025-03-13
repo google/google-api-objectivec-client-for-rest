@@ -37,79 +37,10 @@ NSString * const kGTLRAppHub_Environment_Type_Staging         = @"STAGING";
 NSString * const kGTLRAppHub_Environment_Type_Test            = @"TEST";
 NSString * const kGTLRAppHub_Environment_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRAppHub_IsolationExpectations.ziOrgPolicy
-NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRAppHub_IsolationExpectations.ziRegionPolicy
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed = @"ZI_REGION_POLICY_FAIL_CLOSED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen = @"ZI_REGION_POLICY_FAIL_OPEN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet = @"ZI_REGION_POLICY_NOT_SET";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown = @"ZI_REGION_POLICY_UNKNOWN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified = @"ZI_REGION_POLICY_UNSPECIFIED";
-
-// GTLRAppHub_IsolationExpectations.ziRegionState
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionEnabled = @"ZI_REGION_ENABLED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled = @"ZI_REGION_NOT_ENABLED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionUnknown = @"ZI_REGION_UNKNOWN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionUnspecified = @"ZI_REGION_UNSPECIFIED";
-
-// GTLRAppHub_IsolationExpectations.zoneIsolation
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRAppHub_IsolationExpectations.zoneSeparation
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRAppHub_IsolationExpectations.zsOrgPolicy
-NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRAppHub_IsolationExpectations.zsRegionState
-NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionEnabled = @"ZS_REGION_ENABLED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled = @"ZS_REGION_NOT_ENABLED";
-NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionUnknown = @"ZS_REGION_UNKNOWN";
-NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionUnspecified = @"ZS_REGION_UNSPECIFIED";
-
-// GTLRAppHub_LocationAssignment.locationType
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_CloudRegion = @"CLOUD_REGION";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_CloudZone = @"CLOUD_ZONE";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_Cluster = @"CLUSTER";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_Global = @"GLOBAL";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_MultiRegionGeo = @"MULTI_REGION_GEO";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_MultiRegionJurisdiction = @"MULTI_REGION_JURISDICTION";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_Other = @"OTHER";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_Pop = @"POP";
-NSString * const kGTLRAppHub_LocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
-
 // GTLRAppHub_ReconciliationOperationMetadata.exclusiveAction
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
-
-// GTLRAppHub_RequirementOverride.ziOverride
-NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRAppHub_RequirementOverride.zsOverride
-NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsUnspecified = @"ZS_UNSPECIFIED";
 
 // GTLRAppHub_Scope.type
 NSString * const kGTLRAppHub_Scope_Type_Global          = @"GLOBAL";
@@ -147,26 +78,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_AssetLocation
-//
-
-@implementation GTLRAppHub_AssetLocation
-@dynamic ccfeRmsPath, expected, extraParameters, locationData, parentAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraParameters" : [GTLRAppHub_ExtraParameter class],
-    @"locationData" : [GTLRAppHub_LocationData class],
-    @"parentAsset" : [GTLRAppHub_CloudAsset class]
-  };
-  return map;
 }
 
 @end
@@ -249,56 +160,10 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppHub_BlobstoreLocation
-//
-
-@implementation GTLRAppHub_BlobstoreLocation
-@dynamic policyId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"policyId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppHub_CancelOperationRequest
 //
 
 @implementation GTLRAppHub_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_CloudAsset
-//
-
-@implementation GTLRAppHub_CloudAsset
-@dynamic assetName, assetType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_CloudAssetComposition
-//
-
-@implementation GTLRAppHub_CloudAssetComposition
-@dynamic childAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"childAsset" : [GTLRAppHub_CloudAsset class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -337,24 +202,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRAppHub_DetachServiceProjectAttachmentResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_DirectLocationAssignment
-//
-
-@implementation GTLRAppHub_DirectLocationAssignment
-@dynamic location;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"location" : [GTLRAppHub_LocationAssignment class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -409,27 +256,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_ExtraParameter
-//
-
-@implementation GTLRAppHub_ExtraParameter
-@dynamic regionalMigDistributionPolicy;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_IsolationExpectations
-//
-
-@implementation GTLRAppHub_IsolationExpectations
-@dynamic requirementOverride, ziOrgPolicy, ziRegionPolicy, ziRegionState,
-         zoneIsolation, zoneSeparation, zsOrgPolicy, zsRegionState;
 @end
 
 
@@ -655,27 +481,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppHub_LocationAssignment
-//
-
-@implementation GTLRAppHub_LocationAssignment
-@dynamic location, locationType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_LocationData
-//
-
-@implementation GTLRAppHub_LocationData
-@dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
-         placerLocation, spannerLocation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppHub_LookupDiscoveredServiceResponse
 //
 
@@ -755,16 +560,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppHub_PlacerLocation
-//
-
-@implementation GTLRAppHub_PlacerLocation
-@dynamic placerConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppHub_Policy
 //
 
@@ -793,34 +588,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 @implementation GTLRAppHub_ReconciliationOperationMetadata
 @dynamic deleteResource, exclusiveAction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_RegionalMigDistributionPolicy
-//
-
-@implementation GTLRAppHub_RegionalMigDistributionPolicy
-@dynamic targetShape, zones;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"zones" : [GTLRAppHub_ZoneConfiguration class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_RequirementOverride
-//
-
-@implementation GTLRAppHub_RequirementOverride
-@dynamic ziOverride, zsOverride;
 @end
 
 
@@ -898,25 +665,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppHub_SpannerLocation
-//
-
-@implementation GTLRAppHub_SpannerLocation
-@dynamic backupName, dbName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"backupName" : [NSString class],
-    @"dbName" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppHub_Status
 //
 
@@ -942,24 +690,6 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_TenantProjectProxy
-//
-
-@implementation GTLRAppHub_TenantProjectProxy
-@dynamic projectNumbers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"projectNumbers" : [NSString class]
-  };
-  return map;
 }
 
 @end
@@ -1040,19 +770,4 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 @implementation GTLRAppHub_WorkloadReference
 @dynamic uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppHub_ZoneConfiguration
-//
-
-@implementation GTLRAppHub_ZoneConfiguration
-@dynamic zoneProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"zoneProperty" : @"zone" };
-}
-
 @end

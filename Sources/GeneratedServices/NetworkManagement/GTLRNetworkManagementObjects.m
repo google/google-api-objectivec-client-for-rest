@@ -29,6 +29,7 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork 
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NetworkConfigNotFound = @"NETWORK_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp = @"NO_EXTERNAL_IP";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress = @"NON_ROUTABLE_IP_ADDRESS";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoServerlessIpRanges = @"NO_SERVERLESS_IP_RANGES";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation = @"NO_SOURCE_LOCATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudNatConfigs = @"PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS";
@@ -113,6 +114,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPee
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPscEndpoint = @"GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonDynamicRouteMatched = @"HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched = @"HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_IngressFirewallTagsUnsupportedByDirectVpcEgress = @"INGRESS_FIREWALL_TAGS_UNSUPPORTED_BY_DIRECT_VPC_EGRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork = @"LOAD_BALANCER_BACKEND_INVALID_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
@@ -190,6 +192,7 @@ NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecif
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork = @"NON_GCP_NETWORK";
 
 // GTLRNetworkManagement_FirewallInfo.firewallRuleType
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_AnalysisSkipped = @"ANALYSIS_SKIPPED";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRuleTypeUnspecified = @"FIREWALL_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule = @"HIERARCHICAL_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule = @"IMPLIED_VPC_FIREWALL_RULE";
@@ -318,10 +321,12 @@ NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpcConnector = @"ARRI
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnGateway = @"ARRIVE_AT_VPN_GATEWAY";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnTunnel = @"ARRIVE_AT_VPN_TUNNEL";
 NSString * const kGTLRNetworkManagement_Step_State_Deliver     = @"DELIVER";
+NSString * const kGTLRNetworkManagement_Step_State_DirectVpcEgressConnection = @"DIRECT_VPC_EGRESS_CONNECTION";
 NSString * const kGTLRNetworkManagement_Step_State_Drop        = @"DROP";
 NSString * const kGTLRNetworkManagement_Step_State_Forward     = @"FORWARD";
 NSString * const kGTLRNetworkManagement_Step_State_Nat         = @"NAT";
 NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection = @"PROXY_CONNECTION";
+NSString * const kGTLRNetworkManagement_Step_State_ServerlessExternalConnection = @"SERVERLESS_EXTERNAL_CONNECTION";
 NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved = @"SPOOFING_APPROVED";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromAppEngineVersion = @"START_FROM_APP_ENGINE_VERSION";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudFunction = @"START_FROM_CLOUD_FUNCTION";
@@ -568,6 +573,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_DeliverInfo
 @dynamic ipAddress, pscGoogleApiTarget, resourceUri, storageBucket, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_DirectVpcEgressConnectionInfo
+//
+
+@implementation GTLRNetworkManagement_DirectVpcEgressConnectionInfo
+@dynamic networkUri, region, selectedIpAddress, selectedIpRange, subnetworkUri;
 @end
 
 
@@ -1121,6 +1136,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_ServerlessExternalConnectionInfo
+//
+
+@implementation GTLRNetworkManagement_ServerlessExternalConnectionInfo
+@dynamic selectedIpAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_ServerlessNegInfo
 //
 
@@ -1178,11 +1203,13 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_Step
 @dynamic abort, appEngineVersion, causesDrop, cloudFunction, cloudRunRevision,
-         cloudSqlInstance, deliver, descriptionProperty, drop, endpoint,
-         firewall, forward, forwardingRule, gkeMaster, googleService, instance,
-         loadBalancer, loadBalancerBackendInfo, nat, network, projectId,
-         proxyConnection, redisCluster, redisInstance, route, serverlessNeg,
-         state, storageBucket, vpcConnector, vpnGateway, vpnTunnel;
+         cloudSqlInstance, deliver, descriptionProperty,
+         directVpcEgressConnection, drop, endpoint, firewall, forward,
+         forwardingRule, gkeMaster, googleService, instance, loadBalancer,
+         loadBalancerBackendInfo, nat, network, projectId, proxyConnection,
+         redisCluster, redisInstance, route, serverlessExternalConnection,
+         serverlessNeg, state, storageBucket, vpcConnector, vpnGateway,
+         vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

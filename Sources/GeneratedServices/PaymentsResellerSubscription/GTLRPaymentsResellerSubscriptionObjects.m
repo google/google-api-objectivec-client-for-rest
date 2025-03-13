@@ -317,6 +317,16 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleHomePayload
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleHomePayload
+@dynamic attachedToGoogleStructure, partnerStructureId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload
 //
 
@@ -434,7 +444,7 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload
-@dynamic googleOnePayload, youtubePayload;
+@dynamic googleHomePayload, googleOnePayload, youtubePayload;
 @end
 
 

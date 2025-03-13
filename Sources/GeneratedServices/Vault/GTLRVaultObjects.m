@@ -32,6 +32,7 @@ NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_ExportFormatUnspe
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Ics = @"ICS";
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Pst = @"PST";
+NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Xml = @"XML";
 
 // GTLRVault_CalendarOptions.responseStatuses
 NSString * const kGTLRVault_CalendarOptions_ResponseStatuses_AttendeeResponseAccepted = @"ATTENDEE_RESPONSE_ACCEPTED";
@@ -63,17 +64,26 @@ NSString * const kGTLRVault_ExportOptions_Region_Europe        = @"EUROPE";
 NSString * const kGTLRVault_ExportOptions_Region_ExportRegionUnspecified = @"EXPORT_REGION_UNSPECIFIED";
 NSString * const kGTLRVault_ExportOptions_Region_Us            = @"US";
 
+// GTLRVault_GeminiExportOptions.exportFormat
+NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Mbox = @"MBOX";
+NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Pst = @"PST";
+NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Xml = @"XML";
+
 // GTLRVault_GroupsExportOptions.exportFormat
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Ics = @"ICS";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst = @"PST";
+NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Xml = @"XML";
 
 // GTLRVault_HangoutsChatExportOptions.exportFormat
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics = @"ICS";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst = @"PST";
+NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Xml = @"XML";
 
 // GTLRVault_HeldVoiceQuery.coveredData
 NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_CallLogs = @"CALL_LOGS";
@@ -85,6 +95,7 @@ NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_Voicemails = @"VOICEMAILS
 NSString * const kGTLRVault_Hold_Corpus_Calendar              = @"CALENDAR";
 NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRVault_Hold_Corpus_Drive                 = @"DRIVE";
+NSString * const kGTLRVault_Hold_Corpus_Gemini                = @"GEMINI";
 NSString * const kGTLRVault_Hold_Corpus_Groups                = @"GROUPS";
 NSString * const kGTLRVault_Hold_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Hold_Corpus_Mail                  = @"MAIL";
@@ -95,6 +106,7 @@ NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecifi
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Ics = @"ICS";
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst = @"PST";
+NSString * const kGTLRVault_MailExportOptions_ExportFormat_Xml = @"XML";
 
 // GTLRVault_MailOptions.clientSideEncryptedOption
 NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionAny = @"CLIENT_SIDE_ENCRYPTED_OPTION_ANY";
@@ -123,6 +135,7 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 NSString * const kGTLRVault_Query_Corpus_Calendar              = @"CALENDAR";
 NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRVault_Query_Corpus_Drive                 = @"DRIVE";
+NSString * const kGTLRVault_Query_Corpus_Gemini                = @"GEMINI";
 NSString * const kGTLRVault_Query_Corpus_Groups                = @"GROUPS";
 NSString * const kGTLRVault_Query_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Query_Corpus_Mail                  = @"MAIL";
@@ -136,6 +149,7 @@ NSString * const kGTLRVault_Query_DataScope_UnprocessedData    = @"UNPROCESSED_D
 
 // GTLRVault_Query.method
 NSString * const kGTLRVault_Query_Method_Account               = @"ACCOUNT";
+NSString * const kGTLRVault_Query_Method_DriveDocument         = @"DRIVE_DOCUMENT";
 NSString * const kGTLRVault_Query_Method_EntireOrg             = @"ENTIRE_ORG";
 NSString * const kGTLRVault_Query_Method_OrgUnit               = @"ORG_UNIT";
 NSString * const kGTLRVault_Query_Method_Room                  = @"ROOM";
@@ -146,6 +160,7 @@ NSString * const kGTLRVault_Query_Method_TeamDrive             = @"TEAM_DRIVE";
 
 // GTLRVault_Query.searchMethod
 NSString * const kGTLRVault_Query_SearchMethod_Account         = @"ACCOUNT";
+NSString * const kGTLRVault_Query_SearchMethod_DriveDocument   = @"DRIVE_DOCUMENT";
 NSString * const kGTLRVault_Query_SearchMethod_EntireOrg       = @"ENTIRE_ORG";
 NSString * const kGTLRVault_Query_SearchMethod_OrgUnit         = @"ORG_UNIT";
 NSString * const kGTLRVault_Query_SearchMethod_Room            = @"ROOM";
@@ -159,6 +174,7 @@ NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecif
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ics = @"ICS";
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Pst = @"PST";
+NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Xml = @"XML";
 
 // GTLRVault_VoiceOptions.coveredData
 NSString * const kGTLRVault_VoiceOptions_CoveredData_CallLogs  = @"CALL_LOGS";
@@ -395,6 +411,34 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_DriveDocumentIds
+//
+
+@implementation GTLRVault_DriveDocumentIds
+@dynamic ids;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ids" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_DriveDocumentInfo
+//
+
+@implementation GTLRVault_DriveDocumentInfo
+@dynamic documentIds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_DriveExportOptions
 //
 
@@ -445,8 +489,8 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_ExportOptions
-@dynamic calendarOptions, driveOptions, groupsOptions, hangoutsChatOptions,
-         mailOptions, region, voiceOptions;
+@dynamic calendarOptions, driveOptions, geminiOptions, groupsOptions,
+         hangoutsChatOptions, mailOptions, region, voiceOptions;
 @end
 
 
@@ -457,6 +501,25 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 
 @implementation GTLRVault_ExportStats
 @dynamic exportedArtifactCount, sizeInBytes, totalArtifactCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_GeminiExportOptions
+//
+
+@implementation GTLRVault_GeminiExportOptions
+@dynamic exportFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_GeminiOptions
+//
+
+@implementation GTLRVault_GeminiOptions
 @end
 
 
@@ -891,10 +954,11 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_Query
-@dynamic accountInfo, calendarOptions, corpus, dataScope, driveOptions, endTime,
-         hangoutsChatInfo, hangoutsChatOptions, mailOptions, method,
-         orgUnitInfo, searchMethod, sharedDriveInfo, sitesUrlInfo, startTime,
-         teamDriveInfo, terms, timeZone, voiceOptions;
+@dynamic accountInfo, calendarOptions, corpus, dataScope, driveDocumentInfo,
+         driveOptions, endTime, geminiOptions, hangoutsChatInfo,
+         hangoutsChatOptions, mailOptions, method, orgUnitInfo, searchMethod,
+         sharedDriveInfo, sitesUrlInfo, startTime, teamDriveInfo, terms,
+         timeZone, voiceOptions;
 @end
 
 

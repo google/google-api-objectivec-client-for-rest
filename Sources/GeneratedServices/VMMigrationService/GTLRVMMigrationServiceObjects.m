@@ -283,6 +283,7 @@ NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_Year = @"YE
 
 // GTLRVMMigrationService_VmCapabilities.osCapabilities
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityGvnicNetworkInterface = @"OS_CAPABILITY_GVNIC_NETWORK_INTERFACE";
+NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityIdpfNetworkInterface = @"OS_CAPABILITY_IDPF_NETWORK_INTERFACE";
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityNvmeStorageAccess = @"OS_CAPABILITY_NVME_STORAGE_ACCESS";
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityUnspecified = @"OS_CAPABILITY_UNSPECIFIED";
 

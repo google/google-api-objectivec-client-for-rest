@@ -91,15 +91,14 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails;
-@class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess;
-@class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice;
-@class GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData;
@@ -169,11 +168,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta;
 /**
- *  Application type built-in.
+ *  Deprecated. This vaule is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
 /**
  *  Application type Chrome app.
  *
@@ -335,6 +334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "DEV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Dev;
+/**
+ *  Long-term support release channel.
+ *
+ *  Value: "LTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Lts;
 /**
  *  No release channel specified.
  *
@@ -1160,11 +1165,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta;
 /**
- *  Application type built-in.
+ *  Deprecated. This vaule is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
 /**
  *  Application type Chrome app.
  *
@@ -1534,11 +1539,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta;
 /**
- *  Application type built-in.
+ *  Deprecated. This vaule is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
 /**
  *  Application type Chrome app.
  *
@@ -1637,11 +1642,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta;
 /**
- *  Application type built-in.
+ *  Deprecated. This vaule is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
 /**
  *  Application type Chrome app.
  *
@@ -2101,32 +2106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess.signatureAlgorithm
-
-/**
- *  The PKCS#1 digest info is built by the server-side and sent to the client
- *  unhashed. The client is responsible for signing and hashing. Uses the P-256
- *  curve.
- *
- *  Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256"
- */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256;
-/**
- *  The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
- *  constructed on the server-side. The client should sign using RSA with PKCS#1
- *  v1.5 padding.
- *
- *  Value: "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256"
- */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential.keyTrustLevel
 
 /**
@@ -2173,14 +2152,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
 
-/**
- *  The PKCS#1 digest info is built by the server-side and sent to the client
- *  unhashed. The client is responsible for signing and hashing. Uses the P-256
- *  curve.
- *
- *  Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256"
- */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256;
 /**
  *  The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
  *  constructed on the server-side. The client should sign using RSA with PKCS#1
@@ -2610,7 +2581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn
- *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeCrostini
@@ -2936,6 +2908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        Canary release channel. (Value: "CANARY")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Dev
  *        Dev release channel. (Value: "DEV")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Lts
+ *        Long-term support release channel. (Value: "LTS")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_ReleaseChannelUnspecified
  *        No release channel specified. (Value: "RELEASE_CHANNEL_UNSPECIFIED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Stable
@@ -5257,7 +5231,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn
- *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeCrostini
@@ -5460,7 +5435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn
- *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeCrostini
@@ -5521,7 +5497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn
- *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeCrostini
@@ -6367,192 +6344,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  A certificate provisioning process.
- */
-@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess : GTLRObject
-
-/**
- *  Output only. A JSON string that contains the administrator-provided
- *  configuration for the certification authority service. This field can be
- *  missing if no configuration was given.
- */
-@property(nonatomic, copy, nullable) NSString *caConnectionAdapterConfigReference;
-
-/**
- *  Output only. The client certificate is being provisioned for a ChromeOS
- *  device. This contains information about the device.
- */
-@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice *chromeOsDevice;
-
-/**
- *  Output only. The client certificate is being provisioned for a ChromeOS user
- *  session. This contains information about the user session.
- */
-@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession *chromeOsUserSession;
-
-/**
- *  Output only. A message describing why this `CertificateProvisioningProcess`
- *  failed. Presence of this field indicates that the
- *  `CertificateProvisioningProcess` has failed.
- */
-@property(nonatomic, copy, nullable) NSString *failureMessage;
-
-/**
- *  Output only. The issued certificate for this
- *  `CertificateProvisioningProcess` in PEM format.
- */
-@property(nonatomic, copy, nullable) NSString *issuedCertificate;
-
-/**
- *  Identifier. Resource name of the `CertificateProvisioningProcess`. The name
- *  pattern is given as
- *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
- *  with `{customer}` being the obfuscated customer id and
- *  `{certificate_provisioning_process}` being the certificate provisioning
- *  process id.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. A JSON string that contains the administrator-provided
- *  configuration for the certificate provisioning profile. This field can be
- *  missing if no configuration was given.
- */
-@property(nonatomic, copy, nullable) NSString *profileAdapterConfigReference;
-
-/** Output only. The ID of the certificate provisioning profile. */
-@property(nonatomic, copy, nullable) NSString *provisioningProfileId;
-
-/**
- *  Output only. The signature of `signature_algorithm`, generated using the
- *  client's private key using `signature_algorithm`. This field is only present
- *  after the`SignData` operation has finished.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *signature;
-
-/**
- *  Output only. The signature algorithm that the adapter expects the client and
- *  backend components to use when processing `sign_data`. This field is only
- *  present after the `SignData` operation has been initiated.
- *
- *  Likely values:
- *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256
- *        The PKCS#1 digest info is built by the server-side and sent to the
- *        client unhashed. The client is responsible for signing and hashing.
- *        Uses the P-256 curve. (Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256")
- *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256
- *        The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
- *        constructed on the server-side. The client should sign using RSA with
- *        PKCS#1 v1.5 padding. (Value:
- *        "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256")
- *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified
- *        Default value. This value is unused. (Value:
- *        "SIGNATURE_ALGORITHM_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *signatureAlgorithm;
-
-/**
- *  Output only. The data that the client was asked to sign. This field is only
- *  present after the `SignData` operation has been initiated.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *signData;
-
-/**
- *  Output only. Server-generated timestamp of when the certificate provisioning
- *  process has been created.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  Output only. The public key for which a certificate should be provisioned.
- *  Represented as a DER-encoded X.509 SubjectPublicKeyInfo.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *subjectPublicKeyInfo;
-
-@end
-
-
-/**
- *  Describes the ChromeOS device that a `CertificateProvisioningProcess`
- *  belongs to.
- */
-@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice : GTLRObject
-
-/**
- *  Output only. The unique Directory API ID of the device. This value is the
- *  same as the Admin Console's Directory API ID in the ChromeOS Devices tab.
- */
-@property(nonatomic, copy, nullable) NSString *deviceDirectoryApiId;
-
-/**
- *  Output only. Device serial number. This value is the same as the Admin
- *  Console's Serial Number in the ChromeOS Devices tab.
- */
-@property(nonatomic, copy, nullable) NSString *serialNumber;
-
-@end
-
-
-/**
- *  Describes the ChromeOS user session that a `CertificateProvisioningProcess`
- *  belongs to.
- */
-@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession : GTLRObject
-
-/**
- *  Output only. This field contains information about the ChromeOS device that
- *  the user session is running on. It is only set if the user session is
- *  affiliated, i.e. if the user is managed by the same organization that
- *  managed the ChromeOS device.
- */
-@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice *chromeOsDevice;
-
-/** Output only. The unique Directory API ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userDirectoryApiId;
-
-/** Output only. The primary e-mail address of the user. */
-@property(nonatomic, copy, nullable) NSString *userPrimaryEmail;
-
-@end
-
-
-/**
- *  Metadata for the long-running operation returned by signData.
- */
-@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataMetadata : GTLRObject
-
-/** Output only. Start time of the SignData operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-@end
-
-
-/**
- *  Response message for requesting a signature from the client that initated a
- *  certificate provisioning process.
- */
-@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataResponse : GTLRObject
-
-/**
- *  Output only. The certificate provisioning process. The signature generated
- *  by the client will be available in the `signature` field of
- *  `CertificateProvisioningProcess`.
- */
-@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess *certificateProvisioningProcess;
-
-@end
-
-
-/**
  *  Information of public key associated with a Chrome browser profile.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential : GTLRObject
@@ -6605,30 +6396,29 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess : GTLRObject
 
 /**
- *  Output only. A JSON string that contains the administrator-provided
- *  configuration for the certification authority service. This field can be
- *  missing if no configuration was given.
- */
-@property(nonatomic, copy, nullable) NSString *caConnectionAdapterConfigReference;
-
-/**
  *  Output only. The client certificate is being provisioned for a ChromeOS
  *  device. This contains information about the device.
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice *chromeOsDevice;
 
 /**
- *  Output only. The client certificate is being provisioned for a ChromeOS user
- *  session. This contains information about the user session.
+ *  Output only. The client certificate is being provisioned for a ChromeOS
+ *  user. This contains information about the current user session.
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession *chromeOsUserSession;
 
 /**
  *  Output only. A message describing why this `CertificateProvisioningProcess`
- *  failed. Presence of this field indicates that the
+ *  has failed. Presence of this field indicates that the
  *  `CertificateProvisioningProcess` has failed.
  */
 @property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/** Output only. The CA connection is a generic CA connection. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection *genericCaConnection;
+
+/** Output only. The profile is a generic certificate provisioning profile. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile *genericProfile;
 
 /**
  *  Output only. The issued certificate for this
@@ -6646,20 +6436,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Output only. A JSON string that contains the administrator-provided
- *  configuration for the certificate provisioning profile. This field can be
- *  missing if no configuration was given.
- */
-@property(nonatomic, copy, nullable) NSString *profileAdapterConfigReference;
-
 /** Output only. The ID of the certificate provisioning profile. */
 @property(nonatomic, copy, nullable) NSString *provisioningProfileId;
 
 /**
  *  Output only. The signature of `signature_algorithm`, generated using the
  *  client's private key using `signature_algorithm`. This field is only present
- *  after the`SignData` operation has finished.
+ *  after the `SignData` operation has finished.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -6672,10 +6455,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  present after the `SignData` operation has been initiated.
  *
  *  Likely values:
- *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256
- *        The PKCS#1 digest info is built by the server-side and sent to the
- *        client unhashed. The client is responsible for signing and hashing.
- *        Uses the P-256 curve. (Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256
  *        The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
  *        constructed on the server-side. The client should sign using RSA with
@@ -6894,9 +6673,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  Output only. This field contains information about the ChromeOS device that
- *  the user session is running on. It is only set if the user session is
- *  affiliated, i.e. if the user is managed by the same organization that
- *  managed the ChromeOS device.
+ *  the user session is running on. It is only set if the user is affiliated,
+ *  i.e., if the user is managed by the same organization that manages the
+ *  ChromeOS device.
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice *chromeOsDevice;
 
@@ -6944,6 +6723,36 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  different device_id than the |affiliated_device_id|.
  */
 @property(nonatomic, copy, nullable) NSString *machine;
+
+@end
+
+
+/**
+ *  Describes a generic Certificate Authority Connection.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection : GTLRObject
+
+/**
+ *  Output only. A string that references the administrator-provided
+ *  configuration for the certification authority service. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *caConnectionAdapterConfigReference;
+
+@end
+
+
+/**
+ *  Describes a generic certificate provisioning profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile : GTLRObject
+
+/**
+ *  Output only. A string that references the administrator-provided
+ *  configuration for the certificate provisioning profile. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *profileAdapterConfigReference;
 
 @end
 

@@ -68,6 +68,12 @@ NSString * const kGTLRAdsense_PolicyIssue_EntityType_Page      = @"PAGE";
 NSString * const kGTLRAdsense_PolicyIssue_EntityType_Site      = @"SITE";
 NSString * const kGTLRAdsense_PolicyIssue_EntityType_SiteSection = @"SITE_SECTION";
 
+// GTLRAdsense_PolicyTopic.type
+NSString * const kGTLRAdsense_PolicyTopic_Type_AdvertiserPreference = @"ADVERTISER_PREFERENCE";
+NSString * const kGTLRAdsense_PolicyTopic_Type_Policy          = @"POLICY";
+NSString * const kGTLRAdsense_PolicyTopic_Type_PolicyTopicTypeUnspecified = @"POLICY_TOPIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRAdsense_PolicyTopic_Type_Regulatory      = @"REGULATORY";
+
 // GTLRAdsense_Site.state
 NSString * const kGTLRAdsense_Site_State_GettingReady     = @"GETTING_READY";
 NSString * const kGTLRAdsense_Site_State_NeedsAttention   = @"NEEDS_ATTENTION";
@@ -559,7 +565,7 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 //
 
 @implementation GTLRAdsense_PolicyTopic
-@dynamic mustFix, topic;
+@dynamic mustFix, topic, type;
 @end
 
 

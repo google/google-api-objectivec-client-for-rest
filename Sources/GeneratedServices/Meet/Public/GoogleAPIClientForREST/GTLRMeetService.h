@@ -38,6 +38,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMeetMeetingsSpaceCreated;
  *  Value "https://www.googleapis.com/auth/meetings.space.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMeetMeetingsSpaceReadonly;
+/**
+ *  Authorization scope: Edit, and see settings for all of your Google Meet
+ *  calls.
+ *
+ *  Value "https://www.googleapis.com/auth/meetings.space.settings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMeetMeetingsSpaceSettings;
 
 // ----------------------------------------------------------------------------
 //   GTLRMeetService

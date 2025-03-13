@@ -64,6 +64,27 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseDataConnect_PostgreSql.schemaMigration
+
+/**
+ *  Connect to the SQL database and identify any missing SQL resources used in
+ *  the given Firebase Data Connect Schema. Automatically create necessary SQL
+ *  resources (SQL table, column, etc) before deploying the schema. During
+ *  migration steps, the SQL Schema must comply with the previous before_deploy
+ *  setting in case the migration is interrupted. Therefore, the previous
+ *  before_deploy setting must not be `schema_validation=STRICT`.
+ *
+ *  Value: "MIGRATE_COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_MigrateCompatible;
+/**
+ *  Unspecified SQL schema migration.
+ *
+ *  Value: "SQL_SCHEMA_MIGRATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_SqlSchemaMigrationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseDataConnect_PostgreSql.schemaValidation
 
 /**
@@ -889,8 +910,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
+ *  Optional. Configure how to perform Postgresql schema migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_MigrateCompatible
+ *        Connect to the SQL database and identify any missing SQL resources
+ *        used in the given Firebase Data Connect Schema. Automatically create
+ *        necessary SQL resources (SQL table, column, etc) before deploying the
+ *        schema. During migration steps, the SQL Schema must comply with the
+ *        previous before_deploy setting in case the migration is interrupted.
+ *        Therefore, the previous before_deploy setting must not be
+ *        `schema_validation=STRICT`. (Value: "MIGRATE_COMPATIBLE")
+ *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_SqlSchemaMigrationUnspecified
+ *        Unspecified SQL schema migration. (Value:
+ *        "SQL_SCHEMA_MIGRATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schemaMigration;
+
+/**
  *  Optional. Configure how much Postgresql schema validation to perform.
- *  Default to `STRICT` if not specified.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Compatible

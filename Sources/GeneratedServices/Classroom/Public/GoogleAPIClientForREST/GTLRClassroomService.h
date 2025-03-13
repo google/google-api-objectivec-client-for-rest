@@ -25,6 +25,20 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See and update its own attachments to posts in Google
+ *  Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.addons.student"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomAddonsStudent;
+/**
+ *  Authorization scope: See, create, and update its own attachments to posts in
+ *  classes you teach in Google Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.addons.teacher"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomAddonsTeacher;
+/**
  *  Authorization scope: View and manage announcements in Google Classroom
  *
  *  Value "https://www.googleapis.com/auth/classroom.announcements"

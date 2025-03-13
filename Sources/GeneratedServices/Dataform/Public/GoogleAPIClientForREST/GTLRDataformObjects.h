@@ -444,6 +444,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `CancelWorkflowInvocation` response message.
+ */
+@interface GTLRDataform_CancelWorkflowInvocationResponse : GTLRObject
+@end
+
+
+/**
  *  Configures various aspects of Dataform code compilation.
  */
 @interface GTLRDataform_CodeCompilationConfig : GTLRObject
@@ -467,6 +474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *defaultLocation;
 
+/** Optional. The default notebook runtime options. */
 @property(nonatomic, strong, nullable) GTLRDataform_NotebookRuntimeOptions *defaultNotebookRuntimeOptions;
 
 /** Optional. The default schema (BigQuery dataset ID). */
@@ -584,8 +592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, strong, nullable) GTLRDataform_CommitMetadata *commitMetadata;
 
 /**
- *  A map to the path of the file to the operation. The path is the full file
- *  path including filename, from repository root.
+ *  Optional. A map to the path of the file to the operation. The path is the
+ *  full file path including filename, from repository root.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_CommitRepositoryChangesRequest_FileOperations *fileOperations;
 
@@ -600,8 +608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
- *  A map to the path of the file to the operation. The path is the full file
- *  path including filename, from repository root.
+ *  Optional. A map to the path of the file to the operation. The path is the
+ *  full file path including filename, from repository root.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDataform_FileOperation. Use @c -additionalJSONKeys and @c
@@ -640,6 +648,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
+@end
+
+
+/**
+ *  `CommitWorkspaceChanges` response message.
+ */
+@interface GTLRDataform_CommitWorkspaceChangesResponse : GTLRObject
 @end
 
 
@@ -701,6 +716,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *gitCommitish;
 
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
+
 /** Output only. The compilation result's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -747,6 +769,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  to the workspace root.
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
+
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
 
 /** The notebook executed by this action. */
 @property(nonatomic, strong, nullable) GTLRDataform_Notebook *notebook;
@@ -813,7 +842,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_DataEncryptionState : GTLRObject
 
-/** The KMS key version name with which data of a resource is encrypted. */
+/**
+ *  Required. The KMS key version name with which data of a resource is
+ *  encrypted.
+ */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
 @end
@@ -1546,7 +1578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
- *  GTLRDataform_Notebook
+ *  Represents a notebook.
  */
 @interface GTLRDataform_Notebook : GTLRObject
 
@@ -1579,8 +1611,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Output only. The ID of the Vertex job that executed the notebook in contents
- *  and also the ID used for the outputs created in GCS buckets. Only set once
- *  the job has started to run.
+ *  and also the ID used for the outputs created in Google Cloud Storage
+ *  buckets. Only set once the job has started to run.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
@@ -1588,12 +1620,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
- *  GTLRDataform_NotebookRuntimeOptions
+ *  Configures various aspects of Dataform notebook runtime.
  */
 @interface GTLRDataform_NotebookRuntimeOptions : GTLRObject
 
 /**
- *  Optional. The GCS location to upload the result to. Format:
+ *  Optional. The Google Cloud Storage location to upload the result to. Format:
  *  `gs://bucket-name`.
  */
 @property(nonatomic, copy, nullable) NSString *gcsOutputBucket;
@@ -1787,6 +1819,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `PullGitCommits` response message.
+ */
+@interface GTLRDataform_PullGitCommitsResponse : GTLRObject
+@end
+
+
+/**
  *  `PushGitCommits` request message.
  */
 @interface GTLRDataform_PushGitCommitsRequest : GTLRObject
@@ -1797,6 +1836,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *remoteBranch;
 
+@end
+
+
+/**
+ *  `PushGitCommits` response message.
+ */
+@interface GTLRDataform_PushGitCommitsResponse : GTLRObject
 @end
 
 
@@ -2105,6 +2151,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *gitCommitish;
 
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
+
 /** Identifier. The release config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2152,6 +2205,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `RemoveDirectory` response message.
+ */
+@interface GTLRDataform_RemoveDirectoryResponse : GTLRObject
+@end
+
+
+/**
  *  `RemoveFile` request message.
  */
 @interface GTLRDataform_RemoveFileRequest : GTLRObject
@@ -2162,6 +2222,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
+@end
+
+
+/**
+ *  `RemoveFile` response message.
+ */
+@interface GTLRDataform_RemoveFileResponse : GTLRObject
 @end
 
 
@@ -2186,6 +2253,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Optional. If set, configures this repository to be linked to a Git remote.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_GitRemoteSettings *gitRemoteSettings;
+
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
 
 /**
  *  Optional. The reference to a KMS encryption key. If provided, it will be
@@ -2268,6 +2342,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `ResetWorkspaceChanges` response message.
+ */
+@interface GTLRDataform_ResetWorkspaceChangesResponse : GTLRObject
+@end
+
+
+/**
  *  A record of an attempt to create a workflow invocation for this workflow
  *  config.
  */
@@ -2279,7 +2360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Status *errorStatus;
 
-/** The timestamp of this execution attempt. */
+/** Output only. The timestamp of this execution attempt. */
 @property(nonatomic, strong, nullable) GTLRDateTime *executionTime;
 
 /**
@@ -2311,7 +2392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Status *errorStatus;
 
-/** The timestamp of this release attempt. */
+/** Output only. The timestamp of this release attempt. */
 @property(nonatomic, strong, nullable) GTLRDateTime *releaseTime;
 
 @end
@@ -2445,13 +2526,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_Target : GTLRObject
 
-/** The action's database (Google Cloud project ID) . */
+/** Optional. The action's database (Google Cloud project ID) . */
 @property(nonatomic, copy, nullable) NSString *database;
 
-/** The action's name, within `database` and `schema`. */
+/** Optional. The action's name, within `database` and `schema`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The action's schema (BigQuery dataset ID), within `database`. */
+/** Optional. The action's schema (BigQuery dataset ID), within `database`. */
 @property(nonatomic, copy, nullable) NSString *schema;
 
 @end
@@ -2496,7 +2577,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Indicates the status of the file.
+ *  Output only. Indicates the status of the file.
  *
  *  Likely values:
  *    @arg @c kGTLRDataform_UncommittedFileChange_State_Added The file has been
@@ -2528,6 +2609,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  workflow config.
  */
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
+
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
 
 /** Optional. If left unset, a default InvocationConfig will be used. */
 @property(nonatomic, strong, nullable) GTLRDataform_InvocationConfig *invocationConfig;
@@ -2577,6 +2665,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Output only. Only set if the repository has a KMS Key. */
 @property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
+
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
 
 /** Immutable. If left unset, a default InvocationConfig will be used. */
 @property(nonatomic, strong, nullable) GTLRDataform_InvocationConfig *invocationConfig;
@@ -2644,6 +2739,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *failureReason;
 
 /**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
+
+/**
  *  Output only. This action's timing details. `start_time` will be set if the
  *  action is in [RUNNING, SUCCEEDED, CANCELLED, FAILED] state. `end_time` will
  *  be set if the action is in [SUCCEEDED, CANCELLED, FAILED] state.
@@ -2698,6 +2800,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  is protected by a KMS key.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
+
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
 
 /** Identifier. The workspace's name. */
 @property(nonatomic, copy, nullable) NSString *name;

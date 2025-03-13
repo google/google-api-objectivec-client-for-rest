@@ -198,6 +198,20 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512;
 /**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
@@ -350,7 +364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This version is destroyed, and the key material is no longer stored. This
+ *  This key material of this version is destroyed and no longer stored. This
  *  version may only become ENABLED again if this version is reimport_eligible
  *  and the original key material is reimported with a call to
  *  KeyManagementService.ImportCryptoKeyVersion.
@@ -545,6 +559,20 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -1212,6 +1240,13 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -1379,7 +1414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_Destroyed
- *        This version is destroyed, and the key material is no longer stored.
+ *        This key material of this version is destroyed and no longer stored.
  *        This version may only become ENABLED again if this version is
  *        reimport_eligible and the original key material is reimported with a
  *        call to KeyManagementService.ImportCryptoKeyVersion. (Value:
@@ -1499,6 +1534,13 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")

@@ -2821,7 +2821,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfig
-@dynamic chunkingConfig;
+@dynamic chunkingConfig, returnBoundingBoxes, returnImages;
 @end
 
 

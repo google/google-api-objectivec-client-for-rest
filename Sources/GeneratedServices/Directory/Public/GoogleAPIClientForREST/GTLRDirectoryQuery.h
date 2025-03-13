@@ -5046,7 +5046,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Token to specify next page in the list */
+/**
+ *  Token to specify next page in the list. The page token is only valid for
+ *  three days.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

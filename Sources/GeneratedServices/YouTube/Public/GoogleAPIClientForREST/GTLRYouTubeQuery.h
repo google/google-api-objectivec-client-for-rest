@@ -5657,6 +5657,37 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
+ *  Returns the trainability status of a video.
+ *
+ *  Method: youtube.videoTrainability.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_VideoTrainabilityGet : GTLRYouTubeQuery
+
+/**
+ *  The ID of the video to retrieve.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRYouTube_VideoTrainability.
+ *
+ *  Returns the trainability status of a video.
+ *
+ *  @return GTLRYouTubeQuery_VideoTrainabilityGet
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Allows upload of watermark image and setting it for a channel.
  *
  *  Method: youtube.watermarks.set

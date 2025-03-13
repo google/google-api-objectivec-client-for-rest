@@ -219,6 +219,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 // GTLRSpanner_Type.typeAnnotation
 NSString * const kGTLRSpanner_Type_TypeAnnotation_PgJsonb      = @"PG_JSONB";
 NSString * const kGTLRSpanner_Type_TypeAnnotation_PgNumeric    = @"PG_NUMERIC";
+NSString * const kGTLRSpanner_Type_TypeAnnotation_PgOid        = @"PG_OID";
 NSString * const kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified = @"TYPE_ANNOTATION_CODE_UNSPECIFIED";
 
 // GTLRSpanner_UpdateInstanceMetadata.expectedFulfillmentPeriod
@@ -230,6 +231,91 @@ NSString * const kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_F
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Chunk  = @"CHUNK";
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Key    = @"KEY";
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"KEY_UNIT_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AdapterSession
+//
+
+@implementation GTLRSpanner_AdapterSession
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AdaptMessageRequest
+//
+
+@implementation GTLRSpanner_AdaptMessageRequest
+@dynamic attachments, payload, protocol;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AdaptMessageRequest_Attachments
+//
+
+@implementation GTLRSpanner_AdaptMessageRequest_Attachments
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AdaptMessageResponse
+//
+
+@implementation GTLRSpanner_AdaptMessageResponse
+@dynamic payload, stateUpdates;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AdaptMessageResponse_StateUpdates
+//
+
+@implementation GTLRSpanner_AdaptMessageResponse_StateUpdates
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AddSplitPointsRequest
+//
+
+@implementation GTLRSpanner_AddSplitPointsRequest
+@dynamic initiator, splitPoints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"splitPoints" : [GTLRSpanner_SplitPoints class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AddSplitPointsResponse
+//
+
+@implementation GTLRSpanner_AddSplitPointsResponse
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -297,14 +383,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 @implementation GTLRSpanner_Backup
 @dynamic backupSchedules, createTime, database, databaseDialect, encryptionInfo,
          encryptionInformation, exclusiveSizeBytes, expireTime,
-         freeableSizeBytes, incrementalBackupChainId, maxExpireTime, name,
-         oldestVersionTime, referencingBackups, referencingDatabases, sizeBytes,
-         state, versionTime;
+         freeableSizeBytes, incrementalBackupChainId, instancePartitions,
+         maxExpireTime, name, oldestVersionTime, referencingBackups,
+         referencingDatabases, sizeBytes, state, versionTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"backupSchedules" : [NSString class],
     @"encryptionInformation" : [GTLRSpanner_EncryptionInfo class],
+    @"instancePartitions" : [GTLRSpanner_BackupInstancePartition class],
     @"referencingBackups" : [NSString class],
     @"referencingDatabases" : [NSString class]
   };
@@ -321,6 +408,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_BackupInfo
 @dynamic backup, createTime, sourceDatabase, versionTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_BackupInstancePartition
+//
+
+@implementation GTLRSpanner_BackupInstancePartition
+@dynamic instancePartition;
 @end
 
 
@@ -854,7 +951,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ExecuteBatchDmlRequest
-@dynamic requestOptions, seqno, statements, transaction;
+@dynamic lastStatements, requestOptions, seqno, statements, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -890,9 +987,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ExecuteSqlRequest
-@dynamic dataBoostEnabled, directedReadOptions, params, paramTypes,
-         partitionToken, queryMode, queryOptions, requestOptions, resumeToken,
-         seqno, sql, transaction;
+@dynamic dataBoostEnabled, directedReadOptions, lastStatement, params,
+         paramTypes, partitionToken, queryMode, queryOptions, requestOptions,
+         resumeToken, seqno, sql, transaction;
 @end
 
 
@@ -1217,6 +1314,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_InstanceReplicaSelection
 @dynamic location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Key
+//
+
+@implementation GTLRSpanner_Key
+@dynamic keyParts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyParts" : [NSObject class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2392,6 +2507,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_SingleRegionQuorum
 @dynamic servingLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_SplitPoints
+//
+
+@implementation GTLRSpanner_SplitPoints
+@dynamic expireTime, index, keys, table;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keys" : [GTLRSpanner_Key class]
+  };
+  return map;
+}
+
 @end
 
 

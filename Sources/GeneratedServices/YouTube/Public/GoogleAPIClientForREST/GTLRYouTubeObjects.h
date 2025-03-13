@@ -1438,6 +1438,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExtremeViolence;
 /**
+ *  Fantasia Violência (Fantasy Violence)
+ *
+ *  Value: "djctqFantasyViolence"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFantasyViolence;
+/**
+ *  Temer (Fear)
+ *
+ *  Value: "djctqFear"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFear;
+/**
  *  Drogas Ilícitas (Illegal drugs)
  *
  *  Value: "djctqIllegalDrugs"
@@ -1462,6 +1474,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqLegalDrugs;
 /**
+ *  Procedimentos médicos (Medical Procedures)
+ *
+ *  Value: "djctqMedicalProcedures"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqMedicalProcedures;
+/**
  *  Nudez (Nudity)
  *
  *  Value: "djctqNudity"
@@ -1469,6 +1487,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqNudity;
 /** Value: "djctqRatingReasonUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqRatingReasonUnspecified;
+/**
+ *  Tópicos sensíveis (Sensitive Topics)
+ *
+ *  Value: "djctqSensitiveTopics"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSensitiveTopics;
 /**
  *  Sexo (Sex)
  *
@@ -6145,6 +6169,14 @@ GTLR_DEPRECATED
  *  JSON template for the status part of a channel.
  */
 @interface GTLRYouTube_ChannelStatus : GTLRObject
+
+/**
+ *  Whether the channel is considered ypp monetization enabled. See go/yppornot
+ *  for more details.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isChannelMonetizationEnabled;
 
 /**
  *  If true, then the user is linked to either a YouTube username or G+ account.
@@ -13394,6 +13426,32 @@ GTLR_DEPRECATED
  *  href="http://wiki.freebase.com/wiki/Topic_API">Freebase Topic API.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds;
+
+@end
+
+
+/**
+ *  Specifies who is allowed to train on the video.
+ */
+@interface GTLRYouTube_VideoTrainability : GTLRObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#videoTrainability".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Specifies who is allowed to train on the video. Valid values are: - a single
+ *  string "all" - a single string "none" - a list of allowed parties
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permitted;
+
+/** The ID of the video. */
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 

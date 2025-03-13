@@ -2076,6 +2076,61 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
+ *  Lists ResourceBackupConfigs.
+ *
+ *  Method: backupdr.projects.locations.resourceBackupConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve resource backup
+ *  configs. Format: 'projects/{project_id}/locations/{location}'. In Cloud
+ *  Backup and DR, locations map to Google Cloud regions, for example
+ *  **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListResourceBackupConfigsResponse.
+ *
+ *  Lists ResourceBackupConfigs.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    resource backup configs. Format:
+ *    'projects/{project_id}/locations/{location}'. In Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Initializes the service related config for a project.
  *
  *  Method: backupdr.projects.locations.serviceConfig.initialize

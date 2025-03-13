@@ -358,7 +358,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API product. Use the following structure in your
- *  request: `organizations/{org}/apiproducts/{apiproduct}`
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` If the API Product
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -379,7 +382,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attributes to include in
  *    the query.
  *  @param name Required. Name of the API product. Use the following structure
- *    in your request: `organizations/{org}/apiproducts/{apiproduct}`
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` If the API
+ *    Product resource has the `space` attribute set, IAM permissions are
+ *    checked against the Space resource path. To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributes
  */
@@ -401,7 +408,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name of the API product attribute. Use the following structure in
  *  your request:
- *  `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+ *  `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the
+ *  API Product resource has the `space` attribute set, IAM permissions are
+ *  checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -412,7 +423,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. Name of the API product attribute. Use the following
  *    structure in your request:
- *    `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+ *    `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If
+ *    the API Product resource has the `space` attribute set, IAM permissions
+ *    are checked against the Space resource path. To learn more, read the
+ *    [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesDelete
  */
@@ -433,7 +448,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name of the API product attribute. Use the following structure in
  *  your request:
- *  `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+ *  `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the
+ *  API Product resource has the `space` attribute set, IAM permissions are
+ *  checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -444,7 +463,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. Name of the API product attribute. Use the following
  *    structure in your request:
- *    `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+ *    `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If
+ *    the API Product resource has the `space` attribute set, IAM permissions
+ *    are checked against the Space resource path. To learn more, read the
+ *    [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesGet
  */
@@ -464,7 +487,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API product. Use the following structure in your
- *  request: `organizations/{org}/apiproducts/{apiproduct}`
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` If the API Product
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -474,7 +500,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Lists all API product attributes.
  *
  *  @param parent Required. Name of the API product. Use the following structure
- *    in your request: `organizations/{org}/apiproducts/{apiproduct}`
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` If the API
+ *    Product resource has the `space` attribute set, IAM permissions are
+ *    checked against the Space resource path. To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesList
  */
@@ -500,7 +530,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API product. Use the following structure in your
- *  request: `organizations/{org}/apiproducts/{apiproduct}`
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` If the API Product
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -518,7 +551,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attribute to include in
  *    the query.
  *  @param name Required. Name of the API product. Use the following structure
- *    in your request: `organizations/{org}/apiproducts/{apiproduct}`
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` If the API
+ *    Product resource has the `space` attribute set, IAM permissions are
+ *    checked against the Space resource path. To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesUpdateApiProductAttribute
  */
@@ -555,7 +592,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the organization in which the API product will be created.
- *  Use the following structure in your request: `organizations/{org}`
+ *  Use the following structure in your request: `organizations/{org}` If the
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -584,7 +624,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    the query.
  *  @param parent Required. Name of the organization in which the API product
  *    will be created. Use the following structure in your request:
- *    `organizations/{org}`
+ *    `organizations/{org}` If the resource has the `space` attribute set, IAM
+ *    permissions are checked against the Space resource path. To learn more,
+ *    read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsCreate
  */
@@ -612,7 +655,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API product. Use the following structure in your
- *  request: `organizations/{org}/apiproducts/{apiproduct}`
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` If the resource has
+ *  the `space` attribute set, IAM permissions are checked against the Space
+ *  resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -629,7 +675,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  API products to verify the internal name.
  *
  *  @param name Required. Name of the API product. Use the following structure
- *    in your request: `organizations/{org}/apiproducts/{apiproduct}`
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` If the
+ *    resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsDelete
  */
@@ -653,7 +702,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API product. Use the following structure in your
- *  request: `organizations/{org}/apiproducts/{apiproduct}`
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` If the resource has
+ *  the `space` attribute set, IAM permissions are checked against the Space
+ *  resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -667,7 +719,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  internal name.
  *
  *  @param name Required. Name of the API product. Use the following structure
- *    in your request: `organizations/{org}/apiproducts/{apiproduct}`
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` If the
+ *    resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsGet
  */
@@ -679,7 +734,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Lists all API product names for an organization. Filter the list by passing
  *  an `attributename` and `attibutevalue`. The maximum number of API products
  *  returned is 1000. You can paginate the list of API products returned using
- *  the `startKey` and `count` query parameters.
+ *  the `startKey` and `count` query parameters. If the resource has the `space`
+ *  attribute set, the response may not return all resources. To learn more,
+ *  read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  Method: apigee.organizations.apiproducts.list
  *
@@ -708,9 +766,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the organization. Use the following structure in your
- *  request: `organizations/{org}`
+ *  request: `organizations/{org}` If the resource has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The Space to list API products for. When none provided, all the
+ *  spaces the user has list access, will be used implicitly, and the same
+ *  following rules will apply. Can be used in conjunction with start_key,
+ *  expand and count for paginated response. Composite queries with
+ *  attributename and attributevalue are not supported yet.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 /**
  *  Gets a list of API products starting with a specific API product in the
@@ -727,14 +797,53 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Lists all API product names for an organization. Filter the list by passing
  *  an `attributename` and `attibutevalue`. The maximum number of API products
  *  returned is 1000. You can paginate the list of API products returned using
- *  the `startKey` and `count` query parameters.
+ *  the `startKey` and `count` query parameters. If the resource has the `space`
+ *  attribute set, the response may not return all resources. To learn more,
+ *  read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @param parent Required. Name of the organization. Use the following
- *    structure in your request: `organizations/{org}`
+ *    structure in your request: `organizations/{org}` If the resource has the
+ *    `space` attribute set, IAM permissions are checked against the Space
+ *    resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves an API product to a different space.
+ *
+ *  Method: apigee.organizations.apiproducts.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsMove : GTLRApigeeQuery
+
+/**
+ *  Required. API product to move in the following format:
+ *  `organizations/{org}/apiproducts/{apiproduct}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProduct.
+ *
+ *  Moves an API product to a different space.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1MoveApiProductRequest to
+ *    include in the query.
+ *  @param name Required. API product to move in the following format:
+ *    `organizations/{org}/apiproducts/{apiproduct}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsMove
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1MoveApiProductRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -759,7 +868,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name of the API product that is associated with the rate plan. Use
  *  the following structure in your request:
- *  `organizations/{org}/apiproducts/{apiproduct}`
+ *  `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource
+ *  has the `space` attribute set, IAM permissions are checked against the Space
+ *  resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -780,7 +892,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    the query.
  *  @param parent Required. Name of the API product that is associated with the
  *    rate plan. Use the following structure in your request:
- *    `organizations/{org}/apiproducts/{apiproduct}`
+ *    `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource
+ *    has the `space` attribute set, IAM permissions are checked against the
+ *    Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansCreate
  */
@@ -801,7 +916,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. ID of the rate plan. Use the following structure in your request:
- *  `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *  `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the
+ *  API Product resource has the `space` attribute set, IAM permissions are
+ *  checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -812,7 +931,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. ID of the rate plan. Use the following structure in
  *    your request:
- *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the
+ *    API Product resource has the `space` attribute set, IAM permissions are
+ *    checked against the Space resource path. To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansDelete
  */
@@ -833,6 +956,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name of the rate plan. Use the following structure in your
  *  request: `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *  If the API Product resource has the `space` attribute set, IAM permissions
+ *  are checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -843,7 +970,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. Name of the rate plan. Use the following structure in
  *    your request:
- *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the
+ *    API Product resource has the `space` attribute set, IAM permissions are
+ *    checked against the Space resource path. To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansGet
  */
@@ -886,7 +1017,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. Name of the API product. Use the following structure in your
  *  request: `organizations/{org}/apiproducts/{apiproduct}` Use
  *  `organizations/{org}/apiproducts/-` to return rate plans for all API
- *  products within the organization.
+ *  products within the organization. If the API Product resource has the
+ *  `space` attribute set, IAM permissions are checked against the Space
+ *  resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -920,7 +1054,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param parent Required. Name of the API product. Use the following structure
  *    in your request: `organizations/{org}/apiproducts/{apiproduct}` Use
  *    `organizations/{org}/apiproducts/-` to return rate plans for all API
- *    products within the organization.
+ *    products within the organization. If the API Product resource has the
+ *    `space` attribute set, IAM permissions are checked against the Space
+ *    resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansList
  */
@@ -941,6 +1078,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name of the rate plan. Use the following structure in your
  *  request: `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *  If the API Product resource has the `space` attribute set, IAM permissions
+ *  are checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -953,7 +1094,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    the query.
  *  @param name Required. Name of the rate plan. Use the following structure in
  *    your request:
- *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the
+ *    API Product resource has the `space` attribute set, IAM permissions are
+ *    checked against the Space resource path. To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansUpdate
  */
@@ -979,7 +1124,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API product. Use the following structure in your
- *  request: `organizations/{org}/apiproducts/{apiproduct}`
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` If the resource has
+ *  the `space` attribute set, IAM permissions are checked against the Space
+ *  resource path.To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -996,7 +1144,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProduct to include in
  *    the query.
  *  @param name Required. Name of the API product. Use the following structure
- *    in your request: `organizations/{org}/apiproducts/{apiproduct}`
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` If the
+ *    resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path.To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsUpdate
  */
@@ -1042,9 +1193,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the organization in the following format:
- *  `organizations/{org}`
+ *  `organizations/{org}` If the API Proxy resource has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The ID of the space associated with this proxy. Any IAM policies
+ *  applied to the space will affect access to this proxy. Note that this field
+ *  is only respected when creating a new proxy. It has no effect when creating
+ *  a new revision for an existing proxy.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 /**
  *  Ignored. All uploads are validated regardless of the value of this field.
@@ -1073,12 +1235,61 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param parent Required. Name of the organization in the following format:
- *    `organizations/{org}`
+ *    `organizations/{org}` If the API Proxy resource has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisCreate
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleApiHttpBody *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists debug sessions that are currently active in the given API Proxy.
+ *
+ *  Method: apigee.organizations.apis.debugsessions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisDebugsessionsList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number of debug sessions to return. The page size defaults
+ *  to 25.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token, returned from a previous ListApiDebugSessions call,
+ *  that you can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the API Proxy for which to list debug sessions. Must
+ *  be of the form: `organizations/{organization}/apis/{api}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListApiDebugSessionsResponse.
+ *
+ *  Lists debug sessions that are currently active in the given API Proxy.
+ *
+ *  @param parent Required. The name of the API Proxy for which to list debug
+ *    sessions. Must be of the form: `organizations/{organization}/apis/{api}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisDebugsessionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1095,7 +1306,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API proxy in the following format:
- *  `organizations/{org}/apis/{api}`
+ *  `organizations/{org}/apis/{api}` If the API Proxy resource has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1106,7 +1320,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  revisions. The API proxy must be undeployed before you can delete it.
  *
  *  @param name Required. Name of the API proxy in the following format:
- *    `organizations/{org}/apis/{api}`
+ *    `organizations/{org}/apis/{api}` If the API Proxy resource has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisDelete
  */
@@ -1126,7 +1343,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API proxy for which to return deployment information
- *  in the following format: `organizations/{org}/apis/{api}`
+ *  in the following format: `organizations/{org}/apis/{api}` If the API proxy
+ *  resource has the `space` attribute set, IAM permissions are checked
+ *  differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1136,7 +1356,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Lists all deployments of an API proxy.
  *
  *  @param parent Required. Name of the API proxy for which to return deployment
- *    information in the following format: `organizations/{org}/apis/{api}`
+ *    information in the following format: `organizations/{org}/apis/{api}` If
+ *    the API proxy resource has the `space` attribute set, IAM permissions are
+ *    checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisDeploymentsList
  */
@@ -1156,7 +1379,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API proxy in the following format:
- *  `organizations/{org}/apis/{api}`
+ *  `organizations/{org}/apis/{api}` If the API Proxy resource has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1166,7 +1392,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Gets an API proxy including a list of existing revisions.
  *
  *  @param name Required. Name of the API proxy in the following format:
- *    `organizations/{org}/apis/{api}`
+ *    `organizations/{org}/apis/{api}` If the API Proxy resource has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisGet
  */
@@ -1186,7 +1415,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the environment in which to create the key value map. Use
- *  the following structure in your request: `organizations/{org}/apis/{api}`
+ *  the following structure in your request: `organizations/{org}/apis/{api}` If
+ *  the API Proxy resource has the `space` attribute set, IAM permissions are
+ *  checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1199,7 +1432,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    the query.
  *  @param parent Required. Name of the environment in which to create the key
  *    value map. Use the following structure in your request:
- *    `organizations/{org}/apis/{api}`
+ *    `organizations/{org}/apis/{api}` If the API Proxy resource has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsCreate
  */
@@ -1220,7 +1456,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the key value map. Use the following structure in your
- *  request: `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
+ *  request: `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}` If the
+ *  API Proxy resource has the `space` attribute set, IAM permissions are
+ *  checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1231,7 +1471,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. Name of the key value map. Use the following structure
  *    in your request:
- *    `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
+ *    `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}` If the API
+ *    Proxy resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsDelete
  */
@@ -1256,7 +1499,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  entry. Use **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1274,7 +1521,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesCreate
  */
@@ -1304,6 +1555,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  If the KeyValueMap is under an API Proxy resource that has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1324,6 +1579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *    *
  *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    If the KeyValueMap is under an API Proxy resource that has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesDelete
  */
@@ -1350,6 +1609,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  If the KeyValueMap is under an API Proxy resource that has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1368,6 +1631,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *    *
  *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    If the KeyValueMap is under an API Proxy resource that has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesGet
  */
@@ -1404,7 +1671,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1419,7 +1690,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    value maps. Use **one** of the following structures in your request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesList
  *
@@ -1447,7 +1722,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  entry. Use **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1464,7 +1743,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesUpdate
  */
@@ -1476,7 +1759,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Lists the names of all API proxies in an organization. The names returned
  *  correspond to the names defined in the configuration files for each API
- *  proxy.
+ *  proxy. If the resource has the `space` attribute set, the response may not
+ *  return all resources. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  Method: apigee.organizations.apis.list
  *
@@ -1497,23 +1782,70 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the organization in the following format:
- *  `organizations/{org}`
+ *  `organizations/{org}` If the resource has the `space` attribute set, IAM
+ *  permissions are checked against the Space resource path. To learn more, read
+ *  the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The space ID to filter the list of proxies (optional). If
+ *  unspecified, all proxies in the organization will be listed.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse.
  *
  *  Lists the names of all API proxies in an organization. The names returned
  *  correspond to the names defined in the configuration files for each API
- *  proxy.
+ *  proxy. If the resource has the `space` attribute set, the response may not
+ *  return all resources. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @param parent Required. Name of the organization in the following format:
- *    `organizations/{org}`
+ *    `organizations/{org}` If the resource has the `space` attribute set, IAM
+ *    permissions are checked against the Space resource path. To learn more,
+ *    read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves an API proxy to a different space.
+ *
+ *  Method: apigee.organizations.apis.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisMove : GTLRApigeeQuery
+
+/**
+ *  Required. API proxy to move in the following format:
+ *  `organizations/{org}/apis/{api}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProxy.
+ *
+ *  Moves an API proxy to a different space.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1MoveApiProxyRequest to
+ *    include in the query.
+ *  @param name Required. API proxy to move in the following format:
+ *    `organizations/{org}/apis/{api}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisMove
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1MoveApiProxyRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1529,7 +1861,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. API proxy to update in the following format:
- *  `organizations/{org}/apis/{api}`
+ *  `organizations/{org}/apis/{api}` If the resource has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1548,7 +1883,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProxy to include in
  *    the query.
  *  @param name Required. API proxy to update in the following format:
- *    `organizations/{org}/apis/{api}`
+ *    `organizations/{org}/apis/{api}` If the resource has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisPatch
  */
@@ -1571,7 +1909,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. API proxy revision in the following format:
- *  `organizations/{org}/apis/{api}/revisions/{rev}`
+ *  `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource
+ *  has the `space` attribute set, IAM permissions are checked against the Space
+ *  resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1583,7 +1924,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  before you can delete it.
  *
  *  @param name Required. API proxy revision in the following format:
- *    `organizations/{org}/apis/{api}/revisions/{rev}`
+ *    `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource
+ *    has the `space` attribute set, IAM permissions are checked against the
+ *    Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisRevisionsDelete
  */
@@ -1604,7 +1948,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name of the API proxy revision for which to return deployment
  *  information in the following format:
- *  `organizations/{org}/apis/{api}/revisions/{rev}`.
+ *  `organizations/{org}/apis/{api}/revisions/{rev}`. If the API proxy resource
+ *  has the `space` attribute set, IAM permissions are checked differently . To
+ *  learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1615,7 +1962,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param parent Required. Name of the API proxy revision for which to return
  *    deployment information in the following format:
- *    `organizations/{org}/apis/{api}/revisions/{rev}`.
+ *    `organizations/{org}/apis/{api}/revisions/{rev}`. If the API proxy
+ *    resource has the `space` attribute set, IAM permissions are checked
+ *    differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisRevisionsDeploymentsList
  */
@@ -1646,7 +1996,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. API proxy revision in the following format:
- *  `organizations/{org}/apis/{api}/revisions/{rev}`
+ *  `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource
+ *  has the `space` attribute set, IAM permissions are checked against the Space
+ *  resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1661,7 +2014,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  revision, as described in [updateApiProxyRevision](updateApiProxyRevision).
  *
  *  @param name Required. API proxy revision in the following format:
- *    `organizations/{org}/apis/{api}/revisions/{rev}`
+ *    `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource
+ *    has the `space` attribute set, IAM permissions are checked against the
+ *    Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisRevisionsGet
  */
@@ -1686,7 +2042,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. API proxy revision to update in the following format:
- *  `organizations/{org}/apis/{api}/revisions/{rev}`
+ *  `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource
+ *  has the `space` attribute set, IAM permissions are checked against the Space
+ *  resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1708,7 +2067,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param name Required. API proxy revision to update in the following format:
- *    `organizations/{org}/apis/{api}/revisions/{rev}`
+ *    `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource
+ *    has the `space` attribute set, IAM permissions are checked against the
+ *    Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsApisRevisionsUpdateApiProxyRevision
  */
@@ -2235,9 +2597,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Deletes an AppGroup. All app and API keys associations with the AppGroup are
  *  also removed. **Warning**: This API will permanently delete the AppGroup and
  *  related artifacts. **Note**: The delete operation is asynchronous. The
- *  AppGroup app is deleted immediately, but its associated resources, such as
- *  apps and API keys, may take anywhere from a few seconds to a few minutes to
- *  be deleted.
+ *  AppGroup is deleted immediately, but its associated resources, such as apps
+ *  and API keys, may take anywhere from a few seconds to a few minutes to be
+ *  deleted.
  *
  *  Method: apigee.organizations.appgroups.delete
  *
@@ -2258,9 +2620,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Deletes an AppGroup. All app and API keys associations with the AppGroup are
  *  also removed. **Warning**: This API will permanently delete the AppGroup and
  *  related artifacts. **Note**: The delete operation is asynchronous. The
- *  AppGroup app is deleted immediately, but its associated resources, such as
- *  apps and API keys, may take anywhere from a few seconds to a few minutes to
- *  be deleted.
+ *  AppGroup is deleted immediately, but its associated resources, such as apps
+ *  and API keys, may take anywhere from a few seconds to a few minutes to be
+ *  deleted.
  *
  *  @param name Required. Name of the AppGroup. Use the following structure in
  *    your request: `organizations/{org}/appgroups/{app_group_name}`
@@ -4032,9 +4394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  and related artifacts. To avoid permanently deleting developers and their
  *  artifacts, set the developer status to `inactive` using the
  *  SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The
- *  developer app is deleted immediately, but its associated resources, such as
- *  apps and API keys, may take anywhere from a few seconds to a few minutes to
- *  be deleted.
+ *  developer is deleted immediately, but its associated resources, such as apps
+ *  and API keys, may take anywhere from a few seconds to a few minutes to be
+ *  deleted.
  *
  *  Method: apigee.organizations.developers.delete
  *
@@ -4057,9 +4419,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  and related artifacts. To avoid permanently deleting developers and their
  *  artifacts, set the developer status to `inactive` using the
  *  SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The
- *  developer app is deleted immediately, but its associated resources, such as
- *  apps and API keys, may take anywhere from a few seconds to a few minutes to
- *  be deleted.
+ *  developer is deleted immediately, but its associated resources, such as apps
+ *  and API keys, may take anywhere from a few seconds to a few minutes to be
+ *  deleted.
  *
  *  @param name Required. Email address of the developer. Use the following
  *    structure in your request:
@@ -5257,7 +5619,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name representing an API proxy in an environment in the following
- *  format: `organizations/{org}/environments/{env}/apis/{api}`
+ *  format: `organizations/{org}/environments/{env}/apis/{api}` If the API proxy
+ *  resource has the `space` attribute set, IAM permissions are checked
+ *  differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5268,6 +5633,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param parent Required. Name representing an API proxy in an environment in
  *    the following format: `organizations/{org}/environments/{env}/apis/{api}`
+ *    If the API proxy resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisDeploymentsList
  */
@@ -5289,6 +5657,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. The resource name of the API Proxy revision deployment for which
  *  to create the DebugSession. Must be of the form
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+ *  If the API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5308,6 +5679,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param parent Required. The resource name of the API Proxy revision
  *    deployment for which to create the DebugSession. Must be of the form
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+ *    If the API proxy resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsCreate
  */
@@ -5329,6 +5703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The name of the debug session transaction. Must be of the form:
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}/data/{transaction}`.
+ *  If the API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5340,6 +5717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. The name of the debug session transaction. Must be of
  *    the form:
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}/data/{transaction}`.
+ *    If the API proxy resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsDataGet
  */
@@ -5362,6 +5742,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The name of the debug session to delete. Must be of the form:
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`.
+ *  If the API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5375,6 +5758,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. The name of the debug session to delete. Must be of
  *    the form:
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`.
+ *    If the API proxy resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsDeleteData
  */
@@ -5395,6 +5781,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The name of the debug session to retrieve. Must be of the form:
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+ *  If the API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5406,6 +5795,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. The name of the debug session to retrieve. Must be of
  *    the form:
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+ *    If the API proxy resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsGet
  */
@@ -5439,6 +5831,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. The name of the API Proxy revision deployment for which to list
  *  debug sessions. Must be of the form:
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+ *  If the API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5451,6 +5846,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param parent Required. The name of the API Proxy revision deployment for
  *    which to list debug sessions. Must be of the form:
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+ *    If the API proxy resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsList
  *
@@ -5472,7 +5870,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`,
  *  two permissions are required: * `apigee.deployments.create` on the resource
  *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on
- *  the resource `organizations/{org}/apis/{api}/revisions/{rev}`
+ *  the resource `organizations/{org}/apis/{api}/revisions/{rev}` All successful
+ *  API proxy deployments to Apigee are [zero-downtime
+ *  deployments](https://cloud.google.com/apigee/docs/api-platform/deploy/ui-deploy-overview#zero-downtime-deployment).
+ *  Apigee hybrid validates the dependencies between shared flows and API
+ *  proxies at deployment time. For example, if the Flow Callout policy in an
+ *  API proxy references a shared flow that either doesn't exist or isn't
+ *  deployed, the API proxy deployment fails.
  *
  *  Method: apigee.organizations.environments.apis.revisions.deploy
  *
@@ -5483,7 +5887,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API proxy revision deployment in the following format:
- *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *  API proxy resource being deployed has the `space` attribute set, IAM
+ *  permissions are checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5530,11 +5937,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`,
  *  two permissions are required: * `apigee.deployments.create` on the resource
  *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on
- *  the resource `organizations/{org}/apis/{api}/revisions/{rev}`
+ *  the resource `organizations/{org}/apis/{api}/revisions/{rev}` All successful
+ *  API proxy deployments to Apigee are [zero-downtime
+ *  deployments](https://cloud.google.com/apigee/docs/api-platform/deploy/ui-deploy-overview#zero-downtime-deployment).
+ *  Apigee hybrid validates the dependencies between shared flows and API
+ *  proxies at deployment time. For example, if the Flow Callout policy in an
+ *  API proxy references a shared flow that either doesn't exist or isn't
+ *  deployed, the API proxy deployment fails.
  *
  *  @param name Required. Name of the API proxy revision deployment in the
  *    following format:
- *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *    API proxy resource being deployed has the `space` attribute set, IAM
+ *    permissions are checked differently . To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploy
  */
@@ -5564,7 +5981,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Name of the API proxy revision deployment in the following format:
- *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *  API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5591,7 +6011,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Name of the API proxy revision deployment in the following
  *    format:
- *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *    API proxy resource has the `space` attribute set, IAM permissions are
+ *    checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReport
  */
@@ -5664,7 +6087,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name representing an API proxy revision in an environment in the
  *  following format:
- *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *  API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5676,7 +6102,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. Name representing an API proxy revision in an
  *    environment in the following format:
- *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *    API proxy resource has the `space` attribute set, IAM permissions are
+ *    checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsGetDeployments
  */
@@ -5700,7 +6129,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the API proxy revision deployment in the following format:
- *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *  API proxy resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5728,7 +6160,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. Name of the API proxy revision deployment in the
  *    following format:
- *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+ *    API proxy resource has the `space` attribute set, IAM permissions are
+ *    checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsUndeploy
  */
@@ -7144,7 +7579,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  entry. Use **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7162,7 +7601,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesCreate
  */
@@ -7192,6 +7635,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  If the KeyValueMap is under an API Proxy resource that has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7212,6 +7659,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *    *
  *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    If the KeyValueMap is under an API Proxy resource that has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesDelete
  */
@@ -7238,6 +7689,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  If the KeyValueMap is under an API Proxy resource that has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7256,6 +7711,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *    *
  *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    If the KeyValueMap is under an API Proxy resource that has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesGet
  */
@@ -7292,7 +7751,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7307,7 +7770,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    value maps. Use **one** of the following structures in your request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesList
  *
@@ -7335,7 +7802,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  entry. Use **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7352,7 +7823,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesUpdate
  */
@@ -8843,7 +9318,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name representing a shared flow in an environment in the following
- *  format: `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+ *  format: `organizations/{org}/environments/{env}/sharedflows/{sharedflow}` If
+ *  the shared flow resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -8854,7 +9332,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param parent Required. Name representing a shared flow in an environment in
  *    the following format:
- *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+ *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}` If the
+ *    shared flow resource has the `space` attribute set, IAM permissions are
+ *    checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsDeploymentsList
  */
@@ -8884,6 +9365,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. Name of the shared flow revision to deploy in the following
  *  format:
  *  `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ *  If the shared flow resource being deployed has the `space` attribute set,
+ *  IAM permissions are checked differently . To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8919,6 +9404,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. Name of the shared flow revision to deploy in the
  *    following format:
  *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ *    If the shared flow resource being deployed has the `space` attribute set,
+ *    IAM permissions are checked differently . To learn more, read the [Apigee
+ *    Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeploy
  */
@@ -8941,6 +9430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. Name representing a shared flow in an environment in the following
  *  format:
  *  `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ *  If the shared flow resource has the `space` attribute set, IAM permissions
+ *  are checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8953,6 +9445,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. Name representing a shared flow in an environment in
  *    the following format:
  *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ *    If the shared flow resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsGetDeployments
  */
@@ -8979,6 +9474,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. Name of the shared flow revision to undeploy in the following
  *  format:
  *  `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ *  If the shared flow resource has the `space` attribute set, IAM permissions
+ *  are checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8995,6 +9493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. Name of the shared flow revision to undeploy in the
  *    following format:
  *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ *    If the shared flow resource has the `space` attribute set, IAM permissions
+ *    are checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsUndeploy
  */
@@ -11284,7 +11785,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  entry. Use **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -11302,7 +11807,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesCreate
  */
@@ -11332,6 +11841,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  If the KeyValueMap is under an API Proxy resource that has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -11352,6 +11865,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *    *
  *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    If the KeyValueMap is under an API Proxy resource that has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesDelete
  */
@@ -11378,6 +11895,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  If the KeyValueMap is under an API Proxy resource that has the `space`
+ *  attribute set, IAM permissions are checked against the Space resource path.
+ *  To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -11396,6 +11917,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
  *    *
  *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    If the KeyValueMap is under an API Proxy resource that has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesGet
  */
@@ -11432,7 +11957,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -11447,7 +11976,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    value maps. Use **one** of the following structures in your request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesList
  *
@@ -11475,7 +12008,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  entry. Use **one** of the following structures in your request: *
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -11492,7 +12029,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    request: *
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
- *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesUpdate
  */
@@ -12551,9 +13092,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. The name of the parent organization under which to create the
- *  shared flow. Must be of the form: `organizations/{organization_id}`
+ *  shared flow. Must be of the form: `organizations/{organization_id}` If the
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The ID of the space to associated with this shared flow. Any IAM
+ *  policies applied to the space will affect access to this shared flow. Note
+ *  that this field is only respected when creating a new shared flow. It has no
+ *  effect when creating a new revision for an existing shared flow.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision.
@@ -12567,7 +13119,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param parent Required. The name of the parent organization under which to
  *    create the shared flow. Must be of the form:
- *    `organizations/{organization_id}`
+ *    `organizations/{organization_id}` If the resource has the `space`
+ *    attribute set, IAM permissions are checked against the Space resource
+ *    path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsCreate
  */
@@ -12589,7 +13144,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. shared flow name of the form:
- *  `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+ *  `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -12600,7 +13158,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  undeployed before you can delete it.
  *
  *  @param name Required. shared flow name of the form:
- *    `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+ *    `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the
+ *    resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsDelete
  */
@@ -12620,7 +13181,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Name of the shared flow for which to return deployment information
- *  in the following format: `organizations/{org}/sharedflows/{sharedflow}`
+ *  in the following format: `organizations/{org}/sharedflows/{sharedflow}` If
+ *  the shared flow resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -12631,7 +13195,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param parent Required. Name of the shared flow for which to return
  *    deployment information in the following format:
- *    `organizations/{org}/sharedflows/{sharedflow}`
+ *    `organizations/{org}/sharedflows/{sharedflow}` If the shared flow resource
+ *    has the `space` attribute set, IAM permissions are checked differently .
+ *    To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsDeploymentsList
  */
@@ -12651,7 +13218,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. The name of the shared flow to get. Must be of the form:
- *  `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+ *  `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -12661,7 +13231,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Gets a shared flow by name, including a list of its revisions.
  *
  *  @param name Required. The name of the shared flow to get. Must be of the
- *    form: `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+ *    form: `organizations/{organization_id}/sharedflows/{shared_flow_id}` If
+ *    the resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsGet
  */
@@ -12670,7 +13243,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Lists all shared flows in the organization.
+ *  Lists all shared flows in the organization. If the resource has the `space`
+ *  attribute set, the response may not return all resources. To learn more,
+ *  read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  Method: apigee.organizations.sharedflows.list
  *
@@ -12687,21 +13263,71 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. The name of the parent organization under which to get shared
- *  flows. Must be of the form: `organizations/{organization_id}`
+ *  flows. Must be of the form: `organizations/{organization_id}` If the
+ *  resource has the `space` attribute set, IAM permissions are checked against
+ *  the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. The space ID used to filter the list of shared flows (optional).
+ *  If unspecified, all shared flows in the organization will be listed. To
+ *  learn how Spaces can be used to manage resources, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
+/**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse.
  *
- *  Lists all shared flows in the organization.
+ *  Lists all shared flows in the organization. If the resource has the `space`
+ *  attribute set, the response may not return all resources. To learn more,
+ *  read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @param parent Required. The name of the parent organization under which to
  *    get shared flows. Must be of the form: `organizations/{organization_id}`
+ *    If the resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves an shared flow to a different space.
+ *
+ *  Method: apigee.organizations.sharedflows.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSharedflowsMove : GTLRApigeeQuery
+
+/**
+ *  Required. Shared Flow to move in the following format:
+ *  `organizations/{org}/sharedflows/{shared_flow}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SharedFlow.
+ *
+ *  Moves an shared flow to a different space.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1MoveSharedFlowRequest to
+ *    include in the query.
+ *  @param name Required. Shared Flow to move in the following format:
+ *    `organizations/{org}/sharedflows/{shared_flow}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSharedflowsMove
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1MoveSharedFlowRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -12720,6 +13346,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. The name of the shared flow revision to delete. Must be of the
  *  form:
  *  `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+ *  If the Shared Flow resource has the `space` attribute set, IAM permissions
+ *  are checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -12732,6 +13362,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. The name of the shared flow revision to delete. Must
  *    be of the form:
  *    `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+ *    If the Shared Flow resource has the `space` attribute set, IAM permissions
+ *    are checked against the Space resource path. To learn more, read the
+ *    [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDelete
  */
@@ -12752,7 +13386,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. Name of the API proxy revision for which to return deployment
  *  information in the following format:
- *  `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
+ *  `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`. If the
+ *  shared flow resource has the `space` attribute set, IAM permissions are
+ *  checked differently . To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -12763,7 +13400,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param parent Required. Name of the API proxy revision for which to return
  *    deployment information in the following format:
- *    `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
+ *    `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`. If the
+ *    shared flow resource has the `space` attribute set, IAM permissions are
+ *    checked differently . To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDeploymentsList
  */
@@ -12796,6 +13436,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The name of the shared flow revision to get. Must be of the form:
  *  `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+ *  If the Shared Flow resource has the `space` attribute set, IAM permissions
+ *  are checked against the Space resource path. To learn more, read the [Apigee
+ *  Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -12813,6 +13457,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. The name of the shared flow revision to get. Must be
  *    of the form:
  *    `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+ *    If the Shared Flow resource has the `space` attribute set, IAM permissions
+ *    are checked against the Space resource path. To learn more, read the
+ *    [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsGet
  */
@@ -12838,6 +13486,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Required. The name of the shared flow revision to update. Must be of the
  *  form:
  *  `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+ *  If the resource has the `space` attribute set, IAM permissions are checked
+ *  against the Space resource path. To learn more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -12861,6 +13512,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param name Required. The name of the shared flow revision to update. Must
  *    be of the form:
  *    `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+ *    If the resource has the `space` attribute set, IAM permissions are checked
+ *    against the Space resource path. To learn more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsUpdateSharedFlowRevision
  */
@@ -13267,6 +13921,309 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a space under an organization.
+ *
+ *  Method: apigee.organizations.spaces.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the Google Cloud project in which to associate the Apigee
+ *  space. Pass the information as a query parameter using the following
+ *  structure in your request: `organizations/`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Resource ID of the space. */
+@property(nonatomic, copy, nullable) NSString *spaceId;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Space.
+ *
+ *  Create a space under an organization.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Space to include in the
+ *    query.
+ *  @param parent Required. Name of the Google Cloud project in which to
+ *    associate the Apigee space. Pass the information as a query parameter
+ *    using the following structure in your request: `organizations/`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Space *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an organization space.
+ *
+ *  Method: apigee.organizations.spaces.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Apigee organization space name in the following format:
+ *  `organizations/{org}/spaces/{space}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Deletes an organization space.
+ *
+ *  @param name Required. Apigee organization space name in the following
+ *    format: `organizations/{org}/spaces/{space}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a space under an Organization.
+ *
+ *  Method: apigee.organizations.spaces.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesGet : GTLRApigeeQuery
+
+/**
+ *  Required. Apigee organization space name in the following format:
+ *  `organizations/{org}/spaces/{space}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Space.
+ *
+ *  Get a space under an Organization.
+ *
+ *  @param name Required. Apigee organization space name in the following
+ *    format: `organizations/{org}/spaces/{space}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Callers must have apigee.spaces.getIamPolicy.
+ *
+ *  Method: apigee.organizations.spaces.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesGetIamPolicy : GTLRApigeeQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleIamV1Policy.
+ *
+ *  Callers must have apigee.spaces.getIamPolicy.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists spaces under an organization.
+ *
+ *  Method: apigee.organizations.spaces.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesList : GTLRApigeeQuery
+
+/**
+ *  Optional. The maximum number of spaces to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 spaces will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListSpaces` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all parameters must
+ *  match the original call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Use the following structure in your request: `organizations` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSpacesResponse.
+ *
+ *  Lists spaces under an organization.
+ *
+ *  @param parent Required. Use the following structure in your request:
+ *    `organizations`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a space.
+ *
+ *  Method: apigee.organizations.spaces.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesPatch : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the space in the following format:
+ *  `organizations/{org}/spaces/{space_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. List of fields to be updated. Fields that can be updated:
+ *  display_name.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Space.
+ *
+ *  Updates a space.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Space to include in the
+ *    query.
+ *  @param name Required. Name of the space in the following format:
+ *    `organizations/{org}/spaces/{space_id}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Space *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  IAM META APIs Callers must have apigee.spaces.setIamPolicy.
+ *
+ *  Method: apigee.organizations.spaces.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesSetIamPolicy : GTLRApigeeQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleIamV1Policy.
+ *
+ *  IAM META APIs Callers must have apigee.spaces.setIamPolicy.
+ *
+ *  @param object The @c GTLRApigee_GoogleIamV1SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Callers don't need any permissions.
+ *
+ *  Method: apigee.organizations.spaces.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSpacesTestIamPermissions : GTLRApigeeQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Callers don't need any permissions.
+ *
+ *  @param object The @c GTLRApigee_GoogleIamV1TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSpacesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

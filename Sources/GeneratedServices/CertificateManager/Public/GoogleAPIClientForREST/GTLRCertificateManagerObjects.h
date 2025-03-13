@@ -45,6 +45,7 @@
 @class GTLRCertificateManager_TrustConfig;
 @class GTLRCertificateManager_TrustConfig_Labels;
 @class GTLRCertificateManager_TrustStore;
+@class GTLRCertificateManager_UsedBy;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -130,6 +131,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
  *  Value: "ALL_REGIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_AllRegions;
+/**
+ *  Associated with certificates used as client certificates in Backend mTLS.
+ *
+ *  Value: "CLIENT_AUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_ClientAuth;
 /**
  *  Use the DEFAULT scope if you plan to use the certificate with global
  *  external Application Load Balancer, global external proxy Network Load
@@ -417,6 +424,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        all Google Cloud regions. See
  *        https://cloud.google.com/compute/docs/regions-zones. (Value:
  *        "ALL_REGIONS")
+ *    @arg @c kGTLRCertificateManager_Certificate_Scope_ClientAuth Associated
+ *        with certificates used as client certificates in Backend mTLS. (Value:
+ *        "CLIENT_AUTH")
  *    @arg @c kGTLRCertificateManager_Certificate_Scope_Default Use the DEFAULT
  *        scope if you plan to use the certificate with global external
  *        Application Load Balancer, global external proxy Network Load
@@ -435,6 +445,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 /** Output only. The last update timestamp of a Certificate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. The list of resources that use this Certificate. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_UsedBy *> *usedBy;
 
 @end
 
@@ -1526,6 +1539,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  against a given TrustStore.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_TrustAnchor *> *trustAnchors;
+
+@end
+
+
+/**
+ *  Defines a resource that uses the certificate.
+ */
+@interface GTLRCertificateManager_UsedBy : GTLRObject
+
+/**
+ *  Output only. Full name of the resource
+ *  https://google.aip.dev/122#full-resource-names, e.g.
+ *  `//certificatemanager.googleapis.com/projects/ * /locations/ *
+ *  /certificateMaps/ * /certificateMapEntries/ *` or
+ *  `//compute.googleapis.com/projects/ * /locations/ * /targetHttpsProxies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

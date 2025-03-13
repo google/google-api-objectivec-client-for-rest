@@ -1265,13 +1265,14 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo
-@dynamic externalResources, operations, resources;
+@dynamic externalResources, operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"externalResources" : [NSString class],
     @"operations" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }
@@ -1324,12 +1325,13 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo
-@dynamic operations, resources;
+@dynamic operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"operations" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }

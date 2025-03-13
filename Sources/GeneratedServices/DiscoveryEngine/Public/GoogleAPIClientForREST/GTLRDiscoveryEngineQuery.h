@@ -2723,6 +2723,111 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Sitemap.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.sitemaps.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Parent resource name of the SiteSearchEngine, such as `projects/ *
+ *  /locations/ * /collections/ * /dataStores/ * /siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a Sitemap.
+ *
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap
+ *    to include in the query.
+ *  @param parent Required. Parent resource name of the SiteSearchEngine, such
+ *    as `projects/ * /locations/ * /collections/ * /dataStores/ *
+ *    /siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Sitemap.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.sitemaps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of Sitemap, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`.
+ *  If the caller does not have permission to access the Sitemap, regardless of
+ *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested Sitemap does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a Sitemap.
+ *
+ *  @param name Required. Full resource name of Sitemap, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`.
+ *    If the caller does not have permission to access the Sitemap, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    requested Sitemap does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch Sitemaps in a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.sitemaps.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsFetch : GTLRDiscoveryEngineQuery
+
+/** The Sitemap uris. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matcherUrisMatcherUris;
+
+/**
+ *  Required. Parent resource name of the SiteSearchEngine, such as `projects/ *
+ *  /locations/ * /collections/ * /dataStores/ * /siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchSitemapsResponse.
+ *
+ *  Fetch Sitemaps in a DataStore.
+ *
+ *  @param parent Required. Parent resource name of the SiteSearchEngine, such
+ *    as `projects/ * /locations/ * /collections/ * /dataStores/ *
+ *    /siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsFetch
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates TargetSite in a batch.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.batchCreate
@@ -7023,6 +7128,111 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Sitemap.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.sitemaps.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Parent resource name of the SiteSearchEngine, such as `projects/ *
+ *  /locations/ * /collections/ * /dataStores/ * /siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a Sitemap.
+ *
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap
+ *    to include in the query.
+ *  @param parent Required. Parent resource name of the SiteSearchEngine, such
+ *    as `projects/ * /locations/ * /collections/ * /dataStores/ *
+ *    /siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Sitemap.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.sitemaps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of Sitemap, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`.
+ *  If the caller does not have permission to access the Sitemap, regardless of
+ *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested Sitemap does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a Sitemap.
+ *
+ *  @param name Required. Full resource name of Sitemap, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`.
+ *    If the caller does not have permission to access the Sitemap, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    requested Sitemap does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch Sitemaps in a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.sitemaps.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsFetch : GTLRDiscoveryEngineQuery
+
+/** The Sitemap uris. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matcherUrisMatcherUris;
+
+/**
+ *  Required. Parent resource name of the SiteSearchEngine, such as `projects/ *
+ *  /locations/ * /collections/ * /dataStores/ * /siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchSitemapsResponse.
+ *
+ *  Fetch Sitemaps in a DataStore.
+ *
+ *  @param parent Required. Parent resource name of the SiteSearchEngine, such
+ *    as `projects/ * /locations/ * /collections/ * /dataStores/ *
+ *    /siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsFetch
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates TargetSite in a batch.
  *
  *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.batchCreate
@@ -7532,41 +7742,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Generates grounded content.
- *
- *  Method: discoveryengine.projects.locations.generateGroundedContent
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsGenerateGroundedContent : GTLRDiscoveryEngineQuery
-
-/**
- *  Required. Location resource. Format:
- *  `projects/{project}/locations/{location}`.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponse.
- *
- *  Generates grounded content.
- *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest
- *    to include in the query.
- *  @param location Required. Location resource. Format:
- *    `projects/{project}/locations/{location}`.
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsGenerateGroundedContent
- */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest *)object
-                       location:(NSString *)location;
-
-@end
-
-/**
  *  Performs a grounding check.
  *
  *  Method: discoveryengine.projects.locations.groundingConfigs.check
@@ -7599,6 +7774,261 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CheckGroundingRequest *)object
                 groundingConfig:(NSString *)groundingConfig;
+
+@end
+
+/**
+ *  Creates a new Identity Mapping Store.
+ *
+ *  Method: discoveryengine.projects.locations.identityMappingStores.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Resource name of the CmekConfig to use for protecting this Identity Mapping
+ *  Store.
+ */
+@property(nonatomic, copy, nullable) NSString *cmekConfigName;
+
+/**
+ *  Identity Mapping Store without CMEK protections. If a default CmekConfig is
+ *  set for the project, setting this field will override the default CmekConfig
+ *  as well.
+ */
+@property(nonatomic, assign) BOOL disableCmek;
+
+/**
+ *  Required. The ID of the Identity Mapping Store to create. The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *identityMappingStoreId;
+
+/**
+ *  Required. The parent collection resource name, such as
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore.
+ *
+ *  Creates a new Identity Mapping Store.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore to
+ *    include in the query.
+ *  @param parent Required. The parent collection resource name, such as
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the Identity Mapping Store.
+ *
+ *  Method: discoveryengine.projects.locations.identityMappingStores.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the Identity Mapping Store to delete. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes the Identity Mapping Store.
+ *
+ *  @param name Required. The name of the Identity Mapping Store to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Identity Mapping Store.
+ *
+ *  Method: discoveryengine.projects.locations.identityMappingStores.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the Identity Mapping Store to get. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore.
+ *
+ *  Gets the Identity Mapping Store.
+ *
+ *  @param name Required. The name of the Identity Mapping Store to get. Format:
+ *    `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports a list of Identity Mapping Entries to an Identity Mapping Store.
+ *
+ *  Method: discoveryengine.projects.locations.identityMappingStores.importIdentityMappings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresImportIdentityMappings : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the Identity Mapping Store to import Identity Mapping
+ *  Entries to. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *identityMappingStore;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Imports a list of Identity Mapping Entries to an Identity Mapping Store.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportIdentityMappingsRequest
+ *    to include in the query.
+ *  @param identityMappingStore Required. The name of the Identity Mapping Store
+ *    to import Identity Mapping Entries to. Format:
+ *    `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresImportIdentityMappings
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportIdentityMappingsRequest *)object
+           identityMappingStore:(NSString *)identityMappingStore;
+
+@end
+
+/**
+ *  Lists all Identity Mapping Stores.
+ *
+ *  Method: discoveryengine.projects.locations.identityMappingStores.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Maximum number of IdentityMappingStores to return. If unspecified, defaults
+ *  to 100. The maximum allowed value is 1000. Values above 1000 will be coerced
+ *  to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListIdentityMappingStores` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListIdentityMappingStores` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent of the Identity Mapping Stores to list. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListIdentityMappingStoresResponse.
+ *
+ *  Lists all Identity Mapping Stores.
+ *
+ *  @param parent Required. The parent of the Identity Mapping Stores to list.
+ *    Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists Identity Mappings in an Identity Mapping Store.
+ *
+ *  Method: discoveryengine.projects.locations.identityMappingStores.listIdentityMappings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresListIdentityMappings : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the Identity Mapping Store to list Identity Mapping
+ *  Entries in. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *identityMappingStore;
+
+/**
+ *  Maximum number of IdentityMappings to return. If unspecified, defaults to
+ *  2000. The maximum allowed value is 10000. Values above 10000 will be coerced
+ *  to 10000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListIdentityMappings` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListIdentityMappings` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListIdentityMappingsResponse.
+ *
+ *  Lists Identity Mappings in an Identity Mapping Store.
+ *
+ *  @param identityMappingStore Required. The name of the Identity Mapping Store
+ *    to list Identity Mapping Entries in. Format:
+ *    `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresListIdentityMappings
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithIdentityMappingStore:(NSString *)identityMappingStore;
 
 @end
 
@@ -7670,6 +8100,44 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Purges specified or all Identity Mapping Entries from an Identity Mapping
+ *  Store.
+ *
+ *  Method: discoveryengine.projects.locations.identityMappingStores.purgeIdentityMappings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresPurgeIdentityMappings : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the Identity Mapping Store to purge Identity Mapping
+ *  Entries from. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *identityMappingStore;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Purges specified or all Identity Mapping Entries from an Identity Mapping
+ *  Store.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeIdentityMappingsRequest
+ *    to include in the query.
+ *  @param identityMappingStore Required. The name of the Identity Mapping Store
+ *    to purge Identity Mapping Entries from. Format:
+ *    `projects/{project}/locations/{location}/identityMappingStores/{identityMappingStore}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresPurgeIdentityMappings
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeIdentityMappingsRequest *)object
+           identityMappingStore:(NSString *)identityMappingStore;
 
 @end
 

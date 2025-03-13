@@ -20,6 +20,7 @@
 @class GTLRCloudKMS_Binding;
 @class GTLRCloudKMS_Certificate;
 @class GTLRCloudKMS_CertificateChains;
+@class GTLRCloudKMS_ChecksummedData;
 @class GTLRCloudKMS_CryptoKey;
 @class GTLRCloudKMS_CryptoKey_Labels;
 @class GTLRCloudKMS_CryptoKeyVersion;
@@ -342,6 +343,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Hmac
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512;
 /**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
@@ -494,7 +509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLeve
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This version is destroyed, and the key material is no longer stored. This
+ *  This key material of this version is destroyed and no longer stored. This
  *  version may only become ENABLED again if this version is reimport_eligible
  *  and the original key material is reimported with a call to
  *  KeyManagementService.ImportCryptoKeyVersion.
@@ -689,6 +704,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -1087,6 +1116,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -1633,6 +1676,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha384;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512;
 /**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignSlhDsaSha2128s;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
@@ -1774,6 +1831,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Prote
  *  Value: "SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_PublicKey.publicKeyFormat
+
+/**
+ *  This is supported only for PQC algorithms. The key material is returned in
+ *  the format defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *
+ *  Value: "NIST_PQC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_NistPqc;
+/**
+ *  The returned public key will be encoded in PEM format. See the
+ *  [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual
+ *  Encoding of Subject Public Key Info]
+ *  (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_Pem;
+/**
+ *  If the public_key_format field is not specified: - For PQC algorithms, an
+ *  error will be returned. - For non-PQC algorithms, the default format is PEM,
+ *  and the field pem will be populated. Otherwise, the public key will be
+ *  exported through the public_key field in the requested format.
+ *
+ *  Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_PublicKeyFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_RawDecryptResponse.protectionLevel
@@ -2368,6 +2455,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  Data with integrity verification field.
+ */
+@interface GTLRCloudKMS_ChecksummedData : GTLRObject
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  ChecksummedData.data. An integrity check of ChecksummedData.data can be
+ *  performed by computing the CRC32C checksum of ChecksummedData.data and
+ *  comparing your results to this field. Discard the response in case of
+ *  non-matching checksum values, and perform a limited number of retries. A
+ *  persistent mismatch may indicate an issue in your computation of the CRC32C
+ *  checksum. Note: This field is defined as int64 for reasons of compatibility
+ *  across different languages. However, it is a non-negative integer, which
+ *  will never exceed `2^32-1`, and can be safely downconverted to uint32 in
+ *  languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crc32cChecksum;
+
+/**
+ *  Raw Data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+@end
+
+
+/**
  *  A CryptoKey represents a logical key that can be used for cryptographic
  *  operations. A CryptoKey is made up of zero or more versions, which represent
  *  the actual key material used in cryptographic operations.
@@ -2565,6 +2684,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512 HMAC-SHA512
  *        signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65 The
+ *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s The
+ *        post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -2730,8 +2856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed This version is
- *        destroyed, and the key material is no longer stored. This version may
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed This key material
+ *        of this version is destroyed and no longer stored. This version may
  *        only become ENABLED again if this version is reimport_eligible and the
  *        original key material is reimported with a call to
  *        KeyManagementService.ImportCryptoKeyVersion. (Value: "DESTROYED")
@@ -2845,6 +2971,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65 The
+ *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -3528,6 +3661,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -4666,6 +4806,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512 HMAC-SHA512 signing
  *        with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65 The post-quantum
+ *        Module-Lattice-Based Digital Signature Algorithm, at security level 3.
+ *        Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignSlhDsaSha2128s The
+ *        post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -4742,7 +4889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  and perform a limited number of retries. A persistent mismatch may indicate
  *  an issue in your computation of the CRC32C checksum. Note: This field is
  *  defined as int64 for reasons of compatibility across different languages.
- *  However, it is a non-negative integer, which will never exceed 2^32-1, and
+ *  However, it is a non-negative integer, which will never exceed `2^32-1`, and
  *  can be safely downconverted to uint32 in languages that support this type.
  *  NOTE: This field is in Beta.
  *
@@ -4767,6 +4914,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        are performed in software. (Value: "SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  This field contains the public key (with integrity verification), formatted
+ *  according to the public_key_format field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_ChecksummedData *publicKey;
+
+/**
+ *  The PublicKey format specified by the customer through the public_key_format
+ *  field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_NistPqc This is supported
+ *        only for PQC algorithms. The key material is returned in the format
+ *        defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *        (Value: "NIST_PQC")
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_Pem The returned public
+ *        key will be encoded in PEM format. See the
+ *        [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *        Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
+ *        [Textual Encoding of Subject Public Key Info]
+ *        (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *        (Value: "PEM")
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_PublicKeyFormatUnspecified
+ *        If the public_key_format field is not specified: - For PQC algorithms,
+ *        an error will be returned. - For non-PQC algorithms, the default
+ *        format is PEM, and the field pem will be populated. Otherwise, the
+ *        public key will be exported through the public_key field in the
+ *        requested format. (Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFormat;
 
 @end
 

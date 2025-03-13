@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   GDC Virtual API (gkeonprem/v1)
+//   GKE On-Prem API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 

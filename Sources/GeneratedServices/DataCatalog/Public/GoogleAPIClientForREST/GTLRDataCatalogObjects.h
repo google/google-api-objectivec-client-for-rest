@@ -581,7 +581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Bigtable;
 /**
- *  Underlaying is optimized online server (Lightning).
+ *  Underlying is optimized online server (Lightning).
  *
  *  Value: "OPTIMIZED"
  */
@@ -1738,7 +1738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec : GTLRObject
 
 /**
- *  Spec what aplies to tables that are actually views. Not set for "real"
+ *  Spec what applies to tables that are actually views. Not set for "real"
  *  tables.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec *databaseViewSpec;
@@ -2339,13 +2339,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec : GTLRObject
 
 /**
- *  Output only. Type of underelaying storage for the FeatureOnlineStore.
+ *  Output only. Type of underlying storage for the FeatureOnlineStore.
  *
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Bigtable
  *        Underlsying storgae is Bigtable. (Value: "BIGTABLE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Optimized
- *        Underlaying is optimized online server (Lightning). (Value:
+ *        Underlying is optimized online server (Lightning). (Value:
  *        "OPTIMIZED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_StorageTypeUnspecified
  *        Should not be used. (Value: "STORAGE_TYPE_UNSPECIFIED")

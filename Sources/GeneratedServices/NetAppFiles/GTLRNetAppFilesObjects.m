@@ -69,6 +69,11 @@ NSString * const kGTLRNetAppFiles_KmsConfig_State_Ready        = @"READY";
 NSString * const kGTLRNetAppFiles_KmsConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_KmsConfig_State_Updating     = @"UPDATING";
 
+// GTLRNetAppFiles_LocationMetadata.supportedFlexPerformance
+NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedFlexPerformance_FlexPerformanceCustom = @"FLEX_PERFORMANCE_CUSTOM";
+NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedFlexPerformance_FlexPerformanceDefault = @"FLEX_PERFORMANCE_DEFAULT";
+NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedFlexPerformance_FlexPerformanceUnspecified = @"FLEX_PERFORMANCE_UNSPECIFIED";
+
 // GTLRNetAppFiles_LocationMetadata.supportedServiceLevels
 NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedServiceLevels_Extreme = @"EXTREME";
 NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedServiceLevels_Flex = @"FLEX";
@@ -81,6 +86,21 @@ NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv3   = @"NFSV3";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv4   = @"NFSV4";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_ProtocolsUnspecified = @"PROTOCOLS_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Smb     = @"SMB";
+
+// GTLRNetAppFiles_QuotaRule.state
+NSString * const kGTLRNetAppFiles_QuotaRule_State_Creating     = @"CREATING";
+NSString * const kGTLRNetAppFiles_QuotaRule_State_Deleting     = @"DELETING";
+NSString * const kGTLRNetAppFiles_QuotaRule_State_Error        = @"ERROR";
+NSString * const kGTLRNetAppFiles_QuotaRule_State_Ready        = @"READY";
+NSString * const kGTLRNetAppFiles_QuotaRule_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_QuotaRule_State_Updating     = @"UPDATING";
+
+// GTLRNetAppFiles_QuotaRule.type
+NSString * const kGTLRNetAppFiles_QuotaRule_Type_DefaultGroupQuota = @"DEFAULT_GROUP_QUOTA";
+NSString * const kGTLRNetAppFiles_QuotaRule_Type_DefaultUserQuota = @"DEFAULT_USER_QUOTA";
+NSString * const kGTLRNetAppFiles_QuotaRule_Type_IndividualGroupQuota = @"INDIVIDUAL_GROUP_QUOTA";
+NSString * const kGTLRNetAppFiles_QuotaRule_Type_IndividualUserQuota = @"INDIVIDUAL_USER_QUOTA";
+NSString * const kGTLRNetAppFiles_QuotaRule_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRNetAppFiles_Replication.hybridReplicationType
 NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_ContinuousReplication = @"CONTINUOUS_REPLICATION";
@@ -468,7 +488,8 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_HybridPeeringDetails
-@dynamic command, commandExpiryTime, passphrase, subnetIp;
+@dynamic command, commandExpiryTime, passphrase, peerClusterName, peerSvmName,
+         peerVolumeName, subnetIp;
 @end
 
 
@@ -700,6 +721,29 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_ListQuotaRulesResponse
+//
+
+@implementation GTLRNetAppFiles_ListQuotaRulesResponse
+@dynamic nextPageToken, quotaRules, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quotaRules" : [GTLRNetAppFiles_QuotaRule class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"quotaRules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_ListReplicationsResponse
 //
 
@@ -834,10 +878,11 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_LocationMetadata
-@dynamic supportedServiceLevels;
+@dynamic supportedFlexPerformance, supportedServiceLevels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"supportedFlexPerformance" : [NSString class],
     @"supportedServiceLevels" : [NSString class]
   };
   return map;
@@ -862,7 +907,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_MountOption
-@dynamic exportProperty, exportFull, instructions, protocol;
+@dynamic exportProperty, exportFull, instructions, ipAddress, protocol;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"exportProperty" : @"export" };
@@ -917,6 +962,36 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @implementation GTLRNetAppFiles_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_QuotaRule
+//
+
+@implementation GTLRNetAppFiles_QuotaRule
+@dynamic createTime, descriptionProperty, diskLimitMib, labels, name, state,
+         stateDetails, target, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_QuotaRule_Labels
+//
+
+@implementation GTLRNetAppFiles_QuotaRule_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

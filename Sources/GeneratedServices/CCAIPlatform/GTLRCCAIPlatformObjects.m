@@ -26,7 +26,6 @@ NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUnspecified = @"STAT
 
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall = @"DEV_SMALL";
-NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall = @"DEV_XSMALL";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion2xlarge = @"MULTIREGION_2XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion3xlarge = @"MULTIREGION_3XLARGE";
@@ -46,7 +45,6 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TrialSmall = @"TR
 
 // GTLRCCAIPlatform_Quota.contactCenterInstanceSize
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall = @"DEV_SMALL";
-NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall = @"DEV_XSMALL";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion2xlarge = @"MULTIREGION_2XLARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion3xlarge = @"MULTIREGION_3XLARGE";

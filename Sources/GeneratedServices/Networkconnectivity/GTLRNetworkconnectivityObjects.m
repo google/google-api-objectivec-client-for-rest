@@ -60,6 +60,7 @@ NSString * const kGTLRNetworkconnectivity_Group_State_Accepting = @"ACCEPTING";
 NSString * const kGTLRNetworkconnectivity_Group_State_Active   = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_Group_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Group_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_Group_State_Failed   = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_Group_State_Inactive = @"INACTIVE";
 NSString * const kGTLRNetworkconnectivity_Group_State_Obsolete = @"OBSOLETE";
 NSString * const kGTLRNetworkconnectivity_Group_State_Rejecting = @"REJECTING";
@@ -80,6 +81,7 @@ NSString * const kGTLRNetworkconnectivity_Hub_State_Accepting  = @"ACCEPTING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Active     = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Creating   = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting   = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_Hub_State_Failed     = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Inactive   = @"INACTIVE";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Obsolete   = @"OBSOLETE";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Rejecting  = @"REJECTING";
@@ -155,6 +157,7 @@ NSString * const kGTLRNetworkconnectivity_Route_State_Accepting = @"ACCEPTING";
 NSString * const kGTLRNetworkconnectivity_Route_State_Active   = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_Route_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Route_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_Route_State_Failed   = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_Route_State_Inactive = @"INACTIVE";
 NSString * const kGTLRNetworkconnectivity_Route_State_Obsolete = @"OBSOLETE";
 NSString * const kGTLRNetworkconnectivity_Route_State_Rejecting = @"REJECTING";
@@ -172,6 +175,7 @@ NSString * const kGTLRNetworkconnectivity_RouteTable_State_Accepting = @"ACCEPTI
 NSString * const kGTLRNetworkconnectivity_RouteTable_State_Active = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_RouteTable_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_RouteTable_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_RouteTable_State_Failed = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_RouteTable_State_Inactive = @"INACTIVE";
 NSString * const kGTLRNetworkconnectivity_RouteTable_State_Obsolete = @"OBSOLETE";
 NSString * const kGTLRNetworkconnectivity_RouteTable_State_Rejecting = @"REJECTING";
@@ -199,6 +203,7 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_Accepting = @"ACCEPTING";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Active   = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_Spoke_State_Failed   = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Inactive = @"INACTIVE";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Obsolete = @"OBSOLETE";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Rejecting = @"REJECTING";
@@ -210,6 +215,7 @@ NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Accepting = @"AC
 NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Active = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Failed = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Inactive = @"INACTIVE";
 NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Obsolete = @"OBSOLETE";
 NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Rejecting = @"REJECTING";
@@ -266,6 +272,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_AcceptHubSpokeResponse
 @dynamic spoke;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_AcceptSpokeUpdateRequest
+//
+
+@implementation GTLRNetworkconnectivity_AcceptSpokeUpdateRequest
+@dynamic requestId, spokeEtag, spokeUri;
 @end
 
 
@@ -722,12 +738,13 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_LinkedProducerVpcNetwork
 @dynamic excludeExportRanges, includeExportRanges, network, peering,
-         producerNetwork, serviceConsumerVpcSpoke;
+         producerNetwork, proposedIncludeExportRanges, serviceConsumerVpcSpoke;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludeExportRanges" : [NSString class],
-    @"includeExportRanges" : [NSString class]
+    @"includeExportRanges" : [NSString class],
+    @"proposedIncludeExportRanges" : [NSString class]
   };
   return map;
 }
@@ -760,13 +777,15 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedVpcNetwork
-@dynamic excludeExportRanges, includeExportRanges, producerVpcSpokes, uri;
+@dynamic excludeExportRanges, includeExportRanges, producerVpcSpokes,
+         proposedIncludeExportRanges, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludeExportRanges" : [NSString class],
     @"includeExportRanges" : [NSString class],
-    @"producerVpcSpokes" : [NSString class]
+    @"producerVpcSpokes" : [NSString class],
+    @"proposedIncludeExportRanges" : [NSString class]
   };
   return map;
 }
@@ -1441,6 +1460,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_RejectSpokeUpdateRequest
+//
+
+@implementation GTLRNetworkconnectivity_RejectSpokeUpdateRequest
+@dynamic details, requestId, spokeEtag, spokeUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_Route
 //
 
@@ -1689,17 +1718,22 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_Spoke
-@dynamic createTime, descriptionProperty, group, hub, labels,
-         linkedInterconnectAttachments, linkedProducerVpcNetwork,
+@dynamic createTime, descriptionProperty, ETag, fieldPathsPendingUpdate, group,
+         hub, labels, linkedInterconnectAttachments, linkedProducerVpcNetwork,
          linkedRouterApplianceInstances, linkedVpcNetwork, linkedVpnTunnels,
          name, reasons, spokeType, state, uniqueId, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"fieldPathsPendingUpdate" : [NSString class],
     @"reasons" : [GTLRNetworkconnectivity_StateReason class]
   };
   return map;

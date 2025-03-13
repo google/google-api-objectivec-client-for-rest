@@ -168,6 +168,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Unlikely =
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
+// GTLRDLP_GooglePrivacyDlpV2DataProfileFinding.resourceVisibility
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityInconclusive = @"RESOURCE_VISIBILITY_INCONCLUSIVE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityPublic = @"RESOURCE_VISIBILITY_PUBLIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityRestricted = @"RESOURCE_VISIBILITY_RESTRICTED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityUnspecified = @"RESOURCE_VISIBILITY_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage.event
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ChangedProfile = @"CHANGED_PROFILE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ErrorChanged = @"ERROR_CHANGED";
@@ -294,6 +300,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence_Freque
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence_Types_TableModificationUnspecified = @"TABLE_MODIFICATION_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence_Types_TableModifiedTimestamp = @"TABLE_MODIFIED_TIMESTAMP";
 
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence.refreshFrequency
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyDaily = @"UPDATE_FREQUENCY_DAILY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly = @"UPDATE_FREQUENCY_MONTHLY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyNever = @"UPDATE_FREQUENCY_NEVER";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified = @"UPDATE_FREQUENCY_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.state
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active = @"ACTIVE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Canceled = @"CANCELED";
@@ -374,6 +386,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ch
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_China = @"CHINA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Colombia = @"COLOMBIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Croatia = @"CROATIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Czechia = @"CZECHIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Denmark = @"DENMARK";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Finland = @"FINLAND";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_France = @"FRANCE";
@@ -417,6 +430,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ve
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.typeCategory
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_ContextualInformation = @"CONTEXTUAL_INFORMATION";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Credential = @"CREDENTIAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Custom = @"CUSTOM";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Demographic = @"DEMOGRAPHIC";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Document = @"DOCUMENT";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_GovernmentId = @"GOVERNMENT_ID";
@@ -1473,6 +1487,37 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2DataProfileFinding
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DataProfileFinding
+@dynamic dataProfileResourceName, findingId, infotype, location, quote,
+         quoteInfo, resourceVisibility, timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DataProfileFindingLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DataProfileFindingLocation
+@dynamic containerName, dataProfileFindingRecordLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DataProfileFindingRecordLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DataProfileFindingRecordLocation
+@dynamic field;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig
 //
 
@@ -1877,8 +1922,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig
 @dynamic actions, createTime, displayName, errors, inspectTemplates,
-         lastRunTime, name, orgConfig, otherCloudStartingLocation, status,
-         targets, updateTime;
+         lastRunTime, name, orgConfig, otherCloudStartingLocation,
+         processingLocation, status, targets, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2007,7 +2052,37 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryTarget
 @dynamic bigQueryTarget, cloudSqlTarget, cloudStorageTarget, otherCloudTarget,
-         secretsTarget;
+         secretsTarget, vertexDatasetTarget;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetConditions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetConditions
+@dynamic createdAfter, minAge;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetFilter
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetFilter
+@dynamic collection, others, vertexDatasetResourceReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence
+@dynamic inspectTemplateModifiedCadence, refreshFrequency;
 @end
 
 
@@ -2114,7 +2189,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Export
-@dynamic profileTable;
+@dynamic profileTable, sampleFindingsTable;
 @end
 
 
@@ -2229,14 +2304,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
          dataStorageLocations, fileClusterSummaries, fileStoreInfoTypeSummaries,
          fileStoreIsEmpty, fileStoreLocation, fileStorePath, fullResource,
          lastModifiedTime, locationType, name, profileLastGenerated,
-         profileStatus, projectDataProfile, projectId, resourceAttributes,
-         resourceLabels, resourceVisibility, sensitivityScore, state;
+         profileStatus, projectDataProfile, projectId, relatedResources,
+         resourceAttributes, resourceLabels, resourceVisibility,
+         sampleFindingsTable, sensitivityScore, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dataStorageLocations" : [NSString class],
     @"fileClusterSummaries" : [GTLRDLP_GooglePrivacyDlpV2FileClusterSummary class],
-    @"fileStoreInfoTypeSummaries" : [GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary class]
+    @"fileStoreInfoTypeSummaries" : [GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary class],
+    @"relatedResources" : [GTLRDLP_GooglePrivacyDlpV2RelatedResource class]
   };
   return map;
 }
@@ -2375,6 +2452,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2GlobalProcessing
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2GlobalProcessing
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2HotwordRule
 //
 
@@ -2489,6 +2575,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation
+@dynamic globalProcessing, multiRegionProcessing;
 @end
 
 
@@ -3433,6 +3529,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig
 //
 
@@ -3620,6 +3725,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @dynamic categoricalStatsConfig, deltaPresenceEstimationConfig,
          kAnonymityConfig, kMapEstimationConfig, lDiversityConfig,
          numericalStatsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ProcessingLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ProcessingLocation
+@dynamic imageFallbackLocation;
 @end
 
 
@@ -3948,6 +4063,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse
 @dynamic item, overview;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2RelatedResource
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2RelatedResource
+@dynamic fullResource;
 @end
 
 
@@ -4332,14 +4457,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
          datasetProjectId, dataSourceType, encryptionStatus, expirationTime,
          failedColumnCount, fullResource, lastModifiedTime, name,
          otherInfoTypes, predictedInfoTypes, profileLastGenerated,
-         profileStatus, projectDataProfile, resourceLabels, resourceVisibility,
-         rowCount, scannedColumnCount, sensitivityScore, state, tableId,
-         tableSizeBytes;
+         profileStatus, projectDataProfile, relatedResources, resourceLabels,
+         resourceVisibility, rowCount, sampleFindingsTable, scannedColumnCount,
+         sensitivityScore, state, tableId, tableSizeBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"otherInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary class],
-    @"predictedInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary class]
+    @"predictedInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary class],
+    @"relatedResources" : [GTLRDLP_GooglePrivacyDlpV2RelatedResource class]
   };
   return map;
 }
@@ -4733,6 +4859,64 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2VertexDatasetCollection
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2VertexDatasetCollection
+@dynamic vertexDatasetRegexes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2VertexDatasetDiscoveryTarget
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2VertexDatasetDiscoveryTarget
+@dynamic conditions, disabled, filter, generationCadence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegex
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegex
+@dynamic projectIdRegex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegexes
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegexes
+@dynamic patterns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"patterns" : [GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegex class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2VertexDatasetResourceReference
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2VertexDatasetResourceReference
+@dynamic datasetResourceName;
 @end
 
 

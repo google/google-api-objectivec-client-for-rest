@@ -587,6 +587,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_State
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_PeerInstanceUnreachable;
 /**
+ *  The remove replica peer instance operation failed.
+ *
+ *  Value: "REMOVE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_RemoveFailed;
+/**
  *  Reason not specified.
  *
  *  Value: "STATE_REASON_UNSPECIFIED"
@@ -1594,16 +1600,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @interface GTLRCloudFilestore_Instance : GTLRObject
 
+/** Output only. The time when the instance was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
- *  Output only. Indicates whether this instance's performance is configurable.
- *  If enabled, adjust it using the 'performance_config' field.
+ *  Output only. Indicates whether this instance supports configuring its
+ *  performance. If true, the user can configure the instance's performance by
+ *  using the 'performance_config' field.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *configurablePerformanceEnabled;
-
-/** Output only. The time when the instance was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+@property(nonatomic, strong, nullable) NSNumber *customPerformanceSupported;
 
 /**
  *  Optional. Indicates whether the instance is protected against deletion.
@@ -2393,10 +2400,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 /**
  *  Provision IOPS dynamically based on the capacity of the instance.
- *  Provisioned read IOPS will be calculated by multiplying the capacity of the
+ *  Provisioned IOPS will be calculated by multiplying the capacity of the
  *  instance in TiB by the `iops_per_tb` value. For example, for a 2 TiB
- *  instance with an `iops_per_tb` value of 17000 the provisioned read IOPS will
- *  be 34000. If the calculated value is outside the supported range for the
+ *  instance with an `iops_per_tb` value of 17000 the provisioned IOPS will be
+ *  34000. If the calculated value is outside the supported range for the
  *  instance's capacity during instance creation, instance creation will fail
  *  with an `InvalidArgument` error. Similarly, if an instance capacity update
  *  would result in a value outside the supported range, the update will fail
@@ -2412,6 +2419,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  configuration.
  */
 @interface GTLRCloudFilestore_PerformanceLimits : GTLRObject
+
+/**
+ *  Output only. The max IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIops;
 
 /**
  *  Output only. The max read IOPS.
@@ -2448,6 +2462,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  PromoteReplicaRequest promotes a Filestore standby instance (replica).
  */
 @interface GTLRCloudFilestore_PromoteReplicaRequest : GTLRObject
+
+/**
+ *  Optional. The resource name of the peer instance to promote, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`. The
+ *  peer instance is required if the operation is called on an active instance.
+ */
+@property(nonatomic, copy, nullable) NSString *peerInstance;
+
 @end
 
 

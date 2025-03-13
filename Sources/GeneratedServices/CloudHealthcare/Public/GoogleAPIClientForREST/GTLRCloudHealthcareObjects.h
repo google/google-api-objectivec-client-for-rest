@@ -23,6 +23,7 @@
 @class GTLRCloudHealthcare_Binding;
 @class GTLRCloudHealthcare_BlobStorageInfo;
 @class GTLRCloudHealthcare_BlobStorageSettings;
+@class GTLRCloudHealthcare_BulkExportGcsDestination;
 @class GTLRCloudHealthcare_CharacterMaskConfig;
 @class GTLRCloudHealthcare_CheckDataAccessRequest_RequestAttributes;
 @class GTLRCloudHealthcare_CheckDataAccessResponse_ConsentDetails;
@@ -1828,6 +1829,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  The configuration for exporting to Cloud Storage using the bulk export API.
+ */
+@interface GTLRCloudHealthcare_BulkExportGcsDestination : GTLRObject
+
+/**
+ *  Optional. URI for a Cloud Storage directory where the server writes result
+ *  files, in the format `gs://{bucket-id}/{path/to/destination/dir}`. If there
+ *  is no trailing slash, the service appends one when composing the object
+ *  path. The user is responsible for creating the Cloud Storage bucket
+ *  referenced in `uri_prefix`.
+ */
+@property(nonatomic, copy, nullable) NSString *uriPrefix;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudHealthcare_CancelOperationRequest : GTLRObject
@@ -2059,11 +2077,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  An abstract identifier that describes the environment or conditions under
- *  which the accessor is acting. Can be "*" if it applies to all environments.
+ *  which the accessor is acting. If it's not specified, it applies to all
+ *  environments.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
-/** The intent of data use. Can be "*" if it applies to all purposes. */
+/**
+ *  The intent of data use. If it's not specified, it applies to all purposes.
+ */
 @property(nonatomic, copy, nullable) NSString *purpose;
 
 @end
@@ -2405,6 +2426,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. For future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. For future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Optional. The default timezone used by this dataset. Must be a either a
@@ -3524,6 +3559,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Represents a FHIR store.
  */
 @interface GTLRCloudHealthcare_FhirStore : GTLRObject
+
+/**
+ *  Optional. FHIR bulk export exports resources to the specified Cloud Storage
+ *  destination. A Cloud Storage destination is a URI for a Cloud Storage
+ *  directory where result files will be written. Only used in the spec-defined
+ *  bulk $export methods. The Cloud Healthcare Service Agent requires the
+ *  `roles/storage.objectAdmin` Cloud IAM role on the destination.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_BulkExportGcsDestination *bulkExportGcsDestination;
 
 /**
  *  Optional. Enable parsing of references within complex FHIR data types such
@@ -6224,7 +6268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_SearchResourcesRequest : GTLRObject
 
 /**
- *  Required. The FHIR resource type to search, such as Patient or Observation.
+ *  Optional. The FHIR resource type to search, such as Patient or Observation.
  *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),

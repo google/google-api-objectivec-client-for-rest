@@ -666,6 +666,52 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceNotificationSetting class];
+  query.loggingName = @"chat.users.spaces.spaceNotificationSetting.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SpaceNotificationSetting *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceNotificationSetting class];
+  query.loggingName = @"chat.users.spaces.spaceNotificationSetting.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_UsersSpacesThreadsGetThreadReadState
 
 @dynamic name;

@@ -314,7 +314,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event
 @dynamic expectedAction, express, firewallPolicyEvaluation, fraudPrevention,
-         hashedAccountId, headers, ja3, requestedUri, siteKey, token,
+         hashedAccountId, headers, ja3, ja4, requestedUri, siteKey, token,
          transactionData, userAgent, userInfo, userIpAddress,
          wafTokenAssessment;
 

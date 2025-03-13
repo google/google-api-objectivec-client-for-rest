@@ -2307,7 +2307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails : GTLRObject
 
 /**
- *  Ths concurrency mode for this database.
+ *  The concurrency mode for this database.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified
@@ -3510,7 +3510,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_RunQueryResponse : GTLRObject
 
-/** A batch of query results (always present). */
+/**
+ *  A batch of query results. This is always present unless running a query
+ *  under explain-only mode: RunQueryRequest.explain_options was provided and
+ *  ExplainOptions.analyze was set to false.
+ */
 @property(nonatomic, strong, nullable) GTLRDatastore_QueryResultBatch *batch;
 
 /**

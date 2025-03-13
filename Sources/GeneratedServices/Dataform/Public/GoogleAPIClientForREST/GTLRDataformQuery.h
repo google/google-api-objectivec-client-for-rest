@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsGet : GTLRDataformQuery
@@ -66,6 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.getConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsGetConfig : GTLRDataformQuery
@@ -92,6 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsList : GTLRDataformQuery
@@ -142,6 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.commit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCommit : GTLRDataformQuery
@@ -172,6 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsCreate : GTLRDataformQuery
@@ -205,6 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsGet : GTLRDataformQuery
@@ -231,6 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList : GTLRDataformQuery
@@ -290,6 +297,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.query
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsQuery : GTLRDataformQuery
@@ -342,6 +350,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.computeAccessTokenStatus
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesComputeAccessTokenStatus : GTLRDataformQuery
@@ -368,6 +377,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCreate : GTLRDataformQuery
@@ -406,14 +416,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesDelete : GTLRDataformQuery
 
 /**
- *  If set to true, any child resources of this repository will also be deleted.
- *  (Otherwise, the request will only succeed if the repository has no child
- *  resources.)
+ *  Optional. If set to true, any child resources of this repository will also
+ *  be deleted. (Otherwise, the request will only succeed if the repository has
+ *  no child resources.)
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -440,6 +451,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.fetchHistory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesFetchHistory : GTLRDataformQuery
@@ -486,6 +498,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.fetchRemoteBranches
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesFetchRemoteBranches : GTLRDataformQuery
@@ -512,6 +525,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesGet : GTLRDataformQuery
@@ -539,6 +553,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesGetIamPolicy : GTLRDataformQuery
@@ -587,6 +602,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesList : GTLRDataformQuery
@@ -641,14 +657,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a single Repository. *Note:* This method does not fully implement
- *  AIP/134. In particular: 1. The wildcard entry (***) is treated as a bad
- *  request 2. When the *field_mask* is omitted, instead of only updating the
- *  set fields, the request is treated as a full update on all modifiable fields
+ *  Updates a single Repository. **Note:** *This method does not fully
+ *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
+ *  wildcard entry (**\\***) is treated as a bad request - When the
+ *  **field_mask** is omitted, instead of only updating the set fields, the
+ *  request is treated as a full update on all modifiable fields
  *
  *  Method: dataform.projects.locations.repositories.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesPatch : GTLRDataformQuery
@@ -667,10 +685,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_Repository.
  *
- *  Updates a single Repository. *Note:* This method does not fully implement
- *  AIP/134. In particular: 1. The wildcard entry (***) is treated as a bad
- *  request 2. When the *field_mask* is omitted, instead of only updating the
- *  set fields, the request is treated as a full update on all modifiable fields
+ *  Updates a single Repository. **Note:** *This method does not fully
+ *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
+ *  wildcard entry (**\\***) is treated as a bad request - When the
+ *  **field_mask** is omitted, instead of only updating the set fields, the
+ *  request is treated as a full update on all modifiable fields
  *
  *  @param object The @c GTLRDataform_Repository to include in the query.
  *  @param name Identifier. The repository's name.
@@ -689,6 +708,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.queryDirectoryContents
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesQueryDirectoryContents : GTLRDataformQuery
@@ -749,6 +769,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.readFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReadFile : GTLRDataformQuery
@@ -787,6 +808,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsCreate : GTLRDataformQuery
@@ -826,6 +848,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsDelete : GTLRDataformQuery
@@ -852,6 +875,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsGet : GTLRDataformQuery
@@ -878,6 +902,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsList : GTLRDataformQuery
@@ -922,14 +947,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a single ReleaseConfig. *Note:* This method does not fully implement
- *  AIP/134. In particular: 1. The wildcard entry (***) is treated as a bad
- *  request 2. When the *field_mask* is omitted, instead of only updating the
- *  set fields, the request is treated as a full update on all modifiable fields
+ *  Updates a single ReleaseConfig. **Note:** *This method does not fully
+ *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
+ *  wildcard entry (**\\***) is treated as a bad request - When the
+ *  **field_mask** is omitted, instead of only updating the set fields, the
+ *  request is treated as a full update on all modifiable fields
  *
  *  Method: dataform.projects.locations.repositories.releaseConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsPatch : GTLRDataformQuery
@@ -948,10 +975,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_ReleaseConfig.
  *
- *  Updates a single ReleaseConfig. *Note:* This method does not fully implement
- *  AIP/134. In particular: 1. The wildcard entry (***) is treated as a bad
- *  request 2. When the *field_mask* is omitted, instead of only updating the
- *  set fields, the request is treated as a full update on all modifiable fields
+ *  Updates a single ReleaseConfig. **Note:** *This method does not fully
+ *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
+ *  wildcard entry (**\\***) is treated as a bad request - When the
+ *  **field_mask** is omitted, instead of only updating the set fields, the
+ *  request is treated as a full update on all modifiable fields
  *
  *  @param object The @c GTLRDataform_ReleaseConfig to include in the query.
  *  @param name Identifier. The release config's name.
@@ -971,6 +999,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesSetIamPolicy : GTLRDataformQuery
@@ -1013,6 +1042,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesTestIamPermissions : GTLRDataformQuery
@@ -1053,6 +1083,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsCreate : GTLRDataformQuery
@@ -1092,6 +1123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsDelete : GTLRDataformQuery
@@ -1118,6 +1150,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsGet : GTLRDataformQuery
@@ -1144,6 +1177,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsList : GTLRDataformQuery
@@ -1188,15 +1222,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a single WorkflowConfig. *Note:* This method does not fully
- *  implement AIP/134. In particular: 1. The wildcard entry (***) is treated as
- *  a bad request 2. When the *field_mask* is omitted, instead of only updating
- *  the set fields, the request is treated as a full update on all modifiable
- *  fields
+ *  Updates a single WorkflowConfig. **Note:** *This method does not fully
+ *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
+ *  wildcard entry (**\\***) is treated as a bad request - When the
+ *  **field_mask** is omitted, instead of only updating the set fields, the
+ *  request is treated as a full update on all modifiable fields
  *
  *  Method: dataform.projects.locations.repositories.workflowConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsPatch : GTLRDataformQuery
@@ -1215,11 +1250,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_WorkflowConfig.
  *
- *  Updates a single WorkflowConfig. *Note:* This method does not fully
- *  implement AIP/134. In particular: 1. The wildcard entry (***) is treated as
- *  a bad request 2. When the *field_mask* is omitted, instead of only updating
- *  the set fields, the request is treated as a full update on all modifiable
- *  fields
+ *  Updates a single WorkflowConfig. **Note:** *This method does not fully
+ *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
+ *  wildcard entry (**\\***) is treated as a bad request - When the
+ *  **field_mask** is omitted, instead of only updating the set fields, the
+ *  request is treated as a full update on all modifiable fields
  *
  *  @param object The @c GTLRDataform_WorkflowConfig to include in the query.
  *  @param name Identifier. The workflow config's name.
@@ -1237,6 +1272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsCancel : GTLRDataformQuery
@@ -1245,7 +1281,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_CancelWorkflowInvocationResponse.
  *
  *  Requests cancellation of a running WorkflowInvocation.
  *
@@ -1266,6 +1302,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsCreate : GTLRDataformQuery
@@ -1300,6 +1337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsDelete : GTLRDataformQuery
@@ -1326,6 +1364,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsGet : GTLRDataformQuery
@@ -1352,6 +1391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsList : GTLRDataformQuery
@@ -1411,6 +1451,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.query
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsQuery : GTLRDataformQuery
@@ -1457,6 +1498,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.commit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesCommit : GTLRDataformQuery
@@ -1465,7 +1507,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_CommitWorkspaceChangesResponse.
  *
  *  Applies a Git commit for uncommitted files in a Workspace.
  *
@@ -1486,6 +1528,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesCreate : GTLRDataformQuery
@@ -1524,6 +1567,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesDelete : GTLRDataformQuery
@@ -1550,6 +1594,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.fetchFileDiff
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesFetchFileDiff : GTLRDataformQuery
@@ -1582,6 +1627,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.fetchFileGitStatuses
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesFetchFileGitStatuses : GTLRDataformQuery
@@ -1608,6 +1654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.fetchGitAheadBehind
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesFetchGitAheadBehind : GTLRDataformQuery
@@ -1641,6 +1688,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesGet : GTLRDataformQuery
@@ -1668,6 +1716,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesGetIamPolicy : GTLRDataformQuery
@@ -1716,6 +1765,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.installNpmPackages
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesInstallNpmPackages : GTLRDataformQuery
@@ -1745,6 +1795,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesList : GTLRDataformQuery
@@ -1804,6 +1855,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.makeDirectory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesMakeDirectory : GTLRDataformQuery
@@ -1834,6 +1886,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.moveDirectory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesMoveDirectory : GTLRDataformQuery
@@ -1864,6 +1917,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.moveFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesMoveFile : GTLRDataformQuery
@@ -1892,6 +1946,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.pull
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesPull : GTLRDataformQuery
@@ -1900,7 +1955,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_PullGitCommitsResponse.
  *
  *  Pulls Git commits from the Repository's remote into a Workspace.
  *
@@ -1921,6 +1976,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.push
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesPush : GTLRDataformQuery
@@ -1929,7 +1985,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_PushGitCommitsResponse.
  *
  *  Pushes Git commits from a Workspace to the Repository's remote.
  *
@@ -1950,6 +2006,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.queryDirectoryContents
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesQueryDirectoryContents : GTLRDataformQuery
@@ -2001,6 +2058,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.readFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesReadFile : GTLRDataformQuery
@@ -2039,6 +2097,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.removeDirectory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesRemoveDirectory : GTLRDataformQuery
@@ -2047,7 +2106,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *workspace;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_RemoveDirectoryResponse.
  *
  *  Deletes a directory (inside a Workspace) and all of its contents.
  *
@@ -2068,6 +2127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.removeFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesRemoveFile : GTLRDataformQuery
@@ -2076,7 +2136,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *workspace;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_RemoveFileResponse.
  *
  *  Deletes a file (inside a Workspace).
  *
@@ -2096,6 +2156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.reset
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesReset : GTLRDataformQuery
@@ -2104,7 +2165,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_ResetWorkspaceChangesResponse.
  *
  *  Performs a Git reset for uncommitted files in a Workspace.
  *
@@ -2125,6 +2186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.searchFiles
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSearchFiles : GTLRDataformQuery
@@ -2179,6 +2241,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSetIamPolicy : GTLRDataformQuery
@@ -2221,6 +2284,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesTestIamPermissions : GTLRDataformQuery
@@ -2261,6 +2325,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.writeFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesWriteFile : GTLRDataformQuery
@@ -2284,15 +2349,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update default config for a given project and location. *Note:* This method
- *  does not fully implement AIP/134. In particular: 1. The wildcard entry (***)
- *  is treated as a bad request 2. When the *field_mask* is omitted, instead of
- *  only updating the set fields, the request is treated as a full update on all
- *  modifiable fields
+ *  Update default config for a given project and location. **Note:** *This
+ *  method does not fully implement*, (see
+ *  [AIP/134](https://google.aip.dev/134), in particular: - The wildcard entry
+ *  (**\\***) is treated as a bad request - When the **field_mask** is omitted,
+ *  instead of only updating the set fields, the request is treated as a full
+ *  update on all modifiable fields
  *
  *  Method: dataform.projects.locations.updateConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsUpdateConfig : GTLRDataformQuery
@@ -2310,11 +2377,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_Config.
  *
- *  Update default config for a given project and location. *Note:* This method
- *  does not fully implement AIP/134. In particular: 1. The wildcard entry (***)
- *  is treated as a bad request 2. When the *field_mask* is omitted, instead of
- *  only updating the set fields, the request is treated as a full update on all
- *  modifiable fields
+ *  Update default config for a given project and location. **Note:** *This
+ *  method does not fully implement*, (see
+ *  [AIP/134](https://google.aip.dev/134), in particular: - The wildcard entry
+ *  (**\\***) is treated as a bad request - When the **field_mask** is omitted,
+ *  instead of only updating the set fields, the request is treated as a full
+ *  update on all modifiable fields
  *
  *  @param object The @c GTLRDataform_Config to include in the query.
  *  @param name Identifier. The config name.

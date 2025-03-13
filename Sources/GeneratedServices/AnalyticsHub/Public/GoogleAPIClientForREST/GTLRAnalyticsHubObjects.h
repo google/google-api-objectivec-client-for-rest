@@ -39,8 +39,10 @@
 @class GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfoGoogleCloudMarketplaceInfo;
 @class GTLRAnalyticsHub_GooglePubsubV1Subscription;
 @class GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels;
+@class GTLRAnalyticsHub_JavaScriptUDF;
 @class GTLRAnalyticsHub_LinkedResource;
 @class GTLRAnalyticsHub_Listing;
+@class GTLRAnalyticsHub_MessageTransform;
 @class GTLRAnalyticsHub_NoWrapper;
 @class GTLRAnalyticsHub_OidcToken;
 @class GTLRAnalyticsHub_Operation_Metadata;
@@ -613,7 +615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @interface GTLRAnalyticsHub_BigQueryDatasetSource : GTLRObject
 
 /**
- *  Resource name of the dataset source for this listing. e.g.
+ *  Optional. Resource name of the dataset source for this listing. e.g.
  *  `projects/myproject/datasets/123`
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -770,7 +772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  Optional. The maximum duration that can elapse before a new Cloud Storage
  *  file is created. Min 1 minute, max 10 minutes, default 5 minutes. May not
- *  exceed the subscription's acknowledgement deadline.
+ *  exceed the subscription's acknowledgment deadline.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxDuration;
 
@@ -892,6 +894,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, strong, nullable) NSNumber *listingCount;
 
 /**
+ *  Optional. By default, false. If true, the DataExchange has an email sharing
+ *  mandate enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logLinkedDatasetQueryUserEmail;
+
+/**
  *  Output only. The resource name of the data exchange. e.g.
  *  `projects/myproject/locations/US/dataExchanges/123`.
  */
@@ -979,7 +989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  Optional. The maximum number of delivery attempts for any message. The value
  *  must be between 5 and 100. The number of delivery attempts is defined as 1 +
- *  (the sum of number of NACKs and number of times the acknowledgement deadline
+ *  (the sum of number of NACKs and number of times the acknowledgment deadline
  *  has been exceeded for the message). A NACK is any call to ModifyAckDeadline
  *  with a 0 deadline. Note that client libraries may automatically extend
  *  ack_deadlines. This field will be honored on a best effort basis. If this
@@ -1052,7 +1062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
- *  Contains the reference that identifies a destination bigquery dataset.
+ *  GTLRAnalyticsHub_DestinationDatasetReference
  */
 @interface GTLRAnalyticsHub_DestinationDatasetReference : GTLRObject
 
@@ -1336,7 +1346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Optional. If true, Pub/Sub provides the following guarantees for the
  *  delivery of a message with a given value of `message_id` on this
  *  subscription: * The message sent to a subscriber is guaranteed not to be
- *  resent before the message's acknowledgement deadline expires. * An
+ *  resent before the message's acknowledgment deadline expires. * An
  *  acknowledged message will not be resent to a subscriber. Note that
  *  subscribers may still receive multiple copies of a message when
  *  `enable_exactly_once_delivery` is true if the message was published multiple
@@ -1392,6 +1402,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
 
 /**
+ *  Optional. Transforms to be applied to messages before they are delivered to
+ *  subscribers. Transforms are applied in the order specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_MessageTransform *> *messageTransforms;
+
+/**
  *  Required. Name of the subscription. Format is
  *  `projects/{project}/subscriptions/{sub}`.
  */
@@ -1420,7 +1436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  this subscription. If not set, the default retry policy is applied. This
  *  generally implies that messages will be retried as soon as possible for
  *  healthy subscribers. RetryPolicy will be triggered on NACKs or
- *  acknowledgement deadline exceeded events for a given message.
+ *  acknowledgment deadline exceeded events for a given message.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_RetryPolicy *retryPolicy;
 
@@ -1463,6 +1479,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        fetch them all at once.
  */
 @interface GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels : GTLRObject
+@end
+
+
+/**
+ *  User-defined JavaScript function that can transform or filter a Pub/Sub
+ *  message.
+ */
+@interface GTLRAnalyticsHub_JavaScriptUDF : GTLRObject
+
+/**
+ *  Required. JavaScript code that contains a function `function_name` with the
+ *  below signature: ``` / ** * Transforms a Pub/Sub message. * \@return
+ *  {(Object)>|null)} - To * filter a message, return `null`. To transform a
+ *  message return a map * with the following keys: * - (required) 'data' :
+ *  {string} * - (optional) 'attributes' : {Object} * Returning empty
+ *  `attributes` will remove all attributes from the * message. * * \@param
+ *  {(Object)>} Pub/Sub * message. Keys: * - (required) 'data' : {string} * -
+ *  (required) 'attributes' : {Object} * * \@param {Object} metadata - Pub/Sub
+ *  message metadata. * Keys: * - (required) 'message_id' : {string} * -
+ *  (optional) 'publish_time': {string} YYYY-MM-DDTHH:MM:SSZ format * -
+ *  (optional) 'ordering_key': {string} * / function (message, metadata) { } ```
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Required. Name of the JavasScript function that should applied to Pub/Sub
+ *  messages.
+ */
+@property(nonatomic, copy, nullable) NSString *functionName;
+
 @end
 
 
@@ -1521,7 +1567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @interface GTLRAnalyticsHub_Listing : GTLRObject
 
-/** Required. Shared dataset i.e. BigQuery dataset source. */
+/** Shared dataset i.e. BigQuery dataset source. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_BigQueryDatasetSource *bigqueryDataset;
 
 /** Optional. Categories of the listing. Up to two categories are allowed. */
@@ -1586,6 +1632,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, copy, nullable) NSString *icon;
 
 /**
+ *  Optional. By default, false. If true, the Listing has an email sharing
+ *  mandate enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logLinkedDatasetQueryUserEmail;
+
+/**
  *  Output only. The resource name of the listing. e.g.
  *  `projects/myproject/locations/US/dataExchanges/123/listings/456`
  */
@@ -1603,7 +1657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_Publisher *publisher;
 
-/** Required. Pub/Sub topic source. */
+/** Pub/Sub topic source. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_PubSubTopicSource *pubsubTopic;
 
 /**
@@ -1739,6 +1793,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_Subscription *> *subscriptions;
+
+@end
+
+
+/**
+ *  All supported message transforms types.
+ */
+@interface GTLRAnalyticsHub_MessageTransform : GTLRObject
+
+/**
+ *  Optional. If set to true, the transform is enabled. If false, the transform
+ *  is disabled and will not be applied to messages. Defaults to `true`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. JavaScript User Defined Function. If multiple JavaScriptUDF's are
+ *  specified on a resource, each must have a unique `function_name`.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_JavaScriptUDF *javascriptUdf;
 
 @end
 
@@ -2202,7 +2278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  A policy that specifies how Pub/Sub retries message delivery. Retry delay
  *  will be exponential based on provided minimum and maximum backoffs.
  *  https://en.wikipedia.org/wiki/Exponential_backoff. RetryPolicy will be
- *  triggered on NACKs or acknowledgement deadline exceeded events for a given
+ *  triggered on NACKs or acknowledgment deadline exceeded events for a given
  *  message. Retry Policy is implemented on a best effort basis. At times, the
  *  delay between consecutive deliveries may not match the configuration. That
  *  is, delay can be more or less than configured backoff.
@@ -2228,6 +2304,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Message for revoking a subscription.
  */
 @interface GTLRAnalyticsHub_RevokeSubscriptionRequest : GTLRObject
+
+/**
+ *  Optional. If the subscription is commercial then this field must be set to
+ *  true, otherwise a failure is thrown. This acts as a safety guard to avoid
+ *  revoking commercial subscriptions accidentally.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revokeCommercial;
+
 @end
 
 
@@ -2242,6 +2328,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Resource in this dataset that is selectively shared.
  */
 @interface GTLRAnalyticsHub_SelectedResource : GTLRObject
+
+/**
+ *  Optional. Format: For routine:
+ *  `projects/{projectId}/datasets/{datasetId}/routines/{routineId}`
+ *  Example:"projects/test_project/datasets/test_dataset/routines/test_routine"
+ */
+@property(nonatomic, copy, nullable) NSString *routine;
 
 /**
  *  Optional. Format: For table:
@@ -2380,8 +2473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_DestinationDataset *destinationDataset;
 
 /**
- *  Required. Input only. Destination Pub/Sub subscription to create for the
- *  subscriber.
+ *  Input only. Destination Pub/Sub subscription to create for the subscriber.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_DestinationPubSubSubscription *destinationPubsubSubscription;
 
@@ -2443,6 +2535,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  projects/123/locations/US/dataExchanges/456/listings/789
  */
 @property(nonatomic, copy, nullable) NSString *listing;
+
+/**
+ *  Output only. By default, false. If true, the Subscriber agreed to the email
+ *  sharing mandate that is enabled for DataExchange/Listing.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logLinkedDatasetQueryUserEmail;
 
 /**
  *  Output only. The resource name of the subscription. e.g.

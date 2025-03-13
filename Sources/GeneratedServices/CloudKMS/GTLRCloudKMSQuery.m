@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// publicKeyFormat
+NSString * const kGTLRCloudKMSPublicKeyFormatNistPqc           = @"NIST_PQC";
+NSString * const kGTLRCloudKMSPublicKeyFormatPem               = @"PEM";
+NSString * const kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified = @"PUBLIC_KEY_FORMAT_UNSPECIFIED";
+
 // versionView
 NSString * const kGTLRCloudKMSVersionViewCryptoKeyVersionViewUnspecified = @"CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED";
 NSString * const kGTLRCloudKMSVersionViewFull                  = @"FULL";
@@ -656,7 +661,7 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKey
 
-@dynamic name;
+@dynamic name, publicKeyFormat;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

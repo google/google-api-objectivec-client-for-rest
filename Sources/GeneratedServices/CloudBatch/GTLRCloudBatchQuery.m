@@ -35,6 +35,33 @@
 
 @end
 
+@implementation GTLRCloudBatchQuery_ProjectsLocationsJobsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBatch_CancelJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudBatchQuery_ProjectsLocationsJobsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBatch_Operation class];
+  query.loggingName = @"batch.projects.locations.jobs.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBatchQuery_ProjectsLocationsJobsCreate
 
 @dynamic jobId, parent, requestId;

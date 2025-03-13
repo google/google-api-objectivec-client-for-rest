@@ -17,6 +17,44 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Announcement class];
+  query.loggingName = @"vmwareengine.projects.locations.announcements.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/announcements";
+  GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListAnnouncementsResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.announcements.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionGrant
 
 @dynamic name;
@@ -1735,6 +1773,71 @@
   query.name = name;
   query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
   query.loggingName = @"vmwareengine.projects.locations.privateClouds.updateDnsForwarding";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Upgrade class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.upgrades.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/upgrades";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListUpgradesResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.upgrades.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_Upgrade *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.upgrades.patch";
   return query;
 }
 

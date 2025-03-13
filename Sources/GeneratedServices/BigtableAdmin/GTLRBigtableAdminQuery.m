@@ -670,6 +670,168 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_TestIamPermissionsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_TestIamPermissionsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesPartialUpdateInstance
 
 @dynamic name, updateMask;

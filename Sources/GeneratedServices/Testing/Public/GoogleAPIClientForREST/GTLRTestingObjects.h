@@ -2430,6 +2430,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  The Unicode country/region code (CLDR) of the lab where the device is
+ *  hosted. E.g. "US" for United States, "CH" for Switzerland.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
 @end
 
 

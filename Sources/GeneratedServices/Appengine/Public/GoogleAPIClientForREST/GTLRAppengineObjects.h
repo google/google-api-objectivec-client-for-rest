@@ -251,6 +251,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_Unsp
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_Application.sslPolicy
+
+/**
+ *  DEFAULT is to allow all TLS versions and cipher suites supported by App
+ *  Engine
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_SslPolicy_Default;
+/**
+ *  MODERN is to allow only TLS 1.2 and TLS 1.3 along with Modern cipher suites
+ *  only
+ *
+ *  Value: "MODERN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_SslPolicy_Modern;
+/**
+ *  Required by linter. Will work same as DEFAULT
+ *
+ *  Value: "SSL_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_SslPolicy_SslPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_ContainerState.state
 
 /**
@@ -903,7 +927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_
 /**
  *  SSL support for this domain is configured manually by the user. Either the
  *  domain has no SSL support or a user-obtained SSL certificate has been
- *  explictly mapped to this domain.
+ *  explicitly mapped to this domain.
  *
  *  Value: "MANUAL"
  */
@@ -1389,6 +1413,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *        has been disabled by the user. (Value: "USER_DISABLED")
  */
 @property(nonatomic, copy, nullable) NSString *servingStatus;
+
+/**
+ *  The SSL policy that will be applied to the application. If set to Modern it
+ *  will restrict traffic with TLS < 1.2 and allow only Modern Ciphers suite
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Application_SslPolicy_Default DEFAULT is to allow
+ *        all TLS versions and cipher suites supported by App Engine (Value:
+ *        "DEFAULT")
+ *    @arg @c kGTLRAppengine_Application_SslPolicy_Modern MODERN is to allow
+ *        only TLS 1.2 and TLS 1.3 along with Modern cipher suites only (Value:
+ *        "MODERN")
+ *    @arg @c kGTLRAppengine_Application_SslPolicy_SslPolicyUnspecified Required
+ *        by linter. Will work same as DEFAULT (Value: "SSL_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
 
 @end
 
@@ -3951,7 +3991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *    @arg @c kGTLRAppengine_SslSettings_SslManagementType_Manual SSL support
  *        for this domain is configured manually by the user. Either the domain
  *        has no SSL support or a user-obtained SSL certificate has been
- *        explictly mapped to this domain. (Value: "MANUAL")
+ *        explicitly mapped to this domain. (Value: "MANUAL")
  *    @arg @c kGTLRAppengine_SslSettings_SslManagementType_SslManagementTypeUnspecified
  *        Defaults to AUTOMATIC. (Value: "SSL_MANAGEMENT_TYPE_UNSPECIFIED")
  */
@@ -3966,8 +4006,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @interface GTLRAppengine_StandardSchedulerSettings : GTLRObject
 
 /**
- *  Maximum number of instances to run for this version. Set to zero to disable
- *  max_instances configuration.
+ *  Maximum number of instances to run for this version. Set to 2147483647 to
+ *  disable max_instances configuration.
  *
  *  Uses NSNumber of intValue.
  */

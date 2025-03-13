@@ -28,6 +28,8 @@
 @class GTLRGKEHub_ConfigManagementConfigSyncError;
 @class GTLRGKEHub_ConfigManagementConfigSyncState;
 @class GTLRGKEHub_ConfigManagementConfigSyncVersion;
+@class GTLRGKEHub_ConfigManagementContainerOverride;
+@class GTLRGKEHub_ConfigManagementDeploymentOverride;
 @class GTLRGKEHub_ConfigManagementErrorResource;
 @class GTLRGKEHub_ConfigManagementGatekeeperDeploymentState;
 @class GTLRGKEHub_ConfigManagementGitConfig;
@@ -1428,6 +1430,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Le
 // GTLRGKEHub_ServiceMeshCondition.code
 
 /**
+ *  Failure to reconcile CanonicalServices
+ *
+ *  Value: "CANONICAL_SERVICE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CanonicalServiceError;
+/**
  *  Cluster has zero node code
  *
  *  Value: "CLUSTER_HAS_ZERO_NODES"
@@ -1532,6 +1540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  *  Value: "MODERNIZATION_SCHEDULED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled;
+/**
+ *  Modernization will be scheduled for a fleet.
+ *
+ *  Value: "MODERNIZATION_WILL_BE_SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationWillBeScheduled;
 /**
  *  Nodepool workload identity federation required error code
  *
@@ -2211,61 +2225,57 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 @interface GTLRGKEHub_ConfigManagementConfigSync : GTLRObject
 
-/**
- *  Set to true to allow the vertical scaling. Defaults to false which disallows
- *  vertical scaling. This field is deprecated.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowVerticalScale GTLR_DEPRECATED;
+/** Optional. Configuration for deployment overrides. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementDeploymentOverride *> *deploymentOverrides;
 
 /**
- *  Enables the installation of ConfigSync. If set to true, ConfigSync resources
- *  will be created and the other ConfigSync fields will be applied if exist. If
- *  set to false, all other ConfigSync fields will be ignored, ConfigSync
- *  resources will be deleted. If omitted, ConfigSync resources will be managed
- *  depends on the presence of the git or oci field.
+ *  Optional. Enables the installation of ConfigSync. If set to true, ConfigSync
+ *  resources will be created and the other ConfigSync fields will be applied if
+ *  exist. If set to false, all other ConfigSync fields will be ignored,
+ *  ConfigSync resources will be deleted. If omitted, ConfigSync resources will
+ *  be managed depends on the presence of the git or oci field.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
-/** Git repo configuration for the cluster. */
+/** Optional. Git repo configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGitConfig *git;
 
 /**
- *  The Email of the Google Cloud Service Account (GSA) used for exporting
- *  Config Sync metrics to Cloud Monitoring and Cloud Monarch when Workload
- *  Identity is enabled. The GSA should have the Monitoring Metric Writer
- *  (roles/monitoring.metricWriter) IAM role. The Kubernetes ServiceAccount
- *  `default` in the namespace `config-management-monitoring` should be bound to
- *  the GSA. Deprecated: If Workload Identity Federation for GKE is enabled,
- *  Google Cloud Service Account is no longer needed for exporting Config Sync
- *  metrics:
+ *  Optional. The Email of the Google Cloud Service Account (GSA) used for
+ *  exporting Config Sync metrics to Cloud Monitoring and Cloud Monarch when
+ *  Workload Identity is enabled. The GSA should have the Monitoring Metric
+ *  Writer (roles/monitoring.metricWriter) IAM role. The Kubernetes
+ *  ServiceAccount `default` in the namespace `config-management-monitoring`
+ *  should be bound to the GSA. Deprecated: If Workload Identity Federation for
+ *  GKE is enabled, Google Cloud Service Account is no longer needed for
+ *  exporting Config Sync metrics:
  *  https://cloud.google.com/kubernetes-engine/enterprise/config-sync/docs/how-to/monitor-config-sync-cloud-monitoring#custom-monitoring.
  */
 @property(nonatomic, copy, nullable) NSString *metricsGcpServiceAccountEmail GTLR_DEPRECATED;
 
-/** OCI repo configuration for the cluster. */
+/** Optional. OCI repo configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementOciConfig *oci;
 
 /**
- *  Set to true to enable the Config Sync admission webhook to prevent drifts.
- *  If set to `false`, disables the Config Sync admission webhook and does not
- *  prevent drifts.
+ *  Optional. Set to true to enable the Config Sync admission webhook to prevent
+ *  drifts. If set to `false`, disables the Config Sync admission webhook and
+ *  does not prevent drifts.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preventDrift;
 
 /**
- *  Specifies whether the Config Sync Repo is in "hierarchical" or
+ *  Optional. Specifies whether the Config Sync Repo is in "hierarchical" or
  *  "unstructured" mode.
  */
 @property(nonatomic, copy, nullable) NSString *sourceFormat;
 
 /**
- *  Set to true to stop syncing configs for a single cluster. Default to false.
+ *  Optional. Set to true to stop syncing configs for a single cluster. Default
+ *  to false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2470,7 +2480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @interface GTLRGKEHub_ConfigManagementConfigSyncState : GTLRObject
 
 /**
- *  Whether syncing resources to the cluster is stopped at the cluster level.
+ *  Output only. Whether syncing resources to the cluster is stopped at the
+ *  cluster level.
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_ClusterLevelStopSyncingState_NotStopped
@@ -2495,16 +2506,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @property(nonatomic, strong, nullable) NSNumber *crCount;
 
 /**
- *  Information about the deployment of ConfigSync, including the version. of
- *  the various Pods deployed
+ *  Output only. Information about the deployment of ConfigSync, including the
+ *  version. of the various Pods deployed
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSyncDeploymentState *deploymentState;
 
-/** Errors pertaining to the installation of Config Sync. */
+/** Output only. Errors pertaining to the installation of Config Sync. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementConfigSyncError *> *errors;
 
 /**
- *  The state of the Reposync CRD
+ *  Output only. The state of the Reposync CRD
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_CrdStateUnspecified
@@ -2522,7 +2533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @property(nonatomic, copy, nullable) NSString *reposyncCrd;
 
 /**
- *  The state of the RootSync CRD
+ *  Output only. The state of the RootSync CRD
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_CrdStateUnspecified
@@ -2540,7 +2551,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @property(nonatomic, copy, nullable) NSString *rootsyncCrd;
 
 /**
- *  The state of CS This field summarizes the other fields in this message.
+ *  Output only. The state of CS This field summarizes the other fields in this
+ *  message.
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncError
@@ -2557,10 +2569,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** The state of ConfigSync's process to sync configs to a cluster. */
+/**
+ *  Output only. The state of ConfigSync's process to sync configs to a cluster.
+ */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementSyncState *syncState;
 
-/** The version of ConfigSync deployed. */
+/** Output only. The version of ConfigSync deployed. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSyncVersion *version;
 
 @end
@@ -2597,6 +2611,46 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /** Version of the deployed syncer pod. */
 @property(nonatomic, copy, nullable) NSString *syncer;
+
+@end
+
+
+/**
+ *  Configuration for a container override.
+ */
+@interface GTLRGKEHub_ConfigManagementContainerOverride : GTLRObject
+
+/** Required. The name of the container. */
+@property(nonatomic, copy, nullable) NSString *containerName;
+
+/** Optional. The cpu limit of the container. */
+@property(nonatomic, copy, nullable) NSString *cpuLimit;
+
+/** Optional. The cpu request of the container. */
+@property(nonatomic, copy, nullable) NSString *cpuRequest;
+
+/** Optional. The memory limit of the container. */
+@property(nonatomic, copy, nullable) NSString *memoryLimit;
+
+/** Optional. The memory request of the container. */
+@property(nonatomic, copy, nullable) NSString *memoryRequest;
+
+@end
+
+
+/**
+ *  Configuration for a deployment override.
+ */
+@interface GTLRGKEHub_ConfigManagementDeploymentOverride : GTLRObject
+
+/** Optional. The containers of the deployment resource to be overridden. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementContainerOverride *> *containers;
+
+/** Required. The name of the deployment resource to be overridden. */
+@property(nonatomic, copy, nullable) NSString *deploymentName;
+
+/** Required. The namespace of the deployment resource to be overridden.. */
+@property(nonatomic, copy, nullable) NSString *deploymentNamespace;
 
 @end
 
@@ -2692,40 +2746,41 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @interface GTLRGKEHub_ConfigManagementGitConfig : GTLRObject
 
 /**
- *  The Google Cloud Service Account Email used for auth when secret_type is
- *  gcpServiceAccount.
+ *  Optional. The Google Cloud Service Account Email used for auth when
+ *  secret_type is gcpServiceAccount.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
 
 /**
- *  URL for the HTTPS proxy to be used when communicating with the Git repo.
+ *  Optional. URL for the HTTPS proxy to be used when communicating with the Git
+ *  repo.
  */
 @property(nonatomic, copy, nullable) NSString *httpsProxy;
 
 /**
- *  The path within the Git repository that represents the top level of the repo
- *  to sync. Default: the root directory of the repository.
+ *  Optional. The path within the Git repository that represents the top level
+ *  of the repo to sync. Default: the root directory of the repository.
  */
 @property(nonatomic, copy, nullable) NSString *policyDir;
 
 /**
- *  Type of secret configured for access to the Git repo. Must be one of ssh,
- *  cookiefile, gcenode, token, gcpserviceaccount or none. The validation of
- *  this is case-sensitive. Required.
+ *  Required. Type of secret configured for access to the Git repo. Must be one
+ *  of ssh, cookiefile, gcenode, token, gcpserviceaccount, githubapp or none.
+ *  The validation of this is case-sensitive.
  */
 @property(nonatomic, copy, nullable) NSString *secretType;
 
-/** The branch of the repository to sync from. Default: master. */
+/** Optional. The branch of the repository to sync from. Default: master. */
 @property(nonatomic, copy, nullable) NSString *syncBranch;
 
-/** The URL of the Git repository to use as the source of truth. */
+/** Required. The URL of the Git repository to use as the source of truth. */
 @property(nonatomic, copy, nullable) NSString *syncRepo;
 
-/** Git revision (tag or hash) to check out. Default HEAD. */
+/** Optional. Git revision (tag or hash) to check out. Default HEAD. */
 @property(nonatomic, copy, nullable) NSString *syncRev;
 
 /**
- *  Period in seconds between consecutive syncs. Default: 15.
+ *  Optional. Period in seconds between consecutive syncs. Default: 15.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2871,28 +2926,32 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @interface GTLRGKEHub_ConfigManagementOciConfig : GTLRObject
 
 /**
- *  The Google Cloud Service Account Email used for auth when secret_type is
- *  gcpServiceAccount.
+ *  Optional. The Google Cloud Service Account Email used for auth when
+ *  secret_type is gcpServiceAccount.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
 
 /**
- *  The absolute path of the directory that contains the local resources.
- *  Default: the root directory of the image.
+ *  Optional. The absolute path of the directory that contains the local
+ *  resources. Default: the root directory of the image.
  */
 @property(nonatomic, copy, nullable) NSString *policyDir;
 
-/** Type of secret configured for access to the Git repo. */
+/**
+ *  Required. Type of secret configured for access to the OCI repo. Must be one
+ *  of gcenode, gcpserviceaccount, k8sserviceaccount or none. The validation of
+ *  this is case-sensitive.
+ */
 @property(nonatomic, copy, nullable) NSString *secretType;
 
 /**
- *  The OCI image repository URL for the package to sync from. e.g.
+ *  Required. The OCI image repository URL for the package to sync from. e.g.
  *  `LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/PACKAGE_NAME`.
  */
 @property(nonatomic, copy, nullable) NSString *syncRepo;
 
 /**
- *  Period in seconds between consecutive syncs. Default: 15.
+ *  Optional. Period in seconds between consecutive syncs. Default: 15.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3081,34 +3140,35 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @interface GTLRGKEHub_ConfigManagementSpec : GTLRObject
 
 /**
- *  Binauthz conifguration for the cluster. Deprecated: This field will be
- *  ignored and should not be set.
+ *  Optional. Binauthz conifguration for the cluster. Deprecated: This field
+ *  will be ignored and should not be set.
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementBinauthzConfig *binauthz GTLR_DEPRECATED;
 
 /**
- *  The user-specified cluster name used by Config Sync cluster-name-selector
- *  annotation or ClusterSelector, for applying configs to only a subset of
- *  clusters. Omit this field if the cluster's fleet membership name is used by
- *  Config Sync cluster-name-selector annotation or ClusterSelector. Set this
- *  field if a name different from the cluster's fleet membership name is used
- *  by Config Sync cluster-name-selector annotation or ClusterSelector.
+ *  Optional. The user-specified cluster name used by Config Sync
+ *  cluster-name-selector annotation or ClusterSelector, for applying configs to
+ *  only a subset of clusters. Omit this field if the cluster's fleet membership
+ *  name is used by Config Sync cluster-name-selector annotation or
+ *  ClusterSelector. Set this field if a name different from the cluster's fleet
+ *  membership name is used by Config Sync cluster-name-selector annotation or
+ *  ClusterSelector.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
-/** Config Sync configuration for the cluster. */
+/** Optional. Config Sync configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSync *configSync;
 
 /**
- *  Hierarchy Controller configuration for the cluster. Deprecated: Configuring
- *  Hierarchy Controller through the configmanagement feature is no longer
- *  recommended. Use https://github.com/kubernetes-sigs/hierarchical-namespaces
- *  instead.
+ *  Optional. Hierarchy Controller configuration for the cluster. Deprecated:
+ *  Configuring Hierarchy Controller through the configmanagement feature is no
+ *  longer recommended. Use
+ *  https://github.com/kubernetes-sigs/hierarchical-namespaces instead.
  */
-@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController;
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController GTLR_DEPRECATED;
 
 /**
- *  Enables automatic Feature management.
+ *  Optional. Enables automatic Feature management.
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementSpec_Management_ManagementAutomatic
@@ -3123,13 +3183,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @property(nonatomic, copy, nullable) NSString *management;
 
 /**
- *  Policy Controller configuration for the cluster. Deprecated: Configuring
- *  Policy Controller through the configmanagement feature is no longer
- *  recommended. Use the policycontroller feature instead.
+ *  Optional. Policy Controller configuration for the cluster. Deprecated:
+ *  Configuring Policy Controller through the configmanagement feature is no
+ *  longer recommended. Use the policycontroller feature instead.
  */
-@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyController *policyController;
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyController *policyController GTLR_DEPRECATED;
 
-/** Version of ACM installed. */
+/** Optional. Version of ACM installed. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -3140,32 +3200,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 @interface GTLRGKEHub_ConfigManagementState : GTLRObject
 
-/** Binauthz status. */
+/** Output only. Binauthz status. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementBinauthzState *binauthzState;
 
 /**
- *  This field is set to the `cluster_name` field of the Membership Spec if it
- *  is not empty. Otherwise, it is set to the cluster's fleet membership name.
+ *  Output only. This field is set to the `cluster_name` field of the Membership
+ *  Spec if it is not empty. Otherwise, it is set to the cluster's fleet
+ *  membership name.
  */
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
-/** Current sync status. */
+/** Output only. Current sync status. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSyncState *configSyncState;
 
-/** Hierarchy Controller status. */
+/** Output only. Hierarchy Controller status. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerState *hierarchyControllerState;
 
 /**
- *  Membership configuration in the cluster. This represents the actual state in
- *  the cluster, while the MembershipSpec in the FeatureSpec represents the
- *  intended state.
+ *  Output only. Membership configuration in the cluster. This represents the
+ *  actual state in the cluster, while the MembershipSpec in the FeatureSpec
+ *  represents the intended state.
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementSpec *membershipSpec;
 
-/** Current install status of ACM's Operator. */
+/** Output only. Current install status of ACM's Operator. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementOperatorState *operatorState;
 
-/** PolicyController status. */
+/** Output only. PolicyController status. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyControllerState *policyControllerState;
 
 @end
@@ -4830,6 +4891,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *  recognizable to the user.
  *
  *  Likely values:
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_CanonicalServiceError
+ *        Failure to reconcile CanonicalServices (Value:
+ *        "CANONICAL_SERVICE_ERROR")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ClusterHasZeroNodes Cluster
  *        has zero node code (Value: "CLUSTER_HAS_ZERO_NODES")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_CniConfigUnsupported CNI
@@ -4876,6 +4940,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled
  *        Modernization is scheduled for a cluster. (Value:
  *        "MODERNIZATION_SCHEDULED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationWillBeScheduled
+ *        Modernization will be scheduled for a fleet. (Value:
+ *        "MODERNIZATION_WILL_BE_SCHEDULED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired
  *        Nodepool workload identity federation required error code (Value:
  *        "NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED")

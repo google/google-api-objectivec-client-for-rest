@@ -75,6 +75,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb;
 /**
+ *  Accelerator type is Nvidia Tesla H100 - 80GB.
+ *
+ *  Value: "NVIDIA_H100_80GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb;
+/**
+ *  Accelerator type is Nvidia Tesla H100 - MEGA 80GB.
+ *
+ *  Value: "NVIDIA_H100_MEGA_80GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb;
+/**
  *  Accelerator type is Nvidia Tesla L4.
  *
  *  Value: "NVIDIA_L4"
@@ -493,6 +505,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb
  *        Accelerator type is Nvidia Tesla A100 - 80GB. (Value:
  *        "NVIDIA_A100_80GB")
+ *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb
+ *        Accelerator type is Nvidia Tesla H100 - 80GB. (Value:
+ *        "NVIDIA_H100_80GB")
+ *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb
+ *        Accelerator type is Nvidia Tesla H100 - MEGA 80GB. (Value:
+ *        "NVIDIA_H100_MEGA_80GB")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4
  *        Accelerator type is Nvidia Tesla L4. (Value: "NVIDIA_L4")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100

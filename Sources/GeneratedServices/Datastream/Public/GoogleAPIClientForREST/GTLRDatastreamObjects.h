@@ -21,6 +21,7 @@
 @class GTLRDatastream_BigQueryProfile;
 @class GTLRDatastream_BinaryLogParser;
 @class GTLRDatastream_BinaryLogPosition;
+@class GTLRDatastream_BlmtConfig;
 @class GTLRDatastream_CdcStrategy;
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_ConnectionProfile_Labels;
@@ -43,6 +44,7 @@
 @class GTLRDatastream_MostRecentStartPosition;
 @class GTLRDatastream_MysqlColumn;
 @class GTLRDatastream_MysqlDatabase;
+@class GTLRDatastream_MysqlGtidPosition;
 @class GTLRDatastream_MysqlLogPosition;
 @class GTLRDatastream_MysqlObjectIdentifier;
 @class GTLRDatastream_MysqlProfile;
@@ -51,6 +53,7 @@
 @class GTLRDatastream_MysqlSslConfig;
 @class GTLRDatastream_MysqlTable;
 @class GTLRDatastream_NextAvailableStartPosition;
+@class GTLRDatastream_Oauth2ClientCredentials;
 @class GTLRDatastream_Operation;
 @class GTLRDatastream_Operation_Metadata;
 @class GTLRDatastream_Operation_Response;
@@ -73,12 +76,21 @@
 @class GTLRDatastream_PostgresqlRdbms;
 @class GTLRDatastream_PostgresqlSchema;
 @class GTLRDatastream_PostgresqlSourceConfig;
+@class GTLRDatastream_PostgresqlSslConfig;
 @class GTLRDatastream_PostgresqlTable;
 @class GTLRDatastream_PrivateConnection;
 @class GTLRDatastream_PrivateConnection_Labels;
 @class GTLRDatastream_PrivateConnectivity;
 @class GTLRDatastream_Route;
 @class GTLRDatastream_Route_Labels;
+@class GTLRDatastream_SalesforceField;
+@class GTLRDatastream_SalesforceObject;
+@class GTLRDatastream_SalesforceObjectIdentifier;
+@class GTLRDatastream_SalesforceOrg;
+@class GTLRDatastream_SalesforceProfile;
+@class GTLRDatastream_SalesforceSourceConfig;
+@class GTLRDatastream_ServerAndClientVerification;
+@class GTLRDatastream_ServerVerification;
 @class GTLRDatastream_SingleTargetDataset;
 @class GTLRDatastream_SourceConfig;
 @class GTLRDatastream_SourceHierarchyDatasets;
@@ -101,6 +113,7 @@
 @class GTLRDatastream_Stream_Labels;
 @class GTLRDatastream_StreamLargeObjects;
 @class GTLRDatastream_StreamObject;
+@class GTLRDatastream_UserCredentials;
 @class GTLRDatastream_Validation;
 @class GTLRDatastream_ValidationMessage;
 @class GTLRDatastream_ValidationMessage_Metadata;
@@ -194,6 +207,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_Trigger_Manual;
  *  Value: "TRIGGER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_Trigger_TriggerUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastream_BlmtConfig.fileFormat
+
+/**
+ *  Default value.
+ *
+ *  Value: "FILE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BlmtConfig_FileFormat_FileFormatUnspecified;
+/**
+ *  Parquet file format.
+ *
+ *  Value: "PARQUET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BlmtConfig_FileFormat_Parquet;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastream_BlmtConfig.tableFormat
+
+/**
+ *  Iceberg table format.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BlmtConfig_TableFormat_Iceberg;
+/**
+ *  Default value.
+ *
+ *  Value: "TABLE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BlmtConfig_TableFormat_TableFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastream_JsonFileFormat.compression
@@ -426,6 +471,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL data source objects to avoid backfilling. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlExcludedObjects;
 
+/** Salesforce data source objects to avoid backfilling */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceExcludedObjects;
+
 /** SQLServer data source objects to avoid backfilling */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerExcludedObjects;
 
@@ -504,6 +552,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Append only mode */
 @property(nonatomic, strong, nullable) GTLRDatastream_AppendOnly *appendOnly;
 
+/** Optional. Big Lake Managed Tables (BLMT) configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BlmtConfig *blmtConfig;
+
 /**
  *  The guaranteed data freshness (in seconds) when querying tables created by
  *  the stream. Editing this field will only affect new tables created in the
@@ -549,6 +600,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Use Binary log position based replication.
  */
 @interface GTLRDatastream_BinaryLogPosition : GTLRObject
+@end
+
+
+/**
+ *  The configuration for BLMT.
+ */
+@interface GTLRDatastream_BlmtConfig : GTLRObject
+
+/** Required. The Cloud Storage bucket name. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Required. The bigquery connection. Format: `{project}.{location}.{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *connectionName;
+
+/**
+ *  Required. The file format.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_BlmtConfig_FileFormat_FileFormatUnspecified
+ *        Default value. (Value: "FILE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDatastream_BlmtConfig_FileFormat_Parquet Parquet file format.
+ *        (Value: "PARQUET")
+ */
+@property(nonatomic, copy, nullable) NSString *fileFormat;
+
+/** The root path inside the Cloud Storage bucket. */
+@property(nonatomic, copy, nullable) NSString *rootPath;
+
+/**
+ *  Required. The table format.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_BlmtConfig_TableFormat_Iceberg Iceberg table
+ *        format. (Value: "ICEBERG")
+ *    @arg @c kGTLRDatastream_BlmtConfig_TableFormat_TableFormatUnspecified
+ *        Default value. (Value: "TABLE_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tableFormat;
+
 @end
 
 
@@ -618,6 +710,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Private connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PrivateConnectivity *privateConnectivity;
+
+/** Salesforce Connection Profile configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceProfile *salesforceProfile;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** SQLServer Connection Profile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerProfile *sqlServerProfile;
@@ -1321,6 +1430,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  MySQL GTID position
+ */
+@interface GTLRDatastream_MysqlGtidPosition : GTLRObject
+
+/** Required. The gtid set to start replication from. */
+@property(nonatomic, copy, nullable) NSString *gtidSet;
+
+@end
+
+
+/**
  *  MySQL log position
  */
 @interface GTLRDatastream_MysqlLogPosition : GTLRObject
@@ -1353,7 +1473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  MySQL database profile. Next ID: 7.
+ *  MySQL database profile.
  */
 @interface GTLRDatastream_MysqlProfile : GTLRObject
 
@@ -1448,9 +1568,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSNumber *caCertificateSet;
 
 /**
- *  Input only. PEM-encoded certificate that will be used by the replica to
- *  authenticate against the source database server. If this field is used then
- *  the 'client_key' and the 'ca_certificate' fields are mandatory.
+ *  Optional. Input only. PEM-encoded certificate that will be used by the
+ *  replica to authenticate against the source database server. If this field is
+ *  used then the 'client_key' and the 'ca_certificate' fields are mandatory.
  */
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
@@ -1462,9 +1582,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSNumber *clientCertificateSet;
 
 /**
- *  Input only. PEM-encoded private key associated with the Client Certificate.
- *  If this field is used then the 'client_certificate' and the 'ca_certificate'
- *  fields are mandatory.
+ *  Optional. Input only. PEM-encoded private key associated with the Client
+ *  Certificate. If this field is used then the 'client_certificate' and the
+ *  'ca_certificate' fields are mandatory. Mutually exclusive with the
+ *  `secret_manager_stored_client_key` field.
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
@@ -1500,6 +1621,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  source.
  */
 @interface GTLRDatastream_NextAvailableStartPosition : GTLRObject
+@end
+
+
+/**
+ *  OAuth2 Client Credentials.
+ */
+@interface GTLRDatastream_Oauth2ClientCredentials : GTLRObject
+
+/** Required. Client ID for Salesforce OAuth2 Client Credentials. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Optional. Client secret for Salesforce OAuth2 Client Credentials. Mutually
+ *  exclusive with the `secret_manager_stored_client_secret` field.
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the
+ *  Salesforce OAuth2 client_secret. Mutually exclusive with the `client_secret`
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredClientSecret;
+
 @end
 
 
@@ -1625,7 +1770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Configuration for Oracle Automatic Storage Management (ASM) connection. .
+ *  Configuration for Oracle Automatic Storage Management (ASM) connection.
  */
 @interface GTLRDatastream_OracleAsmConfig : GTLRObject
 
@@ -1750,7 +1895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Oracle database profile. Next ID: 10.
+ *  Oracle database profile.
  */
 @interface GTLRDatastream_OracleProfile : GTLRObject
 
@@ -2021,6 +2166,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
+/**
+ *  Optional. SSL configuration for the PostgreSQL connection. In case
+ *  PostgresqlSslConfig is not set, the connection will use the default SSL
+ *  mode, which is `prefer` (i.e. this mode will only use encryption if enabled
+ *  from database side, otherwise will use unencrypted communication)
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlSslConfig *sslConfig;
+
 /** Required. Username for the PostgreSQL connection. */
 @property(nonatomic, copy, nullable) NSString *username;
 
@@ -2087,6 +2240,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  PostgreSQL SSL configuration information.
+ */
+@interface GTLRDatastream_PostgresqlSslConfig : GTLRObject
+
+/**
+ *  If this field is set, the communication will be encrypted with TLS
+ *  encryption and both the server identity and the client identity will be
+ *  authenticated.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_ServerAndClientVerification *serverAndClientVerification;
+
+/**
+ *  If this field is set, the communication will be encrypted with TLS
+ *  encryption and the server identity will be authenticated.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_ServerVerification *serverVerification;
+
+@end
+
+
+/**
  *  PostgreSQL table.
  */
 @interface GTLRDatastream_PostgresqlTable : GTLRObject
@@ -2126,6 +2300,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The state of the Private Connection.
@@ -2252,6 +2440,149 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Salesforce field.
+ */
+@interface GTLRDatastream_SalesforceField : GTLRObject
+
+/** The data type. */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/** Field name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates whether the field can accept nil values.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nillable;
+
+@end
+
+
+/**
+ *  Salesforce object.
+ */
+@interface GTLRDatastream_SalesforceObject : GTLRObject
+
+/**
+ *  Salesforce fields. When unspecified as part of include objects, includes
+ *  everything, when unspecified as part of exclude objects, excludes nothing.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SalesforceField *> *fields;
+
+/** Object name. */
+@property(nonatomic, copy, nullable) NSString *objectName;
+
+@end
+
+
+/**
+ *  Salesforce data source object identifier.
+ */
+@interface GTLRDatastream_SalesforceObjectIdentifier : GTLRObject
+
+/** Required. The object name. */
+@property(nonatomic, copy, nullable) NSString *objectName;
+
+@end
+
+
+/**
+ *  Salesforce organization structure.
+ */
+@interface GTLRDatastream_SalesforceOrg : GTLRObject
+
+/** Salesforce objects in the database server. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SalesforceObject *> *objects;
+
+@end
+
+
+/**
+ *  Salesforce profile
+ */
+@interface GTLRDatastream_SalesforceProfile : GTLRObject
+
+/** Required. Domain endpoint for the Salesforce connection. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** Connected app authentication. */
+@property(nonatomic, strong, nullable) GTLRDatastream_Oauth2ClientCredentials *oauth2ClientCredentials;
+
+/** User-password authentication. */
+@property(nonatomic, strong, nullable) GTLRDatastream_UserCredentials *userCredentials;
+
+@end
+
+
+/**
+ *  Salesforce source configuration
+ */
+@interface GTLRDatastream_SalesforceSourceConfig : GTLRObject
+
+/** Salesforce objects to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *excludeObjects;
+
+/** Salesforce objects to retrieve from the source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *includeObjects;
+
+/**
+ *  Required. Salesforce objects polling interval. The interval at which new
+ *  changes will be polled for each object. The duration must be between 5
+ *  minutes and 24 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *pollingInterval;
+
+@end
+
+
+/**
+ *  Message represents the option where Datastream will enforce the encryption
+ *  and authenticate the server identity as well as the client identity.
+ *  ca_certificate, client_certificate and client_key must be set if user
+ *  selects this option.
+ */
+@interface GTLRDatastream_ServerAndClientVerification : GTLRObject
+
+/** Required. Input only. PEM-encoded server root CA certificate. */
+@property(nonatomic, copy, nullable) NSString *caCertificate;
+
+/**
+ *  Required. Input only. PEM-encoded certificate used by the source database to
+ *  authenticate the client identity (i.e., the Datastream's identity). This
+ *  certificate is signed by either a root certificate trusted by the server or
+ *  one or more intermediate certificates (which is stored with the leaf
+ *  certificate) to link the this certificate to the trusted root certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *clientCertificate;
+
+/**
+ *  Optional. Input only. PEM-encoded private key associated with the client
+ *  certificate. This value will be used during the SSL/TLS handshake, allowing
+ *  the PostgreSQL server to authenticate the client's identity, i.e. identity
+ *  of the Datastream. Mutually exclusive with the
+ *  `secret_manager_stored_client_key` field.
+ */
+@property(nonatomic, copy, nullable) NSString *clientKey;
+
+@end
+
+
+/**
+ *  Message represents the option where Datastream will enforce the encryption
+ *  and authenticate the server identity. ca_certificate must be set if user
+ *  selects this option.
+ */
+@interface GTLRDatastream_ServerVerification : GTLRObject
+
+/** Required. Input only. PEM-encoded server root CA certificate. */
+@property(nonatomic, copy, nullable) NSString *caCertificate;
+
+@end
+
+
+/**
  *  A single target dataset to which all data will be streamed.
  */
 @interface GTLRDatastream_SingleTargetDataset : GTLRObject
@@ -2279,8 +2610,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlSourceConfig *postgresqlSourceConfig;
 
+/** Salesforce data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceSourceConfig *salesforceSourceConfig;
+
 /**
- *  Required. Source connection profile resoource. Format:
+ *  Required. Source connection profile resource. Format:
  *  `projects/{project}/locations/{location}/connectionProfiles/{name}`
  */
 @property(nonatomic, copy, nullable) NSString *sourceConnectionProfile;
@@ -2317,6 +2651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlObjectIdentifier *postgresqlIdentifier;
 
+/** Salesforce data source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceObjectIdentifier *salesforceIdentifier;
+
 /** SQLServer data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerObjectIdentifier *sqlServerIdentifier;
 
@@ -2327,6 +2664,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  CDC strategy to start replicating from a specific position in the source.
  */
 @interface GTLRDatastream_SpecificStartPosition : GTLRObject
+
+/** MySQL GTID set to start replicating from. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MysqlGtidPosition *mysqlGtidPosition;
 
 /** MySQL specific log position to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlLogPosition *mysqlLogPosition;
@@ -2429,7 +2769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  SQLServer database profile. Next ID: 8.
+ *  SQLServer database profile.
  */
 @interface GTLRDatastream_SqlServerProfile : GTLRObject
 
@@ -2678,6 +3018,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. Identifier. The stream's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** Required. Source connection profile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SourceConfig *sourceConfig;
 
@@ -2758,6 +3112,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Output only. The last update time of the object. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Username-password credentials.
+ */
+@interface GTLRDatastream_UserCredentials : GTLRObject
+
+/**
+ *  Optional. Password for the Salesforce connection. Mutually exclusive with
+ *  the `secret_manager_stored_password` field.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the
+ *  Salesforce connection's password. Mutually exclusive with the `password`
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
+
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the
+ *  Salesforce connection's security token. Mutually exclusive with the
+ *  `security_token` field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredSecurityToken;
+
+/**
+ *  Optional. Security token for the Salesforce connection. Mutually exclusive
+ *  with the `secret_manager_stored_security_token` field.
+ */
+@property(nonatomic, copy, nullable) NSString *securityToken;
+
+/** Required. Username for the Salesforce connection. */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 

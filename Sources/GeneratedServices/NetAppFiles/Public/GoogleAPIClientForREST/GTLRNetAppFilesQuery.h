@@ -1687,6 +1687,184 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new quota rule.
+ *
+ *  Method: netapp.projects.locations.volumes.quotaRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesCreate : GTLRNetAppFilesQuery
+
+/** Required. Parent value for CreateQuotaRuleRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. ID of the quota rule to create. Must be unique within the parent
+ *  resource. Must contain only letters, numbers, underscore and hyphen, with
+ *  the first character a letter or underscore, the last a letter or underscore
+ *  or a number, and a 63 character maximum.
+ */
+@property(nonatomic, copy, nullable) NSString *quotaRuleId;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Creates a new quota rule.
+ *
+ *  @param object The @c GTLRNetAppFiles_QuotaRule to include in the query.
+ *  @param parent Required. Parent value for CreateQuotaRuleRequest
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_QuotaRule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a quota rule.
+ *
+ *  Method: netapp.projects.locations.volumes.quotaRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesDelete : GTLRNetAppFilesQuery
+
+/** Required. Name of the quota rule. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Deletes a quota rule.
+ *
+ *  @param name Required. Name of the quota rule.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns details of the specified quota rule.
+ *
+ *  Method: netapp.projects.locations.volumes.quotaRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesGet : GTLRNetAppFilesQuery
+
+/** Required. Name of the quota rule */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_QuotaRule.
+ *
+ *  Returns details of the specified quota rule.
+ *
+ *  @param name Required. Name of the quota rule
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns list of all quota rules in a location.
+ *
+ *  Method: netapp.projects.locations.volumes.quotaRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesList : GTLRNetAppFilesQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListQuotaRulesRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_ListQuotaRulesResponse.
+ *
+ *  Returns list of all quota rules in a location.
+ *
+ *  @param parent Required. Parent value for ListQuotaRulesRequest
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a quota rule.
+ *
+ *  Method: netapp.projects.locations.volumes.quotaRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesPatch : GTLRNetAppFilesQuery
+
+/**
+ *  Identifier. The resource name of the quota rule. Format:
+ *  `projects/{project_number}/locations/{location_id}/volumes/volumes/{volume_id}/quotaRules/{quota_rule_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Quota Rule resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Updates a quota rule.
+ *
+ *  @param object The @c GTLRNetAppFiles_QuotaRule to include in the query.
+ *  @param name Identifier. The resource name of the quota rule. Format:
+ *    `projects/{project_number}/locations/{location_id}/volumes/volumes/{volume_id}/quotaRules/{quota_rule_id}`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesQuotaRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_QuotaRule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create a new replication for a volume.
  *
  *  Method: netapp.projects.locations.volumes.replications.create

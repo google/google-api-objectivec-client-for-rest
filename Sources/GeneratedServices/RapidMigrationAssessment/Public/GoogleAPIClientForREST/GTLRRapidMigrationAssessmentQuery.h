@@ -131,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a single Collector - changes state of collector to "Deleting".
- *  Background jobs does final deletion thorugh producer api.
+ *  Background jobs does final deletion through producer API.
  *
  *  Method: rapidmigrationassessment.projects.locations.collectors.delete
  *
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRRapidMigrationAssessment_Operation.
  *
  *  Deletes a single Collector - changes state of collector to "Deleting".
- *  Background jobs does final deletion thorugh producer api.
+ *  Background jobs does final deletion through producer API.
  *
  *  @param name Required. Name of the resource.
  *

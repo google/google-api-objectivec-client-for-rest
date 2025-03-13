@@ -1973,7 +1973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
 @property(nonatomic, copy, nullable) NSString *inspectionResultLink;
 
 /** Result of the Mobile usability analysis. */
-@property(nonatomic, strong, nullable) GTLRSearchConsole_MobileUsabilityInspectionResult *mobileUsabilityResult;
+@property(nonatomic, strong, nullable) GTLRSearchConsole_MobileUsabilityInspectionResult *mobileUsabilityResult GTLR_DEPRECATED;
 
 /**
  *  Result of the Rich Results analysis. Absent if there are no rich results

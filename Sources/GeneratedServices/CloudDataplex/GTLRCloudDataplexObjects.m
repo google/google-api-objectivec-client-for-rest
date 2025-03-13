@@ -69,6 +69,18 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetSecurityStatus_Sta
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetSecurityStatus_State_Ready = @"READY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetSecurityStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent.eventType
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryCreate = @"GLOSSARY_CATEGORY_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryDelete = @"GLOSSARY_CATEGORY_DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCategoryUpdate = @"GLOSSARY_CATEGORY_UPDATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryCreate = @"GLOSSARY_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryDelete = @"GLOSSARY_DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermCreate = @"GLOSSARY_TERM_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermDelete = @"GLOSSARY_TERM_DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermUpdate = @"GLOSSARY_TERM_UPDATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryUpdate = @"GLOSSARY_UPDATE";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook.kernelType
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelType_KernelTypeUnspecified = @"KERNEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelType_Python3 = @"PYTHON3";
@@ -316,11 +328,13 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_TypeUn
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec.aspectSyncMode
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Full = @"FULL";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Incremental = @"INCREMENTAL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_None = @"NONE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_SyncModeUnspecified = @"SYNC_MODE_UNSPECIFIED";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec.entrySyncMode
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Full = @"FULL";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Incremental = @"INCREMENTAL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_None = @"NONE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_SyncModeUnspecified = @"SYNC_MODE_UNSPECIFIED";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec.logLevel
@@ -867,6 +881,16 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent
+@dynamic eventType, message, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1CancelJobRequest
 //
 
@@ -1082,7 +1106,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig
-@dynamic connection, tableType;
+@dynamic connection, location, tableType;
 @end
 
 

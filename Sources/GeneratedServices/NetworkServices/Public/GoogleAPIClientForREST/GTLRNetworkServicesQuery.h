@@ -86,14 +86,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes since the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -134,14 +133,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes after the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -205,7 +203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results. */
+/** Optional. Hint about how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -221,7 +219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the `AuthzExtension` resources
- *  are listed, specified in the following format:
+ *  are listed. These values are specified in the following format:
  *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -232,8 +230,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists `AuthzExtension` resources in a given project and location.
  *
  *  @param parent Required. The project and location from which the
- *    `AuthzExtension` resources are listed, specified in the following format:
- *    `projects/{project}/locations/{location}`.
+ *    `AuthzExtension` resources are listed. These values are specified in the
+ *    following format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsList
  *
@@ -265,14 +263,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes since the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1563,14 +1560,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes since the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1611,14 +1607,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes after the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1682,7 +1677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results. */
+/** Optional. Hint about how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -1698,7 +1693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the `LbRouteExtension`
- *  resources are listed, specified in the following format:
+ *  resources are listed. These values are specified in the following format:
  *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1709,8 +1704,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists `LbRouteExtension` resources in a given project and location.
  *
  *  @param parent Required. The project and location from which the
- *    `LbRouteExtension` resources are listed, specified in the following
- *    format: `projects/{project}/locations/{location}`.
+ *    `LbRouteExtension` resources are listed. These values are specified in the
+ *    following format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsList
  *
@@ -1742,14 +1737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes since the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1807,14 +1801,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes since the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1855,14 +1848,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes after the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1926,7 +1918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results. */
+/** Optional. Hint about how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -1942,7 +1934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the `LbTrafficExtension`
- *  resources are listed, specified in the following format:
+ *  resources are listed. These values are specified in the following format:
  *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1953,8 +1945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists `LbTrafficExtension` resources in a given project and location.
  *
  *  @param parent Required. The project and location from which the
- *    `LbTrafficExtension` resources are listed, specified in the following
- *    format: `projects/{project}/locations/{location}`.
+ *    `LbTrafficExtension` resources are listed. These values are specified in
+ *    the following format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsList
  *
@@ -1986,14 +1978,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server can ignore the
- *  request if it has already been completed. The server guarantees that for at
- *  least 60 minutes since the first request. For example, consider a situation
- *  where you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, ignores the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2195,6 +2186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  specified in the format `projects/ * /locations/global`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRNetworkServices_ListMeshesResponse.
@@ -2491,7 +2489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The parent resource of the ServiceBinding. Must be in the format
- *  `projects/ * /locations/global`.
+ *  `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2506,7 +2504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  @param object The @c GTLRNetworkServices_ServiceBinding to include in the
  *    query.
  *  @param parent Required. The parent resource of the ServiceBinding. Must be
- *    in the format `projects/ * /locations/global`.
+ *    in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsCreate
  */
@@ -2527,7 +2525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the ServiceBinding to delete. Must be in the format
- *  `projects/ * /locations/global/serviceBindings/ *`.
+ *  `projects/ * /locations/ * /serviceBindings/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2537,7 +2535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Deletes a single ServiceBinding.
  *
  *  @param name Required. A name of the ServiceBinding to delete. Must be in the
- *    format `projects/ * /locations/global/serviceBindings/ *`.
+ *    format `projects/ * /locations/ * /serviceBindings/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsDelete
  */
@@ -2557,7 +2555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the ServiceBinding to get. Must be in the format
- *  `projects/ * /locations/global/serviceBindings/ *`.
+ *  `projects/ * /locations/ * /serviceBindings/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2567,7 +2565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Gets details of a single ServiceBinding.
  *
  *  @param name Required. A name of the ServiceBinding to get. Must be in the
- *    format `projects/ * /locations/global/serviceBindings/ *`.
+ *    format `projects/ * /locations/ * /serviceBindings/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGet
  */
@@ -2597,7 +2595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the ServiceBindings should be
- *  listed, specified in the format `projects/ * /locations/global`.
+ *  listed, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2608,7 +2606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param parent Required. The project and location from which the
  *    ServiceBindings should be listed, specified in the format `projects/ *
- *    /locations/global`.
+ *    /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsList
  *

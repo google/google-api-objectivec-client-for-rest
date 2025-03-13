@@ -30,6 +30,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategory;
+@class GTLRApigee_GoogleCloudApigeeV1ApiDebugSession;
 @class GTLRApigee_GoogleCloudApigeeV1ApiDoc;
 @class GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
@@ -197,6 +198,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Session;
 @class GTLRApigee_GoogleCloudApigeeV1SharedFlow;
 @class GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision_EntityMetaDataAsProperties;
+@class GTLRApigee_GoogleCloudApigeeV1Space;
 @class GTLRApigee_GoogleCloudApigeeV1StatsEnvironmentStats;
 @class GTLRApigee_GoogleCloudApigeeV1StatsHostStats;
 @class GTLRApigee_GoogleCloudApigeeV1TargetServerConfig;
@@ -2420,6 +2422,32 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Session carries the debug session id and its creation time.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDebugSession : GTLRObject
+
+/** The revision ID of the deployed API proxy. */
+@property(nonatomic, copy, nullable) NSString *apiProxyRevisionId;
+
+/**
+ *  The first transaction creation timestamp in millisecond, recorded by UAP.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The environment ID of the deployed API proxy. */
+@property(nonatomic, copy, nullable) NSString *environmentId;
+
+/**
+ *  The debug session ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
  *  `ApiDoc` represents an API catalog item. Catalog items are used in two ways
  *  in a portal: - Users can browse and interact with a visual representation of
  *  the API documentation - The `api_product_name` field provides a link to a
@@ -2818,6 +2846,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
+/**
+ *  Optional. The resource ID of the parent Space. If not set, the parent
+ *  resource will be the Organization. To learn how Spaces can be used to manage
+ *  resources, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
 @end
 
 
@@ -2904,6 +2940,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. List of revisions defined for the API proxy. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *revision;
+
+/**
+ *  Optional. The id of the space this proxy is associated with. Any IAM
+ *  policies applied to the space will control access to this proxy. To learn
+ *  how Spaces can be used to manage resources, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 
@@ -3645,14 +3689,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  Message for include_all option.
+ *  Message for include_all_resources option.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll : GTLRObject
 @end
 
 
 /**
- *  An array of resource messages.
+ *  Message for the array of resources. For Apigee, the proxies are resources.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray : GTLRObject
 
@@ -4615,7 +4659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1Deployment
+ *  Deployment represents a deployment of an API proxy or shared flow.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Deployment : GTLRObject
 
@@ -5512,12 +5556,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Optional. URI of the forward proxy to be applied to the runtime instances in
  *  this environment. Must be in the format of {scheme}://{hostname}:{port}.
- *  Note that the scheme must be one of "http" or "https", and the port must be
- *  supplied. To remove a forward proxy setting, update the field to an empty
- *  value. Note: At this time, PUT operations to add forwardProxyUri to an
- *  existing environment fail if the environment has nodeConfig set up. To
- *  successfully add the forwardProxyUri setting in this case, include the
- *  NodeConfig details with the request.
+ *  Note that the only supported scheme is "http". The port must be supplied. To
+ *  remove a forward proxy setting, update the field to an empty value. Note: At
+ *  this time, PUT operations to add forwardProxyUri to an existing environment
+ *  fail if the environment has nodeConfig set up. To successfully add the
+ *  forwardProxyUri setting in this case, include the NodeConfig details with
+ *  the request.
  */
 @property(nonatomic, copy, nullable) NSString *forwardProxyUri;
 
@@ -6727,6 +6771,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListApiDebugSessions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListApiDebugSessionsResponse : GTLRCollectionObject
+
+/**
+ *  Page token that you can include in a ListApiDebugSessionsRequest to retrieve
+ *  the next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Session info that includes debug session ID, environment ID, api proxy
+ *  revision ID and the first transaction creation timestamp.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiDebugSession *> *sessions;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7476,6 +7548,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  A response to a ListSpaces request containing the list of organization
+ *  spaces and a page token for the next page.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "spaces" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSpacesResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of Apigee organization spaces.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Space *> *spaces;
+
+@end
+
+
+/**
  *  Response for ListTraceConfigOverrides.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7600,6 +7700,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Moves API product to a different space.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MoveApiProductRequest : GTLRObject
+
+/**
+ *  Optional. Resource ID of the space to move the API product to. If
+ *  unspecified, the API product will be moved to the organization level.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
+@end
+
+
+/**
+ *  Moves an API Proxy to a different Space.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MoveApiProxyRequest : GTLRObject
+
+/**
+ *  Optional. Resource ID of the space to move the proxy to. If unspecified, the
+ *  proxy will be moved to the organization level.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
+@end
+
+
+/**
+ *  Moves a Shared Flow to a different space.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MoveSharedFlowRequest : GTLRObject
+
+/**
+ *  Optional. Resource ID of the space to move the shared flow to. If
+ *  unspecified, the shared flow will be moved to the organization level.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 
@@ -10157,7 +10299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  The severity of the assessment.
+ *  severity
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_High
@@ -10943,6 +11085,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** A list of revisions of this shared flow. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *revision;
 
+/**
+ *  Optional. The ID of the space associated with this shared flow. Any IAM
+ *  policies applied to the space will control access to this shared flow. To
+ *  learn how Spaces can be used to manage resources, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
 @end
 
 
@@ -11027,6 +11177,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        fetch them all at once.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision_EntityMetaDataAsProperties : GTLRObject
+@end
+
+
+/**
+ *  Organization space resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1Space : GTLRObject
+
+/** Output only. Create timestamp of the space. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Display name of the space. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Identifier. Id of the space. This field is used as the resource
+ *  name, and must follow [AIP-122](https://google.aip.dev/122) guidelines.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Last modified timestamp of the space. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 

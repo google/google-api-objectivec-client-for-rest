@@ -16,6 +16,8 @@
 #endif
 
 @class GTLRServiceNetworking_Api;
+@class GTLRServiceNetworking_Aspect;
+@class GTLRServiceNetworking_Aspect_Spec;
 @class GTLRServiceNetworking_Authentication;
 @class GTLRServiceNetworking_AuthenticationRule;
 @class GTLRServiceNetworking_AuthProvider;
@@ -959,6 +961,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /** Value: "SERVICE_NETWORKING_NOT_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled;
 /**
+ *  The SN service agent {service-\@service-networking.iam.gserviceaccount.com}
+ *  does not have the SN service agent role on the consumer project.
+ *
+ *  Value: "SN_SERVICE_AGENT_PERMISSION_DENIED_ON_CONSUMER_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_SnServiceAgentPermissionDeniedOnConsumerProject;
+/**
  *  The consumer project does not have the permission from the host project.
  *
  *  Value: "USE_PERMISSION_NOT_FOUND"
@@ -1355,6 +1364,37 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Aspect represents Generic aspect. It is used to configure an aspect without
+ *  making direct changes to service.proto
+ */
+@interface GTLRServiceNetworking_Aspect : GTLRObject
+
+/** The type of this aspect configuration. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Content of the configuration. The underlying schema should be defined by
+ *  Aspect owners as protobuf message under `apiserving/configaspects/proto`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_Aspect_Spec *spec;
+
+@end
+
+
+/**
+ *  Content of the configuration. The underlying schema should be defined by
+ *  Aspect owners as protobuf message under `apiserving/configaspects/proto`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceNetworking_Aspect_Spec : GTLRObject
+@end
+
+
+/**
  *  `Authentication` defines the authentication configuration for API methods
  *  provided by an API service. Example: name: calendar.googleapis.com
  *  authentication: providers: - id: google_calendar_auth jwks_uri:
@@ -1563,6 +1603,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  the backend.
  */
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
+
+/**
+ *  The load balancing policy used for connection to the application backend.
+ *  Defined as an arbitrary string to accomondate custom load balancing policies
+ *  supported by the underlying channel, but suggest most users use one of the
+ *  standard policies, such as the default, "RoundRobin".
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingPolicy;
 
 /**
  *  Deprecated, do not use.
@@ -2336,9 +2384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_DocumentationRule *> *rules;
 
 /**
- *  Specifies section and content to override boilerplate content provided by
- *  go/api-docgen. Currently overrides following sections: 1.
- *  rest.service.client_libraries
+ *  Specifies section and content to override the boilerplate content. Currently
+ *  overrides following sections: 1. rest.service.client_libraries
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Page *> *sectionOverrides;
 
@@ -2381,7 +2428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  String of comma or space separated case-sensitive words for which
- *  method/field name replacement will be disabled by go/api-docgen.
+ *  method/field name replacement will be disabled.
  */
 @property(nonatomic, copy, nullable) NSString *disableReplacementWords;
 
@@ -2632,6 +2679,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *restAsyncIoEnabled;
+
+/**
+ *  Disables generation of an unversioned Python package for this client
+ *  library. This means that the module names will need to be versioned in
+ *  import statements. For example `import google.cloud.library_v2` instead of
+ *  `import google.cloud.library`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unversionedPackageDisabled;
 
 @end
 
@@ -4266,9 +4323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_Page : GTLRObject
 
 /**
- *  The Markdown content of the page. You can use (== include {path} ==) to
- *  include content from a Markdown file. The content can be used to produce the
- *  documentation page such as HTML format page.
+ *  The Markdown content of the page. You can use ```(== include {path} ==)```
+ *  to include content from a Markdown file. The content can be used to produce
+ *  the documentation page such as HTML format page.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -4907,6 +4964,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_SelectiveGapicGeneration : GTLRObject
 
 /**
+ *  Setting this to true indicates to the client generators that methods that
+ *  would be excluded from the generation should instead be generated in a way
+ *  that indicates these methods should not be consumed by end users. How this
+ *  is expressed is up to individual language implementations to decide. Some
+ *  examples may be: added annotations, obfuscated identifiers, or other
+ *  language idiomatic patterns.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generateOmittedAsInternal;
+
+/**
  *  An allowlist of the fully qualified names of RPCs that should be included on
  *  public client surfaces.
  */
@@ -4941,6 +5010,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  resolved against the associated IDL files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Api *> *apis;
+
+/**
+ *  Configuration aspects. This is a repeated field to allow multiple aspects to
+ *  be configured. The kind field in each ConfigAspect specifies the type of
+ *  aspect. The spec field contains the configuration for that aspect. The
+ *  schema for the spec field is defined by the backend service owners.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Aspect *> *aspects;
 
 /** Auth configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_Authentication *authentication;
@@ -5402,23 +5479,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Usage configuration rules for the service. NOTE: Under development. Use this
- *  rule to configure unregistered calls for the service. Unregistered calls are
- *  calls that do not contain consumer project identity. (Example: calls that do
- *  not contain an API key). By default, API methods do not allow unregistered
- *  calls, and each method call must be identified by a consumer project
- *  identity. Use this rule to allow/disallow unregistered calls. Example of an
- *  API that wants to allow unregistered calls for entire service. usage: rules:
- *  - selector: "*" allow_unregistered_calls: true Example of a method that
- *  wants to allow unregistered calls. usage: rules: - selector:
- *  "google.example.library.v1.LibraryService.CreateBook"
- *  allow_unregistered_calls: true
+ *  Usage configuration rules for the service.
  */
 @interface GTLRServiceNetworking_UsageRule : GTLRObject
 
 /**
- *  If true, the selected method allows unregistered calls, e.g. calls that
- *  don't identify any user or application.
+ *  Use this rule to configure unregistered calls for the service. Unregistered
+ *  calls are calls that do not contain consumer project identity. (Example:
+ *  calls that do not contain an API key). WARNING: By default, API methods do
+ *  not allow unregistered calls, and each method call must be identified by a
+ *  consumer project identity.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5548,6 +5618,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        The IP ranges were not reserved. (Value: "RANGES_NOT_RESERVED")
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled
  *        Value "SERVICE_NETWORKING_NOT_ENABLED"
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_SnServiceAgentPermissionDeniedOnConsumerProject
+ *        The SN service agent
+ *        {service-\@service-networking.iam.gserviceaccount.com} does not have
+ *        the SN service agent role on the consumer project. (Value:
+ *        "SN_SERVICE_AGENT_PERMISSION_DENIED_ON_CONSUMER_PROJECT")
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_UsePermissionNotFound
  *        The consumer project does not have the permission from the host
  *        project. (Value: "USE_PERMISSION_NOT_FOUND")

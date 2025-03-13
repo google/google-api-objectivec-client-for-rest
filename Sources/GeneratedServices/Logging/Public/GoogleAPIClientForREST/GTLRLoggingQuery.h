@@ -972,7 +972,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-view". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *viewId;
 
@@ -3580,7 +3580,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-view". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *viewId;
 
@@ -5901,7 +5901,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-view". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *viewId;
 
@@ -7537,7 +7537,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-view". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *viewId;
 
@@ -10272,7 +10272,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-view". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *viewId;
 

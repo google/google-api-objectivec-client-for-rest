@@ -5729,7 +5729,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Token used to access next page of this result. */
+/**
+ *  Token used to access next page of this result. The page token is only valid
+ *  for three days.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Event that triggered this response (only used in case of Push Response) */

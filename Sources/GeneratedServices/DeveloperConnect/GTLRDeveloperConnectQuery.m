@@ -296,6 +296,60 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @end
 
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketCloudWebhook
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessBitbucketCloudWebhookRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:processBitbucketCloudWebhook";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketCloudWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Empty class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.processBitbucketCloudWebhook";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketDataCenterWebhook
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessBitbucketDataCenterWebhookRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:processBitbucketDataCenterWebhook";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessBitbucketDataCenterWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Empty class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.processBitbucketDataCenterWebhook";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabEnterpriseWebhook
 
 @dynamic name;

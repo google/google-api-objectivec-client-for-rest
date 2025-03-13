@@ -95,6 +95,14 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventData
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwoMonths = @"TWO_MONTHS";
 
+// GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings.userDataRetention
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FiftyMonths = @"FIFTY_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FourteenMonths = @"FOURTEEN_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_RetentionDurationUnspecified = @"RETENTION_DURATION_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_ThirtyEightMonths = @"THIRTY_EIGHT_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwoMonths = @"TWO_MONTHS";
+
 // GTLRGoogleAnalyticsAdmin_V1betaDataStream.type
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_AndroidAppDataStream = @"ANDROID_APP_DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_DataStreamTypeUnspecified = @"DATA_STREAM_TYPE_UNSPECIFIED";
@@ -586,7 +594,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings
-@dynamic eventDataRetention, name, resetUserDataOnNewActivity;
+@dynamic eventDataRetention, name, resetUserDataOnNewActivity,
+         userDataRetention;
 @end
 
 

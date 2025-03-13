@@ -409,6 +409,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2
 /** The regions constituting the multi-region. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *constituentRegions;
 
+/** The continent for this multi-region. */
+@property(nonatomic, copy, nullable) NSString *continent;
+
+/** The Spanner witness region for this multi-region. */
+@property(nonatomic, copy, nullable) NSString *witnessRegion;
+
 @end
 
 
@@ -612,6 +618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2
 /** The regions constituting the multi-region. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *constituentRegions;
 
+/** The continent for this multi-region. */
+@property(nonatomic, copy, nullable) NSString *continent;
+
+/** The Spanner witness region for this multi-region. */
+@property(nonatomic, copy, nullable) NSString *witnessRegion;
+
 @end
 
 
@@ -772,6 +784,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2
 
 /** The regions constituting the multi-region. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *constituentRegions;
+
+/** The continent for this multi-region. */
+@property(nonatomic, copy, nullable) NSString *continent;
+
+/** The Spanner witness region for this multi-region. */
+@property(nonatomic, copy, nullable) NSString *witnessRegion;
 
 @end
 
@@ -994,7 +1012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2
 
 
 /**
- *  A specification of the location of and metadata about a database dump from a
+ *  A specification of the location and metadata type for a database dump from a
  *  relational database management system.
  */
 @interface GTLRDataprocMetastore_GoogleCloudMetastoreV2DatabaseDump : GTLRObject

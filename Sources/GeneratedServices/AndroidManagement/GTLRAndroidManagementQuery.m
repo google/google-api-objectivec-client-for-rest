@@ -354,6 +354,33 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
+@implementation GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateEnterpriseUpgradeUrl";
+  GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse class];
+  query.loggingName = @"androidmanagement.enterprises.generateEnterpriseUpgradeUrl";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidManagementQuery_EnterprisesGet
 
 @dynamic name;

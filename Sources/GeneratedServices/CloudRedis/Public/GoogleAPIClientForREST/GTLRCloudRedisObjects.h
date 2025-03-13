@@ -41,8 +41,10 @@
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData_AdditionalMetadata;
 @class GTLRCloudRedis_DiscoveryEndpoint;
+@class GTLRCloudRedis_EncryptionInfo;
 @class GTLRCloudRedis_Entitlement;
 @class GTLRCloudRedis_FixedFrequencySchedule;
+@class GTLRCloudRedis_GCBDRConfiguration;
 @class GTLRCloudRedis_GcsBackupSource;
 @class GTLRCloudRedis_GcsDestination;
 @class GTLRCloudRedis_GcsSource;
@@ -761,6 +763,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExcessiveLoggingOfPlannerStatistics;
 /**
+ *  Detects that expensive commands are being run on a database instance
+ *  impacting overall performance.
+ *
+ *  Value: "SIGNAL_TYPE_EXPENSIVE_COMMANDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExpensiveCommands;
+/**
  *  Represents if the cross_db_ownership_chaining database flag for a Cloud SQL
  *  for SQL Server instance is not set to off.
  *
@@ -827,11 +836,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighTransactionIdUtilization;
 /**
+ *  Detects if a database instance/cluster has a hot node.
+ *
+ *  Value: "SIGNAL_TYPE_HOT_NODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHotNode;
+/**
  *  Represents Idle instance helps to reduce costs.
  *
  *  Value: "SIGNAL_TYPE_IDLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeIdle;
+/**
+ *  Indicates that the instance has inefficient queries detected.
+ *
+ *  Value: "SIGNAL_TYPE_INEFFICIENT_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeInefficientQuery;
 /**
  *  Represents if the last backup of a resource failed.
  *
@@ -894,11 +915,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
 /**
+ *  Deletion Protection Disabled for the resource
+ *
+ *  Value: "SIGNAL_TYPE_NO_DELETION_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoDeletionProtection;
+/**
+ *  Indicates that the instance does not have a maintenance policy configured.
+ *
+ *  Value: "SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoMaintenancePolicyConfigured;
+/**
  *  No password policy set on resources
  *
  *  Value: "SIGNAL_TYPE_NO_PASSWORD_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoPasswordPolicy;
+/**
+ *  Detects if a database instance has no point in time recovery enabled.
+ *
+ *  Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoPointInTimeRecovery;
 /**
  *  Represents if a resource has a promotable replica.
  *
@@ -997,6 +1036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_QUOTA_LIMIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeQuotaLimit;
+/**
+ *  Detects if a database instance/cluster is suspended.
+ *
+ *  Value: "SIGNAL_TYPE_RESOURCE_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeResourceSuspended;
 /**
  *  Represents not restricted to authorized networks.
  *
@@ -1377,7 +1422,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Expe
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_DatabaseResourceMetadata.instanceType
 
-/** Value: "INSTANCE_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "INSTANCE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_InstanceTypeUnspecified GTLR_DEPRECATED;
 /**
  *  For rest of the other categories.
@@ -1403,6 +1452,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Inst
  *  Value: "SECONDARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_Secondary GTLR_DEPRECATED;
+/**
+ *  An instance acting as an external primary.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_EXTERNAL_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeExternalPrimary;
 /**
  *  For rest of the other categories.
  *
@@ -1433,6 +1488,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Inst
  *  Value: "SUB_RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_DatabaseResourceMetadata.suspensionReason
+
+/**
+ *  Abuse detected for resource
+ *
+ *  Value: "ABUSER_DETECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_AbuserDetected;
+/**
+ *  Billing disabled for project
+ *
+ *  Value: "BILLING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_BillingDisabled;
+/**
+ *  Encryption key inaccessible.
+ *
+ *  Value: "ENCRYPTION_KEY_INACCESSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_EncryptionKeyInaccessible;
+/**
+ *  Replicated cluster encryption key inaccessible.
+ *
+ *  Value: "REPLICATED_CLUSTER_ENCRYPTION_KEY_INACCESSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_ReplicatedClusterEncryptionKeyInaccessible;
+/**
+ *  Suspension reason is unspecified.
+ *
+ *  Value: "SUSPENSION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_SuspensionReasonUnspecified;
+/**
+ *  Wipeout hide event.
+ *
+ *  Value: "WIPEOUT_HIDE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_WipeoutHideEvent;
+/**
+ *  Wipeout purge event.
+ *
+ *  Value: "WIPEOUT_PURGE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_WipeoutPurgeEvent;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_DatabaseResourceRecommendationSignalData.recommendationState
@@ -1564,6 +1665,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExcessiveLoggingOfPlannerStatistics;
 /**
+ *  Detects that expensive commands are being run on a database instance
+ *  impacting overall performance.
+ *
+ *  Value: "SIGNAL_TYPE_EXPENSIVE_COMMANDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExpensiveCommands;
+/**
  *  Represents if the cross_db_ownership_chaining database flag for a Cloud SQL
  *  for SQL Server instance is not set to off.
  *
@@ -1630,11 +1738,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighTransactionIdUtilization;
 /**
+ *  Detects if a database instance/cluster has a hot node.
+ *
+ *  Value: "SIGNAL_TYPE_HOT_NODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHotNode;
+/**
  *  Represents Idle instance helps to reduce costs.
  *
  *  Value: "SIGNAL_TYPE_IDLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeIdle;
+/**
+ *  Indicates that the instance has inefficient queries detected.
+ *
+ *  Value: "SIGNAL_TYPE_INEFFICIENT_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeInefficientQuery;
 /**
  *  Represents if the last backup of a resource failed.
  *
@@ -1697,11 +1817,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
 /**
+ *  Deletion Protection Disabled for the resource
+ *
+ *  Value: "SIGNAL_TYPE_NO_DELETION_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoDeletionProtection;
+/**
+ *  Indicates that the instance does not have a maintenance policy configured.
+ *
+ *  Value: "SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoMaintenancePolicyConfigured;
+/**
  *  No password policy set on resources
  *
  *  Value: "SIGNAL_TYPE_NO_PASSWORD_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPasswordPolicy;
+/**
+ *  Detects if a database instance has no point in time recovery enabled.
+ *
+ *  Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPointInTimeRecovery;
 /**
  *  Represents if a resource has a promotable replica.
  *
@@ -1800,6 +1938,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_QUOTA_LIMIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeQuotaLimit;
+/**
+ *  Detects if a database instance/cluster is suspended.
+ *
+ *  Value: "SIGNAL_TYPE_RESOURCE_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeResourceSuspended;
 /**
  *  Represents not restricted to authorized networks.
  *
@@ -2008,6 +2152,88 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_EncryptionInfo.encryptionType
+
+/**
+ *  The data is encrypted at rest with a key that is managed by the customer.
+ *  KMS key versions will be populated.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_EncryptionType_CustomerManagedEncryption;
+/**
+ *  The data is encrypted at rest with a key that is fully managed by Google. No
+ *  key version will be populated. This is the default state.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_EncryptionType_GoogleDefaultEncryption;
+/**
+ *  Encryption type not specified. Defaults to GOOGLE_DEFAULT_ENCRYPTION.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_EncryptionType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_EncryptionInfo.kmsKeyPrimaryState
+
+/**
+ *  Billing is disabled for the project.
+ *
+ *  Value: "BILLING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_BillingDisabled;
+/**
+ *  The KMS key is destroyed.
+ *
+ *  Value: "DESTROYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_Destroyed;
+/**
+ *  The KMS key is scheduled to be destroyed.
+ *
+ *  Value: "DESTROY_SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_DestroyScheduled;
+/**
+ *  The KMS key is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_Disabled;
+/**
+ *  The EKM key is unreachable.
+ *
+ *  Value: "EKM_KEY_UNREACHABLE_DETECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_EkmKeyUnreachableDetected;
+/**
+ *  The KMS key is enabled and correctly configured.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_Enabled;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "KMS_KEY_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_KmsKeyStateUnspecified;
+/**
+ *  Permission denied on the KMS key.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_PermissionDenied;
+/**
+ *  All other unknown failures.
+ *
+ *  Value: "UNKNOWN_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_UnknownFailure;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_Entitlement.entitlementState
 
 /**
@@ -2030,14 +2256,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_EntitlementState_
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Entitlement.type
 
-/** Value: "ENTITLEMENT_TYPE_UNSPECIFIED" */
+/**
+ *  The entitlement type is unspecified.
+ *
+ *  Value: "ENTITLEMENT_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_Type_EntitlementTypeUnspecified;
 /**
- *  The root entitlement representing Gemini package ownership.
+ *  The entitlement representing GCA-Standard Tier.
+ *
+ *  Value: "GCA_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_Type_GcaStandard;
+/**
+ *  The root entitlement representing Gemini package ownership.This will no
+ *  longer be supported in the future.
  *
  *  Value: "GEMINI"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_Type_Gemini;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_Type_Gemini GTLR_DEPRECATED;
+/**
+ *  The entitlement representing Native Tier, This will be the default
+ *  Entitlement going forward with GCA Enablement.
+ *
+ *  Value: "NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_Type_Native;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_FailoverInstanceRequest.dataProtectionMode
@@ -2276,6 +2520,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_Aggre
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_CpuUtilization;
 /**
+ *  Memory used by a resource (in bytes).
+ *
+ *  Value: "MEMORY_USED_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_MemoryUsedBytes;
+/**
  *  Memory utilization for a resource. The value is a fraction between 0.0 and
  *  1.0 (may momentarily exceed 1.0 in some cases).
  *
@@ -2294,6 +2544,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_Metri
  *  Value: "NETWORK_CONNECTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_NetworkConnections;
+/**
+ *  Node count for a resource. It represents the number of node units in a
+ *  bigtable/spanner instance.
+ *
+ *  Value: "NODE_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_NodeCount;
+/**
+ *  Processing units used by a resource. It represents the number of processing
+ *  units in a spanner instance.
+ *
+ *  Value: "PROCESSING_UNIT_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_ProcessingUnitCount;
 /**
  *  Sotrage used by a resource.
  *
@@ -2867,6 +3131,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUn
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_Time;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_UpdateInfo.targetNodeType
+
+/**
+ *  Node type unspecified
+ *
+ *  Value: "NODE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_NodeTypeUnspecified;
+/**
+ *  Redis highmem medium node_type.
+ *
+ *  Value: "REDIS_HIGHMEM_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighmemMedium;
+/**
+ *  Redis highmem xlarge node_type.
+ *
+ *  Value: "REDIS_HIGHMEM_XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighmemXlarge;
+/**
+ *  Redis shared core nano node_type.
+ *
+ *  Value: "REDIS_SHARED_CORE_NANO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisSharedCoreNano;
+/**
+ *  Redis standard small node_type.
+ *
+ *  Value: "REDIS_STANDARD_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisStandardSmall;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_WeeklyMaintenanceWindow.day
 
 /**
@@ -3089,6 +3387,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 /** Output only. The time when the backup was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. Encryption information of the backup. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_EncryptionInfo *encryptionInfo;
+
 /** Output only. redis-7.2, valkey-7.5 */
 @property(nonatomic, copy, nullable) NSString *engineVersion;
 
@@ -3199,6 +3500,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Output only. The cluster uid of the backup collection. */
 @property(nonatomic, copy, nullable) NSString *clusterUid;
+
+/** Output only. The time when the backup collection was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The KMS key used to encrypt the backups under this backup
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /** Identifier. Full resource path of the backup collection. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3326,6 +3636,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_Cluster : GTLRObject
 
 /**
+ *  Optional. If true, cluster endpoints that are created and registered by
+ *  customers can be deleted asynchronously. That is, such a cluster endpoint
+ *  can be de-registered before the forwarding rules in the cluster endpoint are
+ *  deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *asyncClusterEndpointsDeletionEnabled;
+
+/**
  *  Optional. The authorization mode of the Redis cluster. If not provided, auth
  *  feature is disabled for the cluster.
  *
@@ -3348,7 +3668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *backupCollection;
 
-/** Optional. A list of cluster enpoints. */
+/** Optional. A list of cluster endpoints. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ClusterEndpoint *> *clusterEndpoints;
 
 /**
@@ -3372,12 +3692,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_DiscoveryEndpoint *> *discoveryEndpoints;
 
+/** Output only. Encryption information of the data at rest of the cluster. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_EncryptionInfo *encryptionInfo;
+
 /**
  *  Optional. Backups stored in Cloud Storage buckets. The Cloud Storage buckets
  *  need to be the same region as the clusters. Read permission is required to
  *  import from the provided Cloud Storage objects.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_GcsBackupSource *gcsSource;
+
+/** Optional. The KMS key used to encrypt the at-rest data of the cluster. */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /**
  *  Optional. ClusterMaintenancePolicy determines when to allow or deny updates.
@@ -3417,6 +3743,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        small node_type. (Value: "REDIS_STANDARD_SMALL")
  */
 @property(nonatomic, copy, nullable) NSString *nodeType;
+
+/**
+ *  Optional. Input only. Ondemand maintenance for the cluster. This field can
+ *  be used to trigger ondemand critical update on the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ondemandMaintenance;
 
 /** Optional. Persistence config (RDB, AOF) for the cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ClusterPersistenceConfig *persistenceConfig;
@@ -3544,8 +3878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_ClusterEndpoint : GTLRObject
 
 /**
- *  A group of PSC connections. They are created in the same VPC network, one
- *  for each service attachment in the cluster.
+ *  Required. A group of PSC connections. They are created in the same VPC
+ *  network, one for each service attachment in the cluster.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ConnectionDetail *> *connections;
 
@@ -3580,7 +3914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Upcoming maitenance schedule.
+ *  Upcoming maintenance schedule.
  */
 @interface GTLRCloudRedis_ClusterMaintenanceSchedule : GTLRObject
 
@@ -4014,6 +4348,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the log_planner_stats database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to off. (Value:
  *        "SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATISTICS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExpensiveCommands
+ *        Detects that expensive commands are being run on a database instance
+ *        impacting overall performance. (Value:
+ *        "SIGNAL_TYPE_EXPENSIVE_COMMANDS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExposedByOwnershipChaining
  *        Represents if the cross_db_ownership_chaining database flag for a
  *        Cloud SQL for SQL Server instance is not set to off. (Value:
@@ -4050,9 +4388,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighTransactionIdUtilization
  *        Represents high number of unvacuumed transactions (Value:
  *        "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHotNode
+ *        Detects if a database instance/cluster has a hot node. (Value:
+ *        "SIGNAL_TYPE_HOT_NODE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeIdle
  *        Represents Idle instance helps to reduce costs. (Value:
  *        "SIGNAL_TYPE_IDLE")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeInefficientQuery
+ *        Indicates that the instance has inefficient queries detected. (Value:
+ *        "SIGNAL_TYPE_INEFFICIENT_QUERY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupFailed
  *        Represents if the last backup of a resource failed. (Value:
  *        "SIGNAL_TYPE_LAST_BACKUP_FAILED")
@@ -4086,9 +4430,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoDeletionProtection
+ *        Deletion Protection Disabled for the resource (Value:
+ *        "SIGNAL_TYPE_NO_DELETION_PROTECTION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoMaintenancePolicyConfigured
+ *        Indicates that the instance does not have a maintenance policy
+ *        configured. (Value: "SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoPasswordPolicy
  *        No password policy set on resources (Value:
  *        "SIGNAL_TYPE_NO_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoPointInTimeRecovery
+ *        Detects if a database instance has no point in time recovery enabled.
+ *        (Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoPromotableReplica
  *        Represents if a resource has a promotable replica. (Value:
  *        "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA")
@@ -4139,6 +4492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        "SIGNAL_TYPE_QUERY_STATISTICS_LOGGED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeQuotaLimit
  *        Cluster nearing quota limit (Value: "SIGNAL_TYPE_QUOTA_LIMIT")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeResourceSuspended
+ *        Detects if a database instance/cluster is suspended. (Value:
+ *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeRestrictAuthorizedNetworks
  *        Represents not restricted to authorized networks. (Value:
  *        "SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS")
@@ -4334,7 +4690,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 23
+ *  Common model for database resource instance metadata. Next ID: 25
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
 
@@ -4418,6 +4774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *expectedState;
 
+/** GCBDR configuration for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_GCBDRConfiguration *gcbdrConfiguration;
+
 /**
  *  Required. Unique identifier for a Database resource
  *
@@ -4430,7 +4789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_InstanceTypeUnspecified
- *        Value "INSTANCE_TYPE_UNSPECIFIED"
+ *        Unspecified. (Value: "INSTANCE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_Other For
  *        rest of the other categories. (Value: "OTHER")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_Primary A
@@ -4439,6 +4798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        An instance acting as a read-replica. (Value: "READ_REPLICA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_Secondary A
  *        cluster or an instance acting as a secondary. (Value: "SECONDARY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeExternalPrimary
+ *        An instance acting as an external primary. (Value:
+ *        "SUB_RESOURCE_TYPE_EXTERNAL_PRIMARY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeOther
  *        For rest of the other categories. (Value: "SUB_RESOURCE_TYPE_OTHER")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypePrimary
@@ -4495,6 +4857,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  go/condor-common-datamodel
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Optional. Suspension reason for the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_AbuserDetected
+ *        Abuse detected for resource (Value: "ABUSER_DETECTED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_BillingDisabled
+ *        Billing disabled for project (Value: "BILLING_DISABLED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_EncryptionKeyInaccessible
+ *        Encryption key inaccessible. (Value: "ENCRYPTION_KEY_INACCESSIBLE")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_ReplicatedClusterEncryptionKeyInaccessible
+ *        Replicated cluster encryption key inaccessible. (Value:
+ *        "REPLICATED_CLUSTER_ENCRYPTION_KEY_INACCESSIBLE")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_SuspensionReasonUnspecified
+ *        Suspension reason is unspecified. (Value:
+ *        "SUSPENSION_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_WipeoutHideEvent
+ *        Wipeout hide event. (Value: "WIPEOUT_HIDE_EVENT")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_WipeoutPurgeEvent
+ *        Wipeout purge event. (Value: "WIPEOUT_PURGE_EVENT")
+ */
+@property(nonatomic, copy, nullable) NSString *suspensionReason;
 
 /** Optional. Tags associated with this resources. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Tags *tagsSet;
@@ -4630,6 +5015,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the log_planner_stats database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to off. (Value:
  *        "SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATISTICS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExpensiveCommands
+ *        Detects that expensive commands are being run on a database instance
+ *        impacting overall performance. (Value:
+ *        "SIGNAL_TYPE_EXPENSIVE_COMMANDS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExposedByOwnershipChaining
  *        Represents if the cross_db_ownership_chaining database flag for a
  *        Cloud SQL for SQL Server instance is not set to off. (Value:
@@ -4666,9 +5055,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighTransactionIdUtilization
  *        Represents high number of unvacuumed transactions (Value:
  *        "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHotNode
+ *        Detects if a database instance/cluster has a hot node. (Value:
+ *        "SIGNAL_TYPE_HOT_NODE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeIdle
  *        Represents Idle instance helps to reduce costs. (Value:
  *        "SIGNAL_TYPE_IDLE")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeInefficientQuery
+ *        Indicates that the instance has inefficient queries detected. (Value:
+ *        "SIGNAL_TYPE_INEFFICIENT_QUERY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLastBackupFailed
  *        Represents if the last backup of a resource failed. (Value:
  *        "SIGNAL_TYPE_LAST_BACKUP_FAILED")
@@ -4702,9 +5097,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoDeletionProtection
+ *        Deletion Protection Disabled for the resource (Value:
+ *        "SIGNAL_TYPE_NO_DELETION_PROTECTION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoMaintenancePolicyConfigured
+ *        Indicates that the instance does not have a maintenance policy
+ *        configured. (Value: "SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPasswordPolicy
  *        No password policy set on resources (Value:
  *        "SIGNAL_TYPE_NO_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPointInTimeRecovery
+ *        Detects if a database instance has no point in time recovery enabled.
+ *        (Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPromotableReplica
  *        Represents if a resource has a promotable replica. (Value:
  *        "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA")
@@ -4755,6 +5159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        "SIGNAL_TYPE_QUERY_STATISTICS_LOGGED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeQuotaLimit
  *        Cluster nearing quota limit (Value: "SIGNAL_TYPE_QUOTA_LIMIT")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeResourceSuspended
+ *        Detects if a database instance/cluster is suspended. (Value:
+ *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeRestrictAuthorizedNetworks
  *        Represents not restricted to authorized networks. (Value:
  *        "SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS")
@@ -4915,6 +5322,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  EncryptionInfo describes the encryption information of a cluster or a
+ *  backup.
+ */
+@interface GTLRCloudRedis_EncryptionInfo : GTLRObject
+
+/**
+ *  Output only. Type of encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_EncryptionType_CustomerManagedEncryption
+ *        The data is encrypted at rest with a key that is managed by the
+ *        customer. KMS key versions will be populated. (Value:
+ *        "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_EncryptionType_GoogleDefaultEncryption
+ *        The data is encrypted at rest with a key that is fully managed by
+ *        Google. No key version will be populated. This is the default state.
+ *        (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_EncryptionType_TypeUnspecified
+ *        Encryption type not specified. Defaults to GOOGLE_DEFAULT_ENCRYPTION.
+ *        (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Output only. The state of the primary version of the KMS key perceived by
+ *  the system. This field is not populated in backups.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_BillingDisabled
+ *        Billing is disabled for the project. (Value: "BILLING_DISABLED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_Destroyed The
+ *        KMS key is destroyed. (Value: "DESTROYED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_DestroyScheduled
+ *        The KMS key is scheduled to be destroyed. (Value: "DESTROY_SCHEDULED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_Disabled The KMS
+ *        key is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_EkmKeyUnreachableDetected
+ *        The EKM key is unreachable. (Value: "EKM_KEY_UNREACHABLE_DETECTED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_Enabled The KMS
+ *        key is enabled and correctly configured. (Value: "ENABLED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_KmsKeyStateUnspecified
+ *        The default value. This value is unused. (Value:
+ *        "KMS_KEY_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_PermissionDenied
+ *        Permission denied on the KMS key. (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRCloudRedis_EncryptionInfo_KmsKeyPrimaryState_UnknownFailure
+ *        All other unknown failures. (Value: "UNKNOWN_FAILURE")
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyPrimaryState;
+
+/**
+ *  Output only. KMS key versions that are being used to protect the data
+ *  at-rest.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeyVersions;
+
+/** Output only. The most recent time when the encryption info was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+@end
+
+
+/**
  *  Proto representing the access that a user has to a specific feature/service.
  *  NextId: 3.
  */
@@ -4940,10 +5410,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  An enum that represents the type of this entitlement.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRedis_Entitlement_Type_EntitlementTypeUnspecified Value
- *        "ENTITLEMENT_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudRedis_Entitlement_Type_EntitlementTypeUnspecified The
+ *        entitlement type is unspecified. (Value:
+ *        "ENTITLEMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_Entitlement_Type_GcaStandard The entitlement
+ *        representing GCA-Standard Tier. (Value: "GCA_STANDARD")
  *    @arg @c kGTLRCloudRedis_Entitlement_Type_Gemini The root entitlement
- *        representing Gemini package ownership. (Value: "GEMINI")
+ *        representing Gemini package ownership.This will no longer be supported
+ *        in the future. (Value: "GEMINI")
+ *    @arg @c kGTLRCloudRedis_Entitlement_Type_Native The entitlement
+ *        representing Native Tier, This will be the default Entitlement going
+ *        forward with GCA Enablement. (Value: "NATIVE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5015,14 +5492,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  GCBDR Configuration for the resource.
+ */
+@interface GTLRCloudRedis_GCBDRConfiguration : GTLRObject
+
+/**
+ *  Whether the resource is managed by GCBDR.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gcbdrManaged;
+
+@end
+
+
+/**
  *  Backups stored in Cloud Storage buckets. The Cloud Storage buckets need to
  *  be the same region as the clusters.
  */
 @interface GTLRCloudRedis_GcsBackupSource : GTLRObject
 
 /**
- *  Optional. URIs of the GCS objects to import. Example: gs://bucket1/object1,
- *  gs://bucket2/folder2/object2
+ *  Optional. URIs of the Cloud Storage objects to import. Example:
+ *  gs://bucket1/object1, gs://bucket2/folder2/object2
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
 
@@ -5347,11 +5839,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Instance_RedisConfigs *redisConfigs;
 
 /**
- *  Optional. The version of Redis software. If not provided, latest supported
+ *  Optional. The version of Redis software. If not provided, the default
  *  version will be used. Currently, the supported values are: * `REDIS_3_2` for
- *  Redis 3.2 compatibility * `REDIS_4_0` for Redis 4.0 compatibility (default)
- *  * `REDIS_5_0` for Redis 5.0 compatibility * `REDIS_6_X` for Redis 6.x
- *  compatibility * `REDIS_7_0` for Redis 7.0 compatibility
+ *  Redis 3.2 compatibility * `REDIS_4_0` for Redis 4.0 compatibility *
+ *  `REDIS_5_0` for Redis 5.0 compatibility * `REDIS_6_X` for Redis 6.x
+ *  compatibility * `REDIS_7_0` for Redis 7.0 compatibility (default) *
+ *  `REDIS_7_2` for Redis 7.2 compatibility
  */
 @property(nonatomic, copy, nullable) NSString *redisVersion;
 
@@ -5521,6 +6014,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Information about the last backup attempt for this database */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_BackupRun *backupRun;
+
+/**
+ *  Whether deletion protection is enabled for this internal resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDeletionProtectionEnabled;
 
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Product *product;
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
@@ -5797,16 +6297,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_MachineConfiguration : GTLRObject
 
 /**
- *  The number of CPUs. TODO(b/342344482, b/342346271) add proto validations
- *  again after bug fix.
+ *  The number of CPUs. Deprecated. Use vcpu_count instead. TODO(b/342344482)
+ *  add proto validations again after bug fix.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *cpuCount;
+@property(nonatomic, strong, nullable) NSNumber *cpuCount GTLR_DEPRECATED;
 
 /**
- *  Memory size in bytes. TODO(b/342344482, b/342346271) add proto validations
- *  again after bug fix.
+ *  Memory size in bytes. TODO(b/342344482) add proto validations again after
+ *  bug fix.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5820,8 +6320,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) NSNumber *shardCount;
 
 /**
- *  Optional. The number of vCPUs. TODO(b/342344482, b/342346271) add proto
- *  validations again after bug fix.
+ *  Optional. The number of vCPUs. TODO(b/342344482) add proto validations again
+ *  after bug fix.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5998,6 +6498,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        CPU utilization for a resource. The value is a fraction between 0.0
  *        and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
  *        "CPU_UTILIZATION")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_MemoryUsedBytes
+ *        Memory used by a resource (in bytes). (Value: "MEMORY_USED_BYTES")
  *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_MemoryUtilization
  *        Memory utilization for a resource. The value is a fraction between 0.0
  *        and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
@@ -6007,6 +6509,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_NetworkConnections
  *        Number of network connections for a resource. (Value:
  *        "NETWORK_CONNECTIONS")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_NodeCount Node
+ *        count for a resource. It represents the number of node units in a
+ *        bigtable/spanner instance. (Value: "NODE_COUNT")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_ProcessingUnitCount
+ *        Processing units used by a resource. It represents the number of
+ *        processing units in a spanner instance. (Value:
+ *        "PROCESSING_UNIT_COUNT")
  *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUsedBytes
  *        Sotrage used by a resource. (Value: "STORAGE_USED_BYTES")
  *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUtilization
@@ -6494,6 +7003,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
+ *  Output only. The port number of the exposed discovery endpoint.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
  *  Optional. Project ID of the consumer project where the forwarding rule is
  *  created in.
  */
@@ -6951,6 +7467,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Represents information about an updating cluster.
  */
 @interface GTLRCloudRedis_UpdateInfo : GTLRObject
+
+/**
+ *  Target node type for redis cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_UpdateInfo_TargetNodeType_NodeTypeUnspecified Node
+ *        type unspecified (Value: "NODE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighmemMedium Redis
+ *        highmem medium node_type. (Value: "REDIS_HIGHMEM_MEDIUM")
+ *    @arg @c kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighmemXlarge Redis
+ *        highmem xlarge node_type. (Value: "REDIS_HIGHMEM_XLARGE")
+ *    @arg @c kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisSharedCoreNano
+ *        Redis shared core nano node_type. (Value: "REDIS_SHARED_CORE_NANO")
+ *    @arg @c kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisStandardSmall Redis
+ *        standard small node_type. (Value: "REDIS_STANDARD_SMALL")
+ */
+@property(nonatomic, copy, nullable) NSString *targetNodeType;
 
 /**
  *  Target number of replica nodes per shard.

@@ -19,6 +19,55 @@
 
 @end
 
+@implementation GTLRDataPortabilityQuery_AccessTypeCheck
+
++ (instancetype)queryWithObject:(GTLRDataPortability_CheckAccessTypeRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/accessType:check";
+  GTLRDataPortabilityQuery_AccessTypeCheck *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDataPortability_CheckAccessTypeResponse class];
+  query.loggingName = @"dataportability.accessType.check";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataPortabilityQuery_ArchiveJobsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataPortability_CancelPortabilityArchiveRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRDataPortabilityQuery_ArchiveJobsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataPortability_CancelPortabilityArchiveResponse class];
+  query.loggingName = @"dataportability.archiveJobs.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataPortabilityQuery_ArchiveJobsGetPortabilityArchiveState
 
 @dynamic name;

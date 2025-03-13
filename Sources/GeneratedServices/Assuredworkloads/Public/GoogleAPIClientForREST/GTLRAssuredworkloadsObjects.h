@@ -813,7 +813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified;
 /**
  *  KAT sets External, Hardware, and Software key feature logging only to TRUE.
- *  (no enforcement)
  *
  *  Value: "KEY_ACCESS_TRANSPARENCY_OFF"
  */
@@ -1981,7 +1980,7 @@ GTLR_DEPRECATED
  *        "KAJ_ENROLLMENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff
  *        KAT sets External, Hardware, and Software key feature logging only to
- *        TRUE. (no enforcement) (Value: "KEY_ACCESS_TRANSPARENCY_OFF")
+ *        TRUE. (Value: "KEY_ACCESS_TRANSPARENCY_OFF")
  */
 @property(nonatomic, copy, nullable) NSString *kajEnrollmentType;
 

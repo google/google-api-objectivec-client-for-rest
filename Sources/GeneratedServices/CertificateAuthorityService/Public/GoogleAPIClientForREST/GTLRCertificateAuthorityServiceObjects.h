@@ -71,6 +71,7 @@
 @class GTLRCertificateAuthorityService_SubjectDescription;
 @class GTLRCertificateAuthorityService_SubordinateConfig;
 @class GTLRCertificateAuthorityService_SubordinateConfigChain;
+@class GTLRCertificateAuthorityService_UserDefinedAccessUrls;
 @class GTLRCertificateAuthorityService_X509Extension;
 @class GTLRCertificateAuthorityService_X509Parameters;
 
@@ -1298,6 +1299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Optional. User-defined URLs for CA certificate and CRLs. The service does
+ *  not publish content to these URLs. It is up to the user to mirror content to
+ *  these URLs.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_UserDefinedAccessUrls *userDefinedAccessUrls;
+
 @end
 
 
@@ -1938,6 +1946,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  may be used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_AllowedKeyType *> *allowedKeyTypes;
+
+/**
+ *  Optional. The duration to backdate all certificates issued from this CaPool.
+ *  If not set, the certificates will be issued with a not_before_time of the
+ *  issuance time (i.e. the current time). If set, the certificates will be
+ *  issued with a not_before_time of the issuance time minus the
+ *  backdate_duration. The not_after_time will be adjusted to preserve the
+ *  requested lifetime. The backdate_duration must be less than or equal to 48
+ *  hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *backdateDuration;
 
 /**
  *  Optional. A set of X.509 values that will be applied to all certificates
@@ -3278,6 +3297,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  User-defined URLs for accessing content published by this
+ *  CertificateAuthority.
+ */
+@interface GTLRCertificateAuthorityService_UserDefinedAccessUrls : GTLRObject
+
+/**
+ *  Optional. A list of URLs where the issuer CA certificate may be downloaded,
+ *  which appears in the "Authority Information Access" extension in the
+ *  certificate. If specified, the default Cloud Storage URLs will be omitted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aiaIssuingCertificateUrls;
+
+/**
+ *  Optional. A list of URLs where to obtain CRL information, i.e. the
+ *  DistributionPoint.fullName described by
+ *  https://tools.ietf.org/html/rfc5280#section-4.2.1.13. If specified, the
+ *  default Cloud Storage URLs will be omitted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *crlAccessUrls;
 
 @end
 

@@ -403,7 +403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instanceConfigs.operations.cancel
@@ -427,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -624,7 +624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instanceConfigs.ssdCaches.operations.cancel
@@ -648,7 +648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1221,7 +1221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.backups.operations.cancel
@@ -1245,7 +1245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1667,6 +1667,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Adds split points to specified tables, indexes of a database.
+ *
+ *  Method: spanner.projects.instances.databases.addSplitPoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints : GTLRSpannerQuery
+
+/**
+ *  Required. The database on whose tables/indexes split points are to be added.
+ *  Values are of the form `projects//instances//databases/`.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Fetches a @c GTLRSpanner_AddSplitPointsResponse.
+ *
+ *  Adds split points to specified tables, indexes of a database.
+ *
+ *  @param object The @c GTLRSpanner_AddSplitPointsRequest to include in the
+ *    query.
+ *  @param database Required. The database on whose tables/indexes split points
+ *    are to be added. Values are of the form `projects//instances//databases/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_AddSplitPointsRequest *)object
+                       database:(NSString *)database;
 
 @end
 
@@ -2467,7 +2501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.databases.operations.cancel
@@ -2491,7 +2525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -2738,6 +2772,76 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRSpanner_RestoreDatabaseRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new session to be used for requests made by the adapter. A session
+ *  identifies a specific incarnation of a database resource and is meant to be
+ *  reused across many `AdaptMessage` calls.
+ *
+ *  Method: spanner.projects.instances.databases.sessions.adapter
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdapter : GTLRSpannerQuery
+
+/** Required. The database in which the new session is created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_AdapterSession.
+ *
+ *  Creates a new session to be used for requests made by the adapter. A session
+ *  identifies a specific incarnation of a database resource and is meant to be
+ *  reused across many `AdaptMessage` calls.
+ *
+ *  @param object The @c GTLRSpanner_AdapterSession to include in the query.
+ *  @param parent Required. The database in which the new session is created.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdapter
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_AdapterSession *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Handles a single message from the client and returns the result as a stream.
+ *  The server will interpret the message frame and respond with message frames
+ *  to the client.
+ *
+ *  Method: spanner.projects.instances.databases.sessions.adaptMessage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdaptMessage : GTLRSpannerQuery
+
+/**
+ *  Required. The database session in which the adapter request is processed.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_AdaptMessageResponse.
+ *
+ *  Handles a single message from the client and returns the result as a stream.
+ *  The server will interpret the message frame and respond with message frames
+ *  to the client.
+ *
+ *  @param object The @c GTLRSpanner_AdaptMessageRequest to include in the
+ *    query.
+ *  @param name Required. The database session in which the adapter request is
+ *    processed.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdaptMessage
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_AdaptMessageRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3048,7 +3152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  return `ABORTED`. If this occurs, the application should restart the
  *  transaction from the beginning. See Transaction for more details. Larger
  *  result sets can be fetched in streaming fashion by calling
- *  ExecuteStreamingSql instead.
+ *  ExecuteStreamingSql instead. The query string can be SQL or [Graph Query
+ *  Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  Method: spanner.projects.instances.databases.sessions.executeSql
  *
@@ -3071,7 +3177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  return `ABORTED`. If this occurs, the application should restart the
  *  transaction from the beginning. See Transaction for more details. Larger
  *  result sets can be fetched in streaming fashion by calling
- *  ExecuteStreamingSql instead.
+ *  ExecuteStreamingSql instead. The query string can be SQL or [Graph Query
+ *  Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  @param object The @c GTLRSpanner_ExecuteSqlRequest to include in the query.
  *  @param session Required. The session in which the SQL query should be
@@ -3088,7 +3196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Like ExecuteSql, except returns the result set as a stream. Unlike
  *  ExecuteSql, there is no limit on the size of the returned result set.
  *  However, no individual row in the result set can exceed 100 MiB, and no
- *  column value can exceed 10 MiB.
+ *  column value can exceed 10 MiB. The query string can be SQL or [Graph Query
+ *  Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  Method: spanner.projects.instances.databases.sessions.executeStreamingSql
  *
@@ -3107,7 +3217,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Like ExecuteSql, except returns the result set as a stream. Unlike
  *  ExecuteSql, there is no limit on the size of the returned result set.
  *  However, no individual row in the result set can exceed 100 MiB, and no
- *  column value can exceed 10 MiB.
+ *  column value can exceed 10 MiB. The query string can be SQL or [Graph Query
+ *  Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  @param object The @c GTLRSpanner_ExecuteSqlRequest to include in the query.
  *  @param session Required. The session in which the SQL query should be
@@ -3989,7 +4101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.instancePartitions.operations.cancel
@@ -4013,7 +4125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -4380,7 +4492,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.operations.cancel
@@ -4404,7 +4516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.

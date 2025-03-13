@@ -1877,6 +1877,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment;
 /**
+ *  A notification sent when an enterprise is upgraded.Note: This feature is not
+ *  generally available.
+ *
+ *  Value: "ENTERPRISE_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_EnterpriseUpgrade;
+/**
  *  This value is ignored.
  *
  *  Value: "NOTIFICATION_TYPE_UNSPECIFIED"
@@ -1894,6 +1901,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  *  Value: "USAGE_LOGS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Enterprise.enterpriseType
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "ENTERPRISE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_EnterpriseTypeUnspecified;
+/**
+ *  The enterprise belongs to a managed Google domain
+ *  (https://developers.google.com/android/work/terminology#managed_google_domain).
+ *
+ *  Value: "MANAGED_GOOGLE_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGoogleDomain;
+/**
+ *  The enterprise is a managed Google Play Accounts enterprise
+ *  (https://developers.google.com/android/work/terminology#managed_google_play_accounts_enterprise).
+ *
+ *  Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Enterprise.managedGoogleDomainType
+
+/**
+ *  The managed Google domain type is not specified.
+ *
+ *  Value: "MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified;
+/**
+ *  The managed Google domain is domain-verified.
+ *
+ *  Value: "TYPE_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeDomain;
+/**
+ *  The managed Google domain is an email-verified team.
+ *
+ *  Value: "TYPE_TEAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeTeam;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Enterprise.managedGooglePlayAccountsEnterpriseType
+
+/**
+ *  The enterprise is customer-managed
+ *
+ *  Value: "CUSTOMER_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_CustomerManaged;
+/**
+ *  The enterprise is EMM-managed (deprecated).
+ *
+ *  Value: "EMM_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_EmmManaged;
+/**
+ *  The managed Google Play Accounts enterprise type is not specified.
+ *
+ *  Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_ManagedGooglePlayAccountsEnterpriseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
@@ -7008,6 +7083,23 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseDisplayName;
 
+/**
+ *  Output only. The type of the enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Enterprise_EnterpriseType_EnterpriseTypeUnspecified
+ *        This value is not used. (Value: "ENTERPRISE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGoogleDomain
+ *        The enterprise belongs to a managed Google domain
+ *        (https://developers.google.com/android/work/terminology#managed_google_domain).
+ *        (Value: "MANAGED_GOOGLE_DOMAIN")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise
+ *        The enterprise is a managed Google Play Accounts enterprise
+ *        (https://developers.google.com/android/work/terminology#managed_google_play_accounts_enterprise).
+ *        (Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE")
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseType;
+
 /** Settings for Google-provided user authentication. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_GoogleAuthenticationSettings *googleAuthenticationSettings;
 
@@ -7017,6 +7109,35 @@ GTLR_DEPRECATED
  *  image/vnd.wap.wbmp, image/x-adobe-dng.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ExternalData *logo;
+
+/**
+ *  Output only. The type of managed Google domain.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified
+ *        The managed Google domain type is not specified. (Value:
+ *        "MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeDomain
+ *        The managed Google domain is domain-verified. (Value: "TYPE_DOMAIN")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeTeam
+ *        The managed Google domain is an email-verified team. (Value:
+ *        "TYPE_TEAM")
+ */
+@property(nonatomic, copy, nullable) NSString *managedGoogleDomainType;
+
+/**
+ *  Output only. The type of a managed Google Play Accounts enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_CustomerManaged
+ *        The enterprise is customer-managed (Value: "CUSTOMER_MANAGED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_EmmManaged
+ *        The enterprise is EMM-managed (deprecated). (Value: "EMM_MANAGED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_ManagedGooglePlayAccountsEnterpriseTypeUnspecified
+ *        The managed Google Play Accounts enterprise type is not specified.
+ *        (Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *managedGooglePlayAccountsEnterpriseType;
 
 /**
  *  The name of the enterprise which is generated by the server during creation,
@@ -7153,16 +7274,64 @@ GTLR_DEPRECATED
 /**
  *  The end date (inclusive) of the freeze period. Must be no later than 90 days
  *  from the start date. If the end date is earlier than the start date, the
- *  freeze period is considered wrapping year-end. Note: year must not be set.
- *  For example, {"month": 1,"date": 30}.
+ *  freeze period is considered wrapping year-end. Note: day and month must be
+ *  set. year should not be set as it is not used. For example, {"month":
+ *  1,"date": 30}.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Date *endDate;
 
 /**
- *  The start date (inclusive) of the freeze period. Note: year must not be set.
- *  For example, {"month": 1,"date": 30}.
+ *  The start date (inclusive) of the freeze period. Note: day and month must be
+ *  set. year should not be set as it is not used. For example, {"month":
+ *  1,"date": 30}.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Date *startDate;
+
+@end
+
+
+/**
+ *  Request message for generating a URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain.Note: This feature is
+ *  not generally available.
+ */
+@interface GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest : GTLRObject
+
+/**
+ *  Optional. Email address used to prefill the admin field of the enterprise
+ *  signup form as part of the upgrade process. This value is a hint only and
+ *  can be altered by the user. Personal email addresses are not allowed. If
+ *  allowedDomains is non-empty then this must belong to one of the
+ *  allowedDomains.
+ */
+@property(nonatomic, copy, nullable) NSString *adminEmail;
+
+/**
+ *  Optional. A list of domains that are permitted for the admin email. The IT
+ *  admin cannot enter an email address with a domain name that is not in this
+ *  list. Subdomains of domains in this list are not allowed but can be allowed
+ *  by adding a second entry which has *. prefixed to the domain name (e.g.
+ *  *.example.com). If the field is not present or is an empty list then the IT
+ *  admin is free to use any valid domain name. Personal email domains are not
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDomains;
+
+@end
+
+
+/**
+ *  Response message for generating a URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain.Note: This feature is
+ *  not generally available.
+ */
+@interface GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse : GTLRObject
+
+/**
+ *  A URL for an enterprise admin to upgrade their enterprise. The page can't be
+ *  rendered in an iframe.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -9205,7 +9374,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *addUserDisabled;
 
 /**
- *  Whether adjusting the master volume is disabled. Also mutes the device.
+ *  Whether adjusting the master volume is disabled. Also mutes the device. The
+ *  setting has effect only on fully managed devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9899,7 +10069,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_SetupAction *> *setupActions;
 
 /**
- *  Whether changing the user icon is disabled.
+ *  Whether changing the user icon is disabled. The setting has effect only on
+ *  fully managed devices.
  *
  *  Uses NSNumber of boolValue.
  */

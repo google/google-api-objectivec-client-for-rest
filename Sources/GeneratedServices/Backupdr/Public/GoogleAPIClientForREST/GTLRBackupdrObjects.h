@@ -25,7 +25,9 @@
 @class GTLRBackupdr_BackupApplianceBackupConfig;
 @class GTLRBackupdr_BackupApplianceBackupProperties;
 @class GTLRBackupdr_BackupApplianceLockInfo;
+@class GTLRBackupdr_BackupConfigDetails;
 @class GTLRBackupdr_BackupConfigInfo;
+@class GTLRBackupdr_BackupLocation;
 @class GTLRBackupdr_BackupLock;
 @class GTLRBackupdr_BackupPlan;
 @class GTLRBackupdr_BackupPlan_Labels;
@@ -73,7 +75,12 @@
 @class GTLRBackupdr_Operation_Metadata;
 @class GTLRBackupdr_Operation_Response;
 @class GTLRBackupdr_OperationMetadata_AdditionalInfo;
+@class GTLRBackupdr_PitrSettings;
+@class GTLRBackupdr_PlanConfig;
+@class GTLRBackupdr_PlanRule;
 @class GTLRBackupdr_Policy;
+@class GTLRBackupdr_ResourceBackupConfig;
+@class GTLRBackupdr_ResourceBackupConfig_TargetResourceLabels;
 @class GTLRBackupdr_RuleConfigInfo;
 @class GTLRBackupdr_Scheduling;
 @class GTLRBackupdr_SchedulingDuration;
@@ -84,6 +91,7 @@
 @class GTLRBackupdr_Status_Details_Item;
 @class GTLRBackupdr_Tags;
 @class GTLRBackupdr_TargetResource;
+@class GTLRBackupdr_TemplateConfig;
 @class GTLRBackupdr_WeekDayOfMonth;
 @class GTLRBackupdr_WorkforceIdentityBasedManagementURI;
 @class GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID;
@@ -383,6 +391,72 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_State_Error;
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBackupdr_BackupConfigDetails.state
+
+/**
+ *  The config is in an active state protecting the resource
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_State_Active;
+/**
+ *  The config still exists but because of some error state it is not protecting
+ *  the resource. Like the source project is deleted. For eg. PlanAssociation,
+ *  BackupPlan is deleted.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_State_Error;
+/**
+ *  The config is currently not protecting the resource. Either because it is
+ *  disabled or the owning project has been deleted without cleanup of the
+ *  actual resource.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_State_Inactive;
+/**
+ *  Backup config state not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_BackupConfigDetails.type
+
+/**
+ *  Backup config is Backup and DR's Backup Plan.
+ *
+ *  Value: "BACKUPDR_BACKUP_PLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_Type_BackupdrBackupPlan;
+/**
+ *  Backup config is Backup and DR's Template.
+ *
+ *  Value: "BACKUPDR_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_Type_BackupdrTemplate;
+/**
+ *  Backup config is Cloud SQL instance's automated backup config.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE_BACKUP_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_Type_CloudSqlInstanceBackupConfig;
+/**
+ *  Backup config is Compute Engine Resource Policy.
+ *
+ *  Value: "COMPUTE_ENGINE_RESOURCE_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_Type_ComputeEngineResourcePolicy;
+/**
+ *  Backup config type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBackupdr_BackupConfigInfo.lastBackupState
 
 /**
@@ -416,6 +490,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigInfo_LastBackupStat
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigInfo_LastBackupState_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_BackupLocation.type
+
+/**
+ *  Location type is multi regional.
+ *
+ *  Value: "MULTI_REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupLocation_Type_MultiRegional;
+/**
+ *  Location type is regional.
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupLocation_Type_Regional;
+/**
+ *  Location type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupLocation_Type_TypeUnspecified;
+/**
+ *  Location type is zonal.
+ *
+ *  Value: "ZONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupLocation_Type_Zonal;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_BackupPlan.state
@@ -988,6 +1090,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_N
  *  Value: "OPERATOR_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_OperatorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_ResourceBackupConfig.targetResourceType
+
+/**
+ *  Cloud SQL instance.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_CloudSqlInstance;
+/**
+ *  Compute Engine VM.
+ *
+ *  Value: "COMPUTE_ENGINE_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm;
+/**
+ *  Resource type not set.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_RuleConfigInfo.lastBackupState
@@ -2052,6 +2176,103 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  BackupConfigDetails has information about how the resource is configured for
+ *  backups and about the most recent backup taken for this configuration.
+ */
+@interface GTLRBackupdr_BackupConfigDetails : GTLRObject
+
+/**
+ *  Output only. The [full resource
+ *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format) of
+ *  the resource that is applicable for the backup configuration. Example:
+ *  "//compute.googleapis.com/projects/{project}/zones/{zone}/instances/{instance}"
+ */
+@property(nonatomic, copy, nullable) NSString *applicableResource;
+
+/**
+ *  Output only. The full resource name of the backup config source resource.
+ *  For example,
+ *  "//backupdr.googleapis.com/v1/projects/{project}/locations/{region}/backupPlans/{backupplanId}"
+ *  or
+ *  "//compute.googleapis.com/projects/{project}/locations/{region}/resourcePolicies/{resourcePolicyId}".
+ */
+@property(nonatomic, copy, nullable) NSString *backupConfigSource;
+
+/** Output only. The display name of the backup config source resource. */
+@property(nonatomic, copy, nullable) NSString *backupConfigSourceDisplayName;
+
+/** Backup and DR's Backup Plan specific data. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PlanConfig *backupDrPlanConfig;
+
+/** Backup and DR's Template specific data. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_TemplateConfig *backupDrTemplateConfig;
+
+/** The locations where the backups are to be stored. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupLocation *> *backupLocations;
+
+/**
+ *  Output only. The [full resource
+ *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format) of
+ *  the backup vault that will store the backups generated through this backup
+ *  configuration. Example:
+ *  "//backupdr.googleapis.com/v1/projects/{project}/locations/{region}/backupVaults/{backupvaultId}"
+ */
+@property(nonatomic, copy, nullable) NSString *backupVault;
+
+/**
+ *  Output only. Timestamp of the latest successful backup created via this
+ *  backup configuration.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestSuccessfulBackupTime;
+
+/**
+ *  Output only. Point in time recovery settings of the backup configuration
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PitrSettings *pitrSettings;
+
+/**
+ *  Output only. The state of the backup config resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_State_Active The config is in an
+ *        active state protecting the resource (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_State_Error The config still
+ *        exists but because of some error state it is not protecting the
+ *        resource. Like the source project is deleted. For eg. PlanAssociation,
+ *        BackupPlan is deleted. (Value: "ERROR")
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_State_Inactive The config is
+ *        currently not protecting the resource. Either because it is disabled
+ *        or the owning project has been deleted without cleanup of the actual
+ *        resource. (Value: "INACTIVE")
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_State_StateUnspecified Backup
+ *        config state not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The type of the backup config resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_BackupdrBackupPlan Backup
+ *        config is Backup and DR's Backup Plan. (Value: "BACKUPDR_BACKUP_PLAN")
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_BackupdrTemplate Backup
+ *        config is Backup and DR's Template. (Value: "BACKUPDR_TEMPLATE")
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_CloudSqlInstanceBackupConfig
+ *        Backup config is Cloud SQL instance's automated backup config. (Value:
+ *        "CLOUD_SQL_INSTANCE_BACKUP_CONFIG")
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_ComputeEngineResourcePolicy
+ *        Backup config is Compute Engine Resource Policy. (Value:
+ *        "COMPUTE_ENGINE_RESOURCE_POLICY")
+ *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_TypeUnspecified Backup
+ *        config type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  BackupConfigInfo has information about how the resource is configured for
  *  Backup and about the most recent backup to this vault.
  */
@@ -2091,6 +2312,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  consistency date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupConsistencyTime;
+
+@end
+
+
+/**
+ *  BackupLocation represents a cloud location where a backup can be stored.
+ */
+@interface GTLRBackupdr_BackupLocation : GTLRObject
+
+/** Output only. The id of the cloud location. Example: "us-central1" */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Output only. The type of the location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_BackupLocation_Type_MultiRegional Location type is
+ *        multi regional. (Value: "MULTI_REGIONAL")
+ *    @arg @c kGTLRBackupdr_BackupLocation_Type_Regional Location type is
+ *        regional. (Value: "REGIONAL")
+ *    @arg @c kGTLRBackupdr_BackupLocation_Type_TypeUnspecified Location type is
+ *        unspecified. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_BackupLocation_Type_Zonal Location type is zonal.
+ *        (Value: "ZONAL")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2183,11 +2430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Required. The resource type to which the `BackupPlan` will be applied.
- *  Examples include, "compute.googleapis.com/Instance",
- *  "sqladmin.googleapis.com/Instance", or "alloydb.googleapis.com/Cluster".
- */
+/** Required. */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
@@ -2262,10 +2505,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
-/**
- *  Required. Immutable. Resource type of workload on which backupplan is
- *  applied
- */
+/** Required. Immutable. */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 /** Output only. The config info related to backup rules. */
@@ -3896,6 +4136,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Response for ListResourceBackupConfigs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resourceBackupConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListResourceBackupConfigsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of ResourceBackupConfigs for the specified scope.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_ResourceBackupConfig *> *resourceBackupConfigs;
+
+@end
+
+
+/**
  *  A resource that represents a Google Cloud location.
  */
 @interface GTLRBackupdr_Location : GTLRObject
@@ -4473,6 +4737,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Point in time recovery settings of the backup configuration resource.
+ */
+@interface GTLRBackupdr_PitrSettings : GTLRObject
+
+/**
+ *  Output only. Number of days to retain the backup.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionDays;
+
+@end
+
+
+/**
+ *  BackupDrPlanConfig has additional information about Backup and DR's Plan
+ *  backup configuration.
+ */
+@interface GTLRBackupdr_PlanConfig : GTLRObject
+
+/** Backup rules of the backup plan resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_PlanRule *> *backupDrPlanRules;
+
+@end
+
+
+/**
+ *  BackupDrPlanRule has rule specific information of the backup plan resource.
+ */
+@interface GTLRBackupdr_PlanRule : GTLRObject
+
+/**
+ *  Output only. Timestamp of the latest successful backup created via this
+ *  backup rule.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupTime;
+
+/** Output only. Unique Id of the backup rule. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -4583,6 +4891,89 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
+@end
+
+
+/**
+ *  ResourceBackupConfig represents a resource along with its backup
+ *  configurations.
+ */
+@interface GTLRBackupdr_ResourceBackupConfig : GTLRObject
+
+/**
+ *  Backup configurations applying to the target resource, including those
+ *  targeting its related/child resources. For example, backup configuration
+ *  applicable to Compute Engine disks will be populated in this field for a
+ *  Compute Engine VM which has the disk associated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupConfigDetails *> *backupConfigsDetails;
+
+/**
+ *  Output only. Whether the target resource is configured for backup. This is
+ *  true if the backup_configs_details is not empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupConfigured;
+
+/**
+ *  Identifier. The resource name of the ResourceBackupConfig. Format:
+ *  projects/{project}/locations/{location}/resourceBackupConfigs/{uid}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The [full resource
+ *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format) of
+ *  the cloud resource that this configuration applies to. Supported resource
+ *  types are ResourceBackupConfig.ResourceType.
+ */
+@property(nonatomic, copy, nullable) NSString *targetResource;
+
+/** Output only. The human friendly name of the target resource. */
+@property(nonatomic, copy, nullable) NSString *targetResourceDisplayName;
+
+/** Labels associated with the target resource. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_ResourceBackupConfig_TargetResourceLabels *targetResourceLabels;
+
+/**
+ *  Output only. The type of the target resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_CloudSqlInstance
+ *        Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
+ *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm
+ *        Compute Engine VM. (Value: "COMPUTE_ENGINE_VM")
+ *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified
+ *        Resource type not set. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetResourceType;
+
+/** Output only. The unique identifier of the resource backup config. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. Whether the target resource is protected by a backup vault.
+ *  This is true if the backup_configs_details is not empty and any of the
+ *  ResourceBackupConfig.backup_configs_details has a backup configuration with
+ *  BackupConfigDetails.backup_vault set. set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vaulted;
+
+@end
+
+
+/**
+ *  Labels associated with the target resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_ResourceBackupConfig_TargetResourceLabels : GTLRObject
 @end
 
 
@@ -4929,7 +5320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  This is required for `recurrence_type`, `HOURLY` and is not applicable
  *  otherwise. A validation error will occur if a value is supplied and
  *  `recurrence_type` is not `HOURLY`. Value of hourly frequency should be
- *  between 6 and 23. Reason for limit : We found that there is bandwidth
+ *  between 4 and 23. Reason for limit : We found that there is bandwidth
  *  limitation of 3GB/S for GMI while taking a backup and 5GB/S while doing a
  *  restore. Given the amount of parallel backups and restore we are targeting,
  *  this will potentially take the backup time to mins and hours (in worst case
@@ -5051,6 +5442,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Details of the native Google Cloud resource created as part of restore. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_GcpResource *gcpResource;
+
+@end
+
+
+/**
+ *  BackupDrTemplateConfig has additional information about Backup and DR's
+ *  Template backup configuration.
+ */
+@interface GTLRBackupdr_TemplateConfig : GTLRObject
+
+/**
+ *  Output only. The URI of the BackupDr template resource for the first party
+ *  identity users.
+ */
+@property(nonatomic, copy, nullable) NSString *firstPartyManagementUri;
+
+/**
+ *  Output only. The URI of the BackupDr template resource for the third party
+ *  identity users.
+ */
+@property(nonatomic, copy, nullable) NSString *thirdPartyManagementUri;
 
 @end
 

@@ -18,6 +18,7 @@
 @class GTLROnDemandScanning_AnalysisCompleted;
 @class GTLROnDemandScanning_Artifact;
 @class GTLROnDemandScanning_AttestationOccurrence;
+@class GTLROnDemandScanning_BaseImage;
 @class GTLROnDemandScanning_BinarySourceInfo;
 @class GTLROnDemandScanning_BuildDefinition;
 @class GTLROnDemandScanning_BuildDefinition_ExternalParameters;
@@ -44,7 +45,9 @@
 @class GTLROnDemandScanning_Fingerprint;
 @class GTLROnDemandScanning_GerritSourceContext;
 @class GTLROnDemandScanning_GitSourceContext;
+@class GTLROnDemandScanning_GrafeasV1BaseImage;
 @class GTLROnDemandScanning_GrafeasV1FileLocation;
+@class GTLROnDemandScanning_GrafeasV1LayerDetails;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource;
@@ -65,6 +68,7 @@
 @class GTLROnDemandScanning_Jwt;
 @class GTLROnDemandScanning_LanguagePackageDependency;
 @class GTLROnDemandScanning_Layer;
+@class GTLROnDemandScanning_LayerDetails;
 @class GTLROnDemandScanning_License;
 @class GTLROnDemandScanning_Location;
 @class GTLROnDemandScanning_Maintainer;
@@ -1047,6 +1051,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  BaseImage describes a base image of a container image.
+ */
+@interface GTLROnDemandScanning_BaseImage : GTLRObject
+
+/**
+ *  The number of layers that the base image is composed of.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *layerCount;
+
+/** The name of the base image. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The repository name in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_BinarySourceInfo
  */
 @interface GTLROnDemandScanning_BinarySourceInfo : GTLRObject
@@ -1783,6 +1808,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
 
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_LayerDetails *layerDetails;
+
 @end
 
 
@@ -1850,6 +1877,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  BaseImage describes a base image of a container image.
+ */
+@interface GTLROnDemandScanning_GrafeasV1BaseImage : GTLRObject
+
+/**
+ *  The number of layers that the base image is composed of.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *layerCount;
+
+/** The name of the base image. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The repository name in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  Indicates the location at which a package was found.
  */
 @interface GTLROnDemandScanning_GrafeasV1FileLocation : GTLRObject
@@ -1859,6 +1907,41 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  the path to war file combined with the path to jar file.
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
+
+/**
+ *  Each package found in a file should have its own layer metadata (that is,
+ *  information from the origin layer of the package).
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1LayerDetails *layerDetails;
+
+@end
+
+
+/**
+ *  Details about the layer a package was found in.
+ */
+@interface GTLROnDemandScanning_GrafeasV1LayerDetails : GTLRObject
+
+/** The base images the layer is found within. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_GrafeasV1BaseImage *> *baseImages;
+
+/**
+ *  The layer build command that was used to build the layer. This may not be
+ *  found in all layers depending on how the container image is built.
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/**
+ *  The diff ID (typically a sha256 hash) of the layer in the container image.
+ */
+@property(nonatomic, copy, nullable) NSString *diffId;
+
+/**
+ *  The index of the layer in the container image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 @end
 
@@ -2236,6 +2319,35 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  See https://docs.docker.com/engine/reference/builder/ for more information.
  */
 @property(nonatomic, copy, nullable) NSString *directive;
+
+@end
+
+
+/**
+ *  Details about the layer a package was found in. This should be the same as
+ *  the LayerDetails message in
+ *  google3/third_party/scalibr/binary/proto/scan_result.proto.
+ */
+@interface GTLROnDemandScanning_LayerDetails : GTLRObject
+
+/** The base images the layer is found within. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_BaseImage *> *baseImages;
+
+/**
+ *  The layer build command that was used to build the layer. This may not be
+ *  found in all layers depending on how the container image is built.
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/** The diff ID (sha256 hash) of the layer in the container image. */
+@property(nonatomic, copy, nullable) NSString *diffId;
+
+/**
+ *  The index of the layer in the container image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 @end
 
@@ -2650,6 +2762,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  of type Maven. This field will be unset for non Maven packages.
  */
 @property(nonatomic, copy, nullable) NSString *hashDigest;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_LayerDetails *layerDetails;
 
 /**
  *  The list of licenses found that are related to a given package. Note that

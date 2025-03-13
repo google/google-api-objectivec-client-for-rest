@@ -342,6 +342,16 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_DownloadRestriction
+//
+
+@implementation GTLRDrive_DownloadRestriction
+@dynamic restrictedForReaders, restrictedForWriters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Drive
 //
 
@@ -396,7 +406,7 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 @implementation GTLRDrive_Drive_Restrictions
 @dynamic adminManagedRestrictions, copyRequiresWriterPermission,
-         domainUsersOnly, driveMembersOnly,
+         domainUsersOnly, downloadRestriction, driveMembersOnly,
          sharingFoldersRequiresOrganizerPermission;
 @end
 
@@ -434,15 +444,15 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
          driveId, explicitlyTrashed, exportLinks, fileExtension, folderColorRgb,
          fullFileExtension, hasAugmentedPermissions, hasThumbnail,
          headRevisionId, iconLink, identifier, imageMediaMetadata,
-         isAppAuthorized, kind, labelInfo, lastModifyingUser, linkShareMetadata,
-         md5Checksum, mimeType, modifiedByMe, modifiedByMeTime, modifiedTime,
-         name, originalFilename, ownedByMe, owners, parents, permissionIds,
-         permissions, properties, quotaBytesUsed, resourceKey, sha1Checksum,
-         sha256Checksum, shared, sharedWithMeTime, sharingUser, shortcutDetails,
-         size, spaces, starred, teamDriveId, thumbnailLink, thumbnailVersion,
-         trashed, trashedTime, trashingUser, version, videoMediaMetadata,
-         viewedByMe, viewedByMeTime, viewersCanCopyContent, webContentLink,
-         webViewLink, writersCanShare;
+         inheritedPermissionsDisabled, isAppAuthorized, kind, labelInfo,
+         lastModifyingUser, linkShareMetadata, md5Checksum, mimeType,
+         modifiedByMe, modifiedByMeTime, modifiedTime, name, originalFilename,
+         ownedByMe, owners, parents, permissionIds, permissions, properties,
+         quotaBytesUsed, resourceKey, sha1Checksum, sha256Checksum, shared,
+         sharedWithMeTime, sharingUser, shortcutDetails, size, spaces, starred,
+         teamDriveId, thumbnailLink, thumbnailVersion, trashed, trashedTime,
+         trashingUser, version, videoMediaMetadata, viewedByMe, viewedByMeTime,
+         viewersCanCopyContent, webContentLink, webViewLink, writersCanShare;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -490,8 +500,9 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 @dynamic canAcceptOwnership, canAddChildren, canAddFolderFromAnotherDrive,
          canAddMyDriveParent, canChangeCopyRequiresWriterPermission,
          canChangeSecurityUpdateEnabled, canChangeViewersCanCopyContent,
-         canComment, canCopy, canDelete, canDeleteChildren, canDownload,
-         canEdit, canListChildren, canModifyContent,
+         canComment, canCopy, canDelete, canDeleteChildren,
+         canDisableInheritedPermissions, canDownload, canEdit,
+         canEnableInheritedPermissions, canListChildren, canModifyContent,
          canModifyContentRestriction, canModifyEditorContentRestriction,
          canModifyLabels, canModifyOwnerContentRestriction,
          canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
@@ -950,8 +961,9 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 @implementation GTLRDrive_Permission
 @dynamic allowFileDiscovery, deleted, displayName, domain, emailAddress,
-         expirationTime, identifier, kind, pendingOwner, permissionDetails,
-         photoLink, role, teamDrivePermissionDetails, type, view;
+         expirationTime, identifier, inheritedPermissionsDisabled, kind,
+         pendingOwner, permissionDetails, photoLink, role,
+         teamDrivePermissionDetails, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1216,8 +1228,8 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 @implementation GTLRDrive_TeamDrive_Restrictions
 @dynamic adminManagedRestrictions, copyRequiresWriterPermission,
-         domainUsersOnly, sharingFoldersRequiresOrganizerPermission,
-         teamMembersOnly;
+         domainUsersOnly, downloadRestriction,
+         sharingFoldersRequiresOrganizerPermission, teamMembersOnly;
 @end
 
 

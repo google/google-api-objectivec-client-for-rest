@@ -114,6 +114,7 @@ NSString * const kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified = @"ST
 
 // GTLRCloudFilestore_ReplicaConfig.stateReasons
 NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_PeerInstanceUnreachable = @"PEER_INSTANCE_UNREACHABLE";
+NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_RemoveFailed = @"REMOVE_FAILED";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_StateReasonUnspecified = @"STATE_REASON_UNSPECIFIED";
 
 // GTLRCloudFilestore_Replication.role
@@ -504,7 +505,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Instance
-@dynamic configurablePerformanceEnabled, createTime, deletionProtectionEnabled,
+@dynamic createTime, customPerformanceSupported, deletionProtectionEnabled,
          deletionProtectionReason, descriptionProperty, ETag, fileShares,
          kmsKeyName, labels, name, networks, performanceConfig,
          performanceLimits, protocol, replication, satisfiesPzi, satisfiesPzs,
@@ -861,7 +862,8 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_PerformanceLimits
-@dynamic maxReadIops, maxReadThroughputBps, maxWriteIops, maxWriteThroughputBps;
+@dynamic maxIops, maxReadIops, maxReadThroughputBps, maxWriteIops,
+         maxWriteThroughputBps;
 @end
 
 
@@ -871,6 +873,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_PromoteReplicaRequest
+@dynamic peerInstance;
 @end
 
 

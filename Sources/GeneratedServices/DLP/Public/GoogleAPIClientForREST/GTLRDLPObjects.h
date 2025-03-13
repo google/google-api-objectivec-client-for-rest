@@ -78,6 +78,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2DatabaseResourceRegexes;
 @class GTLRDLP_GooglePrivacyDlpV2DataProfileAction;
 @class GTLRDLP_GooglePrivacyDlpV2DataProfileConfigSnapshot;
+@class GTLRDLP_GooglePrivacyDlpV2DataProfileFindingLocation;
+@class GTLRDLP_GooglePrivacyDlpV2DataProfileFindingRecordLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig;
 @class GTLRDLP_GooglePrivacyDlpV2DataProfileLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubCondition;
@@ -118,6 +120,9 @@
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryStartingLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryTarget;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetConditions;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetFilter;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DlpJob;
 @class GTLRDLP_GooglePrivacyDlpV2DocumentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2EntityId;
@@ -144,6 +149,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Finding_Labels;
 @class GTLRDLP_GooglePrivacyDlpV2FindingLimits;
 @class GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig;
+@class GTLRDLP_GooglePrivacyDlpV2GlobalProcessing;
 @class GTLRDLP_GooglePrivacyDlpV2HotwordRule;
 @class GTLRDLP_GooglePrivacyDlpV2HybridContentItem;
 @class GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails;
@@ -151,6 +157,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics;
 @class GTLRDLP_GooglePrivacyDlpV2HybridOptions;
 @class GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels;
+@class GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ImageLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ImageTransformation;
@@ -195,6 +202,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Location;
 @class GTLRDLP_GooglePrivacyDlpV2Manual;
 @class GTLRDLP_GooglePrivacyDlpV2MetadataLocation;
+@class GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult;
 @class GTLRDLP_GooglePrivacyDlpV2OrConditions;
@@ -211,6 +219,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2PathElement;
 @class GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2PrivacyMetric;
+@class GTLRDLP_GooglePrivacyDlpV2ProcessingLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ProfileStatus;
 @class GTLRDLP_GooglePrivacyDlpV2ProjectDataProfile;
 @class GTLRDLP_GooglePrivacyDlpV2Proximity;
@@ -236,6 +245,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2RecordTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2RedactConfig;
 @class GTLRDLP_GooglePrivacyDlpV2Regex;
+@class GTLRDLP_GooglePrivacyDlpV2RelatedResource;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceDictionaryConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig;
@@ -290,6 +300,11 @@
 @class GTLRDLP_GooglePrivacyDlpV2Value;
 @class GTLRDLP_GooglePrivacyDlpV2ValueFrequency;
 @class GTLRDLP_GooglePrivacyDlpV2VersionDescription;
+@class GTLRDLP_GooglePrivacyDlpV2VertexDatasetCollection;
+@class GTLRDLP_GooglePrivacyDlpV2VertexDatasetDiscoveryTarget;
+@class GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegex;
+@class GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegexes;
+@class GTLRDLP_GooglePrivacyDlpV2VertexDatasetResourceReference;
 @class GTLRDLP_GooglePrivacyDlpV2WordList;
 @class GTLRDLP_GoogleProtobufEmpty;
 @class GTLRDLP_GoogleRpcStatus;
@@ -1111,6 +1126,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Lik
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DataProfileFinding.resourceVisibility
+
+/**
+ *  May contain public items. For example, if a Cloud Storage bucket has uniform
+ *  bucket level access disabled, some objects inside it may be public, but none
+ *  are known yet.
+ *
+ *  Value: "RESOURCE_VISIBILITY_INCONCLUSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityInconclusive;
+/**
+ *  Visible to any user.
+ *
+ *  Value: "RESOURCE_VISIBILITY_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityPublic;
+/**
+ *  Visible only to specific users.
+ *
+ *  Value: "RESOURCE_VISIBILITY_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityRestricted;
+/**
+ *  Unused.
+ *
+ *  Value: "RESOURCE_VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage.event
 
 /**
@@ -1447,18 +1492,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlG
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_AllSupportedBuckets;
 /**
- *  Buckets with autoclass disabled
- *  (https://cloud.google.com/storage/docs/autoclass). Only one of
- *  AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set.
+ *  Buckets with [Autoclass](https://cloud.google.com/storage/docs/autoclass)
+ *  disabled. Only one of AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set.
  *
  *  Value: "AUTOCLASS_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_AutoclassDisabled;
 /**
- *  Buckets with autoclass enabled
- *  (https://cloud.google.com/storage/docs/autoclass). Only one of
- *  AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set. Scanning
- *  Autoclass-enabled buckets can affect object storage classes.
+ *  Buckets with [Autoclass](https://cloud.google.com/storage/docs/autoclass)
+ *  enabled. Only one of AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set.
+ *  Scanning Autoclass-enabled buckets can affect object storage classes.
  *
  *  Value: "AUTOCLASS_ENABLED"
  */
@@ -1760,6 +1803,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryTableModi
  *  Value: "TABLE_MODIFIED_TIMESTAMP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence_Types_TableModifiedTimestamp;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence.refreshFrequency
+
+/**
+ *  The data profile can be updated up to once every 24 hours.
+ *
+ *  Value: "UPDATE_FREQUENCY_DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyDaily;
+/**
+ *  The data profile can be updated up to once every 30 days. Default.
+ *
+ *  Value: "UPDATE_FREQUENCY_MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly;
+/**
+ *  After the data profile is created, it will never be updated.
+ *
+ *  Value: "UPDATE_FREQUENCY_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyNever;
+/**
+ *  Unspecified.
+ *
+ *  Value: "UPDATE_FREQUENCY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.state
@@ -2173,6 +2244,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Croatia;
 /**
+ *  The infoType is typically used in Czechia.
+ *
+ *  Value: "CZECHIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Czechia;
+/**
  *  The infoType is typically used in Denmark.
  *
  *  Value: "DENMARK"
@@ -2424,6 +2501,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_T
  *  Value: "CREDENTIAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Credential;
+/**
+ *  Category for `CustomInfoType` types.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Custom;
 /**
  *  Attributes that can partially identify someone, especially in combination
  *  with other attributes, like age, height, and gender.
@@ -5118,7 +5201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization to
  *  learn more. Note: We recommend using CryptoDeterministicConfig for all use
  *  cases which do not require preserving the input alphabet space and size,
- *  plus warrant referential integrity.
+ *  plus warrant referential integrity. FPE incurs significant latency costs.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig : GTLRObject
 
@@ -5452,6 +5535,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Name of the inspection template used to generate this profile */
 @property(nonatomic, copy, nullable) NSString *inspectTemplateName;
+
+@end
+
+
+/**
+ *  Details about a piece of potentially sensitive information that was detected
+ *  when the data resource was profiled.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileFinding : GTLRObject
+
+/** Resource name of the data profile associated with the finding. */
+@property(nonatomic, copy, nullable) NSString *dataProfileResourceName;
+
+/** A unique identifier for the finding. */
+@property(nonatomic, copy, nullable) NSString *findingId;
+
+/**
+ *  The [type of
+ *  content](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference)
+ *  that might have been found.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infotype;
+
+/** Where the content was found. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileFindingLocation *location;
+
+/**
+ *  The content that was found. Even if the content is not textual, it may be
+ *  converted to a textual representation here. If the finding exceeds 4096
+ *  bytes in length, the quote may be omitted.
+ */
+@property(nonatomic, copy, nullable) NSString *quote;
+
+/**
+ *  Contains data parsed from quotes. Currently supported infoTypes: DATE,
+ *  DATE_OF_BIRTH, and TIME.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2QuoteInfo *quoteInfo;
+
+/**
+ *  How broadly a resource has been shared.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityInconclusive
+ *        May contain public items. For example, if a Cloud Storage bucket has
+ *        uniform bucket level access disabled, some objects inside it may be
+ *        public, but none are known yet. (Value:
+ *        "RESOURCE_VISIBILITY_INCONCLUSIVE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityPublic
+ *        Visible to any user. (Value: "RESOURCE_VISIBILITY_PUBLIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityRestricted
+ *        Visible only to specific users. (Value:
+ *        "RESOURCE_VISIBILITY_RESTRICTED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfileFinding_ResourceVisibility_ResourceVisibilityUnspecified
+ *        Unused. (Value: "RESOURCE_VISIBILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceVisibility;
+
+/** Timestamp when the finding was detected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+@end
+
+
+/**
+ *  Location of a data profile finding within a resource.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileFindingLocation : GTLRObject
+
+/**
+ *  Name of the container where the finding is located. The top-level name is
+ *  the source file name or table name. Names of some common storage containers
+ *  are formatted as follows: * BigQuery tables:
+ *  `{project_id}:{dataset_id}.{table_id}` * Cloud Storage files:
+ *  `gs://{bucket}/{path}`
+ */
+@property(nonatomic, copy, nullable) NSString *containerName;
+
+/**
+ *  Location of a finding within a resource that produces a table data profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileFindingRecordLocation *dataProfileFindingRecordLocation;
+
+@end
+
+
+/**
+ *  Location of a finding within a resource that produces a table data profile.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileFindingRecordLocation : GTLRObject
+
+/** Field ID of the column containing the finding. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 @end
 
@@ -6451,6 +6627,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation *otherCloudStartingLocation;
 
 /**
+ *  Optional. Processing location configuration. Vertex AI dataset scanning will
+ *  set processing_location.image_fallback_type to MultiRegionProcessing by
+ *  default.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ProcessingLocation *processingLocation;
+
+/**
  *  Required. A status for this configuration.
  *
  *  Likely values:
@@ -6773,6 +6956,101 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SecretsDiscoveryTarget *secretsTarget;
 
+/**
+ *  Vertex AI dataset target for Discovery. The first target to match a dataset
+ *  will be the one applied. Note that discovery for Vertex AI can incur Cloud
+ *  Storage Class B operation charges for storage.objects.get operations and
+ *  retrieval fees. For more information, see [Cloud Storage
+ *  pricing](https://cloud.google.com/storage/pricing#price-tables). Note that
+ *  discovery for Vertex AI dataset will not be able to scan images unless
+ *  DiscoveryConfig.processing_location.image_fallback_location has
+ *  multi_region_processing or global_processing configured.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2VertexDatasetDiscoveryTarget *vertexDatasetTarget;
+
+@end
+
+
+/**
+ *  Requirements that must be true before a dataset is profiled for the first
+ *  time.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetConditions : GTLRObject
+
+/**
+ *  Vertex AI dataset must have been created after this date. Used to avoid
+ *  backfilling.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAfter;
+
+/**
+ *  Minimum age a Vertex AI dataset must have. If set, the value must be 1 hour
+ *  or greater.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minAge;
+
+@end
+
+
+/**
+ *  Determines what datasets will have profiles generated within an organization
+ *  or project. Includes the ability to filter by regular expression patterns on
+ *  project ID or dataset regex.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetFilter : GTLRObject
+
+/** A specific set of Vertex AI datasets for this filter to apply to. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2VertexDatasetCollection *collection;
+
+/**
+ *  Catch-all. This should always be the last target in the list because
+ *  anything above it will apply first. Should only appear once in a
+ *  configuration. If none is specified, a default one will be added
+ *  automatically.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AllOtherResources *others;
+
+/**
+ *  The dataset resource to scan. Targets including this can only include one
+ *  target (the target with this dataset resource reference).
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2VertexDatasetResourceReference *vertexDatasetResourceReference;
+
+@end
+
+
+/**
+ *  How often existing datasets should have their profiles refreshed. New
+ *  datasets are scanned as quickly as possible depending on system capacity.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence : GTLRObject
+
+/**
+ *  Governs when to update data profiles when the inspection rules defined by
+ *  the `InspectTemplate` change. If not set, changing the template will not
+ *  cause a data profile to be updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence *inspectTemplateModifiedCadence;
+
+/**
+ *  If you set this field, profiles are refreshed at this frequency regardless
+ *  of whether the underlying datasets have changed. Defaults to never.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyDaily
+ *        The data profile can be updated up to once every 24 hours. (Value:
+ *        "UPDATE_FREQUENCY_DAILY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly
+ *        The data profile can be updated up to once every 30 days. Default.
+ *        (Value: "UPDATE_FREQUENCY_MONTHLY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyNever
+ *        After the data profile is created, it will never be updated. (Value:
+ *        "UPDATE_FREQUENCY_NEVER")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified
+ *        Unspecified. (Value: "UPDATE_FREQUENCY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *refreshFrequency;
+
 @end
 
 
@@ -7016,16 +7294,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Export : GTLRObject
 
 /**
- *  Store all table and column profiles in an existing table or a new table in
- *  an existing dataset. Each re-generation will result in new rows in BigQuery.
+ *  Store all profiles to BigQuery. * The system will create a new dataset and
+ *  table for you if none are are provided. The dataset will be named
+ *  `sensitive_data_protection_discovery` and table will be named
+ *  `discovery_profiles`. This table will be placed in the same project as the
+ *  container project running the scan. After the first profile is generated and
+ *  the dataset and table are created, the discovery scan configuration will be
+ *  updated with the dataset and table names. * See [Analyze data profiles
+ *  stored in
+ *  BigQuery](https://cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles).
+ *  * See [Sample queries for your BigQuery
+ *  table](https://cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles#sample_sql_queries).
+ *  * Data is inserted using [streaming
+ *  insert](https://cloud.google.com/blog/products/bigquery/life-of-a-bigquery-streaming-insert)
+ *  and so data may be in the buffer for a period of time after the profile has
+ *  finished. * The Pub/Sub notification is sent before the streaming buffer is
+ *  guaranteed to be written, so data may not be instantly visible to queries by
+ *  the time your topic receives the Pub/Sub notification. * The best practice
+ *  is to use the same table for an entire organization so that you can take
+ *  advantage of the [provided Looker
+ *  reports](https://cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles#use_a_premade_report).
+ *  If you use VPC Service Controls to define security perimeters, then you must
+ *  use a separate table for each boundary.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *profileTable;
+
+/**
+ *  Store sample data profile findings in an existing table or a new table in an
+ *  existing dataset. Each regeneration will result in new rows in BigQuery.
  *  Data is inserted using [streaming
  *  insert](https://cloud.google.com/blog/products/bigquery/life-of-a-bigquery-streaming-insert)
  *  and so data may be in the buffer for a period of time after the profile has
- *  finished. The Pub/Sub notification is sent before the streaming buffer is
- *  guaranteed to be written, so data may not be instantly visible to queries by
- *  the time your topic receives the Pub/Sub notification.
+ *  finished.
  */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *profileTable;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *sampleFindingsTable;
 
 @end
 
@@ -7290,7 +7592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The file store path. * Cloud Storage: `gs://{bucket}` * Amazon S3:
- *  `s3://{bucket}`
+ *  `s3://{bucket}` * Vertex AI dataset:
+ *  `projects/{project_number}/locations/{location}/datasets/{dataset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *fileStorePath;
 
@@ -7332,6 +7635,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** Resources related to this profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2RelatedResource *> *relatedResources;
+
 /**
  *  Attributes of the resource being profiled. Currently used attributes: *
  *  customer_managed_encryption: boolean - true: the resource is encrypted with
@@ -7363,6 +7669,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Unused. (Value: "RESOURCE_VISIBILITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceVisibility;
+
+/** The BigQuery table to which the sample findings are written. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *sampleFindingsTable;
 
 /** The sensitivity score of this resource. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
@@ -7647,6 +7956,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Processing will happen in the global region.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2GlobalProcessing : GTLRObject
+@end
+
+
+/**
  *  The rule that adjusts the likelihood of findings within a certain proximity
  *  of hotwords.
  */
@@ -7885,6 +8201,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Configure image processing to fall back to the configured processing option
+ *  below if unavailable in the request location.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation : GTLRObject
+
+/** Processing will happen in the global region. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2GlobalProcessing *globalProcessing;
+
+/**
+ *  Processing will happen in a multi-region that contains the current region if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing *multiRegionProcessing;
+
+@end
+
+
+/**
  *  Location of the finding within an image.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ImageLocation : GTLRObject
@@ -8048,6 +8382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        The infoType is typically used in Colombia. (Value: "COLOMBIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Croatia
  *        The infoType is typically used in Croatia. (Value: "CROATIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Czechia
+ *        The infoType is typically used in Czechia. (Value: "CZECHIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Denmark
  *        The infoType is typically used in Denmark. (Value: "DENMARK")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Finland
@@ -8146,6 +8482,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Credential
  *        Confidential or secret information, for example, a password. (Value:
  *        "CREDENTIAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Custom
+ *        Category for `CustomInfoType` types. (Value: "CUSTOM")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Demographic
  *        Attributes that can partially identify someone, especially in
  *        combination with other attributes, like age, height, and gender.
@@ -8188,7 +8526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Human readable form of the infoType name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** A sample true positive for this infoType. */
+/** A sample that is a true positive for this infoType. */
 @property(nonatomic, copy, nullable) NSString *example;
 
 /** Internal name of the infoType. */
@@ -9539,6 +9877,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Processing will happen in a multi-region that contains the current region if
+ *  available.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing : GTLRObject
+@end
+
+
+/**
  *  Compute numerical stats over an individual column, including min, max, and
  *  quantiles.
  */
@@ -9862,7 +10208,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Crypto */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig *cryptoHashConfig;
 
-/** Ffx-Fpe */
+/**
+ *  Ffx-Fpe. Strongly discouraged, consider using CryptoDeterministicConfig
+ *  instead. Fpe is computationally expensive incurring latency costs.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig *cryptoReplaceFfxFpeConfig;
 
 /** Date Shift */
@@ -9913,6 +10262,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Numerical stats */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig *numericalStatsConfig;
+
+@end
+
+
+/**
+ *  Configure processing location for discovery and inspection. For example,
+ *  image OCR is only provided in limited regions but configuring
+ *  ProcessingLocation will redirect OCR to a location where OCR is provided.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ProcessingLocation : GTLRObject
+
+/** Image processing will fall back using this configuration. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation *imageFallbackLocation;
 
 @end
 
@@ -10541,6 +10903,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** An overview of the changes that were made to the `item`. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransformationOverview *overview;
+
+@end
+
+
+/**
+ *  A related resource. Examples: * The source BigQuery table for a Vertex AI
+ *  dataset. * The source Cloud Storage bucket for a Vertex AI dataset.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2RelatedResource : GTLRObject
+
+/** The full resource name of the related resource. */
+@property(nonatomic, copy, nullable) NSString *fullResource;
 
 @end
 
@@ -11220,6 +11594,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The resource name of the project data profile for this table. */
 @property(nonatomic, copy, nullable) NSString *projectDataProfile;
 
+/** Resources related to this profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2RelatedResource *> *relatedResources;
+
 /**
  *  The labels applied to the resource at the time the profile was generated.
  */
@@ -11251,6 +11628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/** The BigQuery table to which the sample findings are written. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *sampleFindingsTable;
 
 /**
  *  The number of columns profiled in the table.
@@ -12154,6 +12534,91 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Name of the version */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Match dataset resources using regex filters.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2VertexDatasetCollection : GTLRObject
+
+/** The regex used to filter dataset resources. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegexes *vertexDatasetRegexes;
+
+@end
+
+
+/**
+ *  Target used to match against for discovery with Vertex AI datasets.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2VertexDatasetDiscoveryTarget : GTLRObject
+
+/**
+ *  In addition to matching the filter, these conditions must be true before a
+ *  profile is generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetConditions *conditions;
+
+/** Disable profiling for datasets that match this filter. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Disabled *disabled;
+
+/**
+ *  Required. The datasets the discovery cadence applies to. The first target
+ *  with a matching filter will be the one to apply to a dataset.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetFilter *filter;
+
+/**
+ *  How often and when to update profiles. New datasets that match both the
+ *  filter and conditions are scanned as quickly as possible depending on system
+ *  capacity.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence *generationCadence;
+
+@end
+
+
+/**
+ *  A pattern to match against one or more dataset resources.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegex : GTLRObject
+
+/**
+ *  For organizations, if unset, will match all projects. Has no effect for
+ *  configurations created within a project.
+ */
+@property(nonatomic, copy, nullable) NSString *projectIdRegex;
+
+@end
+
+
+/**
+ *  A collection of regular expressions to determine what datasets to match
+ *  against.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegexes : GTLRObject
+
+/**
+ *  Required. The group of regular expression patterns to match against one or
+ *  more datasets. Maximum of 100 entries. The sum of the lengths of all regular
+ *  expressions can't exceed 10 KiB.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2VertexDatasetRegex *> *patterns;
+
+@end
+
+
+/**
+ *  Identifies a single Vertex AI dataset.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2VertexDatasetResourceReference : GTLRObject
+
+/**
+ *  Required. The name of the dataset resource. If set within a project-level
+ *  configuration, the specified resource must be within the project.
+ */
+@property(nonatomic, copy, nullable) NSString *datasetResourceName;
 
 @end
 

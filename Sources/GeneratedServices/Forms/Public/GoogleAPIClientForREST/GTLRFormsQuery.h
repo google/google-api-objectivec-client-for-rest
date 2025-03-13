@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Forms and responses.
 // Documentation:
-//   https://developers.google.com/forms/api
+//   https://developers.google.com/workspace/forms/api
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -80,6 +80,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFormsDriveFile
  */
 @interface GTLRFormsQuery_FormsCreate : GTLRFormsQuery
+
+/**
+ *  Optional. Whether the form is unpublished. If set to `true`, the form
+ *  doesn't accept responses. If set to `false` or unset, the form is published
+ *  and accepts responses.
+ */
+@property(nonatomic, assign) BOOL unpublished;
 
 /**
  *  Fetches a @c GTLRForms_Form.
@@ -214,6 +221,42 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithFormId:(NSString *)formId;
+
+@end
+
+/**
+ *  Updates the publish settings of a form. Legacy forms aren't supported
+ *  because they don't have the `publish_settings` field.
+ *
+ *  Method: forms.forms.setPublishSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
+ *    @c kGTLRAuthScopeFormsDrive
+ *    @c kGTLRAuthScopeFormsDriveFile
+ */
+@interface GTLRFormsQuery_FormsSetPublishSettings : GTLRFormsQuery
+
+/**
+ *  Required. The ID of the form. You can get the id from `Form.form_id` field.
+ */
+@property(nonatomic, copy, nullable) NSString *formId;
+
+/**
+ *  Fetches a @c GTLRForms_SetPublishSettingsResponse.
+ *
+ *  Updates the publish settings of a form. Legacy forms aren't supported
+ *  because they don't have the `publish_settings` field.
+ *
+ *  @param object The @c GTLRForms_SetPublishSettingsRequest to include in the
+ *    query.
+ *  @param formId Required. The ID of the form. You can get the id from
+ *    `Form.form_id` field.
+ *
+ *  @return GTLRFormsQuery_FormsSetPublishSettings
+ */
++ (instancetype)queryWithObject:(GTLRForms_SetPublishSettingsRequest *)object
+                         formId:(NSString *)formId;
 
 @end
 

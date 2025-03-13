@@ -185,11 +185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Fu
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Grp;
 /**
- *  Inventory Availability report.
+ *  Inventory Availability report. See the [Display & Video 360 Help Center
+ *  announcement](https://support.google.com/displayvideo/answer/15874746) for
+ *  more information on this deprecation.
  *
  *  Value: "INVENTORY_AVAILABILITY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability;
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability GTLR_DEPRECATED;
 /**
  *  Path Attribution report.
  *
@@ -607,7 +609,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Grp GRP report. (Value:
  *        "GRP")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability
- *        Inventory Availability report. (Value: "INVENTORY_AVAILABILITY")
+ *        Inventory Availability report. See the [Display & Video 360 Help
+ *        Center
+ *        announcement](https://support.google.com/displayvideo/answer/15874746)
+ *        for more information on this deprecation. (Value:
+ *        "INVENTORY_AVAILABILITY")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution Path
  *        Attribution report. (Value: "PATH_ATTRIBUTION")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Reach Reach report.

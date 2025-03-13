@@ -755,6 +755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsCreate : GTLRCloudDataplexQuery
 
 /**
@@ -805,6 +806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsDelete : GTLRCloudDataplexQuery
 
 /**
@@ -844,6 +846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsGet : GTLRCloudDataplexQuery
 
 /**
@@ -924,6 +927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsList : GTLRCloudDataplexQuery
 
 /**
@@ -986,6 +990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsPatch : GTLRCloudDataplexQuery
 
 /**
@@ -1737,6 +1742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesCreate : GTLRCloudDataplexQuery
 
 /**
@@ -1784,6 +1790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesDelete : GTLRCloudDataplexQuery
 
 /**
@@ -1820,6 +1827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesGet : GTLRCloudDataplexQuery
 
 /**
@@ -1900,6 +1908,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesList : GTLRCloudDataplexQuery
 
 /** Optional. Filter request. */
@@ -1957,6 +1966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesPatch : GTLRCloudDataplexQuery
 
 /**
@@ -2088,6 +2098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesCreate : GTLRCloudDataplexQuery
 
 /**
@@ -2098,11 +2109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  */
 @property(nonatomic, copy, nullable) NSString *dataTaxonomyId;
 
-/**
- *  Required. The resource name of the data taxonomy location, of the form:
- *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
- */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2118,9 +2124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy to
  *    include in the query.
- *  @param parent Required. The resource name of the data taxonomy location, of
- *    the form: projects/{project_number}/locations/{location_id} where
- *    location_id refers to a GCP region.
+ *  @param parent NSString
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesCreate
  */
@@ -2138,6 +2142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesDelete : GTLRCloudDataplexQuery
 
 /**
@@ -2175,12 +2180,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesGet : GTLRCloudDataplexQuery
 
-/**
- *  Required. The resource name of the DataTaxonomy:
- *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
- */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2188,8 +2190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Retrieves a DataTaxonomy resource.
  *
- *  @param name Required. The resource name of the DataTaxonomy:
- *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ *  @param name NSString
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesGet
  */
@@ -2255,6 +2256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesList : GTLRCloudDataplexQuery
 
 /** Optional. Filter request. */
@@ -2314,6 +2316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesPatch : GTLRCloudDataplexQuery
 
 /**
@@ -2598,10 +2601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Gets an Entry.Caution: The BigQuery metadata that is stored in Dataplex
- *  Catalog is changing. For more information, see Changes to BigQuery metadata
- *  stored in Dataplex Catalog
- *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
+ *  Gets an Entry.
  *
  *  Method: dataplex.projects.locations.entryGroups.entries.get
  *
@@ -2649,10 +2649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
- *  Gets an Entry.Caution: The BigQuery metadata that is stored in Dataplex
- *  Catalog is changing. For more information, see Changes to BigQuery metadata
- *  stored in Dataplex Catalog
- *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
+ *  Gets an Entry.
  *
  *  @param name Required. The resource name of the Entry:
  *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
@@ -7359,11 +7356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Looks up a single Entry by name using the permission on the source
- *  system.Caution: The BigQuery metadata that is stored in Dataplex Catalog is
- *  changing. For more information, see Changes to BigQuery metadata stored in
- *  Dataplex Catalog
- *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
+ *  Looks up an entry by name using the permission on the source system.
  *
  *  Method: dataplex.projects.locations.lookupEntry
  *
@@ -7417,11 +7410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
- *  Looks up a single Entry by name using the permission on the source
- *  system.Caution: The BigQuery metadata that is stored in Dataplex Catalog is
- *  changing. For more information, see Changes to BigQuery metadata stored in
- *  Dataplex Catalog
- *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
+ *  Looks up an entry by name using the permission on the source system.
  *
  *  @param name Required. The project to which the request should be attributed
  *    in the following form: projects/{project}/locations/{location}.
@@ -7778,8 +7767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Specifies the ordering of results. Supported values are: *
- *  relevance (default) * last_modified_timestamp * last_modified_timestamp asc
+ *  Optional. Specifies the ordering of results. Supported values are: relevance
+ *  (default) last_modified_timestamp last_modified_timestamp asc
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

@@ -2813,6 +2813,9 @@ GTLR_DEPRECATED
 /** Map from region code to converted region price. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices *convertedRegionPrices;
 
+/** The region version at which the prices were generated. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionsVersion *regionVersion;
+
 @end
 
 

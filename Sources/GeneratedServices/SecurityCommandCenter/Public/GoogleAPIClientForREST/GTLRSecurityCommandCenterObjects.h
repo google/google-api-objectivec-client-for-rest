@@ -18,6 +18,7 @@
 @class GTLRSecurityCommandCenter_Access;
 @class GTLRSecurityCommandCenter_AccessReview;
 @class GTLRSecurityCommandCenter_AdaptiveProtection;
+@class GTLRSecurityCommandCenter_Allowed;
 @class GTLRSecurityCommandCenter_Application;
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
@@ -60,6 +61,7 @@
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_DataFlowEvent;
 @class GTLRSecurityCommandCenter_DataRetentionDeletionEvent;
+@class GTLRSecurityCommandCenter_Denied;
 @class GTLRSecurityCommandCenter_Detection;
 @class GTLRSecurityCommandCenter_Disk;
 @class GTLRSecurityCommandCenter_DiskPath;
@@ -105,6 +107,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Access;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AccessReview;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure;
@@ -134,6 +137,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Database;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath;
@@ -152,6 +156,8 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFinding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingCve;
@@ -166,6 +172,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContext;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextAggregatedCount;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueSecurityContextContext;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2KernelRootkit;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Kubernetes;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Label;
@@ -174,6 +181,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MemoryHashSignature;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteInfo;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Network;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Node;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2NodePool;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Notebook;
@@ -182,6 +190,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Package;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pod;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PolicyDriftDetails;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PortRange;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Process;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ProcessSignature;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Reference;
@@ -210,6 +219,9 @@
 @class GTLRSecurityCommandCenter_IamBinding;
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_Indicator;
+@class GTLRSecurityCommandCenter_IpRule;
+@class GTLRSecurityCommandCenter_IpRules;
+@class GTLRSecurityCommandCenter_Job;
 @class GTLRSecurityCommandCenter_KernelRootkit;
 @class GTLRSecurityCommandCenter_Kubernetes;
 @class GTLRSecurityCommandCenter_Label;
@@ -220,6 +232,7 @@
 @class GTLRSecurityCommandCenter_MemoryHashSignature;
 @class GTLRSecurityCommandCenter_MitreAttack;
 @class GTLRSecurityCommandCenter_MuteInfo;
+@class GTLRSecurityCommandCenter_Network;
 @class GTLRSecurityCommandCenter_Node;
 @class GTLRSecurityCommandCenter_NodePool;
 @class GTLRSecurityCommandCenter_Notebook;
@@ -234,6 +247,7 @@
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
 @class GTLRSecurityCommandCenter_PolicyDriftDetails;
+@class GTLRSecurityCommandCenter_PortRange;
 @class GTLRSecurityCommandCenter_Position;
 @class GTLRSecurityCommandCenter_Process;
 @class GTLRSecurityCommandCenter_ProcessSignature;
@@ -272,6 +286,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -2320,6 +2335,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding_Action_Remove;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules.direction
+
+/**
+ *  Unspecified direction value.
+ *
+ *  Value: "DIRECTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules_Direction_DirectionUnspecified;
+/**
+ *  Egress direction value.
+ *
+ *  Value: "EGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules_Direction_Egress;
+/**
+ *  Ingress direction value.
+ *
+ *  Value: "INGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules_Direction_Ingress;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Issue.issueType
 
 /**
@@ -2500,6 +2537,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job.state
+
+/**
+ *  Job has completed but with failure
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Failed;
+/**
+ *  Unspecified represents an unknown state and should not be used.
+ *
+ *  Value: "JOB_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_JobStateUnspecified;
+/**
+ *  Job is scheduled and pending for run
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Pending;
+/**
+ *  Job in progress
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Running;
+/**
+ *  Job has completed with success
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack.additionalTactics
 
 /**
@@ -2633,6 +2704,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AdditionalCloudCredentials;
 /**
+ *  T1098.003
+ *
+ *  Value: "ADDITIONAL_CLOUD_ROLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AdditionalCloudRoles;
+/**
  *  T1098.006
  *
  *  Value: "ADDITIONAL_CONTAINER_CLUSTER_ROLES"
@@ -2644,6 +2721,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "APPLICATION_LAYER_PROTOCOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ApplicationLayerProtocol;
+/**
+ *  T1020
+ *
+ *  Value: "AUTOMATED_EXFILTRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AutomatedExfiltration;
 /**
  *  T1037
  *
@@ -2993,6 +3076,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_UnsecuredCredentials;
 /**
+ *  T1204
+ *
+ *  Value: "USER_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_UserExecution;
+/**
  *  T1078
  *
  *  Value: "VALID_ACCOUNTS"
@@ -3133,6 +3222,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AdditionalCloudCredentials;
 /**
+ *  T1098.003
+ *
+ *  Value: "ADDITIONAL_CLOUD_ROLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AdditionalCloudRoles;
+/**
  *  T1098.006
  *
  *  Value: "ADDITIONAL_CONTAINER_CLUSTER_ROLES"
@@ -3144,6 +3239,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "APPLICATION_LAYER_PROTOCOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ApplicationLayerProtocol;
+/**
+ *  T1020
+ *
+ *  Value: "AUTOMATED_EXFILTRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AutomatedExfiltration;
 /**
  *  T1037
  *
@@ -3492,6 +3593,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "UNSECURED_CREDENTIALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_UnsecuredCredentials;
+/**
+ *  T1204
+ *
+ *  Value: "USER_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_UserExecution;
 /**
  *  T1078
  *
@@ -3889,6 +3996,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_Remove;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_IpRules.direction
+
+/**
+ *  Unspecified direction value.
+ *
+ *  Value: "DIRECTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IpRules_Direction_DirectionUnspecified;
+/**
+ *  Egress direction value.
+ *
+ *  Value: "EGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IpRules_Direction_Egress;
+/**
+ *  Ingress direction value.
+ *
+ *  Value: "INGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IpRules_Direction_Ingress;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Job.state
+
+/**
+ *  Job has completed but with failure
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Job_State_Failed;
+/**
+ *  Unspecified represents an unknown state and should not be used.
+ *
+ *  Value: "JOB_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Job_State_JobStateUnspecified;
+/**
+ *  Job is scheduled and pending for run
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Job_State_Pending;
+/**
+ *  Job in progress
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Job_State_Running;
+/**
+ *  Job has completed with success
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Job_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_ListAssetsResult.stateChange
 
 /**
@@ -4087,6 +4250,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AdditionalCloudCredentials;
 /**
+ *  T1098.003
+ *
+ *  Value: "ADDITIONAL_CLOUD_ROLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AdditionalCloudRoles;
+/**
  *  T1098.006
  *
  *  Value: "ADDITIONAL_CONTAINER_CLUSTER_ROLES"
@@ -4098,6 +4267,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "APPLICATION_LAYER_PROTOCOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ApplicationLayerProtocol;
+/**
+ *  T1020
+ *
+ *  Value: "AUTOMATED_EXFILTRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AutomatedExfiltration;
 /**
  *  T1037
  *
@@ -4447,6 +4622,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UnsecuredCredentials;
 /**
+ *  T1204
+ *
+ *  Value: "USER_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UserExecution;
+/**
  *  T1078
  *
  *  Value: "VALID_ACCOUNTS"
@@ -4587,6 +4768,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AdditionalCloudCredentials;
 /**
+ *  T1098.003
+ *
+ *  Value: "ADDITIONAL_CLOUD_ROLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AdditionalCloudRoles;
+/**
  *  T1098.006
  *
  *  Value: "ADDITIONAL_CONTAINER_CLUSTER_ROLES"
@@ -4598,6 +4785,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "APPLICATION_LAYER_PROTOCOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ApplicationLayerProtocol;
+/**
+ *  T1020
+ *
+ *  Value: "AUTOMATED_EXFILTRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AutomatedExfiltration;
 /**
  *  T1037
  *
@@ -4946,6 +5139,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "UNSECURED_CREDENTIALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnsecuredCredentials;
+/**
+ *  T1204
+ *
+ *  Value: "USER_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UserExecution;
 /**
  *  T1078
  *
@@ -5414,6 +5613,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
+
+@end
+
+
+/**
+ *  Allowed IP rule.
+ */
+@interface GTLRSecurityCommandCenter_Allowed : GTLRObject
+
+/** Optional. Optional list of allowed IP rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_IpRule *> *ipRules;
 
 @end
 
@@ -6422,6 +6632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  Result containing the properties and count of a ComplianceSnapshot request.
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenter_ComplianceSnapshot : GTLRObject
 
 /** The category of Findings matching. */
@@ -7071,12 +7282,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  Maximum duration of retention allowed from the DRD control. This comes from
  *  the DRD control where users set a max TTL for their data. For example,
- *  suppose that a user set the max TTL for a Cloud Storage bucket to 90 days.
+ *  suppose that a user sets the max TTL for a Cloud Storage bucket to 90 days.
  *  However, an object in that bucket is 100 days old. In this case, a
  *  DataRetentionDeletionEvent will be generated for that Cloud Storage bucket,
  *  and the max_retention_allowed is 90 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRetentionAllowed;
+
+@end
+
+
+/**
+ *  Denied IP rule.
+ */
+@interface GTLRSecurityCommandCenter_Denied : GTLRObject
+
+/** Optional. Optional list of denied IP rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_IpRule *> *ipRules;
 
 @end
 
@@ -7108,7 +7330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  The name of the disk, for example,
- *  "https://www.googleapis.com/compute/v1/projects/project-id/zones/zone-id/disks/disk-id".
+ *  "https://www.googleapis.com/compute/v1/projects/{project-id}/zones/{zone-id}/disks/{disk-id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7697,6 +7919,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
 
+/** IP rules associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_IpRules *ipRules;
+
+/** Job associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Job *job;
+
 /** Signature of the kernel rootkit. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_KernelRootkit *kernelRootkit;
 
@@ -7760,6 +7988,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Represents the VPC networks that the resource is attached to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Network *> *networks;
 
 /** Steps to address the finding. */
 @property(nonatomic, copy, nullable) NSString *nextSteps;
@@ -9317,6 +9548,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Allowed IP rule.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed : GTLRObject
+
+/** Optional. Optional list of allowed IP rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule *> *ipRules;
+
+@end
+
+
+/**
  *  Represents an application associated with a finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application : GTLRObject
@@ -10516,12 +10758,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  Maximum duration of retention allowed from the DRD control. This comes from
  *  the DRD control where users set a max TTL for their data. For example,
- *  suppose that a user set the max TTL for a Cloud Storage bucket to 90 days.
+ *  suppose that a user sets the max TTL for a Cloud Storage bucket to 90 days.
  *  However, an object in that bucket is 100 days old. In this case, a
  *  DataRetentionDeletionEvent will be generated for that Cloud Storage bucket,
  *  and the max_retention_allowed is 90 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRetentionAllowed;
+
+@end
+
+
+/**
+ *  Denied IP rule.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied : GTLRObject
+
+/** Optional. Optional list of denied IP rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule *> *ipRules;
 
 @end
 
@@ -10553,7 +10806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  The name of the disk, for example,
- *  "https://www.googleapis.com/compute/v1/projects/project-id/zones/zone-id/disks/disk-id".
+ *  "https://www.googleapis.com/compute/v1/projects/{project-id}/zones/{zone-id}/disks/{disk-id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -10972,6 +11225,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator *indicator;
 
+/** IP rules associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules *ipRules;
+
+/** Job associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job *job;
+
 /** Signature of the kernel rootkit. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2KernelRootkit *kernelRootkit;
 
@@ -11040,6 +11299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  `projects/{project_id}/sources/{source_id}/locations/{location_id}/findings/{finding_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Represents the VPC networks that the resource is attached to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Network *> *networks;
 
 /** Steps to address the finding. */
 @property(nonatomic, copy, nullable) NSString *nextSteps;
@@ -11342,6 +11604,76 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The list of URIs associated to the Findings. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+@end
+
+
+/**
+ *  IP rule information.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule : GTLRObject
+
+/**
+ *  Optional. An optional list of ports to which this rule applies. This field
+ *  is only applicable for the UDP or (S)TCP protocols. Each entry must be
+ *  either an integer or a range including a min and max port number.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PortRange *> *portRanges;
+
+/**
+ *  The IP protocol this rule applies to. This value can either be one of the
+ *  following well known protocol strings (TCP, UDP, ICMP, ESP, AH, IPIP, SCTP)
+ *  or a string representation of the integer value.
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+@end
+
+
+/**
+ *  IP rules associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules : GTLRObject
+
+/** Tuple with allowed rules. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed *allowed;
+
+/** Tuple with denied rules. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied *denied;
+
+/**
+ *  If destination IP ranges are specified, the firewall rule applies only to
+ *  traffic that has a destination IP address in these ranges. These ranges must
+ *  be expressed in CIDR format. Only supports IPv4.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinationIpRanges;
+
+/**
+ *  The direction that the rule is applicable to, one of ingress or egress.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules_Direction_DirectionUnspecified
+ *        Unspecified direction value. (Value: "DIRECTION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules_Direction_Egress
+ *        Egress direction value. (Value: "EGRESS")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules_Direction_Ingress
+ *        Ingress direction value. (Value: "INGRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *direction;
+
+/**
+ *  Name of the network protocol service, such as FTP, that is exposed by the
+ *  open port. Follows the naming convention available at:
+ *  https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exposedServices;
+
+/**
+ *  If source IP ranges are specified, the firewall rule applies only to traffic
+ *  that has a source IP address in these ranges. These ranges must be expressed
+ *  in CIDR format. Only supports IPv4.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceIpRanges;
 
 @end
 
@@ -11725,6 +12057,49 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Describes a job
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job : GTLRObject
+
+/**
+ *  Optional. If the job did not complete successfully, this field describes
+ *  why.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCode;
+
+/**
+ *  Optional. Gives the location where the job ran, such as `US` or
+ *  `europe-west1`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The fully-qualified name for a job. e.g. `projects//jobs/` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the job, such as `RUNNING` or `PENDING`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Failed
+ *        Job has completed but with failure (Value: "FAILED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_JobStateUnspecified
+ *        Unspecified represents an unknown state and should not be used.
+ *        (Value: "JOB_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Pending
+ *        Job is scheduled and pending for run (Value: "PENDING")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Running
+ *        Job in progress (Value: "RUNNING")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job_State_Succeeded
+ *        Job has completed with success (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Kernel mode rootkit signatures.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2KernelRootkit : GTLRObject
@@ -12086,6 +12461,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains information about a VPC network associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Network : GTLRObject
+
+/**
+ *  The name of the VPC network resource, for example,
+ *  `//compute.googleapis.com/projects/my-project/global/networks/my-network`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Kubernetes nodes associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Node : GTLRObject
@@ -12192,7 +12581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2OrgPolicy : GTLRObject
 
 /**
- *  The resource name of the org policy. Example:
+ *  Identifier. The resource name of the org policy. Example:
  *  "organizations/{organization_id}/policies/{constraint_name}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -12265,6 +12654,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  constraint.implementation.policy_rules[0].enforce
  */
 @property(nonatomic, copy, nullable) NSString *field;
+
+@end
+
+
+/**
+ *  A port range which is inclusive of the min and max values. Values are
+ *  between 0 and 2^16-1. The max can be equal / must be not smaller than the
+ *  min value. If min and max are equal this indicates that it is a single port.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PortRange : GTLRObject
+
+/**
+ *  Maximum port value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  Minimum port value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 
@@ -13491,6 +13904,119 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  IP rule information.
+ */
+@interface GTLRSecurityCommandCenter_IpRule : GTLRObject
+
+/**
+ *  Optional. An optional list of ports to which this rule applies. This field
+ *  is only applicable for the UDP or (S)TCP protocols. Each entry must be
+ *  either an integer or a range including a min and max port number.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_PortRange *> *portRanges;
+
+/**
+ *  The IP protocol this rule applies to. This value can either be one of the
+ *  following well known protocol strings (TCP, UDP, ICMP, ESP, AH, IPIP, SCTP)
+ *  or a string representation of the integer value.
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+@end
+
+
+/**
+ *  IP rules associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_IpRules : GTLRObject
+
+/** Tuple with allowed rules. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Allowed *allowed;
+
+/** Tuple with denied rules. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Denied *denied;
+
+/**
+ *  If destination IP ranges are specified, the firewall rule applies only to
+ *  traffic that has a destination IP address in these ranges. These ranges must
+ *  be expressed in CIDR format. Only supports IPv4.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinationIpRanges;
+
+/**
+ *  The direction that the rule is applicable to, one of ingress or egress.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_IpRules_Direction_DirectionUnspecified
+ *        Unspecified direction value. (Value: "DIRECTION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_IpRules_Direction_Egress Egress
+ *        direction value. (Value: "EGRESS")
+ *    @arg @c kGTLRSecurityCommandCenter_IpRules_Direction_Ingress Ingress
+ *        direction value. (Value: "INGRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *direction;
+
+/**
+ *  Name of the network protocol service, such as FTP, that is exposed by the
+ *  open port. Follows the naming convention available at:
+ *  https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exposedServices;
+
+/**
+ *  If source IP ranges are specified, the firewall rule applies only to traffic
+ *  that has a source IP address in these ranges. These ranges must be expressed
+ *  in CIDR format. Only supports IPv4.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceIpRanges;
+
+@end
+
+
+/**
+ *  Describes a job
+ */
+@interface GTLRSecurityCommandCenter_Job : GTLRObject
+
+/**
+ *  Optional. If the job did not complete successfully, this field describes
+ *  why.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCode;
+
+/**
+ *  Optional. Gives the location where the job ran, such as `US` or
+ *  `europe-west1`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The fully-qualified name for a job. e.g. `projects//jobs/` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the job, such as `RUNNING` or `PENDING`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Job_State_Failed Job has completed but
+ *        with failure (Value: "FAILED")
+ *    @arg @c kGTLRSecurityCommandCenter_Job_State_JobStateUnspecified
+ *        Unspecified represents an unknown state and should not be used.
+ *        (Value: "JOB_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Job_State_Pending Job is scheduled and
+ *        pending for run (Value: "PENDING")
+ *    @arg @c kGTLRSecurityCommandCenter_Job_State_Running Job in progress
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRSecurityCommandCenter_Job_State_Succeeded Job has completed
+ *        with success (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Kernel mode rootkit signatures.
  */
 @interface GTLRSecurityCommandCenter_KernelRootkit : GTLRObject
@@ -14282,6 +14808,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains information about a VPC network associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Network : GTLRObject
+
+/**
+ *  The name of the VPC network resource, for example,
+ *  `//compute.googleapis.com/projects/my-project/global/networks/my-network`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Kubernetes nodes associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_Node : GTLRObject
@@ -14704,6 +15244,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  constraint.implementation.policy_rules[0].enforce
  */
 @property(nonatomic, copy, nullable) NSString *field;
+
+@end
+
+
+/**
+ *  A port range which is inclusive of the min and max values. Values are
+ *  between 0 and 2^16-1. The max can be equal / must be not smaller than the
+ *  min value. If min and max are equal this indicates that it is a single port.
+ */
+@interface GTLRSecurityCommandCenter_PortRange : GTLRObject
+
+/**
+ *  Maximum port value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  Minimum port value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 

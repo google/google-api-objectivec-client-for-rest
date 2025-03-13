@@ -17,43 +17,29 @@
 @class GTLRAppHub_AuditConfig;
 @class GTLRAppHub_AuditLogConfig;
 @class GTLRAppHub_Binding;
-@class GTLRAppHub_BlobstoreLocation;
-@class GTLRAppHub_CloudAsset;
-@class GTLRAppHub_CloudAssetComposition;
 @class GTLRAppHub_ContactInfo;
 @class GTLRAppHub_Criticality;
-@class GTLRAppHub_DirectLocationAssignment;
 @class GTLRAppHub_DiscoveredService;
 @class GTLRAppHub_DiscoveredWorkload;
 @class GTLRAppHub_Environment;
 @class GTLRAppHub_Expr;
-@class GTLRAppHub_ExtraParameter;
-@class GTLRAppHub_IsolationExpectations;
 @class GTLRAppHub_Location;
 @class GTLRAppHub_Location_Labels;
 @class GTLRAppHub_Location_Metadata;
-@class GTLRAppHub_LocationAssignment;
-@class GTLRAppHub_LocationData;
 @class GTLRAppHub_Operation;
 @class GTLRAppHub_Operation_Metadata;
 @class GTLRAppHub_Operation_Response;
-@class GTLRAppHub_PlacerLocation;
 @class GTLRAppHub_Policy;
-@class GTLRAppHub_RegionalMigDistributionPolicy;
-@class GTLRAppHub_RequirementOverride;
 @class GTLRAppHub_Scope;
 @class GTLRAppHub_Service;
 @class GTLRAppHub_ServiceProjectAttachment;
 @class GTLRAppHub_ServiceProperties;
 @class GTLRAppHub_ServiceReference;
-@class GTLRAppHub_SpannerLocation;
 @class GTLRAppHub_Status;
 @class GTLRAppHub_Status_Details_Item;
-@class GTLRAppHub_TenantProjectProxy;
 @class GTLRAppHub_Workload;
 @class GTLRAppHub_WorkloadProperties;
 @class GTLRAppHub_WorkloadReference;
-@class GTLRAppHub_ZoneConfiguration;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -190,154 +176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Environment_Type_Test;
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_Environment_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRAppHub_IsolationExpectations.ziOrgPolicy
-
-/** Value: "ZI_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiNotRequired;
-/** Value: "ZI_PREFERRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiPreferred;
-/** Value: "ZI_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiUnknown;
-/** Value: "ZI_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_IsolationExpectations.ziRegionPolicy
-
-/** Value: "ZI_REGION_POLICY_FAIL_CLOSED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed;
-/** Value: "ZI_REGION_POLICY_FAIL_OPEN" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen;
-/** Value: "ZI_REGION_POLICY_NOT_SET" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_REGION_POLICY_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown;
-/** Value: "ZI_REGION_POLICY_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_IsolationExpectations.ziRegionState
-
-/** Value: "ZI_REGION_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionEnabled;
-/** Value: "ZI_REGION_NOT_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_REGION_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionUnknown;
-/** Value: "ZI_REGION_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_IsolationExpectations.zoneIsolation
-
-/** Value: "ZI_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiNotRequired;
-/** Value: "ZI_PREFERRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiPreferred;
-/** Value: "ZI_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiUnknown;
-/** Value: "ZI_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_IsolationExpectations.zoneSeparation
-
-/** Value: "ZS_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsNotRequired;
-/** Value: "ZS_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZS_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsUnknown;
-/** Value: "ZS_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_IsolationExpectations.zsOrgPolicy
-
-/** Value: "ZS_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsNotRequired;
-/** Value: "ZS_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZS_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsUnknown;
-/** Value: "ZS_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_IsolationExpectations.zsRegionState
-
-/** Value: "ZS_REGION_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionEnabled;
-/** Value: "ZS_REGION_NOT_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled;
-/**
- *  To be used if tracking of the asset ZS-bit is not available
- *
- *  Value: "ZS_REGION_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionUnknown;
-/** Value: "ZS_REGION_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_LocationAssignment.locationType
-
-/** Value: "CLOUD_REGION" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_CloudRegion;
-/**
- *  11-20: Logical failure domains.
- *
- *  Value: "CLOUD_ZONE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_CloudZone;
-/**
- *  1-10: Physical failure domains.
- *
- *  Value: "CLUSTER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_Cluster;
-/** Value: "GLOBAL" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_Global;
-/** Value: "MULTI_REGION_GEO" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_MultiRegionGeo;
-/** Value: "MULTI_REGION_JURISDICTION" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_MultiRegionJurisdiction;
-/** Value: "OTHER" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_Other;
-/** Value: "POP" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_Pop;
-/** Value: "UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_LocationAssignment_LocationType_Unspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRAppHub_ReconciliationOperationMetadata.exclusiveAction
 
 /**
@@ -363,40 +201,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_ReconciliationOperationMetadata_E
  *  Value: "UNKNOWN_REPAIR_ACTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_RequirementOverride.ziOverride
-
-/** Value: "ZI_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiNotRequired;
-/** Value: "ZI_PREFERRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiPreferred;
-/** Value: "ZI_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiUnknown;
-/** Value: "ZI_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZiOverride_ZiUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAppHub_RequirementOverride.zsOverride
-
-/** Value: "ZS_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsNotRequired;
-/** Value: "ZS_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZS_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsUnknown;
-/** Value: "ZS_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRAppHub_RequirementOverride_ZsOverride_ZsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppHub_Scope.type
@@ -584,39 +388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
- *  Provides the mapping of a cloud asset to a direct physical location or to a
- *  proxy that defines the location on its behalf.
- */
-@interface GTLRAppHub_AssetLocation : GTLRObject
-
-/**
- *  Spanner path of the CCFE RMS database. It is only applicable for CCFE
- *  tenants that use CCFE RMS for storing resource metadata.
- */
-@property(nonatomic, copy, nullable) NSString *ccfeRmsPath;
-
-/**
- *  Defines the customer expectation around ZI/ZS for this asset and ZI/ZS state
- *  of the region at the time of asset creation.
- */
-@property(nonatomic, strong, nullable) GTLRAppHub_IsolationExpectations *expected;
-
-/** Defines extra parameters required for specific asset types. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAppHub_ExtraParameter *> *extraParameters;
-
-/** Contains all kinds of physical location definitions for this asset. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAppHub_LocationData *> *locationData;
-
-/**
- *  Defines parents assets if any in order to allow later generation of
- *  child_asset_location data via child assets.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRAppHub_CloudAsset *> *parentAsset;
-
-@end
-
-
-/**
  *  Consumer provided attributes.
  */
 @interface GTLRAppHub_Attributes : GTLRObject
@@ -795,41 +566,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
- *  Policy ID that identified data placement in Blobstore as per
- *  go/blobstore-user-guide#data-metadata-placement-and-failure-domains
- */
-@interface GTLRAppHub_BlobstoreLocation : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *policyId;
-
-@end
-
-
-/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRAppHub_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
- *  GTLRAppHub_CloudAsset
- */
-@interface GTLRAppHub_CloudAsset : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *assetName;
-@property(nonatomic, copy, nullable) NSString *assetType;
-
-@end
-
-
-/**
- *  GTLRAppHub_CloudAssetComposition
- */
-@interface GTLRAppHub_CloudAssetComposition : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAppHub_CloudAsset *> *childAsset;
-
 @end
 
 
@@ -881,16 +620,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *  Response for DetachServiceProjectAttachment.
  */
 @interface GTLRAppHub_DetachServiceProjectAttachmentResponse : GTLRObject
-@end
-
-
-/**
- *  GTLRAppHub_DirectLocationAssignment
- */
-@interface GTLRAppHub_DirectLocationAssignment : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAppHub_LocationAssignment *> *location;
-
 @end
 
 
@@ -1031,149 +760,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
- *  Defines parameters that should only be used for specific asset types.
- */
-@interface GTLRAppHub_ExtraParameter : GTLRObject
-
-/**
- *  Details about zones used by regional
- *  compute.googleapis.com/InstanceGroupManager to create instances.
- */
-@property(nonatomic, strong, nullable) GTLRAppHub_RegionalMigDistributionPolicy *regionalMigDistributionPolicy;
-
-@end
-
-
-/**
- *  GTLRAppHub_IsolationExpectations
- */
-@interface GTLRAppHub_IsolationExpectations : GTLRObject
-
-/**
- *  Explicit overrides for ZI and ZS requirements to be used for resources that
- *  should be excluded from ZI/ZS verification logic.
- */
-@property(nonatomic, strong, nullable) GTLRAppHub_RequirementOverride *requirementOverride;
-
-/**
- *  ziOrgPolicy
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiNotRequired Value
- *        "ZI_NOT_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiPreferred Value
- *        "ZI_PREFERRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiRequired Value
- *        "ZI_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiUnknown To be used
- *        if tracking is not available (Value: "ZI_UNKNOWN")
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiOrgPolicy_ZiUnspecified Value
- *        "ZI_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziOrgPolicy;
-
-/**
- *  ziRegionPolicy
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed
- *        Value "ZI_REGION_POLICY_FAIL_CLOSED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen
- *        Value "ZI_REGION_POLICY_FAIL_OPEN"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet
- *        Value "ZI_REGION_POLICY_NOT_SET"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown
- *        To be used if tracking is not available (Value:
- *        "ZI_REGION_POLICY_UNKNOWN")
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified
- *        Value "ZI_REGION_POLICY_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziRegionPolicy;
-
-/**
- *  ziRegionState
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionEnabled
- *        Value "ZI_REGION_ENABLED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled
- *        Value "ZI_REGION_NOT_ENABLED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionUnknown To
- *        be used if tracking is not available (Value: "ZI_REGION_UNKNOWN")
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZiRegionState_ZiRegionUnspecified
- *        Value "ZI_REGION_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziRegionState;
-
-/**
- *  Deprecated: use zi_org_policy, zi_region_policy and zi_region_state instead
- *  for setting ZI expectations as per go/zicy-publish-physical-location.
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiNotRequired
- *        Value "ZI_NOT_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiPreferred Value
- *        "ZI_PREFERRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiRequired Value
- *        "ZI_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiUnknown To be
- *        used if tracking is not available (Value: "ZI_UNKNOWN")
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneIsolation_ZiUnspecified
- *        Value "ZI_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zoneIsolation GTLR_DEPRECATED;
-
-/**
- *  Deprecated: use zs_org_policy, and zs_region_stateinstead for setting Zs
- *  expectations as per go/zicy-publish-physical-location.
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsNotRequired
- *        Value "ZS_NOT_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsRequired Value
- *        "ZS_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsUnknown To be
- *        used if tracking is not available (Value: "ZS_UNKNOWN")
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZoneSeparation_ZsUnspecified
- *        Value "ZS_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zoneSeparation GTLR_DEPRECATED;
-
-/**
- *  zsOrgPolicy
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsNotRequired Value
- *        "ZS_NOT_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsRequired Value
- *        "ZS_REQUIRED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsUnknown To be used
- *        if tracking is not available (Value: "ZS_UNKNOWN")
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsOrgPolicy_ZsUnspecified Value
- *        "ZS_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zsOrgPolicy;
-
-/**
- *  zsRegionState
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionEnabled
- *        Value "ZS_REGION_ENABLED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled
- *        Value "ZS_REGION_NOT_ENABLED"
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionUnknown To
- *        be used if tracking of the asset ZS-bit is not available (Value:
- *        "ZS_REGION_UNKNOWN")
- *    @arg @c kGTLRAppHub_IsolationExpectations_ZsRegionState_ZsRegionUnspecified
- *        Value "ZS_REGION_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zsRegionState;
 
 @end
 
@@ -1450,53 +1036,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
- *  GTLRAppHub_LocationAssignment
- */
-@interface GTLRAppHub_LocationAssignment : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  locationType
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_CloudRegion Value
- *        "CLOUD_REGION"
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_CloudZone 11-20:
- *        Logical failure domains. (Value: "CLOUD_ZONE")
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_Cluster 1-10: Physical
- *        failure domains. (Value: "CLUSTER")
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_Global Value "GLOBAL"
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_MultiRegionGeo Value
- *        "MULTI_REGION_GEO"
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_MultiRegionJurisdiction
- *        Value "MULTI_REGION_JURISDICTION"
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_Other Value "OTHER"
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_Pop Value "POP"
- *    @arg @c kGTLRAppHub_LocationAssignment_LocationType_Unspecified Value
- *        "UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *locationType;
-
-@end
-
-
-/**
- *  GTLRAppHub_LocationData
- */
-@interface GTLRAppHub_LocationData : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRAppHub_BlobstoreLocation *blobstoreLocation;
-@property(nonatomic, strong, nullable) GTLRAppHub_CloudAssetComposition *childAssetLocation;
-@property(nonatomic, strong, nullable) GTLRAppHub_DirectLocationAssignment *directLocation;
-@property(nonatomic, strong, nullable) GTLRAppHub_TenantProjectProxy *gcpProjectProxy;
-@property(nonatomic, strong, nullable) GTLRAppHub_PlacerLocation *placerLocation;
-@property(nonatomic, strong, nullable) GTLRAppHub_SpannerLocation *spannerLocation;
-
-@end
-
-
-/**
  *  Response for LookupDiscoveredService.
  */
 @interface GTLRAppHub_LookupDiscoveredServiceResponse : GTLRObject
@@ -1626,8 +1165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1643,21 +1182,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  Message describing that the location of the customer resource is tied to
- *  placer allocations
- */
-@interface GTLRAppHub_PlacerLocation : GTLRObject
-
-/**
- *  Directory with a config related to it in placer (e.g.
- *  "/placer/prod/home/my-root/my-dir")
- */
-@property(nonatomic, copy, nullable) NSString *placerConfig;
 
 @end
 
@@ -1782,66 +1306,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
  */
 @property(nonatomic, copy, nullable) NSString *exclusiveAction;
-
-@end
-
-
-/**
- *  To be used for specifying the intended distribution of regional
- *  compute.googleapis.com/InstanceGroupManager instances
- */
-@interface GTLRAppHub_RegionalMigDistributionPolicy : GTLRObject
-
-/**
- *  The shape in which the group converges around distribution of resources.
- *  Instance of proto2 enum
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetShape;
-
-/** Cloud zones used by regional MIG to create instances. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAppHub_ZoneConfiguration *> *zones;
-
-@end
-
-
-/**
- *  GTLRAppHub_RequirementOverride
- */
-@interface GTLRAppHub_RequirementOverride : GTLRObject
-
-/**
- *  ziOverride
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_RequirementOverride_ZiOverride_ZiNotRequired Value
- *        "ZI_NOT_REQUIRED"
- *    @arg @c kGTLRAppHub_RequirementOverride_ZiOverride_ZiPreferred Value
- *        "ZI_PREFERRED"
- *    @arg @c kGTLRAppHub_RequirementOverride_ZiOverride_ZiRequired Value
- *        "ZI_REQUIRED"
- *    @arg @c kGTLRAppHub_RequirementOverride_ZiOverride_ZiUnknown To be used if
- *        tracking is not available (Value: "ZI_UNKNOWN")
- *    @arg @c kGTLRAppHub_RequirementOverride_ZiOverride_ZiUnspecified Value
- *        "ZI_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziOverride;
-
-/**
- *  zsOverride
- *
- *  Likely values:
- *    @arg @c kGTLRAppHub_RequirementOverride_ZsOverride_ZsNotRequired Value
- *        "ZS_NOT_REQUIRED"
- *    @arg @c kGTLRAppHub_RequirementOverride_ZsOverride_ZsRequired Value
- *        "ZS_REQUIRED"
- *    @arg @c kGTLRAppHub_RequirementOverride_ZsOverride_ZsUnknown To be used if
- *        tracking is not available (Value: "ZS_UNKNOWN")
- *    @arg @c kGTLRAppHub_RequirementOverride_ZsOverride_ZsUnspecified Value
- *        "ZS_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zsOverride;
 
 @end
 
@@ -2062,23 +1526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
- *  GTLRAppHub_SpannerLocation
- */
-@interface GTLRAppHub_SpannerLocation : GTLRObject
-
-/**
- *  Set of backups used by the resource with name in the same format as what is
- *  available at http://table/spanner_automon.backup_metadata
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *backupName;
-
-/** Set of databases used by the resource in format /span// */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *dbName;
-
-@end
-
-
-/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -2120,16 +1567,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAppHub_Status_Details_Item : GTLRObject
-@end
-
-
-/**
- *  GTLRAppHub_TenantProjectProxy
- */
-@interface GTLRAppHub_TenantProjectProxy : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *projectNumbers;
-
 @end
 
 
@@ -2276,21 +1713,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /** Output only. The underlying compute resource uri. */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  GTLRAppHub_ZoneConfiguration
- */
-@interface GTLRAppHub_ZoneConfiguration : GTLRObject
-
-/**
- *  zoneProperty
- *
- *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
- */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 

@@ -11,6 +11,9 @@
 
 #import <GoogleAPIClientForREST/GTLRDataCatalogQuery.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRDataCatalogQuery
 
 @dynamic fields;
@@ -1709,3 +1712,5 @@
 }
 
 @end
+
+#pragma clang diagnostic pop

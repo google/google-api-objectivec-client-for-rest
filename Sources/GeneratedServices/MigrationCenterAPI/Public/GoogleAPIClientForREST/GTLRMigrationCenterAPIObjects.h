@@ -36,6 +36,7 @@
 @class GTLRMigrationCenterAPI_AssetList;
 @class GTLRMigrationCenterAPI_AssetPerformanceData;
 @class GTLRMigrationCenterAPI_AwsEc2PlatformDetails;
+@class GTLRMigrationCenterAPI_AwsRds;
 @class GTLRMigrationCenterAPI_AzureVmPlatformDetails;
 @class GTLRMigrationCenterAPI_BiosDetails;
 @class GTLRMigrationCenterAPI_ComputeEngineMigrationTarget;
@@ -64,6 +65,7 @@
 @class GTLRMigrationCenterAPI_DiskEntry;
 @class GTLRMigrationCenterAPI_DiskEntryList;
 @class GTLRMigrationCenterAPI_DiskPartition;
+@class GTLRMigrationCenterAPI_DiskPartitionDetails;
 @class GTLRMigrationCenterAPI_DiskPartitionList;
 @class GTLRMigrationCenterAPI_DiskUsageSample;
 @class GTLRMigrationCenterAPI_ErrorFrame;
@@ -136,6 +138,7 @@
 @class GTLRMigrationCenterAPI_PostgreSqlSetting;
 @class GTLRMigrationCenterAPI_PreferenceSet;
 @class GTLRMigrationCenterAPI_RegionPreferences;
+@class GTLRMigrationCenterAPI_Relation;
 @class GTLRMigrationCenterAPI_Report;
 @class GTLRMigrationCenterAPI_ReportConfig;
 @class GTLRMigrationCenterAPI_ReportConfigGroupPreferenceSetAssignment;
@@ -926,7 +929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MySqlStorageEngineDet
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentDhcp;
 /**
- *  Staticly assigned IP.
+ *  Statically assigned IP.
  *
  *  Value: "ADDRESS_ASSIGNMENT_STATIC"
  */
@@ -999,6 +1002,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetai
  *  Value: "HYPERTHREADING_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_PhysicalPlatformDetails_Hyperthreading_HyperthreadingStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_Relation.type
+
+/**
+ *  A relation between a machine/VM and the database deployment it hosts.
+ *
+ *  Value: "DATABASE_DEPLOYMENT_HOSTING_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Relation_Type_DatabaseDeploymentHostingServer;
+/**
+ *  DBDeployment -> Database
+ *
+ *  Value: "LOGICAL_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Relation_Type_LogicalDatabase;
+/**
+ *  Default value.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Relation_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_Report.state
@@ -2010,6 +2035,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 
 /**
+ *  Specific details for an AWS RDS database deployment.
+ */
+@interface GTLRMigrationCenterAPI_AwsRds : GTLRObject
+@end
+
+
+/**
  *  Azure VM specific details.
  */
 @interface GTLRMigrationCenterAPI_AzureVmPlatformDetails : GTLRObject
@@ -2393,6 +2425,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** Output only. Aggregated stats for the database deployment. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDeploymentDetailsAggregatedStats *aggregatedStats;
+
+/** Optional. Details of an AWS RDS instance. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AwsRds *awsRds;
 
 /** Optional. The database deployment edition. */
 @property(nonatomic, copy, nullable) NSString *edition;
@@ -2897,7 +2932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
  */
 @property(nonatomic, strong, nullable) NSNumber *freeBytes;
 
-/** Mount pount (Linux/Windows) or drive letter (Windows). */
+/** Mount point (Linux/Windows) or drive letter (Windows). */
 @property(nonatomic, copy, nullable) NSString *mountPoint;
 
 /** Sub-partitions. */
@@ -2908,6 +2943,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** Partition UUID. */
 @property(nonatomic, copy, nullable) NSString *uuid;
+
+@end
+
+
+/**
+ *  Disk partition details.
+ */
+@interface GTLRMigrationCenterAPI_DiskPartitionDetails : GTLRObject
+
+/**
+ *  Output only. Total free space of all partitions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeSpaceBytes;
+
+/** Optional. List of partitions. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiskPartitionList *partitions;
+
+/**
+ *  Output only. Total capacity of all partitions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCapacityBytes;
 
 @end
 
@@ -2929,9 +2989,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 @interface GTLRMigrationCenterAPI_DiskUsageSample : GTLRObject
 
 /**
- *  Optional. Average IOPS sampled over a short window. Must be non-negative.
- *  Must be equal to the sum of read and write if one of them is positive. if
- *  both read and write are zero they are ignored.
+ *  Optional. Average IOPS sampled over a short window. Must be non-negative. If
+ *  read or write are set, the sum of read and write will override the value of
+ *  the average_iops.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2939,7 +2999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /**
  *  Optional. Average read IOPS sampled over a short window. Must be
- *  non-negative.
+ *  non-negative. If both read and write are zero they are ignored.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2947,7 +3007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /**
  *  Optional. Average write IOPS sampled over a short window. Must be
- *  non-negative.
+ *  non-negative. If both read and write are zero they are ignored.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3918,6 +3978,30 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 
 /**
+ *  Response message for listing relations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "relations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRMigrationCenterAPI_ListRelationsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of relations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_Relation *> *relations;
+
+@end
+
+
+/**
  *  Response message for listing report configs.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4140,6 +4224,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** Machine creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Disk partitions details. Note: Partitions are not necessarily
+ *  mounted on local disks and therefore might not have a one-to-one
+ *  correspondence with local disks.
+ */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiskPartitionDetails *diskPartitions;
 
 /** Disk details. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachineDiskDetails *disks;
@@ -4528,7 +4619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
  *    @arg @c kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentDhcp
  *        Dynamically assigned IP (DHCP). (Value: "ADDRESS_ASSIGNMENT_DHCP")
  *    @arg @c kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentStatic
- *        Staticly assigned IP. (Value: "ADDRESS_ASSIGNMENT_STATIC")
+ *        Statically assigned IP. (Value: "ADDRESS_ASSIGNMENT_STATIC")
  *    @arg @c kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentUnspecified
  *        Unknown (default value). (Value: "ADDRESS_ASSIGNMENT_UNSPECIFIED")
  */
@@ -5069,6 +5160,40 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
  *  https://cloud.google.com/compute/docs/regions-zones for available regions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *preferredRegions;
+
+@end
+
+
+/**
+ *  Message representing a relation between 2 resource.
+ */
+@interface GTLRMigrationCenterAPI_Relation : GTLRObject
+
+/** Output only. The timestamp when the relation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The destination asset name in the relation. */
+@property(nonatomic, copy, nullable) NSString *dstAsset;
+
+/** Output only. Identifier. The identifier of the relation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The source asset name in the relation. */
+@property(nonatomic, copy, nullable) NSString *srcAsset;
+
+/**
+ *  Optional. The type of the relation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_Relation_Type_DatabaseDeploymentHostingServer
+ *        A relation between a machine/VM and the database deployment it hosts.
+ *        (Value: "DATABASE_DEPLOYMENT_HOSTING_SERVER")
+ *    @arg @c kGTLRMigrationCenterAPI_Relation_Type_LogicalDatabase DBDeployment
+ *        -> Database (Value: "LOGICAL_DATABASE")
+ *    @arg @c kGTLRMigrationCenterAPI_Relation_Type_TypeUnspecified Default
+ *        value. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

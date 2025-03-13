@@ -46,29 +46,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly;
 /**
- *  Authorization scope: See, compose, send, update, and delete messages and
- *  their associated attachments, and add, see, and delete reactions to
- *  messages.
+ *  Authorization scope: See, compose, send, update, and delete messages as well
+ *  as their message content; add, see, and delete reactions to messages.
  *
  *  Value "https://www.googleapis.com/auth/chat.messages"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessages;
 /**
- *  Authorization scope: See, add, and delete reactions to messages in Google
- *  Chat
+ *  Authorization scope: See, add, and delete reactions as well as their
+ *  reaction content to messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactions;
 /**
- *  Authorization scope: View reactions to messages in Google Chat
+ *  Authorization scope: View reactions as well as their reaction content to
+ *  messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly;
 /**
- *  Authorization scope: See messages and their associated reactions and
- *  attachments in Google Chat
+ *  Authorization scope: See messages as well as their reactions and message
+ *  content in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
  */

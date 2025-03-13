@@ -1399,16 +1399,16 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. When requesting a page of resources, 'page_size' specifies number
- *  of resources to return. If unspecified, at most 500 will be returned. The
- *  maximum value is 1000.
+ *  Optional. When requesting a page of terraform versions, 'page_size'
+ *  specifies number of terraform versions to return. If unspecified, at most
+ *  500 will be returned. The maximum value is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. Token returned by previous call to 'ListTerraformVersions' which
  *  specifies the position in the list from where to continue listing the
- *  resources.
+ *  terraform versions.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

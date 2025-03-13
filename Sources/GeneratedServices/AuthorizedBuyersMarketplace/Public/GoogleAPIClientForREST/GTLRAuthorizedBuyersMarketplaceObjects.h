@@ -401,6 +401,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTarge
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_User;
 
 // ----------------------------------------------------------------------------
+// GTLRAuthorizedBuyersMarketplace_Deal.buyerPermissionType
+
+/**
+ *  All buyers under the [Deal.negotiating_buyer]'s bidder can transact on the
+ *  deal.
+ *
+ *  Value: "BIDDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_Bidder;
+/**
+ *  A placeholder for an undefined buyer permission type.
+ *
+ *  Value: "BUYER_PERMISSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_BuyerPermissionTypeUnspecified;
+/**
+ *  Only the [Deal.negotiating_buyer] can transact on the deal.
+ *
+ *  Value: "NEGOTIATOR_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_NegotiatorOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRAuthorizedBuyersMarketplace_Deal.dealType
 
 /**
@@ -1628,6 +1651,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *buyer;
 
 /**
+ *  Output only. The buyer permission type of the deal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_Bidder
+ *        All buyers under the [Deal.negotiating_buyer]'s bidder can transact on
+ *        the deal. (Value: "BIDDER")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_BuyerPermissionTypeUnspecified
+ *        A placeholder for an undefined buyer permission type. (Value:
+ *        "BUYER_PERMISSION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_NegotiatorOnly
+ *        Only the [Deal.negotiating_buyer] can transact on the deal. (Value:
+ *        "NEGOTIATOR_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *buyerPermissionType;
+
+/**
  *  Output only. Refers to a Client. Format:
  *  `buyers/{buyerAccountId}/clients/{clientAccountid}`
  */
@@ -2484,8 +2523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
- *  Buyers are allowed to store certain types of private data in a proposal or
- *  deal.
+ *  Buyers are allowed to store certain types of private data in a proposal.
  */
 @interface GTLRAuthorizedBuyersMarketplace_PrivateData : GTLRObject
 

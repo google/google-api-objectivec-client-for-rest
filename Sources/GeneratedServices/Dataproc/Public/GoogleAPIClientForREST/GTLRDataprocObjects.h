@@ -38,6 +38,7 @@
 @class GTLRDataproc_Batch_Labels;
 @class GTLRDataproc_BatchOperationMetadata_Labels;
 @class GTLRDataproc_Binding;
+@class GTLRDataproc_BuildInfo;
 @class GTLRDataproc_Cluster;
 @class GTLRDataproc_Cluster_Labels;
 @class GTLRDataproc_ClusterConfig;
@@ -71,10 +72,12 @@
 @class GTLRDataproc_ExecutorSummary_ExecutorLogs;
 @class GTLRDataproc_ExecutorSummary_Resources;
 @class GTLRDataproc_Expr;
+@class GTLRDataproc_FallbackReason;
 @class GTLRDataproc_FlinkJob;
 @class GTLRDataproc_FlinkJob_Properties;
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
+@class GTLRDataproc_GceClusterConfig_ResourceManagerTags;
 @class GTLRDataproc_GetPolicyOptions;
 @class GTLRDataproc_GkeClusterConfig;
 @class GTLRDataproc_GkeNodeConfig;
@@ -127,6 +130,8 @@
 @class GTLRDataproc_Metric;
 @class GTLRDataproc_MetricConfig;
 @class GTLRDataproc_NamespacedGkeDeploymentTarget;
+@class GTLRDataproc_NativeBuildInfoUiData;
+@class GTLRDataproc_NativeSqlExecutionUiData;
 @class GTLRDataproc_NodeGroup;
 @class GTLRDataproc_NodeGroup_Labels;
 @class GTLRDataproc_NodeGroupAffinity;
@@ -475,6 +480,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Repairing;
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Running;
+/**
+ *  Cluster creation is currently waiting for resources to be available. Once
+ *  all resources are available, it will transition to CREATING and then
+ *  RUNNING.
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Scheduled;
 /**
  *  The cluster is being started. It is not ready for use.
  *
@@ -1241,17 +1254,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi;
 /**
- *  Iceberg.
- *
- *  Value: "ICEBERG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Iceberg;
-/**
  *  The Jupyter Notebook.
  *
  *  Value: "JUPYTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter;
+/**
+ *  The Pig component.
+ *
+ *  Value: "PIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Pig;
 /**
  *  The Presto query engine.
  *
@@ -2441,6 +2454,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Native Build Info
+ */
+@interface GTLRDataproc_BuildInfo : GTLRObject
+
+/** Optional. Build key. */
+@property(nonatomic, copy, nullable) NSString *buildKey;
+
+/** Optional. Build value. */
+@property(nonatomic, copy, nullable) NSString *buildValue;
+
+@end
+
+
+/**
  *  A request to cancel a job.
  */
 @interface GTLRDataproc_CancelJobRequest : GTLRObject
@@ -2849,6 +2876,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        changes from "creating" to "running" status after the master node(s),
  *        first two primary worker nodes (and the last primary worker node if
  *        primary workers > 2) are running. (Value: "RUNNING")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Scheduled Cluster creation is
+ *        currently waiting for resources to be available. Once all resources
+ *        are available, it will transition to CREATING and then RUNNING.
+ *        (Value: "SCHEDULED")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Starting The cluster is being
  *        started. It is not ready for use. (Value: "STARTING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Stopped The cluster is currently
@@ -3133,8 +3164,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Indicates how many IOPS to provision for the disk. This sets the
- *  number of I/O operations per second that the disk can handle. Note: This
- *  field is only supported if boot_disk_type is hyperdisk-balanced.
+ *  number of I/O operations per second that the disk can handle. This field is
+ *  supported only if boot_disk_type is hyperdisk-balanced.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3143,7 +3174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. Indicates how much throughput to provision for the disk. This sets
  *  the number of throughput mb per second that the disk can handle. Values must
- *  be greater than or equal to 1. Note: This field is only supported if
+ *  be greater than or equal to 1. This field is supported only if
  *  boot_disk_type is hyperdisk-balanced.
  *
  *  Uses NSNumber of longLongValue.
@@ -3926,6 +3957,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Native SQL Execution Data
+ */
+@interface GTLRDataproc_FallbackReason : GTLRObject
+
+/** Optional. Fallback node information. */
+@property(nonatomic, copy, nullable) NSString *fallbackNode;
+
+/** Optional. Fallback to Spark reason. */
+@property(nonatomic, copy, nullable) NSString *fallbackReason;
+
+@end
+
+
+/**
  *  A Dataproc job for running Apache Flink applications on YARN.
  */
 @interface GTLRDataproc_FlinkJob : GTLRObject
@@ -4060,6 +4105,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_ReservationAffinity *reservationAffinity;
 
 /**
+ *  Optional. Resource manager tags to add to all instances (see Resource
+ *  manager tags resources
+ *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)).
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig_ResourceManagerTags *resourceManagerTags;
+
+/**
  *  Optional. The Dataproc service account
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#service_accounts_in_dataproc)
  *  (also see VM Data Plane identity
@@ -4130,6 +4182,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_GceClusterConfig_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Optional. Resource manager tags to add to all instances (see Resource
+ *  manager tags resources
+ *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_GceClusterConfig_ResourceManagerTags : GTLRObject
 @end
 
 
@@ -6213,6 +6279,62 @@ GTLR_DEPRECATED
 
 
 /**
+ *  GTLRDataproc_NativeBuildInfoUiData
+ */
+@interface GTLRDataproc_NativeBuildInfoUiData : GTLRObject
+
+/** Optional. Build class of Native. */
+@property(nonatomic, copy, nullable) NSString *buildClass;
+
+/** Optional. Build related details. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_BuildInfo *> *buildInfo;
+
+@end
+
+
+/**
+ *  Native SQL Execution Data
+ */
+@interface GTLRDataproc_NativeSqlExecutionUiData : GTLRObject
+
+/**
+ *  Optional. Description of the execution.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Execution ID of the Native SQL Execution.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executionId;
+
+/** Optional. Description of the fallback. */
+@property(nonatomic, copy, nullable) NSString *fallbackDescription;
+
+/** Optional. Fallback node to reason. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_FallbackReason *> *fallbackNodeToReason;
+
+/**
+ *  Optional. Number of nodes fallen back to Spark.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFallbackNodes;
+
+/**
+ *  Optional. Number of nodes in Native.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numNativeNodes;
+
+@end
+
+
+/**
  *  Dataproc Node Group. The Dataproc NodeGroup resource is not related to the
  *  Dataproc NodeGroupAffinity resource.
  */
@@ -8230,7 +8352,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_Session_Labels *labels;
 
-/** Required. The resource name of the session. */
+/** Identifier. The resource name of the session. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Optional. Runtime configuration for the session execution. */
@@ -9414,6 +9536,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataproc_ExecutorStageSummary *executorStageSummary;
 @property(nonatomic, strong, nullable) GTLRDataproc_ExecutorSummary *executorSummary;
 @property(nonatomic, strong, nullable) GTLRDataproc_JobData *jobData;
+
+/** Native Build Info */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeBuildInfoUiData *nativeBuildInfoUiData;
+
+/** Native SQL Execution Info */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeSqlExecutionUiData *nativeSqlExecutionUiData;
+
 @property(nonatomic, strong, nullable) GTLRDataproc_PoolData *poolData;
 @property(nonatomic, strong, nullable) GTLRDataproc_ProcessSummary *processSummary;
 @property(nonatomic, strong, nullable) GTLRDataproc_RddOperationGraph *rddOperationGraph;

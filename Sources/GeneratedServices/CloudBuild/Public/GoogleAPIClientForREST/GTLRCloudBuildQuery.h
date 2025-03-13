@@ -286,6 +286,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If set to true, the response will return partial results when some
+ *  regions are unreachable. If set to false, the response will fail if any
+ *  region is unreachable.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCloudBuild_ListConnectionsResponse.
  *
  *  Lists Connections in a given project and location.
@@ -371,7 +378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Arbitrary additional key to find the maching repository for a webhook event
+ *  Arbitrary additional key to find the matching repository for a webhook event
  *  if needed.
  */
 @property(nonatomic, copy, nullable) NSString *webhookKey;
@@ -681,6 +688,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
  *  `projects/ * /locations/ * /connections/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set to true, the response will return partial results when some
+ *  regions are unreachable. If set to false, the response will fail if any
+ *  region is unreachable.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCloudBuild_ListRepositoriesResponse.

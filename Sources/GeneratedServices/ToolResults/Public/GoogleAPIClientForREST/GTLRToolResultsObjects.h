@@ -2271,7 +2271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *    @arg @c kGTLRToolResults_NonSdkApi_List_None Value "NONE"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_White Value "WHITE"
  */
-@property(nonatomic, copy, nullable) NSString *list;
+@property(nonatomic, copy, nullable) NSString *list GTLR_DEPRECATED;
 
 @end
 

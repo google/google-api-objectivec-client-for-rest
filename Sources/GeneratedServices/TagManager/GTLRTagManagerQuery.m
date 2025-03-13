@@ -1599,6 +1599,26 @@ NSString * const kGTLRTagManagerTypeVisitorRegion              = @"visitorRegion
 
 @end
 
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesImportFromGallery
+
+@dynamic acknowledgePermissions, galleryOwner, galleryRepository, gallerySha,
+         parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/templates:import_from_gallery";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesImportFromGallery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTagManager_CustomTemplate class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.templates.import_from_gallery";
+  return query;
+}
+
+@end
+
 @implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesList
 
 @dynamic pageToken, parent;

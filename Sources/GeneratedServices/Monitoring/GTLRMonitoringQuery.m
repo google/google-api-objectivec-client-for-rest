@@ -548,7 +548,7 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRMonitoringQuery_ProjectsMetricDescriptorsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic activeOnly, filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

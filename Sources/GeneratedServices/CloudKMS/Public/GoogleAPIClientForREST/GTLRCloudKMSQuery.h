@@ -28,6 +28,36 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// publicKeyFormat
+
+/**
+ *  This is supported only for PQC algorithms. The key material is returned in
+ *  the format defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *
+ *  Value: "NIST_PQC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatNistPqc;
+/**
+ *  The returned public key will be encoded in PEM format. See the
+ *  [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual
+ *  Encoding of Subject Public Key Info]
+ *  (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatPem;
+/**
+ *  If the public_key_format field is not specified: - For PQC algorithms, an
+ *  error will be returned. - For non-PQC algorithms, the default format is PEM,
+ *  and the field pem will be populated. Otherwise, the public key will be
+ *  exported through the public_key field in the requested format.
+ *
+ *  Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified;
+
+// ----------------------------------------------------------------------------
 // versionView
 
 /**
@@ -1125,6 +1155,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /** Required. The name of the CryptoKeyVersion public key to get. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The PublicKey format specified by the user. This field is required
+ *  for PQC algorithms. If specified, the public key will be exported through
+ *  the public_key field in the requested format. Otherwise, the pem field will
+ *  be populated for non-PQC algorithms, and an error will be returned for PQC
+ *  algorithms.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified If the
+ *        public_key_format field is not specified: - For PQC algorithms, an
+ *        error will be returned. - For non-PQC algorithms, the default format
+ *        is PEM, and the field pem will be populated. Otherwise, the public key
+ *        will be exported through the public_key field in the requested format.
+ *        (Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatPem The returned public key will be
+ *        encoded in PEM format. See the
+ *        [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *        Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
+ *        [Textual Encoding of Subject Public Key Info]
+ *        (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *        (Value: "PEM")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatNistPqc This is supported only for PQC
+ *        algorithms. The key material is returned in the format defined by NIST
+ *        PQC standards (FIPS 203, FIPS 204, and FIPS 205). (Value: "NIST_PQC")
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFormat;
 
 /**
  *  Fetches a @c GTLRCloudKMS_PublicKey.

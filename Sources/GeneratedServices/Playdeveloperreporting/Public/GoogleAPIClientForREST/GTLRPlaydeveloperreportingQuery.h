@@ -815,6 +815,64 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Describes the properties of the metric set.
  *
+ *  Method: playdeveloperreporting.vitals.lmkrate.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsLmkrateGet : GTLRPlaydeveloperreportingQuery
+
+/** Required. The resource name. Format: apps/{app}/lmkRateMetricSet */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1LmkRateMetricSet.
+ *
+ *  Describes the properties of the metric set.
+ *
+ *  @param name Required. The resource name. Format: apps/{app}/lmkRateMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsLmkrateGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Queries the metrics in the metric set.
+ *
+ *  Method: playdeveloperreporting.vitals.lmkrate.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsLmkrateQuery : GTLRPlaydeveloperreportingQuery
+
+/** Required. The resource name. Format: apps/{app}/lmkRateMetricSet */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse.
+ *
+ *  Queries the metrics in the metric set.
+ *
+ *  @param object The @c
+ *    GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest
+ *    to include in the query.
+ *  @param name Required. The resource name. Format: apps/{app}/lmkRateMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsLmkrateQuery
+ */
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Describes the properties of the metric set.
+ *
  *  Method: playdeveloperreporting.vitals.slowrenderingrate.get
  *
  *  Authorization scope(s):

@@ -355,7 +355,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Idempotent request UUID. */
+/** Optional. Idempotent request UUID. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
@@ -398,7 +398,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Idempotent request UUID. */
+/** Optional. Idempotent request UUID. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
@@ -560,13 +560,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Idempotent request UUID. */
+/** Optional. Idempotent request UUID. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
  *  this field. The elements of the repeated paths field may only include these
- *  fields from Cluster: * `size_gb` * `replica_count`
+ *  fields from Cluster: * `size_gb` * `replica_count` * `cluster_endpoints`
  *
  *  String format is a comma-separated list of fields.
  */

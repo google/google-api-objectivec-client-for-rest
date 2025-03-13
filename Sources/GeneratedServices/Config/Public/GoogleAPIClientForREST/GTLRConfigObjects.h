@@ -1933,7 +1933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 /**
  *  Optional. Arbitrary key-value metadata storage e.g. to help client tools
- *  identifiy preview during automation. See
+ *  identify preview during automation. See
  *  https://google.aip.dev/148#annotations for details on format and size
  *  limitations.
  */
@@ -2100,7 +2100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 /**
  *  Optional. Arbitrary key-value metadata storage e.g. to help client tools
- *  identifiy preview during automation. See
+ *  identify preview during automation. See
  *  https://google.aip.dev/148#annotations for details on format and size
  *  limitations.
  *

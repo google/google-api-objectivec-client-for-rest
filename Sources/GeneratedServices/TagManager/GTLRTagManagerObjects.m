@@ -546,8 +546,8 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_GalleryReference
-@dynamic host, isModified, owner, repository, signature, templateDeveloperId,
-         version;
+@dynamic galleryTemplateId, host, isModified, owner, repository, signature,
+         templateDeveloperId, version;
 @end
 
 
@@ -557,7 +557,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_GetContainerSnippetResponse
-@dynamic snippet;
+@dynamic containerConfig, snippet;
 @end
 
 

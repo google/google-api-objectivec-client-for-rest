@@ -43,6 +43,8 @@ NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Spot = @"SPOT"
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Standard = @"STANDARD";
 
 // GTLRCloudBatch_JobStatus.state
+NSString * const kGTLRCloudBatch_JobStatus_State_CancellationInProgress = @"CANCELLATION_IN_PROGRESS";
+NSString * const kGTLRCloudBatch_JobStatus_State_Cancelled     = @"CANCELLED";
 NSString * const kGTLRCloudBatch_JobStatus_State_DeletionInProgress = @"DELETION_IN_PROGRESS";
 NSString * const kGTLRCloudBatch_JobStatus_State_Failed        = @"FAILED";
 NSString * const kGTLRCloudBatch_JobStatus_State_Queued        = @"QUEUED";
@@ -62,6 +64,8 @@ NSString * const kGTLRCloudBatch_LogsPolicy_Destination_DestinationUnspecified =
 NSString * const kGTLRCloudBatch_LogsPolicy_Destination_Path   = @"PATH";
 
 // GTLRCloudBatch_Message.newJobState
+NSString * const kGTLRCloudBatch_Message_NewJobState_CancellationInProgress = @"CANCELLATION_IN_PROGRESS";
+NSString * const kGTLRCloudBatch_Message_NewJobState_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudBatch_Message_NewJobState_DeletionInProgress = @"DELETION_IN_PROGRESS";
 NSString * const kGTLRCloudBatch_Message_NewJobState_Failed    = @"FAILED";
 NSString * const kGTLRCloudBatch_Message_NewJobState_Queued    = @"QUEUED";
@@ -409,6 +413,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 @implementation GTLRCloudBatch_Barrier
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_CancelJobRequest
+//
+
+@implementation GTLRCloudBatch_CancelJobRequest
+@dynamic requestId;
 @end
 
 

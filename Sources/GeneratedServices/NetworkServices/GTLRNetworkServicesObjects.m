@@ -1092,11 +1092,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListGatewayRouteViewsResponse
-@dynamic gatewayRouteViews, nextPageToken;
+@dynamic gatewayRouteViews, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"gatewayRouteViews" : [GTLRNetworkServices_GatewayRouteView class]
+    @"gatewayRouteViews" : [GTLRNetworkServices_GatewayRouteView class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1249,11 +1250,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListMeshesResponse
-@dynamic meshes, nextPageToken;
+@dynamic meshes, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"meshes" : [GTLRNetworkServices_Mesh class]
+    @"meshes" : [GTLRNetworkServices_Mesh class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1271,11 +1273,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListMeshRouteViewsResponse
-@dynamic meshRouteViews, nextPageToken;
+@dynamic meshRouteViews, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"meshRouteViews" : [GTLRNetworkServices_MeshRouteView class]
+    @"meshRouteViews" : [GTLRNetworkServices_MeshRouteView class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1315,11 +1318,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListServiceBindingsResponse
-@dynamic nextPageToken, serviceBindings;
+@dynamic nextPageToken, serviceBindings, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"serviceBindings" : [GTLRNetworkServices_ServiceBinding class]
+    @"serviceBindings" : [GTLRNetworkServices_ServiceBinding class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1337,11 +1341,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListServiceLbPoliciesResponse
-@dynamic nextPageToken, serviceLbPolicies;
+@dynamic nextPageToken, serviceLbPolicies, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"serviceLbPolicies" : [GTLRNetworkServices_ServiceLbPolicy class]
+    @"serviceLbPolicies" : [GTLRNetworkServices_ServiceLbPolicy class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

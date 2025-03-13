@@ -56,6 +56,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceRe
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Beta = @"BETA";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Canary = @"CANARY";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Dev = @"DEV";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Lts = @"LTS";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_ReleaseChannelUnspecified = @"RELEASE_CHANNEL_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Stable = @"STABLE";
 
@@ -393,11 +394,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnknown = @"MEMORY_ENCRYPTION_STATE_UNKNOWN";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnspecified = @"MEMORY_ENCRYPTION_STATE_UNSPECIFIED";
 
-// GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess.signatureAlgorithm
-NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256 = @"SIGNATURE_ALGORITHM_ECDSA_SHA256";
-NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256 = @"SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256";
-NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
-
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential.keyTrustLevel
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserHwKey = @"CHROME_BROWSER_HW_KEY";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserOsKey = @"CHROME_BROWSER_OS_KEY";
@@ -409,7 +405,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Attestati
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey = @"RSA_KEY";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
-NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256 = @"SIGNATURE_ALGORITHM_ECDSA_SHA256";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256 = @"SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
 
@@ -1831,59 +1826,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1CertificateProvisioningProcess
-@dynamic caConnectionAdapterConfigReference, chromeOsDevice,
-         chromeOsUserSession, failureMessage, issuedCertificate, name,
-         profileAdapterConfigReference, provisioningProfileId, signature,
-         signatureAlgorithm, signData, startTime, subjectPublicKeyInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsDevice
-@dynamic deviceDirectoryApiId, serialNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1ChromeOsUserSession
-@dynamic chromeOsDevice, userDirectoryApiId, userPrimaryEmail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataMetadata
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataMetadata
-@dynamic startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataResponse
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1alpha1SignDataResponse
-@dynamic certificateProvisioningProcess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential
 //
 
@@ -1898,10 +1840,10 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess
-@dynamic caConnectionAdapterConfigReference, chromeOsDevice,
-         chromeOsUserSession, failureMessage, issuedCertificate, name,
-         profileAdapterConfigReference, provisioningProfileId, signature,
-         signatureAlgorithm, signData, startTime, subjectPublicKeyInfo;
+@dynamic chromeOsDevice, chromeOsUserSession, failureMessage,
+         genericCaConnection, genericProfile, issuedCertificate, name,
+         provisioningProfileId, signature, signatureAlgorithm, signData,
+         startTime, subjectPublicKeyInfo;
 @end
 
 
@@ -1953,6 +1895,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo
 @dynamic affiliatedDeviceId, deviceType, hostname, machine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection
+@dynamic caConnectionAdapterConfigReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile
+@dynamic profileAdapterConfigReference;
 @end
 
 

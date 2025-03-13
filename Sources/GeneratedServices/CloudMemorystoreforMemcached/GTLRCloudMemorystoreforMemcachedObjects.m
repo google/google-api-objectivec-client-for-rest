@@ -46,62 +46,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Updating = @"U
 NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_ZoneDistributionUnbalanced = @"ZONE_DISTRIBUTION_UNBALANCED";
 
-// GTLRCloudMemorystoreforMemcached_IsolationExpectations.ziOrgPolicy
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiOrgPolicy_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiOrgPolicy_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiOrgPolicy_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiOrgPolicy_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiOrgPolicy_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_IsolationExpectations.ziRegionPolicy
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed = @"ZI_REGION_POLICY_FAIL_CLOSED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen = @"ZI_REGION_POLICY_FAIL_OPEN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet = @"ZI_REGION_POLICY_NOT_SET";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown = @"ZI_REGION_POLICY_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified = @"ZI_REGION_POLICY_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_IsolationExpectations.ziRegionState
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionState_ZiRegionEnabled = @"ZI_REGION_ENABLED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled = @"ZI_REGION_NOT_ENABLED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionState_ZiRegionUnknown = @"ZI_REGION_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZiRegionState_ZiRegionUnspecified = @"ZI_REGION_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_IsolationExpectations.zoneIsolation
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneIsolation_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneIsolation_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneIsolation_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneIsolation_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneIsolation_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_IsolationExpectations.zoneSeparation
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneSeparation_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneSeparation_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneSeparation_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZoneSeparation_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_IsolationExpectations.zsOrgPolicy
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsOrgPolicy_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsOrgPolicy_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsOrgPolicy_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsOrgPolicy_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_IsolationExpectations.zsRegionState
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsRegionState_ZsRegionEnabled = @"ZS_REGION_ENABLED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled = @"ZS_REGION_NOT_ENABLED";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsRegionState_ZsRegionUnknown = @"ZS_REGION_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_IsolationExpectations_ZsRegionState_ZsRegionUnspecified = @"ZS_REGION_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_LocationAssignment.locationType
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_CloudRegion = @"CLOUD_REGION";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_CloudZone = @"CLOUD_ZONE";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_Cluster = @"CLUSTER";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_Global = @"GLOBAL";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_MultiRegionGeo = @"MULTI_REGION_GEO";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_MultiRegionJurisdiction = @"MULTI_REGION_JURISDICTION";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_Other = @"OTHER";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_Pop = @"POP";
-NSString * const kGTLRCloudMemorystoreforMemcached_LocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
-
 // GTLRCloudMemorystoreforMemcached_MaintenancePolicy.state
 NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_Deleting = @"DELETING";
 NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_Ready = @"READY";
@@ -118,19 +62,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Deleting = @"DELET
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Ready = @"READY";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDATING";
-
-// GTLRCloudMemorystoreforMemcached_RequirementOverride.ziOverride
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZiOverride_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZiOverride_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZiOverride_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZiOverride_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZiOverride_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRCloudMemorystoreforMemcached_RequirementOverride.zsOverride
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZsOverride_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZsOverride_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZsOverride_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRCloudMemorystoreforMemcached_RequirementOverride_ZsOverride_ZsUnspecified = @"ZS_UNSPECIFIED";
 
 // GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest.rescheduleType
 NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
@@ -186,76 +117,10 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_AssetLocation
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_AssetLocation
-@dynamic ccfeRmsPath, expected, extraParameters, locationData, parentAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraParameters" : [GTLRCloudMemorystoreforMemcached_ExtraParameter class],
-    @"locationData" : [GTLRCloudMemorystoreforMemcached_LocationData class],
-    @"parentAsset" : [GTLRCloudMemorystoreforMemcached_CloudAsset class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_BlobstoreLocation
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_BlobstoreLocation
-@dynamic policyId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"policyId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMemorystoreforMemcached_CancelOperationRequest
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_CloudAsset
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_CloudAsset
-@dynamic assetName, assetType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_CloudAssetComposition
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_CloudAssetComposition
-@dynamic childAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"childAsset" : [GTLRCloudMemorystoreforMemcached_CloudAsset class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -291,38 +156,10 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_DirectLocationAssignment
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_DirectLocationAssignment
-@dynamic location;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"location" : [GTLRCloudMemorystoreforMemcached_LocationAssignment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMemorystoreforMemcached_Empty
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_ExtraParameter
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_ExtraParameter
-@dynamic regionalMigDistributionPolicy;
 @end
 
 
@@ -684,17 +521,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_IsolationExpectations
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_IsolationExpectations
-@dynamic requirementOverride, ziOrgPolicy, ziRegionPolicy, ziRegionState,
-         zoneIsolation, zoneSeparation, zsOrgPolicy, zsRegionState;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMemorystoreforMemcached_ListInstancesResponse
 //
 
@@ -795,27 +621,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_LocationAssignment
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_LocationAssignment
-@dynamic location, locationType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_LocationData
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_LocationData
-@dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
-         placerLocation, spannerLocation;
 @end
 
 
@@ -999,44 +804,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_PlacerLocation
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_PlacerLocation
-@dynamic placerConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_RegionalMigDistributionPolicy
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_RegionalMigDistributionPolicy
-@dynamic targetShape, zones;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"zones" : [GTLRCloudMemorystoreforMemcached_ZoneConfiguration class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_RequirementOverride
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_RequirementOverride
-@dynamic ziOverride, zsOverride;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest
 //
 
@@ -1052,25 +819,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 @implementation GTLRCloudMemorystoreforMemcached_Schedule
 @dynamic day, duration, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_SpannerLocation
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_SpannerLocation
-@dynamic backupName, dbName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"backupName" : [NSString class],
-    @"dbName" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1101,24 +849,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_TenantProjectProxy
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_TenantProjectProxy
-@dynamic projectNumbers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"projectNumbers" : [NSString class]
-  };
-  return map;
 }
 
 @end
@@ -1187,21 +917,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 @implementation GTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow
 @dynamic day, duration, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_ZoneConfiguration
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_ZoneConfiguration
-@dynamic zoneProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"zoneProperty" : @"zone" };
-}
-
 @end
 
 

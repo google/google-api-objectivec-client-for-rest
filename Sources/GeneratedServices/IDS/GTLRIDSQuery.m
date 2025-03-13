@@ -85,29 +85,6 @@
 
 @end
 
-@implementation GTLRIDSQuery_ProjectsLocationsEndpointsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRIDSQuery_ProjectsLocationsEndpointsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRIDS_Policy class];
-  query.loggingName = @"ids.projects.locations.endpoints.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRIDSQuery_ProjectsLocationsEndpointsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -149,60 +126,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRIDS_Operation class];
   query.loggingName = @"ids.projects.locations.endpoints.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRIDSQuery_ProjectsLocationsEndpointsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRIDS_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRIDSQuery_ProjectsLocationsEndpointsSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRIDS_Policy class];
-  query.loggingName = @"ids.projects.locations.endpoints.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRIDSQuery_ProjectsLocationsEndpointsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRIDS_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRIDSQuery_ProjectsLocationsEndpointsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRIDS_TestIamPermissionsResponse class];
-  query.loggingName = @"ids.projects.locations.endpoints.testIamPermissions";
   return query;
 }
 

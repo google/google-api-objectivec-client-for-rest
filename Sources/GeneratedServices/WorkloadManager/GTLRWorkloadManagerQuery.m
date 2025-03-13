@@ -18,6 +18,63 @@
 
 @end
 
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_WorkloadProfile class];
+  query.loggingName = @"workloadmanager.projects.locations.discoveredprofiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_WorkloadProfileHealth class];
+  query.loggingName = @"workloadmanager.projects.locations.discoveredprofiles.healthes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveredprofiles";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListDiscoveredProfilesResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.discoveredprofiles.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsCreate
 
 @dynamic evaluationId, parent, requestId;
@@ -238,6 +295,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRWorkloadManager_Location class];
   query.loggingName = @"workloadmanager.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Empty class];
+  query.loggingName = @"workloadmanager.projects.locations.insights.delete";
   return query;
 }
 

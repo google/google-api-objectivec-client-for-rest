@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// addressFamily
+NSString * const kGTLRComputeAddressFamilyIpv4                 = @"IPV4";
+NSString * const kGTLRComputeAddressFamilyIpv6                 = @"IPV6";
+NSString * const kGTLRComputeAddressFamilyUnspecifiedIpVersion = @"UNSPECIFIED_IP_VERSION";
+
 // direction
 NSString * const kGTLRComputeDirectionIncoming = @"INCOMING";
 NSString * const kGTLRComputeDirectionOutgoing = @"OUTGOING";
@@ -28,6 +33,11 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionInvalid = @"INVALID";
 NSString * const kGTLRComputeMostDisruptiveAllowedActionNoEffect = @"NO_EFFECT";
 NSString * const kGTLRComputeMostDisruptiveAllowedActionRefresh = @"REFRESH";
 NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
+
+// routeType
+NSString * const kGTLRComputeRouteTypeAdvertised           = @"ADVERTISED";
+NSString * const kGTLRComputeRouteTypeLearned              = @"LEARNED";
+NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType = @"UNSPECIFIED_ROUTE_TYPE";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -6444,6 +6454,43 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_InstancesReportHostAsFaulty
+
+@dynamic instance, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstancesReportHostAsFaultyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/reportHostAsFaulty";
+  GTLRComputeQuery_InstancesReportHostAsFaulty *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.reportHostAsFaulty";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesReset
 
 @dynamic instance, project, requestId, zoneProperty;
@@ -9566,6 +9613,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesAddPacketMirroringRule
+
+@dynamic firewallPolicy, maxPriority, minPriority, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/addPacketMirroringRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesAddPacketMirroringRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.addPacketMirroringRule";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworkFirewallPoliciesAddRule
 
 @dynamic firewallPolicy, maxPriority, minPriority, project, requestId;
@@ -9732,6 +9810,29 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesGetPacketMirroringRule
+
+@dynamic firewallPolicy, priority, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/getPacketMirroringRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesGetPacketMirroringRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyRule class];
+  query.loggingName = @"compute.networkFirewallPolicies.getPacketMirroringRule";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworkFirewallPoliciesGetRule
 
 @dynamic firewallPolicy, priority, project;
@@ -9832,6 +9933,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesPatchPacketMirroringRule
+
+@dynamic firewallPolicy, priority, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/patchPacketMirroringRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesPatchPacketMirroringRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.patchPacketMirroringRule";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworkFirewallPoliciesPatchRule
 
 @dynamic firewallPolicy, priority, project, requestId;
@@ -9881,6 +10013,29 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.firewallPolicy = firewallPolicy;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.networkFirewallPolicies.removeAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesRemovePacketMirroringRule
+
+@dynamic firewallPolicy, priority, project, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/removePacketMirroringRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesRemovePacketMirroringRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.removePacketMirroringRule";
   return query;
 }
 
@@ -17488,6 +17643,31 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RoutersDeleteRoutePolicy
+
+@dynamic policy, project, region, requestId, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/deleteRoutePolicy";
+  GTLRComputeQuery_RoutersDeleteRoutePolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.routers.deleteRoutePolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RoutersGet
 
 @dynamic project, region, router;
@@ -17559,6 +17739,31 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_VmEndpointNatMappingsList class];
   query.loggingName = @"compute.routers.getNatMappingInfo";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersGetRoutePolicy
+
+@dynamic policy, project, region, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/getRoutePolicy";
+  GTLRComputeQuery_RoutersGetRoutePolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_RoutersGetRoutePolicyResponse class];
+  query.loggingName = @"compute.routers.getRoutePolicy";
   return query;
 }
 
@@ -17644,6 +17849,59 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RoutersListBgpRoutes
+
+@dynamic addressFamily, destinationPrefix, filter, maxResults, orderBy,
+         pageToken, peer, policyApplied, project, region, returnPartialSuccess,
+         router, routeType;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/listBgpRoutes";
+  GTLRComputeQuery_RoutersListBgpRoutes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_RoutersListBgpRoutes class];
+  query.loggingName = @"compute.routers.listBgpRoutes";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersListRoutePolicies
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/listRoutePolicies";
+  GTLRComputeQuery_RoutersListRoutePolicies *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_RoutersListRoutePolicies class];
+  query.loggingName = @"compute.routers.listRoutePolicies";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RoutersPatch
 
 @dynamic project, region, requestId, router;
@@ -17672,6 +17930,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.routers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersPatchRoutePolicy
+
+@dynamic project, region, requestId, router;
+
++ (instancetype)queryWithObject:(GTLRCompute_RoutePolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/patchRoutePolicy";
+  GTLRComputeQuery_RoutersPatchRoutePolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.routers.patchRoutePolicy";
   return query;
 }
 
@@ -17738,6 +18029,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.routers.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersUpdateRoutePolicy
+
+@dynamic project, region, requestId, router;
+
++ (instancetype)queryWithObject:(GTLRCompute_RoutePolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/updateRoutePolicy";
+  GTLRComputeQuery_RoutersUpdateRoutePolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.routers.updateRoutePolicy";
   return query;
 }
 

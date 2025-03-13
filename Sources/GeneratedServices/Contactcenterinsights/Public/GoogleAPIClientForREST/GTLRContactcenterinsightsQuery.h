@@ -309,7 +309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
- *  Download feedback labels in bulk.
+ *  Download feedback labels in bulk from an external source. Currently supports
+ *  exporting Quality AI example conversations with transcripts and question
+ *  bodies.
  *
  *  Method: contactcenterinsights.projects.locations.bulkDownloadFeedbackLabels
  *
@@ -324,7 +326,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 /**
  *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
  *
- *  Download feedback labels in bulk.
+ *  Download feedback labels in bulk from an external source. Currently supports
+ *  exporting Quality AI example conversations with transcripts and question
+ *  bodies.
  *
  *  @param object The @c
  *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest
@@ -339,7 +343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
- *  Upload feedback labels in bulk.
+ *  Upload feedback labels from an external source in bulk. Currently supports
+ *  labeling Quality AI example conversations.
  *
  *  Method: contactcenterinsights.projects.locations.bulkUploadFeedbackLabels
  *
@@ -354,7 +359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 /**
  *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
  *
- *  Upload feedback labels in bulk.
+ *  Upload feedback labels from an external source in bulk. Currently supports
+ *  labeling Quality AI example conversations.
  *
  *  @param object The @c
  *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequest

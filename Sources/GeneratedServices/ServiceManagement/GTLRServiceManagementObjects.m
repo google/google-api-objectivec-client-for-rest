@@ -226,6 +226,37 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_Aspect
+//
+
+@implementation GTLRServiceManagement_Aspect
+@dynamic kind, spec;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_Aspect_Spec
+//
+
+@implementation GTLRServiceManagement_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_AuditConfig
 //
 
@@ -353,9 +384,9 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, overridesByRequestProtocol, pathTranslation,
-         protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, loadBalancingPolicy,
+         minDeadline, operationDeadline, overridesByRequestProtocol,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -831,7 +862,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_ExperimentalFeatures
-@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled;
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled,
+         unversionedPackageDisabled;
 @end
 
 
@@ -1729,7 +1761,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_SelectiveGapicGeneration
-@dynamic methods;
+@dynamic generateOmittedAsInternal, methods;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1747,8 +1779,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Service
-@dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, http,
+@dynamic apis, aspects, authentication, backend, billing, configVersion,
+         context, control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
          name, producerProjectId, publishing, quota, sourceInfo,
          systemParameters, systemTypes, title, types, usage;
@@ -1760,6 +1792,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apis" : [GTLRServiceManagement_Api class],
+    @"aspects" : [GTLRServiceManagement_Aspect class],
     @"endpoints" : [GTLRServiceManagement_Endpoint class],
     @"enums" : [GTLRServiceManagement_Enum class],
     @"logs" : [GTLRServiceManagement_LogDescriptor class],

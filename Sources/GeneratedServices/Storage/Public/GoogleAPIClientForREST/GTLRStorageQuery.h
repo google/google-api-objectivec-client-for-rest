@@ -1830,7 +1830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  If true, any parent folder which doesn’t exist will be created
+ *  If true, any parent folder which doesn't exist will be created
  *  automatically.
  */
 @property(nonatomic, assign) BOOL recursive;

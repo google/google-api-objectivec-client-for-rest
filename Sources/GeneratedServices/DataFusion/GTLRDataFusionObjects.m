@@ -61,6 +61,12 @@ NSString * const kGTLRDataFusion_Instance_Type_Developer       = @"DEVELOPER";
 NSString * const kGTLRDataFusion_Instance_Type_Enterprise      = @"ENTERPRISE";
 NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDataFusion_MaintenanceEvent.state
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_Completed = @"COMPLETED";
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_Scheduled = @"SCHEDULED";
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_Started = @"STARTED";
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDataFusion_NetworkConfig.connectionType
 NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_PrivateServiceConnectInterfaces = @"PRIVATE_SERVICE_CONNECT_INTERFACES";
@@ -215,11 +221,11 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
          dataprocServiceAccount, descriptionProperty, disabledReason,
          displayName, enableRbac, enableStackdriverLogging,
          enableStackdriverMonitoring, enableZoneSeparation, eventPublishConfig,
-         gcsBucket, labels, maintenancePolicy, name, networkConfig, options,
-         p4ServiceAccount, patchRevision, privateInstance, satisfiesPzs,
-         serviceAccount, serviceEndpoint, state, stateMessage, tenantProjectId,
-         type, updateTime, version, workforceIdentityServiceEndpoint,
-         zoneProperty;
+         gcsBucket, labels, loggingConfig, maintenanceEvents, maintenancePolicy,
+         name, networkConfig, options, p4ServiceAccount, patchRevision,
+         privateInstance, satisfiesPzi, satisfiesPzs, serviceAccount,
+         serviceEndpoint, state, stateMessage, tenantProjectId, type,
+         updateTime, version, workforceIdentityServiceEndpoint, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -233,7 +239,8 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRDataFusion_Accelerator class],
     @"availableVersion" : [GTLRDataFusion_Version class],
-    @"disabledReason" : [NSString class]
+    @"disabledReason" : [NSString class],
+    @"maintenanceEvents" : [GTLRDataFusion_MaintenanceEvent class]
   };
   return map;
 }
@@ -412,6 +419,26 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_LoggingConfig
+//
+
+@implementation GTLRDataFusion_LoggingConfig
+@dynamic instanceCloudLoggingDisabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_MaintenanceEvent
+//
+
+@implementation GTLRDataFusion_MaintenanceEvent
+@dynamic endTime, startTime, state;
 @end
 
 

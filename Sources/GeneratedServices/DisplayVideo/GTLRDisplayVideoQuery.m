@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Display & Video 360 API (displayvideo/v3)
+//   Display & Video 360 API (displayvideo/v4)
 // Description:
 //   Display & Video 360 API allows users to automate complex Display & Video
 //   360 workflows, such as creating insertion orders and setting targeting
@@ -90,7 +90,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"adGroupAdId", @"advertiserId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/adGroupAds/{+adGroupAdId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroupAds/{+adGroupAdId}";
   GTLRDisplayVideoQuery_AdvertisersAdGroupAdsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -110,7 +110,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/adGroupAds";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroupAds";
   GTLRDisplayVideoQuery_AdvertisersAdGroupAdsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -123,7 +123,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 @end
 
-@implementation GTLRDisplayVideoQuery_AdvertisersAdGroupsBulkListAdGroupAssignedTargetingOptions
+@implementation GTLRDisplayVideoQuery_AdvertisersAdGroupsBulkListAssignedTargetingOptions
 
 @dynamic adGroupIds, advertiserId, filter, orderBy, pageSize, pageToken;
 
@@ -136,14 +136,14 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/adGroups:bulkListAdGroupAssignedTargetingOptions";
-  GTLRDisplayVideoQuery_AdvertisersAdGroupsBulkListAdGroupAssignedTargetingOptions *query =
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups:bulkListAssignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersAdGroupsBulkListAssignedTargetingOptions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.advertiserId = advertiserId;
   query.expectedObjectClass = [GTLRDisplayVideo_BulkListAdGroupAssignedTargetingOptionsResponse class];
-  query.loggingName = @"displayvideo.advertisers.adGroups.bulkListAdGroupAssignedTargetingOptions";
+  query.loggingName = @"displayvideo.advertisers.adGroups.bulkListAssignedTargetingOptions";
   return query;
 }
 
@@ -158,7 +158,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"adGroupId", @"advertiserId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/adGroups/{+adGroupId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups/{+adGroupId}";
   GTLRDisplayVideoQuery_AdvertisersAdGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -178,7 +178,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/adGroups";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups";
   GTLRDisplayVideoQuery_AdvertisersAdGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -203,7 +203,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     @"adGroupId", @"advertiserId", @"assignedTargetingOptionId",
     @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/adGroups/{+adGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups/{+adGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
   GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -230,7 +230,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"adGroupId", @"advertiserId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/adGroups/{+adGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups/{+adGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -259,7 +259,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/assets";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/assets";
   GTLRDisplayVideoQuery_AdvertisersAssetsUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -280,7 +280,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}:audit";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}:audit";
   GTLRDisplayVideoQuery_AdvertisersAudit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -306,7 +306,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns";
   GTLRDisplayVideoQuery_AdvertisersCampaignsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -329,7 +329,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"campaignId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns/{+campaignId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns/{+campaignId}";
   GTLRDisplayVideoQuery_AdvertisersCampaignsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -352,7 +352,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"campaignId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns/{+campaignId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns/{+campaignId}";
   GTLRDisplayVideoQuery_AdvertisersCampaignsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -372,7 +372,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns";
   GTLRDisplayVideoQuery_AdvertisersCampaignsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -380,29 +380,6 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.advertiserId = advertiserId;
   query.expectedObjectClass = [GTLRDisplayVideo_ListCampaignsResponse class];
   query.loggingName = @"displayvideo.advertisers.campaigns.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsListAssignedTargetingOptions
-
-@dynamic advertiserId, campaignId, filter, orderBy, pageSize, pageToken;
-
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                           campaignId:(long long)campaignId {
-  NSArray *pathParams = @[
-    @"advertiserId", @"campaignId"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns/{+campaignId}:listAssignedTargetingOptions";
-  GTLRDisplayVideoQuery_AdvertisersCampaignsListAssignedTargetingOptions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.advertiserId = advertiserId;
-  query.campaignId = campaignId;
-  query.expectedObjectClass = [GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse class];
-  query.loggingName = @"displayvideo.advertisers.campaigns.listAssignedTargetingOptions";
   return query;
 }
 
@@ -424,7 +401,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"campaignId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns/{+campaignId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns/{+campaignId}";
   GTLRDisplayVideoQuery_AdvertisersCampaignsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -434,60 +411,6 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.campaignId = campaignId;
   query.expectedObjectClass = [GTLRDisplayVideo_Campaign class];
   query.loggingName = @"displayvideo.advertisers.campaigns.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
-
-@dynamic advertiserId, assignedTargetingOptionId, campaignId, targetingType;
-
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                           campaignId:(long long)campaignId
-                        targetingType:(NSString *)targetingType
-            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
-  NSArray *pathParams = @[
-    @"advertiserId", @"assignedTargetingOptionId", @"campaignId",
-    @"targetingType"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
-  GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.advertiserId = advertiserId;
-  query.campaignId = campaignId;
-  query.targetingType = targetingType;
-  query.assignedTargetingOptionId = assignedTargetingOptionId;
-  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
-  query.loggingName = @"displayvideo.advertisers.campaigns.targetingTypes.assignedTargetingOptions.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
-
-@dynamic advertiserId, campaignId, filter, orderBy, pageSize, pageToken,
-         targetingType;
-
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                           campaignId:(long long)campaignId
-                        targetingType:(NSString *)targetingType {
-  NSArray *pathParams = @[
-    @"advertiserId", @"campaignId", @"targetingType"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
-  GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.advertiserId = advertiserId;
-  query.campaignId = campaignId;
-  query.targetingType = targetingType;
-  query.expectedObjectClass = [GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse class];
-  query.loggingName = @"displayvideo.advertisers.campaigns.targetingTypes.assignedTargetingOptions.list";
   return query;
 }
 
@@ -506,7 +429,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/channels";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/channels";
   GTLRDisplayVideoQuery_AdvertisersChannelsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -529,7 +452,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"channelId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/channels/{+channelId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/channels/{+channelId}";
   GTLRDisplayVideoQuery_AdvertisersChannelsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -549,7 +472,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/channels";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/channels";
   GTLRDisplayVideoQuery_AdvertisersChannelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -578,7 +501,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"channelId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/channels/{channelId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/channels/{channelId}";
   GTLRDisplayVideoQuery_AdvertisersChannelsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -609,7 +532,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"channelId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/channels/{+channelId}/sites:bulkEdit";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/channels/{+channelId}/sites:bulkEdit";
   GTLRDisplayVideoQuery_AdvertisersChannelsSitesBulkEdit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -640,7 +563,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"channelId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/channels/{+channelId}/sites";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/channels/{+channelId}/sites";
   GTLRDisplayVideoQuery_AdvertisersChannelsSitesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -665,7 +588,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"channelId", @"urlOrAppId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/channels/{+channelId}/sites/{+urlOrAppId}";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/channels/{+channelId}/sites/{+urlOrAppId}";
   GTLRDisplayVideoQuery_AdvertisersChannelsSitesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -690,7 +613,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"channelId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/channels/{+channelId}/sites";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/channels/{+channelId}/sites";
   GTLRDisplayVideoQuery_AdvertisersChannelsSitesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -720,7 +643,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"channelId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/channels/{+channelId}/sites:replace";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/channels/{+channelId}/sites:replace";
   GTLRDisplayVideoQuery_AdvertisersChannelsSitesReplace *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -744,7 +667,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/advertisers";
+  NSString *pathURITemplate = @"v4/advertisers";
   GTLRDisplayVideoQuery_AdvertisersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -770,7 +693,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/creatives";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/creatives";
   GTLRDisplayVideoQuery_AdvertisersCreativesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -793,7 +716,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"creativeId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/creatives/{+creativeId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/creatives/{+creativeId}";
   GTLRDisplayVideoQuery_AdvertisersCreativesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -816,7 +739,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"creativeId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/creatives/{+creativeId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/creatives/{+creativeId}";
   GTLRDisplayVideoQuery_AdvertisersCreativesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -836,7 +759,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/creatives";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/creatives";
   GTLRDisplayVideoQuery_AdvertisersCreativesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -865,7 +788,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"creativeId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/creatives/{+creativeId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/creatives/{+creativeId}";
   GTLRDisplayVideoQuery_AdvertisersCreativesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -886,7 +809,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}";
   GTLRDisplayVideoQuery_AdvertisersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -912,7 +835,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}:editAssignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}:editAssignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersEditAssignedTargetingOptions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -932,7 +855,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}";
   GTLRDisplayVideoQuery_AdvertisersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -958,7 +881,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders";
   GTLRDisplayVideoQuery_AdvertisersInsertionOrdersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -981,7 +904,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"insertionOrderId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}";
   GTLRDisplayVideoQuery_AdvertisersInsertionOrdersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1004,7 +927,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"insertionOrderId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}";
   GTLRDisplayVideoQuery_AdvertisersInsertionOrdersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1024,7 +947,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders";
   GTLRDisplayVideoQuery_AdvertisersInsertionOrdersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1032,29 +955,6 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.advertiserId = advertiserId;
   query.expectedObjectClass = [GTLRDisplayVideo_ListInsertionOrdersResponse class];
   query.loggingName = @"displayvideo.advertisers.insertionOrders.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersListAssignedTargetingOptions
-
-@dynamic advertiserId, filter, insertionOrderId, orderBy, pageSize, pageToken;
-
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                     insertionOrderId:(long long)insertionOrderId {
-  NSArray *pathParams = @[
-    @"advertiserId", @"insertionOrderId"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}:listAssignedTargetingOptions";
-  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersListAssignedTargetingOptions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.advertiserId = advertiserId;
-  query.insertionOrderId = insertionOrderId;
-  query.expectedObjectClass = [GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse class];
-  query.loggingName = @"displayvideo.advertisers.insertionOrders.listAssignedTargetingOptions";
   return query;
 }
 
@@ -1076,7 +976,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"insertionOrderId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}";
   GTLRDisplayVideoQuery_AdvertisersInsertionOrdersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1091,130 +991,13 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 @end
 
-@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate
-
-@dynamic advertiserId, insertionOrderId, targetingType;
-
-+ (instancetype)queryWithObject:(GTLRDisplayVideo_AssignedTargetingOption *)object
-                   advertiserId:(long long)advertiserId
-               insertionOrderId:(long long)insertionOrderId
-                  targetingType:(NSString *)targetingType {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"advertiserId", @"insertionOrderId", @"targetingType"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
-  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.advertiserId = advertiserId;
-  query.insertionOrderId = insertionOrderId;
-  query.targetingType = targetingType;
-  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
-  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete
-
-@dynamic advertiserId, assignedTargetingOptionId, insertionOrderId,
-         targetingType;
-
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                     insertionOrderId:(long long)insertionOrderId
-                        targetingType:(NSString *)targetingType
-            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
-  NSArray *pathParams = @[
-    @"advertiserId", @"assignedTargetingOptionId", @"insertionOrderId",
-    @"targetingType"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
-  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.advertiserId = advertiserId;
-  query.insertionOrderId = insertionOrderId;
-  query.targetingType = targetingType;
-  query.assignedTargetingOptionId = assignedTargetingOptionId;
-  query.expectedObjectClass = [GTLRDisplayVideo_Empty class];
-  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
-
-@dynamic advertiserId, assignedTargetingOptionId, insertionOrderId,
-         targetingType;
-
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                     insertionOrderId:(long long)insertionOrderId
-                        targetingType:(NSString *)targetingType
-            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
-  NSArray *pathParams = @[
-    @"advertiserId", @"assignedTargetingOptionId", @"insertionOrderId",
-    @"targetingType"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
-  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.advertiserId = advertiserId;
-  query.insertionOrderId = insertionOrderId;
-  query.targetingType = targetingType;
-  query.assignedTargetingOptionId = assignedTargetingOptionId;
-  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
-  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList
-
-@dynamic advertiserId, filter, insertionOrderId, orderBy, pageSize, pageToken,
-         targetingType;
-
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                     insertionOrderId:(long long)insertionOrderId
-                        targetingType:(NSString *)targetingType {
-  NSArray *pathParams = @[
-    @"advertiserId", @"insertionOrderId", @"targetingType"
-  ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
-  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.advertiserId = advertiserId;
-  query.insertionOrderId = insertionOrderId;
-  query.targetingType = targetingType;
-  query.expectedObjectClass = [GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse class];
-  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRDisplayVideoQuery_AdvertisersInvoicesList
 
 @dynamic advertiserId, issueMonth, loiSapinInvoiceType, pageSize, pageToken;
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/invoices";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/invoices";
   GTLRDisplayVideoQuery_AdvertisersInvoicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1233,7 +1016,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/invoices:lookupInvoiceCurrency";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/invoices:lookupInvoiceCurrency";
   GTLRDisplayVideoQuery_AdvertisersInvoicesLookupInvoiceCurrency *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1259,7 +1042,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems:bulkEditAssignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems:bulkEditAssignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersLineItemsBulkEditAssignedTargetingOptions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1286,7 +1069,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems:bulkListAssignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems:bulkListAssignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersLineItemsBulkListAssignedTargetingOptions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1312,7 +1095,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems:bulkUpdate";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems:bulkUpdate";
   GTLRDisplayVideoQuery_AdvertisersLineItemsBulkUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1339,7 +1122,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems";
   GTLRDisplayVideoQuery_AdvertisersLineItemsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1362,7 +1145,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"lineItemId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}";
   GTLRDisplayVideoQuery_AdvertisersLineItemsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1392,7 +1175,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"lineItemId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}:duplicate";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}:duplicate";
   GTLRDisplayVideoQuery_AdvertisersLineItemsDuplicate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1420,7 +1203,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems:generateDefault";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems:generateDefault";
   GTLRDisplayVideoQuery_AdvertisersLineItemsGenerateDefault *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1443,7 +1226,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"lineItemId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}";
   GTLRDisplayVideoQuery_AdvertisersLineItemsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1463,7 +1246,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems";
   GTLRDisplayVideoQuery_AdvertisersLineItemsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1492,7 +1275,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"lineItemId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}";
   GTLRDisplayVideoQuery_AdvertisersLineItemsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1524,7 +1307,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"lineItemId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1552,7 +1335,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     @"advertiserId", @"assignedTargetingOptionId", @"lineItemId",
     @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
   GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1580,7 +1363,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     @"advertiserId", @"assignedTargetingOptionId", @"lineItemId",
     @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
   GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1607,7 +1390,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"lineItemId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1627,7 +1410,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/advertisers";
+  NSString *pathURITemplate = @"v4/advertisers";
   GTLRDisplayVideoQuery_AdvertisersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1645,7 +1428,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}:listAssignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}:listAssignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersListAssignedTargetingOptions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1674,7 +1457,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"locationListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/locationLists/{+locationListId}/assignedLocations:bulkEdit";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/locationLists/{+locationListId}/assignedLocations:bulkEdit";
   GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsBulkEdit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1705,7 +1488,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"locationListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations";
   GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1730,7 +1513,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"assignedLocationId", @"locationListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations/{+assignedLocationId}";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations/{+assignedLocationId}";
   GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1754,7 +1537,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"locationListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations";
   GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1781,7 +1564,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/locationLists";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/locationLists";
   GTLRDisplayVideoQuery_AdvertisersLocationListsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1804,7 +1587,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"locationListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/locationLists/{+locationListId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/locationLists/{+locationListId}";
   GTLRDisplayVideoQuery_AdvertisersLocationListsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1824,7 +1607,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/locationLists";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/locationLists";
   GTLRDisplayVideoQuery_AdvertisersLocationListsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1853,7 +1636,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"locationListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/locationLists/{locationListId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/locationLists/{locationListId}";
   GTLRDisplayVideoQuery_AdvertisersLocationListsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1881,7 +1664,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/negativeKeywordLists";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/negativeKeywordLists";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1904,7 +1687,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1927,7 +1710,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1947,7 +1730,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/negativeKeywordLists";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/negativeKeywordLists";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1976,7 +1759,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords:bulkEdit";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords:bulkEdit";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsBulkEdit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2007,7 +1790,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2032,7 +1815,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"keywordValue", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords/{+keywordValue}";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords/{+keywordValue}";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2057,7 +1840,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2087,7 +1870,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords:replace";
+  NSString *pathURITemplate = @"v4/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords:replace";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsReplace *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2118,7 +1901,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"negativeKeywordListId"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/negativeKeywordLists/{negativeKeywordListId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/negativeKeywordLists/{negativeKeywordListId}";
   GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2146,7 +1929,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"advertiserId" ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}";
   GTLRDisplayVideoQuery_AdvertisersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2176,7 +1959,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2201,7 +1984,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"assignedTargetingOptionId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
   GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2226,7 +2009,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"assignedTargetingOptionId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
   GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2250,7 +2033,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"advertiserId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
   GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2270,7 +2053,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithCombinedAudienceId:(long long)combinedAudienceId {
   NSArray *pathParams = @[ @"combinedAudienceId" ];
-  NSString *pathURITemplate = @"v3/combinedAudiences/{+combinedAudienceId}";
+  NSString *pathURITemplate = @"v4/combinedAudiences/{+combinedAudienceId}";
   GTLRDisplayVideoQuery_CombinedAudiencesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2288,7 +2071,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/combinedAudiences";
+  NSString *pathURITemplate = @"v4/combinedAudiences";
   GTLRDisplayVideoQuery_CombinedAudiencesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2309,7 +2092,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2328,7 +2111,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2346,7 +2129,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2371,7 +2154,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2398,7 +2181,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsRulesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2422,7 +2205,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"customBiddingAlgorithmId", @"customBiddingAlgorithmRulesId"
   ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules/{+customBiddingAlgorithmRulesId}";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules/{+customBiddingAlgorithmRulesId}";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsRulesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2443,7 +2226,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsRulesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2469,7 +2252,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2493,7 +2276,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"customBiddingAlgorithmId", @"customBiddingScriptId"
   ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts/{+customBiddingScriptId}";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts/{+customBiddingScriptId}";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2514,7 +2297,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2533,7 +2316,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}:uploadRules";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}:uploadRules";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsUploadRules *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2552,7 +2335,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
   NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
-  NSString *pathURITemplate = @"v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}:uploadScript";
+  NSString *pathURITemplate = @"v4/customBiddingAlgorithms/{+customBiddingAlgorithmId}:uploadScript";
   GTLRDisplayVideoQuery_CustomBiddingAlgorithmsUploadScript *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2571,7 +2354,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithCustomListId:(long long)customListId {
   NSArray *pathParams = @[ @"customListId" ];
-  NSString *pathURITemplate = @"v3/customLists/{+customListId}";
+  NSString *pathURITemplate = @"v4/customLists/{+customListId}";
   GTLRDisplayVideoQuery_CustomListsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2589,7 +2372,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/customLists";
+  NSString *pathURITemplate = @"v4/customLists";
   GTLRDisplayVideoQuery_CustomListsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2601,115 +2384,115 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 @end
 
-@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesCreate
+@implementation GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesCreate
 
 @dynamic advertiserId;
 
-+ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstAndThirdPartyAudience *)object {
++ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstPartyAndPartnerAudience *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/firstAndThirdPartyAudiences";
-  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesCreate *query =
+  NSString *pathURITemplate = @"v4/firstPartyAndPartnerAudiences";
+  GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDisplayVideo_FirstAndThirdPartyAudience class];
-  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.create";
+  query.expectedObjectClass = [GTLRDisplayVideo_FirstPartyAndPartnerAudience class];
+  query.loggingName = @"displayvideo.firstPartyAndPartnerAudiences.create";
   return query;
 }
 
 @end
 
-@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesEditCustomerMatchMembers
+@implementation GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesEditCustomerMatchMembers
 
-@dynamic firstAndThirdPartyAudienceId;
+@dynamic firstPartyAndPartnerAudienceId;
 
 + (instancetype)queryWithObject:(GTLRDisplayVideo_EditCustomerMatchMembersRequest *)object
-   firstAndThirdPartyAudienceId:(long long)firstAndThirdPartyAudienceId {
+ firstPartyAndPartnerAudienceId:(long long)firstPartyAndPartnerAudienceId {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"firstAndThirdPartyAudienceId" ];
-  NSString *pathURITemplate = @"v3/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}:editCustomerMatchMembers";
-  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesEditCustomerMatchMembers *query =
+  NSArray *pathParams = @[ @"firstPartyAndPartnerAudienceId" ];
+  NSString *pathURITemplate = @"v4/firstPartyAndPartnerAudiences/{+firstPartyAndPartnerAudienceId}:editCustomerMatchMembers";
+  GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesEditCustomerMatchMembers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.firstAndThirdPartyAudienceId = firstAndThirdPartyAudienceId;
+  query.firstPartyAndPartnerAudienceId = firstPartyAndPartnerAudienceId;
   query.expectedObjectClass = [GTLRDisplayVideo_EditCustomerMatchMembersResponse class];
-  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.editCustomerMatchMembers";
+  query.loggingName = @"displayvideo.firstPartyAndPartnerAudiences.editCustomerMatchMembers";
   return query;
 }
 
 @end
 
-@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesGet
+@implementation GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesGet
 
-@dynamic advertiserId, firstAndThirdPartyAudienceId, partnerId;
+@dynamic advertiserId, firstPartyAndPartnerAudienceId, partnerId;
 
-+ (instancetype)queryWithFirstAndThirdPartyAudienceId:(long long)firstAndThirdPartyAudienceId {
-  NSArray *pathParams = @[ @"firstAndThirdPartyAudienceId" ];
-  NSString *pathURITemplate = @"v3/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}";
-  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesGet *query =
++ (instancetype)queryWithFirstPartyAndPartnerAudienceId:(long long)firstPartyAndPartnerAudienceId {
+  NSArray *pathParams = @[ @"firstPartyAndPartnerAudienceId" ];
+  NSString *pathURITemplate = @"v4/firstPartyAndPartnerAudiences/{+firstPartyAndPartnerAudienceId}";
+  GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.firstAndThirdPartyAudienceId = firstAndThirdPartyAudienceId;
-  query.expectedObjectClass = [GTLRDisplayVideo_FirstAndThirdPartyAudience class];
-  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.get";
+  query.firstPartyAndPartnerAudienceId = firstPartyAndPartnerAudienceId;
+  query.expectedObjectClass = [GTLRDisplayVideo_FirstPartyAndPartnerAudience class];
+  query.loggingName = @"displayvideo.firstPartyAndPartnerAudiences.get";
   return query;
 }
 
 @end
 
-@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesList
+@implementation GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesList
 
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/firstAndThirdPartyAudiences";
-  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesList *query =
+  NSString *pathURITemplate = @"v4/firstPartyAndPartnerAudiences";
+  GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRDisplayVideo_ListFirstAndThirdPartyAudiencesResponse class];
-  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.list";
+  query.expectedObjectClass = [GTLRDisplayVideo_ListFirstPartyAndPartnerAudiencesResponse class];
+  query.loggingName = @"displayvideo.firstPartyAndPartnerAudiences.list";
   return query;
 }
 
 @end
 
-@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesPatch
+@implementation GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesPatch
 
-@dynamic advertiserId, firstAndThirdPartyAudienceId, updateMask;
+@dynamic advertiserId, firstPartyAndPartnerAudienceId, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstAndThirdPartyAudience *)object
-   firstAndThirdPartyAudienceId:(long long)firstAndThirdPartyAudienceId {
++ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstPartyAndPartnerAudience *)object
+ firstPartyAndPartnerAudienceId:(long long)firstPartyAndPartnerAudienceId {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"firstAndThirdPartyAudienceId" ];
-  NSString *pathURITemplate = @"v3/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}";
-  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesPatch *query =
+  NSArray *pathParams = @[ @"firstPartyAndPartnerAudienceId" ];
+  NSString *pathURITemplate = @"v4/firstPartyAndPartnerAudiences/{+firstPartyAndPartnerAudienceId}";
+  GTLRDisplayVideoQuery_FirstPartyAndPartnerAudiencesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.firstAndThirdPartyAudienceId = firstAndThirdPartyAudienceId;
-  query.expectedObjectClass = [GTLRDisplayVideo_FirstAndThirdPartyAudience class];
-  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.patch";
+  query.firstPartyAndPartnerAudienceId = firstPartyAndPartnerAudienceId;
+  query.expectedObjectClass = [GTLRDisplayVideo_FirstPartyAndPartnerAudience class];
+  query.loggingName = @"displayvideo.firstPartyAndPartnerAudiences.patch";
   return query;
 }
 
@@ -2724,7 +2507,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"floodlightActivityId", @"floodlightGroupId"
   ];
-  NSString *pathURITemplate = @"v3/floodlightGroups/{+floodlightGroupId}/floodlightActivities/{+floodlightActivityId}";
+  NSString *pathURITemplate = @"v4/floodlightGroups/{+floodlightGroupId}/floodlightActivities/{+floodlightActivityId}";
   GTLRDisplayVideoQuery_FloodlightGroupsFloodlightActivitiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2744,7 +2527,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithFloodlightGroupId:(long long)floodlightGroupId {
   NSArray *pathParams = @[ @"floodlightGroupId" ];
-  NSString *pathURITemplate = @"v3/floodlightGroups/{+floodlightGroupId}/floodlightActivities";
+  NSString *pathURITemplate = @"v4/floodlightGroups/{+floodlightGroupId}/floodlightActivities";
   GTLRDisplayVideoQuery_FloodlightGroupsFloodlightActivitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2763,7 +2546,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithFloodlightGroupId:(long long)floodlightGroupId {
   NSArray *pathParams = @[ @"floodlightGroupId" ];
-  NSString *pathURITemplate = @"v3/floodlightGroups/{+floodlightGroupId}";
+  NSString *pathURITemplate = @"v4/floodlightGroups/{+floodlightGroupId}";
   GTLRDisplayVideoQuery_FloodlightGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2789,7 +2572,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"floodlightGroupId" ];
-  NSString *pathURITemplate = @"v3/floodlightGroups/{floodlightGroupId}";
+  NSString *pathURITemplate = @"v4/floodlightGroups/{floodlightGroupId}";
   GTLRDisplayVideoQuery_FloodlightGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2809,7 +2592,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithGoogleAudienceId:(long long)googleAudienceId {
   NSArray *pathParams = @[ @"googleAudienceId" ];
-  NSString *pathURITemplate = @"v3/googleAudiences/{+googleAudienceId}";
+  NSString *pathURITemplate = @"v4/googleAudiences/{+googleAudienceId}";
   GTLRDisplayVideoQuery_GoogleAudiencesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2827,7 +2610,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/googleAudiences";
+  NSString *pathURITemplate = @"v4/googleAudiences";
   GTLRDisplayVideoQuery_GoogleAudiencesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2850,7 +2633,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/guaranteedOrders";
+  NSString *pathURITemplate = @"v4/guaranteedOrders";
   GTLRDisplayVideoQuery_GuaranteedOrdersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2876,7 +2659,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"guaranteedOrderId" ];
-  NSString *pathURITemplate = @"v3/guaranteedOrders/{+guaranteedOrderId}:editGuaranteedOrderReadAccessors";
+  NSString *pathURITemplate = @"v4/guaranteedOrders/{+guaranteedOrderId}:editGuaranteedOrderReadAccessors";
   GTLRDisplayVideoQuery_GuaranteedOrdersEditGuaranteedOrderReadAccessors *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2896,7 +2679,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithGuaranteedOrderId:(NSString *)guaranteedOrderId {
   NSArray *pathParams = @[ @"guaranteedOrderId" ];
-  NSString *pathURITemplate = @"v3/guaranteedOrders/{+guaranteedOrderId}";
+  NSString *pathURITemplate = @"v4/guaranteedOrders/{+guaranteedOrderId}";
   GTLRDisplayVideoQuery_GuaranteedOrdersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2914,7 +2697,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/guaranteedOrders";
+  NSString *pathURITemplate = @"v4/guaranteedOrders";
   GTLRDisplayVideoQuery_GuaranteedOrdersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2939,7 +2722,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"guaranteedOrderId" ];
-  NSString *pathURITemplate = @"v3/guaranteedOrders/{+guaranteedOrderId}";
+  NSString *pathURITemplate = @"v4/guaranteedOrders/{+guaranteedOrderId}";
   GTLRDisplayVideoQuery_GuaranteedOrdersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2966,7 +2749,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"inventorySourceGroupId" ];
-  NSString *pathURITemplate = @"v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources:bulkEdit";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources:bulkEdit";
   GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesBulkEdit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2993,7 +2776,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"inventorySourceGroupId" ];
-  NSString *pathURITemplate = @"v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources";
   GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3017,7 +2800,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"assignedInventorySourceId", @"inventorySourceGroupId"
   ];
-  NSString *pathURITemplate = @"v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources/{+assignedInventorySourceId}";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources/{+assignedInventorySourceId}";
   GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -3038,7 +2821,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithInventorySourceGroupId:(long long)inventorySourceGroupId {
   NSArray *pathParams = @[ @"inventorySourceGroupId" ];
-  NSString *pathURITemplate = @"v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources";
   GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3062,7 +2845,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/inventorySourceGroups";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups";
   GTLRDisplayVideoQuery_InventorySourceGroupsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3081,7 +2864,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithInventorySourceGroupId:(long long)inventorySourceGroupId {
   NSArray *pathParams = @[ @"inventorySourceGroupId" ];
-  NSString *pathURITemplate = @"v3/inventorySourceGroups/{+inventorySourceGroupId}";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups/{+inventorySourceGroupId}";
   GTLRDisplayVideoQuery_InventorySourceGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -3100,7 +2883,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithInventorySourceGroupId:(long long)inventorySourceGroupId {
   NSArray *pathParams = @[ @"inventorySourceGroupId" ];
-  NSString *pathURITemplate = @"v3/inventorySourceGroups/{+inventorySourceGroupId}";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups/{+inventorySourceGroupId}";
   GTLRDisplayVideoQuery_InventorySourceGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3118,7 +2901,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/inventorySourceGroups";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups";
   GTLRDisplayVideoQuery_InventorySourceGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3143,7 +2926,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"inventorySourceGroupId" ];
-  NSString *pathURITemplate = @"v3/inventorySourceGroups/{inventorySourceGroupId}";
+  NSString *pathURITemplate = @"v4/inventorySourceGroups/{inventorySourceGroupId}";
   GTLRDisplayVideoQuery_InventorySourceGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3168,7 +2951,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/inventorySources";
+  NSString *pathURITemplate = @"v4/inventorySources";
   GTLRDisplayVideoQuery_InventorySourcesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3194,7 +2977,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"inventorySourceId" ];
-  NSString *pathURITemplate = @"v3/inventorySources/{+inventorySourceId}:editInventorySourceReadWriteAccessors";
+  NSString *pathURITemplate = @"v4/inventorySources/{+inventorySourceId}:editInventorySourceReadWriteAccessors";
   GTLRDisplayVideoQuery_InventorySourcesEditInventorySourceReadWriteAccessors *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3214,7 +2997,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithInventorySourceId:(long long)inventorySourceId {
   NSArray *pathParams = @[ @"inventorySourceId" ];
-  NSString *pathURITemplate = @"v3/inventorySources/{+inventorySourceId}";
+  NSString *pathURITemplate = @"v4/inventorySources/{+inventorySourceId}";
   GTLRDisplayVideoQuery_InventorySourcesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3232,7 +3015,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/inventorySources";
+  NSString *pathURITemplate = @"v4/inventorySources";
   GTLRDisplayVideoQuery_InventorySourcesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3257,7 +3040,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"inventorySourceId" ];
-  NSString *pathURITemplate = @"v3/inventorySources/{+inventorySourceId}";
+  NSString *pathURITemplate = @"v4/inventorySources/{+inventorySourceId}";
   GTLRDisplayVideoQuery_InventorySourcesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3340,7 +3123,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"partnerId" ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/channels";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/channels";
   GTLRDisplayVideoQuery_PartnersChannelsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3363,7 +3146,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"channelId", @"partnerId"
   ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/channels/{+channelId}";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/channels/{+channelId}";
   GTLRDisplayVideoQuery_PartnersChannelsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3383,7 +3166,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithPartnerId:(long long)partnerId {
   NSArray *pathParams = @[ @"partnerId" ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/channels";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/channels";
   GTLRDisplayVideoQuery_PartnersChannelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3412,7 +3195,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"channelId", @"partnerId"
   ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/channels/{channelId}";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/channels/{channelId}";
   GTLRDisplayVideoQuery_PartnersChannelsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3443,7 +3226,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"channelId", @"partnerId"
   ];
-  NSString *pathURITemplate = @"v3/partners/{partnerId}/channels/{+channelId}/sites:bulkEdit";
+  NSString *pathURITemplate = @"v4/partners/{partnerId}/channels/{+channelId}/sites:bulkEdit";
   GTLRDisplayVideoQuery_PartnersChannelsSitesBulkEdit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3474,7 +3257,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"channelId", @"partnerId"
   ];
-  NSString *pathURITemplate = @"v3/partners/{partnerId}/channels/{+channelId}/sites";
+  NSString *pathURITemplate = @"v4/partners/{partnerId}/channels/{+channelId}/sites";
   GTLRDisplayVideoQuery_PartnersChannelsSitesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3499,7 +3282,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"channelId", @"partnerId", @"urlOrAppId"
   ];
-  NSString *pathURITemplate = @"v3/partners/{partnerId}/channels/{+channelId}/sites/{+urlOrAppId}";
+  NSString *pathURITemplate = @"v4/partners/{partnerId}/channels/{+channelId}/sites/{+urlOrAppId}";
   GTLRDisplayVideoQuery_PartnersChannelsSitesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -3524,7 +3307,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"channelId", @"partnerId"
   ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/channels/{+channelId}/sites";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/channels/{+channelId}/sites";
   GTLRDisplayVideoQuery_PartnersChannelsSitesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3554,7 +3337,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"channelId", @"partnerId"
   ];
-  NSString *pathURITemplate = @"v3/partners/{partnerId}/channels/{+channelId}/sites:replace";
+  NSString *pathURITemplate = @"v4/partners/{partnerId}/channels/{+channelId}/sites:replace";
   GTLRDisplayVideoQuery_PartnersChannelsSitesReplace *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3582,7 +3365,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"partnerId" ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}:editAssignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}:editAssignedTargetingOptions";
   GTLRDisplayVideoQuery_PartnersEditAssignedTargetingOptions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3602,7 +3385,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithPartnerId:(long long)partnerId {
   NSArray *pathParams = @[ @"partnerId" ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}";
   GTLRDisplayVideoQuery_PartnersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3620,7 +3403,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic filter, orderBy, pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/partners";
+  NSString *pathURITemplate = @"v4/partners";
   GTLRDisplayVideoQuery_PartnersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3648,7 +3431,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"partnerId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
   GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3673,7 +3456,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"assignedTargetingOptionId", @"partnerId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
   GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -3698,7 +3481,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"assignedTargetingOptionId", @"partnerId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
   GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3722,7 +3505,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"partnerId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  NSString *pathURITemplate = @"v4/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
   GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3745,7 +3528,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/sdfdownloadtasks";
+  NSString *pathURITemplate = @"v4/sdfdownloadtasks";
   GTLRDisplayVideoQuery_SdfdownloadtasksCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3764,7 +3547,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}";
+  NSString *pathURITemplate = @"v4/{+name}";
   GTLRDisplayVideoQuery_SdfdownloadtasksOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3772,6 +3555,25 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.name = name;
   query.expectedObjectClass = [GTLRDisplayVideo_Operation class];
   query.loggingName = @"displayvideo.sdfdownloadtasks.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_SdfuploadtasksOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRDisplayVideoQuery_SdfuploadtasksOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDisplayVideo_Operation class];
+  query.loggingName = @"displayvideo.sdfuploadtasks.operations.get";
   return query;
 }
 
@@ -3786,7 +3588,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   NSArray *pathParams = @[
     @"targetingOptionId", @"targetingType"
   ];
-  NSString *pathURITemplate = @"v3/targetingTypes/{+targetingType}/targetingOptions/{+targetingOptionId}";
+  NSString *pathURITemplate = @"v4/targetingTypes/{+targetingType}/targetingOptions/{+targetingOptionId}";
   GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3806,7 +3608,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithTargetingType:(NSString *)targetingType {
   NSArray *pathParams = @[ @"targetingType" ];
-  NSString *pathURITemplate = @"v3/targetingTypes/{+targetingType}/targetingOptions";
+  NSString *pathURITemplate = @"v4/targetingTypes/{+targetingType}/targetingOptions";
   GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3832,7 +3634,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"targetingType" ];
-  NSString *pathURITemplate = @"v3/targetingTypes/{+targetingType}/targetingOptions:search";
+  NSString *pathURITemplate = @"v4/targetingTypes/{+targetingType}/targetingOptions:search";
   GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3859,7 +3661,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"v3/users/{+userId}:bulkEditAssignedUserRoles";
+  NSString *pathURITemplate = @"v4/users/{+userId}:bulkEditAssignedUserRoles";
   GTLRDisplayVideoQuery_UsersBulkEditAssignedUserRoles *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3882,7 +3684,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v3/users";
+  NSString *pathURITemplate = @"v4/users";
   GTLRDisplayVideoQuery_UsersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3901,7 +3703,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithUserId:(long long)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"v3/users/{+userId}";
+  NSString *pathURITemplate = @"v4/users/{+userId}";
   GTLRDisplayVideoQuery_UsersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -3920,7 +3722,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 + (instancetype)queryWithUserId:(long long)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"v3/users/{+userId}";
+  NSString *pathURITemplate = @"v4/users/{+userId}";
   GTLRDisplayVideoQuery_UsersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3938,7 +3740,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @dynamic filter, orderBy, pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v3/users";
+  NSString *pathURITemplate = @"v4/users";
   GTLRDisplayVideoQuery_UsersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3963,7 +3765,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"v3/users/{+userId}";
+  NSString *pathURITemplate = @"v4/users/{+userId}";
   GTLRDisplayVideoQuery_UsersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"

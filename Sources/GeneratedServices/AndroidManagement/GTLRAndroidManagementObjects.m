@@ -325,9 +325,25 @@ NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_Perso
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Command = @"COMMAND";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_ComplianceReport = @"COMPLIANCE_REPORT";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment = @"ENROLLMENT";
+NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_EnterpriseUpgrade = @"ENTERPRISE_UPGRADE";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified = @"NOTIFICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport = @"STATUS_REPORT";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs = @"USAGE_LOGS";
+
+// GTLRAndroidManagement_Enterprise.enterpriseType
+NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_EnterpriseTypeUnspecified = @"ENTERPRISE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGoogleDomain = @"MANAGED_GOOGLE_DOMAIN";
+NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise = @"MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE";
+
+// GTLRAndroidManagement_Enterprise.managedGoogleDomainType
+NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified = @"MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeDomain = @"TYPE_DOMAIN";
+NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeTeam = @"TYPE_TEAM";
+
+// GTLRAndroidManagement_Enterprise.managedGooglePlayAccountsEnterpriseType
+NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_CustomerManaged = @"CUSTOMER_MANAGED";
+NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_EmmManaged = @"EMM_MANAGED";
+NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_ManagedGooglePlayAccountsEnterpriseTypeUnspecified = @"MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED";
 
 // GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
 NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified = @"GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED";
@@ -1441,8 +1457,9 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_Enterprise
 @dynamic appAutoApprovalEnabled, contactInfo, enabledNotificationTypes,
-         enterpriseDisplayName, googleAuthenticationSettings, logo, name,
-         primaryColor, pubsubTopic, signinDetails, termsAndConditions;
+         enterpriseDisplayName, enterpriseType, googleAuthenticationSettings,
+         logo, managedGoogleDomainType, managedGooglePlayAccountsEnterpriseType,
+         name, primaryColor, pubsubTopic, signinDetails, termsAndConditions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1511,6 +1528,34 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_FreezePeriod
 @dynamic endDate, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest
+//
+
+@implementation GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest
+@dynamic adminEmail, allowedDomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedDomains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse
+//
+
+@implementation GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse
+@dynamic url;
 @end
 
 

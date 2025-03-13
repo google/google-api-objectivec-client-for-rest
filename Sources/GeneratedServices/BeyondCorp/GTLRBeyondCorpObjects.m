@@ -78,6 +78,10 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_DataRead = @"
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBeyondCorp_AllocatedConnection
@@ -1206,3 +1210,5 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 }
 
 @end
+
+#pragma clang diagnostic pop

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   GDC Virtual API (gkeonprem/v1)
+//   GKE On-Prem API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 
@@ -35,7 +35,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGKEOnPremCloudPlatform;
 //
 
 /**
- *  Service for executing GDC Virtual API queries.
+ *  Service for executing GKE On-Prem API queries.
  */
 @interface GTLRGKEOnPremService : GTLRService
 

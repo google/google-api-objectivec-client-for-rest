@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Forms and responses.
 // Documentation:
-//   https://developers.google.com/forms/api
+//   https://developers.google.com/workspace/forms/api
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -44,6 +44,8 @@
 @class GTLRForms_MoveItemRequest;
 @class GTLRForms_Option;
 @class GTLRForms_PageBreakItem;
+@class GTLRForms_PublishSettings;
+@class GTLRForms_PublishState;
 @class GTLRForms_Question;
 @class GTLRForms_QuestionGroupItem;
 @class GTLRForms_QuestionItem;
@@ -109,6 +111,38 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_ChoiceQuestion_Type_DropDown;
  *  Value: "RADIO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRForms_ChoiceQuestion_Type_Radio;
+
+// ----------------------------------------------------------------------------
+// GTLRForms_Ettings.emailCollectionType
+
+/**
+ *  The form doesn't collect email addresses. Default value if the form owner
+ *  uses a Google account.
+ *
+ *  Value: "DO_NOT_COLLECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_DoNotCollect;
+/**
+ *  Unspecified. This value is unused.
+ *
+ *  Value: "EMAIL_COLLECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_EmailCollectionTypeUnspecified;
+/**
+ *  The form collects email addresses using a field that the respondent
+ *  completes on the form.
+ *
+ *  Value: "RESPONDER_INPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_ResponderInput;
+/**
+ *  The form collects email addresses automatically based on the account of the
+ *  signed-in user. Default value if the form owner uses a Google Workspace
+ *  account.
+ *
+ *  Value: "VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_Verified;
 
 // ----------------------------------------------------------------------------
 // GTLRForms_FileUploadQuestion.types
@@ -594,6 +628,27 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  */
 @interface GTLRForms_Ettings : GTLRObject
 
+/**
+ *  Optional. The setting that determines whether the form collects email
+ *  addresses from respondents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_DoNotCollect The form
+ *        doesn't collect email addresses. Default value if the form owner uses
+ *        a Google account. (Value: "DO_NOT_COLLECT")
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_EmailCollectionTypeUnspecified
+ *        Unspecified. This value is unused. (Value:
+ *        "EMAIL_COLLECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_ResponderInput The form
+ *        collects email addresses using a field that the respondent completes
+ *        on the form. (Value: "RESPONDER_INPUT")
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_Verified The form collects
+ *        email addresses automatically based on the account of the signed-in
+ *        user. Default value if the form owner uses a Google Workspace account.
+ *        (Value: "VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *emailCollectionType;
+
 /** Settings related to quiz forms and grading. */
 @property(nonatomic, strong, nullable) GTLRForms_QuizSettings *quizSettings;
 
@@ -722,6 +777,14 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  *  responses from this Form (if such a Sheet exists).
  */
 @property(nonatomic, copy, nullable) NSString *linkedSheetId;
+
+/**
+ *  Output only. The publishing settings for a form. This field isn't set for
+ *  legacy forms because they don't have the `publish_settings` field. All newly
+ *  created forms support publish settings. Forms with `publish_settings` value
+ *  set can call UpdatePublishSettings API to publish or unpublish the form.
+ */
+@property(nonatomic, strong, nullable) GTLRForms_PublishSettings *publishSettings;
 
 /**
  *  Output only. The form URI to share with responders. This opens a page that
@@ -1159,6 +1222,45 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 
 /**
+ *  The publishing settings of a form.
+ */
+@interface GTLRForms_PublishSettings : GTLRObject
+
+/**
+ *  Optional. The publishing state of a form. When updating `publish_state`,
+ *  both `is_published` and `is_accepting_responses` must be set. However,
+ *  setting `is_accepting_responses` to `true` and `is_published` to `false`
+ *  isn't supported and returns an error.
+ */
+@property(nonatomic, strong, nullable) GTLRForms_PublishState *publishState;
+
+@end
+
+
+/**
+ *  The publishing state of a form.
+ */
+@interface GTLRForms_PublishState : GTLRObject
+
+/**
+ *  Required. Whether the form accepts responses. If `is_published` is set to
+ *  `false`, this field is forced to `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAcceptingResponses;
+
+/**
+ *  Required. Whether the form is published and visible to others.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPublished;
+
+@end
+
+
+/**
  *  Any question. The specific type of question is known by its `kind`.
  */
 @interface GTLRForms_Question : GTLRObject
@@ -1374,6 +1476,41 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 /** The label to display describing the lowest point on the scale. */
 @property(nonatomic, copy, nullable) NSString *lowLabel;
+
+@end
+
+
+/**
+ *  Updates the publish settings of a Form.
+ */
+@interface GTLRForms_SetPublishSettingsRequest : GTLRObject
+
+/** Required. The desired publish settings to apply to the form. */
+@property(nonatomic, strong, nullable) GTLRForms_PublishSettings *publishSettings;
+
+/**
+ *  Optional. The `publish_settings` fields to update. This field mask accepts
+ *  the following values: * `publish_state`: Updates or replaces all
+ *  `publish_state` settings. * `"*"`: Updates or replaces all
+ *  `publish_settings` fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The response of a `SetPublishSettings` request.
+ */
+@interface GTLRForms_SetPublishSettingsResponse : GTLRObject
+
+/** Required. The ID of the Form. This is same as the `Form.form_id` field. */
+@property(nonatomic, copy, nullable) NSString *formId;
+
+/** The publish settings of the form. */
+@property(nonatomic, strong, nullable) GTLRForms_PublishSettings *publishSettings;
 
 @end
 

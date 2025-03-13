@@ -287,7 +287,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_DatasetsDatasetVersionsPatch : GTLRAiplatformQuery
 
-/** Output only. Identifier. The resource name of the DatasetVersion. */
+/**
+ *  Output only. Identifier. The resource name of the DatasetVersion. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -307,7 +310,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
  *    include in the query.
  *  @param name Output only. Identifier. The resource name of the
- *    DatasetVersion.
+ *    DatasetVersion. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
  *
  *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsPatch
  */
@@ -620,6 +624,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
                           model:(NSString *)model;
+
+@end
+
+/**
+ *  Perform an online prediction.
+ *
+ *  Method: aiplatform.endpoints.predict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1PredictResponse.
+ *
+ *  Perform an online prediction.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest *)object
+                       endpoint:(NSString *)endpoint;
 
 @end
 
@@ -2932,7 +2971,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch : GTLRAiplatformQuery
 
-/** Output only. Identifier. The resource name of the DatasetVersion. */
+/**
+ *  Output only. Identifier. The resource name of the DatasetVersion. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2952,7 +2994,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
  *    include in the query.
  *  @param name Output only. Identifier. The resource name of the
- *    DatasetVersion.
+ *    DatasetVersion. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch
  */
@@ -5336,6 +5379,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Evaluates a dataset based on a set of given metrics.
+ *
+ *  Method: aiplatform.projects.locations.evaluateDataset
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluateDataset : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to evaluate the dataset. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Evaluates a dataset based on a set of given metrics.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest to include in
+ *    the query.
+ *  @param location Required. The resource name of the Location to evaluate the
+ *    dataset. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluateDataset
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
  *  Evaluates instances based on a given metric.
  *
  *  Method: aiplatform.projects.locations.evaluateInstances
@@ -6175,7 +6252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  overwritten if it is in the mask. If the user does not provide a mask then
  *  only the non-empty fields present in the request will be overwritten. Set
  *  the update_mask to `*` to override all fields. Updatable fields: * `labels`
- *  * `description` * `big_query` * `big_query.entity_id_columns`
+ *  * `description` * `big_query` * `big_query.entity_id_columns` *
+ *  `service_agent_type`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -10002,7 +10080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
- *  it. Only non-empty Indexes can be deployed.
+ *  it.
  *
  *  Method: aiplatform.projects.locations.indexEndpoints.deployIndex
  *
@@ -10022,7 +10100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
  *
  *  Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
- *  it. Only non-empty Indexes can be deployed.
+ *  it.
  *
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1DeployIndexRequest to include in the
@@ -14738,6 +14816,56 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists checkpoints of the specified model version.
+ *
+ *  Method: aiplatform.projects.locations.models.listCheckpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsModelsListCheckpoints : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the model version to list checkpoints for.
+ *  `projects/{project}/locations/{location}/models/{model}\@{version}` Example:
+ *  `projects/{project}/locations/{location}/models/{model}\@2` or
+ *  `projects/{project}/locations/{location}/models/{model}\@golden` If no
+ *  version ID or alias is specified, the latest version will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  next_page_token of the previous ListModelVersionCheckpoints call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListModelVersionCheckpointsResponse.
+ *
+ *  Lists checkpoints of the specified model version.
+ *
+ *  @param name Required. The name of the model version to list checkpoints for.
+ *    `projects/{project}/locations/{location}/models/{model}\@{version}`
+ *    Example: `projects/{project}/locations/{location}/models/{model}\@2` or
+ *    `projects/{project}/locations/{location}/models/{model}\@golden` If no
+ *    version ID or alias is specified, the latest version will be used.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsModelsListCheckpoints
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -24386,6 +24514,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_PublishersModelsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Perform an online prediction.
+ *
+ *  Method: aiplatform.publishers.models.predict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1PredictResponse.
+ *
+ *  Perform an online prediction.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest *)object
+                       endpoint:(NSString *)endpoint;
 
 @end
 

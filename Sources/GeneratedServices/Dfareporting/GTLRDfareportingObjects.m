@@ -6093,7 +6093,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_TagSetting
 @dynamic additionalKeyValues, includeClickThroughUrls, includeClickTracking,
-         keywordOption;
+         includeUnescapedlpurlMacro, keywordOption;
 @end
 
 

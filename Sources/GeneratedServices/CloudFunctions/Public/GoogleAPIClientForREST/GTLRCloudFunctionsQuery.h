@@ -179,6 +179,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Detaches 2nd Gen function to Cloud Run function.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.detachFunction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDetachFunction : GTLRCloudFunctionsQuery
+
+/** Required. The name of the function for which should be detached. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Detaches 2nd Gen function to Cloud Run function.
+ *
+ *  @param object The @c GTLRCloudFunctions_DetachFunctionRequest to include in
+ *    the query.
+ *  @param name Required. The name of the function for which should be detached.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDetachFunction
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_DetachFunctionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns a signed URL for downloading deployed function source code. The URL
  *  is only valid for a limited period and should be used within 30 minutes of
  *  generation. For more information about the signed URL usage see:
@@ -380,7 +409,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The sorting order of the resources returned. Value should be a comma
- *  separated list of fields. The default sorting oder is ascending. See
+ *  separated list of fields. The default sorting order is ascending. See
  *  https://google.aip.dev/132#ordering.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;

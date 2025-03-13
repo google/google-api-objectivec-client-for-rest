@@ -116,6 +116,15 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_CancelWorkflowInvocationResponse
+//
+
+@implementation GTLRDataform_CancelWorkflowInvocationResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_CodeCompilationConfig
 //
 
@@ -247,6 +256,15 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_CommitWorkspaceChangesResponse
+//
+
+@implementation GTLRDataform_CommitWorkspaceChangesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_CompilationError
 //
 
@@ -262,8 +280,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_CompilationResult
 @dynamic codeCompilationConfig, compilationErrors, createTime,
-         dataEncryptionState, dataformCoreVersion, gitCommitish, name,
-         releaseConfig, resolvedGitCommitSha, workspace;
+         dataEncryptionState, dataformCoreVersion, gitCommitish,
+         internalMetadata, name, releaseConfig, resolvedGitCommitSha, workspace;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -281,8 +299,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_CompilationResultAction
-@dynamic assertion, canonicalTarget, declaration, filePath, notebook,
-         operations, relation, target;
+@dynamic assertion, canonicalTarget, declaration, filePath, internalMetadata,
+         notebook, operations, relation, target;
 @end
 
 
@@ -919,11 +937,29 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_PullGitCommitsResponse
+//
+
+@implementation GTLRDataform_PullGitCommitsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_PushGitCommitsRequest
 //
 
 @implementation GTLRDataform_PushGitCommitsRequest
 @dynamic remoteBranch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_PushGitCommitsResponse
+//
+
+@implementation GTLRDataform_PushGitCommitsResponse
 @end
 
 
@@ -1116,8 +1152,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_ReleaseConfig
-@dynamic codeCompilationConfig, cronSchedule, disabled, gitCommitish, name,
-         recentScheduledReleaseRecords, releaseCompilationResult, timeZone;
+@dynamic codeCompilationConfig, cronSchedule, disabled, gitCommitish,
+         internalMetadata, name, recentScheduledReleaseRecords,
+         releaseCompilationResult, timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1141,6 +1178,15 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_RemoveDirectoryResponse
+//
+
+@implementation GTLRDataform_RemoveDirectoryResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_RemoveFileRequest
 //
 
@@ -1151,14 +1197,23 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_RemoveFileResponse
+//
+
+@implementation GTLRDataform_RemoveFileResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_Repository
 //
 
 @implementation GTLRDataform_Repository
 @dynamic createTime, dataEncryptionState, displayName, gitRemoteSettings,
-         kmsKeyName, labels, name, npmrcEnvironmentVariablesSecretVersion,
-         serviceAccount, setAuthenticatedUserAdmin,
-         workspaceCompilationOverrides;
+         internalMetadata, kmsKeyName, labels, name,
+         npmrcEnvironmentVariablesSecretVersion, serviceAccount,
+         setAuthenticatedUserAdmin, workspaceCompilationOverrides;
 @end
 
 
@@ -1191,6 +1246,15 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_ResetWorkspaceChangesResponse
+//
+
+@implementation GTLRDataform_ResetWorkspaceChangesResponse
 @end
 
 
@@ -1360,7 +1424,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowConfig
-@dynamic createTime, cronSchedule, invocationConfig, name,
+@dynamic createTime, cronSchedule, internalMetadata, invocationConfig, name,
          recentScheduledExecutionRecords, releaseConfig, timeZone, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1379,9 +1443,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowInvocation
-@dynamic compilationResult, dataEncryptionState, invocationConfig,
-         invocationTiming, name, resolvedCompilationResult, state,
-         workflowConfig;
+@dynamic compilationResult, dataEncryptionState, internalMetadata,
+         invocationConfig, invocationTiming, name, resolvedCompilationResult,
+         state, workflowConfig;
 @end
 
 
@@ -1391,8 +1455,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowInvocationAction
-@dynamic bigqueryAction, canonicalTarget, failureReason, invocationTiming,
-         notebookAction, state, target;
+@dynamic bigqueryAction, canonicalTarget, failureReason, internalMetadata,
+         invocationTiming, notebookAction, state, target;
 @end
 
 
@@ -1402,7 +1466,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Workspace
-@dynamic createTime, dataEncryptionState, name;
+@dynamic createTime, dataEncryptionState, internalMetadata, name;
 @end
 
 

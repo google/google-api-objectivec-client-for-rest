@@ -38,6 +38,8 @@ NSString * const kGTLRCloudFunctions_Function_Environment_Gen2 = @"GEN_2";
 NSString * const kGTLRCloudFunctions_Function_State_Active     = @"ACTIVE";
 NSString * const kGTLRCloudFunctions_Function_State_Deleting   = @"DELETING";
 NSString * const kGTLRCloudFunctions_Function_State_Deploying  = @"DEPLOYING";
+NSString * const kGTLRCloudFunctions_Function_State_DetachFailed = @"DETACH_FAILED";
+NSString * const kGTLRCloudFunctions_Function_State_Detaching  = @"DETACHING";
 NSString * const kGTLRCloudFunctions_Function_State_Failed     = @"FAILED";
 NSString * const kGTLRCloudFunctions_Function_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_Function_State_Unknown    = @"UNKNOWN";
@@ -124,7 +126,6 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 // GTLRCloudFunctions_UpgradeInfo.upgradeState
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError = @"ABORT_FUNCTION_UPGRADE_ERROR";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError = @"COMMIT_FUNCTION_UPGRADE_ERROR";
-NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_DetachInProgress = @"DETACH_IN_PROGRESS";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade = @"ELIGIBLE_FOR_2ND_GEN_UPGRADE";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficError = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficSuccessful = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC_SUCCESSFUL";
@@ -253,6 +254,15 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_DetachFunctionRequest
+//
+
+@implementation GTLRCloudFunctions_DetachFunctionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_EventFilter
 //
 
@@ -307,8 +317,8 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 
 @implementation GTLRCloudFunctions_Function
 @dynamic buildConfig, createTime, descriptionProperty, environment,
-         eventTrigger, kmsKeyName, labels, name, satisfiesPzs, serviceConfig,
-         state, stateMessages, updateTime, upgradeInfo, url;
+         eventTrigger, kmsKeyName, labels, name, satisfiesPzi, satisfiesPzs,
+         serviceConfig, state, stateMessages, updateTime, upgradeInfo, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -401,9 +411,9 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata
-@dynamic apiVersion, buildName, cancelRequested, createTime, endTime,
-         operationType, requestResource, sourceToken, stages, statusDetail,
-         target, verb;
+@dynamic apiVersion, buildName, cancelRequested, createTime,
+         customIamRoleDetected, endTime, operationType, requestResource,
+         sourceToken, stages, statusDetail, target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

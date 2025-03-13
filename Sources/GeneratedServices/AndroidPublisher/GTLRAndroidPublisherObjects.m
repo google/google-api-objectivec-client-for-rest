@@ -1040,7 +1040,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ConvertRegionPricesResponse
-@dynamic convertedOtherRegionsPrice, convertedRegionPrices;
+@dynamic convertedOtherRegionsPrice, convertedRegionPrices, regionVersion;
 @end
 
 

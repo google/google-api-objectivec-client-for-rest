@@ -30,6 +30,7 @@
 @class GTLRDiscoveryEngine_GoogleApiMonitoredResourceMetadata;
 @class GTLRDiscoveryEngine_GoogleApiMonitoredResourceMetadata_SystemLabels;
 @class GTLRDiscoveryEngine_GoogleApiMonitoredResourceMetadata_UserLabels;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingConnectorRunErrorContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload;
@@ -65,12 +66,16 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultChunkInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultSnippetInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionSearchAction;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCondition;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConditionQueryTerm;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConditionTimeRange;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostAction;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlFilterAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlPromoteAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlRedirectAction;
@@ -107,10 +112,10 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEvaluationEvaluationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEvaluationEvaluationSpecQuerySetSpec;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFetchSitemapsResponseSitemapMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaGetUriPatternDocumentDataResponse_DocumentDataMap;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaGetUriPatternDocumentDataResponse_DocumentDataMap_DocumentDataMap;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaHealthcareFhirConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdentityScheduleConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfigExternalIdpConfig;
@@ -145,6 +150,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpecSummarySpecModelPromptSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpecSummarySpecModelSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDataStoreSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestEmbeddingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestEmbeddingSpecEmbeddingVector;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestFacetSpec;
@@ -153,13 +159,13 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestNaturalLanguageQueryUnderstandingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceScoreSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSessionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSpellCorrectionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSingleRegionKey;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSitemap;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReason;
@@ -175,6 +181,10 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestAnswerGenerationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestAnswerGenerationSpecModelSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestAnswerGenerationSpecPromptSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaData;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaDataChunkInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaDataChunkInfoDocumentMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestGroundingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpecQueryClassificationSpec;
@@ -220,12 +230,16 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConditionQueryTerm;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConditionTimeRange;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostAction;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlFilterAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlPromoteAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlRedirectAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlSynonymsAction;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStoreBillingEstimation;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStoreServingConfigDataStore;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDedicatedCrawlRateTimeSeries;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig_ParsingConfigOverrides;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigChunkingConfig;
@@ -241,11 +255,12 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineSearchEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpecQuerySetSpec;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchSitemapsResponseSitemapMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaHealthcareFhirConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportErrorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaInterval;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLanguageInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaNaturalLanguageQueryUnderstandingConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaOrganicCrawlRateTimeSeries;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProject_ServiceTermsMap;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectServiceTerms;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaQualityMetrics;
@@ -276,11 +291,11 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestNaturalLanguageQueryUnderstandingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestPersonalizationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceScoreSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSessionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSingleRegionKey;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSitemap;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSiteFailureReason;
@@ -314,6 +329,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConditionTimeRange;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Control;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostAction;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpecControlPoint;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlFilterAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlPromoteAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlRedirectAction;
@@ -343,6 +360,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigDigitalParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigLayoutParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigOcrParsingConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DoubleList;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineConfigAgentCreationConfig;
@@ -351,33 +369,19 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FactChunk;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FactChunk_SourceMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchSitemapsResponseSitemapMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FhirStoreSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FirestoreSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GcsSource;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest_UserLabels;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfiguration;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGenerationSpec;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSource;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceGoogleSearchSource;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceInlineSource;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceInlineSource_Attributes;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceSearchSource;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSpec;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidate;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadata;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalMetadata;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataGroundingSupport;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataSearchEntryPoint;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContent;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContentPart;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundingFact;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundingFact_Attributes;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1HealthcareFhirConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntry;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportIdentityMappingsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Interval;
@@ -388,6 +392,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectServiceTerms;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeIdentityMappingsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Query;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankingRecord;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankRequest_UserLabels;
@@ -419,6 +424,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpecFacetKey;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestImageQuery;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestRelevanceScoreSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSessionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec;
@@ -426,6 +432,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseFacetFacetValue;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseQueryExpansionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult_ModelScores;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSessionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitation;
@@ -440,6 +447,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SingleRegionKey;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SpannerSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry;
@@ -648,6 +656,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig.supportedConnectorModes
+
+/**
+ *  Connector utilized for Actions
+ *
+ *  Value: "ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig_SupportedConnectorModes_Actions;
+/**
+ *  Connector mode unspecified.
+ *
+ *  Value: "CONNECTOR_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig_SupportedConnectorModes_ConnectorModeUnspecified;
+/**
+ *  Connector utilized for data ingestion.
+ *
+ *  Value: "DATA_INGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig_SupportedConnectorModes_DataIngestion;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig.state
 
 /**
@@ -668,6 +698,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Creating;
+/**
+ *  The CmekConfig deletion process failed.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_DeleteFailed;
 /**
  *  The CmekConfig is deleting.
  *
@@ -849,6 +885,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_Incremental;
 /**
+ *  Realtime sync.
+ *
+ *  Value: "REALTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_Realtime;
+/**
  *  Sync type unspecified.
  *
  *  Value: "SYNC_TYPE_UNSPECIFIED"
@@ -914,6 +956,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControl_UseCases_SearchUseCaseUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec.attributeType
+
+/**
+ *  Unspecified AttributeType.
+ *
+ *  Value: "ATTRIBUTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_AttributeType_AttributeTypeUnspecified;
+/**
+ *  For the freshness use case the attribute value will be the duration between
+ *  the current time and the date in the datetime field specified. The value
+ *  must be formatted as an XSD `dayTimeDuration` value (a restricted subset of
+ *  an ISO 8601 duration value). The pattern for this is: `nDnM]`. For example,
+ *  `5D`, `3DT12H30M`, `T24H`.
+ *
+ *  Value: "FRESHNESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_AttributeType_Freshness;
+/**
+ *  The value of the numerical field will be used to dynamically update the
+ *  boost amount. In this case, the attribute_value (the x value) of the control
+ *  point will be the actual value of the numerical field for which the
+ *  boost_amount is specified.
+ *
+ *  Value: "NUMERICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_AttributeType_Numerical;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec.interpolationType
+
+/**
+ *  Interpolation type is unspecified. In this case, it defaults to Linear.
+ *
+ *  Value: "INTERPOLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_InterpolationType_InterpolationTypeUnspecified;
+/**
+ *  Piecewise linear interpolation will be applied.
+ *
+ *  Value: "LINEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_InterpolationType_Linear;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.blockingReasons
 
 /**
@@ -935,6 +1022,121 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "BLOCKING_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_BlockingReasons_BlockingReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.connectorType
+
+/**
+ *  Big query connector.
+ *
+ *  Value: "BIG_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_BigQuery;
+/**
+ *  Default value.
+ *
+ *  Value: "CONNECTOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ConnectorTypeUnspecified;
+/**
+ *  Data connector connects between FHIR store and VAIS datastore.
+ *
+ *  Value: "GCP_FHIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GcpFhir;
+/**
+ *  Google Cloud Storage connector.
+ *
+ *  Value: "GCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_Gcs;
+/**
+ *  Google Calendar connector.
+ *
+ *  Value: "GOOGLE_CALENDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleCalendar;
+/**
+ *  Google Drive connector.
+ *
+ *  Value: "GOOGLE_DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleDrive;
+/**
+ *  Gmail connector.
+ *
+ *  Value: "GOOGLE_MAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleMail;
+/**
+ *  Native Cloud Identity connector for people search powered by People API.
+ *
+ *  Value: "NATIVE_CLOUD_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_NativeCloudIdentity;
+/**
+ *  Third party connector to connector to third party application.
+ *
+ *  Value: "THIRD_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdParty;
+/**
+ *  Federated connector, it is a third party connector that doesn't ingestion
+ *  data, and search is powered by third party application's API.
+ *
+ *  Value: "THIRD_PARTY_FEDERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdPartyFederated;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.realtimeState
+
+/**
+ *  The connector is successfully set up and awaiting next sync run.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Active;
+/**
+ *  The connector is being set up.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Creating;
+/**
+ *  The connector is in error. The error details can be found in
+ *  DataConnector.errors. If the error is unfixable, the DataConnector can be
+ *  deleted by [CollectionService.DeleteCollection] API.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Failed;
+/**
+ *  Connector initialization failed. Potential causes include runtime errors or
+ *  issues in the asynchronous pipeline, preventing the request from reaching
+ *  downstream services (except for some connector types).
+ *
+ *  Value: "INITIALIZATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_InitializationFailed;
+/**
+ *  The connector is actively syncing records from the data source.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Running;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_StateUnspecified;
+/**
+ *  The connector has completed a sync run, but encountered non-fatal errors.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.state
@@ -959,6 +1161,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_Failed;
+/**
+ *  Connector initialization failed. Potential causes include runtime errors or
+ *  issues in the asynchronous pipeline, preventing the request from reaching
+ *  downstream services (except for some connector types).
+ *
+ *  Value: "INITIALIZATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_InitializationFailed;
 /**
  *  The connector is actively syncing records from the data source.
  *
@@ -989,6 +1199,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "PERIODIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Periodic;
+/**
+ *  The data will be synced in real time.
+ *
+ *  Value: "STREAMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Streaming;
+/**
+ *  Connector that doesn't ingest data will have this value
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.contentConfig
@@ -1776,6 +1998,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSafetyRating_Severity_HarmSeverityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest.rankingExpressionBackend
+
+/**
+ *  Bring your own embedding (BYOE), the default way to evaluate the ranking
+ *  expression.
+ *
+ *  Value: "BYOE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Byoe;
+/**
+ *  The expression is compiled into a Clearbox formula.
+ *
+ *  Value: "CLEARBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Clearbox;
+/**
+ *  Default option for unspecified/unknown values.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest.relevanceThreshold
 
 /**
@@ -1879,6 +2124,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpec_SearchResultMode_SearchResultModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec.matchHighlightingCondition
+
+/**
+ *  Server behavior is the same as `MATCH_HIGHLIGHTING_DISABLED`.
+ *
+ *  Value: "MATCH_HIGHLIGHTING_CONDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec_MatchHighlightingCondition_MatchHighlightingConditionUnspecified;
+/**
+ *  Disables match highlighting on all documents.
+ *
+ *  Value: "MATCH_HIGHLIGHTING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec_MatchHighlightingCondition_MatchHighlightingDisabled;
+/**
+ *  Enables match highlighting on all documents.
+ *
+ *  Value: "MATCH_HIGHLIGHTING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec_MatchHighlightingCondition_MatchHighlightingEnabled;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestNaturalLanguageQueryUnderstandingSpec.filterExtractionCondition
 
 /**
@@ -1949,6 +2216,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec.condition
 
+/**
+ *  Automatic switching between search-as-you-type and standard search modes,
+ *  ideal for single-API implementations (e.g., debouncing).
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec_Condition_Auto;
 /**
  *  Server behavior defaults to Condition.DISABLED.
  *
@@ -2160,6 +2434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "GOOGLE_MAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig_Type_GoogleMail;
+/**
+ *  Workspace Data Store contains People data
+ *
+ *  Value: "GOOGLE_PEOPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig_Type_GooglePeople;
 /**
  *  Workspace Data Store contains Sites data
  *
@@ -2574,6 +2854,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Creating;
 /**
+ *  The CmekConfig deletion process failed.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_DeleteFailed;
+/**
  *  The CmekConfig is deleting.
  *
  *  Value: "DELETING"
@@ -2655,6 +2941,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SEARCH_USE_CASE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControl_UseCases_SearchUseCaseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec.attributeType
+
+/**
+ *  Unspecified AttributeType.
+ *
+ *  Value: "ATTRIBUTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_AttributeType_AttributeTypeUnspecified;
+/**
+ *  For the freshness use case the attribute value will be the duration between
+ *  the current time and the date in the datetime field specified. The value
+ *  must be formatted as an XSD `dayTimeDuration` value (a restricted subset of
+ *  an ISO 8601 duration value). The pattern for this is: `nDnM]`. For example,
+ *  `5D`, `3DT12H30M`, `T24H`.
+ *
+ *  Value: "FRESHNESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_AttributeType_Freshness;
+/**
+ *  The value of the numerical field will be used to dynamically update the
+ *  boost amount. In this case, the attribute_value (the x value) of the control
+ *  point will be the actual value of the numerical field for which the
+ *  boost_amount is specified.
+ *
+ *  Value: "NUMERICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_AttributeType_Numerical;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec.interpolationType
+
+/**
+ *  Interpolation type is unspecified. In this case, it defaults to Linear.
+ *
+ *  Value: "INTERPOLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_InterpolationType_InterpolationTypeUnspecified;
+/**
+ *  Piecewise linear interpolation will be applied.
+ *
+ *  Value: "LINEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_InterpolationType_Linear;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.contentConfig
@@ -2916,6 +3247,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaNaturalLanguageQueryUnderstandingConfig_Mode_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse.state
+
+/**
+ *  The state is failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse_State_Failed;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse_State_StateUnspecified;
+/**
+ *  The state is successful.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectServiceTerms.state
 
 /**
@@ -2942,6 +3295,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "TERMS_PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectServiceTerms_State_TermsPending;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse.state
+
+/**
+ *  The state is failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse_State_Failed;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse_State_StateUnspecified;
+/**
+ *  The state is successful.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest.rankingExpressionBackend
+
+/**
+ *  Bring your own embedding (BYOE), the default way to evaluate the ranking
+ *  expression.
+ *
+ *  Value: "BYOE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Byoe;
+/**
+ *  The expression is compiled into a Clearbox formula.
+ *
+ *  Value: "CLEARBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Clearbox;
+/**
+ *  Default option for unspecified/unknown values.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest.relevanceThreshold
@@ -3118,6 +3516,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec.condition
 
 /**
+ *  Automatic switching between search-as-you-type and standard search modes,
+ *  ideal for single-API implementations (e.g., debouncing).
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec_Condition_Auto;
+/**
  *  Server behavior defaults to Condition.DISABLED.
  *
  *  Value: "CONDITION_UNSPECIFIED"
@@ -3161,6 +3566,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SUGGESTION_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec_Mode_SuggestionOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse.state
+
+/**
+ *  The state is failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse_State_Failed;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse_State_StateUnspecified;
+/**
+ *  The state is successful.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo.siteVerificationState
@@ -3290,6 +3717,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "GOOGLE_MAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig_Type_GoogleMail;
+/**
+ *  Workspace Data Store contains People data
+ *
+ *  Value: "GOOGLE_PEOPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig_Type_GooglePeople;
 /**
  *  Workspace Data Store contains Sites data
  *
@@ -3473,6 +3906,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Creating;
 /**
+ *  The CmekConfig deletion process failed.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_DeleteFailed;
+/**
  *  The CmekConfig is deleting.
  *
  *  Value: "DELETING"
@@ -3554,6 +3993,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SEARCH_USE_CASE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Control_UseCases_SearchUseCaseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec.attributeType
+
+/**
+ *  Unspecified AttributeType.
+ *
+ *  Value: "ATTRIBUTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_AttributeType_AttributeTypeUnspecified;
+/**
+ *  For the freshness use case the attribute value will be the duration between
+ *  the current time and the date in the datetime field specified. The value
+ *  must be formatted as an XSD `dayTimeDuration` value (a restricted subset of
+ *  an ISO 8601 duration value). The pattern for this is: `nDnM]`. For example,
+ *  `5D`, `3DT12H30M`, `T24H`.
+ *
+ *  Value: "FRESHNESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_AttributeType_Freshness;
+/**
+ *  The value of the numerical field will be used to dynamically update the
+ *  boost amount. In this case, the attribute_value (the x value) of the control
+ *  point will be the actual value of the numerical field for which the
+ *  boost_amount is specified.
+ *
+ *  Value: "NUMERICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_AttributeType_Numerical;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec.interpolationType
+
+/**
+ *  Interpolation type is unspecified. In this case, it defaults to Linear.
+ *
+ *  Value: "INTERPOLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_InterpolationType_InterpolationTypeUnspecified;
+/**
+ *  Piecewise linear interpolation will be applied.
+ *
+ *  Value: "LINEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_InterpolationType_Linear;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.state
@@ -3833,72 +4317,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig_SearchTier_SearchTierUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor.version
-
-/**
- *  The V1 model which is evaluating each source independently.
- *
- *  Value: "V1_INDEPENDENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor_Version_V1Independent;
-/**
- *  Automatically choose the best version of the retrieval predictor.
- *
- *  Value: "VERSION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor_Version_VersionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata.version
-
-/**
- *  The V1 model which is evaluating each source independently.
- *
- *  Value: "V1_INDEPENDENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata_Version_V1Independent;
-/**
- *  Unspecified version, should never be used.
- *
- *  Value: "VERSION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata_Version_VersionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata.source
-
-/**
- *  Google Maps.
- *
- *  Value: "GOOGLE_MAPS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_GoogleMaps;
-/**
- *  Google Search.
- *
- *  Value: "GOOGLE_SEARCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_GoogleSearch;
-/**
- *  User inline provided content.
- *
- *  Value: "INLINE_CONTENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_InlineContent;
-/**
- *  Unspecified source.
- *
- *  Value: "SOURCE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_SourceUnspecified;
-/**
- *  Vertex AI search.
- *
- *  Value: "VERTEX_AI_SEARCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_VertexAiSearch;
-
-// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest.reconciliationMode
 
 /**
@@ -4058,6 +4476,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SafetyRating_Severity_HarmSeverityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest.relevanceThreshold
+
+/**
+ *  High relevance threshold.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_High;
+/**
+ *  Low relevance threshold.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_Low;
+/**
+ *  Lowest relevance threshold.
+ *
+ *  Value: "LOWEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_Lowest;
+/**
+ *  Medium relevance threshold.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_Medium;
+/**
+ *  Default value. In this case, server behavior defaults to Google defined
+ *  threshold.
+ *
+ *  Value: "RELEVANCE_THRESHOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_RelevanceThresholdUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestBoostSpecConditionBoostSpecBoostControlSpec.attributeType
 
 /**
@@ -4152,6 +4605,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec.condition
 
+/**
+ *  Automatic switching between search-as-you-type and standard search modes,
+ *  ideal for single-API implementations (e.g., debouncing).
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec_Condition_Auto;
 /**
  *  Server behavior defaults to Condition.DISABLED.
  *
@@ -4276,6 +4736,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SUMMARY_SKIPPED_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_SummarySkippedReasonUnspecified;
+/**
+ *  The time out case. Google skips the summary if the time out.
+ *
+ *  Value: "TIME_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_TimeOut;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.solutionType
@@ -4479,6 +4945,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "GOOGLE_MAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig_Type_GoogleMail;
+/**
+ *  Workspace Data Store contains People data
+ *
+ *  Value: "GOOGLE_PEOPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig_Type_GooglePeople;
 /**
  *  Workspace Data Store contains Sites data
  *
@@ -5027,6 +5499,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The error payload that is populated on LRO sync APIs, including the
+ *  following: *
+ *  `google.cloud.discoveryengine.v1main.DataConnectorService.SetUpDataConnector`
+ *  *
+ *  `google.cloud.discoveryengine.v1main.DataConnectorService.StartConnectorRun`
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingConnectorRunErrorContext : GTLRObject
+
+/**
+ *  The full resource name of the Connector Run. Format: `projects/ *
+ *  /locations/ * /collections/ * /dataConnector/connectorRuns/ *`. The
+ *  `connector_run_id` is system-generated.
+ */
+@property(nonatomic, copy, nullable) NSString *connectorRun;
+
+/**
+ *  The full resource name of the DataConnector. Format: `projects/ *
+ *  /locations/ * /collections/ * /dataConnector`.
+ */
+@property(nonatomic, copy, nullable) NSString *dataConnector;
+
+/** The time when the connector run ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The entity to sync for the connector run. */
+@property(nonatomic, copy, nullable) NSString *entity;
+
+/** The operation resource name of the LRO to sync the connector. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** The time when the connector run started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The type of sync run. Can be one of the following: * `FULL` * `INCREMENTAL`
+ */
+@property(nonatomic, copy, nullable) NSString *syncType;
+
+@end
+
+
+/**
  *  A description of the context in which an error occurred.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext : GTLRObject
@@ -5047,6 +5561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  An error log which is reported to the Error Reporting system.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog : GTLRObject
+
+/** The error payload that is populated on LRO connector sync APIs. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingConnectorRunErrorContext *connectorRunPayload;
 
 /** A description of the context in which the error occurred. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext *context;
@@ -5292,7 +5809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Required. Params needed to support actions in the format of (Key, Value)
  *  pairs. Required parameters for sources that support OAUTH, i.e. `gmail`,
  *  `google_calendar`, `jira`, `workday`, `salesforce`, `confluence`: * Key:
- *  `client_id` * Value: type STRING. The client id for the service provider to
+ *  `client_id` * Value: type STRING. The client ID for the service provider to
  *  identify your application. * Key: `client_secret` * Value:type STRING. The
  *  client secret generated by the application's authorization server.
  */
@@ -5313,7 +5830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Required. Params needed to support actions in the format of (Key, Value)
  *  pairs. Required parameters for sources that support OAUTH, i.e. `gmail`,
  *  `google_calendar`, `jira`, `workday`, `salesforce`, `confluence`: * Key:
- *  `client_id` * Value: type STRING. The client id for the service provider to
+ *  `client_id` * Value: type STRING. The client ID for the service provider to
  *  identify your application. * Key: `client_secret` * Value:type STRING. The
  *  client secret generated by the application's authorization server.
  *
@@ -5430,7 +5947,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerCitation : GTLRObject
 
 /**
- *  End of the attributed segment, exclusive.
+ *  End of the attributed segment, exclusive. Measured in bytes (UTF-8 unicode).
+ *  If there are multi-byte characters,such as non-ASCII characters, the index
+ *  measurement is longer than the string length.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5441,6 +5960,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Index indicates the start of the segment, measured in bytes (UTF-8 unicode).
+ *  If there are multi-byte characters,such as non-ASCII characters, the index
+ *  measurement is longer than the string length.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5644,6 +6165,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Structured search data. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceStructuredDocumentInfo_StructData *structData;
+
+/** Output only. The title of the document. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. The URI of the document. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -5887,6 +6414,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The configuration for the BAP connector.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig : GTLRObject
+
+/**
+ *  Required. The supported connector modes for the associated BAP connection.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedConnectorModes;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the
  *  SiteSearchEngineService.BatchCreateTargetSites operation. This will be
  *  returned by the google.longrunning.Operation.metadata field.
@@ -5929,13 +6469,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSNumber *isDefault;
 
 /**
- *  Kms key resource name which will be used to encrypt resources
+ *  KMS key resource name which will be used to encrypt resources
  *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /**
- *  Kms key version resource name which will be used to encrypt resources
+ *  KMS key version resource name which will be used to encrypt resources
  *  `/cryptoKeyVersions/{keyVersion}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
@@ -5948,7 +6488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSNumber *lastRotationTimestampMicros;
 
 /**
- *  Required. Name of the CmekConfig, of the form
+ *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
  *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
  */
@@ -5960,7 +6500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSingleRegionKey *> *singleRegionKeys;
 
 /**
- *  Output only. State of the CmekConfig.
+ *  Output only. The states of the CmekConfig.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Active
@@ -5969,6 +6509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The KMS key version is being rotated. (Value: "ACTIVE_ROTATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Creating
  *        The CmekConfig is creating. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_DeleteFailed
+ *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Deleting
  *        The CmekConfig is deleting. (Value: "DELETING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_KeyIssue
@@ -6179,6 +6721,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun : GTLRObject
 
 /**
+ *  The number of documents deleted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedRecordCount;
+
+/**
  *  The name of the source entity.
  *
  *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
@@ -6213,6 +6762,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *indexedRecordCount;
+
+/** Metadata to generate the progress bar. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress *progress;
 
 /**
  *  The number of requests sent to 3p API.
@@ -6262,10 +6814,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Sync triggers full sync of all documents. (Value: "FULL")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_Incremental
  *        Incremental sync of updated documents. (Value: "INCREMENTAL")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_Realtime
+ *        Realtime sync. (Value: "REALTIME")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_SyncTypeUnspecified
  *        Sync type unspecified. (Value: "SYNC_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *syncType;
+
+@end
+
+
+/**
+ *  Represents the progress of a sync run.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress : GTLRObject
+
+/**
+ *  The current progress.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentCount;
+
+/**
+ *  Derived. The percentile of the progress.current_count / total_count. The
+ *  value is between [0, 1.0] inclusive.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentile;
+
+/**
+ *  The total.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCount;
 
 @end
 
@@ -6390,6 +6974,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fixedBoost;
+
+/**
+ *  Optional. Complex specification for custom ranking based on customer defined
+ *  attribute value.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec *interpolationBoostSpec;
+
+@end
+
+
+/**
+ *  Specification for custom ranking based on customer specified attribute
+ *  value. It provides more controls for customized ranking than the simple
+ *  (condition, boost) combination above.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec : GTLRObject
+
+/**
+ *  Optional. The attribute type to be used to determine the boost amount. The
+ *  attribute value can be derived from the field value of the specified
+ *  field_name. In the case of numerical it is straightforward i.e.
+ *  attribute_value = numerical_field_value. In the case of freshness however,
+ *  attribute_value = (time.now() - datetime_field_value).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_AttributeType_AttributeTypeUnspecified
+ *        Unspecified AttributeType. (Value: "ATTRIBUTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_AttributeType_Freshness
+ *        For the freshness use case the attribute value will be the duration
+ *        between the current time and the date in the datetime field specified.
+ *        The value must be formatted as an XSD `dayTimeDuration` value (a
+ *        restricted subset of an ISO 8601 duration value). The pattern for this
+ *        is: `nDnM]`. For example, `5D`, `3DT12H30M`, `T24H`. (Value:
+ *        "FRESHNESS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_AttributeType_Numerical
+ *        The value of the numerical field will be used to dynamically update
+ *        the boost amount. In this case, the attribute_value (the x value) of
+ *        the control point will be the actual value of the numerical field for
+ *        which the boost_amount is specified. (Value: "NUMERICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *attributeType;
+
+/**
+ *  Optional. The control points used to define the curve. The monotonic
+ *  function (defined through the interpolation_type above) passes through the
+ *  control points listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint *> *controlPoints;
+
+/**
+ *  Optional. The name of the field whose value will be used to determine the
+ *  boost amount.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/**
+ *  Optional. The interpolation type to be applied to connect the control points
+ *  listed below.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_InterpolationType_InterpolationTypeUnspecified
+ *        Interpolation type is unspecified. In this case, it defaults to
+ *        Linear. (Value: "INTERPOLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_InterpolationType_Linear
+ *        Piecewise linear interpolation will be applied. (Value: "LINEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *interpolationType;
+
+@end
+
+
+/**
+ *  The control points used to define the curve. The curve defined through these
+ *  control points can only be monotonically increasing or decreasing(constant
+ *  values are acceptable).
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint : GTLRObject
+
+/**
+ *  Optional. Can be one of: 1. The numerical field value. 2. The duration spec
+ *  for freshness: The value must be formatted as an XSD `dayTimeDuration` value
+ *  (a restricted subset of an ISO 8601 duration value). The pattern for this
+ *  is: `nDnM]`.
+ */
+@property(nonatomic, copy, nullable) NSString *attributeValue;
+
+/**
+ *  Optional. The value between -1 to 1 by which to boost the score if the
+ *  attribute_value evaluates to the value specified above.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boostAmount;
 
 @end
 
@@ -6611,11 +7288,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *autoRunDisabled;
 
+/** Optional. The configuration for establishing a BAP connection. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig *bapConfig;
+
 /**
  *  Output only. User actions that must be completed before the connector can
  *  start syncing data.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blockingReasons;
+
+/**
+ *  Output only. The type of connector. Each source can only map to one type.
+ *  For example, salesforce, confluence and jira have THIRD_PARTY connector
+ *  type. It is notmutable once set by system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_BigQuery
+ *        Big query connector. (Value: "BIG_QUERY")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ConnectorTypeUnspecified
+ *        Default value. (Value: "CONNECTOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GcpFhir
+ *        Data connector connects between FHIR store and VAIS datastore. (Value:
+ *        "GCP_FHIR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_Gcs
+ *        Google Cloud Storage connector. (Value: "GCS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleCalendar
+ *        Google Calendar connector. (Value: "GOOGLE_CALENDAR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleDrive
+ *        Google Drive connector. (Value: "GOOGLE_DRIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleMail
+ *        Gmail connector. (Value: "GOOGLE_MAIL")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_NativeCloudIdentity
+ *        Native Cloud Identity connector for people search powered by People
+ *        API. (Value: "NATIVE_CLOUD_IDENTITY")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdParty
+ *        Third party connector to connector to third party application. (Value:
+ *        "THIRD_PARTY")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdPartyFederated
+ *        Federated connector, it is a third party connector that doesn't
+ *        ingestion data, and search is powered by third party application's
+ *        API. (Value: "THIRD_PARTY_FEDERATED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectorType;
 
 /** Output only. Timestamp the DataConnector was created at. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -6686,10 +7400,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The UTC time when the next data sync is expected to start for the Data
- *  Connector. Customers are only able to specify the hour and minute to
- *  schedule the data sync. This is utilized when the data connector has a
- *  refresh interval greater than 1 day.
+ *  Defines the scheduled time for the next data synchronization. This field
+ *  requires hour , minute, and time_zone from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones). This is utilized when the data
+ *  connector has a refresh interval greater than 1 day. When the hours or
+ *  minutes are not specified, we will assume a sync time of 0:00. The user must
+ *  provide a time zone to avoid ambiguity.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDateTime *nextSyncTime;
 
@@ -6698,7 +7414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  pairs. Required parameters for all data sources: * Key: `instance_uri` *
  *  Value: type STRING. The uri to access the data source. Required parameters
  *  for sources that support OAUTH, i.e. `salesforce`: * Key: `client_id` *
- *  Value: type STRING. The client id for the third party service provider to
+ *  Value: type STRING. The client ID for the third party service provider to
  *  identify your application. * Key: `client_secret` * Value:type STRING. The
  *  client secret generated by the third party authorization server. * Key:
  *  `access_token` * Value: type STRING. OAuth token for UCS to access to the
@@ -6727,6 +7443,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *privateConnectivityProjectId;
 
 /**
+ *  Output only. real-time sync state
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Active
+ *        The connector is successfully set up and awaiting next sync run.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Creating
+ *        The connector is being set up. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Failed
+ *        The connector is in error. The error details can be found in
+ *        DataConnector.errors. If the error is unfixable, the DataConnector can
+ *        be deleted by [CollectionService.DeleteCollection] API. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_InitializationFailed
+ *        Connector initialization failed. Potential causes include runtime
+ *        errors or issues in the asynchronous pipeline, preventing the request
+ *        from reaching downstream services (except for some connector types).
+ *        (Value: "INITIALIZATION_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Running
+ *        The connector is actively syncing records from the data source.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Warning
+ *        The connector has completed a sync run, but encountered non-fatal
+ *        errors. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *realtimeState;
+
+/**
  *  Required. The refresh interval for data sync. If duration is set to 0, the
  *  data will be synced in real time. The streaming feature is not supported
  *  yet. The minimum is 30 minutes and maximum is 7 days.
@@ -6747,6 +7493,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        DataConnector.errors. If the error is unfixable, the DataConnector can
  *        be deleted by [CollectionService.DeleteCollection] API. (Value:
  *        "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_InitializationFailed
+ *        Connector initialization failed. Potential causes include runtime
+ *        errors or issues in the asynchronous pipeline, preventing the request
+ *        from reaching downstream services (except for some connector types).
+ *        (Value: "INITIALIZATION_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_Running
  *        The connector is actively syncing records from the data source.
  *        (Value: "RUNNING")
@@ -6777,6 +7528,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The connector will sync data periodically based on the
  *        refresh_interval. Use it with auto_run_disabled to pause the periodic
  *        sync, or indicate a one-time sync. (Value: "PERIODIC")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Streaming
+ *        The data will be synced in real time. (Value: "STREAMING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Unspecified
+ *        Connector that doesn't ingest data will have this value (Value:
+ *        "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *syncMode;
 
@@ -6791,7 +7547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  pairs. Required parameters for all data sources: * Key: `instance_uri` *
  *  Value: type STRING. The uri to access the data source. Required parameters
  *  for sources that support OAUTH, i.e. `salesforce`: * Key: `client_id` *
- *  Value: type STRING. The client id for the third party service provider to
+ *  Value: type STRING. The client ID for the third party service provider to
  *  identify your application. * Key: `client_secret` * Value:type STRING. The
  *  client secret generated by the third party authorization server. * Key:
  *  `access_token` * Value: type STRING. OAuth token for UCS to access to the
@@ -6843,6 +7599,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *entityNameProperty;
 
+/** Optional. Configuration for `HEALTHCARE_FHIR` vertical. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaHealthcareFhirConfig *healthcareFhirConfig;
+
 /**
  *  Attributes for indexing. Key: Field name. Value: The key property to map a
  *  field to, such as `title`, and `description`. Supported key properties: *
@@ -6853,11 +7612,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity_KeyPropertyMappings *keyPropertyMappings;
 
 /**
- *  The parameters for the entity to facilitate data ingestion. E.g. for BQ
- *  connectors: * Key: `document_id_column` * Value: type STRING. The value of
- *  the column id.
+ *  The parameters for the entity to facilitate data ingestion. E.g. for
+ *  BigQuery connectors: * Key: `document_id_column` * Value: type STRING. The
+ *  value of the column ID.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity_Params *params;
+
+/**
+ *  Optional. The start schema to use for the DataStore created from this
+ *  SourceEntity. If unset, a default vertical specialized schema will be used.
+ *  This field is only used by SetUpDataConnector API, and will be ignored if
+ *  used in other APIs. This field will be omitted from all API responses
+ *  including GetDataConnector API. To retrieve a schema of a DataStore, use
+ *  SchemaService.GetSchema API instead. The provided schema will be validated
+ *  against certain rules on schema. Learn more from [this
+ *  doc](https://cloud.google.com/generative-ai-app-builder/docs/provide-schema).
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema *startingSchema;
 
 @end
 
@@ -6879,9 +7650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  The parameters for the entity to facilitate data ingestion. E.g. for BQ
- *  connectors: * Key: `document_id_column` * Value: type STRING. The value of
- *  the column id.
+ *  The parameters for the entity to facilitate data ingestion. E.g. for
+ *  BigQuery connectors: * Key: `document_id_column` * Value: type STRING. The
+ *  value of the column ID.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -6946,7 +7717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The id of the default Schema asscociated to this data store.
+ *  Output only. The id of the default Schema associated to this data store.
  */
 @property(nonatomic, copy, nullable) NSString *defaultSchemaId;
 
@@ -6959,6 +7730,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Configuration for Document understanding and enrichment. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig *documentProcessingConfig;
+
+/** Optional. Configuration for `HEALTHCARE_FHIR` vertical. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaHealthcareFhirConfig *healthcareFhirConfig;
+
+/**
+ *  Immutable. The fully qualified resource name of the associated
+ *  IdentityMappingStore. This field can only be set for acl_enabled DataStores
+ *  with `THIRD_PARTY` or `GSUITE` IdP. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`.
+ */
+@property(nonatomic, copy, nullable) NSString *identityMappingStore;
 
 /** Output only. Data store level identity provider config. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig *idpConfig;
@@ -7102,12 +7884,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDedicatedCrawlRateTimeSeries : GTLRObject
 
+/** Vertex AI's error rate time series of auto-refresh dedicated crawl. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries *autoRefreshCrawlErrorRate;
+
 /**
  *  Vertex AI's dedicated crawl rate time series of auto-refresh, which is the
  *  crawl rate of Google-CloudVertexBot when dedicate crawl is set, and the
  *  crawl rate is for best effort use cases like refreshing urls periodically.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries *autoRefreshCrawlRate;
+
+/** Vertex AI's error rate time series of user triggered dedicated crawl. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries *userTriggeredCrawlErrorRate;
 
 /**
  *  Vertex AI's dedicated crawl rate time series of user triggered crawl, which
@@ -7116,6 +7904,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  or sitemaps specified by users.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries *userTriggeredCrawlRate;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the CmekConfigService.DeleteCmekConfig
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteCmekConfigMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -7660,6 +8467,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfigAgentCreationConfig *agentCreationConfig;
 
 /**
+ *  Optional. If the flag set to true, we allow the agent and engine are in
+ *  different locations, otherwise the agent and engine are required to be in
+ *  the same location. The flag is set to false by default. Note that the
+ *  `allow_cross_region` are one-time consumed by and passed to
+ *  EngineService.CreateEngine. It means they cannot be retrieved using
+ *  EngineService.GetEngine or EngineService.ListEngines API after engine
+ *  creation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossRegion;
+
+/**
  *  The resource name of an exist Dialogflow agent to link to this Chat Engine.
  *  Customers can either provide `agent_creation_config` to create agent or
  *  provide an agent name that links the agent with the Chat engine. Format:
@@ -8045,28 +8865,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  Response message for SiteSearchEngineService.FetchSitemaps method.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFetchSitemapsResponse : GTLRObject
-
-/** List of Sitemaps fetched. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFetchSitemapsResponseSitemapMetadata *> *sitemapsMetadata;
-
-@end
-
-
-/**
- *  Contains a Sitemap and its metadata.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFetchSitemapsResponseSitemapMetadata : GTLRObject
-
-/** The Sitemap. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSitemap *sitemap;
-
-@end
-
-
-/**
  *  Configurations for fields of a schema. For example, configuring a field is
  *  indexable, or searchable.
  */
@@ -8355,6 +9153,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Config to data store for `HEALTHCARE_FHIR` vertical.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaHealthcareFhirConfig : GTLRObject
+
+/**
+ *  Whether to enable configurable schema for `HEALTHCARE_FHIR` vertical. If set
+ *  to `true`, the predefined healthcare fhir schema can be extended for more
+ *  customized searching and filtering.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfigurableSchema;
+
+/**
+ *  Whether to enable static indexing for `HEALTHCARE_FHIR` batch ingestion. If
+ *  set to `true`, the batch ingestion will be processed in a static indexing
+ *  mode which is slower but more capable of handling larger volume.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStaticIndexingForBatchIngestion;
+
+@end
+
+
+/**
+ *  IdentityMappingEntry LongRunningOperation metadata for
+ *  IdentityMappingStoreService.ImportIdentityMappings and
+ *  IdentityMappingStoreService.PurgeIdentityMappings
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdentityMappingEntryOperationMetadata : GTLRObject
+
+/**
+ *  The number of IdentityMappingEntries that failed to be processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  The number of IdentityMappingEntries that were successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  The total number of IdentityMappingEntries that were processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCount;
+
+@end
+
+
+/**
  *  The configuration for the identity data synchronization runs.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdentityScheduleConfig : GTLRObject
@@ -8529,6 +9384,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  directory, one per line, as a JSON-encoded `google.rpc.Status` message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
+
+@end
+
+
+/**
+ *  Response message for IdentityMappingStoreService.ImportIdentityMappings
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportIdentityMappingsResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
 
 @end
 
@@ -9337,6 +10203,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *invalidUrisCount;
 
+/** URIs that have no index meta tag. Sample limited to 1000. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *noindexUris;
+
+/**
+ *  Total number of URIs that have no index meta tag.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noindexUrisCount;
+
 /**
  *  Total number of URIs that have yet to be crawled.
  *
@@ -9689,12 +10565,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomFineTuningSpec *customFineTuningSpec;
 
 /**
- *  Specs defining DataStores to filter on in a search call and configurations
- *  for those data stores. This is only considered for Engines with multiple
- *  data stores. For engines with a single data store, the specs directly under
- *  SearchRequest should be used.
+ *  Specifications that define the specific [DataStore]s to be searched, along
+ *  with configurations for those data stores. This is only considered for
+ *  Engines with multiple data stores. For engines with a single data store, the
+ *  specs directly under SearchRequest should be used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDataStoreSpec *> *dataStoreSpecs;
+
+/**
+ *  Optional. Config for display feature, like match highlighting on search
+ *  results.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec *displaySpec;
 
 /**
  *  Uses the provided embedding to do additional semantic document retrieval.
@@ -9828,19 +10710,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The ranking expression controls the customized ranking on retrieval
- *  documents. This overrides ServingConfig.ranking_expression. The ranking
- *  expression is a single function or multiple functions that are joined by
- *  "+". * ranking_expression = function, { " + ", function }; Supported
- *  functions: * double * relevance_score * double *
- *  dotProduct(embedding_field_path) Function variables: * `relevance_score`:
- *  pre-defined keywords, used for measure relevance between query and document.
- *  * `embedding_field_path`: the document embedding field used with query
- *  embedding vector. * `dotProduct`: embedding function between
- *  embedding_field_path and query embedding vector. Example ranking expression:
- *  If document has an embedding field doc_embedding, the ranking expression
- *  could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`.
+ *  documents. This overrides ServingConfig.ranking_expression. The syntax and
+ *  supported features depend on the ranking_expression_backend value. If
+ *  ranking_expression_backend is not provided, it defaults to BYOE. === BYOE
+ *  === If ranking expression is not provided or set to BYOE, it should be a
+ *  single function or multiple functions that are joined by "+". *
+ *  ranking_expression = function, { " + ", function }; Supported functions: *
+ *  double * relevance_score * double * dotProduct(embedding_field_path)
+ *  Function variables: * `relevance_score`: pre-defined keywords, used for
+ *  measure relevance between query and document. * `embedding_field_path`: the
+ *  document embedding field used with query embedding vector. * `dotProduct`:
+ *  embedding function between embedding_field_path and query embedding vector.
+ *  Example ranking expression: If document has an embedding field
+ *  doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3
+ *  * dotProduct(doc_embedding)`. === CLEARBOX === If ranking expression is set
+ *  to CLEARBOX, the following expression types (and combinations of those
+ *  chained using + or * operators) are supported: * double * signal *
+ *  log(signal) * exp(signal) * rr(signal, double > 0) -- reciprocal rank
+ *  transformation with second argument being a denominator constant. *
+ *  is_nan(signal) -- returns 0 if signal is NaN, 1 otherwise. *
+ *  fill_nan(signal1, signal2 | double) -- if signal1 is NaN, returns signal2 |
+ *  double, else returns signal1. Examples: * 0.2 * gecko_score + 0.8 *
+ *  log(bm25_score) * 0.2 * exp(fill_nan(gecko_score, 0)) + 0.3 *
+ *  is_nan(bm25_score) * 0.2 * rr(gecko_score, 16) + 0.8 * rr(bm25_score, 32)
+ *  The following signals are supported: * gecko_score -- semantic similarity
+ *  adjustment * bm25_score -- keyword match adjustment * jetstream_score --
+ *  semantic relevance adjustment * pctr_rank -- predicted conversion rate
+ *  adjustment as a rank * freshness_rank -- freshness adjustment as a rank *
+ *  base_rank -- the default rank of the result
  */
 @property(nonatomic, copy, nullable) NSString *rankingExpression;
+
+/**
+ *  Optional. The backend to use for the ranking expression evaluation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Byoe
+ *        Bring your own embedding (BYOE), the default way to evaluate the
+ *        ranking expression. (Value: "BYOE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Clearbox
+ *        The expression is compiled into a Clearbox formula. (Value:
+ *        "CLEARBOX")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Unknown
+ *        Default option for unspecified/unknown values. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *rankingExpressionBackend;
 
 /**
  *  The Unicode country/region code (CLDR) of a location, such as "US" and
@@ -9850,10 +10764,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/** Optional. The specification for returning the relevance score. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceScoreSpec *relevanceScoreSpec;
+
 /**
  *  The relevance threshold of the search results. Default to Google defined
  *  threshold, leveraging a balance of precision and recall to deliver both
  *  highly accurate results and comprehensive coverage of relevant information.
+ *  This feature is not supported for healthcare search.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RelevanceThreshold_High
@@ -9924,8 +10842,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSpellCorrectionSpec *spellCorrectionSpec;
 
 /**
- *  Information about the end user. Highly recommended for analytics.
- *  UserInfo.user_agent is used to deduce `device_type` for analytics.
+ *  Information about the end user. Highly recommended for analytics and
+ *  personalization. UserInfo.user_agent is used to deduce `device_type` for
+ *  analytics.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserInfo *userInfo;
 
@@ -10502,6 +11421,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Specifies features for display, like match highlighting.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec : GTLRObject
+
+/**
+ *  The condition under which match highlighting should occur.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec_MatchHighlightingCondition_MatchHighlightingConditionUnspecified
+ *        Server behavior is the same as `MATCH_HIGHLIGHTING_DISABLED`. (Value:
+ *        "MATCH_HIGHLIGHTING_CONDITION_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec_MatchHighlightingCondition_MatchHighlightingDisabled
+ *        Disables match highlighting on all documents. (Value:
+ *        "MATCH_HIGHLIGHTING_DISABLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec_MatchHighlightingCondition_MatchHighlightingEnabled
+ *        Enables match highlighting on all documents. (Value:
+ *        "MATCH_HIGHLIGHTING_ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *matchHighlightingCondition;
+
+@end
+
+
+/**
  *  The specification that uses customized query embedding vector to do semantic
  *  document retrieval.
  */
@@ -10769,6 +11712,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The specification for returning the document relevance score.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceScoreSpec : GTLRObject
+
+/**
+ *  Optional. Whether to return the relevance score for search results. The
+ *  higher the score, the more relevant the document is to the query.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnRelevanceScore;
+
+@end
+
+
+/**
  *  Specification for search as you type in search requests.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec : GTLRObject
@@ -10778,6 +11737,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Condition.DISABLED.
  *
  *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec_Condition_Auto
+ *        Automatic switching between search-as-you-type and standard search
+ *        modes, ideal for single-API implementations (e.g., debouncing).
+ *        (Value: "AUTO")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec_Condition_ConditionUnspecified
  *        Server behavior defaults to Condition.DISABLED. (Value:
  *        "CONDITION_UNSPECIFIED")
@@ -10815,7 +11778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The number of top search results to persist. The persisted search results
- *  can be used for the subsequent /answer api call. This field is simliar to
+ *  can be used for the subsequent /answer api call. This field is similar to
  *  the `summary_result_count` field in
  *  SearchRequest.ContentSearchSpec.SummarySpec.summary_result_count. At most 10
  *  results for documents mode, or 50 for chunks mode.
@@ -11431,6 +12394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Workspace Data Store contains Keep data (Value: "GOOGLE_KEEP")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig_Type_GoogleMail
  *        Workspace Data Store contains Mail data (Value: "GOOGLE_MAIL")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig_Type_GooglePeople
+ *        Workspace Data Store contains People data (Value: "GOOGLE_PEOPLE")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig_Type_GoogleSites
  *        Workspace Data Store contains Sites data (Value: "GOOGLE_SITES")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig_Type_TypeUnspecified
@@ -11523,7 +12488,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerCitation : GTLRObject
 
 /**
- *  End of the attributed segment, exclusive.
+ *  End of the attributed segment, exclusive. Measured in bytes (UTF-8 unicode).
+ *  If there are multi-byte characters,such as non-ASCII characters, the index
+ *  measurement is longer than the string length.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -11534,6 +12501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Index indicates the start of the segment, measured in bytes (UTF-8 unicode).
+ *  If there are multi-byte characters,such as non-ASCII characters, the index
+ *  measurement is longer than the string length.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -11617,6 +12586,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *asynchronousMode GTLR_DEPRECATED;
+
+/** Optional. End user specification. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpec *endUserSpec;
 
 /** Optional. Grounding specification. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestGroundingSpec *groundingSpec;
@@ -11797,6 +12769,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Customized preamble. */
 @property(nonatomic, copy, nullable) NSString *preamble;
+
+@end
+
+
+/**
+ *  End user specification.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpec : GTLRObject
+
+/** Optional. End user metadata. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaData *> *endUserMetadata;
+
+@end
+
+
+/**
+ *  End user metadata.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaData : GTLRObject
+
+/** Chunk information. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaDataChunkInfo *chunkInfo;
+
+@end
+
+
+/**
+ *  Chunk information.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaDataChunkInfo : GTLRObject
+
+/** Chunk textual content. It is limited to 8000 characters. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Metadata of the document from the current chunk. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaDataChunkInfoDocumentMetadata *documentMetadata;
+
+@end
+
+
+/**
+ *  Document metadata contains the information of the document of the current
+ *  chunk.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpecEndUserMetaDataChunkInfoDocumentMetadata : GTLRObject
+
+/** Title of the document. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -12386,6 +13406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Structured search data. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerReferenceStructuredDocumentInfo_StructData *structData;
 
+/** Output only. The title of the document. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. The URI of the document. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 
@@ -12808,13 +13834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSNumber *isDefault;
 
 /**
- *  Kms key resource name which will be used to encrypt resources
+ *  KMS key resource name which will be used to encrypt resources
  *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /**
- *  Kms key version resource name which will be used to encrypt resources
+ *  KMS key version resource name which will be used to encrypt resources
  *  `/cryptoKeyVersions/{keyVersion}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
@@ -12827,7 +13853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSNumber *lastRotationTimestampMicros;
 
 /**
- *  Required. Name of the CmekConfig, of the form
+ *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
  *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
  */
@@ -12839,7 +13865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSingleRegionKey *> *singleRegionKeys;
 
 /**
- *  Output only. State of the CmekConfig.
+ *  Output only. The states of the CmekConfig.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Active
@@ -12848,6 +13874,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The KMS key version is being rotated. (Value: "ACTIVE_ROTATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Creating
  *        The CmekConfig is creating. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_DeleteFailed
+ *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Deleting
  *        The CmekConfig is deleting. (Value: "DELETING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_KeyIssue
@@ -13048,6 +14076,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *fixedBoost;
 
+/**
+ *  Optional. Complex specification for custom ranking based on customer defined
+ *  attribute value.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec *interpolationBoostSpec;
+
+@end
+
+
+/**
+ *  Specification for custom ranking based on customer specified attribute
+ *  value. It provides more controls for customized ranking than the simple
+ *  (condition, boost) combination above.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec : GTLRObject
+
+/**
+ *  Optional. The attribute type to be used to determine the boost amount. The
+ *  attribute value can be derived from the field value of the specified
+ *  field_name. In the case of numerical it is straightforward i.e.
+ *  attribute_value = numerical_field_value. In the case of freshness however,
+ *  attribute_value = (time.now() - datetime_field_value).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_AttributeType_AttributeTypeUnspecified
+ *        Unspecified AttributeType. (Value: "ATTRIBUTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_AttributeType_Freshness
+ *        For the freshness use case the attribute value will be the duration
+ *        between the current time and the date in the datetime field specified.
+ *        The value must be formatted as an XSD `dayTimeDuration` value (a
+ *        restricted subset of an ISO 8601 duration value). The pattern for this
+ *        is: `nDnM]`. For example, `5D`, `3DT12H30M`, `T24H`. (Value:
+ *        "FRESHNESS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_AttributeType_Numerical
+ *        The value of the numerical field will be used to dynamically update
+ *        the boost amount. In this case, the attribute_value (the x value) of
+ *        the control point will be the actual value of the numerical field for
+ *        which the boost_amount is specified. (Value: "NUMERICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *attributeType;
+
+/**
+ *  Optional. The control points used to define the curve. The monotonic
+ *  function (defined through the interpolation_type above) passes through the
+ *  control points listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint *> *controlPoints;
+
+/**
+ *  Optional. The name of the field whose value will be used to determine the
+ *  boost amount.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/**
+ *  Optional. The interpolation type to be applied to connect the control points
+ *  listed below.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_InterpolationType_InterpolationTypeUnspecified
+ *        Interpolation type is unspecified. In this case, it defaults to
+ *        Linear. (Value: "INTERPOLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_InterpolationType_Linear
+ *        Piecewise linear interpolation will be applied. (Value: "LINEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *interpolationType;
+
+@end
+
+
+/**
+ *  The control points used to define the curve. The curve defined through these
+ *  control points can only be monotonically increasing or decreasing(constant
+ *  values are acceptable).
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint : GTLRObject
+
+/**
+ *  Optional. Can be one of: 1. The numerical field value. 2. The duration spec
+ *  for freshness: The value must be formatted as an XSD `dayTimeDuration` value
+ *  (a restricted subset of an ISO 8601 duration value). The pattern for this
+ *  is: `nDnM]`.
+ */
+@property(nonatomic, copy, nullable) NSString *attributeValue;
+
+/**
+ *  Optional. The value between -1 to 1 by which to boost the score if the
+ *  attribute_value evaluates to the value specified above.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boostAmount;
+
 @end
 
 
@@ -13118,6 +14239,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  least 2 synonyms. Otherwise an INVALID ARGUMENT error is thrown.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
+
+@end
+
+
+/**
+ *  The historical crawl rate timeseries data, used for monitoring.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries : GTLRObject
+
+/** The QPS of the crawl rate. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries *qpsTimeSeries;
 
 @end
 
@@ -13263,7 +14395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The id of the default Schema asscociated to this data store.
+ *  Output only. The id of the default Schema associated to this data store.
  */
 @property(nonatomic, copy, nullable) NSString *defaultSchemaId;
 
@@ -13276,6 +14408,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Configuration for Document understanding and enrichment. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig *documentProcessingConfig;
+
+/** Optional. Configuration for `HEALTHCARE_FHIR` vertical. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaHealthcareFhirConfig *healthcareFhirConfig;
+
+/**
+ *  Immutable. The fully qualified resource name of the associated
+ *  IdentityMappingStore. This field can only be set for acl_enabled DataStores
+ *  with `THIRD_PARTY` or `GSUITE` IdP. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`.
+ */
+@property(nonatomic, copy, nullable) NSString *identityMappingStore;
 
 /**
  *  Immutable. The industry vertical that the data store registers.
@@ -13405,6 +14548,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabledForServing;
+
+@end
+
+
+/**
+ *  The historical dedicated crawl rate timeseries data, used for monitoring.
+ *  Dedicated crawl is used by Vertex AI to crawl the user's website when
+ *  dedicate crawl is set.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDedicatedCrawlRateTimeSeries : GTLRObject
+
+/** Vertex AI's error rate time series of auto-refresh dedicated crawl. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries *autoRefreshCrawlErrorRate;
+
+/**
+ *  Vertex AI's dedicated crawl rate time series of auto-refresh, which is the
+ *  crawl rate of Google-CloudVertexBot when dedicate crawl is set, and the
+ *  crawl rate is for best effort use cases like refreshing urls periodically.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries *autoRefreshCrawlRate;
+
+/** Vertex AI's error rate time series of user triggered dedicated crawl. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries *userTriggeredCrawlErrorRate;
+
+/**
+ *  Vertex AI's dedicated crawl rate time series of user triggered crawl, which
+ *  is the crawl rate of Google-CloudVertexBot when dedicate crawl is set, and
+ *  user triggered crawl rate is for deterministic use cases like crawling urls
+ *  or sitemaps specified by users.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries *userTriggeredCrawlRate;
 
 @end
 
@@ -13851,6 +15025,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineConfigAgentCreationConfig *agentCreationConfig;
 
 /**
+ *  Optional. If the flag set to true, we allow the agent and engine are in
+ *  different locations, otherwise the agent and engine are required to be in
+ *  the same location. The flag is set to false by default. Note that the
+ *  `allow_cross_region` are one-time consumed by and passed to
+ *  EngineService.CreateEngine. It means they cannot be retrieved using
+ *  EngineService.GetEngine or EngineService.ListEngines API after engine
+ *  creation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossRegion;
+
+/**
  *  The resource name of an exist Dialogflow agent to link to this Chat Engine.
  *  Customers can either provide `agent_creation_config` to create agent or
  *  provide an agent name that links the agent with the Chat engine. Format:
@@ -14057,23 +15244,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  Response message for SiteSearchEngineService.FetchSitemaps method.
+ *  Config to data store for `HEALTHCARE_FHIR` vertical.
  */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchSitemapsResponse : GTLRObject
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaHealthcareFhirConfig : GTLRObject
 
-/** List of Sitemaps fetched. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchSitemapsResponseSitemapMetadata *> *sitemapsMetadata;
+/**
+ *  Whether to enable configurable schema for `HEALTHCARE_FHIR` vertical. If set
+ *  to `true`, the predefined healthcare fhir schema can be extended for more
+ *  customized searching and filtering.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfigurableSchema;
+
+/**
+ *  Whether to enable static indexing for `HEALTHCARE_FHIR` batch ingestion. If
+ *  set to `true`, the batch ingestion will be processed in a static indexing
+ *  mode which is slower but more capable of handling larger volume.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStaticIndexingForBatchIngestion;
 
 @end
 
 
 /**
- *  Contains a Sitemap and its metadata.
+ *  IdentityMappingEntry LongRunningOperation metadata for
+ *  IdentityMappingStoreService.ImportIdentityMappings and
+ *  IdentityMappingStoreService.PurgeIdentityMappings
  */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchSitemapsResponseSitemapMetadata : GTLRObject
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdentityMappingEntryOperationMetadata : GTLRObject
 
-/** The Sitemap. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSitemap *sitemap;
+/**
+ *  The number of IdentityMappingEntries that failed to be processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  The number of IdentityMappingEntries that were successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  The total number of IdentityMappingEntries that were processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCount;
 
 @end
 
@@ -14194,6 +15416,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  directory, one per line, as a JSON-encoded `google.rpc.Status` message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
+
+@end
+
+
+/**
+ *  Response message for IdentityMappingStoreService.ImportIdentityMappings
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportIdentityMappingsResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
 
 @end
 
@@ -14449,6 +15682,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Default value. (Value: "MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  Response message for CrawlRateManagementService.ObtainCrawlRate method. The
+ *  response contains organcic or dedicated crawl rate time series data for
+ *  monitoring, depending on whether dedicated crawl rate is set.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse : GTLRObject
+
+/**
+ *  The historical dedicated crawl rate timeseries data, used for monitoring.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDedicatedCrawlRateTimeSeries *dedicatedCrawlRateTimeSeries;
+
+/** Errors from service when handling the request. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *error;
+
+/** The historical organic crawl rate timeseries data, used for monitoring. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaOrganicCrawlRateTimeSeries *organicCrawlRateTimeSeries;
+
+/**
+ *  Output only. The state of the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse_State_Failed
+ *        The state is failed. (Value: "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse_State_StateUnspecified
+ *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaObtainCrawlRateResponse_State_Succeeded
+ *        The state is successful. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The historical organic crawl rate timeseries data, used for monitoring.
+ *  Organic crawl is auto-determined by Google to crawl the user's website when
+ *  dedicate crawl is not set. Crawl rate is the QPS of crawl request Google
+ *  sends to the user's website.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaOrganicCrawlRateTimeSeries : GTLRObject
+
+/**
+ *  Google's organic crawl rate time series, which is the sum of all googlebots'
+ *  crawl rate. Please refer to
+ *  https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers
+ *  for more details about googlebots.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries *googleOrganicCrawlRate;
+
+/**
+ *  Vertex AI's organic crawl rate time series, which is the crawl rate of
+ *  Google-CloudVertexBot when dedicate crawl is not set. Please refer to
+ *  https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers#google-cloudvertexbot
+ *  for more details about Google-CloudVertexBot.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries *vertexAiOrganicCrawlRate;
 
 @end
 
@@ -14753,6 +16047,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Metadata related to the progress of the
+ *  CrawlRateManagementService.RemoveDedicatedCrawlRate operation. This will be
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for CrawlRateManagementService.RemoveDedicatedCrawlRate
+ *  method. It simply returns the state of the response, and an error message if
+ *  the state is FAILED.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse : GTLRObject
+
+/** Errors from service when handling the request. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *error;
+
+/**
+ *  Output only. The state of the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse_State_Failed
+ *        The state is failed. (Value: "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse_State_StateUnspecified
+ *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRemoveDedicatedCrawlRateResponse_State_Succeeded
+ *        The state is successful. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Defines the structure and layout of a type of document data.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema : GTLRObject
@@ -14856,10 +16195,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpec *contentSearchSpec;
 
 /**
- *  Specs defining DataStores to filter on in a search call and configurations
- *  for those data stores. This is only considered for Engines with multiple
- *  data stores. For engines with a single data store, the specs directly under
- *  SearchRequest should be used.
+ *  Specifications that define the specific [DataStore]s to be searched, along
+ *  with configurations for those data stores. This is only considered for
+ *  Engines with multiple data stores. For engines with a single data store, the
+ *  specs directly under SearchRequest should be used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestDataStoreSpec *> *dataStoreSpecs;
 
@@ -14995,19 +16334,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The ranking expression controls the customized ranking on retrieval
- *  documents. This overrides ServingConfig.ranking_expression. The ranking
- *  expression is a single function or multiple functions that are joined by
- *  "+". * ranking_expression = function, { " + ", function }; Supported
- *  functions: * double * relevance_score * double *
- *  dotProduct(embedding_field_path) Function variables: * `relevance_score`:
- *  pre-defined keywords, used for measure relevance between query and document.
- *  * `embedding_field_path`: the document embedding field used with query
- *  embedding vector. * `dotProduct`: embedding function between
- *  embedding_field_path and query embedding vector. Example ranking expression:
- *  If document has an embedding field doc_embedding, the ranking expression
- *  could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`.
+ *  documents. This overrides ServingConfig.ranking_expression. The syntax and
+ *  supported features depend on the ranking_expression_backend value. If
+ *  ranking_expression_backend is not provided, it defaults to BYOE. === BYOE
+ *  === If ranking expression is not provided or set to BYOE, it should be a
+ *  single function or multiple functions that are joined by "+". *
+ *  ranking_expression = function, { " + ", function }; Supported functions: *
+ *  double * relevance_score * double * dotProduct(embedding_field_path)
+ *  Function variables: * `relevance_score`: pre-defined keywords, used for
+ *  measure relevance between query and document. * `embedding_field_path`: the
+ *  document embedding field used with query embedding vector. * `dotProduct`:
+ *  embedding function between embedding_field_path and query embedding vector.
+ *  Example ranking expression: If document has an embedding field
+ *  doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3
+ *  * dotProduct(doc_embedding)`. === CLEARBOX === If ranking expression is set
+ *  to CLEARBOX, the following expression types (and combinations of those
+ *  chained using + or * operators) are supported: * double * signal *
+ *  log(signal) * exp(signal) * rr(signal, double > 0) -- reciprocal rank
+ *  transformation with second argument being a denominator constant. *
+ *  is_nan(signal) -- returns 0 if signal is NaN, 1 otherwise. *
+ *  fill_nan(signal1, signal2 | double) -- if signal1 is NaN, returns signal2 |
+ *  double, else returns signal1. Examples: * 0.2 * gecko_score + 0.8 *
+ *  log(bm25_score) * 0.2 * exp(fill_nan(gecko_score, 0)) + 0.3 *
+ *  is_nan(bm25_score) * 0.2 * rr(gecko_score, 16) + 0.8 * rr(bm25_score, 32)
+ *  The following signals are supported: * gecko_score -- semantic similarity
+ *  adjustment * bm25_score -- keyword match adjustment * jetstream_score --
+ *  semantic relevance adjustment * pctr_rank -- predicted conversion rate
+ *  adjustment as a rank * freshness_rank -- freshness adjustment as a rank *
+ *  base_rank -- the default rank of the result
  */
 @property(nonatomic, copy, nullable) NSString *rankingExpression;
+
+/**
+ *  Optional. The backend to use for the ranking expression evaluation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Byoe
+ *        Bring your own embedding (BYOE), the default way to evaluate the
+ *        ranking expression. (Value: "BYOE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Clearbox
+ *        The expression is compiled into a Clearbox formula. (Value:
+ *        "CLEARBOX")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Unknown
+ *        Default option for unspecified/unknown values. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *rankingExpressionBackend;
 
 /**
  *  The Unicode country/region code (CLDR) of a location, such as "US" and
@@ -15017,10 +16388,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/** Optional. The specification for returning the relevance score. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceScoreSpec *relevanceScoreSpec;
+
 /**
  *  The relevance threshold of the search results. Default to Google defined
  *  threshold, leveraging a balance of precision and recall to deliver both
  *  highly accurate results and comprehensive coverage of relevant information.
+ *  This feature is not supported for healthcare search.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RelevanceThreshold_High
@@ -15091,8 +16466,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec *spellCorrectionSpec;
 
 /**
- *  Information about the end user. Highly recommended for analytics.
- *  UserInfo.user_agent is used to deduce `device_type` for analytics.
+ *  Information about the end user. Highly recommended for analytics and
+ *  personalization. UserInfo.user_agent is used to deduce `device_type` for
+ *  analytics.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserInfo *userInfo;
 
@@ -15936,6 +17312,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The specification for returning the document relevance score.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceScoreSpec : GTLRObject
+
+/**
+ *  Optional. Whether to return the relevance score for search results. The
+ *  higher the score, the more relevant the document is to the query.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnRelevanceScore;
+
+@end
+
+
+/**
  *  Specification for search as you type in search requests.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec : GTLRObject
@@ -15945,6 +17337,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Condition.DISABLED.
  *
  *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec_Condition_Auto
+ *        Automatic switching between search-as-you-type and standard search
+ *        modes, ideal for single-API implementations (e.g., debouncing).
+ *        (Value: "AUTO")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec_Condition_ConditionUnspecified
  *        Server behavior defaults to Condition.DISABLED. (Value:
  *        "CONDITION_UNSPECIFIED")
@@ -15982,7 +17378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The number of top search results to persist. The persisted search results
- *  can be used for the subsequent /answer api call. This field is simliar to
+ *  can be used for the subsequent /answer api call. This field is similar to
  *  the `summary_result_count` field in
  *  SearchRequest.ContentSearchSpec.SummarySpec.summary_result_count. At most 10
  *  results for documents mode, or 50 for chunks mode.
@@ -16017,6 +17413,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        "SUGGESTION_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the
+ *  CrawlRateManagementService.SetDedicatedCrawlRate operation. This will be
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for CrawlRateManagementService.SetDedicatedCrawlRate
+ *  method. It simply returns the state of the response, and an error message if
+ *  the state is FAILED.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse : GTLRObject
+
+/** Errors from service when handling the request. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *error;
+
+/**
+ *  Output only. The state of the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse_State_Failed
+ *        The state is failed. (Value: "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse_State_StateUnspecified
+ *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateResponse_State_Succeeded
+ *        The state is successful. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -16383,6 +17824,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Workspace Data Store contains Keep data (Value: "GOOGLE_KEEP")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig_Type_GoogleMail
  *        Workspace Data Store contains Mail data (Value: "GOOGLE_MAIL")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig_Type_GooglePeople
+ *        Workspace Data Store contains People data (Value: "GOOGLE_PEOPLE")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig_Type_GoogleSites
  *        Workspace Data Store contains Sites data (Value: "GOOGLE_SITES")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig_Type_TypeUnspecified
@@ -16763,7 +18206,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *claimText;
 
 /**
- *  Position indicating the end of the claim in the answer candidate, exclusive.
+ *  Position indicating the end of the claim in the answer candidate, exclusive,
+ *  in bytes. Note that this is not measured in characters and, therefore, must
+ *  be rendered as such. For example, if the claim text contains non-ASCII
+ *  characters, the start and end positions vary when measured in characters
+ *  (programming-language-dependent) and when measured in bytes
+ *  (programming-language-independent).
  *
  *  Uses NSNumber of intValue.
  */
@@ -16781,7 +18229,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Position indicating the start of the claim in the answer candidate, measured
- *  in bytes.
+ *  in bytes. Note that this is not measured in characters and, therefore, must
+ *  be rendered in the user interface keeping in mind that some characters may
+ *  take more than one byte. For example, if the claim text contains non-ASCII
+ *  characters, the start and end positions vary when measured in characters
+ *  (programming-language-dependent) and when measured in bytes
+ *  (programming-language-independent).
  *
  *  Uses NSNumber of intValue.
  */
@@ -17016,13 +18469,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSNumber *isDefault;
 
 /**
- *  Kms key resource name which will be used to encrypt resources
+ *  KMS key resource name which will be used to encrypt resources
  *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /**
- *  Kms key version resource name which will be used to encrypt resources
+ *  KMS key version resource name which will be used to encrypt resources
  *  `/cryptoKeyVersions/{keyVersion}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
@@ -17035,7 +18488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSNumber *lastRotationTimestampMicros;
 
 /**
- *  Required. Name of the CmekConfig, of the form
+ *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
  *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
  */
@@ -17047,7 +18500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SingleRegionKey *> *singleRegionKeys;
 
 /**
- *  Output only. State of the CmekConfig.
+ *  Output only. The states of the CmekConfig.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Active
@@ -17056,6 +18509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The KMS key version is being rotated. (Value: "ACTIVE_ROTATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Creating
  *        The CmekConfig is creating. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_DeleteFailed
+ *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Deleting
  *        The CmekConfig is deleting. (Value: "DELETING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_KeyIssue
@@ -17363,6 +18818,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fixedBoost;
+
+/**
+ *  Optional. Complex specification for custom ranking based on customer defined
+ *  attribute value.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec *interpolationBoostSpec;
+
+@end
+
+
+/**
+ *  Specification for custom ranking based on customer specified attribute
+ *  value. It provides more controls for customized ranking than the simple
+ *  (condition, boost) combination above.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec : GTLRObject
+
+/**
+ *  Optional. The attribute type to be used to determine the boost amount. The
+ *  attribute value can be derived from the field value of the specified
+ *  field_name. In the case of numerical it is straightforward i.e.
+ *  attribute_value = numerical_field_value. In the case of freshness however,
+ *  attribute_value = (time.now() - datetime_field_value).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_AttributeType_AttributeTypeUnspecified
+ *        Unspecified AttributeType. (Value: "ATTRIBUTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_AttributeType_Freshness
+ *        For the freshness use case the attribute value will be the duration
+ *        between the current time and the date in the datetime field specified.
+ *        The value must be formatted as an XSD `dayTimeDuration` value (a
+ *        restricted subset of an ISO 8601 duration value). The pattern for this
+ *        is: `nDnM]`. For example, `5D`, `3DT12H30M`, `T24H`. (Value:
+ *        "FRESHNESS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_AttributeType_Numerical
+ *        The value of the numerical field will be used to dynamically update
+ *        the boost amount. In this case, the attribute_value (the x value) of
+ *        the control point will be the actual value of the numerical field for
+ *        which the boost_amount is specified. (Value: "NUMERICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *attributeType;
+
+/**
+ *  Optional. The control points used to define the curve. The monotonic
+ *  function (defined through the interpolation_type above) passes through the
+ *  control points listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpecControlPoint *> *controlPoints;
+
+/**
+ *  Optional. The name of the field whose value will be used to determine the
+ *  boost amount.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/**
+ *  Optional. The interpolation type to be applied to connect the control points
+ *  listed below.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_InterpolationType_InterpolationTypeUnspecified
+ *        Interpolation type is unspecified. In this case, it defaults to
+ *        Linear. (Value: "INTERPOLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec_InterpolationType_Linear
+ *        Piecewise linear interpolation will be applied. (Value: "LINEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *interpolationType;
+
+@end
+
+
+/**
+ *  The control points used to define the curve. The curve defined through these
+ *  control points can only be monotonically increasing or decreasing(constant
+ *  values are acceptable).
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpecControlPoint : GTLRObject
+
+/**
+ *  Optional. Can be one of: 1. The numerical field value. 2. The duration spec
+ *  for freshness: The value must be formatted as an XSD `dayTimeDuration` value
+ *  (a restricted subset of an ISO 8601 duration value). The pattern for this
+ *  is: `nDnM]`.
+ */
+@property(nonatomic, copy, nullable) NSString *attributeValue;
+
+/**
+ *  Optional. The value between -1 to 1 by which to boost the score if the
+ *  attribute_value evaluates to the value specified above.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boostAmount;
 
 @end
 
@@ -17688,6 +19236,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Metadata related to the progress of the
+ *  SiteSearchEngineService.CreateSitemap operation. This will be returned by
+ *  the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CreateSitemapMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the
  *  SiteSearchEngineService.CreateTargetSite operation. This will be returned by
  *  the google.longrunning.Operation.metadata field.
  */
@@ -17869,7 +19436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The id of the default Schema asscociated to this data store.
+ *  Output only. The id of the default Schema associated to this data store.
  */
 @property(nonatomic, copy, nullable) NSString *defaultSchemaId;
 
@@ -17882,6 +19449,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Configuration for Document understanding and enrichment. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfig *documentProcessingConfig;
+
+/** Optional. Configuration for `HEALTHCARE_FHIR` vertical. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1HealthcareFhirConfig *healthcareFhirConfig;
+
+/**
+ *  Immutable. The fully qualified resource name of the associated
+ *  IdentityMappingStore. This field can only be set for acl_enabled DataStores
+ *  with `THIRD_PARTY` or `GSUITE` IdP. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`.
+ */
+@property(nonatomic, copy, nullable) NSString *identityMappingStore;
 
 /**
  *  Immutable. The industry vertical that the data store registers.
@@ -18010,6 +19588,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Metadata related to the progress of the CmekConfigService.DeleteCmekConfig
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DeleteCmekConfigMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the DataStoreService.DeleteDataStore
  *  operation. This will be returned by the
  *  google.longrunning.Operation.metadata field.
@@ -18070,6 +19667,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Metadata for DeleteSchema LRO.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DeleteSchemaMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the
+ *  SiteSearchEngineService.DeleteSitemap operation. This will be returned by
+ *  the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DeleteSitemapMetadata : GTLRObject
 
 /** Operation create time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -18518,6 +20134,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Double list.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DoubleList : GTLRObject
+
+/**
+ *  Double values.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *values;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the
  *  SiteSearchEngineService.EnableAdvancedSiteSearch operation. This will be
  *  returned by the google.longrunning.Operation.metadata field.
@@ -18671,6 +20302,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  creation.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineConfigAgentCreationConfig *agentCreationConfig;
+
+/**
+ *  Optional. If the flag set to true, we allow the agent and engine are in
+ *  different locations, otherwise the agent and engine are required to be in
+ *  the same location. The flag is set to false by default. Note that the
+ *  `allow_cross_region` are one-time consumed by and passed to
+ *  EngineService.CreateEngine. It means they cannot be retrieved using
+ *  EngineService.GetEngine or EngineService.ListEngines API after engine
+ *  creation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossRegion;
 
 /**
  *  The resource name of an exist Dialogflow agent to link to this Chat Engine.
@@ -18858,6 +20502,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Response message for SiteSearchEngineService.FetchSitemaps method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchSitemapsResponse : GTLRObject
+
+/** List of Sitemaps fetched. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchSitemapsResponseSitemapMetadata *> *sitemapsMetadata;
+
+@end
+
+
+/**
+ *  Contains a Sitemap and its metadata.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchSitemapsResponseSitemapMetadata : GTLRObject
+
+/** The Sitemap. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap *sitemap;
+
+@end
+
+
+/**
  *  Cloud FhirStore source import data from.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FhirStoreSource : GTLRObject
@@ -18970,514 +20636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  Top-level message sent by the client for the `GenerateGroundedContent`
- *  method.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest : GTLRObject
-
-/**
- *  Content of the current conversation with the model. For single-turn queries,
- *  this is a single instance. For multi-turn queries, this is a repeated field
- *  that contains conversation history + latest request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContent *> *contents;
-
-/** Content generation specification. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGenerationSpec *generationSpec;
-
-/** Grounding specification. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSpec *groundingSpec;
-
-/**
- *  Content of the system instruction for the current API. These instructions
- *  will take priority over any other prompt instructions if the selected model
- *  is supporting them.
- */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContent *systemInstruction;
-
-/**
- *  The user labels applied to a resource must meet the following requirements:
- *  * Each resource can have multiple labels, up to a maximum of 64. * Each
- *  label must be a key-value pair. * Keys have a minimum length of 1 character
- *  and a maximum length of 63 characters and cannot be empty. Values can be
- *  empty and have a maximum length of 63 characters. * Keys and values can
- *  contain only lowercase letters, numeric characters, underscores, and dashes.
- *  All characters must use UTF-8 encoding, and international characters are
- *  allowed. * The key portion of a label must be unique. However, you can use
- *  the same key with multiple resources. * Keys must start with a lowercase
- *  letter or international character. See [Google Cloud
- *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
- *  for more details.
- */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest_UserLabels *userLabels;
-
-@end
-
-
-/**
- *  The user labels applied to a resource must meet the following requirements:
- *  * Each resource can have multiple labels, up to a maximum of 64. * Each
- *  label must be a key-value pair. * Keys have a minimum length of 1 character
- *  and a maximum length of 63 characters and cannot be empty. Values can be
- *  empty and have a maximum length of 63 characters. * Keys and values can
- *  contain only lowercase letters, numeric characters, underscores, and dashes.
- *  All characters must use UTF-8 encoding, and international characters are
- *  allowed. * The key portion of a label must be unique. However, you can use
- *  the same key with multiple resources. * Keys must start with a lowercase
- *  letter or international character. See [Google Cloud
- *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
- *  for more details.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest_UserLabels : GTLRObject
-@end
-
-
-/**
- *  Describes the options to customize dynamic retrieval.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfiguration : GTLRObject
-
-/** Specification for the predictor for dynamic retrieval. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor *predictor;
-
-@end
-
-
-/**
- *  Describes the predictor settings for dynamic retrieval.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor : GTLRObject
-
-/**
- *  The value of the threshold. If the predictor will predict a value smaller
- *  than this, it would suppress grounding in the source.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *threshold;
-
-/**
- *  The version of the predictor to be used in dynamic retrieval.
- *
- *  Likely values:
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor_Version_V1Independent
- *        The V1 model which is evaluating each source independently. (Value:
- *        "V1_INDEPENDENT")
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfigurationDynamicRetrievalPredictor_Version_VersionUnspecified
- *        Automatically choose the best version of the retrieval predictor.
- *        (Value: "VERSION_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
- *  Content generation specification.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGenerationSpec : GTLRObject
-
-/**
- *  If specified, custom value for frequency penalty will be used.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *frequencyPenalty;
-
-/**
- *  Language code for content. Use language tags defined by
- *  [BCP47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt).
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-/**
- *  If specified, custom value for max output tokens will be used.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxOutputTokens;
-
-/** Specifies which Vertex model id to use for generation. */
-@property(nonatomic, copy, nullable) NSString *modelId;
-
-/**
- *  If specified, custom value for presence penalty will be used.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *presencePenalty;
-
-/**
- *  If specified, custom value for the seed will be used.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *seed;
-
-/**
- *  If specified, custom value for the temperature will be used.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *temperature;
-
-/**
- *  If specified, custom value for top-k sampling will be used.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *topK;
-
-/**
- *  If specified, custom value for nucleus sampling will be used.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *topP;
-
-@end
-
-
-/**
- *  Grounding source.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSource : GTLRObject
-
-/** If set, grounding is performed with Google Search. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceGoogleSearchSource *googleSearchSource;
-
-/** If set, grounding is performed with inline content. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceInlineSource *inlineSource;
-
-/** If set, grounding is performed with Vertex AI Search. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceSearchSource *searchSource;
-
-@end
-
-
-/**
- *  Google Search config parameters.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceGoogleSearchSource : GTLRObject
-
-/**
- *  Optional. Specifies the dynamic retrieval configuration for the given
- *  source.
- */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestDynamicRetrievalConfiguration *dynamicRetrievalConfig;
-
-@end
-
-
-/**
- *  Message to be used for grounding based on inline content.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceInlineSource : GTLRObject
-
-/**
- *  Attributes associated with the content. Common attributes include `source`
- *  (indicating where the content was sourced from) and `author` (indicating the
- *  author of the content).
- */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceInlineSource_Attributes *attributes;
-
-/** List of facts to be used for grounding. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundingFact *> *groundingFacts;
-
-@end
-
-
-/**
- *  Attributes associated with the content. Common attributes include `source`
- *  (indicating where the content was sourced from) and `author` (indicating the
- *  author of the content).
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceInlineSource_Attributes : GTLRObject
-@end
-
-
-/**
- *  Message to be used for grounding with Vertex AI Search.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSourceSearchSource : GTLRObject
-
-/**
- *  Filter expression to be applied to the search. The syntax is the same as
- *  SearchRequest.filter.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Number of search results to return. The default value is 10. The maximumm
- *  allowed value is 10.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxResultCount;
-
-/**
- *  If set, safe search is enabled in Vertex AI Search requests.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *safeSearch;
-
-/**
- *  The resource name of the Engine to use. Format:
- *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}/servingConfigs/{serving_config_id}`
- */
-@property(nonatomic, copy, nullable) NSString *servingConfig;
-
-@end
-
-
-/**
- *  Grounding specification.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSpec : GTLRObject
-
-/** Grounding sources. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentRequestGroundingSource *> *groundingSources;
-
-@end
-
-
-/**
- *  Response for the `GenerateGroundedContent` method.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponse : GTLRObject
-
-/** Generated candidates. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidate *> *candidates;
-
-@end
-
-
-/**
- *  A response candidate generated from the model.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidate : GTLRObject
-
-/** Content of the candidate. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContent *content;
-
-/** Grounding metadata for the generated content. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadata *groundingMetadata;
-
-/**
- *  The overall grounding score for the candidate, in the range of [0, 1].
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *groundingScore;
-
-/**
- *  Index of the candidate.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *index;
-
-@end
-
-
-/**
- *  Citation for the generated content.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadata : GTLRObject
-
-/**
- *  GroundingSupport across all claims in the answer candidate. An support to a
- *  fact indicates that the claim is supported by the fact.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataGroundingSupport *> *groundingSupport;
-
-/**
- *  Retrieval metadata to provide an understanding in the retrieval steps
- *  performed by the model. There can be multiple such messages which can
- *  correspond to different parts of the retrieval. This is a mechanism used to
- *  ensure transparency to our users.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata *> *retrievalMetadata;
-
-/** Google search entry for the following-up web searches. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataSearchEntryPoint *searchEntryPoint;
-
-/**
- *  List of chunks to be attributed across all claims in the candidate. These
- *  are derived from the grounding sources supplied in the request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FactChunk *> *supportChunks;
-
-/** Web search queries for the following-up web search. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *webSearchQueries;
-
-@end
-
-
-/**
- *  Describes the metadata about dynamic retrieval.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalMetadata : GTLRObject
-
-/** Metadata for the dynamic retrieval predictor. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata *predictorMetadata;
-
-@end
-
-
-/**
- *  Describes the metadata about the dynamic retrieval predictor.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata : GTLRObject
-
-/**
- *  The value of the predictor. This should be between [0, 1] where a value of 0
- *  means that the query would not benefit from grounding, while a value of 1.0
- *  means that the query would benefit the most. In between values allow to
- *  differentiate between different usefulness scores for grounding.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *prediction;
-
-/**
- *  The version of the predictor which was used in dynamic retrieval.
- *
- *  Likely values:
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata_Version_V1Independent
- *        The V1 model which is evaluating each source independently. (Value:
- *        "V1_INDEPENDENT")
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalPredictorMetadata_Version_VersionUnspecified
- *        Unspecified version, should never be used. (Value:
- *        "VERSION_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
- *  Grounding info for a claim in the candidate and its support.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataGroundingSupport : GTLRObject
-
-/**
- *  Text for the claim in the candidate. Always provided when a support is
- *  found.
- */
-@property(nonatomic, copy, nullable) NSString *claimText;
-
-/**
- *  A list of indices (into 'support_chunks') specifying the citations
- *  associated with the claim. For instance [1,3,4] means that
- *  support_chunks[1], support_chunks[3], support_chunks[4] are the chunks
- *  attributed to the claim.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *supportChunkIndices;
-
-/**
- *  A score in the range of [0, 1] describing how grounded is a specific claim
- *  in the support chunks indicated. Higher value means that the claim is better
- *  supported by the chunks.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *supportScore;
-
-@end
-
-
-/**
- *  Describes the metadata associated with a retrieval step.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata : GTLRObject
-
-/** Metadata for dynamic retrieval. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataDynamicRetrievalMetadata *dynamicRetrievalMetadata;
-
-/**
- *  Describes the source to which the metadata is referring to.
- *
- *  Likely values:
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_GoogleMaps
- *        Google Maps. (Value: "GOOGLE_MAPS")
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_GoogleSearch
- *        Google Search. (Value: "GOOGLE_SEARCH")
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_InlineContent
- *        User inline provided content. (Value: "INLINE_CONTENT")
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_SourceUnspecified
- *        Unspecified source. (Value: "SOURCE_UNSPECIFIED")
- *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataRetrievalMetadata_Source_VertexAiSearch
- *        Vertex AI search. (Value: "VERTEX_AI_SEARCH")
- */
-@property(nonatomic, copy, nullable) NSString *source;
-
-@end
-
-
-/**
- *  Google search entry point.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GenerateGroundedContentResponseCandidateGroundingMetadataSearchEntryPoint : GTLRObject
-
-/**
- *  Web content snippet that can be embedded in a web page or an app webview.
- */
-@property(nonatomic, copy, nullable) NSString *renderedContent;
-
-/**
- *  Base64 encoded JSON representing array of tuple.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *sdkBlob;
-
-@end
-
-
-/**
- *  Base structured datatype containing multi-part content of a message.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContent : GTLRObject
-
-/** Ordered `Parts` that constitute a single message. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContentPart *> *parts;
-
-/**
- *  Producer of the content. Must be either `user` or `model`. Intended to be
- *  used for multi-turn conversations. Otherwise, it can be left unset.
- */
-@property(nonatomic, copy, nullable) NSString *role;
-
-@end
-
-
-/**
- *  Single part of content.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundedGenerationContentPart : GTLRObject
-
-/** Inline text. */
-@property(nonatomic, copy, nullable) NSString *text;
-
-@end
-
-
-/**
  *  Grounding Fact.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundingFact : GTLRObject
@@ -19506,6 +20664,120 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GroundingFact_Attributes : GTLRObject
+@end
+
+
+/**
+ *  Config to data store for `HEALTHCARE_FHIR` vertical.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1HealthcareFhirConfig : GTLRObject
+
+/**
+ *  Whether to enable configurable schema for `HEALTHCARE_FHIR` vertical. If set
+ *  to `true`, the predefined healthcare fhir schema can be extended for more
+ *  customized searching and filtering.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfigurableSchema;
+
+/**
+ *  Whether to enable static indexing for `HEALTHCARE_FHIR` batch ingestion. If
+ *  set to `true`, the batch ingestion will be processed in a static indexing
+ *  mode which is slower but more capable of handling larger volume.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStaticIndexingForBatchIngestion;
+
+@end
+
+
+/**
+ *  Identity Mapping Entry that maps an external identity to an internal
+ *  identity.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntry : GTLRObject
+
+/**
+ *  Required. Identity outside the customer identity provider. The length limit
+ *  of external identity will be of 100 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *externalIdentity;
+
+/**
+ *  Group identifier. For Google Workspace user account, group_id should be the
+ *  google workspace group email. For non-google identity provider, group_id is
+ *  the mapped group identifier configured during the workforcepool config.
+ */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/**
+ *  User identifier. For Google Workspace user account, user_id should be the
+ *  google workspace user email. For non-google identity provider, user_id is
+ *  the mapped user identifier configured during the workforcepool config.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  IdentityMappingEntry LongRunningOperation metadata for
+ *  IdentityMappingStoreService.ImportIdentityMappings and
+ *  IdentityMappingStoreService.PurgeIdentityMappings
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntryOperationMetadata : GTLRObject
+
+/**
+ *  The number of IdentityMappingEntries that failed to be processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  The number of IdentityMappingEntries that were successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  The total number of IdentityMappingEntries that were processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCount;
+
+@end
+
+
+/**
+ *  Identity Mapping Store which contains Identity Mapping Entries.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore : GTLRObject
+
+/** Output only. CMEK-related information for the Identity Mapping Store. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig *cmekConfig;
+
+/**
+ *  Input only. The KMS key to be used to protect this Identity Mapping Store at
+ *  creation time. Must be set for requests that need to comply with CMEK Org
+ *  Policy protections. If this field is set and processed successfully, the
+ *  Identity Mapping Store will be protected by the KMS key, as indicated in the
+ *  cmek_config field.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Immutable. The full resource name of the identity mapping store. Format:
+ *  `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -19671,6 +20943,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Firestore input source. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FirestoreSource *firestoreSource;
 
+/**
+ *  Optional. Whether to force refresh the unstructured content of the
+ *  documents. If set to `true`, the content part of the documents will be
+ *  refreshed regardless of the update status of the referencing content.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forceRefreshContent;
+
 /** Cloud Storage location for the input content. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GcsSource *gcsSource;
 
@@ -19770,6 +21051,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  directory, one per line, as a JSON-encoded `google.rpc.Status` message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
+
+@end
+
+
+/**
+ *  Request message for IdentityMappingStoreService.ImportIdentityMappings
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportIdentityMappingsRequest : GTLRObject
+
+/** The inline source to import identity mapping entries from. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportIdentityMappingsRequestInlineSource *inlineSource;
+
+@end
+
+
+/**
+ *  The inline source to import identity mapping entries from.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportIdentityMappingsRequestInlineSource : GTLRObject
+
+/** A maximum of 10000 entries can be imported at one time */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntry *> *identityMappingEntries;
+
+@end
+
+
+/**
+ *  Response message for IdentityMappingStoreService.ImportIdentityMappings
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportIdentityMappingsResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
 
 @end
 
@@ -20124,6 +21438,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine *> *engines;
 
 /** Not supported. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for IdentityMappingStoreService.ListIdentityMappings
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "identityMappingEntries" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListIdentityMappingsResponse : GTLRCollectionObject
+
+/**
+ *  The Identity Mapping Entries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntry *> *identityMappingEntries;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for IdentityMappingStoreService.ListIdentityMappingStores
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "identityMappingStores" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListIdentityMappingStoresResponse : GTLRCollectionObject
+
+/**
+ *  The Identity Mapping Stores.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore *> *identityMappingStores;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -20624,6 +21992,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Request message for IdentityMappingStoreService.PurgeIdentityMappings
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeIdentityMappingsRequest : GTLRObject
+
+/**
+ *  Filter matching identity mappings to purge. The eligible field for filtering
+ *  is: * `update_time`: in ISO 8601 "zulu" format. * `external_id` Examples: *
+ *  Deleting all identity mappings updated in a time range: `update_time >
+ *  "2012-04-23T18:25:43.511Z" AND update_time < "2012-04-23T18:30:43.511Z"` *
+ *  Deleting all identity mappings for a given external_id: `external_id =
+ *  "id1"` * Deleting all identity mappings inside an identity mapping store:
+ *  `*` The filtering fields are assumed to have an implicit AND. Should not be
+ *  used with source. An error will be thrown, if both are provided.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Actually performs the purge. If `force` is set to false, return the expected
+ *  purge count without deleting any identity mappings. This field is only
+ *  supported for purge with filter. For input source this field is ignored and
+ *  data will be purged regardless of the value of this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/** The inline source to purge identity mapping entries from. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeIdentityMappingsRequestInlineSource *inlineSource;
+
+@end
+
+
+/**
+ *  The inline source to purge identity mapping entries from.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeIdentityMappingsRequestInlineSource : GTLRObject
+
+/** A maximum of 10000 entries can be purged at one time */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntry *> *identityMappingEntries;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the PurgeSuggestionDenyListEntries
  *  operation. This is returned by the google.longrunning.Operation.metadata
  *  field.
@@ -20772,7 +22184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The identifier of the model to use. It is one of: *
- *  `semantic-ranker-512\@latest`: Semantic ranking model with maxiumn input
+ *  `semantic-ranker-512\@latest`: Semantic ranking model with maximum input
  *  token size 512. It is set to `semantic-ranker-512\@latest` by default if
  *  unspecified.
  */
@@ -21068,11 +22480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecrawlUrisRequest : GTLRObject
 
-/**
- *  Optional. Full resource name of the `SiteCredential`, such as `projects/ *
- *  /locations/ * /collections/ * /dataStores/ *
- *  /siteSearchEngine/siteCredentials/ *`. Only set to crawl private URIs.
- */
+/** Optional. Credential id to use for crawling. */
 @property(nonatomic, copy, nullable) NSString *siteCredential;
 
 /**
@@ -21326,10 +22734,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpec *contentSearchSpec;
 
 /**
- *  Specs defining DataStores to filter on in a search call and configurations
- *  for those data stores. This is only considered for Engines with multiple
- *  data stores. For engines with a single data store, the specs directly under
- *  SearchRequest should be used.
+ *  Specifications that define the specific [DataStore]s to be searched, along
+ *  with configurations for those data stores. This is only considered for
+ *  Engines with multiple data stores. For engines with a single data store, the
+ *  specs directly under SearchRequest should be used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec *> *dataStoreSpecs;
 
@@ -21438,6 +22846,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec *queryExpansionSpec;
 
+/** Optional. The specification for returning the relevance score. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestRelevanceScoreSpec *relevanceScoreSpec;
+
+/**
+ *  The relevance threshold of the search results. Default to Google defined
+ *  threshold, leveraging a balance of precision and recall to deliver both
+ *  highly accurate results and comprehensive coverage of relevant information.
+ *  This feature is not supported for healthcare search.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_High
+ *        High relevance threshold. (Value: "HIGH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_Low
+ *        Low relevance threshold. (Value: "LOW")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_Lowest
+ *        Lowest relevance threshold. (Value: "LOWEST")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_Medium
+ *        Medium relevance threshold. (Value: "MEDIUM")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_RelevanceThresholdUnspecified
+ *        Default value. In this case, server behavior defaults to Google
+ *        defined threshold. (Value: "RELEVANCE_THRESHOLD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *relevanceThreshold;
+
 /**
  *  Whether to turn on safe search. This is only supported for website search.
  *
@@ -21482,8 +22914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec *spellCorrectionSpec;
 
 /**
- *  Information about the end user. Highly recommended for analytics.
- *  UserInfo.user_agent is used to deduce `device_type` for analytics.
+ *  Information about the end user. Highly recommended for analytics and
+ *  personalization. UserInfo.user_agent is used to deduce `device_type` for
+ *  analytics.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserInfo *userInfo;
 
@@ -22241,6 +23674,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The specification for returning the document relevance score.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestRelevanceScoreSpec : GTLRObject
+
+/**
+ *  Optional. Whether to return the relevance score for search results. The
+ *  higher the score, the more relevant the document is to the query.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnRelevanceScore;
+
+@end
+
+
+/**
  *  Specification for search as you type in search requests.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec : GTLRObject
@@ -22250,6 +23699,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Condition.DISABLED.
  *
  *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec_Condition_Auto
+ *        Automatic switching between search-as-you-type and standard search
+ *        modes, ideal for single-API implementations (e.g., debouncing).
+ *        (Value: "AUTO")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec_Condition_ConditionUnspecified
  *        Server behavior defaults to Condition.DISABLED. (Value:
  *        "CONDITION_UNSPECIFIED")
@@ -22287,7 +23740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The number of top search results to persist. The persisted search results
- *  can be used for the subsequent /answer api call. This field is simliar to
+ *  can be used for the subsequent /answer api call. This field is similar to
  *  the `summary_result_count` field in
  *  SearchRequest.ContentSearchSpec.SummarySpec.summary_result_count. At most 10
  *  results for documents mode, or 50 for chunks mode.
@@ -22491,6 +23944,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/** Output only. Google provided available scores. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult_ModelScores *modelScores;
+
+@end
+
+
+/**
+ *  Output only. Google provided available scores.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DoubleList. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult_ModelScores : GTLRObject
 @end
 
 
@@ -22994,6 +24463,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
+
+@end
+
+
+/**
+ *  A sitemap for the SiteSearchEngine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap : GTLRObject
+
+/** Output only. The sitemap's creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The fully qualified resource name of the sitemap. `projects/ *
+ *  /locations/ * /collections/ * /dataStores/ * /siteSearchEngine/sitemaps/ *`
+ *  The `sitemap_id` suffix is system-generated.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Public URI for the sitemap, e.g. `www.example.com/sitemap.xml`. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -23776,6 +25266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Workspace Data Store contains Keep data (Value: "GOOGLE_KEEP")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig_Type_GoogleMail
  *        Workspace Data Store contains Mail data (Value: "GOOGLE_MAIL")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig_Type_GooglePeople
+ *        Workspace Data Store contains People data (Value: "GOOGLE_PEOPLE")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig_Type_GoogleSites
  *        Workspace Data Store contains Sites data (Value: "GOOGLE_SITES")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig_Type_TypeUnspecified

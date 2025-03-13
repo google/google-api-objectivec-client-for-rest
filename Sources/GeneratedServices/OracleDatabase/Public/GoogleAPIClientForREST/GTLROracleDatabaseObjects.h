@@ -1295,6 +1295,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_Account
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_Active;
 /**
+ *  Entitlement is not approved in private marketplace.
+ *
+ *  Value: "NOT_APPROVED_IN_PRIVATE_MARKETPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_NotApprovedInPrivateMarketplace;
+/**
  *  Default unspecified value.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -1590,7 +1596,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** Optional. The password for the default ADMIN user. */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
 
-/** Required. The subnet CIDR range for the Autonmous Database. */
+/** Optional. The subnet CIDR range for the Autonmous Database. */
 @property(nonatomic, copy, nullable) NSString *cidr;
 
 /**
@@ -1628,7 +1634,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the VPC network used by the Autonomous Database in the
+ *  Optional. The name of the VPC network used by the Autonomous Database in the
  *  following format: projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -3691,6 +3697,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        suspended. (Value: "ACCOUNT_SUSPENDED")
  *    @arg @c kGTLROracleDatabase_Entitlement_State_Active Entitlement and
  *        Account are active. (Value: "ACTIVE")
+ *    @arg @c kGTLROracleDatabase_Entitlement_State_NotApprovedInPrivateMarketplace
+ *        Entitlement is not approved in private marketplace. (Value:
+ *        "NOT_APPROVED_IN_PRIVATE_MARKETPLACE")
  *    @arg @c kGTLROracleDatabase_Entitlement_State_StateUnspecified Default
  *        unspecified value. (Value: "STATE_UNSPECIFIED")
  */

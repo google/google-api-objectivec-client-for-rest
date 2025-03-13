@@ -17,6 +17,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRFirebaseDataConnect_PostgreSql.schemaMigration
+NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_MigrateCompatible = @"MIGRATE_COMPATIBLE";
+NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_SqlSchemaMigrationUnspecified = @"SQL_SCHEMA_MIGRATION_UNSPECIFIED";
+
 // GTLRFirebaseDataConnect_PostgreSql.schemaValidation
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Compatible = @"COMPATIBLE";
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_None = @"NONE";
@@ -552,7 +556,7 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_PostgreSql
-@dynamic cloudSql, database, schemaValidation, unlinked;
+@dynamic cloudSql, database, schemaMigration, schemaValidation, unlinked;
 @end
 
 

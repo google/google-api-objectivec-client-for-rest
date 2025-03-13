@@ -25,6 +25,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRAndroidEnterpriseQuery
 
 @dynamic fields;
@@ -194,6 +197,33 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
+@implementation GTLRAndroidEnterpriseQuery_EnrollmentTokensCreate
+
+@dynamic enterpriseId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_EnrollmentToken *)object
+                   enterpriseId:(NSString *)enterpriseId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/enrollmentTokens";
+  GTLRAndroidEnterpriseQuery_EnrollmentTokensCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_EnrollmentToken class];
+  query.loggingName = @"androidenterprise.enrollmentTokens.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesAcknowledgeNotificationSet
 
 @dynamic notificationSetId;
@@ -222,33 +252,6 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRAndroidEnterprise_Enterprise class];
   query.loggingName = @"androidenterprise.enterprises.completeSignup";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken
-
-@dynamic enterpriseId;
-
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_EnrollmentToken *)object
-                   enterpriseId:(NSString *)enterpriseId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/createEnrollmentToken";
-  GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.enterpriseId = enterpriseId;
-  query.expectedObjectClass = [GTLRAndroidEnterprise_EnrollmentToken class];
-  query.loggingName = @"androidenterprise.enterprises.createEnrollmentToken";
   return query;
 }
 
@@ -307,9 +310,42 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
+@implementation GTLRAndroidEnterpriseQuery_EnterprisesGenerateEnterpriseUpgradeUrl
+
+@dynamic adminEmail, allowedDomains, enterpriseId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedDomains" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/generateEnterpriseUpgradeUrl";
+  GTLRAndroidEnterpriseQuery_EnterprisesGenerateEnterpriseUpgradeUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse class];
+  query.loggingName = @"androidenterprise.enterprises.generateEnterpriseUpgradeUrl";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesGenerateSignupUrl
 
-@dynamic adminEmail, callbackUrl;
+@dynamic adminEmail, allowedDomains, callbackUrl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedDomains" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)query {
   NSString *pathURITemplate = @"androidenterprise/v1/enterprises/signupUrl";
@@ -1883,3 +1919,5 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 }
 
 @end
+
+#pragma clang diagnostic pop

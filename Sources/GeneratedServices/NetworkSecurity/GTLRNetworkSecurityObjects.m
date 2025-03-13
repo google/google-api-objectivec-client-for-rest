@@ -21,6 +21,23 @@ NSString * const kGTLRNetworkSecurity_AddressGroup_Type_Ipv4   = @"IPV4";
 NSString * const kGTLRNetworkSecurity_AddressGroup_Type_Ipv6   = @"IPV6";
 NSString * const kGTLRNetworkSecurity_AddressGroup_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRNetworkSecurity_AntivirusOverride.action
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_Alert = @"ALERT";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_DefaultAction = @"DEFAULT_ACTION";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_Deny = @"DENY";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_ThreatActionUnspecified = @"THREAT_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_AntivirusOverride.protocol
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Ftp = @"FTP";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Http = @"HTTP";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Http2 = @"HTTP2";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Imap = @"IMAP";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Pop3 = @"POP3";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smb = @"SMB";
+NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smtp = @"SMTP";
+
 // GTLRNetworkSecurity_AuthorizationPolicy.action
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Allow = @"ALLOW";
@@ -63,6 +80,65 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_AdminRea
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringDeployment.state
+NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringDeploymentGroup.state
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringDeploymentGroupDeployment.state
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringEndpointGroup.state
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Closed = @"CLOSED";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringEndpointGroupAssociation.state
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Closed = @"CLOSED";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails.state
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Closed = @"CLOSED";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails.state
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MirroringLocation.state
+NSString * const kGTLRNetworkSecurity_MirroringLocation_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringLocation_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_MirroringLocation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRNetworkSecurity_MTLSPolicy.clientValidationMode
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInvalidOrMissingClientCert = @"ALLOW_INVALID_OR_MISSING_CLIENT_CERT";
@@ -172,6 +248,16 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AntivirusOverride
+//
+
+@implementation GTLRNetworkSecurity_AntivirusOverride
+@dynamic action, protocol;
 @end
 
 
@@ -594,7 +680,8 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_FirewallEndpoint
 @dynamic associatedNetworks, associations, billingProjectId, createTime,
-         descriptionProperty, labels, name, reconciling, state, updateTime;
+         descriptionProperty, labels, name, reconciling, satisfiesPzi,
+         satisfiesPzs, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -883,11 +970,12 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_ListAddressGroupsResponse
-@dynamic addressGroups, nextPageToken;
+@dynamic addressGroups, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"addressGroups" : [GTLRNetworkSecurity_AddressGroup class]
+    @"addressGroups" : [GTLRNetworkSecurity_AddressGroup class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1082,6 +1170,95 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_ListMirroringDeploymentGroupsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListMirroringDeploymentGroupsResponse
+@dynamic mirroringDeploymentGroups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mirroringDeploymentGroups" : [GTLRNetworkSecurity_MirroringDeploymentGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mirroringDeploymentGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListMirroringDeploymentsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListMirroringDeploymentsResponse
+@dynamic mirroringDeployments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mirroringDeployments" : [GTLRNetworkSecurity_MirroringDeployment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mirroringDeployments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListMirroringEndpointGroupAssociationsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListMirroringEndpointGroupAssociationsResponse
+@dynamic mirroringEndpointGroupAssociations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mirroringEndpointGroupAssociations" : [GTLRNetworkSecurity_MirroringEndpointGroupAssociation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mirroringEndpointGroupAssociations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListMirroringEndpointGroupsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListMirroringEndpointGroupsResponse
+@dynamic mirroringEndpointGroups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mirroringEndpointGroups" : [GTLRNetworkSecurity_MirroringEndpointGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mirroringEndpointGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_ListOperationsResponse
 //
 
@@ -1152,11 +1329,12 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_ListServerTlsPoliciesResponse
-@dynamic nextPageToken, serverTlsPolicies;
+@dynamic nextPageToken, serverTlsPolicies, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"serverTlsPolicies" : [GTLRNetworkSecurity_ServerTlsPolicy class]
+    @"serverTlsPolicies" : [GTLRNetworkSecurity_ServerTlsPolicy class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1249,6 +1427,217 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringDeployment
+//
+
+@implementation GTLRNetworkSecurity_MirroringDeployment
+@dynamic createTime, descriptionProperty, forwardingRule, labels,
+         mirroringDeploymentGroup, name, reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringDeployment_Labels
+//
+
+@implementation GTLRNetworkSecurity_MirroringDeployment_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringDeploymentGroup
+//
+
+@implementation GTLRNetworkSecurity_MirroringDeploymentGroup
+@dynamic connectedEndpointGroups, createTime, descriptionProperty, labels,
+         locations, name, nestedDeployments, network, reconciling, state,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectedEndpointGroups" : [GTLRNetworkSecurity_MirroringDeploymentGroupConnectedEndpointGroup class],
+    @"locations" : [GTLRNetworkSecurity_MirroringLocation class],
+    @"nestedDeployments" : [GTLRNetworkSecurity_MirroringDeploymentGroupDeployment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringDeploymentGroup_Labels
+//
+
+@implementation GTLRNetworkSecurity_MirroringDeploymentGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringDeploymentGroupConnectedEndpointGroup
+//
+
+@implementation GTLRNetworkSecurity_MirroringDeploymentGroupConnectedEndpointGroup
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringDeploymentGroupDeployment
+//
+
+@implementation GTLRNetworkSecurity_MirroringDeploymentGroupDeployment
+@dynamic name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringEndpointGroup
+//
+
+@implementation GTLRNetworkSecurity_MirroringEndpointGroup
+@dynamic associations, connectedDeploymentGroups, createTime,
+         descriptionProperty, labels, mirroringDeploymentGroup, name,
+         reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associations" : [GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails class],
+    @"connectedDeploymentGroups" : [GTLRNetworkSecurity_MirroringEndpointGroupConnectedDeploymentGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringEndpointGroup_Labels
+//
+
+@implementation GTLRNetworkSecurity_MirroringEndpointGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringEndpointGroupAssociation
+//
+
+@implementation GTLRNetworkSecurity_MirroringEndpointGroupAssociation
+@dynamic createTime, labels, locations, locationsDetails,
+         mirroringEndpointGroup, name, network, reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRNetworkSecurity_MirroringLocation class],
+    @"locationsDetails" : [GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringEndpointGroupAssociation_Labels
+//
+
+@implementation GTLRNetworkSecurity_MirroringEndpointGroupAssociation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails
+//
+
+@implementation GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails
+@dynamic name, network, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails
+//
+
+@implementation GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails
+@dynamic location, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringEndpointGroupConnectedDeploymentGroup
+//
+
+@implementation GTLRNetworkSecurity_MirroringEndpointGroupConnectedDeploymentGroup
+@dynamic locations, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRNetworkSecurity_MirroringLocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_MirroringLocation
+//
+
+@implementation GTLRNetworkSecurity_MirroringLocation
+@dynamic location, state;
 @end
 
 
@@ -1397,7 +1786,7 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_SecurityProfileGroup
-@dynamic createTime, customInterceptProfile, customMirroringProfile,
+@dynamic createTime, customInterceptProfile, customMirroringProfile, dataPathId,
          descriptionProperty, ETag, labels, name, threatPreventionProfile,
          updateTime;
 
@@ -1533,10 +1922,11 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_ThreatPreventionProfile
-@dynamic severityOverrides, threatOverrides;
+@dynamic antivirusOverrides, severityOverrides, threatOverrides;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"antivirusOverrides" : [GTLRNetworkSecurity_AntivirusOverride class],
     @"severityOverrides" : [GTLRNetworkSecurity_SeverityOverride class],
     @"threatOverrides" : [GTLRNetworkSecurity_ThreatOverride class]
   };

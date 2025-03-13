@@ -37,6 +37,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// scope
+
+/**
+ *  The flag is a connection pool flag.
+ *
+ *  Value: "CONNECTION_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminScopeConnectionPool;
+/**
+ *  The flag is a database flag.
+ *
+ *  Value: "DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminScopeDatabase;
+/**
+ *  The scope of the flag is not specified. Default is DATABASE.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminScopeScopeUnspecified;
+
+// ----------------------------------------------------------------------------
 // view
 
 /**
@@ -607,6 +629,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
  *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports data to the cluster. Imperative only.
+ *
+ *  Method: alloydb.projects.locations.clusters.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersImport : GTLRCloudAlloyDBAdminQuery
+
+/** Required. The resource name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Imports data to the cluster. Imperative only.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_ImportClusterRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the cluster.
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersImport
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_ImportClusterRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1318,6 +1369,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @end
 
 /**
+ *  Restores an AlloyDB cluster from a CloudSQL resource.
+ *
+ *  Method: alloydb.projects.locations.clusters.restoreFromCloudSQL
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersRestoreFromCloudSQL : GTLRCloudAlloyDBAdminQuery
+
+/**
+ *  Required. The location of the new cluster. For the required format, see the
+ *  comment on Cluster.name field.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Restores an AlloyDB cluster from a CloudSQL resource.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_RestoreFromCloudSQLRequest to
+ *    include in the query.
+ *  @param parent Required. The location of the new cluster. For the required
+ *    format, see the comment on Cluster.name field.
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersRestoreFromCloudSQL
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_RestoreFromCloudSQLRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Switches the roles of PRIMARY and SECONDARY clusters without any data loss.
  *  This promotes the SECONDARY cluster to PRIMARY and sets up the original
  *  PRIMARY cluster to replicate from this newly promoted cluster.
@@ -1877,6 +1961,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
  *  support region-specific flags.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The scope for which supported flags are requested. If not
+ *  specified, default is DATABASE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdminScopeScopeUnspecified The scope of the flag
+ *        is not specified. Default is DATABASE. (Value: "SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdminScopeDatabase The flag is a database flag.
+ *        (Value: "DATABASE")
+ *    @arg @c kGTLRCloudAlloyDBAdminScopeConnectionPool The flag is a connection
+ *        pool flag. (Value: "CONNECTION_POOL")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
 
 /**
  *  Fetches a @c GTLRCloudAlloyDBAdmin_ListSupportedDatabaseFlagsResponse.

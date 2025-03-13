@@ -132,9 +132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMembershipsApp;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMembershipsReadonly;
 /**
- *  Authorization scope: See, compose, send, update, and delete messages and
- *  their associated attachments, and add, see, and delete reactions to
- *  messages.
+ *  Authorization scope: See, compose, send, update, and delete messages as well
+ *  as their message content; add, see, and delete reactions to messages.
  *
  *  Value "https://www.googleapis.com/auth/chat.messages"
  */
@@ -146,8 +145,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessages;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesCreate;
 /**
- *  Authorization scope: See, add, and delete reactions to messages in Google
- *  Chat
+ *  Authorization scope: See, add, and delete reactions as well as their
+ *  reaction content to messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions"
  */
@@ -159,14 +158,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReactions;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReactionsCreate;
 /**
- *  Authorization scope: View reactions to messages in Google Chat
+ *  Authorization scope: View reactions as well as their reaction content to
+ *  messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReactionsReadonly;
 /**
- *  Authorization scope: See messages and their associated reactions and
- *  attachments in Google Chat
+ *  Authorization scope: See messages as well as their reactions and message
+ *  content in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
  */
@@ -203,6 +203,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstate;
  *  Value "https://www.googleapis.com/auth/chat.users.readstate.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstateReadonly;
+/**
+ *  Authorization scope: Read and update your space settings
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.spacesettings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersSpacesettings;
 
 // ----------------------------------------------------------------------------
 //   GTLRHangoutsChatService

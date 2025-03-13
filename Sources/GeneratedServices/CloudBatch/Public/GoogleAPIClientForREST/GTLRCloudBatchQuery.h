@@ -60,6 +60,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Cancel a Job.
+ *
+ *  Method: batch.projects.locations.jobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBatchCloudPlatform
+ */
+@interface GTLRCloudBatchQuery_ProjectsLocationsJobsCancel : GTLRCloudBatchQuery
+
+/** Required. Job name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBatch_Operation.
+ *
+ *  Cancel a Job.
+ *
+ *  @param object The @c GTLRCloudBatch_CancelJobRequest to include in the
+ *    query.
+ *  @param name Required. Job name.
+ *
+ *  @return GTLRCloudBatchQuery_ProjectsLocationsJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudBatch_CancelJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create a Job.
  *
  *  Method: batch.projects.locations.jobs.create

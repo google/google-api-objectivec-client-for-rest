@@ -1177,7 +1177,7 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

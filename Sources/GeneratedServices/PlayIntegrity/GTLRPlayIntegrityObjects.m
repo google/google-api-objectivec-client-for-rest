@@ -41,22 +41,6 @@ NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownCon
 NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownInstalled = @"UNKNOWN_INSTALLED";
 NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownOverlays = @"UNKNOWN_OVERLAYS";
 
-// GTLRPlayIntegrity_AppAccessRiskVerdict.otherApps
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing = @"CAPTURING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling = @"CONTROLLING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Installed = @"INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_NotInstalled = @"NOT_INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unevaluated = @"UNEVALUATED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown = @"UNKNOWN";
-
-// GTLRPlayIntegrity_AppAccessRiskVerdict.playOrSystemApps
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing = @"CAPTURING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Controlling = @"CONTROLLING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Installed = @"INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_NotInstalled = @"NOT_INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unevaluated = @"UNEVALUATED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown = @"UNKNOWN";
-
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_PlayRecognized = @"PLAY_RECOGNIZED";
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_Unevaluated = @"UNEVALUATED";
@@ -120,7 +104,7 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 //
 
 @implementation GTLRPlayIntegrity_AppAccessRiskVerdict
-@dynamic appsDetected, otherApps, playOrSystemApps;
+@dynamic appsDetected;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

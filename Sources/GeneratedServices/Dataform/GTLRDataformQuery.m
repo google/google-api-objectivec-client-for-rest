@@ -710,7 +710,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_CancelWorkflowInvocationResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workflowInvocations.cancel";
   return query;
 }
@@ -840,7 +840,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_CommitWorkspaceChangesResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.commit";
   return query;
 }
@@ -1139,7 +1139,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_PullGitCommitsResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.pull";
   return query;
 }
@@ -1166,7 +1166,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_PushGitCommitsResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.push";
   return query;
 }
@@ -1231,7 +1231,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.workspace = workspace;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_RemoveDirectoryResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.removeDirectory";
   return query;
 }
@@ -1258,7 +1258,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.workspace = workspace;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_RemoveFileResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.removeFile";
   return query;
 }
@@ -1285,7 +1285,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_ResetWorkspaceChangesResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.reset";
   return query;
 }

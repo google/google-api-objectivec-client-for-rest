@@ -350,6 +350,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_EndpointsPredict
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:predict";
+  GTLRAiplatformQuery_EndpointsPredict *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1PredictResponse class];
+  query.loggingName = @"aiplatform.endpoints.predict";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_EndpointsStreamGenerateContent
 
 @dynamic model;
@@ -2927,6 +2954,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
   query.loggingName = @"aiplatform.projects.locations.endpoints.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsEvaluateDataset
+
+@dynamic location;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest *)object
+                       location:(NSString *)location {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:evaluateDataset";
+  GTLRAiplatformQuery_ProjectsLocationsEvaluateDataset *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.location = location;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.projects.locations.evaluateDataset";
   return query;
 }
 
@@ -7786,6 +7840,25 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.parent = parent;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ListModelsResponse class];
   query.loggingName = @"aiplatform.projects.locations.models.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsModelsListCheckpoints
+
+@dynamic name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:listCheckpoints";
+  GTLRAiplatformQuery_ProjectsLocationsModelsListCheckpoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ListModelVersionCheckpointsResponse class];
+  query.loggingName = @"aiplatform.projects.locations.models.listCheckpoints";
   return query;
 }
 
@@ -13070,6 +13143,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1PublisherModel class];
   query.loggingName = @"aiplatform.publishers.models.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_PublishersModelsPredict
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:predict";
+  GTLRAiplatformQuery_PublishersModelsPredict *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1PredictResponse class];
+  query.loggingName = @"aiplatform.publishers.models.predict";
   return query;
 }
 

@@ -5,7 +5,7 @@
 //   Firebase Cloud Messaging API (fcm/v1)
 // Description:
 //   FCM send API that provides a cross-platform messaging solution to reliably
-//   deliver messages at no cost.
+//   deliver messages.
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
@@ -48,9 +48,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. It contains the Firebase project id (i.e. the unique identifier
- *  for your Firebase project), in the format of `projects/{project_id}`. For
- *  legacy support, the numeric project number with no padding is also supported
- *  in the format of `projects/{project_number}`.
+ *  for your Firebase project), in the format of `projects/{project_id}`. The
+ *  numeric project number with no padding is also supported in the format of
+ *  `projects/{project_number}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -64,9 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param parent Required. It contains the Firebase project id (i.e. the unique
  *    identifier for your Firebase project), in the format of
- *    `projects/{project_id}`. For legacy support, the numeric project number
- *    with no padding is also supported in the format of
- *    `projects/{project_number}`.
+ *    `projects/{project_id}`. The numeric project number with no padding is
+ *    also supported in the format of `projects/{project_number}`.
  *
  *  @return GTLRFirebaseCloudMessagingQuery_ProjectsMessagesSend
  */

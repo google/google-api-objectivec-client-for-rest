@@ -121,6 +121,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Accepts a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.acceptSpokeUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpokeUpdate : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the hub to accept spoke update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Accepts a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_AcceptSpokeUpdateRequest to
+ *    include in the query.
+ *  @param name Required. The name of the hub to accept spoke update.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpokeUpdate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptSpokeUpdateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Network Connectivity Center hub in the specified project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.create
@@ -826,6 +855,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Rejects a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.rejectSpokeUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpokeUpdate : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the hub to reject spoke update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Rejects a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_RejectSpokeUpdateRequest to
+ *    include in the query.
+ *  @param name Required. The name of the hub to reject spoke update.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpokeUpdate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectSpokeUpdateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets details about a Network Connectivity Center route table.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.routeTables.get
@@ -1058,7 +1116,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** Required. The parent resource's name of the PolicyBasedRoute. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. Unique id for the policy-based route to create. */
+/**
+ *  Required. Unique id for the policy-based route to create. Provided by the
+ *  client when the resource is created. The name must comply with
+ *  https://google.aip.dev/122#resource-id-segments. Specifically, the name must
+ *  be 1-63 characters long and match the regular expression
+ *  [a-z]([a-z0-9-]*[a-z0-9])?. The first character must be a lowercase letter,
+ *  and all following characters (except for the last character) must be a dash,
+ *  lowercase letter, or digit. The last character must be a lowercase letter or
+ *  digit.
+ */
 @property(nonatomic, copy, nullable) NSString *policyBasedRouteId;
 
 /**
@@ -1767,7 +1834,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** Required. The parent resource's name of the RegionalEndpoint. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. Unique id of the Regional Endpoint to be created. */
+/**
+ *  Required. Unique id of the Regional Endpoint to be created. \@pattern:
+ *  ^[-a-z0-9](?:[-a-z0-9]{0,44})[a-z0-9]$
+ */
 @property(nonatomic, copy, nullable) NSString *regionalEndpointId;
 
 /**

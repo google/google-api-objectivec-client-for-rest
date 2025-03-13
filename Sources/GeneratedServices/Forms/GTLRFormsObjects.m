@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Forms and responses.
 // Documentation:
-//   https://developers.google.com/forms/api
+//   https://developers.google.com/workspace/forms/api
 
 #import <GoogleAPIClientForREST/GTLRFormsObjects.h>
 
@@ -18,6 +18,12 @@ NSString * const kGTLRForms_ChoiceQuestion_Type_Checkbox       = @"CHECKBOX";
 NSString * const kGTLRForms_ChoiceQuestion_Type_ChoiceTypeUnspecified = @"CHOICE_TYPE_UNSPECIFIED";
 NSString * const kGTLRForms_ChoiceQuestion_Type_DropDown       = @"DROP_DOWN";
 NSString * const kGTLRForms_ChoiceQuestion_Type_Radio          = @"RADIO";
+
+// GTLRForms_Ettings.emailCollectionType
+NSString * const kGTLRForms_Ettings_EmailCollectionType_DoNotCollect = @"DO_NOT_COLLECT";
+NSString * const kGTLRForms_Ettings_EmailCollectionType_EmailCollectionTypeUnspecified = @"EMAIL_COLLECTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRForms_Ettings_EmailCollectionType_ResponderInput = @"RESPONDER_INPUT";
+NSString * const kGTLRForms_Ettings_EmailCollectionType_Verified = @"VERIFIED";
 
 // GTLRForms_FileUploadQuestion.types
 NSString * const kGTLRForms_FileUploadQuestion_Types_Any       = @"ANY";
@@ -240,7 +246,7 @@ NSString * const kGTLRForms_Watch_State_Suspended        = @"SUSPENDED";
 //
 
 @implementation GTLRForms_Ettings
-@dynamic quizSettings;
+@dynamic emailCollectionType, quizSettings;
 @end
 
 
@@ -324,7 +330,8 @@ NSString * const kGTLRForms_Watch_State_Suspended        = @"SUSPENDED";
 //
 
 @implementation GTLRForms_Form
-@dynamic formId, info, items, linkedSheetId, responderUri, revisionId, settings;
+@dynamic formId, info, items, linkedSheetId, publishSettings, responderUri,
+         revisionId, settings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -533,6 +540,26 @@ NSString * const kGTLRForms_Watch_State_Suspended        = @"SUSPENDED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRForms_PublishSettings
+//
+
+@implementation GTLRForms_PublishSettings
+@dynamic publishState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRForms_PublishState
+//
+
+@implementation GTLRForms_PublishState
+@dynamic isAcceptingResponses, isPublished;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRForms_Question
 //
 
@@ -638,6 +665,26 @@ NSString * const kGTLRForms_Watch_State_Suspended        = @"SUSPENDED";
 
 @implementation GTLRForms_ScaleQuestion
 @dynamic high, highLabel, low, lowLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRForms_SetPublishSettingsRequest
+//
+
+@implementation GTLRForms_SetPublishSettingsRequest
+@dynamic publishSettings, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRForms_SetPublishSettingsResponse
+//
+
+@implementation GTLRForms_SetPublishSettingsResponse
+@dynamic formId, publishSettings;
 @end
 
 

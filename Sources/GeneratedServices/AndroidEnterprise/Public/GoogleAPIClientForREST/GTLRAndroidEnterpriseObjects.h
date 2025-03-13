@@ -37,6 +37,7 @@
 @class GTLRAndroidEnterprise_DeviceReportUpdateEvent;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig;
+@class GTLRAndroidEnterprise_EnterpriseUpgradeEvent;
 @class GTLRAndroidEnterprise_Entitlement;
 @class GTLRAndroidEnterprise_GoogleAuthenticationSettings;
 @class GTLRAndroidEnterprise_GroupLicense;
@@ -75,6 +76,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -347,6 +349,66 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentToken_Enroll
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserlessDevice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Enterprise.enterpriseType
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "enterpriseTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_EnterpriseTypeUnspecified;
+/**
+ *  The enterprise belongs to a managed Google domain.
+ *
+ *  Value: "managedGoogleDomain"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGoogleDomain;
+/**
+ *  The enterprise is a managed Google Play Accounts enterprise.
+ *
+ *  Value: "managedGooglePlayAccountsEnterprise"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Enterprise.managedGoogleDomainType
+
+/**
+ *  The managed Google domain type is not specified.
+ *
+ *  Value: "managedGoogleDomainTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified;
+/**
+ *  The managed Google domain is domain-verified.
+ *
+ *  Value: "typeDomain"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeDomain;
+/**
+ *  The managed Google domain is an email-verified team.
+ *
+ *  Value: "typeTeam"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeTeam;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_EnterpriseUpgradeEvent.upgradeState
+
+/**
+ *  The upgrade has succeeded.
+ *
+ *  Value: "upgradeStateSucceeded"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "upgradeStateUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Entitlement.reason
 
 /** Value: "free" */
@@ -491,6 +553,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_Notificat
  *  Value: "deviceReportUpdate"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate;
+/**
+ *  Notification about an enterprise upgrade. **Note:** This feature is not
+ *  generally available.
+ *
+ *  Value: "enterpriseUpgrade"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_EnterpriseUpgrade;
 /**
  *  Notification about an app installation failure.
  *
@@ -1723,6 +1792,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Administrator *> *administrator;
 
+/**
+ *  The type of the enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_EnterpriseType_EnterpriseTypeUnspecified
+ *        This value is not used. (Value: "enterpriseTypeUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGoogleDomain
+ *        The enterprise belongs to a managed Google domain. (Value:
+ *        "managedGoogleDomain")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise
+ *        The enterprise is a managed Google Play Accounts enterprise. (Value:
+ *        "managedGooglePlayAccountsEnterprise")
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseType;
+
 /** Output only. Settings for Google-provided user authentication. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_GoogleAuthenticationSettings *googleAuthenticationSettings;
 
@@ -1732,6 +1816,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of managed Google domain
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified
+ *        The managed Google domain type is not specified. (Value:
+ *        "managedGoogleDomainTypeUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeDomain
+ *        The managed Google domain is domain-verified. (Value: "typeDomain")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeTeam
+ *        The managed Google domain is an email-verified team. (Value:
+ *        "typeTeam")
+ */
+@property(nonatomic, copy, nullable) NSString *managedGoogleDomainType;
 
 /** The name of the enterprise, for example, "Example, Inc". */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1795,6 +1894,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
+ *  An event generated when an enterprise is upgraded. **Note:** This feature is
+ *  not generally available.
+ */
+@interface GTLRAndroidEnterprise_EnterpriseUpgradeEvent : GTLRObject
+
+/**
+ *  The upgrade state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded
+ *        The upgrade has succeeded. (Value: "upgradeStateSucceeded")
+ *    @arg @c kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified
+ *        Unspecified. This value is not used. (Value:
+ *        "upgradeStateUnspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *upgradeState;
+
+@end
+
+
+/**
  *  *Deprecated:* New integrations cannot use this method and can refer to our
  *  new recommendations.
  */
@@ -1834,6 +1954,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  license to.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Entitlement *> *entitlement;
+
+@end
+
+
+/**
+ *  Response message for generating a URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain. **Note:** This feature
+ *  is not generally available.
+ */
+@interface GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse : GTLRObject
+
+/**
+ *  A URL for an enterprise admin to upgrade their enterprise. The page can't be
+ *  rendered in an iframe.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -2403,6 +2539,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
 
+/**
+ *  Notifications about enterprise upgrade. **Note:** This feature is not
+ *  generally available.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_EnterpriseUpgradeEvent *enterpriseUpgradeEvent;
+
 /** Notifications about an app installation failure. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_InstallFailureEvent *installFailureEvent;
 
@@ -2424,6 +2566,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate
  *        Notification about an updated device report. (Value:
  *        "deviceReportUpdate")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_EnterpriseUpgrade
+ *        Notification about an enterprise upgrade. **Note:** This feature is
+ *        not generally available. (Value: "enterpriseUpgrade")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure
  *        Notification about an app installation failure. (Value:
  *        "installFailure")
@@ -3200,6 +3345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /**
  *  GTLRAndroidEnterprise_ServiceAccountKeysListResponse
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidEnterprise_ServiceAccountKeysListResponse : GTLRObject
 
 /** The service account credentials. */

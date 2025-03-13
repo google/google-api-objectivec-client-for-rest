@@ -17,6 +17,9 @@
 // view
 NSString * const kGTLRMigrationCenterAPIViewAssetViewBasic     = @"ASSET_VIEW_BASIC";
 NSString * const kGTLRMigrationCenterAPIViewAssetViewFull      = @"ASSET_VIEW_FULL";
+NSString * const kGTLRMigrationCenterAPIViewAssetViewLabels    = @"ASSET_VIEW_LABELS";
+NSString * const kGTLRMigrationCenterAPIViewAssetViewStandard  = @"ASSET_VIEW_STANDARD";
+NSString * const kGTLRMigrationCenterAPIViewAssetViewUi        = @"ASSET_VIEW_UI";
 NSString * const kGTLRMigrationCenterAPIViewAssetViewUnspecified = @"ASSET_VIEW_UNSPECIFIED";
 NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewBasic = @"ERROR_FRAME_VIEW_BASIC";
 NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewFull = @"ERROR_FRAME_VIEW_FULL";
@@ -1030,6 +1033,44 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
   query.name = name;
   query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
   query.loggingName = @"migrationcenter.projects.locations.preferenceSets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Relation class];
+  query.loggingName = @"migrationcenter.projects.locations.relations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/relations";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_ListRelationsResponse class];
+  query.loggingName = @"migrationcenter.projects.locations.relations.list";
   return query;
 }
 

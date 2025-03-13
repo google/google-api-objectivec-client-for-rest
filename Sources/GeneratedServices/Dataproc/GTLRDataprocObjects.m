@@ -58,6 +58,7 @@ NSString * const kGTLRDataproc_ClusterStatus_State_Error       = @"ERROR";
 NSString * const kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate = @"ERROR_DUE_TO_UPDATE";
 NSString * const kGTLRDataproc_ClusterStatus_State_Repairing   = @"REPAIRING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Running     = @"RUNNING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Scheduled   = @"SCHEDULED";
 NSString * const kGTLRDataproc_ClusterStatus_State_Starting    = @"STARTING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Stopped     = @"STOPPED";
 NSString * const kGTLRDataproc_ClusterStatus_State_Stopping    = @"STOPPING";
@@ -215,8 +216,8 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink = @"FLINK
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hbase = @"HBASE";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi = @"HUDI";
-NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Iceberg = @"ICEBERG";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Pig = @"PIG";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Ranger = @"RANGER";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Solr = @"SOLR";
@@ -804,6 +805,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_BuildInfo
+//
+
+@implementation GTLRDataproc_BuildInfo
+@dynamic buildKey, buildValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_CancelJobRequest
 //
 
@@ -1344,6 +1355,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_FallbackReason
+//
+
+@implementation GTLRDataproc_FallbackReason
+@dynamic fallbackNode, fallbackReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_FlinkJob
 //
 
@@ -1384,8 +1405,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_GceClusterConfig
 @dynamic confidentialInstanceConfig, internalIpOnly, metadata, networkUri,
          nodeGroupAffinity, privateIpv6GoogleAccess, reservationAffinity,
-         serviceAccount, serviceAccountScopes, shieldedInstanceConfig,
-         subnetworkUri, tags, zoneUri;
+         resourceManagerTags, serviceAccount, serviceAccountScopes,
+         shieldedInstanceConfig, subnetworkUri, tags, zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1404,6 +1425,20 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GceClusterConfig_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GceClusterConfig_ResourceManagerTags
+//
+
+@implementation GTLRDataproc_GceClusterConfig_ResourceManagerTags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -2341,6 +2376,47 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_NamespacedGkeDeploymentTarget
 @dynamic clusterNamespace, targetGkeCluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_NativeBuildInfoUiData
+//
+
+@implementation GTLRDataproc_NativeBuildInfoUiData
+@dynamic buildClass, buildInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buildInfo" : [GTLRDataproc_BuildInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_NativeSqlExecutionUiData
+//
+
+@implementation GTLRDataproc_NativeSqlExecutionUiData
+@dynamic descriptionProperty, executionId, fallbackDescription,
+         fallbackNodeToReason, numFallbackNodes, numNativeNodes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fallbackNodeToReason" : [GTLRDataproc_FallbackReason class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -4109,10 +4185,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_SparkWrapperObject
 @dynamic applicationEnvironmentInfo, applicationId, applicationInfo, appSummary,
          eventTimestamp, executorStageSummary, executorSummary, jobData,
-         poolData, processSummary, rddOperationGraph, rddStorageInfo,
-         resourceProfileInfo, sparkPlanGraph, speculationStageSummary,
-         sqlExecutionUiData, stageData, streamBlockData, streamingQueryData,
-         streamingQueryProgress, taskData;
+         nativeBuildInfoUiData, nativeSqlExecutionUiData, poolData,
+         processSummary, rddOperationGraph, rddStorageInfo, resourceProfileInfo,
+         sparkPlanGraph, speculationStageSummary, sqlExecutionUiData, stageData,
+         streamBlockData, streamingQueryData, streamingQueryProgress, taskData;
 @end
 
 

@@ -183,6 +183,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Deploying;
 /**
+ *  Function detach failed and the function is still serving.
+ *
+ *  Value: "DETACH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_DetachFailed;
+/**
+ *  Function is being detached.
+ *
+ *  Value: "DETACHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Detaching;
+/**
  *  Function deployment failed and the function is not serving.
  *
  *  Value: "FAILED"
@@ -314,7 +326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Ope
 // GTLRCloudFunctions_GoogleCloudFunctionsV2Stage.name
 
 /**
- *  Artifact Regsitry Stage
+ *  Artifact Registry Stage
  *
  *  Value: "ARTIFACT_REGISTRY"
  */
@@ -601,12 +613,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError;
 /**
- *  Function is requested to be detached from 2nd Gen to CRf.
- *
- *  Value: "DETACH_IN_PROGRESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_DetachInProgress;
-/**
  *  Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
  *
  *  Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE"
@@ -841,9 +847,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 /**
  *  Docker Registry to use for this deployment. This configuration is only
  *  applicable to 1st Gen functions, 2nd Gen functions can only use Artifact
- *  Registry. If unspecified, it defaults to `ARTIFACT_REGISTRY`. If
- *  `docker_repository` field is specified, this field should either be left
- *  unspecified or set to `ARTIFACT_REGISTRY`.
+ *  Registry. Deprecated: Container Registry option will no longer be available
+ *  after March 2025:
+ *  https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr
+ *  Please use Artifact Registry instead, which is the default choice. If
+ *  unspecified, it defaults to `ARTIFACT_REGISTRY`. If `docker_repository`
+ *  field is specified, this field should either be left unspecified or set to
+ *  `ARTIFACT_REGISTRY`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_ArtifactRegistry
@@ -858,7 +868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_DockerRegistryUnspecified
  *        Unspecified. (Value: "DOCKER_REGISTRY_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *dockerRegistry;
+@property(nonatomic, copy, nullable) NSString *dockerRegistry GTLR_DEPRECATED;
 
 /**
  *  Repository in Artifact Registry to which the function docker image will be
@@ -983,6 +993,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 @property(nonatomic, strong, nullable) NSNumber *year;
 
+@end
+
+
+/**
+ *  Request for the `DetachFunction` method.
+ */
+@interface GTLRCloudFunctions_DetachFunctionRequest : GTLRObject
 @end
 
 
@@ -1205,6 +1222,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *
  *  Uses NSNumber of boolValue.
  */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
@@ -1223,6 +1247,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        deleted. (Value: "DELETING")
  *    @arg @c kGTLRCloudFunctions_Function_State_Deploying Function is being
  *        created or updated. (Value: "DEPLOYING")
+ *    @arg @c kGTLRCloudFunctions_Function_State_DetachFailed Function detach
+ *        failed and the function is still serving. (Value: "DETACH_FAILED")
+ *    @arg @c kGTLRCloudFunctions_Function_State_Detaching Function is being
+ *        detached. (Value: "DETACHING")
  *    @arg @c kGTLRCloudFunctions_Function_State_Failed Function deployment
  *        failed and the function is not serving. (Value: "FAILED")
  *    @arg @c kGTLRCloudFunctions_Function_State_StateUnspecified Not specified.
@@ -1381,6 +1409,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 /** The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Output only. Whether a custom IAM role binding was detected during the
+ *  upgrade.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customIamRoleDetected;
+
 /** The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1462,7 +1498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_ArtifactRegistry
- *        Artifact Regsitry Stage (Value: "ARTIFACT_REGISTRY")
+ *        Artifact Registry Stage (Value: "ARTIFACT_REGISTRY")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Build Build
  *        Stage (Value: "BUILD")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_NameUnspecified
@@ -2526,8 +2562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 /**
  *  Information related to: * A function's eligibility for 1st Gen to 2nd Gen
- *  migration and 2nd Gen to CRf detach. * Current state of migration for
- *  function undergoing migration/detach.
+ *  migration. * Current state of migration for function undergoing migration.
  */
 @interface GTLRCloudFunctions_UpgradeInfo : GTLRObject
 
@@ -2559,9 +2594,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError
  *        CommitFunctionUpgrade API was un-successful. (Value:
  *        "COMMIT_FUNCTION_UPGRADE_ERROR")
- *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_DetachInProgress
- *        Function is requested to be detached from 2nd Gen to CRf. (Value:
- *        "DETACH_IN_PROGRESS")
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade
  *        Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
  *        (Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE")

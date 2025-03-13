@@ -893,8 +893,8 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 //
 
 @implementation GTLRBinaryAuthorization_VerificationRule
-@dynamic attestationSource, configBasedBuildRequired, trustedBuilder,
-         trustedSourceRepoPatterns;
+@dynamic attestationSource, configBasedBuildRequired, customConstraints,
+         trustedBuilder, trustedSourceRepoPatterns;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

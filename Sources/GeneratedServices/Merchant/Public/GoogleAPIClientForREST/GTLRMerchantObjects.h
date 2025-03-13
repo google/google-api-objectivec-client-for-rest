@@ -144,7 +144,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_VideoAds;
 /**
- *  [YouTube Checkout](
+ *  [Youtube Affiliate](https://support.google.com/youtube/answer/13376398).
+ *
+ *  Value: "YOUTUBE_AFFILIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_YoutubeAffiliate;
+/**
+ *  YouTube Checkout .
  *
  *  Value: "YOUTUBE_CHECKOUT"
  */
@@ -286,7 +292,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_VideoAds;
 /**
- *  [YouTube Checkout](
+ *  [Youtube Affiliate](https://support.google.com/youtube/answer/13376398).
+ *
+ *  Value: "YOUTUBE_AFFILIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_YoutubeAffiliate;
+/**
+ *  YouTube Checkout .
  *
  *  Value: "YOUTUBE_CHECKOUT"
  */
@@ -404,7 +416,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_Rep
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_VideoAds;
 /**
- *  [YouTube Checkout](
+ *  [Youtube Affiliate](https://support.google.com/youtube/answer/13376398).
+ *
+ *  Value: "YOUTUBE_AFFILIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_YoutubeAffiliate;
+/**
+ *  YouTube Checkout .
  *
  *  Value: "YOUTUBE_CHECKOUT"
  */
@@ -608,7 +626,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_Reporti
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_VideoAds;
 /**
- *  [YouTube Checkout](
+ *  [Youtube Affiliate](https://support.google.com/youtube/answer/13376398).
+ *
+ *  Value: "YOUTUBE_AFFILIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_YoutubeAffiliate;
+/**
+ *  YouTube Checkout .
  *
  *  Value: "YOUTUBE_CHECKOUT"
  */
@@ -726,7 +750,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingC
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_VideoAds;
 /**
- *  [YouTube Checkout](
+ *  [Youtube Affiliate](https://support.google.com/youtube/answer/13376398).
+ *
+ *  Value: "YOUTUBE_AFFILIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_YoutubeAffiliate;
+/**
+ *  YouTube Checkout .
  *
  *  Value: "YOUTUBE_CHECKOUT"
  */
@@ -874,17 +904,32 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  */
 @interface GTLRMerchant_ProductChange : GTLRObject
 
-/** The new value of the changed resource or attribute. */
+/**
+ *  The new value of the changed resource or attribute. If empty, it means that
+ *  the product was deleted. Will have one of these values : (`approved`,
+ *  `pending`, `disapproved`, ``)
+ */
 @property(nonatomic, copy, nullable) NSString *newValue NS_RETURNS_NOT_RETAINED;
 
-/** The old value of the changed resource or attribute. */
+/**
+ *  The old value of the changed resource or attribute. If empty, it means that
+ *  the product was created. Will have one of these values : (`approved`,
+ *  `pending`, `disapproved`, ``)
+ */
 @property(nonatomic, copy, nullable) NSString *oldValue;
 
-/** Countries that have the change (if applicable) */
+/**
+ *  Countries that have the change (if applicable). Represented in the ISO 3166
+ *  format.
+ */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
- *  Reporting contexts that have the change (if applicable)
+ *  Reporting contexts that have the change (if applicable). Currently this
+ *  field supports only (`SHOPPING_ADS`, `LOCAL_INVENTORY_ADS`,
+ *  `YOUTUBE_SHOPPING`, `YOUTUBE_CHECKOUT`, `YOUTUBE_AFFILIATE`) from the enum
+ *  value
+ *  [ReportingContextEnum](/merchant/api/reference/rest/Shared.Types/ReportingContextEnum)
  *
  *  Likely values:
  *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_CloudRetail [Cloud
@@ -943,8 +988,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_VideoAds [Video
  *        ads](https://support.google.com/google-ads/answer/6340491). (Value:
  *        "VIDEO_ADS")
+ *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_YoutubeAffiliate
+ *        [Youtube
+ *        Affiliate](https://support.google.com/youtube/answer/13376398).
+ *        (Value: "YOUTUBE_AFFILIATE")
  *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_YoutubeCheckout
- *        [YouTube Checkout]( (Value: "YOUTUBE_CHECKOUT")
+ *        YouTube Checkout . (Value: "YOUTUBE_CHECKOUT")
  *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_YoutubeShopping
  *        [YouTube
  *        Shopping](https://support.google.com/merchants/answer/13478370).
@@ -1240,8 +1289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_VideoAds
  *        [Video ads](https://support.google.com/google-ads/answer/6340491).
  *        (Value: "VIDEO_ADS")
+ *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_YoutubeAffiliate
+ *        [Youtube
+ *        Affiliate](https://support.google.com/youtube/answer/13376398).
+ *        (Value: "YOUTUBE_AFFILIATE")
  *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_YoutubeCheckout
- *        [YouTube Checkout]( (Value: "YOUTUBE_CHECKOUT")
+ *        YouTube Checkout . (Value: "YOUTUBE_CHECKOUT")
  *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_YoutubeShopping
  *        [YouTube
  *        Shopping](https://support.google.com/merchants/answer/13478370).
@@ -1340,8 +1393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_VideoAds
  *        [Video ads](https://support.google.com/google-ads/answer/6340491).
  *        (Value: "VIDEO_ADS")
+ *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_YoutubeAffiliate
+ *        [Youtube
+ *        Affiliate](https://support.google.com/youtube/answer/13376398).
+ *        (Value: "YOUTUBE_AFFILIATE")
  *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_YoutubeCheckout
- *        [YouTube Checkout]( (Value: "YOUTUBE_CHECKOUT")
+ *        YouTube Checkout . (Value: "YOUTUBE_CHECKOUT")
  *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_YoutubeShopping
  *        [YouTube
  *        Shopping](https://support.google.com/merchants/answer/13478370).
@@ -1423,8 +1480,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<GTLRMerchant_ProductChange *> *changes;
 
 /**
- *  The product expiration time. This field will not bet set if the notification
- *  is sent for a product deletion event.
+ *  The time at which the event was generated. If you want to order the
+ *  notification messages you receive you should rely on this field not on the
+ *  order of receiving the notifications.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Optional. The product expiration time. This field will not bet set if the
+ *  notification is sent for a product deletion event.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
@@ -1434,10 +1498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *managingAccount;
 
-/**
- *  The product name. Format:
- *  `{product.name=accounts/{account}/products/{product}}`
- */
+/** The product name. Format: `accounts/{account}/products/{product}` */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /** The product id. */
@@ -1467,7 +1528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRMerchant_ReviewAttributes *attributes;
 
 /**
- *  Required. A list of custom (merchant-provided) attributes. It can also be
+ *  Optional. A list of custom (merchant-provided) attributes. It can also be
  *  used for submitting any attribute of the data specification in its generic
  *  form (for example, `{ "name": "size type", "value": "regular" }`). This is
  *  useful for submitting attributes not explicitly exposed by the API, such as
@@ -1604,7 +1665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
 /** Optional. Display name of the review author. */
 @property(nonatomic, copy, nullable) NSString *reviewerUsername;
 
-/** Required. The language of the review defined by BCP-47 language code. */
+/** Optional. The language of the review defined by BCP-47 language code. */
 @property(nonatomic, copy, nullable) NSString *reviewLanguage;
 
 /** Required. The timestamp indicating when the review was written. */
@@ -1682,8 +1743,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_VideoAds
  *        [Video ads](https://support.google.com/google-ads/answer/6340491).
  *        (Value: "VIDEO_ADS")
+ *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_YoutubeAffiliate
+ *        [Youtube
+ *        Affiliate](https://support.google.com/youtube/answer/13376398).
+ *        (Value: "YOUTUBE_AFFILIATE")
  *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_YoutubeCheckout
- *        [YouTube Checkout]( (Value: "YOUTUBE_CHECKOUT")
+ *        YouTube Checkout . (Value: "YOUTUBE_CHECKOUT")
  *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_YoutubeShopping
  *        [YouTube
  *        Shopping](https://support.google.com/merchants/answer/13478370).
@@ -1782,8 +1847,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_VideoAds
  *        [Video ads](https://support.google.com/google-ads/answer/6340491).
  *        (Value: "VIDEO_ADS")
+ *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_YoutubeAffiliate
+ *        [Youtube
+ *        Affiliate](https://support.google.com/youtube/answer/13376398).
+ *        (Value: "YOUTUBE_AFFILIATE")
  *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_YoutubeCheckout
- *        [YouTube Checkout]( (Value: "YOUTUBE_CHECKOUT")
+ *        YouTube Checkout . (Value: "YOUTUBE_CHECKOUT")
  *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_YoutubeShopping
  *        [YouTube
  *        Shopping](https://support.google.com/merchants/answer/13478370).

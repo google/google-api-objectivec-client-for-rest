@@ -1009,6 +1009,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Looker/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Looker/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'ManagedKafka' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/ManagedKafka/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/ManagedKafka/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'ManagedServiceforMicrosoftActiveDirectoryConsumerAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/ManagedServiceforMicrosoftActiveDirectoryConsumerAPI/**/*.{h,m}'

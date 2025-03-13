@@ -480,8 +480,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a custom constraint. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the custom constraint does not exist.
+ *  Gets a custom or managed constraint. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the custom or managed constraint does not
+ *  exist.
  *
  *  Method: orgpolicy.organizations.customConstraints.get
  *
@@ -491,19 +492,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsGet : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. Resource name of the custom constraint. See the custom constraint
- *  entry for naming requirements.
+ *  Required. Resource name of the custom or managed constraint. See the custom
+ *  constraint entry for naming requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.
  *
- *  Gets a custom constraint. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the custom constraint does not exist.
+ *  Gets a custom or managed constraint. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the custom or managed constraint does not
+ *  exist.
  *
- *  @param name Required. Resource name of the custom constraint. See the custom
- *    constraint entry for naming requirements.
+ *  @param name Required. Resource name of the custom or managed constraint. See
+ *    the custom constraint entry for naming requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsGet
  */

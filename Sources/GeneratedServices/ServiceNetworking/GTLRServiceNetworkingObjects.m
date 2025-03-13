@@ -160,6 +160,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted = @"RANGES_EXHAUSTED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved = @"RANGES_NOT_RESERVED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled = @"SERVICE_NETWORKING_NOT_ENABLED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_SnServiceAgentPermissionDeniedOnConsumerProject = @"SN_SERVICE_AGENT_PERMISSION_DENIED_ON_CONSUMER_PROJECT";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_UsePermissionNotFound = @"USE_PERMISSION_NOT_FOUND";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified = @"VALIDATION_ERROR_UNSPECIFIED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested = @"VALIDATION_NOT_REQUESTED";
@@ -314,6 +315,37 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_Aspect
+//
+
+@implementation GTLRServiceNetworking_Aspect
+@dynamic kind, spec;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_Aspect_Spec
+//
+
+@implementation GTLRServiceNetworking_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Authentication
 //
 
@@ -405,9 +437,9 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, overridesByRequestProtocol, pathTranslation,
-         protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, loadBalancingPolicy,
+         minDeadline, operationDeadline, overridesByRequestProtocol,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -928,7 +960,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_ExperimentalFeatures
-@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled;
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled,
+         unversionedPackageDisabled;
 @end
 
 
@@ -1862,7 +1895,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_SelectiveGapicGeneration
-@dynamic methods;
+@dynamic generateOmittedAsInternal, methods;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1880,8 +1913,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Service
-@dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, http,
+@dynamic apis, aspects, authentication, backend, billing, configVersion,
+         context, control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
          name, producerProjectId, publishing, quota, sourceInfo,
          systemParameters, systemTypes, title, types, usage;
@@ -1893,6 +1926,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apis" : [GTLRServiceNetworking_Api class],
+    @"aspects" : [GTLRServiceNetworking_Aspect class],
     @"endpoints" : [GTLRServiceNetworking_Endpoint class],
     @"enums" : [GTLRServiceNetworking_Enum class],
     @"logs" : [GTLRServiceNetworking_LogDescriptor class],

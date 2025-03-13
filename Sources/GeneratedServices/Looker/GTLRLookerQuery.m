@@ -33,78 +33,85 @@
 
 @end
 
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsGetIamPolicy
+@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate
 
-@dynamic optionsRequestedPolicyVersion, resource;
+@dynamic parent;
 
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
++ (instancetype)queryWithObject:(GTLRLooker_InstanceBackup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLooker_Operation class];
+  query.loggingName = @"looker.projects.locations.instances.backups.create";
+  return query;
 }
 
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRLookerQuery_ProjectsLocationsInstancesBackupsGetIamPolicy *query =
+@end
+
+@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLooker_Operation class];
+  query.loggingName = @"looker.projects.locations.instances.backups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRLooker_Policy class];
-  query.loggingName = @"looker.projects.locations.instances.backups.getIamPolicy";
+  query.name = name;
+  query.expectedObjectClass = [GTLRLooker_InstanceBackup class];
+  query.loggingName = @"looker.projects.locations.instances.backups.get";
   return query;
 }
 
 @end
 
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsSetIamPolicy
+@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsList
 
-@dynamic resource;
+@dynamic orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithObject:(GTLRLooker_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRLookerQuery_ProjectsLocationsInstancesBackupsSetIamPolicy *query =
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRLookerQuery_ProjectsLocationsInstancesBackupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRLooker_Policy class];
-  query.loggingName = @"looker.projects.locations.instances.backups.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRLooker_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRLookerQuery_ProjectsLocationsInstancesBackupsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRLooker_TestIamPermissionsResponse class];
-  query.loggingName = @"looker.projects.locations.instances.backups.testIamPermissions";
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLooker_ListInstanceBackupsResponse class];
+  query.loggingName = @"looker.projects.locations.instances.backups.list";
   return query;
 }
 
@@ -197,29 +204,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLooker_Instance class];
   query.loggingName = @"looker.projects.locations.instances.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRLookerQuery_ProjectsLocationsInstancesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRLooker_Policy class];
-  query.loggingName = @"looker.projects.locations.instances.getIamPolicy";
   return query;
 }
 
@@ -325,55 +309,28 @@
 
 @end
 
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesSetIamPolicy
+@implementation GTLRLookerQuery_ProjectsLocationsInstancesRestore
 
-@dynamic resource;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRLooker_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
++ (instancetype)queryWithObject:(GTLRLooker_RestoreInstanceRequest *)object
+                           name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRLookerQuery_ProjectsLocationsInstancesSetIamPolicy *query =
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:restore";
+  GTLRLookerQuery_ProjectsLocationsInstancesRestore *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRLooker_Policy class];
-  query.loggingName = @"looker.projects.locations.instances.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRLooker_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRLookerQuery_ProjectsLocationsInstancesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRLooker_TestIamPermissionsResponse class];
-  query.loggingName = @"looker.projects.locations.instances.testIamPermissions";
+  query.name = name;
+  query.expectedObjectClass = [GTLRLooker_Operation class];
+  query.loggingName = @"looker.projects.locations.instances.restore";
   return query;
 }
 

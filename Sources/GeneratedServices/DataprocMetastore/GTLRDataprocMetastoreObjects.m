@@ -175,7 +175,7 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 //
 
 @implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaMultiRegionMetadata
-@dynamic constituentRegions;
+@dynamic constituentRegions, continent, witnessRegion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -334,7 +334,7 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 //
 
 @implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaMultiRegionMetadata
-@dynamic constituentRegions;
+@dynamic constituentRegions, continent, witnessRegion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -455,7 +455,7 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 //
 
 @implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1MultiRegionMetadata
-@dynamic constituentRegions;
+@dynamic constituentRegions, continent, witnessRegion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

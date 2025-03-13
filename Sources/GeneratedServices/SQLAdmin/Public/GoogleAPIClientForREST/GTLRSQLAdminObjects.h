@@ -19,6 +19,7 @@
 @class GTLRSQLAdmin_AdvancedMachineFeatures;
 @class GTLRSQLAdmin_ApiWarning;
 @class GTLRSQLAdmin_AvailableDatabaseVersion;
+@class GTLRSQLAdmin_Backup;
 @class GTLRSQLAdmin_BackupConfiguration;
 @class GTLRSQLAdmin_BackupContext;
 @class GTLRSQLAdmin_BackupReencryptionConfig;
@@ -39,12 +40,14 @@
 @class GTLRSQLAdmin_DenyMaintenancePeriod;
 @class GTLRSQLAdmin_DiskEncryptionConfiguration;
 @class GTLRSQLAdmin_DiskEncryptionStatus;
+@class GTLRSQLAdmin_DnsNameMapping;
 @class GTLRSQLAdmin_ExportContext;
 @class GTLRSQLAdmin_ExportContext_BakExportOptions;
 @class GTLRSQLAdmin_ExportContext_CsvExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions;
+@class GTLRSQLAdmin_ExportContext_TdeExportOptions;
 @class GTLRSQLAdmin_ExternalSyncSelectedObject;
 @class GTLRSQLAdmin_FailoverContext;
 @class GTLRSQLAdmin_Flag;
@@ -55,8 +58,10 @@
 @class GTLRSQLAdmin_ImportContext_CsvImportOptions;
 @class GTLRSQLAdmin_ImportContext_SqlImportOptions;
 @class GTLRSQLAdmin_ImportContext_SqlImportOptions_PostgresImportOptions;
+@class GTLRSQLAdmin_ImportContext_TdeImportOptions;
 @class GTLRSQLAdmin_InsightsConfig;
 @class GTLRSQLAdmin_InstanceReference;
+@class GTLRSQLAdmin_Interval;
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
 @class GTLRSQLAdmin_LocationPreference;
@@ -143,6 +148,102 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachab
  *  Value: "SQL_API_WARNING_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Backup.backupKind
+
+/**
+ *  Physical backups.
+ *
+ *  Value: "PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_BackupKind_Physical;
+/**
+ *  Snapshot-based backups.
+ *
+ *  Value: "SNAPSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_BackupKind_Snapshot;
+/**
+ *  This is an unknown BackupKind.
+ *
+ *  Value: "SQL_BACKUP_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_BackupKind_SqlBackupKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Backup.state
+
+/**
+ *  The backup is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_State_Deleting;
+/**
+ *  Deletion of the backup failed.
+ *
+ *  Value: "DELETION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_State_DeletionFailed;
+/**
+ *  The backup that's added to a queue.
+ *
+ *  Value: "ENQUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_State_Enqueued;
+/**
+ *  The backup failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_State_Failed;
+/**
+ *  The backup is in progress.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_State_Running;
+/**
+ *  The state of the backup is unknown.
+ *
+ *  Value: "SQL_BACKUP_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_State_SqlBackupStateUnspecified;
+/**
+ *  The backup is successful.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_State_Successful;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Backup.type
+
+/**
+ *  The backup schedule triggers a backup automatically.
+ *
+ *  Value: "AUTOMATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_Type_Automated;
+/**
+ *  The backup created when instance is deleted.
+ *
+ *  Value: "FINAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_Type_Final;
+/**
+ *  The user triggers a backup manually.
+ *
+ *  Value: "ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_Type_OnDemand;
+/**
+ *  This is an unknown backup type.
+ *
+ *  Value: "SQL_BACKUP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_Type_SqlBackupTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupConfiguration.transactionalLogStorageState
@@ -650,6 +751,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_CaModeUnspecified;
 /**
+ *  Customer-managed CA hosted on Google Cloud's Certificate Authority Service
+ *  (CAS).
+ *
+ *  Value: "CUSTOMER_MANAGED_CAS_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_CustomerManagedCasCa;
+/**
  *  Google-managed regional CA part of root CA hierarchy hosted on Google
  *  Cloud's Certificate Authority Service (CAS).
  *
@@ -1110,6 +1218,50 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReas
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_SqlSuspensionReasonUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_DnsNameMapping.connectionType
+
+/**
+ *  Unknown connection type.
+ *
+ *  Value: "CONNECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_ConnectionTypeUnspecified;
+/**
+ *  Private Service Connect.
+ *
+ *  Value: "PRIVATE_SERVICE_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_PrivateServiceConnect;
+/**
+ *  Private services access (private IP).
+ *
+ *  Value: "PRIVATE_SERVICES_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_PrivateServicesAccess;
+/**
+ *  Public IP.
+ *
+ *  Value: "PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_Public;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_DnsNameMapping.dnsScope
+
+/**
+ *  Unknown DNS scope.
+ *
+ *  Value: "DNS_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScopeUnspecified;
+/**
+ *  Indicates a instance-level DNS name.
+ *
+ *  Value: "INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ExportContext.fileType
 
 /** Value: "BAK" */
@@ -1132,6 +1284,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Sql;
  *  Value: "SQL_FILE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_SqlFileTypeUnspecified;
+/**
+ *  TDE certificate.
+ *
+ *  Value: "TDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Tde;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ExportContext_BakExportOptions.bakType
@@ -1517,6 +1675,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Sql;
  *  Value: "SQL_FILE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileTypeUnspecified;
+/**
+ *  TDE certificate.
+ *
+ *  Value: "TDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Tde;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ImportContext_BakImportOptions.bakType
@@ -1734,11 +1898,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AcquireSsrsLease;
 /**
- *  Creates a backup for an Advanced BackupTier Cloud SQL instance.
+ *  Deprecated: ADVANCED_BACKUP is deprecated. Use ENHANCED_BACKUP instead.
  *
  *  Value: "ADVANCED_BACKUP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AdvancedBackup;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AdvancedBackup GTLR_DEPRECATED;
 /**
  *  Performs auto-restart of an HA-enabled Cloud SQL database for auto recovery.
  *
@@ -1844,6 +2008,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DemoteM
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_EnablePrivateIp GTLR_DEPRECATED;
 /**
+ *  Creates a backup for an Enhanced BackupTier Cloud SQL instance.
+ *
+ *  Value: "ENHANCED_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_EnhancedBackup;
+/**
  *  Exports data from a Cloud SQL instance to a Cloud Storage bucket.
  *
  *  Value: "EXPORT"
@@ -1886,6 +2056,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Mainten
  *  Value: "MAJOR_VERSION_UPGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade;
+/**
+ *  Changes the BackupTier of a Cloud SQL instance.
+ *
+ *  Value: "MANAGE_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ManageBackup;
 /**
  *  Promotes a Cloud SQL replica instance.
  *
@@ -1993,6 +2169,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Truncat
  *  Value: "UPDATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Update;
+/**
+ *  Update a backup.
+ *
+ *  Value: "UPDATE_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateBackup;
 /**
  *  Updates a database in the Cloud SQL instance.
  *
@@ -2153,6 +2335,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_R
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.dataDiskType
 
+/**
+ *  A Hyperdisk Balanced data disk.
+ *
+ *  Value: "HYPERDISK_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_HyperdiskBalanced;
 /**
  *  This field is deprecated and will be removed from a future version of the
  *  API.
@@ -2982,6 +3170,175 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  A backup resource.
+ */
+@interface GTLRSQLAdmin_Backup : GTLRObject
+
+/**
+ *  Output only. This output contains the following values: start_time: All
+ *  database writes up to this time are available. end_time: Any database writes
+ *  after this time aren't available.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_Interval *backupInterval;
+
+/**
+ *  Output only. Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Backup_BackupKind_Physical Physical backups. (Value:
+ *        "PHYSICAL")
+ *    @arg @c kGTLRSQLAdmin_Backup_BackupKind_Snapshot Snapshot-based backups.
+ *        (Value: "SNAPSHOT")
+ *    @arg @c kGTLRSQLAdmin_Backup_BackupKind_SqlBackupKindUnspecified This is
+ *        an unknown BackupKind. (Value: "SQL_BACKUP_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *backupKind;
+
+/**
+ *  Output only. The mapping to backup run resource used for IAM validations.
+ */
+@property(nonatomic, copy, nullable) NSString *backupRun;
+
+/**
+ *  The description of this backup.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Information about why the backup operation fails (for example,
+ *  when the backup state fails).
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_OperationError *error;
+
+/** Backup expiration time. A UTC timestamp of when this backup expired. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expiryTime;
+
+/** The name of the source database instance. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Optional. Output only. Timestamp in UTC of when the instance associated with
+ *  this backup is deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceDeletionTime;
+
+/**
+ *  Optional. Output only. The instance setting of the source instance that's
+ *  associated with this backup.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance *instanceSettings;
+
+/** Output only. This is always `sql#backup`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Output only. This output contains the encryption configuration for a backup
+ *  and the resource name of the KMS key for disk encryption.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Output only. This output contains the encryption status for a backup and the
+ *  version of the KMS key that's used to encrypt the Cloud SQL instance.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
+
+/**
+ *  The storage location of the backups. The location can be multi-regional.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The maximum chargeable bytes for the backup.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxChargeableBytes;
+
+/**
+ *  Output only. The resource name of the backup. Format:
+ *  projects/{project}/backups/{backup}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. This status indicates whether the backup satisfies PZI. The
+ *  status is reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. This status indicates whether the backup satisfies PZS. The
+ *  status is reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/** Output only. The URI of this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  Output only. The status of this backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Backup_State_Deleting The backup is being deleted.
+ *        (Value: "DELETING")
+ *    @arg @c kGTLRSQLAdmin_Backup_State_DeletionFailed Deletion of the backup
+ *        failed. (Value: "DELETION_FAILED")
+ *    @arg @c kGTLRSQLAdmin_Backup_State_Enqueued The backup that's added to a
+ *        queue. (Value: "ENQUEUED")
+ *    @arg @c kGTLRSQLAdmin_Backup_State_Failed The backup failed. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRSQLAdmin_Backup_State_Running The backup is in progress.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRSQLAdmin_Backup_State_SqlBackupStateUnspecified The state of
+ *        the backup is unknown. (Value: "SQL_BACKUP_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_Backup_State_Successful The backup is successful.
+ *        (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. This output contains a backup time zone. If a Cloud SQL for SQL
+ *  Server instance has a different time zone from the backup's time zone, then
+ *  the restore to the instance doesn't happen.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
+ *  Input only. The time-to-live (TTL) interval for this resource (in days). For
+ *  example: ttlDays:7, means 7 days from the current time. The expiration time
+ *  can't exceed 365 days from the time that the backup is created.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ttlDays;
+
+/**
+ *  Output only. The type of this backup. The type can be "AUTOMATED",
+ *  "ON_DEMAND" or “FINAL”.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Backup_Type_Automated The backup schedule triggers a
+ *        backup automatically. (Value: "AUTOMATED")
+ *    @arg @c kGTLRSQLAdmin_Backup_Type_Final The backup created when instance
+ *        is deleted. (Value: "FINAL")
+ *    @arg @c kGTLRSQLAdmin_Backup_Type_OnDemand The user triggers a backup
+ *        manually. (Value: "ON_DEMAND")
+ *    @arg @c kGTLRSQLAdmin_Backup_Type_SqlBackupTypeUnspecified This is an
+ *        unknown backup type. (Value: "SQL_BACKUP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Database instance backup configuration.
  */
 @interface GTLRSQLAdmin_BackupConfiguration : GTLRObject
@@ -3080,6 +3437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always `sql#backupContext`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** The name of the backup. Format: projects/{project}/backups/{backup} */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -3572,6 +3932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** The dns name of the instance. */
 @property(nonatomic, copy, nullable) NSString *dnsName;
 
+/** Output only. The list of DNS names used by this instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DnsNameMapping *> *dnsNames;
+
 /** The assigned IP addresses for the instance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
 
@@ -3600,6 +3963,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_ServerCaMode_CaModeUnspecified CA
  *        mode is unknown. (Value: "CA_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_ServerCaMode_CustomerManagedCasCa
+ *        Customer-managed CA hosted on Google Cloud's Certificate Authority
+ *        Service (CAS). (Value: "CUSTOMER_MANAGED_CAS_CA")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_ServerCaMode_GoogleManagedCasCa
  *        Google-managed regional CA part of root CA hierarchy hosted on Google
  *        Cloud's Certificate Authority Service (CAS). (Value:
@@ -3875,6 +4241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Output only. The dns name of the instance. */
 @property(nonatomic, copy, nullable) NSString *dnsName;
 
+/** Output only. The list of DNS names used by this instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DnsNameMapping *> *dnsNames;
+
 /**
  *  This field is deprecated and will be removed from a future version of the
  *  API. Use the `settings.settingsVersion` field instead.
@@ -3894,6 +4263,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Gemini instance configuration. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_GeminiInstanceConfig *geminiConfig;
+
+/**
+ *  Input only. Determines whether an in-place major version upgrade of replicas
+ *  happens when an in-place major version upgrade of a primary instance is
+ *  initiated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeReplicasForMajorVersionUpgrade;
 
 /**
  *  The instance type.
@@ -4282,7 +4660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
 /**
- *  PEM representation of the replica's private key. The corresponsing public
+ *  PEM representation of the replica's private key. The corresponding public
  *  key is encoded in the client's certificate. The format of the replica's
  *  private key can be either PKCS #1 or PKCS #8.
  */
@@ -4360,6 +4738,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  DNS metadata.
+ */
+@interface GTLRSQLAdmin_DnsNameMapping : GTLRObject
+
+/**
+ *  Output only. The connection type of the DNS name.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_ConnectionType_ConnectionTypeUnspecified
+ *        Unknown connection type. (Value: "CONNECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_ConnectionType_PrivateServiceConnect
+ *        Private Service Connect. (Value: "PRIVATE_SERVICE_CONNECT")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_ConnectionType_PrivateServicesAccess
+ *        Private services access (private IP). (Value:
+ *        "PRIVATE_SERVICES_ACCESS")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_ConnectionType_Public Public IP.
+ *        (Value: "PUBLIC")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+/**
+ *  Output only. The scope that the DNS name applies to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScopeUnspecified Unknown
+ *        DNS scope. (Value: "DNS_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance Indicates a
+ *        instance-level DNS name. (Value: "INSTANCE")
+ */
+@property(nonatomic, copy, nullable) NSString *dnsScope;
+
+/** The DNS name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -4388,7 +4804,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  system database. If `fileType` is `CSV`, you can specify one database,
  *  either by using this property or by using the `csvExportOptions.selectQuery`
  *  property, which takes precedence over this property. `PostgreSQL instances:`
- *  You must specify one database to be exported. If `fileType` is `CSV`, this
+ *  If you don't specify a database by name, all user databases in the instance
+ *  are exported. This excludes system databases and Cloud SQL databases used to
+ *  manage internal operations. Exporting all user databases is only available
+ *  for directory-formatted parallel export. If `fileType` is `CSV`, this
  *  database must match the one specified in the `csvExportOptions.selectQuery`
  *  property. `SQL Server instances:` You must specify one database to be
  *  exported, and the `fileType` must be `BAK`.
@@ -4406,6 +4825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        statements. (Value: "SQL")
  *    @arg @c kGTLRSQLAdmin_ExportContext_FileType_SqlFileTypeUnspecified
  *        Unknown file type. (Value: "SQL_FILE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ExportContext_FileType_Tde TDE certificate. (Value:
+ *        "TDE")
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
@@ -4421,6 +4842,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Options for exporting data as SQL statements. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_SqlExportOptions *sqlExportOptions;
+
+/** Optional. Export parameters specific to SQL Server TDE certificates */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_TdeExportOptions *tdeExportOptions;
 
 /**
  *  The path to the file in Google Cloud Storage where the export will be
@@ -4575,6 +4999,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *threads;
+
+@end
+
+
+/**
+ *  Optional. Export parameters specific to SQL Server TDE certificates
+ */
+@interface GTLRSQLAdmin_ExportContext_TdeExportOptions : GTLRObject
+
+/**
+ *  Required. Path to the TDE certificate public key in the form
+ *  gs://bucketName/fileName. The instance must have write access to the bucket.
+ *  Applicable only for SQL Server instances.
+ */
+@property(nonatomic, copy, nullable) NSString *certificatePath;
+
+/** Required. Certificate name. Applicable only for SQL Server instances. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Password that encrypts the private key. */
+@property(nonatomic, copy, nullable) NSString *privateKeyPassword;
+
+/**
+ *  Required. Path to the TDE certificate private key in the form
+ *  gs://bucketName/fileName. The instance must have write access to the
+ *  location. Applicable only for SQL Server instances.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKeyPath;
 
 @end
 
@@ -4865,8 +5317,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The target database for the import. If `fileType` is `SQL`, this field is
  *  required only if the import file does not specify a database, and is
- *  overridden by any database specification in the import file. If `fileType`
- *  is `CSV`, one database must be specified.
+ *  overridden by any database specification in the import file. For entire
+ *  instance parallel import operations, the database is overridden by the
+ *  database name stored in subdirectory name. If `fileType` is `CSV`, one
+ *  database must be specified.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
@@ -4882,6 +5336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        statements. (Value: "SQL")
  *    @arg @c kGTLRSQLAdmin_ImportContext_FileType_SqlFileTypeUnspecified
  *        Unknown file type. (Value: "SQL_FILE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ImportContext_FileType_Tde TDE certificate. (Value:
+ *        "TDE")
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
@@ -4895,6 +5351,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Optional. Options for importing data from SQL statements. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_SqlImportOptions *sqlImportOptions;
+
+/** Optional. Import parameters specific to SQL Server TDE certificates */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_TdeImportOptions *tdeImportOptions;
 
 /**
  *  Path to the import file in Cloud Storage, in the form
@@ -5039,6 +5498,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Optional. Import parameters specific to SQL Server TDE certificates
+ */
+@interface GTLRSQLAdmin_ImportContext_TdeImportOptions : GTLRObject
+
+/**
+ *  Required. Path to the TDE certificate public key in the form
+ *  gs://bucketName/fileName. The instance must have read access to the file.
+ *  Applicable only for SQL Server instances.
+ */
+@property(nonatomic, copy, nullable) NSString *certificatePath;
+
+/** Required. Certificate name. Applicable only for SQL Server instances. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Password that encrypts the private key. */
+@property(nonatomic, copy, nullable) NSString *privateKeyPassword;
+
+/**
+ *  Required. Path to the TDE certificate private key in the form
+ *  gs://bucketName/fileName. The instance must have read access to the file.
+ *  Applicable only for SQL Server instances.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKeyPath;
+
+@end
+
+
+/**
  *  GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions
  */
 @interface GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions : GTLRObject
@@ -5049,6 +5536,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *certPath;
+
+/**
+ *  Optional. Whether the imported file remains encrypted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keepEncrypted;
 
 /** Password that encrypts the private key */
 @property(nonatomic, copy, nullable) NSString *pvkPassword;
@@ -5324,8 +5818,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_InstancesRestoreBackupRequest : GTLRObject
 
+/**
+ *  The name of the backup that's used to restore a Cloud SQL instance: Format:
+ *  projects/{project-id}/backups/{backup-uid}. Only one of
+ *  restore_backup_context, backup, backupdr_backup can be passed to the input.
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
 /** Parameters required to perform the restore backup operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
+
+/**
+ *  Optional. By using this parameter, Cloud SQL overrides any instance settings
+ *  stored in the backup you are restoring from. You can't change the instance's
+ *  major database version and you can only increase the disk size. You can use
+ *  this field to restore new instances only. This field is not applicable for
+ *  restore to existing instances.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance *restoreInstanceSettings;
 
 @end
 
@@ -5361,6 +5871,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Contains details about the truncate log operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_TruncateLogContext *truncateLogContext;
+
+@end
+
+
+/**
+ *  Represents a time interval, encoded as a Timestamp start (inclusive) and a
+ *  Timestamp end (exclusive). The start must be less than or equal to the end.
+ *  When the start equals the end, the interval is empty (matches no time). When
+ *  both start and end are unspecified, the interval matches any time.
+ */
+@interface GTLRSQLAdmin_Interval : GTLRObject
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -5454,7 +5987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  Optional. The resource name of the server CA pool for an instance with
  *  `CUSTOMER_MANAGED_CAS_CA` as the `server_ca_mode`. Format:
- *  projects//locations//caPools/
+ *  projects/{PROJECT}/locations/{REGION}/caPools/{CA_POOL_ID}
  */
 @property(nonatomic, copy, nullable) NSString *serverCaPool;
 
@@ -5548,6 +6081,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        an unknown IP address type. (Value: "SQL_IP_ADDRESS_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The response payload containing a list of the backups.
+ */
+@interface GTLRSQLAdmin_ListBackupsResponse : GTLRObject
+
+/** A list of backups. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Backup *> *backups;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, then there aren't subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  If a region isn't unavailable or if an unknown error occurs, then a warning
+ *  message is returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ApiWarning *> *warnings;
 
 @end
 
@@ -5653,7 +6209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
 /**
- *  PEM representation of the replica's private key. The corresponsing public
+ *  PEM representation of the replica's private key. The corresponding public
  *  key is encoded in the client's certificate.
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
@@ -5727,7 +6283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
 /**
- *  PEM representation of the replica's private key. The corresponsing public
+ *  PEM representation of the replica's private key. The corresponding public
  *  key is encoded in the client's certificate.
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
@@ -5840,8 +6396,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AcquireSsrsLease Acquire a
  *        lease for the setup of SQL Server Reporting Services (SSRS). (Value:
  *        "ACQUIRE_SSRS_LEASE")
- *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AdvancedBackup Creates a
- *        backup for an Advanced BackupTier Cloud SQL instance. (Value:
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AdvancedBackup Deprecated:
+ *        ADVANCED_BACKUP is deprecated. Use ENHANCED_BACKUP instead. (Value:
  *        "ADVANCED_BACKUP")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AutoRestart Performs
  *        auto-restart of an HA-enabled Cloud SQL database for auto recovery.
@@ -5885,6 +6441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_EnablePrivateIp This field
  *        is deprecated, and will be removed in future version of API. (Value:
  *        "ENABLE_PRIVATE_IP")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_EnhancedBackup Creates a
+ *        backup for an Enhanced BackupTier Cloud SQL instance. (Value:
+ *        "ENHANCED_BACKUP")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Export Exports data from a
  *        Cloud SQL instance to a Cloud Storage bucket. (Value: "EXPORT")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Failover Performs failover
@@ -5901,6 +6460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade Updates
  *        the major version of a Cloud SQL instance. (Value:
  *        "MAJOR_VERSION_UPGRADE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ManageBackup Changes the
+ *        BackupTier of a Cloud SQL instance. (Value: "MANAGE_BACKUP")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PromoteReplica Promotes a
  *        Cloud SQL replica instance. (Value: "PROMOTE_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary
@@ -5950,6 +6511,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        general or slow log table in MySQL. (Value: "TRUNCATE_LOG")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Update Updates the settings
  *        of a Cloud SQL instance. (Value: "UPDATE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_UpdateBackup Update a
+ *        backup. (Value: "UPDATE_BACKUP")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase Updates a
  *        database in the Cloud SQL instance. (Value: "UPDATE_DATABASE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_UpdateUser Updates an
@@ -5986,7 +6549,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Optional. The sub operation based on the operation type. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlSubOperationType *subOperationType;
 
+/** Name of the resource on which this operation runs. */
 @property(nonatomic, copy, nullable) NSString *targetId;
+
 @property(nonatomic, copy, nullable) NSString *targetLink;
 
 /** The project ID of the target instance related to this operation. */
@@ -6562,6 +7127,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Generation instances.
  *
  *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Settings_DataDiskType_HyperdiskBalanced A Hyperdisk
+ *        Balanced data disk. (Value: "HYPERDISK_BALANCED")
  *    @arg @c kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd This field is
  *        deprecated and will be removed from a future version of the API.
  *        (Value: "OBSOLETE_LOCAL_SSD")
@@ -6663,6 +7230,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *pricingPlan;
 
 /**
+ *  Optional. Configuration value for recreation of replica after certain
+ *  replication lag
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicationLagMaxSeconds;
+
+/**
  *  The type of replication this instance uses. This can be either
  *  `ASYNCHRONOUS` or `SYNCHRONOUS`. (Deprecated) This property was only
  *  applicable to First Generation instances.
@@ -6681,6 +7256,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        value. (Value: "SYNCHRONOUS")
  */
 @property(nonatomic, copy, nullable) NSString *replicationType GTLR_DEPRECATED;
+
+/**
+ *  Optional. When this parameter is set to true, Cloud SQL retains backups of
+ *  the instance even after the instance is deleted. The ON_DEMAND backup will
+ *  be retained until customer deletes the backup or the project. The AUTOMATED
+ *  backup will be retained based on the backups retention setting.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retainBackupsOnDelete;
 
 /**
  *  The version of instance settings. This is a required field for update method

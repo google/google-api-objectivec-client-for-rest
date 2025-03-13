@@ -53,6 +53,12 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest_UserCohort_OsPublic = @"OS_PUBLIC";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest_UserCohort_UserCohortUnspecified = @"USER_COHORT_UNSPECIFIED";
 
+// GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest.userCohort
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_AppTesters = @"APP_TESTERS";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_OsBeta = @"OS_BETA";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_OsPublic = @"OS_PUBLIC";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest_UserCohort_UserCohortUnspecified = @"USER_COHORT_UNSPECIFIED";
+
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest.userCohort
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest_UserCohort_AppTesters = @"APP_TESTERS";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest_UserCohort_OsBeta = @"OS_BETA";
@@ -290,6 +296,16 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1LmkRateMetricSet
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1LmkRateMetricSet
+@dynamic freshnessInfo, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow
 //
 
@@ -478,6 +494,48 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 //
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetResponse
+@dynamic nextPageToken, rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rows";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest
+@dynamic dimensions, filter, metrics, pageSize, pageToken, timelineSpec,
+         userCohort;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse
 @dynamic nextPageToken, rows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

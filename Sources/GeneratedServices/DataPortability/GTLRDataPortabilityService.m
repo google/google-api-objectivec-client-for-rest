@@ -59,6 +59,7 @@ NSString * const kGTLRAuthScopeDataPortabilityPlayUsersettings = @"https://www.g
 NSString * const kGTLRAuthScopeDataPortabilitySavedCollections = @"https://www.googleapis.com/auth/dataportability.saved.collections";
 NSString * const kGTLRAuthScopeDataPortabilitySearchnotificationsSettings = @"https://www.googleapis.com/auth/dataportability.searchnotifications.settings";
 NSString * const kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions = @"https://www.googleapis.com/auth/dataportability.searchnotifications.subscriptions";
+NSString * const kGTLRAuthScopeDataPortabilitySearchUgcComments = @"https://www.googleapis.com/auth/dataportability.search_ugc.comments";
 NSString * const kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars = @"https://www.googleapis.com/auth/dataportability.search_ugc.media.reviews_and_stars";
 NSString * const kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders = @"https://www.googleapis.com/auth/dataportability.search_ugc.media.streaming_video_providers";
 NSString * const kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs = @"https://www.googleapis.com/auth/dataportability.search_ugc.media.thumbs";

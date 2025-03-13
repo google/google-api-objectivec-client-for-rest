@@ -1241,6 +1241,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
+/**
+ *  A Google Cloud resource from the service perimeter that you want to allow to
+ *  access data outside the perimeter. This field supports only projects. The
+ *  project format is `projects/{project_number}`. You can't use `*` in this
+ *  field to allow all Google Cloud resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
 @end
 
 

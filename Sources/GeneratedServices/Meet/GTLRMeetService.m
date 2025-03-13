@@ -15,6 +15,7 @@
 
 NSString * const kGTLRAuthScopeMeetMeetingsSpaceCreated  = @"https://www.googleapis.com/auth/meetings.space.created";
 NSString * const kGTLRAuthScopeMeetMeetingsSpaceReadonly = @"https://www.googleapis.com/auth/meetings.space.readonly";
+NSString * const kGTLRAuthScopeMeetMeetingsSpaceSettings = @"https://www.googleapis.com/auth/meetings.space.settings";
 
 // ----------------------------------------------------------------------------
 //   GTLRMeetService

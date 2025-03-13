@@ -47,6 +47,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationProfileId = @"CONVERSATION_PROFILE_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_DimensionKeyUnspecified = @"DIMENSION_KEY_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Issue = @"ISSUE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_IssueName = @"ISSUE_NAME";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionAnswerValue = @"QA_QUESTION_ANSWER_VALUE";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionId = @"QA_QUESTION_ID";
 
@@ -69,6 +70,17 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData_Type_Common = @"COMMON";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData_Type_MentionTypeUnspecified = @"MENTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData_Type_Proper = @"PROPER";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest.exportSchemaVersion
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportSchemaVersionUnspecified = @"EXPORT_SCHEMA_VERSION_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV1 = @"EXPORT_V1";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV5 = @"EXPORT_V5";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV6 = @"EXPORT_V6";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV7 = @"EXPORT_V7";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportVersionLatestAvailable = @"EXPORT_VERSION_LATEST_AVAILABLE";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest.writeDisposition
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteAppend = @"WRITE_APPEND";
@@ -169,6 +181,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Di
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationProfileId = @"CONVERSATION_PROFILE_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_DimensionKeyUnspecified = @"DIMENSION_KEY_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Issue = @"ISSUE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_IssueName = @"ISSUE_NAME";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionAnswerValue = @"QA_QUESTION_ANSWER_VALUE";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionId = @"QA_QUESTION_ID";
 
@@ -191,6 +204,17 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1En
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_Common = @"COMMON";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_MentionTypeUnspecified = @"MENTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_Proper = @"PROPER";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest.exportSchemaVersion
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportSchemaVersionUnspecified = @"EXPORT_SCHEMA_VERSION_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV1 = @"EXPORT_V1";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV5 = @"EXPORT_V5";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV6 = @"EXPORT_V6";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV7 = @"EXPORT_V7";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportVersionLatestAvailable = @"EXPORT_VERSION_LATEST_AVAILABLE";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest.writeDisposition
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteAppend = @"WRITE_APPEND";
@@ -435,7 +459,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig
-@dynamic conversationProfile, summarizationModel;
+@dynamic conversationProfile, generator, summarizationModel;
 @end
 
 
@@ -1025,7 +1049,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataMetadata
-@dynamic createTime, endTime, partialErrors, request;
+@dynamic completedExportCount, createTime, endTime, failedExportCount,
+         partialErrors, request;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1043,7 +1068,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest
-@dynamic bigQueryDestination, filter, kmsKey, parent, writeDisposition;
+@dynamic bigQueryDestination, exportSchemaVersion, filter, kmsKey, parent,
+         writeDisposition;
 @end
 
 
@@ -1619,6 +1645,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsMetadata
+@dynamic resultIsTruncated;
 @end
 
 
@@ -2038,7 +2065,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig
-@dynamic conversationProfile, summarizationModel;
+@dynamic conversationProfile, generator, summarizationModel;
 @end
 
 
@@ -2849,7 +2876,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataMetadata
-@dynamic createTime, endTime, partialErrors, request;
+@dynamic completedExportCount, createTime, endTime, failedExportCount,
+         partialErrors, request;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2867,7 +2895,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest
-@dynamic bigQueryDestination, filter, kmsKey, parent, writeDisposition;
+@dynamic bigQueryDestination, exportSchemaVersion, filter, kmsKey, parent,
+         writeDisposition;
 @end
 
 
@@ -3804,6 +3833,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsMetadata
+@dynamic resultIsTruncated;
 @end
 
 

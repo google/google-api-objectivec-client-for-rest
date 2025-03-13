@@ -79,18 +79,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_M
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw;
 /**
- *  Opus encoded audio wrapped in an ogg container. The result will be a file
- *  which can be played natively on Android, and in browsers (at least Chrome
- *  and Firefox). The quality of the encoding is considerably higher than MP3
- *  while using approximately the same bitrate.
+ *  Opus encoded audio wrapped in an ogg container. The result is a file which
+ *  can be played natively on Android, and in browsers (at least Chrome and
+ *  Firefox). The quality of the encoding is considerably higher than MP3 while
+ *  using approximately the same bitrate.
  *
  *  Value: "OGG_OPUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus;
 /**
  *  Uncompressed 16-bit signed little-endian samples (Linear PCM). Note that as
- *  opposed to LINEAR16, audio will not be wrapped in a WAV (or any other)
- *  header.
+ *  opposed to LINEAR16, audio won't be wrapped in a WAV (or any other) header.
  *
  *  Value: "PCM"
  */
@@ -100,7 +99,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_P
 // GTLRTexttospeech_CustomPronunciationParams.phoneticEncoding
 
 /**
- *  IPA. (e.g. apple -> ˈæpəl )
+ *  IPA, such as apple -> ˈæpəl.
  *  https://en.wikipedia.org/wiki/International_Phonetic_Alphabet
  *
  *  Value: "PHONETIC_ENCODING_IPA"
@@ -113,7 +112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomPronunciationParams_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingUnspecified;
 /**
- *  X-SAMPA (e.g. apple -> "{p\@l" ) https://en.wikipedia.org/wiki/X-SAMPA
+ *  X-SAMPA, such as apple -> "{p\@l". https://en.wikipedia.org/wiki/X-SAMPA
  *
  *  Value: "PHONETIC_ENCODING_X_SAMPA"
  */
@@ -212,8 +211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @interface GTLRTexttospeech_AdvancedVoiceOptions : GTLRObject
 
 /**
- *  Only for Journey voices. If false, the synthesis will be context aware and
- *  have higher latency.
+ *  Only for Journey voices. If false, the synthesis is context aware and has a
+ *  higher latency.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -246,13 +245,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        that compand 14-bit audio samples using G.711 PCMU/mu-law. Audio
  *        content returned as MULAW also contains a WAV header. (Value: "MULAW")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus Opus encoded
- *        audio wrapped in an ogg container. The result will be a file which can
- *        be played natively on Android, and in browsers (at least Chrome and
+ *        audio wrapped in an ogg container. The result is a file which can be
+ *        played natively on Android, and in browsers (at least Chrome and
  *        Firefox). The quality of the encoding is considerably higher than MP3
  *        while using approximately the same bitrate. (Value: "OGG_OPUS")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Pcm Uncompressed
  *        16-bit signed little-endian samples (Linear PCM). Note that as opposed
- *        to LINEAR16, audio will not be wrapped in a WAV (or any other) header.
+ *        to LINEAR16, audio won't be wrapped in a WAV (or any other) header.
  *        (Value: "PCM")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
@@ -332,21 +331,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *
  *  Likely values:
  *    @arg @c kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingIpa
- *        IPA. (e.g. apple -> ˈæpəl )
+ *        IPA, such as apple -> ˈæpəl.
  *        https://en.wikipedia.org/wiki/International_Phonetic_Alphabet (Value:
  *        "PHONETIC_ENCODING_IPA")
  *    @arg @c kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingUnspecified
  *        Not specified. (Value: "PHONETIC_ENCODING_UNSPECIFIED")
  *    @arg @c kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingXSampa
- *        X-SAMPA (e.g. apple -> "{p\@l" ) https://en.wikipedia.org/wiki/X-SAMPA
- *        (Value: "PHONETIC_ENCODING_X_SAMPA")
+ *        X-SAMPA, such as apple -> "{p\@l".
+ *        https://en.wikipedia.org/wiki/X-SAMPA (Value:
+ *        "PHONETIC_ENCODING_X_SAMPA")
  */
 @property(nonatomic, copy, nullable) NSString *phoneticEncoding;
 
 /**
- *  The phrase to which the customization will be applied. The phrase can be
- *  multiple words (in the case of proper nouns etc), but should not span to a
- *  whole sentence.
+ *  The phrase to which the customization is applied. The phrase can be multiple
+ *  words, such as proper nouns, but shouldn't span the length of the sentence.
  */
 @property(nonatomic, copy, nullable) NSString *phrase;
 
@@ -364,7 +363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  */
 @interface GTLRTexttospeech_CustomPronunciations : GTLRObject
 
-/** The pronunciation customizations to be applied. */
+/** The pronunciation customizations are applied. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTexttospeech_CustomPronunciationParams *> *pronunciations;
 
 @end
@@ -611,14 +610,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @interface GTLRTexttospeech_SynthesisInput : GTLRObject
 
 /**
- *  Optional. The pronunciation customizations to be applied to the input. If
- *  this is set, the input will be synthesized using the given pronunciation
- *  customizations. The initial support will be for EFIGS (English, French,
- *  Italian, German, Spanish) languages, as provided in VoiceSelectionParams.
- *  Journey and Instant Clone voices are not supported yet. In order to
- *  customize the pronunciation of a phrase, there must be an exact match of the
- *  phrase in the input types. If using SSML, the phrase must not be inside a
- *  phoneme tag (entirely or partially).
+ *  Optional. The pronunciation customizations are applied to the input. If this
+ *  is set, the input is synthesized using the given pronunciation
+ *  customizations. The initial support is for English, French, Italian, German,
+ *  and Spanish (EFIGS) languages, as provided in VoiceSelectionParams. Journey
+ *  and Instant Clone voices aren't supported. In order to customize the
+ *  pronunciation of a phrase, there must be an exact match of the phrase in the
+ *  input types. If using SSML, the phrase must not be inside a phoneme tag.
  */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_CustomPronunciations *customPronunciations;
 
@@ -729,7 +727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 
 
 /**
- *  A Multi-speaker turn.
+ *  A multi-speaker turn.
  */
 @interface GTLRTexttospeech_Turn : GTLRObject
 
@@ -861,7 +859,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 
 /**
  *  Optional. The configuration for a voice clone. If
- *  [VoiceCloneParams.voice_clone_key] is set, the service will choose the voice
+ *  [VoiceCloneParams.voice_clone_key] is set, the service chooses the voice
  *  clone matching the specified configuration.
  */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_VoiceCloneParams *voiceClone;

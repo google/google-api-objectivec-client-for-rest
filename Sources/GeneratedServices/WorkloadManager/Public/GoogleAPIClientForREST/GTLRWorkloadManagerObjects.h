@@ -18,16 +18,31 @@
 
 @class GTLRWorkloadManager_AgentCommand;
 @class GTLRWorkloadManager_AgentCommand_Parameters;
+@class GTLRWorkloadManager_APILayerServer;
+@class GTLRWorkloadManager_AvailabilityGroup;
+@class GTLRWorkloadManager_BackendServer;
+@class GTLRWorkloadManager_BackupProperties;
 @class GTLRWorkloadManager_BigQueryDestination;
+@class GTLRWorkloadManager_CloudResource;
+@class GTLRWorkloadManager_Cluster;
 @class GTLRWorkloadManager_Command;
+@class GTLRWorkloadManager_ComponentHealth;
+@class GTLRWorkloadManager_Database;
+@class GTLRWorkloadManager_DatabaseProperties;
 @class GTLRWorkloadManager_Evaluation;
 @class GTLRWorkloadManager_Evaluation_Labels;
 @class GTLRWorkloadManager_Execution;
 @class GTLRWorkloadManager_Execution_Labels;
 @class GTLRWorkloadManager_ExecutionResult;
 @class GTLRWorkloadManager_ExternalDataSources;
+@class GTLRWorkloadManager_FrontEndServer;
 @class GTLRWorkloadManager_GceInstanceFilter;
+@class GTLRWorkloadManager_HealthCheck;
 @class GTLRWorkloadManager_Insight;
+@class GTLRWorkloadManager_Instance;
+@class GTLRWorkloadManager_InstanceProperties;
+@class GTLRWorkloadManager_Layer;
+@class GTLRWorkloadManager_LoadBalancerServer;
 @class GTLRWorkloadManager_Location;
 @class GTLRWorkloadManager_Location_Labels;
 @class GTLRWorkloadManager_Location_Metadata;
@@ -35,39 +50,51 @@
 @class GTLRWorkloadManager_Operation;
 @class GTLRWorkloadManager_Operation_Metadata;
 @class GTLRWorkloadManager_Operation_Response;
+@class GTLRWorkloadManager_Product;
 @class GTLRWorkloadManager_Resource;
 @class GTLRWorkloadManager_ResourceFilter;
 @class GTLRWorkloadManager_ResourceFilter_InclusionLabels;
 @class GTLRWorkloadManager_ResourceStatus;
 @class GTLRWorkloadManager_Rule;
 @class GTLRWorkloadManager_RuleExecutionResult;
+@class GTLRWorkloadManager_SapComponent;
 @class GTLRWorkloadManager_SapDiscovery;
 @class GTLRWorkloadManager_SapDiscoveryComponent;
 @class GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties;
 @class GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties;
+@class GTLRWorkloadManager_SapDiscoveryComponentReplicationSite;
 @class GTLRWorkloadManager_SapDiscoveryMetadata;
 @class GTLRWorkloadManager_SapDiscoveryResource;
 @class GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties;
 @class GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesAppInstance;
+@class GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadProperties;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadPropertiesProductVersion;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadPropertiesSoftwareComponentProperties;
+@class GTLRWorkloadManager_SapInstanceProperties;
 @class GTLRWorkloadManager_SapValidation;
 @class GTLRWorkloadManager_SapValidationValidationDetail;
 @class GTLRWorkloadManager_SapValidationValidationDetail_Details;
+@class GTLRWorkloadManager_SapWorkload;
+@class GTLRWorkloadManager_SapWorkload_Metadata;
 @class GTLRWorkloadManager_ScannedResource;
 @class GTLRWorkloadManager_ShellCommand;
 @class GTLRWorkloadManager_SqlserverValidation;
 @class GTLRWorkloadManager_SqlserverValidationDetails;
 @class GTLRWorkloadManager_SqlserverValidationDetails_Fields;
 @class GTLRWorkloadManager_SqlserverValidationValidationDetail;
+@class GTLRWorkloadManager_SqlserverWorkload;
 @class GTLRWorkloadManager_Status;
 @class GTLRWorkloadManager_Status_Details_Item;
 @class GTLRWorkloadManager_Summary;
+@class GTLRWorkloadManager_ThreeTierWorkload;
 @class GTLRWorkloadManager_TorsoValidation;
 @class GTLRWorkloadManager_TorsoValidation_ValidationDetails;
+@class GTLRWorkloadManager_UpcomingMaintenanceEvent;
 @class GTLRWorkloadManager_ViolationDetails;
 @class GTLRWorkloadManager_ViolationDetails_Observed;
+@class GTLRWorkloadManager_WorkloadProfile;
+@class GTLRWorkloadManager_WorkloadProfile_Labels;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -78,6 +105,212 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_BackupProperties.latestBackupStatus
+
+/**
+ *  FAILURE state
+ *
+ *  Value: "BACKUP_STATE_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateFailure;
+/**
+ *  SUCCESS state
+ *
+ *  Value: "BACKUP_STATE_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateSuccess;
+/**
+ *  unspecified
+ *
+ *  Value: "BACKUP_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_CloudResource.kind
+
+/**
+ *  This is a compute address.
+ *
+ *  Value: "RESOURCE_KIND_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindAddress;
+/**
+ *  This is a compute backend service.
+ *
+ *  Value: "RESOURCE_KIND_BACKEND_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindBackendService;
+/**
+ *  This is a compute disk.
+ *
+ *  Value: "RESOURCE_KIND_DISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindDisk;
+/**
+ *  This is a filestore instance.
+ *
+ *  Value: "RESOURCE_KIND_FILESTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindFilestore;
+/**
+ *  This is a compute forwarding rule.
+ *
+ *  Value: "RESOURCE_KIND_FORWARDING_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindForwardingRule;
+/**
+ *  This is a compute health check.
+ *
+ *  Value: "RESOURCE_KIND_HEALTH_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindHealthCheck;
+/**
+ *  This is a compute instance.
+ *
+ *  Value: "RESOURCE_KIND_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindInstance;
+/**
+ *  This is a compute instance group.
+ *
+ *  Value: "RESOURCE_KIND_INSTANCE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindInstanceGroup;
+/**
+ *  This is a compute network.
+ *
+ *  Value: "RESOURCE_KIND_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindNetwork;
+/**
+ *  This is a public accessible IP Address.
+ *
+ *  Value: "RESOURCE_KIND_PUBLIC_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindPublicAddress;
+/**
+ *  This is a compute subnetwork.
+ *
+ *  Value: "RESOURCE_KIND_SUBNETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindSubnetwork;
+/**
+ *  Unspecified resource kind.
+ *
+ *  Value: "RESOURCE_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_ComponentHealth.componentHealthType
+
+/**
+ *  optional
+ *
+ *  Value: "TYPE_OPTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeOptional;
+/**
+ *  required
+ *
+ *  Value: "TYPE_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeRequired;
+/**
+ *  special
+ *
+ *  Value: "TYPE_SPECIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeSpecial;
+/**
+ *  Unspecified
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_ComponentHealth.state
+
+/**
+ *  has critical issues
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Critical;
+/**
+ *  Unspecified
+ *
+ *  Value: "HEALTH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_HealthStateUnspecified;
+/**
+ *  healthy workload
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Healthy;
+/**
+ *  unhealthy workload
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unhealthy;
+/**
+ *  unsupported
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_DatabaseProperties.databaseType
+
+/**
+ *  SAP Sybase ASE
+ *
+ *  Value: "ASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Ase;
+/**
+ *  unspecified
+ *
+ *  Value: "DATABASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_DatabaseTypeUnspecified;
+/**
+ *  IBM DB2
+ *
+ *  Value: "DB2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Db2;
+/**
+ *  SAP HANA
+ *
+ *  Value: "HANA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Hana;
+/**
+ *  SAP MAX_DB
+ *
+ *  Value: "MAX_DB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_MaxDb;
+/**
+ *  Oracle Database
+ *
+ *  Value: "ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Oracle;
+/**
+ *  Microsoft SQL Server
+ *
+ *  Value: "SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Sqlserver;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_Evaluation.evaluationType
@@ -202,6 +435,198 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExternalDataSources_Type
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_HealthCheck.state
+
+/**
+ *  degraded
+ *
+ *  Value: "DEGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Degraded;
+/**
+ *  failed
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Failed;
+/**
+ *  passed
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Passed;
+/**
+ *  skipped
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Skipped;
+/**
+ *  Unspecified
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_StateUnspecified;
+/**
+ *  unsupported
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Unsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_Instance.status
+
+/**
+ *  The instance is in de-provisioning state.
+ *
+ *  Value: "DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Deprovisioning;
+/**
+ *  The Status of the VM is unspecified
+ *
+ *  Value: "INSTANCESTATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_InstancestateUnspecified;
+/**
+ *  Resources are being allocated for the instance.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Provisioning;
+/**
+ *  The instance is in repair.
+ *
+ *  Value: "REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Repairing;
+/**
+ *  The instance is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Running;
+/**
+ *  All required resources have been allocated and the instance is being
+ *  started.
+ *
+ *  Value: "STAGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Staging;
+/**
+ *  The instance has stopped due to various reasons (user request, VM
+ *  preemption, project freezing, etc.).
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Stopped;
+/**
+ *  The instance is currently stopping (either being deleted or killed).
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Stopping;
+/**
+ *  The instance is suspended.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Suspended;
+/**
+ *  The instance is suspending.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Suspending;
+/**
+ *  The instance has failed in some way.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_InstanceProperties.role
+
+/**
+ *  APP server.
+ *
+ *  Value: "INSTANCE_ROLE_APP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAppServer;
+/**
+ *  ASCS role.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAscs;
+/**
+ *  ERS role.
+ *
+ *  Value: "INSTANCE_ROLE_ERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleErs;
+/**
+ *  HANA primary role.
+ *
+ *  Value: "INSTANCE_ROLE_HANA_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaPrimary;
+/**
+ *  HANA secondary role.
+ *
+ *  Value: "INSTANCE_ROLE_HANA_SECONDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaSecondary;
+/**
+ *  Unspecified role.
+ *
+ *  Value: "INSTANCE_ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_InstanceProperties.roles
+
+/**
+ *  APP server.
+ *
+ *  Value: "INSTANCE_ROLE_APP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleAppServer;
+/**
+ *  ASCS role.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleAscs;
+/**
+ *  ERS role.
+ *
+ *  Value: "INSTANCE_ROLE_ERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleErs;
+/**
+ *  HANA primary role.
+ *
+ *  Value: "INSTANCE_ROLE_HANA_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleHanaPrimary;
+/**
+ *  HANA secondary role.
+ *
+ *  Value: "INSTANCE_ROLE_HANA_SECONDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleHanaSecondary;
+/**
+ *  Unspecified role.
+ *
+ *  Value: "INSTANCE_ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_ResourceStatus.state
 
 /**
@@ -259,6 +684,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RuleExecutionResult_Stat
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapComponent.topologyType
+
+/**
+ *  A scale-out multi-node system.
+ *
+ *  Value: "TOPOLOGY_SCALE_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapComponent_TopologyType_TopologyScaleOut;
+/**
+ *  A scale-up single node system.
+ *
+ *  Value: "TOPOLOGY_SCALE_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapComponent_TopologyType_TopologyScaleUp;
+/**
+ *  Unspecified topology.
+ *
+ *  Value: "TOPOLOGY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapComponent_TopologyType_TopologyTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapDiscoveryComponent.topologyType
 
 /**
@@ -312,6 +759,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApp
 // GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties.databaseType
 
 /**
+ *  SAP Sybase ASE
+ *
+ *  Value: "ASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Ase;
+/**
  *  Unspecified database type.
  *
  *  Value: "DATABASE_TYPE_UNSPECIFIED"
@@ -335,6 +788,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDat
  *  Value: "MAX_DB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_MaxDb;
+/**
+ *  Oracle Database
+ *
+ *  Value: "ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Oracle;
+/**
+ *  Microsoft SQL Server
+ *
+ *  Value: "SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Sqlserver;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapDiscoveryResource.resourceKind
@@ -602,6 +1067,52 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_System;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapWorkload.architecture
+
+/**
+ *  Unspecified architecture.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_ArchitectureUnspecified;
+/**
+ *  A centralized system.
+ *
+ *  Value: "CENTRALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_Centralized;
+/**
+ *  A distributed system.
+ *
+ *  Value: "DISTRIBUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_Distributed;
+/**
+ *  A distributed with HA system.
+ *
+ *  Value: "DISTRIBUTED_HA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_DistributedHa;
+/**
+ *  Invaliad architecture.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_Invalid;
+/**
+ *  A standalone database system.
+ *
+ *  Value: "STANDALONE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabase;
+/**
+ *  A standalone database with HA system.
+ *
+ *  Value: "STANDALONE_DATABASE_HA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabaseHa;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SqlserverValidationValidationDetail.type
 
 /**
@@ -711,6 +1222,102 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_WorkloadProfile.state
+
+/**
+ *  ACTIVE state
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Active;
+/**
+ *  workload is in Deploying state
+ *
+ *  Value: "DEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Deploying;
+/**
+ *  The workload is in Destroying state
+ *
+ *  Value: "DESTROYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Destroying;
+/**
+ *  The Workload is undermaintance
+ *
+ *  Value: "MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Maintenance;
+/**
+ *  unspecified
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_WorkloadProfile.workloadType
+
+/**
+ *  running sap workload s4/hana
+ *
+ *  Value: "S4_HANA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_S4Hana;
+/**
+ *  running sqlserver workload
+ *
+ *  Value: "SQL_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_SqlServer;
+/**
+ *  running 3 tier web app workload
+ *
+ *  Value: "THREE_TIER_WEB_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_ThreeTierWebApp;
+/**
+ *  unspecified workload type
+ *
+ *  Value: "WORKLOAD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_WorkloadProfileHealth.state
+
+/**
+ *  has critical issues
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Critical;
+/**
+ *  Unspecified
+ *
+ *  Value: "HEALTH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_HealthStateUnspecified;
+/**
+ *  healthy workload
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Healthy;
+/**
+ *  unhealthy workload
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unhealthy;
+/**
+ *  unsupported
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported;
+
 /**
  *  * An AgentCommand specifies a one-time executable program for the agent to
  *  run.
@@ -745,6 +1352,90 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  The API layer server
+ */
+@interface GTLRWorkloadManager_APILayerServer : GTLRObject
+
+/** Output only. The api layer name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. OS information */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/** Output only. resources in the component */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudResource *> *resources;
+
+@end
+
+
+/**
+ *  The availability groups for sqlserver
+ */
+@interface GTLRWorkloadManager_AvailabilityGroup : GTLRObject
+
+/** Output only. The databases */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
+
+/** Output only. The availability group name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The primary server */
+@property(nonatomic, copy, nullable) NSString *primaryServer;
+
+/** Output only. The secondary servers */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryServers;
+
+@end
+
+
+/**
+ *  The backend server
+ */
+@interface GTLRWorkloadManager_BackendServer : GTLRObject
+
+/** Output only. The backup file */
+@property(nonatomic, copy, nullable) NSString *backupFile;
+
+/** Output only. The backup schedule */
+@property(nonatomic, copy, nullable) NSString *backupSchedule;
+
+/** Output only. The backend name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. OS information */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/** Output only. resources in the component */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudResource *> *resources;
+
+@end
+
+
+/**
+ *  Backup properties.
+ */
+@interface GTLRWorkloadManager_BackupProperties : GTLRObject
+
+/**
+ *  Output only. The state of the latest backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateFailure
+ *        FAILURE state (Value: "BACKUP_STATE_FAILURE")
+ *    @arg @c kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateSuccess
+ *        SUCCESS state (Value: "BACKUP_STATE_SUCCESS")
+ *    @arg @c kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateUnspecified
+ *        unspecified (Value: "BACKUP_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latestBackupStatus;
+
+/** The time when the latest backup was performed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestBackupTime;
+
+@end
+
+
+/**
  *  Message describing big query destination
  */
 @interface GTLRWorkloadManager_BigQueryDestination : GTLRObject
@@ -770,6 +1461,69 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  The resource on GCP
+ */
+@interface GTLRWorkloadManager_CloudResource : GTLRObject
+
+/** Output only. All instance properties. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_InstanceProperties *instanceProperties;
+
+/**
+ *  Output only. ComputeInstance, ComputeDisk, VPC, Bare Metal server, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindAddress This
+ *        is a compute address. (Value: "RESOURCE_KIND_ADDRESS")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindBackendService
+ *        This is a compute backend service. (Value:
+ *        "RESOURCE_KIND_BACKEND_SERVICE")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindDisk This is a
+ *        compute disk. (Value: "RESOURCE_KIND_DISK")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindFilestore This
+ *        is a filestore instance. (Value: "RESOURCE_KIND_FILESTORE")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindForwardingRule
+ *        This is a compute forwarding rule. (Value:
+ *        "RESOURCE_KIND_FORWARDING_RULE")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindHealthCheck
+ *        This is a compute health check. (Value: "RESOURCE_KIND_HEALTH_CHECK")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindInstance This
+ *        is a compute instance. (Value: "RESOURCE_KIND_INSTANCE")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindInstanceGroup
+ *        This is a compute instance group. (Value:
+ *        "RESOURCE_KIND_INSTANCE_GROUP")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindNetwork This
+ *        is a compute network. (Value: "RESOURCE_KIND_NETWORK")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindPublicAddress
+ *        This is a public accessible IP Address. (Value:
+ *        "RESOURCE_KIND_PUBLIC_ADDRESS")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindSubnetwork
+ *        This is a compute subnetwork. (Value: "RESOURCE_KIND_SUBNETWORK")
+ *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindUnspecified
+ *        Unspecified resource kind. (Value: "RESOURCE_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Output only. resource name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The cluster for sqlserver
+ */
+@interface GTLRWorkloadManager_Cluster : GTLRObject
+
+/** Output only. The nodes */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nodes;
+
+/** Output only. The witness server */
+@property(nonatomic, copy, nullable) NSString *witnessServer;
+
+@end
+
+
+/**
  *  * Command specifies the type of command to execute.
  */
 @interface GTLRWorkloadManager_Command : GTLRObject
@@ -781,6 +1535,114 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 /** ShellCommand is invoked via the agent's command line executor. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ShellCommand *shellCommand;
+
+@end
+
+
+/**
+ *  HealthCondition contains the detailed health check of each component.
+ */
+@interface GTLRWorkloadManager_ComponentHealth : GTLRObject
+
+/** The component of a workload. */
+@property(nonatomic, copy, nullable) NSString *component;
+
+/** The detailed health checks of the component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_HealthCheck *> *componentHealthChecks;
+
+/**
+ *  Output only. The type of the component health.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeOptional
+ *        optional (Value: "TYPE_OPTIONAL")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeRequired
+ *        required (Value: "TYPE_REQUIRED")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeSpecial
+ *        special (Value: "TYPE_SPECIAL")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeUnspecified
+ *        Unspecified (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *componentHealthType;
+
+/**
+ *  Output only. The requirement of the component.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRequired;
+
+/**
+ *  Output only. The health state of the component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Critical has critical
+ *        issues (Value: "CRITICAL")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_HealthStateUnspecified
+ *        Unspecified (Value: "HEALTH_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Healthy healthy
+ *        workload (Value: "HEALTHY")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Unhealthy unhealthy
+ *        workload (Value: "UNHEALTHY")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Unsupported unsupported
+ *        (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Sub component health. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *subComponentHealthes;
+
+@end
+
+
+/**
+ *  The database for sqlserver
+ */
+@interface GTLRWorkloadManager_Database : GTLRObject
+
+/** Output only. The backup file */
+@property(nonatomic, copy, nullable) NSString *backupFile;
+
+/** Output only. The backup schedule */
+@property(nonatomic, copy, nullable) NSString *backupSchedule;
+
+/** Output only. The host VM */
+@property(nonatomic, copy, nullable) NSString *hostVm;
+
+/** Output only. The database name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Database Properties.
+ */
+@interface GTLRWorkloadManager_DatabaseProperties : GTLRObject
+
+/** Output only. Backup properties. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_BackupProperties *backupProperties;
+
+/**
+ *  Output only. Type of the database. HANA, DB2, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Ase SAP
+ *        Sybase ASE (Value: "ASE")
+ *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_DatabaseTypeUnspecified
+ *        unspecified (Value: "DATABASE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Db2 IBM DB2
+ *        (Value: "DB2")
+ *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Hana SAP HANA
+ *        (Value: "HANA")
+ *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_MaxDb SAP
+ *        MAX_DB (Value: "MAX_DB")
+ *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Oracle Oracle
+ *        Database (Value: "ORACLE")
+ *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Sqlserver
+ *        Microsoft SQL Server (Value: "SQLSERVER")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseType;
 
 @end
 
@@ -908,7 +1770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 /** Output only. Additional information generated by the execution */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Notice *> *notices;
 
-/** Output only. [Output only] Result summary */
+/** Output only. [Output only] Result summary for the execution */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Summary *resultSummary;
 
 /** Output only. execution result summary per rule */
@@ -1042,12 +1904,69 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  The front end server
+ */
+@interface GTLRWorkloadManager_FrontEndServer : GTLRObject
+
+/** Output only. The frontend name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. OS information */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/** Output only. resources in the component */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudResource *> *resources;
+
+@end
+
+
+/**
  *  Message describing compute engine instance filter
  */
 @interface GTLRWorkloadManager_GceInstanceFilter : GTLRObject
 
 /** Service account of compute engine */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccounts;
+
+@end
+
+
+/**
+ *  HealthCheck contains the detailed health check of a component based on
+ *  asource.
+ */
+@interface GTLRWorkloadManager_HealthCheck : GTLRObject
+
+/** Output only. The message of the health check. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Output only. The health check source metric name. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/** Output only. The resource the check performs on. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_CloudResource *resource;
+
+/** Output only. The source of the health check. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Output only. The state of the health check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Degraded degraded (Value:
+ *        "DEGRADED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Failed failed (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Passed passed (Value:
+ *        "PASSED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Skipped skipped (Value:
+ *        "SKIPPED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_StateUnspecified
+ *        Unspecified (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Unsupported unsupported
+ *        (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1077,6 +1996,146 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 /** The insights data for workload validation of torso workloads. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_TorsoValidation *torsoValidation;
+
+@end
+
+
+/**
+ *  a vm instance
+ */
+@interface GTLRWorkloadManager_Instance : GTLRObject
+
+/** Output only. name of the VM */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The location of the VM */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Output only. The state of the VM
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Deprovisioning The instance
+ *        is in de-provisioning state. (Value: "DEPROVISIONING")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_InstancestateUnspecified The
+ *        Status of the VM is unspecified (Value: "INSTANCESTATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Provisioning Resources are
+ *        being allocated for the instance. (Value: "PROVISIONING")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Repairing The instance is in
+ *        repair. (Value: "REPAIRING")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Running The instance is
+ *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Staging All required
+ *        resources have been allocated and the instance is being started.
+ *        (Value: "STAGING")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Stopped The instance has
+ *        stopped due to various reasons (user request, VM preemption, project
+ *        freezing, etc.). (Value: "STOPPED")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Stopping The instance is
+ *        currently stopping (either being deleted or killed). (Value:
+ *        "STOPPING")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Suspended The instance is
+ *        suspended. (Value: "SUSPENDED")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Suspending The instance is
+ *        suspending. (Value: "SUSPENDING")
+ *    @arg @c kGTLRWorkloadManager_Instance_Status_Terminated The instance has
+ *        failed in some way. (Value: "TERMINATED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Instance Properties.
+ */
+@interface GTLRWorkloadManager_InstanceProperties : GTLRObject
+
+/** Optional. Instance number. */
+@property(nonatomic, copy, nullable) NSString *instanceNumber;
+
+/** Optional. Instance machine type. */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. Instance role.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAppServer
+ *        APP server. (Value: "INSTANCE_ROLE_APP_SERVER")
+ *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAscs ASCS
+ *        role. (Value: "INSTANCE_ROLE_ASCS")
+ *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleErs ERS
+ *        role. (Value: "INSTANCE_ROLE_ERS")
+ *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaPrimary
+ *        HANA primary role. (Value: "INSTANCE_ROLE_HANA_PRIMARY")
+ *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaSecondary
+ *        HANA secondary role. (Value: "INSTANCE_ROLE_HANA_SECONDARY")
+ *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleUnspecified
+ *        Unspecified role. (Value: "INSTANCE_ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *role GTLR_DEPRECATED;
+
+/** Optional. Instance roles. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
+
+/** Optional. SAP Instance properties. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapInstanceProperties *sapInstanceProperties;
+
+/** Optional. Instance status. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Optional. the next maintenance event on VM */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_UpcomingMaintenanceEvent *upcomingMaintenanceEvent;
+
+@end
+
+
+/**
+ *  The database layer
+ */
+@interface GTLRWorkloadManager_Layer : GTLRObject
+
+/** the application layer */
+@property(nonatomic, copy, nullable) NSString *applicationType;
+
+/** Optional. the database layer */
+@property(nonatomic, copy, nullable) NSString *databaseType;
+
+/** Optional. instances in a layer */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Instance *> *instances;
+
+/** Output only. system identification of a layer */
+@property(nonatomic, copy, nullable) NSString *sid;
+
+@end
+
+
+/**
+ *  List discovered profile Response returns discovered profiles from agents
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workloadProfiles" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRWorkloadManager_ListDiscoveredProfilesResponse : GTLRCollectionObject
+
+/**
+ *  Output only. A token identifying a page of results the server should return
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/**
+ *  Output only. The list of workload profiles
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_WorkloadProfile *> *workloadProfiles;
 
 @end
 
@@ -1257,6 +2316,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ScannedResource *> *scannedResources;
+
+@end
+
+
+/**
+ *  The load balancer for sqlserver
+ */
+@interface GTLRWorkloadManager_LoadBalancerServer : GTLRObject
+
+/** Output only. The IP address */
+@property(nonatomic, copy, nullable) NSString *ip;
+
+/** Output only. The VM name */
+@property(nonatomic, copy, nullable) NSString *vm;
 
 @end
 
@@ -1447,6 +2520,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Product contains the details of a product.
+ */
+@interface GTLRWorkloadManager_Product : GTLRObject
+
+/** Optional. Name of the product. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Version of the product. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1649,6 +2736,42 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  The component of sap workload
+ */
+@interface GTLRWorkloadManager_SapComponent : GTLRObject
+
+/** Output only. All instance properties. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_DatabaseProperties *databaseProperties;
+
+/**
+ *  A list of host URIs that are part of the HA configuration if present. An
+ *  empty list indicates the component is not configured for HA.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *haHosts;
+
+/** Output only. resources in the component */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudResource *> *resources;
+
+/** Output only. sid is the sap component identificator */
+@property(nonatomic, copy, nullable) NSString *sid;
+
+/**
+ *  The detected topology of the component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapComponent_TopologyType_TopologyScaleOut A
+ *        scale-out multi-node system. (Value: "TOPOLOGY_SCALE_OUT")
+ *    @arg @c kGTLRWorkloadManager_SapComponent_TopologyType_TopologyScaleUp A
+ *        scale-up single node system. (Value: "TOPOLOGY_SCALE_UP")
+ *    @arg @c kGTLRWorkloadManager_SapComponent_TopologyType_TopologyTypeUnspecified
+ *        Unspecified topology. (Value: "TOPOLOGY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *topologyType;
+
+@end
+
+
+/**
  *  The schema of SAP system discovery data.
  */
 @interface GTLRWorkloadManager_SapDiscovery : GTLRObject
@@ -1673,6 +2796,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 /** Required. Unix timestamp this system has been updated last. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Whether to use DR reconciliation or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useDrReconciliation;
 
 /** Optional. The properties of the workload. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryWorkloadProperties *workloadProperties;
@@ -1701,10 +2831,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 @property(nonatomic, copy, nullable) NSString *hostProject;
 
 /**
+ *  Optional. The region this component's resources are primarily located in.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
  *  Optional. A list of replication sites used in Disaster Recovery (DR)
  *  configurations.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapDiscoveryComponent *> *replicationSites;
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapDiscoveryComponentReplicationSite *> *replicationSites;
 
 /** Optional. The resources in a component. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapDiscoveryResource *> *resources;
@@ -1795,6 +2930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  *  Required. Type of the database. HANA, DB2, etc.
  *
  *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Ase
+ *        SAP Sybase ASE (Value: "ASE")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_DatabaseTypeUnspecified
  *        Unspecified database type. (Value: "DATABASE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Db2
@@ -1803,6 +2940,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  *        SAP HANA (Value: "HANA")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_MaxDb
  *        SAP MAX_DB (Value: "MAX_DB")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Oracle
+ *        Oracle Database (Value: "ORACLE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Sqlserver
+ *        Microsoft SQL Server (Value: "SQLSERVER")
  */
 @property(nonatomic, copy, nullable) NSString *databaseType;
 
@@ -1812,6 +2953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 /** Optional. Instance number of the SAP instance. */
 @property(nonatomic, copy, nullable) NSString *instanceNumber;
 
+/** Optional. Landscape ID from the HANA nameserver. */
+@property(nonatomic, copy, nullable) NSString *landscapeId;
+
 /** Required. URI of the recognized primary instance of the database. */
 @property(nonatomic, copy, nullable) NSString *primaryInstanceUri;
 
@@ -1820,6 +2964,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  *  the database has only a single node.
  */
 @property(nonatomic, copy, nullable) NSString *sharedNfsUri;
+
+@end
+
+
+/**
+ *  A replication site used in Disaster Recovery (DR) configurations.
+ */
+@interface GTLRWorkloadManager_SapDiscoveryComponentReplicationSite : GTLRObject
+
+/** Optional. The system component for the site. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryComponent *component;
+
+/** Optional. The name of the source site from which this one replicates. */
+@property(nonatomic, copy, nullable) NSString *sourceSite;
 
 @end
 
@@ -1933,6 +3091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clusterInstances;
 
+/** Optional. Disk mounts on the instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount *> *diskMounts;
+
 /**
  *  Optional. The VM's instance number.
  *
@@ -2020,6 +3181,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  Disk mount on the instance.
+ */
+@interface GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount : GTLRObject
+
+/** Optional. Filesystem mount point. */
+@property(nonatomic, copy, nullable) NSString *mountPoint;
+
+/** Optional. Name of the disk. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A set of properties describing an SAP workload.
  */
 @interface GTLRWorkloadManager_SapDiscoveryWorkloadProperties : GTLRObject
@@ -2068,6 +3243,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 /** Optional. The component's major version. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  SAP instance properties.
+ */
+@interface GTLRWorkloadManager_SapInstanceProperties : GTLRObject
+
+/** Optional. SAP Instance numbers. They are from '00' to '99'. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *numbers;
 
 @end
 
@@ -2159,6 +3345,60 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  *        fetch them all at once.
  */
 @interface GTLRWorkloadManager_SapValidationValidationDetail_Details : GTLRObject
+@end
+
+
+/**
+ *  The body of sap workload
+ */
+@interface GTLRWorkloadManager_SapWorkload : GTLRObject
+
+/** Output only. the acsc componment */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapComponent *application;
+
+/**
+ *  Output only. the architecture
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_ArchitectureUnspecified
+ *        Unspecified architecture. (Value: "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_Centralized A
+ *        centralized system. (Value: "CENTRALIZED")
+ *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_Distributed A
+ *        distributed system. (Value: "DISTRIBUTED")
+ *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_DistributedHa A
+ *        distributed with HA system. (Value: "DISTRIBUTED_HA")
+ *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_Invalid Invaliad
+ *        architecture. (Value: "INVALID")
+ *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabase A
+ *        standalone database system. (Value: "STANDALONE_DATABASE")
+ *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabaseHa
+ *        A standalone database with HA system. (Value:
+ *        "STANDALONE_DATABASE_HA")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/** Output only. the database componment */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapComponent *database;
+
+/** Output only. The metadata for SAP workload. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapWorkload_Metadata *metadata;
+
+/** Output only. the products on this workload. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Product *> *products;
+
+@end
+
+
+/**
+ *  Output only. The metadata for SAP workload.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkloadManager_SapWorkload_Metadata : GTLRObject
 @end
 
 
@@ -2298,6 +3538,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  The body of sqlserver workload
+ */
+@interface GTLRWorkloadManager_SqlserverWorkload : GTLRObject
+
+/** Output only. The availability groups for sqlserver */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_AvailabilityGroup *> *ags;
+
+/** Output only. The cluster for sqlserver */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_Cluster *cluster;
+
+/** Output only. The databases for sqlserver */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Database *> *databases;
+
+/** Output only. The load balancer for sqlserver */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_LoadBalancerServer *loadBalancerServer;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -2372,6 +3632,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  The body of three tier workload
+ */
+@interface GTLRWorkloadManager_ThreeTierWorkload : GTLRObject
+
+/** Output only. The API layer for three tier workload */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_APILayerServer *apiLayer;
+
+/** Output only. The backend for three tier workload */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_BackendServer *backend;
+
+/** Output only. the workload endpoint */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/** Output only. The frontend for three tier workload */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_FrontEndServer *frontend;
+
+@end
+
+
+/**
  *  The schema of torso workload validation data.
  */
 @interface GTLRWorkloadManager_TorsoValidation : GTLRObject
@@ -2432,6 +3712,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 
 
 /**
+ *  Maintenance Event
+ */
+@interface GTLRWorkloadManager_UpcomingMaintenanceEvent : GTLRObject
+
+/** Optional. End time */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Optional. Maintenance status */
+@property(nonatomic, copy, nullable) NSString *maintenanceStatus;
+
+/** Optional. Start time */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** Optional. Type */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Message describing the violation in an evaluation result.
  */
 @interface GTLRWorkloadManager_ViolationDetails : GTLRObject
@@ -2457,6 +3757,123 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
  *        fetch them all at once.
  */
 @interface GTLRWorkloadManager_ViolationDetails_Observed : GTLRObject
+@end
+
+
+/**
+ *  workload resource
+ */
+@interface GTLRWorkloadManager_WorkloadProfile : GTLRObject
+
+/** Optional. The application layer */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_Layer *application GTLR_DEPRECATED;
+
+/** Optional. The ascs layer */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_Layer *ascs GTLR_DEPRECATED;
+
+/** Optional. The database layer */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_Layer *database GTLR_DEPRECATED;
+
+/**
+ *  Optional. such as name, description, version. More example can be found in
+ *  deployment
+ */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_WorkloadProfile_Labels *labels;
+
+/**
+ *  Identifier. name of resource names have the form
+ *  'projects/{project_id}/workloads/{workload_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. time when the workload data was refreshed */
+@property(nonatomic, strong, nullable) GTLRDateTime *refreshedTime;
+
+/** The sap workload content */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapWorkload *sapWorkload;
+
+/** The sqlserver workload content */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlserverWorkload *sqlserverWorkload;
+
+/**
+ *  Output only. [output only] the current state if a a workload
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Active ACTIVE state
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Deploying workload is
+ *        in Deploying state (Value: "DEPLOYING")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Destroying The workload
+ *        is in Destroying state (Value: "DESTROYING")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Maintenance The
+ *        Workload is undermaintance (Value: "MAINTENANCE")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_StateUnspecified
+ *        unspecified (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state GTLR_DEPRECATED;
+
+/** The 3 tier web app workload content */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_ThreeTierWorkload *threeTierWorkload;
+
+/**
+ *  Required. The type of the workload
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_S4Hana running
+ *        sap workload s4/hana (Value: "S4_HANA")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_SqlServer
+ *        running sqlserver workload (Value: "SQL_SERVER")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_ThreeTierWebApp
+ *        running 3 tier web app workload (Value: "THREE_TIER_WEB_APP")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeUnspecified
+ *        unspecified workload type (Value: "WORKLOAD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workloadType;
+
+@end
+
+
+/**
+ *  Optional. such as name, description, version. More example can be found in
+ *  deployment
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkloadManager_WorkloadProfile_Labels : GTLRObject
+@end
+
+
+/**
+ *  WorkloadProfileHealth contains the detailed health check of workload.
+ */
+@interface GTLRWorkloadManager_WorkloadProfileHealth : GTLRObject
+
+/** The time when the health check was performed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *checkTime;
+
+/** The detailed condition reports of each component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *componentHealthes;
+
+/**
+ *  Output only. The health state of the workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Critical has
+ *        critical issues (Value: "CRITICAL")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_HealthStateUnspecified
+ *        Unspecified (Value: "HEALTH_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Healthy healthy
+ *        workload (Value: "HEALTHY")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Unhealthy
+ *        unhealthy workload (Value: "UNHEALTHY")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported
+ *        unsupported (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 

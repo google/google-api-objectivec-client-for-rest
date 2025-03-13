@@ -712,7 +712,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Criteria
-@dynamic policies;
+@dynamic filter, policies;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2285,8 +2285,9 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_UptimeCheckConfig
 @dynamic checkerType, contentMatchers, displayName, httpCheck, internalCheckers,
-         isInternal, monitoredResource, name, period, resourceGroup,
-         selectedRegions, syntheticMonitor, tcpCheck, timeout, userLabels;
+         isInternal, logCheckFailures, monitoredResource, name, period,
+         resourceGroup, selectedRegions, syntheticMonitor, tcpCheck, timeout,
+         userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

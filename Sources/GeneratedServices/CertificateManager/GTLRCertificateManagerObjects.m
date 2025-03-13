@@ -25,6 +25,7 @@ NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_State_StateUns
 
 // GTLRCertificateManager_Certificate.scope
 NSString * const kGTLRCertificateManager_Certificate_Scope_AllRegions = @"ALL_REGIONS";
+NSString * const kGTLRCertificateManager_Certificate_Scope_ClientAuth = @"CLIENT_AUTH";
 NSString * const kGTLRCertificateManager_Certificate_Scope_Default = @"DEFAULT";
 NSString * const kGTLRCertificateManager_Certificate_Scope_EdgeCache = @"EDGE_CACHE";
 
@@ -94,7 +95,7 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 @implementation GTLRCertificateManager_Certificate
 @dynamic createTime, descriptionProperty, expireTime, labels, managed, name,
-         pemCertificate, sanDnsnames, scope, selfManaged, updateTime;
+         pemCertificate, sanDnsnames, scope, selfManaged, updateTime, usedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -102,7 +103,8 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"sanDnsnames" : [NSString class]
+    @"sanDnsnames" : [NSString class],
+    @"usedBy" : [GTLRCertificateManager_UsedBy class]
   };
   return map;
 }
@@ -753,4 +755,14 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_UsedBy
+//
+
+@implementation GTLRCertificateManager_UsedBy
+@dynamic name;
 @end

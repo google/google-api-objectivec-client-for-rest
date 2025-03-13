@@ -40,31 +40,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Count insight. When this insight is specified ComputeInsights returns the
- *  number of places that match the specified filter criteria. ``` For example
- *  if the request is: ComputeInsightsRequest { insights: INSIGHT_COUNT filter {
- *  location_filter {region: } type_filter {included_types: "restaurant"}
- *  operating_status: OPERATING_STATUS_OPERATIONAL price_levels:
- *  PRICE_LEVEL_FREE price_levels: PRICE_LEVEL_INEXPENSIVE min_rating: 4.0 } }
- *  The method will return the count of restaurants in California that are
- *  operational, with price level free or inexpensive and have an average rating
- *  of at least 4 starts. Example response: ComputeInsightsResponse { count: }
- *  ```
+ *  number of places that match the specified filter criteria. Example request:
+ *  ``` { "insights": ["INSIGHT_COUNT"], "filter": { "locationFilter": {
+ *  "region": { "place": "places/ChIJPV4oX_65j4ARVW8IJ6IJUYs" } }, "typeFilter":
+ *  { "includedTypes": ["restaurant"] }, "operatingStatus":
+ *  ["OPERATING_STATUS_OPERATIONAL"], "priceLevels": [ "PRICE_LEVEL_FREE",
+ *  "PRICE_LEVEL_INEXPENSIVE" ], "ratingFilter": { "minRating": 4.0 } } } ```
+ *  Example response: ``` { "count": 1234 } ```
  *
  *  Value: "INSIGHT_COUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_ComputeInsightsRequest_Insights_InsightCount;
 /**
- *  Return Places When this insight is specified ComputeInsights returns Places
- *  that match the specified filter criteria. ``` For example if the request is:
- *  ComputeInsightsRequest { insights: INSIGHT_PLACES filter { location_filter
- *  {region: } type_filter {included_types: "restaurant"} operating_status:
- *  OPERATING_STATUS_OPERATIONAL price_levels: PRICE_LEVEL_FREE price_levels:
- *  PRICE_LEVEL_INEXPENSIVE min_rating: 4.0 } } The method will return list of
- *  places of restaurants in California that are operational, with price level
- *  free or inexpensive and have an average rating of at least 4 stars. Example
- *  response: ComputeInsightsResponse { place_insights { place: "places/ABC" }
- *  place_insights { place: "places/PQR" } place_insights { place: "places/XYZ"
- *  } } ```
+ *  Return Places When this insight is specified ComputeInsights returns places
+ *  IDs that match the specified filter criteria. Example request: ``` {
+ *  "insights": ["INSIGHT_PLACES"], "filter": { "locationFilter": { "region": {
+ *  "place": "places/ChIJPV4oX_65j4ARVW8IJ6IJUYs" } }, "typeFilter": {
+ *  "includedTypes": ["restaurant"] }, "operatingStatus":
+ *  ["OPERATING_STATUS_OPERATIONAL"], "priceLevels": [ "PRICE_LEVEL_FREE",
+ *  "PRICE_LEVEL_INEXPENSIVE" ], "ratingFilter": { "minRating": 4.0 } } } ```
+ *  Example response: ``` { "placeInsights": [ {"place": "places/ABC"},
+ *  {"place": "places/PQR"}, {"place": "places/XYZ"} ] } ```
  *
  *  Value: "INSIGHT_PLACES"
  */
@@ -92,13 +88,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_Filter_OperatingStatus_Oper
  */
 FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_Filter_OperatingStatus_OperatingStatusPermanentlyClosed;
 /**
- *  The Place is temporarily closed and expected to reopen in the future.
+ *  The place is temporarily closed and expected to reopen in the future.
  *
  *  Value: "OPERATING_STATUS_TEMPORARILY_CLOSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_Filter_OperatingStatus_OperatingStatusTemporarilyClosed;
 /**
- *  Not Specified.
+ *  Not specified. This value should not be used.
  *
  *  Value: "OPERATING_STATUS_UNSPECIFIED"
  */
@@ -132,7 +128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_Filter_PriceLevels_PriceLev
  */
 FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_Filter_PriceLevels_PriceLevelModerate;
 /**
- *  Place price level is unspecified or unknown.
+ *  Not specified. This value should not be used.
  *
  *  Value: "PRICE_LEVEL_UNSPECIFIED"
  */
@@ -153,8 +149,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_Filter_PriceLevels_PriceLev
 @property(nonatomic, strong, nullable) GTLRAreaInsights_LatLng *latLng;
 
 /**
- *  The Place resource name of the center of the circle. Only point places are
- *  supported.
+ *  **Format:** Must be in the format `places/PLACE_ID`, where `PLACE_ID` is the
+ *  unique identifier of a place. For example:
+ *  `places/ChIJgUbEo8cfqokR5lP9_Wh_DaM`.
  */
 @property(nonatomic, copy, nullable) NSString *place;
 
@@ -234,7 +231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAreaInsights_Filter_PriceLevels_PriceLev
 
 /**
  *  Optional. Restricts results to places whose price level is included on this
- *  list. If price_level is not set, all price levels are included in the
+ *  list. If `price_levels` is not set, all price levels are included in the
  *  results.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *priceLevels;

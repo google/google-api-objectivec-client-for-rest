@@ -1055,6 +1055,13 @@ GTLR_DEPRECATED
 /** The HTTP request method, such as `GET`, `POST`. */
 @property(nonatomic, copy, nullable) NSString *method;
 
+/**
+ *  The values from Origin header from the HTTP request, such as
+ *  "https://console.cloud.google.com". Modern browsers can only have one
+ *  origin. Special browsers and/or HTTP clients may require multiple origins.
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
 /** The HTTP URL path, excluding the query parameters. */
 @property(nonatomic, copy, nullable) NSString *path;
 
