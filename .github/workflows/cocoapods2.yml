@@ -1,0 +1,57 @@
+name: CocoaPods
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - '.github/workflows/cocoapods2.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - '.github/workflows/cocoapods2.yml'
+
+jobs:
+  pod-lib-lint-subspecs:
+    # If we run one `pod lib lint` it takes a really long time, and activity
+    # monitor show it has not really using the machines resources. So fan
+    # this out into a few "chunks" and also use run things within the
+    # chunk in parallel to speed things up. We use "3" jobs in parallel
+    # based on the cpu count per vm:
+    # https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+    name: CocoaPods lib lint SubSpecs
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        pod_configuration: ["Debug", "Release"]
+        # Number of chunks and then a run per chunk
+        num_chunks: ["3"]
+        chunk: ["1", "2", "3"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: "macOS"
+      run:  |
+        set -eu
+        
+        # Calculate this chunk of subspecs
+        SUBSPECS=$(sed -n -e "s/[^']*subspec '\([^']*\).*/\1/p" GoogleAPIClientForREST.podspec)
+        NUM_SUBSPECS=$(echo "${SUBSPECS}" | wc -l)
+        LINES_PER_CHUNK=$((NUM_SUBSPECS / ${{ matrix.num_chunks }}))
+        START_LINE=$(( (${{ matrix.chunk }} - 1) * LINES_PER_CHUNK + 1 ))
+        END_LINE=$(( ${{ matrix.chunk }} * LINES_PER_CHUNK ))
+
+        if [ "${{ matrix.chunk }}" -eq "${{ matrix.num_chunks }}" ]; then
+          SED_PATTERN="${START_LINE},${NUM_SUBSPECS}p"
+        else
+          SED_PATTERN="${START_LINE},${END_LINE}p"
+        fi
+
+        # `pod` only supports one subspec at a time.
+        echo "${SUBSPECS}" | sed -n "${SED_PATTERN}" | \
+          xargs -I % \
+            pod lib lint --verbose \
+              --subspec=% \
+              --configuration=${{ matrix.pod_configuration }} \
+              --platforms=macos \
+              --skip-tests \
+              GoogleAPIClientForREST.podspec
