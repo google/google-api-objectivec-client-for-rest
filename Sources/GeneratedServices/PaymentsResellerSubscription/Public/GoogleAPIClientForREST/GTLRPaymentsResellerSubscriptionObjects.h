@@ -990,8 +990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleHomePayload : GTLRObject
 
 /**
- *  Output only. Output only. This identifies whether the subscription is
- *  attached to a Google Home structure.
+ *  Output only. This identifies whether the subscription is attached to a
+ *  Google Home structure.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1155,7 +1155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product : GTLRObject
 
-/** Output only. Output Only. Specifies the details for a bundle product. */
+/** Output only. Specifies the details for a bundle product. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_ProductBundleDetails *bundleDetails;
 
 /**
@@ -1174,7 +1174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig *> *priceConfigs;
 
 /**
- *  Output only. Output Only. Specifies the type of the product.
+ *  Output only. Specifies the type of the product.
  *
  *  Likely values:
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeBundleSubscription
@@ -1288,7 +1288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Output Only. Specifies the type of the promotion.
+ *  Output only. Specifies the type of the promotion.
  *
  *  Likely values:
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeFreeTrial
@@ -1348,8 +1348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, strong, nullable) NSNumber *discountRatioMicros;
 
 /**
- *  Output only. Output Only. The duration of an introductory offer in billing
- *  cycles.
+ *  Output only. The duration of an introductory offer in billing cycles.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1360,6 +1359,24 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  "US".
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Request to resume a suspended subscription.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionRequest : GTLRObject
+@end
+
+
+/**
+ *  Response that contains the resumed subscription.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionResponse : GTLRObject
+
+/** The resumed subscription resource. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *subscription;
 
 @end
 
@@ -1838,6 +1855,24 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  resource name, use the subscription_id segment only.
  */
 @property(nonatomic, copy, nullable) NSString *previousSubscriptionId;
+
+@end
+
+
+/**
+ *  Request to suspend a subscription.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionRequest : GTLRObject
+@end
+
+
+/**
+ *  Response that contains the suspended subscription.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionResponse : GTLRObject
+
+/** The suspended subscription resource. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *subscription;
 
 @end
 

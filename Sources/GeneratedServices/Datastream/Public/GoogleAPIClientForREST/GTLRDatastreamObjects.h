@@ -34,6 +34,7 @@
 @class GTLRDatastream_GcsDestinationConfig;
 @class GTLRDatastream_GcsProfile;
 @class GTLRDatastream_Gtid;
+@class GTLRDatastream_HostAddress;
 @class GTLRDatastream_JsonFileFormat;
 @class GTLRDatastream_Location;
 @class GTLRDatastream_Location_Labels;
@@ -41,6 +42,13 @@
 @class GTLRDatastream_LogFileDirectories;
 @class GTLRDatastream_LogMiner;
 @class GTLRDatastream_Merge;
+@class GTLRDatastream_MongodbCluster;
+@class GTLRDatastream_MongodbCollection;
+@class GTLRDatastream_MongodbDatabase;
+@class GTLRDatastream_MongodbField;
+@class GTLRDatastream_MongodbObjectIdentifier;
+@class GTLRDatastream_MongodbProfile;
+@class GTLRDatastream_MongodbSourceConfig;
 @class GTLRDatastream_MostRecentStartPosition;
 @class GTLRDatastream_MysqlColumn;
 @class GTLRDatastream_MysqlDatabase;
@@ -81,6 +89,7 @@
 @class GTLRDatastream_PrivateConnection;
 @class GTLRDatastream_PrivateConnection_Labels;
 @class GTLRDatastream_PrivateConnectivity;
+@class GTLRDatastream_PscInterfaceConfig;
 @class GTLRDatastream_Route;
 @class GTLRDatastream_Route_Labels;
 @class GTLRDatastream_SalesforceField;
@@ -106,6 +115,8 @@
 @class GTLRDatastream_SqlServerSourceConfig;
 @class GTLRDatastream_SqlServerTable;
 @class GTLRDatastream_SqlServerTransactionLogs;
+@class GTLRDatastream_SrvConnectionFormat;
+@class GTLRDatastream_StandardConnectionFormat;
 @class GTLRDatastream_StaticServiceIpConnectivity;
 @class GTLRDatastream_Status;
 @class GTLRDatastream_Status_Details_Item;
@@ -462,6 +473,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_BackfillAllStrategy : GTLRObject
 
+/** MongoDB data source objects to avoid backfilling */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *mongodbExcludedObjects;
+
 /** MySQL data source objects to avoid backfilling. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *mysqlExcludedObjects;
 
@@ -696,6 +710,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Labels. */
 @property(nonatomic, strong, nullable) GTLRDatastream_ConnectionProfile_Labels *labels;
 
+/** MongoDB Connection Profile configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbProfile *mongodbProfile;
+
 /** MySQL ConnectionProfile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlProfile *mysqlProfile;
 
@@ -829,6 +846,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *hierarchyDepth;
 
+/** MongoDB cluster to enrich with child data objects and metadata. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *mongodbCluster;
+
 /** MySQL RDBMS to enrich with child data objects and metadata. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *mysqlRdbms;
 
@@ -837,6 +857,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** PostgreSQL RDBMS to enrich with child data objects and metadata. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlRdbms;
+
+/** Salesforce organization to enrich with child data objects and metadata. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceOrg;
 
 /** SQLServer RDBMS to enrich with child data objects and metadata. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerRdbms;
@@ -849,6 +872,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_DiscoverConnectionProfileResponse : GTLRObject
 
+/** Enriched MongoDB cluster. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *mongodbCluster;
+
 /** Enriched MySQL RDBMS object. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *mysqlRdbms;
 
@@ -857,6 +883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Enriched PostgreSQL RDBMS object. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlRdbms;
+
+/** Enriched Salesforce organization. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceOrg;
 
 /** Enriched SQLServer RDBMS object. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerRdbms;
@@ -1012,6 +1041,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Use GTID based replication.
  */
 @interface GTLRDatastream_Gtid : GTLRObject
+@end
+
+
+/**
+ *  A HostAddress represents a transport end point, which is the combination of
+ *  an IP address or hostname and a port number.
+ */
+@interface GTLRDatastream_HostAddress : GTLRObject
+
+/** Required. Hostname for the connection. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Optional. Port for the connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
 @end
 
 
@@ -1346,6 +1394,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  MongoDB Cluster structure.
+ */
+@interface GTLRDatastream_MongodbCluster : GTLRObject
+
+/** MongoDB databases in the cluster. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MongodbDatabase *> *databases;
+
+@end
+
+
+/**
+ *  MongoDB Collection.
+ */
+@interface GTLRDatastream_MongodbCollection : GTLRObject
+
+/** Collection name. */
+@property(nonatomic, copy, nullable) NSString *collection;
+
+/** Fields in the collection. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MongodbField *> *fields;
+
+@end
+
+
+/**
+ *  MongoDB Database.
+ */
+@interface GTLRDatastream_MongodbDatabase : GTLRObject
+
+/** Collections in the database. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MongodbCollection *> *collections;
+
+/** Database name. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+@end
+
+
+/**
+ *  MongoDB Field.
+ */
+@interface GTLRDatastream_MongodbField : GTLRObject
+
+/** Field name. */
+@property(nonatomic, copy, nullable) NSString *field;
+
+@end
+
+
+/**
+ *  MongoDB data source object identifier.
+ */
+@interface GTLRDatastream_MongodbObjectIdentifier : GTLRObject
+
+/** Required. The collection name. */
+@property(nonatomic, copy, nullable) NSString *collection;
+
+/** Required. The database name. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+@end
+
+
+/**
+ *  MongoDB profile.
+ */
+@interface GTLRDatastream_MongodbProfile : GTLRObject
+
+/** Required. List of host addresses for a MongoDB cluster. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_HostAddress *> *hostAddresses;
+
+/**
+ *  Optional. Password for the MongoDB connection. Mutually exclusive with the
+ *  `secret_manager_stored_password` field.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Name of the replica set. Only needed for self hosted replica set
+ *  type MongoDB cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *replicaSet;
+
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the
+ *  SQLServer connection password. Mutually exclusive with the `password` field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
+
+/** Srv connection format. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SrvConnectionFormat *srvConnectionFormat;
+
+/** Standard connection format. */
+@property(nonatomic, strong, nullable) GTLRDatastream_StandardConnectionFormat *standardConnectionFormat;
+
+/** Required. Username for the MongoDB connection. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  MongoDB source configuration.
+ */
+@interface GTLRDatastream_MongodbSourceConfig : GTLRObject
+
+/** MongoDB collections to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *excludeObjects;
+
+/** MongoDB collections to include in the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *includeObjects;
+
+@end
+
+
+/**
  *  CDC strategy to start replicating from the most recent position in the
  *  source.
  */
@@ -1493,6 +1657,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the MySQL
+ *  connection password. Mutually exclusive with the `password` field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
+
 /** SSL configuration for the MySQL connection. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlSslConfig *sslConfig;
 
@@ -1584,8 +1754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /**
  *  Optional. Input only. PEM-encoded private key associated with the Client
  *  Certificate. If this field is used then the 'client_certificate' and the
- *  'ca_certificate' fields are mandatory. Mutually exclusive with the
- *  `secret_manager_stored_client_key` field.
+ *  'ca_certificate' fields are mandatory.
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
@@ -1786,7 +1955,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Optional. SSL configuration for the Oracle connection. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleSslConfig *oracleSslConfig;
 
-/** Optional. Password for the Oracle ASM connection. */
+/**
+ *  Optional. Password for the Oracle ASM connection. Mutually exclusive with
+ *  the `secret_manager_stored_password` field.
+ */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
@@ -1795,6 +1967,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the Oracle
+ *  ASM connection password. Mutually exclusive with the `password` field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
 
 /** Required. Username for the Oracle ASM connection. */
 @property(nonatomic, copy, nullable) NSString *username;
@@ -2167,6 +2345,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
+ *  Optional. A reference to a Secret Manager resource name storing the
+ *  PostgreSQL connection password. Mutually exclusive with the `password`
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
+
+/**
  *  Optional. SSL configuration for the PostgreSQL connection. In case
  *  PostgresqlSslConfig is not set, the connection will use the default SSL
  *  mode, which is `prefer` (i.e. this mode will only use encryption if enabled
@@ -2301,6 +2486,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** PSC Interface Config. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PscInterfaceConfig *pscInterfaceConfig;
+
 /**
  *  Output only. Reserved for future use.
  *
@@ -2368,6 +2556,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  `projects/{project}/locations/{location}/privateConnections/{name}`
  */
 @property(nonatomic, copy, nullable) NSString *privateConnection;
+
+@end
+
+
+/**
+ *  The PSC Interface configuration is used to create PSC Interface between
+ *  Datastream and the consumer's PSC.
+ */
+@interface GTLRDatastream_PscInterfaceConfig : GTLRObject
+
+/**
+ *  Required. Fully qualified name of the Network Attachment that Datastream
+ *  will connect to. Format:
+ *  `projects/{{project}}/regions/{{region}}/networkAttachments/{{name}}`
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
 
 @end
 
@@ -2561,8 +2765,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Optional. Input only. PEM-encoded private key associated with the client
  *  certificate. This value will be used during the SSL/TLS handshake, allowing
  *  the PostgreSQL server to authenticate the client's identity, i.e. identity
- *  of the Datastream. Mutually exclusive with the
- *  `secret_manager_stored_client_key` field.
+ *  of the Datastream.
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
@@ -2600,6 +2803,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  The configuration of the stream source.
  */
 @interface GTLRDatastream_SourceConfig : GTLRObject
+
+/** MongoDB data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbSourceConfig *mongodbSourceConfig;
 
 /** MySQL data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlSourceConfig *mysqlSourceConfig;
@@ -2641,6 +2847,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Represents an identifier of an object in the data source.
  */
 @interface GTLRDatastream_SourceObjectIdentifier : GTLRObject
+
+/** MongoDB data source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbObjectIdentifier *mongodbIdentifier;
 
 /** Mysql data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlObjectIdentifier *mysqlIdentifier;
@@ -2792,6 +3001,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
+/**
+ *  Optional. A reference to a Secret Manager resource name storing the
+ *  SQLServer connection password. Mutually exclusive with the `password` field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
+
 /** Required. Username for the SQLServer connection. */
 @property(nonatomic, copy, nullable) NSString *username;
 
@@ -2878,6 +3093,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Configuration to use Transaction Logs CDC read method.
  */
 @interface GTLRDatastream_SqlServerTransactionLogs : GTLRObject
+@end
+
+
+/**
+ *  Srv connection format.
+ */
+@interface GTLRDatastream_SrvConnectionFormat : GTLRObject
+@end
+
+
+/**
+ *  Standard connection format.
+ */
+@interface GTLRDatastream_StandardConnectionFormat : GTLRObject
 @end
 
 

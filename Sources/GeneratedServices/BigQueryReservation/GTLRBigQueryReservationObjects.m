@@ -214,7 +214,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_MergeCapacityCommitmentsRequest
-@dynamic capacityCommitmentIds;
+@dynamic capacityCommitmentId, capacityCommitmentIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -40,7 +40,8 @@
 //
 
 @implementation GTLRReports_Activity
-@dynamic actor, ETag, events, identifier, ipAddress, kind, ownerDomain;
+@dynamic actor, ETag, events, identifier, ipAddress, kind, ownerDomain,
+         resourceDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -52,7 +53,8 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"events" : [GTLRReports_Activity_Events_Item class]
+    @"events" : [GTLRReports_Activity_Events_Item class],
+    @"resourceDetails" : [GTLRReports_ResourceDetails class]
   };
   return map;
 }
@@ -66,7 +68,7 @@
 //
 
 @implementation GTLRReports_Activity_Actor
-@dynamic callerType, email, key, profileId;
+@dynamic applicationInfo, callerType, email, key, profileId;
 @end
 
 
@@ -76,11 +78,12 @@
 //
 
 @implementation GTLRReports_Activity_Events_Item
-@dynamic name, parameters, type;
+@dynamic name, parameters, resourceIds, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRReports_Activity_Events_Item_Parameters_Item class]
+    @"parameters" : [GTLRReports_Activity_Events_Item_Parameters_Item class],
+    @"resourceIds" : [NSString class]
   };
   return map;
 }
@@ -95,6 +98,16 @@
 
 @implementation GTLRReports_Activity_Id
 @dynamic applicationName, customerId, time, uniqueQualifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_Activity_Actor_ApplicationInfo
+//
+
+@implementation GTLRReports_Activity_Actor_ApplicationInfo
+@dynamic applicationName, impersonation, oauthClientId;
 @end
 
 
@@ -157,6 +170,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRReports_AppliedLabel
+//
+
+@implementation GTLRReports_AppliedLabel
+@dynamic fieldValues, identifier, reason, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldValues" : [GTLRReports_FieldValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRReports_Channel
 //
 
@@ -187,6 +222,112 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRReports_Date
+//
+
+@implementation GTLRReports_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_FieldValue
+//
+
+@implementation GTLRReports_FieldValue
+@dynamic dateValue, displayName, identifier, integerValue, longTextValue,
+         reason, selectionListValue, selectionValue, textListValue, textValue,
+         type, unsetValue, userListValue, userValue;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_FieldValueSelectionListValue
+//
+
+@implementation GTLRReports_FieldValueSelectionListValue
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRReports_FieldValueSelectionValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_FieldValueSelectionValue
+//
+
+@implementation GTLRReports_FieldValueSelectionValue
+@dynamic badged, displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_FieldValueTextListValue
+//
+
+@implementation GTLRReports_FieldValueTextListValue
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_FieldValueUserListValue
+//
+
+@implementation GTLRReports_FieldValueUserListValue
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRReports_FieldValueUserValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_FieldValueUserValue
+//
+
+@implementation GTLRReports_FieldValueUserValue
+@dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRReports_NestedParameter
 //
 
@@ -199,6 +340,39 @@
     @"multiBoolValue" : [NSNumber class],
     @"multiIntValue" : [NSNumber class],
     @"multiValue" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_Reason
+//
+
+@implementation GTLRReports_Reason
+@dynamic reasonType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_ResourceDetails
+//
+
+@implementation GTLRReports_ResourceDetails
+@dynamic applicationId, appliedLabels, identifier, ownerEmail, relation, title,
+         type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appliedLabels" : [GTLRReports_AppliedLabel class]
   };
   return map;
 }

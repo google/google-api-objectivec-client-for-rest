@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Docs documents.
 // Documentation:
-//   https://developers.google.com/docs/
+//   https://developers.google.com/workspace/docs/
 
 #import <GoogleAPIClientForREST/GTLRDocs.h>
 

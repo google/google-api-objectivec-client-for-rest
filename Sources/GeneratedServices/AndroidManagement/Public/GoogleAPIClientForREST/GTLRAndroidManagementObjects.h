@@ -1877,8 +1877,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment;
 /**
- *  A notification sent when an enterprise is upgraded.Note: This feature is not
- *  generally available.
+ *  A notification sent for an enterprise upgrade. An enterprise upgrade is a
+ *  process that upgrades a managed Google Play Accounts enterprise to a managed
+ *  Google domain.
  *
  *  Value: "ENTERPRISE_UPGRADE"
  */

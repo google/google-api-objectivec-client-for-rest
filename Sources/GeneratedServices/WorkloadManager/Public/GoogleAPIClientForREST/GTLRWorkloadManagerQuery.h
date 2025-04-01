@@ -25,6 +25,47 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// evaluationType
+
+/**
+ *  Not specified
+ *
+ *  Value: "EVALUATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified;
+/**
+ *  Customized best practices
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeOther;
+/**
+ *  SAP best practices
+ *
+ *  Value: "SAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSap;
+/**
+ *  SCC IaC (Infra as Code) best practices
+ *
+ *  Value: "SCC_IAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac;
+/**
+ *  SQL best practices
+ *
+ *  Value: "SQL_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Workload Manager query classes.
  */
@@ -860,6 +901,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The Cloud Storage bucket name for custom rules. */
 @property(nonatomic, copy, nullable) NSString *customRulesBucket;
+
+/**
+ *  Optional. The evaluation type of the rules will be applied to. The Cloud
+ *  Storage bucket name for custom rules.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified Not
+ *        specified (Value: "EVALUATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSap SAP best practices (Value:
+ *        "SAP")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSqlServer SQL best practices
+ *        (Value: "SQL_SERVER")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeOther Customized best practices
+ *        (Value: "OTHER")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSccIac SCC IaC (Infra as Code)
+ *        best practices (Value: "SCC_IAC")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationType;
 
 /** Filter based on primary_category, secondary_category */
 @property(nonatomic, copy, nullable) NSString *filter;

@@ -1612,7 +1612,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_MachineConfig
-@dynamic cpuCount;
+@dynamic cpuCount, machineType;
 @end
 
 
@@ -1692,8 +1692,9 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
          duration, endTime, error, filter, labels, name, objectsConfig,
          oracleToPostgresConfig, performanceConfig, phase,
          reverseSshConnectivity, satisfiesPzi, satisfiesPzs, source,
-         sourceDatabase, sqlserverHomogeneousMigrationJobConfig, state,
-         staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
+         sourceDatabase, sqlserverHomogeneousMigrationJobConfig,
+         sqlserverToPostgresConfig, state, staticIpConnectivity, type,
+         updateTime, vpcPeeringConnectivity;
 @end
 
 
@@ -2415,7 +2416,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SqlServerConnectionProfile
-@dynamic backups, cloudSqlId, forwardSshConnectivity, host, password,
+@dynamic backups, cloudSqlId, database, forwardSshConnectivity, host, password,
          passwordSet, port, privateConnectivity,
          privateServiceConnectConnectivity, ssl, staticIpConnectivity, username;
 @end
@@ -2456,6 +2457,27 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SqlServerSourceConfig
+//
+
+@implementation GTLRDatabaseMigrationService_SqlServerSourceConfig
+@dynamic cdcStartPosition, maxConcurrentCdcConnections,
+         maxConcurrentFullDumpConnections, skipFullDump;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SqlServerToPostgresConfig
+//
+
+@implementation GTLRDatabaseMigrationService_SqlServerToPostgresConfig
+@dynamic postgresDestinationConfig, sqlserverSourceConfig;
 @end
 
 

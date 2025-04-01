@@ -48,6 +48,16 @@ NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConst
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeYaml = @"CONTENT_TYPE_YAML";
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeZip = @"CONTENT_TYPE_ZIP";
 
+// GTLRChromePolicy_Proto2DescriptorProto.visibility
+NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityExport = @"VISIBILITY_EXPORT";
+NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityLocal = @"VISIBILITY_LOCAL";
+NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityUnset = @"VISIBILITY_UNSET";
+
+// GTLRChromePolicy_Proto2EnumDescriptorProto.visibility
+NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityExport = @"VISIBILITY_EXPORT";
+NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityLocal = @"VISIBILITY_LOCAL";
+NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityUnset = @"VISIBILITY_UNSET";
+
 // GTLRChromePolicy_Proto2FieldDescriptorProto.label
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Label_LabelOptional = @"LABEL_OPTIONAL";
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Label_LabelRepeated = @"LABEL_REPEATED";
@@ -783,7 +793,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_Proto2DescriptorProto
-@dynamic enumType, field, name, nestedType, oneofDecl;
+@dynamic enumType, field, name, nestedType, oneofDecl, visibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -804,7 +814,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_Proto2EnumDescriptorProto
-@dynamic name, value;
+@dynamic name, value, visibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -843,12 +853,14 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_Proto2FileDescriptorProto
-@dynamic editionDeprecated, enumType, messageType, name, package, syntax;
+@dynamic editionDeprecated, enumType, messageType, name, optionDependency,
+         package, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"enumType" : [GTLRChromePolicy_Proto2EnumDescriptorProto class],
-    @"messageType" : [GTLRChromePolicy_Proto2DescriptorProto class]
+    @"messageType" : [GTLRChromePolicy_Proto2DescriptorProto class],
+    @"optionDependency" : [NSString class]
   };
   return map;
 }

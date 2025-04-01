@@ -27,6 +27,9 @@
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_BinLogCoordinates;
 @class GTLRSQLAdmin_CloneContext;
+@class GTLRSQLAdmin_ConnectionPoolConfig;
+@class GTLRSQLAdmin_ConnectionPoolFlags;
+@class GTLRSQLAdmin_ConnectPoolNodeConfig;
 @class GTLRSQLAdmin_Database;
 @class GTLRSQLAdmin_DatabaseFlags;
 @class GTLRSQLAdmin_DatabaseInstance;
@@ -74,6 +77,7 @@
 @class GTLRSQLAdmin_OperationErrors;
 @class GTLRSQLAdmin_PasswordStatus;
 @class GTLRSQLAdmin_PasswordValidationPolicy;
+@class GTLRSQLAdmin_PoolNodeConfig;
 @class GTLRSQLAdmin_PscAutoConnectionConfig;
 @class GTLRSQLAdmin_PscConfig;
 @class GTLRSQLAdmin_ReplicaConfiguration;
@@ -170,6 +174,286 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_BackupKind_Snapshot;
  *  Value: "SQL_BACKUP_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_BackupKind_SqlBackupKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Backup.databaseVersion
+
+/**
+ *  The database version is MySQL 5.1.
+ *
+ *  Value: "MYSQL_5_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql51 GTLR_DEPRECATED;
+/**
+ *  The database version is MySQL 5.5.
+ *
+ *  Value: "MYSQL_5_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql55 GTLR_DEPRECATED;
+/**
+ *  The database version is MySQL 5.6.
+ *
+ *  Value: "MYSQL_5_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql56;
+/**
+ *  The database version is MySQL 5.7.
+ *
+ *  Value: "MYSQL_5_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql57;
+/**
+ *  The database version is MySQL 8.
+ *
+ *  Value: "MYSQL_8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql80;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 18.
+ *
+ *  Value: "MYSQL_8_0_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8018;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 26.
+ *
+ *  Value: "MYSQL_8_0_26"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8026;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 27.
+ *
+ *  Value: "MYSQL_8_0_27"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8027;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 28.
+ *
+ *  Value: "MYSQL_8_0_28"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8028;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 29.
+ *
+ *  Value: "MYSQL_8_0_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8029 GTLR_DEPRECATED;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 30.
+ *
+ *  Value: "MYSQL_8_0_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8030;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 31.
+ *
+ *  Value: "MYSQL_8_0_31"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8031;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 32.
+ *
+ *  Value: "MYSQL_8_0_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8032;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 33.
+ *
+ *  Value: "MYSQL_8_0_33"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8033;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 34.
+ *
+ *  Value: "MYSQL_8_0_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8034;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 35.
+ *
+ *  Value: "MYSQL_8_0_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8035;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 36.
+ *
+ *  Value: "MYSQL_8_0_36"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8036;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 37.
+ *
+ *  Value: "MYSQL_8_0_37"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8037;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 38.
+ *
+ *  Value: "MYSQL_8_0_38"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8038;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 39.
+ *
+ *  Value: "MYSQL_8_0_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8039;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 40.
+ *
+ *  Value: "MYSQL_8_0_40"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8040;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 41.
+ *
+ *  Value: "MYSQL_8_0_41"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8041;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 42.
+ *
+ *  Value: "MYSQL_8_0_42"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8042;
+/**
+ *  The database version is MySQL 8.4.
+ *
+ *  Value: "MYSQL_8_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84;
+/**
+ *  The database version is PostgreSQL 10.
+ *
+ *  Value: "POSTGRES_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres10;
+/**
+ *  The database version is PostgreSQL 11.
+ *
+ *  Value: "POSTGRES_11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres11;
+/**
+ *  The database version is PostgreSQL 12.
+ *
+ *  Value: "POSTGRES_12"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres12;
+/**
+ *  The database version is PostgreSQL 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres13;
+/**
+ *  The database version is PostgreSQL 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres14;
+/**
+ *  The database version is PostgreSQL 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres15;
+/**
+ *  The database version is PostgreSQL 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres16;
+/**
+ *  The database version is PostgreSQL 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres17;
+/**
+ *  The database version is PostgreSQL 9.6.
+ *
+ *  Value: "POSTGRES_9_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96;
+/**
+ *  This is an unknown database version.
+ *
+ *  Value: "SQL_DATABASE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified;
+/**
+ *  The database version is SQL Server 2017 Enterprise.
+ *
+ *  Value: "SQLSERVER_2017_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Enterprise;
+/**
+ *  The database version is SQL Server 2017 Express.
+ *
+ *  Value: "SQLSERVER_2017_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Express;
+/**
+ *  The database version is SQL Server 2017 Standard.
+ *
+ *  Value: "SQLSERVER_2017_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Standard;
+/**
+ *  The database version is SQL Server 2017 Web.
+ *
+ *  Value: "SQLSERVER_2017_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Web;
+/**
+ *  The database version is SQL Server 2019 Enterprise.
+ *
+ *  Value: "SQLSERVER_2019_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Enterprise;
+/**
+ *  The database version is SQL Server 2019 Express.
+ *
+ *  Value: "SQLSERVER_2019_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Express;
+/**
+ *  The database version is SQL Server 2019 Standard.
+ *
+ *  Value: "SQLSERVER_2019_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Standard;
+/**
+ *  The database version is SQL Server 2019 Web.
+ *
+ *  Value: "SQLSERVER_2019_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Web;
+/**
+ *  The database version is SQL Server 2022 Enterprise.
+ *
+ *  Value: "SQLSERVER_2022_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Enterprise;
+/**
+ *  The database version is SQL Server 2022 Express.
+ *
+ *  Value: "SQLSERVER_2022_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Express;
+/**
+ *  The database version is SQL Server 2022 Standard.
+ *
+ *  Value: "SQLSERVER_2022_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Standard;
+/**
+ *  The database version is SQL Server 2022 Web.
+ *
+ *  Value: "SQLSERVER_2022_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Backup.state
@@ -346,6 +630,286 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_SqlBackupKindUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BackupRun.databaseVersion
+
+/**
+ *  The database version is MySQL 5.1.
+ *
+ *  Value: "MYSQL_5_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql51 GTLR_DEPRECATED;
+/**
+ *  The database version is MySQL 5.5.
+ *
+ *  Value: "MYSQL_5_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql55 GTLR_DEPRECATED;
+/**
+ *  The database version is MySQL 5.6.
+ *
+ *  Value: "MYSQL_5_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql56;
+/**
+ *  The database version is MySQL 5.7.
+ *
+ *  Value: "MYSQL_5_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql57;
+/**
+ *  The database version is MySQL 8.
+ *
+ *  Value: "MYSQL_8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql80;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 18.
+ *
+ *  Value: "MYSQL_8_0_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8018;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 26.
+ *
+ *  Value: "MYSQL_8_0_26"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8026;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 27.
+ *
+ *  Value: "MYSQL_8_0_27"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8027;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 28.
+ *
+ *  Value: "MYSQL_8_0_28"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8028;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 29.
+ *
+ *  Value: "MYSQL_8_0_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8029 GTLR_DEPRECATED;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 30.
+ *
+ *  Value: "MYSQL_8_0_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8030;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 31.
+ *
+ *  Value: "MYSQL_8_0_31"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8031;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 32.
+ *
+ *  Value: "MYSQL_8_0_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8032;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 33.
+ *
+ *  Value: "MYSQL_8_0_33"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8033;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 34.
+ *
+ *  Value: "MYSQL_8_0_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8034;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 35.
+ *
+ *  Value: "MYSQL_8_0_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8035;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 36.
+ *
+ *  Value: "MYSQL_8_0_36"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8036;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 37.
+ *
+ *  Value: "MYSQL_8_0_37"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8037;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 38.
+ *
+ *  Value: "MYSQL_8_0_38"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8038;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 39.
+ *
+ *  Value: "MYSQL_8_0_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8039;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 40.
+ *
+ *  Value: "MYSQL_8_0_40"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8040;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 41.
+ *
+ *  Value: "MYSQL_8_0_41"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8041;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 42.
+ *
+ *  Value: "MYSQL_8_0_42"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8042;
+/**
+ *  The database version is MySQL 8.4.
+ *
+ *  Value: "MYSQL_8_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84;
+/**
+ *  The database version is PostgreSQL 10.
+ *
+ *  Value: "POSTGRES_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres10;
+/**
+ *  The database version is PostgreSQL 11.
+ *
+ *  Value: "POSTGRES_11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres11;
+/**
+ *  The database version is PostgreSQL 12.
+ *
+ *  Value: "POSTGRES_12"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres12;
+/**
+ *  The database version is PostgreSQL 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres13;
+/**
+ *  The database version is PostgreSQL 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres14;
+/**
+ *  The database version is PostgreSQL 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres15;
+/**
+ *  The database version is PostgreSQL 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres16;
+/**
+ *  The database version is PostgreSQL 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres17;
+/**
+ *  The database version is PostgreSQL 9.6.
+ *
+ *  Value: "POSTGRES_9_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96;
+/**
+ *  This is an unknown database version.
+ *
+ *  Value: "SQL_DATABASE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified;
+/**
+ *  The database version is SQL Server 2017 Enterprise.
+ *
+ *  Value: "SQLSERVER_2017_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Enterprise;
+/**
+ *  The database version is SQL Server 2017 Express.
+ *
+ *  Value: "SQLSERVER_2017_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Express;
+/**
+ *  The database version is SQL Server 2017 Standard.
+ *
+ *  Value: "SQLSERVER_2017_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Standard;
+/**
+ *  The database version is SQL Server 2017 Web.
+ *
+ *  Value: "SQLSERVER_2017_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Web;
+/**
+ *  The database version is SQL Server 2019 Enterprise.
+ *
+ *  Value: "SQLSERVER_2019_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Enterprise;
+/**
+ *  The database version is SQL Server 2019 Express.
+ *
+ *  Value: "SQLSERVER_2019_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Express;
+/**
+ *  The database version is SQL Server 2019 Standard.
+ *
+ *  Value: "SQLSERVER_2019_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Standard;
+/**
+ *  The database version is SQL Server 2019 Web.
+ *
+ *  Value: "SQLSERVER_2019_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Web;
+/**
+ *  The database version is SQL Server 2022 Enterprise.
+ *
+ *  Value: "SQLSERVER_2022_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Enterprise;
+/**
+ *  The database version is SQL Server 2022 Express.
+ *
+ *  Value: "SQLSERVER_2022_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Express;
+/**
+ *  The database version is SQL Server 2022 Standard.
+ *
+ *  Value: "SQLSERVER_2022_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Standard;
+/**
+ *  The database version is SQL Server 2022 Web.
+ *
+ *  Value: "SQLSERVER_2022_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Web;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupRun.status
 
 /**
@@ -432,6 +996,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand;
  *  Value: "SQL_BACKUP_RUN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ConnectionPoolConfig.poolMode
+
+/**
+ *  The pool mode is unknown.
+ *
+ *  Value: "POOL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_PoolModeUnspecified;
+/**
+ *  The session mode for managed connection pooling.
+ *
+ *  Value: "SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Session;
+/**
+ *  The transaction(default) mode for managed connection pooling.
+ *
+ *  Value: "TRANSACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Transaction;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ConnectSettings.backendType
@@ -1097,6 +1683,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance;
 /**
+ *  CloudSQL read pool.
+ *
+ *  Value: "READ_POOL_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadPoolInstance;
+/**
  *  A Cloud SQL instance acting as a read-replica.
  *
  *  Value: "READ_REPLICA_INSTANCE"
@@ -1161,6 +1753,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingC
  *  Value: "PENDING_DELETE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete;
+/**
+ *  (Applicable to read pool nodes only.) The read pool node needs to be
+ *  repaired. The database might be unavailable.
+ *
+ *  Value: "REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Repairing;
 /**
  *  The instance is running, or has been stopped by owner.
  *
@@ -1600,6 +2199,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Sta
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Web;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Flag.flagScope
+
+/**
+ *  connection pool configuration flags
+ *
+ *  Value: "SQL_FLAG_SCOPE_CONNECTION_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeConnectionPool;
+/**
+ *  database flags
+ *
+ *  Value: "SQL_FLAG_SCOPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeDatabase;
+/**
+ *  Assume database flags if unspecified
+ *
+ *  Value: "SQL_FLAG_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.type
 
 /**
@@ -1951,6 +2572,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateC
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateDatabase;
 /**
+ *  Creates a Cloud SQL read pool instance.
+ *
+ *  Value: "CREATE_READ_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateReadPool;
+/**
  *  Creates a Cloud SQL replica instance.
  *
  *  Value: "CREATE_REPLICA"
@@ -2090,6 +2717,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Reencry
  *  Value: "RELEASE_SSRS_LEASE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ReleaseSsrsLease;
+/**
+ *  Repairs entire read pool or specified nodes in the read pool.
+ *
+ *  Value: "REPAIR_READ_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RepairReadPool;
 /**
  *  Reschedule maintenance to another time.
  *
@@ -2232,6 +2865,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Comple
  *  Value: "COMPLEXITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_PoolNodeConfig.state
+
+/**
+ *  The creation of the instance failed or a fatal error occurred during
+ *  maintenance.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Failed;
+/**
+ *  The instance is down for maintenance.
+ *
+ *  Value: "MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Maintenance;
+/**
+ *  Deprecated
+ *
+ *  Value: "ONLINE_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_OnlineMaintenance GTLR_DEPRECATED;
+/**
+ *  The instance is being created.
+ *
+ *  Value: "PENDING_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_PendingCreate;
+/**
+ *  The instance is being deleted.
+ *
+ *  Value: "PENDING_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_PendingDelete;
+/**
+ *  (Applicable to read pool nodes only.) The read pool node needs to be
+ *  repaired. The database might be unavailable.
+ *
+ *  Value: "REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Repairing;
+/**
+ *  The instance is running, or has been stopped by owner.
+ *
+ *  Value: "RUNNABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Runnable;
+/**
+ *  The state of the instance is unknown.
+ *
+ *  Value: "SQL_INSTANCE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_SqlInstanceStateUnspecified;
+/**
+ *  The instance is not available, for example due to problems with billing.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Suspended;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Reschedule.rescheduleType
@@ -3200,6 +3893,134 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *backupRun;
 
 /**
+ *  Output only. The database version of the instance of when this backup was
+ *  made.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql51 The database version
+ *        is MySQL 5.1. (Value: "MYSQL_5_1")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql55 The database version
+ *        is MySQL 5.5. (Value: "MYSQL_5_5")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql56 The database version
+ *        is MySQL 5.6. (Value: "MYSQL_5_6")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql57 The database version
+ *        is MySQL 5.7. (Value: "MYSQL_5_7")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql80 The database version
+ *        is MySQL 8. (Value: "MYSQL_8_0")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8018 The database major
+ *        version is MySQL 8.0 and the minor version is 18. (Value:
+ *        "MYSQL_8_0_18")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8026 The database major
+ *        version is MySQL 8.0 and the minor version is 26. (Value:
+ *        "MYSQL_8_0_26")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8027 The database major
+ *        version is MySQL 8.0 and the minor version is 27. (Value:
+ *        "MYSQL_8_0_27")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8028 The database major
+ *        version is MySQL 8.0 and the minor version is 28. (Value:
+ *        "MYSQL_8_0_28")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8029 The database major
+ *        version is MySQL 8.0 and the minor version is 29. (Value:
+ *        "MYSQL_8_0_29")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8030 The database major
+ *        version is MySQL 8.0 and the minor version is 30. (Value:
+ *        "MYSQL_8_0_30")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8031 The database major
+ *        version is MySQL 8.0 and the minor version is 31. (Value:
+ *        "MYSQL_8_0_31")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8032 The database major
+ *        version is MySQL 8.0 and the minor version is 32. (Value:
+ *        "MYSQL_8_0_32")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8033 The database major
+ *        version is MySQL 8.0 and the minor version is 33. (Value:
+ *        "MYSQL_8_0_33")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8034 The database major
+ *        version is MySQL 8.0 and the minor version is 34. (Value:
+ *        "MYSQL_8_0_34")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8035 The database major
+ *        version is MySQL 8.0 and the minor version is 35. (Value:
+ *        "MYSQL_8_0_35")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8036 The database major
+ *        version is MySQL 8.0 and the minor version is 36. (Value:
+ *        "MYSQL_8_0_36")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8037 The database major
+ *        version is MySQL 8.0 and the minor version is 37. (Value:
+ *        "MYSQL_8_0_37")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8038 The database major
+ *        version is MySQL 8.0 and the minor version is 38. (Value:
+ *        "MYSQL_8_0_38")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8039 The database major
+ *        version is MySQL 8.0 and the minor version is 39. (Value:
+ *        "MYSQL_8_0_39")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8040 The database major
+ *        version is MySQL 8.0 and the minor version is 40. (Value:
+ *        "MYSQL_8_0_40")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8041 The database major
+ *        version is MySQL 8.0 and the minor version is 41. (Value:
+ *        "MYSQL_8_0_41")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8042 The database major
+ *        version is MySQL 8.0 and the minor version is 42. (Value:
+ *        "MYSQL_8_0_42")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84 The database version
+ *        is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres10 The database
+ *        version is PostgreSQL 10. (Value: "POSTGRES_10")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres11 The database
+ *        version is PostgreSQL 11. (Value: "POSTGRES_11")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres12 The database
+ *        version is PostgreSQL 12. (Value: "POSTGRES_12")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres13 The database
+ *        version is PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres14 The database
+ *        version is PostgreSQL 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres15 The database
+ *        version is PostgreSQL 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres16 The database
+ *        version is PostgreSQL 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres17 The database
+ *        version is PostgreSQL 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96 The database
+ *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified
+ *        This is an unknown database version. (Value:
+ *        "SQL_DATABASE_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Enterprise The
+ *        database version is SQL Server 2017 Enterprise. (Value:
+ *        "SQLSERVER_2017_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Express The
+ *        database version is SQL Server 2017 Express. (Value:
+ *        "SQLSERVER_2017_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Standard The
+ *        database version is SQL Server 2017 Standard. (Value:
+ *        "SQLSERVER_2017_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Web The database
+ *        version is SQL Server 2017 Web. (Value: "SQLSERVER_2017_WEB")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Enterprise The
+ *        database version is SQL Server 2019 Enterprise. (Value:
+ *        "SQLSERVER_2019_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Express The
+ *        database version is SQL Server 2019 Express. (Value:
+ *        "SQLSERVER_2019_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Standard The
+ *        database version is SQL Server 2019 Standard. (Value:
+ *        "SQLSERVER_2019_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Web The database
+ *        version is SQL Server 2019 Web. (Value: "SQLSERVER_2019_WEB")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Enterprise The
+ *        database version is SQL Server 2022 Enterprise. (Value:
+ *        "SQLSERVER_2022_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Express The
+ *        database version is SQL Server 2022 Express. (Value:
+ *        "SQLSERVER_2022_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Standard The
+ *        database version is SQL Server 2022 Standard. (Value:
+ *        "SQLSERVER_2022_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Web The database
+ *        version is SQL Server 2022 Web. (Value: "SQLSERVER_2022_WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
  *  The description of this backup.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3523,6 +4344,133 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *backupKind;
 
 /**
+ *  Output only. The instance database version when this backup was made.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql51 The database
+ *        version is MySQL 5.1. (Value: "MYSQL_5_1")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql55 The database
+ *        version is MySQL 5.5. (Value: "MYSQL_5_5")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql56 The database
+ *        version is MySQL 5.6. (Value: "MYSQL_5_6")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql57 The database
+ *        version is MySQL 5.7. (Value: "MYSQL_5_7")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql80 The database
+ *        version is MySQL 8. (Value: "MYSQL_8_0")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8018 The database
+ *        major version is MySQL 8.0 and the minor version is 18. (Value:
+ *        "MYSQL_8_0_18")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8026 The database
+ *        major version is MySQL 8.0 and the minor version is 26. (Value:
+ *        "MYSQL_8_0_26")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8027 The database
+ *        major version is MySQL 8.0 and the minor version is 27. (Value:
+ *        "MYSQL_8_0_27")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8028 The database
+ *        major version is MySQL 8.0 and the minor version is 28. (Value:
+ *        "MYSQL_8_0_28")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8029 The database
+ *        major version is MySQL 8.0 and the minor version is 29. (Value:
+ *        "MYSQL_8_0_29")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8030 The database
+ *        major version is MySQL 8.0 and the minor version is 30. (Value:
+ *        "MYSQL_8_0_30")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8031 The database
+ *        major version is MySQL 8.0 and the minor version is 31. (Value:
+ *        "MYSQL_8_0_31")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8032 The database
+ *        major version is MySQL 8.0 and the minor version is 32. (Value:
+ *        "MYSQL_8_0_32")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8033 The database
+ *        major version is MySQL 8.0 and the minor version is 33. (Value:
+ *        "MYSQL_8_0_33")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8034 The database
+ *        major version is MySQL 8.0 and the minor version is 34. (Value:
+ *        "MYSQL_8_0_34")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8035 The database
+ *        major version is MySQL 8.0 and the minor version is 35. (Value:
+ *        "MYSQL_8_0_35")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8036 The database
+ *        major version is MySQL 8.0 and the minor version is 36. (Value:
+ *        "MYSQL_8_0_36")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8037 The database
+ *        major version is MySQL 8.0 and the minor version is 37. (Value:
+ *        "MYSQL_8_0_37")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8038 The database
+ *        major version is MySQL 8.0 and the minor version is 38. (Value:
+ *        "MYSQL_8_0_38")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8039 The database
+ *        major version is MySQL 8.0 and the minor version is 39. (Value:
+ *        "MYSQL_8_0_39")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8040 The database
+ *        major version is MySQL 8.0 and the minor version is 40. (Value:
+ *        "MYSQL_8_0_40")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8041 The database
+ *        major version is MySQL 8.0 and the minor version is 41. (Value:
+ *        "MYSQL_8_0_41")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8042 The database
+ *        major version is MySQL 8.0 and the minor version is 42. (Value:
+ *        "MYSQL_8_0_42")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84 The database
+ *        version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres10 The database
+ *        version is PostgreSQL 10. (Value: "POSTGRES_10")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres11 The database
+ *        version is PostgreSQL 11. (Value: "POSTGRES_11")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres12 The database
+ *        version is PostgreSQL 12. (Value: "POSTGRES_12")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres13 The database
+ *        version is PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres14 The database
+ *        version is PostgreSQL 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres15 The database
+ *        version is PostgreSQL 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres16 The database
+ *        version is PostgreSQL 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres17 The database
+ *        version is PostgreSQL 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96 The database
+ *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified
+ *        This is an unknown database version. (Value:
+ *        "SQL_DATABASE_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Enterprise
+ *        The database version is SQL Server 2017 Enterprise. (Value:
+ *        "SQLSERVER_2017_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Express The
+ *        database version is SQL Server 2017 Express. (Value:
+ *        "SQLSERVER_2017_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Standard The
+ *        database version is SQL Server 2017 Standard. (Value:
+ *        "SQLSERVER_2017_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Web The
+ *        database version is SQL Server 2017 Web. (Value: "SQLSERVER_2017_WEB")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Enterprise
+ *        The database version is SQL Server 2019 Enterprise. (Value:
+ *        "SQLSERVER_2019_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Express The
+ *        database version is SQL Server 2019 Express. (Value:
+ *        "SQLSERVER_2019_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Standard The
+ *        database version is SQL Server 2019 Standard. (Value:
+ *        "SQLSERVER_2019_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Web The
+ *        database version is SQL Server 2019 Web. (Value: "SQLSERVER_2019_WEB")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Enterprise
+ *        The database version is SQL Server 2022 Enterprise. (Value:
+ *        "SQLSERVER_2022_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Express The
+ *        database version is SQL Server 2022 Express. (Value:
+ *        "SQLSERVER_2022_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Standard The
+ *        database version is SQL Server 2022 Standard. (Value:
+ *        "SQLSERVER_2022_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Web The
+ *        database version is SQL Server 2022 Web. (Value: "SQLSERVER_2022_WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
  *  The description of this run, only applicable to on-demand backups.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3770,6 +4718,103 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  The managed connection pooling configuration.
+ */
+@interface GTLRSQLAdmin_ConnectionPoolConfig : GTLRObject
+
+/** Client idle timeout. */
+@property(nonatomic, strong, nullable) GTLRDuration *clientConnectionIdleTimeout GTLR_DEPRECATED;
+
+/**
+ *  Whether managed connection pooling is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *connectionPoolingEnabled;
+
+/**
+ *  Managed connection pool size.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *connPoolSize GTLR_DEPRECATED;
+
+/** Optional. List of connection pool configuration flags */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ConnectionPoolFlags *> *flags;
+
+/**
+ *  Maximum number of client connections in connection pool.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxClientConnections GTLR_DEPRECATED;
+
+/**
+ *  The managed connection pool mode for the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_PoolModeUnspecified
+ *        The pool mode is unknown. (Value: "POOL_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Session The session
+ *        mode for managed connection pooling. (Value: "SESSION")
+ *    @arg @c kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Transaction The
+ *        transaction(default) mode for managed connection pooling. (Value:
+ *        "TRANSACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *poolMode GTLR_DEPRECATED;
+
+/** Query wait timeout. */
+@property(nonatomic, strong, nullable) GTLRDuration *queryWaitTimeout GTLR_DEPRECATED;
+
+/** Server idle timeout. */
+@property(nonatomic, strong, nullable) GTLRDuration *serverConnectionIdleTimeout GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  Connection pool flags for Cloud SQL instances managed connection pool
+ *  configuration.
+ */
+@interface GTLRSQLAdmin_ConnectionPoolFlags : GTLRObject
+
+/** Required. The name of the flag. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The value of the flag. Boolean flags are set to `on` for true and
+ *  `off` for false. This field must be omitted if the flag doesn't take a
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Details of a single node of a read pool.
+ */
+@interface GTLRSQLAdmin_ConnectPoolNodeConfig : GTLRObject
+
+/** Output only. The DNS name of the node. */
+@property(nonatomic, copy, nullable) NSString *dnsName;
+
+/** Output only. The list of DNS names used by this node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DnsNameMapping *> *dnsNames;
+
+/**
+ *  Output only. Mappings containing IP addresses that can be used to connect to
+ *  the node.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
+
+/** Output only. The name of the node. Doesn't include the project ID. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Connect settings retrieval response.
  */
 @interface GTLRSQLAdmin_ConnectSettings : GTLRObject
@@ -3940,6 +4985,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always `sql#connectSettings`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The number of nodes in a read pool.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/**
+ *  Output only. Entries containing information about each node of the read
+ *  pool.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ConnectPoolNodeConfig *> *nodes;
 
 /**
  *  Whether PSC connectivity is enabled for this instance.
@@ -4283,6 +5341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance An
  *        instance running on the customer's premises that is not managed by
  *        Cloud SQL. (Value: "ON_PREMISES_INSTANCE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadPoolInstance
+ *        CloudSQL read pool. (Value: "READ_POOL_INSTANCE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadReplicaInstance A
  *        Cloud SQL instance acting as a read-replica. (Value:
  *        "READ_REPLICA_INSTANCE")
@@ -4321,6 +5381,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Name of the Cloud SQL instance. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The number of nodes in a read pool.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/**
+ *  Output only. Entries containing information about each node of the read
+ *  pool.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PoolNodeConfig *> *nodes;
 
 /** Configuration specific to on-premises instances. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_OnPremisesConfiguration *onPremisesConfiguration;
@@ -4444,6 +5517,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        being created. (Value: "PENDING_CREATE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete The instance is
  *        being deleted. (Value: "PENDING_DELETE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Repairing (Applicable to read
+ *        pool nodes only.) The read pool node needs to be repaired. The
+ *        database might be unavailable. (Value: "REPAIRING")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Runnable The instance is
  *        running, or has been stopped by owner. (Value: "RUNNABLE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified
@@ -5133,6 +6209,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *appliesTo;
 
 /**
+ *  Scope of flag.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeConnectionPool connection
+ *        pool configuration flags (Value: "SQL_FLAG_SCOPE_CONNECTION_POOL")
+ *    @arg @c kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeDatabase database flags
+ *        (Value: "SQL_FLAG_SCOPE_DATABASE")
+ *    @arg @c kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeUnspecified Assume
+ *        database flags if unspecified (Value: "SQL_FLAG_SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *flagScope;
+
+/**
  *  Whether or not the flag is considered in beta.
  *
  *  Uses NSNumber of boolValue.
@@ -5161,6 +6250,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  hyphens, for example: `max_allowed_packet`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Recommended int value in integer format for UI display.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recommendedIntValue;
+
+/** Recommended string value in string format for UI display. */
+@property(nonatomic, copy, nullable) NSString *recommendedStringValue;
 
 /**
  *  Indicates whether changing this flag will trigger a database restart. Only
@@ -6419,6 +7518,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        instance. (Value: "CREATE_CLONE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateDatabase Creates a
  *        database in the Cloud SQL instance. (Value: "CREATE_DATABASE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateReadPool Creates a
+ *        Cloud SQL read pool instance. (Value: "CREATE_READ_POOL")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateReplica Creates a
  *        Cloud SQL replica instance. (Value: "CREATE_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateUser Creates a new
@@ -6476,6 +7577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReleaseSsrsLease Release a
  *        lease for the setup of SQL Server Reporting Services (SSRS). (Value:
  *        "RELEASE_SSRS_LEASE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RepairReadPool Repairs
+ *        entire read pool or specified nodes in the read pool. (Value:
+ *        "REPAIR_READ_POOL")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance
  *        Reschedule maintenance to another time. (Value:
  *        "RESCHEDULE_MAINTENANCE")
@@ -6752,6 +7856,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetSizeGb;
+
+@end
+
+
+/**
+ *  Details of a single node of a read pool.
+ */
+@interface GTLRSQLAdmin_PoolNodeConfig : GTLRObject
+
+/** Output only. The DNS name of the node. */
+@property(nonatomic, copy, nullable) NSString *dnsName;
+
+/** Output only. The list of DNS names used by this node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DnsNameMapping *> *dnsNames;
+
+/** Output only. The serving zone of the node. */
+@property(nonatomic, copy, nullable) NSString *gceZone;
+
+/**
+ *  Output only. Mappings containing IP addresses that can be used to connect to
+ *  the node.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
+
+/**
+ *  Output only. The name of the node, to be used for retrieving metrics and
+ *  logs for the node.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_Failed The creation of the
+ *        instance failed or a fatal error occurred during maintenance. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_Maintenance The instance is
+ *        down for maintenance. (Value: "MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_OnlineMaintenance Deprecated
+ *        (Value: "ONLINE_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_PendingCreate The instance is
+ *        being created. (Value: "PENDING_CREATE")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_PendingDelete The instance is
+ *        being deleted. (Value: "PENDING_DELETE")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_Repairing (Applicable to read
+ *        pool nodes only.) The read pool node needs to be repaired. The
+ *        database might be unavailable. (Value: "REPAIRING")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_Runnable The instance is
+ *        running, or has been stopped by owner. (Value: "RUNNABLE")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_SqlInstanceStateUnspecified The
+ *        state of the instance is unknown. (Value:
+ *        "SQL_INSTANCE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_Suspended The instance is not
+ *        available, for example due to problems with billing. (Value:
+ *        "SUSPENDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -7071,6 +8233,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *collation;
 
 /**
+ *  Optional. The managed connection pooling configuration for the instance.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ConnectionPoolConfig *connectionPoolConfig;
+
+/**
  *  Specifies if connections must use Cloud SQL connectors. Option values
  *  include the following: `NOT_REQUIRED` (Cloud SQL instances can be connected
  *  without Cloud SQL Connectors) and `REQUIRED` (Only allow connections that
@@ -7114,6 +8281,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Configuration for data cache. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DataCacheConfig *dataCacheConfig;
+
+/**
+ *  Optional. Provisioned number of I/O operations per second for the data disk.
+ *  This field is only used for hyperdisk-balanced disk types.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataDiskProvisionedIops;
+
+/**
+ *  Optional. Provisioned throughput measured in MiB per second for the data
+ *  disk. This field is only used for hyperdisk-balanced disk types.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataDiskProvisionedThroughput;
 
 /**
  *  The size of data disk, in GB. The data disk size minimum is 10GB.

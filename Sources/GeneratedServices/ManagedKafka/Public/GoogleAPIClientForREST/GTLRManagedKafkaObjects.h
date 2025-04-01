@@ -18,6 +18,14 @@
 @class GTLRManagedKafka_CapacityConfig;
 @class GTLRManagedKafka_Cluster;
 @class GTLRManagedKafka_Cluster_Labels;
+@class GTLRManagedKafka_ConnectAccessConfig;
+@class GTLRManagedKafka_ConnectCluster;
+@class GTLRManagedKafka_ConnectCluster_Config;
+@class GTLRManagedKafka_ConnectCluster_Labels;
+@class GTLRManagedKafka_ConnectGcpConfig;
+@class GTLRManagedKafka_ConnectNetworkConfig;
+@class GTLRManagedKafka_Connector;
+@class GTLRManagedKafka_Connector_Configs;
 @class GTLRManagedKafka_ConsumerGroup;
 @class GTLRManagedKafka_ConsumerGroup_Topics;
 @class GTLRManagedKafka_ConsumerPartitionMetadata;
@@ -34,6 +42,7 @@
 @class GTLRManagedKafka_RebalanceConfig;
 @class GTLRManagedKafka_Status;
 @class GTLRManagedKafka_Status_Details_Item;
+@class GTLRManagedKafka_TaskRetryPolicy;
 @class GTLRManagedKafka_Topic;
 @class GTLRManagedKafka_Topic_Configs;
 
@@ -74,6 +83,80 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Cluster_State_Deleting;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Cluster_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_ConnectCluster.state
+
+/**
+ *  The cluster is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_ConnectCluster_State_Active;
+/**
+ *  The cluster is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_ConnectCluster_State_Creating;
+/**
+ *  The cluster is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_ConnectCluster_State_Deleting;
+/**
+ *  A state was not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_ConnectCluster_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_Connector.state
+
+/**
+ *  The connector has failed. See logs for why.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Failed;
+/**
+ *  The connector has been paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Paused;
+/**
+ *  The connector is restarting.
+ *
+ *  Value: "RESTARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Restarting;
+/**
+ *  The connector is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Running;
+/**
+ *  A state was not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_StateUnspecified;
+/**
+ *  The connector has been stopped.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Stopped;
+/**
+ *  The connector is not assigned to any tasks, usually transient.
+ *
+ *  Value: "UNASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Unassigned;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedKafka_RebalanceConfig.mode
@@ -220,6 +303,223 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
 
 
 /**
+ *  The configuration of access to the Kafka Connect cluster.
+ */
+@interface GTLRManagedKafka_ConnectAccessConfig : GTLRObject
+
+/**
+ *  Required. Virtual Private Cloud (VPC) networks that must be granted direct
+ *  access to the Kafka Connect cluster. Minimum of 1 network is required.
+ *  Maximum 10 networks can be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_ConnectNetworkConfig *> *networkConfigs;
+
+@end
+
+
+/**
+ *  An Apache Kafka Connect cluster deployed in a location.
+ */
+@interface GTLRManagedKafka_ConnectCluster : GTLRObject
+
+/** Required. Capacity configuration for the Kafka Connect cluster. */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_CapacityConfig *capacityConfig;
+
+/**
+ *  Optional. Configurations for the worker that are overridden from the
+ *  defaults. The key of the map is a Kafka Connect worker property name, for
+ *  example: `exactly.once.source.support`.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_ConnectCluster_Config *config;
+
+/** Output only. The time when the cluster was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Configuration properties for a Kafka Connect cluster deployed to
+ *  Google Cloud Platform.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_ConnectGcpConfig *gcpConfig;
+
+/**
+ *  Required. Immutable. The name of the Kafka cluster this Kafka Connect
+ *  cluster is attached to. Structured like:
+ *  projects/{project}/locations/{location}/clusters/{cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *kafkaCluster;
+
+/** Optional. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_ConnectCluster_Labels *labels;
+
+/**
+ *  Identifier. The name of the Kafka Connect cluster. Structured like:
+ *  projects/{project_number}/locations/{location}/connectClusters/{connect_cluster_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_ConnectCluster_State_Active The cluster is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRManagedKafka_ConnectCluster_State_Creating The cluster is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRManagedKafka_ConnectCluster_State_Deleting The cluster is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRManagedKafka_ConnectCluster_State_StateUnspecified A state
+ *        was not specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time when the cluster was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Configurations for the worker that are overridden from the
+ *  defaults. The key of the map is a Kafka Connect worker property name, for
+ *  example: `exactly.once.source.support`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRManagedKafka_ConnectCluster_Config : GTLRObject
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRManagedKafka_ConnectCluster_Labels : GTLRObject
+@end
+
+
+/**
+ *  Configuration properties for a Kafka Connect cluster deployed to Google
+ *  Cloud Platform.
+ */
+@interface GTLRManagedKafka_ConnectGcpConfig : GTLRObject
+
+/** Required. Access configuration for the Kafka Connect cluster. */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_ConnectAccessConfig *accessConfig;
+
+/**
+ *  Optional. Secrets to load into workers. Exact SecretVersions from Secret
+ *  Manager must be provided -- aliases are not supported. Up to 32 secrets may
+ *  be loaded into one cluster. Format: projects//secrets//versions/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secretPaths;
+
+@end
+
+
+/**
+ *  The configuration of a Virtual Private Cloud (VPC) network that can access
+ *  the Kafka Connect cluster.
+ */
+@interface GTLRManagedKafka_ConnectNetworkConfig : GTLRObject
+
+/**
+ *  Optional. Additional subnets may be specified. They may be in another
+ *  region, but must be in the same VPC network. The Connect workers can
+ *  communicate with network endpoints in either the primary or additional
+ *  subnets.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalSubnets;
+
+/**
+ *  Optional. Additional DNS domain names from the subnet's network to be made
+ *  visible to the Connect Cluster. When using MirrorMaker2, it's necessary to
+ *  add the bootstrap address's dns domain name of the target cluster to make it
+ *  visible to the connector. For example:
+ *  my-kafka-cluster.us-central1.managedkafka.my-project.cloud.goog
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dnsDomainNames;
+
+/**
+ *  Required. VPC subnet to make available to the Kafka Connect cluster.
+ *  Structured like: projects/{project}/regions/{region}/subnetworks/{subnet_id}
+ *  It is used to create a Private Service Connect (PSC) interface for the Kafka
+ *  Connect workers. It must be located in the same region as the Kafka Connect
+ *  cluster. The CIDR range of the subnet must be within the IPv4 address ranges
+ *  for private networks, as specified in RFC 1918. The primary subnet CIDR
+ *  range must have a minimum size of /22 (1024 addresses).
+ */
+@property(nonatomic, copy, nullable) NSString *primarySubnet;
+
+@end
+
+
+/**
+ *  A Kafka Connect connector in a given ConnectCluster.
+ */
+@interface GTLRManagedKafka_Connector : GTLRObject
+
+/**
+ *  Optional. Connector config as keys/values. The keys of the map are connector
+ *  property names, for example: `connector.class`, `tasks.max`,
+ *  `key.converter`.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_Connector_Configs *configs;
+
+/**
+ *  Identifier. The name of the connector. Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connect_cluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the connector.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_Connector_State_Failed The connector has failed.
+ *        See logs for why. (Value: "FAILED")
+ *    @arg @c kGTLRManagedKafka_Connector_State_Paused The connector has been
+ *        paused. (Value: "PAUSED")
+ *    @arg @c kGTLRManagedKafka_Connector_State_Restarting The connector is
+ *        restarting. (Value: "RESTARTING")
+ *    @arg @c kGTLRManagedKafka_Connector_State_Running The connector is
+ *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRManagedKafka_Connector_State_StateUnspecified A state was not
+ *        specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRManagedKafka_Connector_State_Stopped The connector has been
+ *        stopped. (Value: "STOPPED")
+ *    @arg @c kGTLRManagedKafka_Connector_State_Unassigned The connector is not
+ *        assigned to any tasks, usually transient. (Value: "UNASSIGNED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. Restarts the individual tasks of a Connector. */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_TaskRetryPolicy *taskRestartPolicy;
+
+@end
+
+
+/**
+ *  Optional. Connector config as keys/values. The keys of the map are connector
+ *  property names, for example: `connector.class`, `tasks.max`,
+ *  `key.converter`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRManagedKafka_Connector_Configs : GTLRObject
+@end
+
+
+/**
  *  A Kafka consumer group in a given cluster.
  */
 @interface GTLRManagedKafka_ConsumerGroup : GTLRObject
@@ -361,6 +661,63 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for ListConnectClusters.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "connectClusters" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRManagedKafka_ListConnectClustersResponse : GTLRCollectionObject
+
+/**
+ *  The list of Connect clusters in the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_ConnectCluster *> *connectClusters;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page of
+ *  results. If this field is omitted, there are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for ListConnectors.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "connectors" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRManagedKafka_ListConnectorsResponse : GTLRCollectionObject
+
+/**
+ *  The list of connectors in the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_Connector *> *connectors;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page of
+ *  results. If this field is omitted, there are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -667,6 +1024,20 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
 
 
 /**
+ *  Request for PauseConnector.
+ */
+@interface GTLRManagedKafka_PauseConnectorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for PauseConnector.
+ */
+@interface GTLRManagedKafka_PauseConnectorResponse : GTLRObject
+@end
+
+
+/**
  *  Defines rebalancing behavior of a Kafka cluster.
  */
 @interface GTLRManagedKafka_RebalanceConfig : GTLRObject
@@ -686,6 +1057,34 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
+@end
+
+
+/**
+ *  Request for RestartConnector.
+ */
+@interface GTLRManagedKafka_RestartConnectorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for RestartConnector.
+ */
+@interface GTLRManagedKafka_RestartConnectorResponse : GTLRObject
+@end
+
+
+/**
+ *  Request for ResumeConnector.
+ */
+@interface GTLRManagedKafka_ResumeConnectorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for ResumeConnector.
+ */
+@interface GTLRManagedKafka_ResumeConnectorResponse : GTLRObject
 @end
 
 
@@ -731,6 +1130,45 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRManagedKafka_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Request for StopConnector.
+ */
+@interface GTLRManagedKafka_StopConnectorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for StopConnector.
+ */
+@interface GTLRManagedKafka_StopConnectorResponse : GTLRObject
+@end
+
+
+/**
+ *  Task Retry Policy is implemented on a best-effort basis. Retry delay will be
+ *  exponential based on provided minimum and maximum backoffs.
+ *  https://en.wikipedia.org/wiki/Exponential_backoff. Note that the delay
+ *  between consecutive task restarts may not always precisely match the
+ *  configured settings. This can happen when the ConnectCluster is in
+ *  rebalancing state or if the ConnectCluster is unresponsive etc.
+ */
+@interface GTLRManagedKafka_TaskRetryPolicy : GTLRObject
+
+/**
+ *  Optional. The maximum amount of time to wait before retrying a failed task.
+ *  This sets an upper bound for the backoff delay.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maximumBackoff;
+
+/**
+ *  Optional. The minimum amount of time to wait before retrying a failed task.
+ *  This sets a lower bound for the backoff delay.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minimumBackoff;
+
 @end
 
 

@@ -114,7 +114,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ParameterMapping;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_SecretVersionsForRequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo;
@@ -279,7 +281,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ParameterMapping;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_RequestHeaders;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_SecretVersionsForRequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo;
@@ -312,6 +316,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponseGeneratorSuggestionAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
@@ -403,6 +408,10 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestionSummarySection;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResultError;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
@@ -419,6 +428,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponseGeneratorSuggestionAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
@@ -484,6 +494,10 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestionSummarySection;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ToolCall;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals;
 @class GTLRDialogflow_GoogleCloudLocationLocation;
@@ -7746,6 +7760,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders *requestHeaders;
 
 /**
+ *  Optional. The SecretManager secret version resource storing the
+ *  username:password pair for HTTP Basic authentication. Format:
+ *  `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersionForUsernamePassword;
+
+/**
+ *  Optional. The HTTP request headers to send together with webhook requests.
+ *  Header values are stored in SecretManager secret versions. When the same
+ *  header name is specified in both `request_headers` and
+ *  `secret_versions_for_request_headers`, the value in
+ *  `secret_versions_for_request_headers` will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_SecretVersionsForRequestHeaders *secretVersionsForRequestHeaders;
+
+/**
  *  Optional. Indicate the auth token type generated from the [Diglogflow
  *  service
  *  agent](https://cloud.google.com/iam/docs/service-agents#dialogflow-service-agent).
@@ -7827,6 +7857,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Optional. The HTTP request headers to send together with webhook requests.
+ *  Header values are stored in SecretManager secret versions. When the same
+ *  header name is specified in both `request_headers` and
+ *  `secret_versions_for_request_headers`, the value in
+ *  `secret_versions_for_request_headers` will be used.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_SecretVersionsForRequestHeaders : GTLRObject
+@end
+
+
+/**
  *  Represents configuration of OAuth client credential flow for 3rd party API
  *  authentication.
  */
@@ -7842,10 +7889,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /**
+ *  Optional. The name of the SecretManager secret version resource storing the
+ *  client secret. If this field is set, the `client_secret` field will be
+ *  ignored. Format: `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersionForClientSecret;
+
+/**
  *  Required. The token endpoint provided by the 3rd party platform to exchange
  *  an access token.
  */
 @property(nonatomic, copy, nullable) NSString *tokenEndpoint;
+
+@end
+
+
+/**
+ *  Represents the value of an HTTP header stored in a SecretManager secret
+ *  version.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue : GTLRObject
+
+/**
+ *  Required. The SecretManager secret version resource storing the header
+ *  value. Format: `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersion;
 
 @end
 
@@ -14913,6 +14982,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_RequestHeaders *requestHeaders;
 
 /**
+ *  Optional. The SecretManager secret version resource storing the
+ *  username:password pair for HTTP Basic authentication. Format:
+ *  `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersionForUsernamePassword;
+
+/**
+ *  Optional. The HTTP request headers to send together with webhook requests.
+ *  Header values are stored in SecretManager secret versions. When the same
+ *  header name is specified in both `request_headers` and
+ *  `secret_versions_for_request_headers`, the value in
+ *  `secret_versions_for_request_headers` will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_SecretVersionsForRequestHeaders *secretVersionsForRequestHeaders;
+
+/**
  *  Optional. Indicate the auth token type generated from the [Diglogflow
  *  service
  *  agent](https://cloud.google.com/iam/docs/service-agents#dialogflow-service-agent).
@@ -14994,6 +15079,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Optional. The HTTP request headers to send together with webhook requests.
+ *  Header values are stored in SecretManager secret versions. When the same
+ *  header name is specified in both `request_headers` and
+ *  `secret_versions_for_request_headers`, the value in
+ *  `secret_versions_for_request_headers` will be used.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_SecretVersionsForRequestHeaders : GTLRObject
+@end
+
+
+/**
  *  Represents configuration of OAuth client credential flow for 3rd party API
  *  authentication.
  */
@@ -15009,10 +15111,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /**
+ *  Optional. The name of the SecretManager secret version resource storing the
+ *  client secret. If this field is set, the `client_secret` field will be
+ *  ignored. Format: `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersionForClientSecret;
+
+/**
  *  Required. The token endpoint provided by the 3rd party platform to exchange
  *  an access token.
  */
 @property(nonatomic, copy, nullable) NSString *tokenEndpoint;
+
+@end
+
+
+/**
+ *  Represents the value of an HTTP header stored in a SecretManager secret
+ *  version.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue : GTLRObject
+
+/**
+ *  Required. The SecretManager secret version resource storing the header
+ *  value. Format: `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersion;
 
 @end
 
@@ -16114,6 +16238,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Optional. Suggested summary. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SummarySuggestion *summarySuggestion;
+
+/** Optional. List of request and response for tool calls executed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo *> *toolCallInfo;
+
+@end
+
+
+/**
+ *  Request and response for a tool call.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo : GTLRObject
+
+/** Required. Request for a tool call. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall *toolCall;
+
+/** Required. Response for a tool call. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult *toolCallResult;
 
 @end
 
@@ -18806,6 +18947,87 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a call of a specific tool's action with the specified inputs.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall : GTLRObject
+
+/** Required. The name of the tool's action associated with this call. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Output only. Create time of the tool call. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The action's input parameters. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters *inputParameters;
+
+/**
+ *  Required. The tool associated with this call. Format:
+ *  `projects//locations//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
+@end
+
+
+/**
+ *  Optional. The action's input parameters.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters : GTLRObject
+@end
+
+
+/**
+ *  The result of calling a tool's action.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult : GTLRObject
+
+/** Required. The name of the tool's action associated with this call. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Only populated if the response content is utf-8 encoded. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Output only. Create time of the tool call result. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The tool call's error. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResultError *error;
+
+/**
+ *  Only populated if the response content is not utf-8 encoded. (by definition
+ *  byte fields are base64 encoded).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *rawContent;
+
+/**
+ *  Required. The tool associated with this call. Format:
+ *  `projects//locations//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
+@end
+
+
+/**
+ *  An error produced by the tool call.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResultError : GTLRObject
+
+/** Optional. The error message of the function. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  The request message for a webhook call.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest : GTLRObject
@@ -19735,6 +19957,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Optional. Suggested summary. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestion *summarySuggestion;
+
+/** Optional. List of request and response for tool calls executed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo *> *toolCallInfo;
+
+@end
+
+
+/**
+ *  Request and response for a tool call.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo : GTLRObject
+
+/** Required. Request for a tool call. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCall *toolCall;
+
+/** Required. Response for a tool call. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult *toolCallResult;
 
 @end
 
@@ -21807,6 +22046,87 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. Summary text for the section. */
 @property(nonatomic, copy, nullable) NSString *summary;
+
+@end
+
+
+/**
+ *  Represents a call of a specific tool's action with the specified inputs.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCall : GTLRObject
+
+/** Required. The name of the tool's action associated with this call. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Output only. Create time of the tool call. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The action's input parameters. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters *inputParameters;
+
+/**
+ *  Required. The tool associated with this call. Format:
+ *  `projects//locations//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
+@end
+
+
+/**
+ *  Optional. The action's input parameters.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters : GTLRObject
+@end
+
+
+/**
+ *  The result of calling a tool's action.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult : GTLRObject
+
+/** Required. The name of the tool's action associated with this call. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Only populated if the response content is utf-8 encoded. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Output only. Create time of the tool call result. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The tool call's error. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError *error;
+
+/**
+ *  Only populated if the response content is not utf-8 encoded. (by definition
+ *  byte fields are base64 encoded).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *rawContent;
+
+/**
+ *  Required. The tool associated with this call. Format:
+ *  `projects//locations//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
+@end
+
+
+/**
+ *  An error produced by the tool call.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError : GTLRObject
+
+/** Optional. The error message of the function. */
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 

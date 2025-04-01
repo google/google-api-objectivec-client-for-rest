@@ -2306,14 +2306,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
          lastModifiedTime, locationType, name, profileLastGenerated,
          profileStatus, projectDataProfile, projectId, relatedResources,
          resourceAttributes, resourceLabels, resourceVisibility,
-         sampleFindingsTable, sensitivityScore, state;
+         sampleFindingsTable, sensitivityScore, state, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dataStorageLocations" : [NSString class],
     @"fileClusterSummaries" : [GTLRDLP_GooglePrivacyDlpV2FileClusterSummary class],
     @"fileStoreInfoTypeSummaries" : [GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary class],
-    @"relatedResources" : [GTLRDLP_GooglePrivacyDlpV2RelatedResource class]
+    @"relatedResources" : [GTLRDLP_GooglePrivacyDlpV2RelatedResource class],
+    @"tags" : [GTLRDLP_GooglePrivacyDlpV2Tag class]
   };
   return map;
 }
@@ -2671,7 +2672,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
 @dynamic categories, descriptionProperty, displayName, example, name,
-         sensitivityScore, supportedBy, versions;
+         sensitivityScore, specificInfoTypes, supportedBy, versions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2680,6 +2681,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"categories" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory class],
+    @"specificInfoTypes" : [NSString class],
     @"supportedBy" : [NSString class],
     @"versions" : [GTLRDLP_GooglePrivacyDlpV2VersionDescription class]
   };
@@ -4459,13 +4461,14 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
          otherInfoTypes, predictedInfoTypes, profileLastGenerated,
          profileStatus, projectDataProfile, relatedResources, resourceLabels,
          resourceVisibility, rowCount, sampleFindingsTable, scannedColumnCount,
-         sensitivityScore, state, tableId, tableSizeBytes;
+         sensitivityScore, state, tableId, tableSizeBytes, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"otherInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary class],
     @"predictedInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary class],
-    @"relatedResources" : [GTLRDLP_GooglePrivacyDlpV2RelatedResource class]
+    @"relatedResources" : [GTLRDLP_GooglePrivacyDlpV2RelatedResource class],
+    @"tags" : [GTLRDLP_GooglePrivacyDlpV2Tag class]
   };
   return map;
 }
@@ -4522,6 +4525,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2TableReference
 @dynamic datasetId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2Tag
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2Tag
+@dynamic key, namespacedTagValue, value;
 @end
 
 

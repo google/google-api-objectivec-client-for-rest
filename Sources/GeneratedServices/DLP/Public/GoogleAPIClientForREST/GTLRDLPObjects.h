@@ -278,6 +278,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2TableLocation;
 @class GTLRDLP_GooglePrivacyDlpV2TableOptions;
 @class GTLRDLP_GooglePrivacyDlpV2TableReference;
+@class GTLRDLP_GooglePrivacyDlpV2Tag;
 @class GTLRDLP_GooglePrivacyDlpV2TagCondition;
 @class GTLRDLP_GooglePrivacyDlpV2TaggedField;
 @class GTLRDLP_GooglePrivacyDlpV2TagResources;
@@ -7576,7 +7577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary *> *fileStoreInfoTypeSummaries;
 
 /**
- *  The file store does not have any files.
+ *  The file store does not have any files. If the profiling failed, this will
+ *  be false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7690,6 +7692,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Unused. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The tags attached to the resource, including any tags attached during
+ *  profiling.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Tag *> *tags;
 
 @end
 
@@ -8534,6 +8542,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** The default sensitivity of the infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+/**
+ *  If this field is set, this infoType is a general infoType and these specific
+ *  infoTypes are contained within it. General infoTypes are infoTypes that
+ *  encompass multiple specific infoTypes. For example, the "GEOGRAPHIC_DATA"
+ *  general infoType would have set for this field "LOCATION",
+ *  "LOCATION_COORDINATES", and "STREET_ADDRESS".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *specificInfoTypes;
 
 /** Which parts of the API supports this InfoType. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedBy;
@@ -11667,6 +11684,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) NSNumber *tableSizeBytes;
 
+/**
+ *  The tags attached to the table, including any tags attached during
+ *  profiling. Because tags are attached to Cloud SQL instances rather than
+ *  Cloud SQL tables, this field is empty for Cloud SQL table profiles.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Tag *> *tags;
+
 @end
 
 
@@ -11729,6 +11753,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Name of the table. */
 @property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  A tag associated with a resource.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Tag : GTLRObject
+
+/**
+ *  The key of a tag key-value pair. For Google Cloud resources, this is the
+ *  resource name of the key, for example, "tagKeys/123456".
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The namespaced name for the tag value to attach to Google Cloud resources.
+ *  Must be in the format `{parent_id}/{tag_key_short_name}/{short_name}`, for
+ *  example, "123456/environment/prod". This is only set for Google Cloud
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *namespacedTagValue;
+
+/**
+ *  The value of a tag key-value pair. For Google Cloud resources, this is the
+ *  resource name of the value, for example, "tagValues/123456".
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

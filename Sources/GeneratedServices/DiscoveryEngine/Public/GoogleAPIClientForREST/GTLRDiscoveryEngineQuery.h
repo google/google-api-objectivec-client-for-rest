@@ -34,6 +34,152 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  De-provisions a CmekConfig.
+ *
+ *  Method: discoveryengine.projects.locations.cmekConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the CmekConfig to delete, such as
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  De-provisions a CmekConfig.
+ *
+ *  @param name Required. The resource name of the CmekConfig to delete, such as
+ *    `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the CmekConfig.
+ *
+ *  Method: discoveryengine.projects.locations.cmekConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Resource name of CmekConfig, such as `projects/ * /locations/ *
+ *  /cmekConfig` or `projects/ * /locations/ * /cmekConfigs/ *`. If the caller
+ *  does not have permission to access the CmekConfig, regardless of whether or
+ *  not it exists, a PERMISSION_DENIED error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig.
+ *
+ *  Gets the CmekConfig.
+ *
+ *  @param name Required. Resource name of CmekConfig, such as `projects/ *
+ *    /locations/ * /cmekConfig` or `projects/ * /locations/ * /cmekConfigs/ *`.
+ *    If the caller does not have permission to access the CmekConfig,
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the CmekConfigs with the project.
+ *
+ *  Method: discoveryengine.projects.locations.cmekConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent location resource name, such as
+ *  `projects/{project}/locations/{location}`. If the caller does not have
+ *  permission to list CmekConfigs under this location, regardless of whether or
+ *  not a CmekConfig exists, a PERMISSION_DENIED error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListCmekConfigsResponse.
+ *
+ *  Lists all the CmekConfigs with the project.
+ *
+ *  @param parent Required. The parent location resource name, such as
+ *    `projects/{project}/locations/{location}`. If the caller does not have
+ *    permission to list CmekConfigs under this location, regardless of whether
+ *    or not a CmekConfig exists, a PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Provisions a CMEK key for use in a location of a customer's project. This
+ *  method will also conduct location validation on the provided cmekConfig to
+ *  make sure the key is valid and can be used in the selected location.
+ *
+ *  Method: discoveryengine.projects.locations.cmekConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the CmekConfig of the form
+ *  `projects/{project}/locations/{location}/cmekConfig` or
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Set the following CmekConfig as the default to be used for child resources
+ *  if one is not specified.
+ */
+@property(nonatomic, assign) BOOL setDefault;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Provisions a CMEK key for use in a location of a customer's project. This
+ *  method will also conduct location validation on the provided cmekConfig to
+ *  make sure the key is valid and can be used in the selected location.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig to include in
+ *    the query.
+ *  @param name Required. The name of the CmekConfig of the form
+ *    `projects/{project}/locations/{location}/cmekConfig` or
+ *    `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -7742,6 +7888,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the CmekConfig.
+ *
+ *  Method: discoveryengine.projects.locations.getCmekConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsGetCmekConfig : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Resource name of CmekConfig, such as `projects/ * /locations/ *
+ *  /cmekConfig` or `projects/ * /locations/ * /cmekConfigs/ *`. If the caller
+ *  does not have permission to access the CmekConfig, regardless of whether or
+ *  not it exists, a PERMISSION_DENIED error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig.
+ *
+ *  Gets the CmekConfig.
+ *
+ *  @param name Required. Resource name of CmekConfig, such as `projects/ *
+ *    /locations/ * /cmekConfig` or `projects/ * /locations/ * /cmekConfigs/ *`.
+ *    If the caller does not have permission to access the CmekConfig,
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsGetCmekConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Performs a grounding check.
  *
  *  Method: discoveryengine.projects.locations.groundingConfigs.check
@@ -8213,6 +8394,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.podcasts.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsPodcastsOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsPodcastsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Ranks a list of text records based on the given input query.
  *
  *  Method: discoveryengine.projects.locations.rankingConfigs.rank
@@ -8244,6 +8455,52 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankRequest *)object
                   rankingConfig:(NSString *)rankingConfig;
+
+@end
+
+/**
+ *  Provisions a CMEK key for use in a location of a customer's project. This
+ *  method will also conduct location validation on the provided cmekConfig to
+ *  make sure the key is valid and can be used in the selected location.
+ *
+ *  Method: discoveryengine.projects.locations.updateCmekConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUpdateCmekConfig : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the CmekConfig of the form
+ *  `projects/{project}/locations/{location}/cmekConfig` or
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Set the following CmekConfig as the default to be used for child resources
+ *  if one is not specified.
+ */
+@property(nonatomic, assign) BOOL setDefault;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Provisions a CMEK key for use in a location of a customer's project. This
+ *  method will also conduct location validation on the provided cmekConfig to
+ *  make sure the key is valid and can be used in the selected location.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig to include in
+ *    the query.
+ *  @param name Required. The name of the CmekConfig of the form
+ *    `projects/{project}/locations/{location}/cmekConfig` or
+ *    `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUpdateCmekConfig
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig *)object
+                           name:(NSString *)name;
 
 @end
 

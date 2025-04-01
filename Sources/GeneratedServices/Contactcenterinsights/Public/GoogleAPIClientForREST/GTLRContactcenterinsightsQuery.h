@@ -309,6 +309,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Delete feedback labels in bulk using a filter.
+ *
+ *  Method: contactcenterinsights.projects.locations.bulkDeleteFeedbackLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsBulkDeleteFeedbackLabels : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource for new feedback labels. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Delete feedback labels in bulk using a filter.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource for new feedback labels.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsBulkDeleteFeedbackLabels
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Download feedback labels in bulk from an external source. Currently supports
  *  exporting Quality AI example conversations with transcripts and question
  *  bodies.

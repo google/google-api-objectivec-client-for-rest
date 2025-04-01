@@ -3986,7 +3986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @property(nonatomic, copy, nullable) NSString *makeAndModel;
 
 /**
- *  The resource name of the Printer object, in the format
+ *  Identifier. The resource name of the Printer object, in the format
  *  customers/{customer-id}/printers/{printer-id} (During printer creation leave
  *  empty)
  */
@@ -4060,7 +4060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Immutable. Resource name of the print server. Leave empty when creating.
+ *  Identifier. Resource name of the print server. Leave empty when creating.
  *  Format: `customers/{customer.id}/printServers/{print_server.id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;

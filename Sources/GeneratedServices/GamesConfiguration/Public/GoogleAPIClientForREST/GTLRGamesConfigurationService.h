@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services Publishing API (gamesConfiguration/v1configuration)
+//   Google Play Games Services Publishing API (gamesConfiguration/v1configuration)
 // Description:
 //   The Google Play Game Services Publishing API allows developers to configure
 //   their games in Game Services.
@@ -37,7 +37,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesConfigurationAndroidpublis
 //
 
 /**
- *  Service for executing Google Play Game Services Publishing API queries.
+ *  Service for executing Google Play Games Services Publishing API queries.
  *
  *  The Google Play Game Services Publishing API allows developers to configure
  *  their games in Game Services.

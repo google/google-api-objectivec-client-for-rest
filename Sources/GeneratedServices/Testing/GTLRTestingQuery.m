@@ -254,7 +254,7 @@ NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware   = @"PROVIDED_SOFT
 
 @implementation GTLRTestingQuery_TestEnvironmentCatalogGet
 
-@dynamic environmentType, projectId;
+@dynamic environmentType, includeViewableModels, projectId;
 
 + (instancetype)queryWithEnvironmentType:(NSString *)environmentType {
   NSArray *pathParams = @[ @"environmentType" ];

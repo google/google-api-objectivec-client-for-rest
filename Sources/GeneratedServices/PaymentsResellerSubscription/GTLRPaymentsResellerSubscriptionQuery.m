@@ -233,6 +233,60 @@
 
 @end
 
+@implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsResume
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:resume";
+  GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionResponse class];
+  query.loggingName = @"paymentsresellersubscription.partners.subscriptions.resume";
+  return query;
+}
+
+@end
+
+@implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsSuspend
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:suspend";
+  GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsSuspend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionResponse class];
+  query.loggingName = @"paymentsresellersubscription.partners.subscriptions.suspend";
+  return query;
+}
+
+@end
+
 @implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsUndoCancel
 
 @dynamic name;

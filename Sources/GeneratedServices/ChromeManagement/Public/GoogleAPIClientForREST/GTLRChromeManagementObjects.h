@@ -6602,8 +6602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, copy, nullable) NSString *osPlatformType;
 
 /**
- *  Output only. Major OS version of the device on which the profile exists.
- *  (i.e. Windows 10)
+ *  Output only. Major OS platform version of the device on which the profile
+ *  exists, from profile reporting.
  */
 @property(nonatomic, copy, nullable) NSString *osPlatformVersion;
 

@@ -10,6 +10,18 @@
 
 #import <GoogleAPIClientForREST/GTLRSQLAdminQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// flagScope
+NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeConnectionPool = @"SQL_FLAG_SCOPE_CONNECTION_POOL";
+NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase    = @"SQL_FLAG_SCOPE_DATABASE";
+NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRSQLAdminQuery
 
 @dynamic fields;
@@ -465,7 +477,7 @@
 
 @implementation GTLRSQLAdminQuery_FlagsList
 
-@dynamic databaseVersion;
+@dynamic databaseVersion, flagScope;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/flags";

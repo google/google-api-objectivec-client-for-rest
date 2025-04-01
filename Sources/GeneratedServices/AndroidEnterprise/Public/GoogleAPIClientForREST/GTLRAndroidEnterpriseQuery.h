@@ -634,7 +634,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  times it will return an error. Subsequent calls after the first will
  *  generate a new, unique set of credentials, and invalidate the previously
  *  generated credentials. Once the service account is bound to the enterprise,
- *  it can be managed using the serviceAccountKeys resource.
+ *  it can be managed using the serviceAccountKeys resource. *Note:* After you
+ *  create a key, you might need to wait for 60 seconds or more before you
+ *  perform another operation with the key. If you try to perform an operation
+ *  with the key immediately after you create the key, and you receive an error,
+ *  you can retry the request with exponential backoff .
  *
  *  Method: androidenterprise.enterprises.getServiceAccount
  *
@@ -672,7 +676,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  times it will return an error. Subsequent calls after the first will
  *  generate a new, unique set of credentials, and invalidate the previously
  *  generated credentials. Once the service account is bound to the enterprise,
- *  it can be managed using the serviceAccountKeys resource.
+ *  it can be managed using the serviceAccountKeys resource. *Note:* After you
+ *  create a key, you might need to wait for 60 seconds or more before you
+ *  perform another operation with the key. If you try to perform an operation
+ *  with the key immediately after you create the key, and you receive an error,
+ *  you can retry the request with exponential backoff .
  *
  *  @param enterpriseId The ID of the enterprise.
  *

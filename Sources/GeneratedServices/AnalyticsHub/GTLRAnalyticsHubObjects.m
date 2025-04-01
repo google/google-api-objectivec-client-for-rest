@@ -265,10 +265,18 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_DestinationDataset
-@dynamic datasetReference, descriptionProperty, friendlyName, labels, location;
+@dynamic datasetReference, descriptionProperty, friendlyName, labels, location,
+         replicaLocations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicaLocations" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -601,7 +609,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_MessageTransform
-@dynamic enabled, javascriptUdf;
+@dynamic disabled, enabled, javascriptUdf;
 @end
 
 

@@ -362,6 +362,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudNaturalLanguage"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudObservability",
+            targets: ["GoogleAPIClientForREST_CloudObservability"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudOSLogin",
             targets: ["GoogleAPIClientForREST_CloudOSLogin"]
         ),
@@ -1745,6 +1749,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudNaturalLanguage",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudNaturalLanguage",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudObservability",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudObservability",
             publicHeadersPath: "Public"
         ),
         .target(

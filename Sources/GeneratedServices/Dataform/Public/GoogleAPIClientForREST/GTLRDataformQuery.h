@@ -100,6 +100,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataformQuery_ProjectsLocationsList : GTLRDataformQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -657,11 +663,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a single Repository. **Note:** *This method does not fully
- *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
- *  wildcard entry (**\\***) is treated as a bad request - When the
- *  **field_mask** is omitted, instead of only updating the set fields, the
- *  request is treated as a full update on all modifiable fields
+ *  Updates a single Repository. **Note:** *This method does not fully implement
+ *  [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is treated
+ *  as a bad request, and when the `field_mask` is omitted, the request is
+ *  treated as a full update on all modifiable fields.*
  *
  *  Method: dataform.projects.locations.repositories.patch
  *
@@ -685,11 +690,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_Repository.
  *
- *  Updates a single Repository. **Note:** *This method does not fully
- *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
- *  wildcard entry (**\\***) is treated as a bad request - When the
- *  **field_mask** is omitted, instead of only updating the set fields, the
- *  request is treated as a full update on all modifiable fields
+ *  Updates a single Repository. **Note:** *This method does not fully implement
+ *  [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is treated
+ *  as a bad request, and when the `field_mask` is omitted, the request is
+ *  treated as a full update on all modifiable fields.*
  *
  *  @param object The @c GTLRDataform_Repository to include in the query.
  *  @param name Identifier. The repository's name.
@@ -948,10 +952,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a single ReleaseConfig. **Note:** *This method does not fully
- *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
- *  wildcard entry (**\\***) is treated as a bad request - When the
- *  **field_mask** is omitted, instead of only updating the set fields, the
- *  request is treated as a full update on all modifiable fields
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  Method: dataform.projects.locations.repositories.releaseConfigs.patch
  *
@@ -976,10 +979,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataform_ReleaseConfig.
  *
  *  Updates a single ReleaseConfig. **Note:** *This method does not fully
- *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
- *  wildcard entry (**\\***) is treated as a bad request - When the
- *  **field_mask** is omitted, instead of only updating the set fields, the
- *  request is treated as a full update on all modifiable fields
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  @param object The @c GTLRDataform_ReleaseConfig to include in the query.
  *  @param name Identifier. The release config's name.
@@ -1223,10 +1225,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a single WorkflowConfig. **Note:** *This method does not fully
- *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
- *  wildcard entry (**\\***) is treated as a bad request - When the
- *  **field_mask** is omitted, instead of only updating the set fields, the
- *  request is treated as a full update on all modifiable fields
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  Method: dataform.projects.locations.repositories.workflowConfigs.patch
  *
@@ -1251,10 +1252,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataform_WorkflowConfig.
  *
  *  Updates a single WorkflowConfig. **Note:** *This method does not fully
- *  implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The
- *  wildcard entry (**\\***) is treated as a bad request - When the
- *  **field_mask** is omitted, instead of only updating the set fields, the
- *  request is treated as a full update on all modifiable fields
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  @param object The @c GTLRDataform_WorkflowConfig to include in the query.
  *  @param name Identifier. The workflow config's name.
@@ -2350,11 +2350,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Update default config for a given project and location. **Note:** *This
- *  method does not fully implement*, (see
- *  [AIP/134](https://google.aip.dev/134), in particular: - The wildcard entry
- *  (**\\***) is treated as a bad request - When the **field_mask** is omitted,
- *  instead of only updating the set fields, the request is treated as a full
- *  update on all modifiable fields
+ *  method does not fully implement [AIP/134](https://google.aip.dev/134). The
+ *  wildcard entry (\\*) is treated as a bad request, and when the `field_mask`
+ *  is omitted, the request is treated as a full update on all modifiable
+ *  fields.*
  *
  *  Method: dataform.projects.locations.updateConfig
  *
@@ -2378,11 +2377,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataform_Config.
  *
  *  Update default config for a given project and location. **Note:** *This
- *  method does not fully implement*, (see
- *  [AIP/134](https://google.aip.dev/134), in particular: - The wildcard entry
- *  (**\\***) is treated as a bad request - When the **field_mask** is omitted,
- *  instead of only updating the set fields, the request is treated as a full
- *  update on all modifiable fields
+ *  method does not fully implement [AIP/134](https://google.aip.dev/134). The
+ *  wildcard entry (\\*) is treated as a bad request, and when the `field_mask`
+ *  is omitted, the request is treated as a full update on all modifiable
+ *  fields.*
  *
  *  @param object The @c GTLRDataform_Config to include in the query.
  *  @param name Identifier. The config name.

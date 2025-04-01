@@ -192,7 +192,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis backupCollection resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
- *  where `location_id` refers to a GCP region.
+ *  where `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -203,7 +203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Redis backupCollection resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsGet
  */
@@ -242,7 +242,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the backupCollection location using the form:
  *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -256,7 +256,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The resource name of the backupCollection location
  *    using the form: `projects/{project_id}/locations/{location_id}` where
- *    `location_id` refers to a GCP region.
+ *    `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsList
  *
@@ -291,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis cluster resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
- *  `location_id` refers to a GCP region.
+ *  `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -314,7 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name Required. Redis cluster resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersBackup
  */
@@ -351,7 +351,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the cluster location using the form:
  *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRedis_Cluster to include in the query.
  *  @param parent Required. The resource name of the cluster location using the
  *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
- *    refers to a GCP region.
+ *    refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersCreate
  */
@@ -394,7 +394,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis cluster resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
- *  `location_id` refers to a GCP region.
+ *  `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -408,7 +408,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Redis cluster resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersDelete
  */
@@ -429,7 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis cluster resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
- *  `location_id` refers to a GCP region.
+ *  `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Redis cluster resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersGet
  */
@@ -461,7 +461,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis cluster certificate authority resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority`
- *  where `location_id` refers to a GCP region.
+ *  where `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -473,7 +473,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Redis cluster certificate authority resource name
  *    using the form:
  *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersGetCertificateAuthority
  */
@@ -513,7 +513,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the cluster location using the form:
  *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -528,7 +528,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The resource name of the cluster location using the
  *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
- *    refers to a GCP region.
+ *    refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersList
  *
@@ -605,7 +605,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis Cluster instance resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
- *  `location_id` refers to a GCP region.
+ *  `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -618,7 +618,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name Required. Redis Cluster instance resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersRescheduleClusterMaintenance
  */
@@ -1131,6 +1131,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsList : GTLRCloudRedisQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

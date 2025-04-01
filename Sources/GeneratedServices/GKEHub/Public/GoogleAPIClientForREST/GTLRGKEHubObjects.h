@@ -1505,6 +1505,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Depreca
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_GkeSandboxUnsupported;
 /**
+ *  Legacy istio secrets found for multicluster error code
+ *
+ *  Value: "LEGACY_MC_SECRETS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_LegacyMcSecrets;
+/**
+ *  Managed CNI not enabled error code
+ *
+ *  Value: "MANAGED_CNI_NOT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ManagedCniNotEnabled;
+/**
  *  Permission denied error code for cross-project
  *
  *  Value: "MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED"
@@ -1552,6 +1564,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  *  Value: "NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired;
+/**
+ *  Non-standard binary usage error code
+ *
+ *  Value: "NON_STANDARD_BINARY_USAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NonStandardBinaryUsage;
 /**
  *  BackendService quota exceeded error code.
  *
@@ -1643,6 +1661,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaEx
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies;
 /**
+ *  Unsupported gateway class error code
+ *
+ *  Value: "UNSUPPORTED_GATEWAY_CLASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedGatewayClass;
+/**
  *  Multiple control planes unsupported error code
  *
  *  Value: "UNSUPPORTED_MULTIPLE_CONTROL_PLANES"
@@ -1654,6 +1678,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Unsuppo
  *  Value: "VPCSC_GA_SUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_VpcscGaSupported;
+/**
+ *  Workload identity required error code
+ *
+ *  Value: "WORKLOAD_IDENTITY_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_WorkloadIdentityRequired;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshCondition.severity
@@ -4923,6 +4953,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *        "DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT_SAFE")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_GkeSandboxUnsupported GKE
  *        sandbox unsupported error code (Value: "GKE_SANDBOX_UNSUPPORTED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_LegacyMcSecrets Legacy istio
+ *        secrets found for multicluster error code (Value: "LEGACY_MC_SECRETS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ManagedCniNotEnabled Managed
+ *        CNI not enabled error code (Value: "MANAGED_CNI_NOT_ENABLED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamCrossProjectPermissionDenied
  *        Permission denied error code for cross-project (Value:
  *        "MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED")
@@ -4946,6 +4980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired
  *        Nodepool workload identity federation required error code (Value:
  *        "NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_NonStandardBinaryUsage
+ *        Non-standard binary usage error code (Value:
+ *        "NON_STANDARD_BINARY_USAGE")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededBackendServices
  *        BackendService quota exceeded error code. (Value:
  *        "QUOTA_EXCEEDED_BACKEND_SERVICES")
@@ -4988,11 +5025,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies
  *        TrafficPolicy quota exceeded error code. (Value:
  *        "QUOTA_EXCEEDED_TRAFFIC_POLICIES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedGatewayClass
+ *        Unsupported gateway class error code (Value:
+ *        "UNSUPPORTED_GATEWAY_CLASS")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedMultipleControlPlanes
  *        Multiple control planes unsupported error code (Value:
  *        "UNSUPPORTED_MULTIPLE_CONTROL_PLANES")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_VpcscGaSupported VPC-SC GA
  *        is supported for this control plane. (Value: "VPCSC_GA_SUPPORTED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_WorkloadIdentityRequired
+ *        Workload identity required error code (Value:
+ *        "WORKLOAD_IDENTITY_REQUIRED")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 

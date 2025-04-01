@@ -618,6 +618,584 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new connector in a given Connect cluster.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsCreate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The ID to use for the connector, which will become the final
+ *  component of the connector's name. The ID must be 1-63 characters long, and
+ *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` to comply with RFC
+ *  1035. This value is structured like: `my-connector-id`.
+ */
+@property(nonatomic, copy, nullable) NSString *connectorId;
+
+/**
+ *  Required. The parent Connect cluster in which to create the connector.
+ *  Structured like
+ *  `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Connector.
+ *
+ *  Creates a new connector in a given Connect cluster.
+ *
+ *  @param object The @c GTLRManagedKafka_Connector to include in the query.
+ *  @param parent Required. The parent Connect cluster in which to create the
+ *    connector. Structured like
+ *    `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_Connector *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a connector.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the connector to delete. Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Empty.
+ *
+ *  Deletes a connector.
+ *
+ *  @param name Required. The name of the connector to delete. Structured like:
+ *    projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the properties of a single connector.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the connector whose configuration to return.
+ *  Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Connector.
+ *
+ *  Returns the properties of a single connector.
+ *
+ *  @param name Required. The name of the connector whose configuration to
+ *    return. Structured like:
+ *    projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the connectors in a given Connect cluster.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. The maximum number of connectors to return. The service may return
+ *  fewer than this value. If unspecified, server will pick an appropriate
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListConnectors` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListConnectors` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent Connect cluster whose connectors are to be listed.
+ *  Structured like
+ *  `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_ListConnectorsResponse.
+ *
+ *  Lists the connectors in a given Connect cluster.
+ *
+ *  @param parent Required. The parent Connect cluster whose connectors are to
+ *    be listed. Structured like
+ *    `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the properties of a connector.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsPatch : GTLRManagedKafkaQuery
+
+/**
+ *  Identifier. The name of the connector. Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connect_cluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  cluster resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. The mask is required and a value of * will update all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Connector.
+ *
+ *  Updates the properties of a connector.
+ *
+ *  @param object The @c GTLRManagedKafka_Connector to include in the query.
+ *  @param name Identifier. The name of the connector. Structured like:
+ *    projects/{project}/locations/{location}/connectClusters/{connect_cluster}/connectors/{connector}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsPatch
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_Connector *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Pauses the connector and its tasks.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsPause : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the connector to pause. Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_PauseConnectorResponse.
+ *
+ *  Pauses the connector and its tasks.
+ *
+ *  @param object The @c GTLRManagedKafka_PauseConnectorRequest to include in
+ *    the query.
+ *  @param name Required. The name of the connector to pause. Structured like:
+ *    projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsPause
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_PauseConnectorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Restarts the connector.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.restart
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsRestart : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the connector to restart. Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_RestartConnectorResponse.
+ *
+ *  Restarts the connector.
+ *
+ *  @param object The @c GTLRManagedKafka_RestartConnectorRequest to include in
+ *    the query.
+ *  @param name Required. The name of the connector to restart. Structured like:
+ *    projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsRestart
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_RestartConnectorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Resumes the connector and its tasks.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsResume : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the connector to pause. Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_ResumeConnectorResponse.
+ *
+ *  Resumes the connector and its tasks.
+ *
+ *  @param object The @c GTLRManagedKafka_ResumeConnectorRequest to include in
+ *    the query.
+ *  @param name Required. The name of the connector to pause. Structured like:
+ *    projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsResume
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_ResumeConnectorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops the connector.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.connectors.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsStop : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the connector to stop. Structured like:
+ *  projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_StopConnectorResponse.
+ *
+ *  Stops the connector.
+ *
+ *  @param object The @c GTLRManagedKafka_StopConnectorRequest to include in the
+ *    query.
+ *  @param name Required. The name of the connector to stop. Structured like:
+ *    projects/{project}/locations/{location}/connectClusters/{connectCluster}/connectors/{connector}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersConnectorsStop
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_StopConnectorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new Kafka Connect cluster in a given project and location.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersCreate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The ID to use for the Connect cluster, which will become the final
+ *  component of the cluster's name. The ID must be 1-63 characters long, and
+ *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` to comply with RFC
+ *  1035. This value is structured like: `my-cluster-id`.
+ */
+@property(nonatomic, copy, nullable) NSString *connectClusterId;
+
+/**
+ *  Required. The parent project/location in which to create the Kafka Connect
+ *  cluster. Structured like `projects/{project}/locations/{location}/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID to avoid duplication of requests. If a request times out or
+ *  fails, retrying with the same ID allows the server to recognize the previous
+ *  attempt. For at least 60 minutes, the server ignores duplicate requests
+ *  bearing the same ID. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID within 60 minutes of the last request, the server
+ *  checks if an original operation with the same request ID was received. If
+ *  so, the server ignores the second request. The request ID must be a valid
+ *  UUID. A zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Operation.
+ *
+ *  Creates a new Kafka Connect cluster in a given project and location.
+ *
+ *  @param object The @c GTLRManagedKafka_ConnectCluster to include in the
+ *    query.
+ *  @param parent Required. The parent project/location in which to create the
+ *    Kafka Connect cluster. Structured like
+ *    `projects/{project}/locations/{location}/`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_ConnectCluster *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Connect cluster.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the Kafka Connect cluster to delete. Structured like
+ *  `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID to avoid duplication of requests. If a request times out or
+ *  fails, retrying with the same ID allows the server to recognize the previous
+ *  attempt. For at least 60 minutes, the server ignores duplicate requests
+ *  bearing the same ID. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID within 60 minutes of the last request, the server
+ *  checks if an original operation with the same request ID was received. If
+ *  so, the server ignores the second request. The request ID must be a valid
+ *  UUID. A zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Operation.
+ *
+ *  Deletes a single Connect cluster.
+ *
+ *  @param name Required. The name of the Kafka Connect cluster to delete.
+ *    Structured like
+ *    `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the properties of a single Kafka Connect cluster.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the Kafka Connect cluster whose configuration to
+ *  return. Structured like
+ *  `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_ConnectCluster.
+ *
+ *  Returns the properties of a single Kafka Connect cluster.
+ *
+ *  @param name Required. The name of the Kafka Connect cluster whose
+ *    configuration to return. Structured like
+ *    `projects/{project}/locations/{location}/connectClusters/{connect_cluster_id}`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the Kafka Connect clusters in a given project and location.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersList : GTLRManagedKafkaQuery
+
+/** Optional. Filter expression for the result. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of Connect clusters to return. The service may
+ *  return fewer than this value. If unspecified, server will pick an
+ *  appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListConnectClusters` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListConnectClusters` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent project/location whose Connect clusters are to be
+ *  listed. Structured like `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_ListConnectClustersResponse.
+ *
+ *  Lists the Kafka Connect clusters in a given project and location.
+ *
+ *  @param parent Required. The parent project/location whose Connect clusters
+ *    are to be listed. Structured like
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the properties of a single Kafka Connect cluster.
+ *
+ *  Method: managedkafka.projects.locations.connectClusters.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersPatch : GTLRManagedKafkaQuery
+
+/**
+ *  Identifier. The name of the Kafka Connect cluster. Structured like:
+ *  projects/{project_number}/locations/{location}/connectClusters/{connect_cluster_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID to avoid duplication of requests. If a request times out or
+ *  fails, retrying with the same ID allows the server to recognize the previous
+ *  attempt. For at least 60 minutes, the server ignores duplicate requests
+ *  bearing the same ID. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID within 60 minutes of the last request, the server
+ *  checks if an original operation with the same request ID was received. If
+ *  so, the server ignores the second request. The request ID must be a valid
+ *  UUID. A zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  cluster resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. The mask is required and a value of * will update all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Operation.
+ *
+ *  Updates the properties of a single Kafka Connect cluster.
+ *
+ *  @param object The @c GTLRManagedKafka_ConnectCluster to include in the
+ *    query.
+ *  @param name Identifier. The name of the Kafka Connect cluster. Structured
+ *    like:
+ *    projects/{project_number}/locations/{location}/connectClusters/{connect_cluster_id}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsConnectClustersPatch
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_ConnectCluster *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: managedkafka.projects.locations.get
@@ -652,6 +1230,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
  */
 @interface GTLRManagedKafkaQuery_ProjectsLocationsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

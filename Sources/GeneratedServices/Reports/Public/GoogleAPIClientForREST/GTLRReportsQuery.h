@@ -90,6 +90,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGcp;
 /**
+ *  The Gemini for Workspace app's activity reports return information about
+ *  various types of Gemini activity events.
+ *
+ *  Value: "gemini_for_workspace"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGeminiForWorkspace;
+/**
  *  The Google+ application's activity reports return information about various
  *  Google+ activity events.
  *
@@ -304,6 +311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameVault The Vault activity reports return
  *        information about various types of Vault activity events. (Value:
  *        "vault")
+ *    @arg @c kGTLRReportsApplicationNameGeminiForWorkspace The Gemini for
+ *        Workspace app's activity reports return information about various
+ *        types of Gemini activity events. (Value: "gemini_for_workspace")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -518,6 +528,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameVault The Vault activity reports return
  *        information about various types of Vault activity events. (Value:
  *        "vault")
+ *    @arg @c kGTLRReportsApplicationNameGeminiForWorkspace The Gemini for
+ *        Workspace app's activity reports return information about various
+ *        types of Gemini activity events. (Value: "gemini_for_workspace")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *

@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Slides presentations.
 // Documentation:
-//   https://developers.google.com/slides/
+//   https://developers.google.com/workspace/slides/
 
 #import "GTLRSlidesObjects.h"
 #import "GTLRSlidesQuery.h"

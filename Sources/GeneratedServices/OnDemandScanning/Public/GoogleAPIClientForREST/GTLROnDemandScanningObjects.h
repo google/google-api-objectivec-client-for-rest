@@ -1080,8 +1080,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  The binary package. This is significant when the source is different than
  *  the binary itself. Historically if they've differed, we've stored the name
  *  of the source and its version in the package/version fields, but we should
- *  also store the binary package info, as that's what's actually installed. See
- *  b/175908657#comment15.
+ *  also store the binary package info, as that's what's actually installed.
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_PackageVersion *binaryVersion;
 
@@ -2324,9 +2323,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
- *  Details about the layer a package was found in. This should be the same as
- *  the LayerDetails message in
- *  google3/third_party/scalibr/binary/proto/scan_result.proto.
+ *  Details about the layer a package was found in.
  */
 @interface GTLROnDemandScanning_LayerDetails : GTLRObject
 
@@ -2820,10 +2817,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
 
-/**
- *  CVEs that this package is no longer vulnerable to
- *  go/drydock-dd-custom-binary-scanning
- */
+/** CVEs that this package is no longer vulnerable to */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *patchedCve;
 
 /** DEPRECATED */

@@ -536,7 +536,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_BackupConfigInfo
 @dynamic backupApplianceBackupConfig, gcpBackupConfig, lastBackupError,
-         lastBackupState, lastSuccessfulBackupConsistencyTime;
+         lastBackupState, lastSuccessfulBackupConsistencyTime,
+         lastSuccessfulLogBackupConsistencyTime;
 @end
 
 

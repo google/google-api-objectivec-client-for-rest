@@ -18,6 +18,7 @@
 @class GTLRAIPlatformNotebooks_AccessConfig;
 @class GTLRAIPlatformNotebooks_Binding;
 @class GTLRAIPlatformNotebooks_BootDisk;
+@class GTLRAIPlatformNotebooks_ConfidentialInstanceConfig;
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_DataDisk;
 @class GTLRAIPlatformNotebooks_DefaultValues;
@@ -196,6 +197,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_Pd
  *  Value: "PD_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdStandard;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_ConfidentialInstanceConfig.confidentialInstanceType
+
+/**
+ *  No type specified. Do not use this value.
+ *
+ *  Value: "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified;
+/**
+ *  AMD Secure Encrypted Virtualization.
+ *
+ *  Value: "SEV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev;
+/**
+ *  AMD Secure Encrypted Virtualization - Secure Nested Paging.
+ *
+ *  Value: "SEV_SNP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp;
+/**
+ *  Intel Trust Domain eXtension.
+ *
+ *  Value: "TDX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_DataDisk.diskEncryption
@@ -738,6 +767,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  A set of Confidential Instance options.
+ */
+@interface GTLRAIPlatformNotebooks_ConfidentialInstanceConfig : GTLRObject
+
+/**
+ *  Optional. Defines the type of technology used by the confidential instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified
+ *        No type specified. Do not use this value. (Value:
+ *        "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev
+ *        AMD Secure Encrypted Virtualization. (Value: "SEV")
+ *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp
+ *        AMD Secure Encrypted Virtualization - Secure Nested Paging. (Value:
+ *        "SEV_SNP")
+ *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx
+ *        Intel Trust Domain eXtension. (Value: "TDX")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialInstanceType;
+
+/**
+ *  Optional. Defines whether the instance should have confidential compute
+ *  enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+
+@end
+
+
+/**
  *  Response for getting WbI configurations in a location
  */
 @interface GTLRAIPlatformNotebooks_Config : GTLRObject
@@ -747,6 +809,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /** Output only. The default values for configuration. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DefaultValues *defaultValues;
+
+/**
+ *  Output only. Flag to disable the creation of legacy Workbench notebooks
+ *  (User-managed notebooks and Google-managed notebooks).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableWorkbenchLegacyCreation;
 
 /** Output only. The supported values for configuration. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_SupportedValues *supportedValues;
@@ -1039,6 +1109,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /** Optional. The boot disk for the VM. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_BootDisk *bootDisk;
+
+/** Optional. Confidential instance configuration. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ConfidentialInstanceConfig *confidentialInstanceConfig;
 
 /** Optional. Use a container image to start the notebook instance. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ContainerImage *containerImage;

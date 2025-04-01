@@ -827,6 +827,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRNetworkServices_ListEndpointPoliciesResponse.
  *
  *  Lists EndpointPolicies in a given project and location.
@@ -1294,6 +1301,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRNetworkServices_ListGrpcRoutesResponse.
  *
  *  Lists GrpcRoutes in a given project and location.
@@ -1474,6 +1488,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  listed, specified in the format `projects/ * /locations/global`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRNetworkServices_ListHttpRoutesResponse.
@@ -2932,6 +2953,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRNetworkServices_ListTcpRoutesResponse.
  *
  *  Lists TcpRoute in a given project and location.
@@ -3112,6 +3140,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  listed, specified in the format `projects/ * /locations/global`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRNetworkServices_ListTlsRoutesResponse.

@@ -31,6 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
+ *  Return basic action schema.
+ *
+ *  Value: "ACTION_SCHEMA_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionSchemaViewBasic;
+/**
+ *  Return enriched action schema.
+ *
+ *  Value: "ACTION_SCHEMA_VIEW_ENRICHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionSchemaViewEnriched;
+/**
+ *  VIEW_UNSPECIFIED. The unset value. Defaults to BASIC View.
+ *
+ *  Value: "ACTION_SCHEMA_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionSchemaViewUnspecified;
+/**
  *  Return only action names.
  *
  *  Value: "ACTION_VIEW_BASIC"
@@ -151,6 +169,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *  projects/{project}/locations/{location}/connections/{connection}/actions/{action}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specified view of the action schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectorsViewActionSchemaViewUnspecified VIEW_UNSPECIFIED.
+ *        The unset value. Defaults to BASIC View. (Value:
+ *        "ACTION_SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRConnectorsViewActionSchemaViewBasic Return basic action
+ *        schema. (Value: "ACTION_SCHEMA_VIEW_BASIC")
+ *    @arg @c kGTLRConnectorsViewActionSchemaViewEnriched Return enriched action
+ *        schema. (Value: "ACTION_SCHEMA_VIEW_ENRICHED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRConnectors_Action.

@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Docs documents.
 // Documentation:
-//   https://developers.google.com/docs/
+//   https://developers.google.com/workspace/docs/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -5961,6 +5961,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *matchCase;
+
+/**
+ *  Optional. True if the find value should be treated as a regular expression.
+ *  Any backslashes in the pattern should be escaped. - `True`: the search text
+ *  is treated as a regular expressions. - `False`: the search text is treated
+ *  as a substring for matching.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchByRegex;
 
 /** The text to search for in the document. */
 @property(nonatomic, copy, nullable) NSString *text;

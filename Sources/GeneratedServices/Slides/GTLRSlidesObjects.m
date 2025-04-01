@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Slides presentations.
 // Documentation:
-//   https://developers.google.com/slides/
+//   https://developers.google.com/workspace/slides/
 
 #import <GoogleAPIClientForREST/GTLRSlidesObjects.h>
 
@@ -1768,7 +1768,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_SubstringMatchCriteria
-@dynamic matchCase, text;
+@dynamic matchCase, searchByRegex, text;
 @end
 
 

@@ -135,6 +135,8 @@
 @class GTLRDatabaseMigrationService_SqlServerDatabaseBackup;
 @class GTLRDatabaseMigrationService_SqlServerEncryptionOptions;
 @class GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig;
+@class GTLRDatabaseMigrationService_SqlServerSourceConfig;
+@class GTLRDatabaseMigrationService_SqlServerToPostgresConfig;
 @class GTLRDatabaseMigrationService_SslConfig;
 @class GTLRDatabaseMigrationService_StaticIpConnectivity;
 @class GTLRDatabaseMigrationService_StaticServiceIpConnectivity;
@@ -5220,6 +5222,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuCount;
 
+/**
+ *  Optional. Machine type of the VM instance. E.g. "n2-highmem-4",
+ *  "n2-highmem-8", "c4a-highmem-4-lssd". cpu_count must match the number of
+ *  vCPUs in the machine type.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
 @end
 
 
@@ -5612,6 +5621,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Optional. Configuration for SQL Server homogeneous migration. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig *sqlserverHomogeneousMigrationJobConfig;
+
+/**
+ *  Configuration for heterogeneous **SQL Server to Cloud SQL for PostgreSQL**
+ *  migrations.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerToPostgresConfig *sqlserverToPostgresConfig;
 
 /**
  *  The current migration job state.
@@ -7519,6 +7534,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *cloudSqlId;
 
+/** Required. The name of the specific database within the host. */
+@property(nonatomic, copy, nullable) NSString *database;
+
 /** Forward SSH tunnel connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity *forwardSshConnectivity;
 
@@ -7653,6 +7671,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useDiffBackup;
+
+@end
+
+
+/**
+ *  Configuration for SQL Server as a source in a migration.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerSourceConfig : GTLRObject
+
+/**
+ *  Optional. The log sequence number (LSN) to start CDC data migration from.
+ */
+@property(nonatomic, copy, nullable) NSString *cdcStartPosition;
+
+/**
+ *  Optional. Maximum number of connections Database Migration Service will open
+ *  to the source for CDC phase.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcConnections;
+
+/**
+ *  Optional. Maximum number of connections Database Migration Service will open
+ *  to the source for full dump phase.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentFullDumpConnections;
+
+/**
+ *  Optional. Whether to skip full dump or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipFullDump;
+
+@end
+
+
+/**
+ *  Configuration for heterogeneous **SQL Server to Cloud SQL for PostgreSQL**
+ *  migrations.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerToPostgresConfig : GTLRObject
+
+/** Optional. Configuration for Postgres destination. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PostgresDestinationConfig *postgresDestinationConfig;
+
+/** Optional. Configuration for SQL Server source. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerSourceConfig *sqlserverSourceConfig;
 
 @end
 

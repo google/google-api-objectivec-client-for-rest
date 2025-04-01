@@ -853,6 +853,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @interface GTLRBigQueryReservation_MergeCapacityCommitmentsRequest : GTLRObject
 
 /**
+ *  Optional. The optional resulting capacity commitment ID. Capacity commitment
+ *  name will be generated automatically if this field is empty. This field must
+ *  only contain lower case alphanumeric characters or dashes. The first and
+ *  last character cannot be a dash. Max length is 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *capacityCommitmentId;
+
+/**
  *  Ids of capacity commitments to merge. These capacity commitments must exist
  *  under admin project and location specified in the parent. ID is the last
  *  portion of capacity commitment name e.g., 'abc' for

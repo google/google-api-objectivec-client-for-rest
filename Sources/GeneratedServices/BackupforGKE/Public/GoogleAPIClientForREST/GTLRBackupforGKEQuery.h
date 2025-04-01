@@ -267,6 +267,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If set to true, the response will return partial results when some
+ *  regions are unreachable and the unreachable field will be populated.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRBackupforGKE_ListBackupsResponse.
  *
  *  Lists the Backups for a given BackupPlan.
@@ -1011,6 +1017,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBackupforGKECloudPlatform
  */
 @interface GTLRBackupforGKEQuery_ProjectsLocationsList : GTLRBackupforGKEQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

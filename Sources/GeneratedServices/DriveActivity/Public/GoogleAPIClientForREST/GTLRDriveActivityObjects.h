@@ -6,7 +6,7 @@
 // Description:
 //   Provides a historical view of activity in Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/activity/
+//   https://developers.google.com/workspace/drive/activity/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -1039,7 +1039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The MIME type of the Drive item. See
- *  https://developers.google.com/drive/v3/web/mime-types.
+ *  https://developers.google.com/workspace/drive/v3/web/mime-types.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -1182,7 +1182,7 @@ GTLR_DEPRECATED
 /**
  *  The comment in the discussion thread. This identifier is an opaque string
  *  compatible with the Drive API; see
- *  https://developers.google.com/drive/v3/reference/comments/get
+ *  https://developers.google.com/workspace/drive/v3/reference/comments/get
  */
 @property(nonatomic, copy, nullable) NSString *legacyCommentId;
 
@@ -1190,7 +1190,7 @@ GTLR_DEPRECATED
  *  The discussion thread to which the comment was added. This identifier is an
  *  opaque string compatible with the Drive API and references the first comment
  *  in a discussion; see
- *  https://developers.google.com/drive/v3/reference/comments/get
+ *  https://developers.google.com/workspace/drive/v3/reference/comments/get
  */
 @property(nonatomic, copy, nullable) NSString *legacyDiscussionId;
 
@@ -1380,8 +1380,8 @@ GTLR_DEPRECATED
 
 /**
  *  Indicates the [Google Drive permissions
- *  role](https://developers.google.com/drive/web/manage-sharing#roles). The
- *  role determines a user's ability to read, write, and comment on items.
+ *  role](https://developers.google.com/workspace/drive/web/manage-sharing#roles).
+ *  The role determines a user's ability to read, write, and comment on items.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveActivity_Permission_Role_Commenter A role granting the
@@ -1730,7 +1730,7 @@ GTLR_DEPRECATED
 /**
  *  Information about the target of activity. For more information on how
  *  activity history is shared with users, see [Activity history
- *  visibility](https://developers.google.com/drive/activity/v2#activityhistory).
+ *  visibility](https://developers.google.com/workspace/drive/activity/v2#activityhistory).
  */
 @interface GTLRDriveActivity_Target : GTLRObject
 

@@ -23,6 +23,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// flagScope
+
+/**
+ *  connection pool configuration flags
+ *
+ *  Value: "SQL_FLAG_SCOPE_CONNECTION_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeConnectionPool;
+/**
+ *  database flags
+ *
+ *  Value: "SQL_FLAG_SCOPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase;
+/**
+ *  Assume database flags if unspecified
+ *
+ *  Value: "SQL_FLAG_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other SQL Admin query classes.
  */
@@ -725,6 +754,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  method returns flags for all database types and versions.
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
+ *  Optional. Specify the scope of flags to be returned by SqlFlagsListService.
+ *  Return list of database flags if unspecified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified Assume database
+ *        flags if unspecified (Value: "SQL_FLAG_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase database flags (Value:
+ *        "SQL_FLAG_SCOPE_DATABASE")
+ *    @arg @c kGTLRSQLAdminFlagScopeSqlFlagScopeConnectionPool connection pool
+ *        configuration flags (Value: "SQL_FLAG_SCOPE_CONNECTION_POOL")
+ */
+@property(nonatomic, copy, nullable) NSString *flagScope;
 
 /**
  *  Fetches a @c GTLRSQLAdmin_FlagsListResponse.

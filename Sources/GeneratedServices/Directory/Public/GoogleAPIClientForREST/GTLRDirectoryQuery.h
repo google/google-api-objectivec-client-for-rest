@@ -1172,7 +1172,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *clearMask;
 
 /**
- *  The resource name of the Printer object, in the format
+ *  Identifier. The resource name of the Printer object, in the format
  *  customers/{customer-id}/printers/{printer-id} (During printer creation leave
  *  empty)
  */
@@ -1192,9 +1192,9 @@ GTLR_DEPRECATED
  *  Updates a `Printer` resource.
  *
  *  @param object The @c GTLRDirectory_Printer to include in the query.
- *  @param name The resource name of the Printer object, in the format
- *    customers/{customer-id}/printers/{printer-id} (During printer creation
- *    leave empty)
+ *  @param name Identifier. The resource name of the Printer object, in the
+ *    format customers/{customer-id}/printers/{printer-id} (During printer
+ *    creation leave empty)
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintersPatch
  */
@@ -1458,7 +1458,7 @@ GTLR_DEPRECATED
 @interface GTLRDirectoryQuery_CustomersChromePrintServersPatch : GTLRDirectoryQuery
 
 /**
- *  Immutable. Resource name of the print server. Leave empty when creating.
+ *  Identifier. Resource name of the print server. Leave empty when creating.
  *  Format: `customers/{customer.id}/printServers/{print_server.id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1477,7 +1477,7 @@ GTLR_DEPRECATED
  *  Updates a print server's configuration.
  *
  *  @param object The @c GTLRDirectory_PrintServer to include in the query.
- *  @param name Immutable. Resource name of the print server. Leave empty when
+ *  @param name Identifier. Resource name of the print server. Leave empty when
  *    creating. Format: `customers/{customer.id}/printServers/{print_server.id}`
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintServersPatch

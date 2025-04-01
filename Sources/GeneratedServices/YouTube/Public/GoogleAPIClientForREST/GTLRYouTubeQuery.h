@@ -1895,6 +1895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
+/** Returns the comment threads of the specified post. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
 /**
  *  Limits the returned comment threads to those matching the specified key
  *  words. Not compatible with the 'id' filter.

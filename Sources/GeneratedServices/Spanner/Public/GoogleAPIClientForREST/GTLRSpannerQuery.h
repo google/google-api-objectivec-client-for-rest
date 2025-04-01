@@ -2885,13 +2885,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transactions. All mutations in a group are committed atomically. However,
  *  mutations across groups can be committed non-atomically in an unspecified
  *  order and thus, they must be independent of each other. Partial failure is
- *  possible, i.e., some groups may have been committed successfully, while some
- *  may have failed. The results of individual batches are streamed into the
- *  response as the batches are applied. BatchWrite requests are not replay
- *  protected, meaning that each mutation group may be applied more than once.
- *  Replays of non-idempotent mutations may have undesirable effects. For
- *  example, replays of an insert mutation may produce an already exists error
- *  or if you use generated or commit timestamp-based keys, it may result in
+ *  possible, that is, some groups might have been committed successfully, while
+ *  some might have failed. The results of individual batches are streamed into
+ *  the response as the batches are applied. `BatchWrite` requests are not
+ *  replay protected, meaning that each mutation group can be applied more than
+ *  once. Replays of non-idempotent mutations can have undesirable effects. For
+ *  example, replays of an insert mutation can produce an already exists error
+ *  or if you use generated or commit timestamp-based keys, it can result in
  *  additional rows being added to the mutation's table. We recommend
  *  structuring your mutation groups to be idempotent to avoid this issue.
  *
@@ -2913,13 +2913,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transactions. All mutations in a group are committed atomically. However,
  *  mutations across groups can be committed non-atomically in an unspecified
  *  order and thus, they must be independent of each other. Partial failure is
- *  possible, i.e., some groups may have been committed successfully, while some
- *  may have failed. The results of individual batches are streamed into the
- *  response as the batches are applied. BatchWrite requests are not replay
- *  protected, meaning that each mutation group may be applied more than once.
- *  Replays of non-idempotent mutations may have undesirable effects. For
- *  example, replays of an insert mutation may produce an already exists error
- *  or if you use generated or commit timestamp-based keys, it may result in
+ *  possible, that is, some groups might have been committed successfully, while
+ *  some might have failed. The results of individual batches are streamed into
+ *  the response as the batches are applied. `BatchWrite` requests are not
+ *  replay protected, meaning that each mutation group can be applied more than
+ *  once. Replays of non-idempotent mutations can have undesirable effects. For
+ *  example, replays of an insert mutation can produce an already exists error
+ *  or if you use generated or commit timestamp-based keys, it can result in
  *  additional rows being added to the mutation's table. We recommend
  *  structuring your mutation groups to be idempotent to avoid this issue.
  *
@@ -2971,11 +2971,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  rows in the database. `Commit` might return an `ABORTED` error. This can
  *  occur at any time; commonly, the cause is conflicts with concurrent
  *  transactions. However, it can also happen for a variety of other reasons. If
- *  `Commit` returns `ABORTED`, the caller should re-attempt the transaction
- *  from the beginning, re-using the same session. On very rare occasions,
- *  `Commit` might return `UNKNOWN`. This can happen, for example, if the client
- *  job experiences a 1+ hour networking failure. At that point, Cloud Spanner
- *  has lost track of the transaction outcome and we recommend that you perform
+ *  `Commit` returns `ABORTED`, the caller should retry the transaction from the
+ *  beginning, reusing the same session. On very rare occasions, `Commit` might
+ *  return `UNKNOWN`. This can happen, for example, if the client job
+ *  experiences a 1+ hour networking failure. At that point, Cloud Spanner has
+ *  lost track of the transaction outcome and we recommend that you perform
  *  another read from the database to see the state of things as they are now.
  *
  *  Method: spanner.projects.instances.databases.sessions.commit
@@ -2998,11 +2998,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  rows in the database. `Commit` might return an `ABORTED` error. This can
  *  occur at any time; commonly, the cause is conflicts with concurrent
  *  transactions. However, it can also happen for a variety of other reasons. If
- *  `Commit` returns `ABORTED`, the caller should re-attempt the transaction
- *  from the beginning, re-using the same session. On very rare occasions,
- *  `Commit` might return `UNKNOWN`. This can happen, for example, if the client
- *  job experiences a 1+ hour networking failure. At that point, Cloud Spanner
- *  has lost track of the transaction outcome and we recommend that you perform
+ *  `Commit` returns `ABORTED`, the caller should retry the transaction from the
+ *  beginning, reusing the same session. On very rare occasions, `Commit` might
+ *  return `UNKNOWN`. This can happen, for example, if the client job
+ *  experiences a 1+ hour networking failure. At that point, Cloud Spanner has
+ *  lost track of the transaction outcome and we recommend that you perform
  *  another read from the database to see the state of things as they are now.
  *
  *  @param object The @c GTLRSpanner_CommitRequest to include in the query.
@@ -3023,12 +3023,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transaction at a time. To execute multiple concurrent read-write/write-only
  *  transactions, create multiple sessions. Note that standalone reads and
  *  queries use a transaction internally, and count toward the one transaction
- *  limit. Active sessions use additional server resources, so it is a good idea
+ *  limit. Active sessions use additional server resources, so it's a good idea
  *  to delete idle and unneeded sessions. Aside from explicit deletes, Cloud
- *  Spanner may delete sessions for which no operations are sent for more than
- *  an hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
- *  sessions can be kept alive by sending a trivial SQL query periodically,
- *  e.g., `"SELECT 1"`.
+ *  Spanner can delete sessions when no operations are sent for more than an
+ *  hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
+ *  sessions can be kept alive by sending a trivial SQL query periodically, for
+ *  example, `"SELECT 1"`.
  *
  *  Method: spanner.projects.instances.databases.sessions.create
  *
@@ -3050,12 +3050,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transaction at a time. To execute multiple concurrent read-write/write-only
  *  transactions, create multiple sessions. Note that standalone reads and
  *  queries use a transaction internally, and count toward the one transaction
- *  limit. Active sessions use additional server resources, so it is a good idea
+ *  limit. Active sessions use additional server resources, so it's a good idea
  *  to delete idle and unneeded sessions. Aside from explicit deletes, Cloud
- *  Spanner may delete sessions for which no operations are sent for more than
- *  an hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
- *  sessions can be kept alive by sending a trivial SQL query periodically,
- *  e.g., `"SELECT 1"`.
+ *  Spanner can delete sessions when no operations are sent for more than an
+ *  hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
+ *  sessions can be kept alive by sending a trivial SQL query periodically, for
+ *  example, `"SELECT 1"`.
  *
  *  @param object The @c GTLRSpanner_CreateSessionRequest to include in the
  *    query.
@@ -3069,9 +3069,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Ends a session, releasing server resources associated with it. This will
- *  asynchronously trigger cancellation of any operations that are running with
- *  this session.
+ *  Ends a session, releasing server resources associated with it. This
+ *  asynchronously triggers the cancellation of any operations that are running
+ *  with this session.
  *
  *  Method: spanner.projects.instances.databases.sessions.delete
  *
@@ -3087,9 +3087,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Empty.
  *
- *  Ends a session, releasing server resources associated with it. This will
- *  asynchronously trigger cancellation of any operations that are running with
- *  this session.
+ *  Ends a session, releasing server resources associated with it. This
+ *  asynchronously triggers the cancellation of any operations that are running
+ *  with this session.
  *
  *  @param name Required. The name of the session to delete.
  *
@@ -3146,14 +3146,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Executes an SQL statement, returning all results in a single reply. This
- *  method cannot be used to return a result set larger than 10 MiB; if the
- *  query yields more data than that, the query fails with a
- *  `FAILED_PRECONDITION` error. Operations inside read-write transactions might
- *  return `ABORTED`. If this occurs, the application should restart the
- *  transaction from the beginning. See Transaction for more details. Larger
- *  result sets can be fetched in streaming fashion by calling
- *  ExecuteStreamingSql instead. The query string can be SQL or [Graph Query
- *  Language
+ *  method can't be used to return a result set larger than 10 MiB; if the query
+ *  yields more data than that, the query fails with a `FAILED_PRECONDITION`
+ *  error. Operations inside read-write transactions might return `ABORTED`. If
+ *  this occurs, the application should restart the transaction from the
+ *  beginning. See Transaction for more details. Larger result sets can be
+ *  fetched in streaming fashion by calling ExecuteStreamingSql instead. The
+ *  query string can be SQL or [Graph Query Language
  *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  Method: spanner.projects.instances.databases.sessions.executeSql
@@ -3171,14 +3170,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ResultSet.
  *
  *  Executes an SQL statement, returning all results in a single reply. This
- *  method cannot be used to return a result set larger than 10 MiB; if the
- *  query yields more data than that, the query fails with a
- *  `FAILED_PRECONDITION` error. Operations inside read-write transactions might
- *  return `ABORTED`. If this occurs, the application should restart the
- *  transaction from the beginning. See Transaction for more details. Larger
- *  result sets can be fetched in streaming fashion by calling
- *  ExecuteStreamingSql instead. The query string can be SQL or [Graph Query
- *  Language
+ *  method can't be used to return a result set larger than 10 MiB; if the query
+ *  yields more data than that, the query fails with a `FAILED_PRECONDITION`
+ *  error. Operations inside read-write transactions might return `ABORTED`. If
+ *  this occurs, the application should restart the transaction from the
+ *  beginning. See Transaction for more details. Larger result sets can be
+ *  fetched in streaming fashion by calling ExecuteStreamingSql instead. The
+ *  query string can be SQL or [Graph Query Language
  *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  @param object The @c GTLRSpanner_ExecuteSqlRequest to include in the query.
@@ -3233,7 +3231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Gets a session. Returns `NOT_FOUND` if the session does not exist. This is
+ *  Gets a session. Returns `NOT_FOUND` if the session doesn't exist. This is
  *  mainly useful for determining whether a session is still alive.
  *
  *  Method: spanner.projects.instances.databases.sessions.get
@@ -3250,7 +3248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Session.
  *
- *  Gets a session. Returns `NOT_FOUND` if the session does not exist. This is
+ *  Gets a session. Returns `NOT_FOUND` if the session doesn't exist. This is
  *  mainly useful for determining whether a session is still alive.
  *
  *  @param name Required. The name of the session to retrieve.
@@ -3319,11 +3317,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  ExecuteStreamingSql to specify a subset of the query result to read. The
  *  same session and read-only transaction must be used by the
- *  PartitionQueryRequest used to create the partition tokens and the
- *  ExecuteSqlRequests that use the partition tokens. Partition tokens become
+ *  `PartitionQueryRequest` used to create the partition tokens and the
+ *  `ExecuteSqlRequests` that use the partition tokens. Partition tokens become
  *  invalid when the session used to create them is deleted, is idle for too
  *  long, begins a new transaction, or becomes too old. When any of these
- *  happen, it is not possible to resume the query, and the whole operation must
+ *  happen, it isn't possible to resume the query, and the whole operation must
  *  be restarted from the beginning.
  *
  *  Method: spanner.projects.instances.databases.sessions.partitionQuery
@@ -3344,11 +3342,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  ExecuteStreamingSql to specify a subset of the query result to read. The
  *  same session and read-only transaction must be used by the
- *  PartitionQueryRequest used to create the partition tokens and the
- *  ExecuteSqlRequests that use the partition tokens. Partition tokens become
+ *  `PartitionQueryRequest` used to create the partition tokens and the
+ *  `ExecuteSqlRequests` that use the partition tokens. Partition tokens become
  *  invalid when the session used to create them is deleted, is idle for too
  *  long, begins a new transaction, or becomes too old. When any of these
- *  happen, it is not possible to resume the query, and the whole operation must
+ *  happen, it isn't possible to resume the query, and the whole operation must
  *  be restarted from the beginning.
  *
  *  @param object The @c GTLRSpanner_PartitionQueryRequest to include in the
@@ -3366,15 +3364,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Creates a set of partition tokens that can be used to execute a read
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  StreamingRead to specify a subset of the read result to read. The same
- *  session and read-only transaction must be used by the PartitionReadRequest
- *  used to create the partition tokens and the ReadRequests that use the
+ *  session and read-only transaction must be used by the `PartitionReadRequest`
+ *  used to create the partition tokens and the `ReadRequests` that use the
  *  partition tokens. There are no ordering guarantees on rows returned among
- *  the returned partition tokens, or even within each individual StreamingRead
- *  call issued with a partition_token. Partition tokens become invalid when the
- *  session used to create them is deleted, is idle for too long, begins a new
- *  transaction, or becomes too old. When any of these happen, it is not
- *  possible to resume the read, and the whole operation must be restarted from
- *  the beginning.
+ *  the returned partition tokens, or even within each individual
+ *  `StreamingRead` call issued with a `partition_token`. Partition tokens
+ *  become invalid when the session used to create them is deleted, is idle for
+ *  too long, begins a new transaction, or becomes too old. When any of these
+ *  happen, it isn't possible to resume the read, and the whole operation must
+ *  be restarted from the beginning.
  *
  *  Method: spanner.projects.instances.databases.sessions.partitionRead
  *
@@ -3393,15 +3391,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Creates a set of partition tokens that can be used to execute a read
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  StreamingRead to specify a subset of the read result to read. The same
- *  session and read-only transaction must be used by the PartitionReadRequest
- *  used to create the partition tokens and the ReadRequests that use the
+ *  session and read-only transaction must be used by the `PartitionReadRequest`
+ *  used to create the partition tokens and the `ReadRequests` that use the
  *  partition tokens. There are no ordering guarantees on rows returned among
- *  the returned partition tokens, or even within each individual StreamingRead
- *  call issued with a partition_token. Partition tokens become invalid when the
- *  session used to create them is deleted, is idle for too long, begins a new
- *  transaction, or becomes too old. When any of these happen, it is not
- *  possible to resume the read, and the whole operation must be restarted from
- *  the beginning.
+ *  the returned partition tokens, or even within each individual
+ *  `StreamingRead` call issued with a `partition_token`. Partition tokens
+ *  become invalid when the session used to create them is deleted, is idle for
+ *  too long, begins a new transaction, or becomes too old. When any of these
+ *  happen, it isn't possible to resume the read, and the whole operation must
+ *  be restarted from the beginning.
  *
  *  @param object The @c GTLRSpanner_PartitionReadRequest to include in the
  *    query.
@@ -3416,7 +3414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Reads rows from the database using key lookups and scans, as a simple
- *  key/value style alternative to ExecuteSql. This method cannot be used to
+ *  key/value style alternative to ExecuteSql. This method can't be used to
  *  return a result set larger than 10 MiB; if the read matches more data than
  *  that, the read fails with a `FAILED_PRECONDITION` error. Reads inside
  *  read-write transactions might return `ABORTED`. If this occurs, the
@@ -3439,7 +3437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ResultSet.
  *
  *  Reads rows from the database using key lookups and scans, as a simple
- *  key/value style alternative to ExecuteSql. This method cannot be used to
+ *  key/value style alternative to ExecuteSql. This method can't be used to
  *  return a result set larger than 10 MiB; if the read matches more data than
  *  that, the read fails with a `FAILED_PRECONDITION` error. Reads inside
  *  read-write transactions might return `ABORTED`. If this occurs, the
@@ -3458,11 +3456,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Rolls back a transaction, releasing any locks it holds. It is a good idea to
+ *  Rolls back a transaction, releasing any locks it holds. It's a good idea to
  *  call this for any transaction that includes one or more Read or ExecuteSql
  *  requests and ultimately decides not to commit. `Rollback` returns `OK` if it
  *  successfully aborts the transaction, the transaction was already aborted, or
- *  the transaction is not found. `Rollback` never returns `ABORTED`.
+ *  the transaction isn't found. `Rollback` never returns `ABORTED`.
  *
  *  Method: spanner.projects.instances.databases.sessions.rollback
  *
@@ -3478,11 +3476,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Empty.
  *
- *  Rolls back a transaction, releasing any locks it holds. It is a good idea to
+ *  Rolls back a transaction, releasing any locks it holds. It's a good idea to
  *  call this for any transaction that includes one or more Read or ExecuteSql
  *  requests and ultimately decides not to commit. `Rollback` returns `OK` if it
  *  successfully aborts the transaction, the transaction was already aborted, or
- *  the transaction is not found. `Rollback` never returns `ABORTED`.
+ *  the transaction isn't found. `Rollback` never returns `ABORTED`.
  *
  *  @param object The @c GTLRSpanner_RollbackRequest to include in the query.
  *  @param session Required. The session in which the transaction to roll back

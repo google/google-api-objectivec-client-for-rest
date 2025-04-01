@@ -390,6 +390,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatastreamQuery_ProjectsLocationsList : GTLRDatastreamQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -609,6 +615,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. When supplied with PSC Interface config, will get/create the
+ *  tenant project required for the customer to allow list and won't actually
+ *  create the private connection.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDatastream_Operation.

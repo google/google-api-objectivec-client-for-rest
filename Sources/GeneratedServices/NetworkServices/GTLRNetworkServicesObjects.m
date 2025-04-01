@@ -1070,11 +1070,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListEndpointPoliciesResponse
-@dynamic endpointPolicies, nextPageToken;
+@dynamic endpointPolicies, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"endpointPolicies" : [GTLRNetworkServices_EndpointPolicy class]
+    @"endpointPolicies" : [GTLRNetworkServices_EndpointPolicy class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1138,11 +1139,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListGrpcRoutesResponse
-@dynamic grpcRoutes, nextPageToken;
+@dynamic grpcRoutes, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"grpcRoutes" : [GTLRNetworkServices_GrpcRoute class]
+    @"grpcRoutes" : [GTLRNetworkServices_GrpcRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1160,11 +1162,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListHttpRoutesResponse
-@dynamic httpRoutes, nextPageToken;
+@dynamic httpRoutes, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"httpRoutes" : [GTLRNetworkServices_HttpRoute class]
+    @"httpRoutes" : [GTLRNetworkServices_HttpRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1364,11 +1367,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListTcpRoutesResponse
-@dynamic nextPageToken, tcpRoutes;
+@dynamic nextPageToken, tcpRoutes, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tcpRoutes" : [GTLRNetworkServices_TcpRoute class]
+    @"tcpRoutes" : [GTLRNetworkServices_TcpRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1386,11 +1390,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListTlsRoutesResponse
-@dynamic nextPageToken, tlsRoutes;
+@dynamic nextPageToken, tlsRoutes, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tlsRoutes" : [GTLRNetworkServices_TlsRoute class]
+    @"tlsRoutes" : [GTLRNetworkServices_TlsRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1408,10 +1413,11 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListWasmPluginsResponse
-@dynamic nextPageToken, wasmPlugins;
+@dynamic nextPageToken, unreachable, wasmPlugins;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
     @"wasmPlugins" : [GTLRNetworkServices_WasmPlugin class]
   };
   return map;
@@ -1430,10 +1436,11 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListWasmPluginVersionsResponse
-@dynamic nextPageToken, wasmPluginVersions;
+@dynamic nextPageToken, unreachable, wasmPluginVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
     @"wasmPluginVersions" : [GTLRNetworkServices_WasmPluginVersion class]
   };
   return map;

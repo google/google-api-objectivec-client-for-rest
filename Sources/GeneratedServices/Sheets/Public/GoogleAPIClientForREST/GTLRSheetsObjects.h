@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Sheets.
 // Documentation:
-//   https://developers.google.com/sheets/
+//   https://developers.google.com/workspace/sheets/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -626,7 +626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -682,7 +682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequ
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -763,7 +763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_Response
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -4513,9 +4513,10 @@ GTLR_DEPRECATED
 
 /**
  *  The ranges that were cleared, in [A1
- *  notation](/sheets/api/guides/concepts#cell). If the requests are for an
- *  unbounded range or a ranger larger than the bounds of the sheet, this is the
- *  actual ranges that were cleared, bounded to the sheet's limits.
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
+ *  If the requests are for an unbounded range or a ranger larger than the
+ *  bounds of the sheet, this is the actual ranges that were cleared, bounded to
+ *  the sheet's limits.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
 
@@ -4532,7 +4533,7 @@ GTLR_DEPRECATED
 
 /**
  *  The ranges to clear, in [A1 notation or R1C1
- *  notation](/sheets/api/guides/concepts#cell).
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
@@ -4626,7 +4627,7 @@ GTLR_DEPRECATED
  *        values as decimal values. This lets you perform arithmetic on them in
  *        formulas. For more information on interpreting date and time values,
  *        see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
@@ -4797,7 +4798,7 @@ GTLR_DEPRECATED
  *        values as decimal values. This lets you perform arithmetic on them in
  *        formulas. For more information on interpreting date and time values,
  *        see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
@@ -4933,7 +4934,7 @@ GTLR_DEPRECATED
  *        values as decimal values. This lets you perform arithmetic on them in
  *        formulas. For more information on interpreting date and time values,
  *        see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
@@ -9029,8 +9030,9 @@ GTLR_DEPRECATED
 /**
  *  Pattern string used for formatting. If not set, a default pattern based on
  *  the user's locale will be used if necessary for the given type. See the
- *  [Date and Number Formats guide](/sheets/api/guides/formats) for more
- *  information about the supported patterns.
+ *  [Date and Number Formats
+ *  guide](https://developers.google.com/workspace/sheets/api/guides/formats)
+ *  for more information about the supported patterns.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
@@ -11916,8 +11918,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRSheets_ValueRange *updatedData;
 
 /**
- *  The range (in [A1 notation](/sheets/api/guides/concepts#cell)) that updates
- *  were applied to.
+ *  The range (in [A1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell))
+ *  that updates were applied to.
  */
 @property(nonatomic, copy, nullable) NSString *updatedRange;
 
@@ -11999,10 +12002,11 @@ GTLR_DEPRECATED
 
 /**
  *  The range the values cover, in [A1
- *  notation](/sheets/api/guides/concepts#cell). For output, this range
- *  indicates the entire requested range, even though the values will exclude
- *  trailing rows and columns. When appending values, this field represents the
- *  range to search for a table, after which values will be appended.
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
+ *  For output, this range indicates the entire requested range, even though the
+ *  values will exclude trailing rows and columns. When appending values, this
+ *  field represents the range to search for a table, after which values will be
+ *  appended.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 

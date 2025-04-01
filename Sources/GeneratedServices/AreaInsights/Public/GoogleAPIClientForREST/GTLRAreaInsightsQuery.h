@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Places Insights API (areainsights/v1)
+//   Places Aggregate API (areainsights/v1)
 // Description:
-//   Places Insights API.
+//   Places Aggregate API.
 // Documentation:
 //   https://g3doc.corp.google.com/geo/platform/area_insights/README.md?cl=head
 
@@ -34,15 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Compute Insights RPC This method lets you retrieve insights about areas
- *  using a variaty of filter such as: area, place type, operating status, price
- *  level and ratings. Currently "count" and "places" insights are supported.
- *  With "count" insights you can answer questions such as "How many restaurant
- *  are located in California that are operational, are inexpensive and have an
- *  average rating of at least 4 stars" (see `insight` enum for more details).
- *  With "places" insights, you can determine which places match the requested
- *  filter. Clients can then use those place resource names to fetch more
- *  details about each individual place using the Places API.
+ *  This method lets you retrieve insights about areas using a variety of filter
+ *  such as: area, place type, operating status, price level and ratings.
+ *  Currently "count" and "places" insights are supported. With "count" insights
+ *  you can answer questions such as "How many restaurant are located in
+ *  California that are operational, are inexpensive and have an average rating
+ *  of at least 4 stars" (see `insight` enum for more details). With "places"
+ *  insights, you can determine which places match the requested filter. Clients
+ *  can then use those place resource names to fetch more details about each
+ *  individual place using the Places API.
  *
  *  Method: areainsights.computeInsights
  *
@@ -54,15 +54,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAreaInsights_ComputeInsightsResponse.
  *
- *  Compute Insights RPC This method lets you retrieve insights about areas
- *  using a variaty of filter such as: area, place type, operating status, price
- *  level and ratings. Currently "count" and "places" insights are supported.
- *  With "count" insights you can answer questions such as "How many restaurant
- *  are located in California that are operational, are inexpensive and have an
- *  average rating of at least 4 stars" (see `insight` enum for more details).
- *  With "places" insights, you can determine which places match the requested
- *  filter. Clients can then use those place resource names to fetch more
- *  details about each individual place using the Places API.
+ *  This method lets you retrieve insights about areas using a variety of filter
+ *  such as: area, place type, operating status, price level and ratings.
+ *  Currently "count" and "places" insights are supported. With "count" insights
+ *  you can answer questions such as "How many restaurant are located in
+ *  California that are operational, are inexpensive and have an average rating
+ *  of at least 4 stars" (see `insight` enum for more details). With "places"
+ *  insights, you can determine which places match the requested filter. Clients
+ *  can then use those place resource names to fetch more details about each
+ *  individual place using the Places API.
  *
  *  @param object The @c GTLRAreaInsights_ComputeInsightsRequest to include in
  *    the query.

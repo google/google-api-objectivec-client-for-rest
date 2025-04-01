@@ -499,7 +499,7 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 //
 
 @implementation GTLRDeploymentManager_InstancesBulkInsertOperationMetadata
-@dynamic perLocationStatus;
+@dynamic machineType, perLocationStatus;
 @end
 
 

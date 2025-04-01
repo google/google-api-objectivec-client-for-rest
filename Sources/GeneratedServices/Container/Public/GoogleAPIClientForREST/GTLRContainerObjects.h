@@ -134,6 +134,7 @@
 @class GTLRContainer_ParentProductConfig;
 @class GTLRContainer_ParentProductConfig_Labels;
 @class GTLRContainer_PlacementPolicy;
+@class GTLRContainer_PodAutoscaling;
 @class GTLRContainer_PodCIDROverprovisionConfig;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
@@ -172,6 +173,7 @@
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_TimeWindow;
 @class GTLRContainer_UpdateInfo;
+@class GTLRContainer_UpgradeDetails;
 @class GTLRContainer_UpgradeSettings;
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
@@ -559,6 +561,85 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType
  *  Value: "STACK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpgradeInfo.autoUpgradeStatus
+
+/**
+ *  ACTIVE indicates an active status.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_Active;
+/**
+ *  MINOR_UPGRADE_PAUSED indicates the minor version upgrade is paused.
+ *
+ *  Value: "MINOR_UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_MinorUpgradePaused;
+/**
+ *  UNKNOWN indicates an unknown status.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_Unknown;
+/**
+ *  UPGRADE_PAUSED indicates the upgrade is paused.
+ *
+ *  Value: "UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_UpgradePaused;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpgradeInfo.pausedReason
+
+/**
+ *  AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED indicates an unspecified reason.
+ *
+ *  Value: "AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_AutoUpgradePausedReasonUnspecified;
+/**
+ *  CLUSTER_DISRUPTION_BUDGET indicates the cluster is outside the cluster
+ *  disruption budget.
+ *
+ *  Value: "CLUSTER_DISRUPTION_BUDGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_ClusterDisruptionBudget;
+/**
+ *  CLUSTER_DISRUPTION_BUDGET_MINOR_UPGRADE indicates the cluster is outside the
+ *  cluster disruption budget for minor version upgrade.
+ *
+ *  Value: "CLUSTER_DISRUPTION_BUDGET_MINOR_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_ClusterDisruptionBudgetMinorUpgrade;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES indicates the cluster is in a
+ *  maintenance exclusion with scope NO_MINOR_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceExclusionNoMinorUpgrades;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_UPGRADES indicates the cluster is in a maintenance
+ *  exclusion with scope NO_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceExclusionNoUpgrades;
+/**
+ *  MAINTENANCE_WINDOW indicates the cluster is outside customer maintenance
+ *  window.
+ *
+ *  Value: "MAINTENANCE_WINDOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceWindow;
+/**
+ *  SYSTEM_CONFIG indicates the cluster upgrade is paused by system config.
+ *
+ *  Value: "SYSTEM_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_SystemConfig;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_CompliancePostureConfig.mode
@@ -1408,6 +1489,71 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPo
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_LocationPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_NodePoolUpgradeInfo.autoUpgradeStatus
+
+/**
+ *  ACTIVE indicates an active status.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_Active;
+/**
+ *  MINOR_UPGRADE_PAUSED indicates the minor version upgrade is paused.
+ *
+ *  Value: "MINOR_UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_MinorUpgradePaused;
+/**
+ *  UNKNOWN indicates an unknown status.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_Unknown;
+/**
+ *  UPGRADE_PAUSED indicates the upgrade is paused.
+ *
+ *  Value: "UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_UpgradePaused;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NodePoolUpgradeInfo.pausedReason
+
+/**
+ *  AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED indicates an unspecified reason.
+ *
+ *  Value: "AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_AutoUpgradePausedReasonUnspecified;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES indicates the cluster is in a
+ *  maintenance exclusion with scope NO_MINOR_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceExclusionNoMinorUpgrades;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_UPGRADES indicates the cluster is in a maintenance
+ *  exclusion with scope NO_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceExclusionNoUpgrades;
+/**
+ *  MAINTENANCE_WINDOW indicates the cluster is outside customer maintenance
+ *  window.
+ *
+ *  Value: "MAINTENANCE_WINDOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceWindow;
+/**
+ *  SYSTEM_CONFIG indicates the cluster upgrade is paused by system config.
+ *
+ *  Value: "SYSTEM_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_SystemConfig;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_NodeTaint.effect
 
 /**
@@ -1680,6 +1826,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_PlacementPolicy_Type_Compact;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_PlacementPolicy_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_PodAutoscaling.hpaProfile
+
+/**
+ *  HPA_PROFILE_UNSPECIFIED is used when no custom HPA profile is set.
+ *
+ *  Value: "HPA_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_HpaProfileUnspecified;
+/**
+ *  Customers explicitly opt-out of HPA profiles.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_None;
+/**
+ *  PERFORMANCE is used when customers opt-in to the performance HPA profile. In
+ *  this profile we support a higher number of HPAs per cluster and faster
+ *  metrics collection for workload autoscaling.
+ *
+ *  Value: "PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_Performance;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ReleaseChannel.channel
@@ -2155,6 +2325,62 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_Resource
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeDetails.startType
+
+/**
+ *  Upgrade started automatically.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_StartType_Automatic;
+/**
+ *  Upgrade started manually.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_StartType_Manual;
+/**
+ *  Upgrade start type is unspecified.
+ *
+ *  Value: "START_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_StartType_StartTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeDetails.state
+
+/**
+ *  Upgrade has been canceled.
+ *
+ *  Value: "CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Canceled;
+/**
+ *  Upgrade has failed with an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Failed;
+/**
+ *  Upgrade is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Running;
+/**
+ *  Upgrade has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Succeeded;
+/**
+ *  Upgrade state is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeEvent.resourceType
 
 /**
@@ -2324,19 +2550,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange
 // GTLRContainer_WindowsNodeConfig.osVersion
 
 /**
- *  LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base Image
+ *  LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base Image.
  *
  *  Value: "OS_VERSION_LTSC2019"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2019;
 /**
- *  LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base Image
+ *  LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base Image.
  *
  *  Value: "OS_VERSION_LTSC2022"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2022;
 /**
- *  When OSVersion is not specified
+ *  When OSVersion is not specified.
  *
  *  Value: "OS_VERSION_UNSPECIFIED"
  */
@@ -2762,7 +2988,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  Enable or disable Kubelet read only port.
+ *  DEPRECATED. Use NodePoolAutoConfig.NodeKubeletConfig instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3281,6 +3507,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for the legacy ABAC authorization mode. */
 @property(nonatomic, strong, nullable) GTLRContainer_LegacyAbac *legacyAbac;
 
+/**
+ *  Output only. The name of the Google Compute Engine
+ *  [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  or
+ *  [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  in which the cluster resides.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -3338,7 +3571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
- *  available options: * "monitoring.googleapis.com/kubernetes" - The Cloud
+ *  available options: * `monitoring.googleapis.com/kubernetes` - The Cloud
  *  Monitoring service with a Kubernetes-native resource model *
  *  `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
  *  available as of GKE 1.15). * `none` - No metrics will be exported from the
@@ -3418,6 +3651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  take the ownership of the cluster.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig *parentProductConfig;
+
+/** The config for pod autoscaling. */
+@property(nonatomic, strong, nullable) GTLRContainer_PodAutoscaling *podAutoscaling;
 
 /** Configuration for private cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
@@ -3852,7 +4088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
- *  available options: * "monitoring.googleapis.com/kubernetes" - The Cloud
+ *  available options: * `monitoring.googleapis.com/kubernetes` - The Cloud
  *  Monitoring service with a Kubernetes-native resource model *
  *  `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
  *  available as of GKE 1.15). * `none` - No metrics will be exported from the
@@ -3928,6 +4164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired parent product config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig *desiredParentProductConfig;
+
+/** The desired config for pod autoscaling. */
+@property(nonatomic, strong, nullable) GTLRContainer_PodAutoscaling *desiredPodAutoscaling;
 
 /**
  *  The desired private cluster configuration. master_global_access_config is
@@ -4026,6 +4265,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The Custom keys configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_UserManagedKeysConfig *userManagedKeysConfig;
+
+@end
+
+
+/**
+ *  ClusterUpgradeInfo contains the upgrade information of a cluster.
+ */
+@interface GTLRContainer_ClusterUpgradeInfo : GTLRObject
+
+/** The auto upgrade status. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoUpgradeStatus;
+
+/**
+ *  The cluster's current minor version's end of extended support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfExtendedSupportTimestamp;
+
+/**
+ *  The cluster's current minor version's end of standard support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfStandardSupportTimestamp;
+
+/** minor_target_version indicates the target version for minor upgrade. */
+@property(nonatomic, copy, nullable) NSString *minorTargetVersion;
+
+/** patch_target_version indicates the target version for patch upgrade. */
+@property(nonatomic, copy, nullable) NSString *patchTargetVersion;
+
+/** The auto upgrade paused reason. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pausedReason;
+
+/** The list of past auto upgrades. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_UpgradeDetails *> *upgradeDetails;
 
 @end
 
@@ -4540,6 +4812,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  storage using Local SSDs.
  */
 @interface GTLRContainer_EphemeralStorageLocalSsdConfig : GTLRObject
+
+/**
+ *  Number of local SSDs to use for GKE Data Cache.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCacheCount;
 
 /**
  *  Number of local SSDs to use to back ephemeral storage. Uses NVMe interfaces.
@@ -6156,6 +6435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Enable or disable NCCL fast socket for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_FastSocket *fastSocket;
 
+/**
+ *  Flex Start flag for enabling Flex Start VM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flexStart;
+
 /** Google Container File System (image streaming) configs. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
@@ -6737,8 +7023,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Specifies the autopilot configuration for this node pool. This field is
- *  exclusively reserved for Cluster Autoscaler to implement
- *  go/gke-managed-nodes-ccc-api
+ *  exclusively reserved for Cluster Autoscaler.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_AutopilotConfig *autopilotConfig;
 
@@ -7001,6 +7286,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Logging variant configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_LoggingVariantConfig *variantConfig;
+
+@end
+
+
+/**
+ *  NodePoolUpgradeInfo contains the upgrade information of a nodepool.
+ */
+@interface GTLRContainer_NodePoolUpgradeInfo : GTLRObject
+
+/** The auto upgrade status. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoUpgradeStatus;
+
+/**
+ *  The nodepool's current minor version's end of extended support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfExtendedSupportTimestamp;
+
+/**
+ *  The nodepool's current minor version's end of standard support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfStandardSupportTimestamp;
+
+/** minor_target_version indicates the target version for minor upgrade. */
+@property(nonatomic, copy, nullable) NSString *minorTargetVersion;
+
+/** patch_target_version indicates the target version for patch upgrade. */
+@property(nonatomic, copy, nullable) NSString *patchTargetVersion;
+
+/** The auto upgrade paused reason. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pausedReason;
+
+/** The list of past auto upgrades. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_UpgradeDetails *> *upgradeDetails;
 
 @end
 
@@ -7402,6 +7720,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  PodAutoscaling is used for configuration of parameters for workload
+ *  autoscaling.
+ */
+@interface GTLRContainer_PodAutoscaling : GTLRObject
+
+/**
+ *  Selected Horizontal Pod Autoscaling profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_PodAutoscaling_HpaProfile_HpaProfileUnspecified
+ *        HPA_PROFILE_UNSPECIFIED is used when no custom HPA profile is set.
+ *        (Value: "HPA_PROFILE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_PodAutoscaling_HpaProfile_None Customers explicitly
+ *        opt-out of HPA profiles. (Value: "NONE")
+ *    @arg @c kGTLRContainer_PodAutoscaling_HpaProfile_Performance PERFORMANCE
+ *        is used when customers opt-in to the performance HPA profile. In this
+ *        profile we support a higher number of HPAs per cluster and faster
+ *        metrics collection for workload autoscaling. (Value: "PERFORMANCE")
+ */
+@property(nonatomic, copy, nullable) NSString *hpaProfile;
 
 @end
 
@@ -8070,6 +8413,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *manualStepsRequired;
 
+/** The GKE versions where this vulnerability is mitigated. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mitigatedVersions;
+
 /** The GKE versions where this vulnerability is patched. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *patchedVersions;
 
@@ -8536,7 +8882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. The monitoring service the cluster should use to write metrics.
- *  Currently available options: * "monitoring.googleapis.com/kubernetes" - The
+ *  Currently available options: * `monitoring.googleapis.com/kubernetes` - The
  *  Cloud Monitoring service with a Kubernetes-native resource model *
  *  `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
  *  available as of GKE 1.15). * `none` - No metrics will be exported from the
@@ -9271,6 +9617,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Enable or disable NCCL fast socket for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_FastSocket *fastSocket;
 
+/**
+ *  Flex Start flag for enabling Flex Start VM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flexStart;
+
 /** GCFS config. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
@@ -9449,6 +9802,57 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The release version available for upgrade. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  UpgradeDetails contains detailed information of each individual upgrade
+ *  operation.
+ */
+@interface GTLRContainer_UpgradeDetails : GTLRObject
+
+/** The end timestamp of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The version before the upgrade. */
+@property(nonatomic, copy, nullable) NSString *initialVersion;
+
+/** The start timestamp of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The start type of the upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeDetails_StartType_Automatic Upgrade started
+ *        automatically. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRContainer_UpgradeDetails_StartType_Manual Upgrade started
+ *        manually. (Value: "MANUAL")
+ *    @arg @c kGTLRContainer_UpgradeDetails_StartType_StartTypeUnspecified
+ *        Upgrade start type is unspecified. (Value: "START_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *startType;
+
+/**
+ *  Output only. The state of the upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Canceled Upgrade has been
+ *        canceled. (Value: "CANCELED")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Failed Upgrade has failed with
+ *        an error. (Value: "FAILED")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Running Upgrade is running.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Succeeded Upgrade has
+ *        succeeded. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Unknown Upgrade state is
+ *        unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The version after the upgrade. */
+@property(nonatomic, copy, nullable) NSString *targetVersion;
 
 @end
 
@@ -9828,22 +10232,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Parameters that can be configured on Windows nodes. Windows Node Config that
  *  define the parameters that will be used to configure the Windows node pool
- *  settings
+ *  settings.
  */
 @interface GTLRContainer_WindowsNodeConfig : GTLRObject
 
 /**
- *  OSVersion specifies the Windows node config to be used on the node
+ *  OSVersion specifies the Windows node config to be used on the node.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2019
  *        LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base
- *        Image (Value: "OS_VERSION_LTSC2019")
+ *        Image. (Value: "OS_VERSION_LTSC2019")
  *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2022
  *        LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base
- *        Image (Value: "OS_VERSION_LTSC2022")
+ *        Image. (Value: "OS_VERSION_LTSC2022")
  *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionUnspecified
- *        When OSVersion is not specified (Value: "OS_VERSION_UNSPECIFIED")
+ *        When OSVersion is not specified. (Value: "OS_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *osVersion;
 

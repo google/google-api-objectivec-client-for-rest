@@ -1813,10 +1813,10 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 @implementation GTLRGKEOnPrem_VmwareAdminCluster
 @dynamic addonNode, annotations, antiAffinityGroups, authorization,
          autoRepairConfig, bootstrapClusterMembership, controlPlaneNode,
-         createTime, descriptionProperty, endpoint, ETag, fleet, imageType,
-         loadBalancer, localName, name, networkConfig, onPremVersion,
-         platformConfig, preparedSecrets, reconciling, state, status, uid,
-         updateTime, validationCheck, vcenter;
+         createTime, descriptionProperty, enableAdvancedCluster, endpoint, ETag,
+         fleet, imageType, loadBalancer, localName, name, networkConfig,
+         onPremVersion, platformConfig, preparedSecrets, reconciling, state,
+         status, uid, updateTime, validationCheck, vcenter;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2014,10 +2014,10 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
          antiAffinityGroups, authorization, autoRepairConfig,
          binaryAuthorization, controlPlaneNode, createTime, dataplaneV2,
          deleteTime, descriptionProperty, disableBundledIngress,
-         enableControlPlaneV2, endpoint, ETag, fleet, loadBalancer, localName,
-         name, networkConfig, onPremVersion, reconciling, state, status,
-         storage, uid, updateTime, upgradePolicy, validationCheck, vcenter,
-         vmTrackingEnabled;
+         enableAdvancedCluster, enableControlPlaneV2, endpoint, ETag, fleet,
+         loadBalancer, localName, name, networkConfig, onPremVersion,
+         reconciling, state, status, storage, uid, updateTime, upgradePolicy,
+         validationCheck, vcenter, vmTrackingEnabled;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

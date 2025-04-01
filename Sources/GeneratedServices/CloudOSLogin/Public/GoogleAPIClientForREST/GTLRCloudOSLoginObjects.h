@@ -188,7 +188,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
 /** Output only. The SHA-256 fingerprint of the SSH public key. */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** Public key text in SSH format, defined by RFC4253 section 6.6. */
+/**
+ *  Required. Public key text in SSH format, defined by
+ *  [RFC4253](https://www.ietf.org/rfc/rfc4253.txt) section 6.6.
+ */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /** Output only. The canonical resource name. */

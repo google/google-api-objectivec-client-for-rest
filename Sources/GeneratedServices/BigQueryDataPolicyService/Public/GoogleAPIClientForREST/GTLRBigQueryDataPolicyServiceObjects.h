@@ -388,7 +388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
 @property(nonatomic, copy, nullable) NSString *dataPolicyId;
 
 /**
- *  Type of data policy.
+ *  Required. Data policy type. Type of data policy.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_ColumnLevelSecurityPolicy

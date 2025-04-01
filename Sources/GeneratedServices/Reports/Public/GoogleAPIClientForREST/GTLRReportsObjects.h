@@ -18,13 +18,24 @@
 
 @class GTLRReports_Activity;
 @class GTLRReports_Activity_Actor;
+@class GTLRReports_Activity_Actor_ApplicationInfo;
 @class GTLRReports_Activity_Events_Item;
 @class GTLRReports_Activity_Events_Item_Parameters_Item;
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue;
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item;
 @class GTLRReports_Activity_Id;
+@class GTLRReports_AppliedLabel;
 @class GTLRReports_Channel_Params;
+@class GTLRReports_Date;
+@class GTLRReports_FieldValue;
+@class GTLRReports_FieldValueSelectionListValue;
+@class GTLRReports_FieldValueSelectionValue;
+@class GTLRReports_FieldValueTextListValue;
+@class GTLRReports_FieldValueUserListValue;
+@class GTLRReports_FieldValueUserValue;
 @class GTLRReports_NestedParameter;
+@class GTLRReports_Reason;
+@class GTLRReports_ResourceDetails;
 @class GTLRReports_UsageReport;
 @class GTLRReports_UsageReport_Entity;
 @class GTLRReports_UsageReport_Parameters_Item;
@@ -117,6 +128,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *ownerDomain;
 
+/** Details of the resource on which the action was performed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_ResourceDetails *> *resourceDetails;
+
 @end
 
 
@@ -124,6 +138,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  User doing the action.
  */
 @interface GTLRReports_Activity_Actor : GTLRObject
+
+/** Details of the application that was the actor for the activity. */
+@property(nonatomic, strong, nullable) GTLRReports_Activity_Actor_ApplicationInfo *applicationInfo;
 
 /** The type of actor. */
 @property(nonatomic, copy, nullable) NSString *callerType;
@@ -174,6 +191,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_Parameters_Item *> *parameters;
 
+/** Resource ids associated with the event. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceIds;
+
 /**
  *  Type of event. The Google Workspace service or feature that an administrator
  *  changes is identified in the `type` property which identifies an event using
@@ -211,6 +231,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *uniqueQualifier;
+
+@end
+
+
+/**
+ *  Details of the application that was the actor for the activity.
+ */
+@interface GTLRReports_Activity_Actor_ApplicationInfo : GTLRObject
+
+/** Name of the application used to perform the action. */
+@property(nonatomic, copy, nullable) NSString *applicationName;
+
+/**
+ *  Whether the application was impersonating a user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impersonation;
+
+/**
+ *  OAuth client id of the third party application used to perform the action.
+ */
+@property(nonatomic, copy, nullable) NSString *oauthClientId;
 
 @end
 
@@ -285,6 +328,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Parameter values */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;
+
+@end
+
+
+/**
+ *  Details of the label applied on the resource.
+ */
+@interface GTLRReports_AppliedLabel : GTLRObject
+
+/**
+ *  List of fields which are part of the label and have been set by the user. If
+ *  label has a field which was not set by the user, it would not be present in
+ *  this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_FieldValue *> *fieldValues;
+
+/**
+ *  Identifier of the label - Only the label id, not the full OnePlatform
+ *  resource name.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The reason why the label was applied on the resource. */
+@property(nonatomic, strong, nullable) GTLRReports_Reason *reason;
+
+/** Title of the label */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -367,6 +439,179 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRReports_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  Details of the field value set by the user for the particular label.
+ */
+@interface GTLRReports_FieldValue : GTLRObject
+
+/** Setting a date value. */
+@property(nonatomic, strong, nullable) GTLRReports_Date *dateValue;
+
+/** Display name of the field */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier of the field
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Setting an integer value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+/** Setting a long text value. */
+@property(nonatomic, copy, nullable) NSString *longTextValue;
+
+/** The reason why the field was applied to the label. */
+@property(nonatomic, strong, nullable) GTLRReports_Reason *reason;
+
+/**
+ *  Setting a selection list value by selecting multiple values from a dropdown.
+ */
+@property(nonatomic, strong, nullable) GTLRReports_FieldValueSelectionListValue *selectionListValue;
+
+/** Setting a selection value by selecting a single value from a dropdown. */
+@property(nonatomic, strong, nullable) GTLRReports_FieldValueSelectionValue *selectionValue;
+
+/** Setting a text list value. */
+@property(nonatomic, strong, nullable) GTLRReports_FieldValueTextListValue *textListValue;
+
+/** Setting a text value. */
+@property(nonatomic, copy, nullable) NSString *textValue;
+
+/** Type of the field */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  If the field is unset, this will be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unsetValue;
+
+/** Setting a user list value by selecting multiple users. */
+@property(nonatomic, strong, nullable) GTLRReports_FieldValueUserListValue *userListValue;
+
+/** Setting a user value by selecting a single user. */
+@property(nonatomic, strong, nullable) GTLRReports_FieldValueUserValue *userValue;
+
+@end
+
+
+/**
+ *  Setting a selection list value by selecting multiple values from a dropdown.
+ */
+@interface GTLRReports_FieldValueSelectionListValue : GTLRObject
+
+/** List of selections. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_FieldValueSelectionValue *> *values;
+
+@end
+
+
+/**
+ *  Setting a selection value by selecting a single value from a dropdown.
+ */
+@interface GTLRReports_FieldValueSelectionValue : GTLRObject
+
+/**
+ *  Whether the selection is badged.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *badged;
+
+/** Display name of the selection. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier of the selection.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Setting a text list value.
+ */
+@interface GTLRReports_FieldValueTextListValue : GTLRObject
+
+/** List of text values. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Setting a user list value by selecting multiple users.
+ */
+@interface GTLRReports_FieldValueUserListValue : GTLRObject
+
+/** List of users. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_FieldValueUserValue *> *values;
+
+@end
+
+
+/**
+ *  Setting a user value by selecting a single user.
+ */
+@interface GTLRReports_FieldValueUserValue : GTLRObject
+
+/** Email of the user. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
  *  JSON template for a parameter used in various reports.
  */
 @interface GTLRReports_NestedParameter : GTLRObject
@@ -407,6 +652,58 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** String value of the parameter. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The reason why the label/field was applied.
+ */
+@interface GTLRReports_Reason : GTLRObject
+
+/** The type of the reason. */
+@property(nonatomic, copy, nullable) NSString *reasonType;
+
+@end
+
+
+/**
+ *  Details of the resource on which the action was performed.
+ */
+@interface GTLRReports_ResourceDetails : GTLRObject
+
+/**
+ *  Id of the application to which this resource belongs
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applicationId;
+
+/** List of labels applied on the resource */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_AppliedLabel *> *appliedLabels;
+
+/**
+ *  Identifier of the resource.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Owner of the resource. */
+@property(nonatomic, copy, nullable) NSString *ownerEmail;
+
+/** Defines relationship of the resource to the events */
+@property(nonatomic, copy, nullable) NSString *relation;
+
+/**
+ *  Title of the resource. For instance, in case of a drive document, this would
+ *  be the title of the document. In case of an email, this would be the
+ *  subject.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Type of the resource - document, email, chat message */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

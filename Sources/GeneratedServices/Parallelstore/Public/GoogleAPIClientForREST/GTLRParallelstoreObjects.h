@@ -138,7 +138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Creating;
  */
 FOUNDATION_EXTERN NSString * const kGTLRParallelstore_Instance_State_Deleting;
 /**
- *  The instance is not usable.
+ *  LINT.IfChange The instance is not usable.
+ *  LINT.ThenChange(//depot/google3/configs/monitoring/boq/daos_clh/cloud_precomputes_lib.py)
  *
  *  Value: "FAILED"
  */
@@ -528,8 +529,10 @@ FOUNDATION_EXTERN NSString * const kGTLRParallelstore_TransferMetadataOptions_Ui
  *        created. (Value: "CREATING")
  *    @arg @c kGTLRParallelstore_Instance_State_Deleting The instance is being
  *        deleted. (Value: "DELETING")
- *    @arg @c kGTLRParallelstore_Instance_State_Failed The instance is not
- *        usable. (Value: "FAILED")
+ *    @arg @c kGTLRParallelstore_Instance_State_Failed LINT.IfChange The
+ *        instance is not usable.
+ *        LINT.ThenChange(//depot/google3/configs/monitoring/boq/daos_clh/cloud_precomputes_lib.py)
+ *        (Value: "FAILED")
  *    @arg @c kGTLRParallelstore_Instance_State_Repairing The instance is being
  *        repaired. This should only be used by instances using the `PERSISTENT`
  *        deployment type. (Value: "REPAIRING")

@@ -1072,10 +1072,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @dynamic annotations, conditions, containers, createTime, creator, deleteTime,
          encryptionKey, encryptionKeyRevocationAction,
          encryptionKeyShutdownDuration, ETag, executionEnvironment, expireTime,
-         generation, labels, launchStage, logUri, maxInstanceRequestConcurrency,
-         name, nodeSelector, observedGeneration, reconciling, satisfiesPzs,
-         scaling, scalingStatus, service, serviceAccount, serviceMesh,
-         sessionAffinity, timeout, uid, updateTime, volumes, vpcAccess;
+         generation, gpuZonalRedundancyDisabled, labels, launchStage, logUri,
+         maxInstanceRequestConcurrency, name, nodeSelector, observedGeneration,
+         reconciling, satisfiesPzs, scaling, scalingStatus, service,
+         serviceAccount, serviceMesh, sessionAffinity, timeout, uid, updateTime,
+         volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1149,9 +1150,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
 @dynamic annotations, containers, encryptionKey, encryptionKeyRevocationAction,
          encryptionKeyShutdownDuration, executionEnvironment,
-         healthCheckDisabled, labels, maxInstanceRequestConcurrency,
-         nodeSelector, revision, scaling, serviceAccount, serviceMesh,
-         sessionAffinity, timeout, volumes, vpcAccess;
+         gpuZonalRedundancyDisabled, healthCheckDisabled, labels,
+         maxInstanceRequestConcurrency, nodeSelector, revision, scaling,
+         serviceAccount, serviceMesh, sessionAffinity, timeout, volumes,
+         vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1243,12 +1245,12 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_GoogleCloudRunV2Service
 @dynamic annotations, binaryAuthorization, buildConfig, client, clientVersion,
          conditions, createTime, creator, customAudiences, defaultUriDisabled,
-         deleteTime, descriptionProperty, ETag, expireTime, generation, ingress,
-         invokerIamDisabled, labels, lastModifier, latestCreatedRevision,
-         latestReadyRevision, launchStage, name, observedGeneration,
-         reconciling, satisfiesPzs, scaling, templateProperty,
-         terminalCondition, traffic, trafficStatuses, uid, updateTime, uri,
-         urls;
+         deleteTime, descriptionProperty, ETag, expireTime, generation,
+         iapEnabled, ingress, invokerIamDisabled, labels, lastModifier,
+         latestCreatedRevision, latestReadyRevision, launchStage, name,
+         observedGeneration, reconciling, satisfiesPzs, scaling,
+         templateProperty, terminalCondition, threatDetectionEnabled, traffic,
+         trafficStatuses, uid, updateTime, uri, urls;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1643,8 +1645,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling
-@dynamic manualInstanceCount, maxInstanceCount, maxSurge, maxUnavailable,
-         minInstanceCount, scalingMode;
+@dynamic manualInstanceCount, maxInstanceCount, minInstanceCount, scalingMode;
 @end
 
 

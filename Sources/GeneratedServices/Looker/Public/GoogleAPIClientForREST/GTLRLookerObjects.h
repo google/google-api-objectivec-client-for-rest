@@ -20,7 +20,6 @@
 @class GTLRLooker_ExportEncryptionConfig;
 @class GTLRLooker_ExportMetadataEncryptionKey;
 @class GTLRLooker_Instance;
-@class GTLRLooker_InstanceBackup;
 @class GTLRLooker_Location;
 @class GTLRLooker_Location_Labels;
 @class GTLRLooker_Location_Metadata;
@@ -252,40 +251,6 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_State_Suspended;
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_State_Updating;
-
-// ----------------------------------------------------------------------------
-// GTLRLooker_InstanceBackup.state
-
-/**
- *  The backup is active and ready to use.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRLooker_InstanceBackup_State_Active;
-/**
- *  The backup is being created.
- *
- *  Value: "CREATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRLooker_InstanceBackup_State_Creating;
-/**
- *  The backup is being deleted.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRLooker_InstanceBackup_State_Deleting;
-/**
- *  The backup failed.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRLooker_InstanceBackup_State_Failed;
-/**
- *  The state of the backup is unknown.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRLooker_InstanceBackup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLooker_MaintenanceWindow.dayOfWeek
@@ -842,77 +807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 
 /**
- *  The details of a backup resource.
- */
-@interface GTLRLooker_InstanceBackup : GTLRObject
-
-/** Output only. The time when the backup was started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. Current status of the CMEK encryption */
-@property(nonatomic, strong, nullable) GTLRLooker_EncryptionConfig *encryptionConfig;
-
-/** Output only. The time when the backup will be deleted. */
-@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
-
-/**
- *  Immutable. The relative resource name of the backup, in the following form:
- *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}/backups/{backup}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. The current state of the backup.
- *
- *  Likely values:
- *    @arg @c kGTLRLooker_InstanceBackup_State_Active The backup is active and
- *        ready to use. (Value: "ACTIVE")
- *    @arg @c kGTLRLooker_InstanceBackup_State_Creating The backup is being
- *        created. (Value: "CREATING")
- *    @arg @c kGTLRLooker_InstanceBackup_State_Deleting The backup is being
- *        deleted. (Value: "DELETING")
- *    @arg @c kGTLRLooker_InstanceBackup_State_Failed The backup failed. (Value:
- *        "FAILED")
- *    @arg @c kGTLRLooker_InstanceBackup_State_StateUnspecified The state of the
- *        backup is unknown. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  Response from listing Looker instance backups.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "instanceBackups" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRLooker_ListInstanceBackupsResponse : GTLRCollectionObject
-
-/**
- *  The list of instances matching the request filters, up to the requested
- *  `page_size`.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRLooker_InstanceBackup *> *instanceBackups;
-
-/**
- *  If provided, a page token that can look up the next `page_size` results. If
- *  empty, the results list is exhausted.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-@end
-
-
-/**
  *  Response from ListInstances.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1263,20 +1157,6 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *  Request options for restarting an instance.
  */
 @interface GTLRLooker_RestartInstanceRequest : GTLRObject
-@end
-
-
-/**
- *  Request options for restoring an instance
- */
-@interface GTLRLooker_RestoreInstanceRequest : GTLRObject
-
-/**
- *  Required. Backup being used to restore the instance Format:
- *  projects/{project}/locations/{location}/instances/{instance}/backups/{backup}
- */
-@property(nonatomic, copy, nullable) NSString *backup;
-
 @end
 
 

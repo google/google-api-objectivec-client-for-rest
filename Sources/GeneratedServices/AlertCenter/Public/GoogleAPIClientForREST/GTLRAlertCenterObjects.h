@@ -7,7 +7,7 @@
 //   Manages alerts on issues affecting your domain. Note: The current version
 //   of this API (v1beta1) is available to all Google Workspace customers.
 // Documentation:
-//   https://developers.google.com/admin-sdk/alertcenter/
+//   https://developers.google.com/workspace/admin/alertcenter/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -1151,7 +1151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /**
  *  Required. The type of the alert. This is output only after alert is created.
  *  For a list of available alert types see [Google Workspace Alert
- *  types](https://developers.google.com/admin-sdk/alertcenter/reference/alert-types).
+ *  types](https://developers.google.com/workspace/admin/alertcenter/reference/alert-types).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2000,7 +2000,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /**
  *  Settings for callback notifications. For more details see [Google Workspace
  *  Alert
- *  Notification](https://developers.google.com/admin-sdk/alertcenter/guides/notifications).
+ *  Notification](https://developers.google.com/workspace/admin/alertcenter/guides/notifications).
  */
 @interface GTLRAlertCenter_Notification : GTLRObject
 
@@ -2013,7 +2013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /**
  *  Alert for a spike in user reported phishing. *Warning*: This type has been
  *  deprecated. Use
- *  [MailPhishing](/admin-sdk/alertcenter/reference/rest/v1beta1/MailPhishing)
+ *  [MailPhishing](https://developers.google.com/workspace/admin/alertcenter/reference/rest/v1beta1/MailPhishing)
  *  instead.
  */
 @interface GTLRAlertCenter_PhishingSpike : GTLRObject

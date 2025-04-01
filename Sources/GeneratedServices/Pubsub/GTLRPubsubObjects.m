@@ -554,7 +554,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_MessageTransform
-@dynamic enabled, javascriptUdf;
+@dynamic disabled, enabled, javascriptUdf;
 @end
 
 

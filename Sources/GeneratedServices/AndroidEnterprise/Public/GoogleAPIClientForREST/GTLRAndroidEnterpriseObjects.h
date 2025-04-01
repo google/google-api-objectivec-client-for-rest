@@ -554,8 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_Notificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate;
 /**
- *  Notification about an enterprise upgrade. **Note:** This feature is not
- *  generally available.
+ *  Notification about an enterprise upgrade.
  *
  *  Value: "enterpriseUpgrade"
  */
@@ -1894,8 +1893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
- *  An event generated when an enterprise is upgraded. **Note:** This feature is
- *  not generally available.
+ *  An event generated when an enterprise is upgraded.
  */
 @interface GTLRAndroidEnterprise_EnterpriseUpgradeEvent : GTLRObject
 
@@ -2539,10 +2537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
 
-/**
- *  Notifications about enterprise upgrade. **Note:** This feature is not
- *  generally available.
- */
+/** Notifications about enterprise upgrade. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_EnterpriseUpgradeEvent *enterpriseUpgradeEvent;
 
 /** Notifications about an app installation failure. */
@@ -2567,8 +2562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *        Notification about an updated device report. (Value:
  *        "deviceReportUpdate")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_EnterpriseUpgrade
- *        Notification about an enterprise upgrade. **Note:** This feature is
- *        not generally available. (Value: "enterpriseUpgrade")
+ *        Notification about an enterprise upgrade. (Value: "enterpriseUpgrade")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure
  *        Notification about an app installation failure. (Value:
  *        "installFailure")

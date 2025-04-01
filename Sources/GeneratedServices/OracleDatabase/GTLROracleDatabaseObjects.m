@@ -328,8 +328,18 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_AutonomousDatabase
-@dynamic adminPassword, cidr, createTime, database, displayName, entitlementId,
-         labels, name, network, properties;
+@dynamic adminPassword, cidr, createTime, database,
+         disasterRecoverySupportedLocations, displayName, entitlementId, labels,
+         name, network, peerAutonomousDatabases, properties, sourceConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disasterRecoverySupportedLocations" : [NSString class],
+    @"peerAutonomousDatabases" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -445,8 +455,9 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
          arePrimaryAllowlistedIpsUsed, autonomousContainerDatabaseId,
          availableUpgradeVersions, backupRetentionPeriodDays, characterSet,
          computeCount, connectionStrings, connectionUrls, cpuCoreCount,
-         customerContacts, databaseManagementState, dataSafeState,
-         dataStorageSizeGb, dataStorageSizeTb, dbEdition, dbVersion, dbWorkload,
+         customerContacts, databaseManagementState, dataGuardRoleChangedTime,
+         dataSafeState, dataStorageSizeGb, dataStorageSizeTb, dbEdition,
+         dbVersion, dbWorkload, disasterRecoveryRoleChangedTime,
          failedDataRecoveryDuration, isAutoScalingEnabled,
          isLocalDataGuardEnabled, isStorageAutoScalingEnabled, licenseType,
          lifecycleDetails, localAdgAutoFailoverMaxDataLossLimit,
@@ -1177,6 +1188,15 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_RestartAutonomousDatabaseRequest
+//
+
+@implementation GTLROracleDatabase_RestartAutonomousDatabaseRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_RestoreAutonomousDatabaseRequest
 //
 
@@ -1192,6 +1212,25 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_ScheduledOperationDetails
 @dynamic dayOfWeek, startTime, stopTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_SourceConfig
+//
+
+@implementation GTLROracleDatabase_SourceConfig
+@dynamic automaticBackupsReplicationEnabled, autonomousDatabase;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_StartAutonomousDatabaseRequest
+//
+
+@implementation GTLROracleDatabase_StartAutonomousDatabaseRequest
 @end
 
 
@@ -1224,6 +1263,25 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_StopAutonomousDatabaseRequest
+//
+
+@implementation GTLROracleDatabase_StopAutonomousDatabaseRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest
+//
+
+@implementation GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest
+@dynamic peerAutonomousDatabase;
 @end
 
 

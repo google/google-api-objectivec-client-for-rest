@@ -26,6 +26,7 @@
 @class GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties;
 @class GTLRDataproc_ApplicationInfo;
 @class GTLRDataproc_AppSummary;
+@class GTLRDataproc_AuthenticationConfig;
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_AutoscalingPolicy_Labels;
@@ -318,6 +319,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataSta
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusFailed;
 /** Value: "QUANTILE_DATA_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_AuthenticationConfig.userWorkloadAuthenticationType
+
+/**
+ *  If AuthenticationType is unspecified then END_USER_CREDENTIALS is used for
+ *  3.0 and newer runtimes, and SERVICE_ACCOUNT is used for older runtimes.
+ *
+ *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_AuthenticationTypeUnspecified;
+/**
+ *  Use OAuth credentials associated with the workload creator/user for
+ *  authenticating to other services.
+ *
+ *  Value: "END_USER_CREDENTIALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_EndUserCredentials;
+/**
+ *  Use service account credentials for authenticating to other services.
+ *
+ *  Value: "SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_ServiceAccount;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_AutotuningConfig.scenarios
@@ -1020,6 +1045,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_Oper
  *  Value: "UPDATE_LABELS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateLabels;
+/**
+ *  This operation type is used to update the metadata config of a node group.
+ *  We update the metadata of the VMs in the node group and await for intended
+ *  config change to be completed at the node group level. Currently, only the
+ *  identity config update is supported.
+ *
+ *  Value: "UPDATE_METADATA_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateMetadataConfig;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_NodePool.repairAction
@@ -1218,6 +1252,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified;
 /**
+ *  Delta Lake.
+ *
+ *  Value: "DELTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Delta;
+/**
  *  Docker
  *
  *  Value: "DOCKER"
@@ -1253,6 +1293,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  *  Value: "HUDI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi;
+/**
+ *  Iceberg.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Iceberg;
 /**
  *  The Jupyter Notebook.
  *
@@ -1559,6 +1605,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Details of a native build info for a Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse : GTLRObject
+
+/** Native SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeBuildInfoUiData *executionData;
+
+@end
+
+
+/**
+ *  Details of a native query for a Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse : GTLRObject
+
+/** Native SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeSqlExecutionUiData *executionData;
+
+@end
+
+
+/**
  *  A summary of Spark Application
  */
 @interface GTLRDataproc_AccessSessionSparkApplicationResponse : GTLRObject
@@ -1633,6 +1701,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. Data corresponding to a spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobData *jobData;
+
+@end
+
+
+/**
+ *  Details of Native Build Info for a Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse : GTLRObject
+
+/** Native Build Info Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeBuildInfoUiData *buildInfo;
+
+@end
+
+
+/**
+ *  Details of a query for a Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse : GTLRObject
+
+/** Native SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeSqlExecutionUiData *executionData;
 
 @end
 
@@ -1982,6 +2072,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numCompletedStages;
+
+@end
+
+
+/**
+ *  Authentication configuration for a workload is used to set the default
+ *  identity for the workload execution. The config specifies the type of
+ *  identity (service account or user) that will be used by workloads to access
+ *  resources on the project(s).
+ */
+@interface GTLRDataproc_AuthenticationConfig : GTLRObject
+
+/**
+ *  Optional. Authentication type for the user workload running in containers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_AuthenticationTypeUnspecified
+ *        If AuthenticationType is unspecified then END_USER_CREDENTIALS is used
+ *        for 3.0 and newer runtimes, and SERVICE_ACCOUNT is used for older
+ *        runtimes. (Value: "AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_EndUserCredentials
+ *        Use OAuth credentials associated with the workload creator/user for
+ *        authenticating to other services. (Value: "END_USER_CREDENTIALS")
+ *    @arg @c kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_ServiceAccount
+ *        Use service account credentials for authenticating to other services.
+ *        (Value: "SERVICE_ACCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *userWorkloadAuthenticationType;
 
 @end
 
@@ -3351,6 +3469,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_ExecutionConfig : GTLRObject
 
 /**
+ *  Optional. Authentication configuration used to set the default identity for
+ *  the workload execution. The config specifies the type of identity (service
+ *  account or user) that will be used by workloads to access resources on the
+ *  project(s).
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_AuthenticationConfig *authenticationConfig;
+
+/**
  *  Optional. Applies to sessions only. The duration to keep the session alive
  *  while it's idling. Exceeding this threshold causes the session to terminate.
  *  This field cannot be set on a batch workload. Minimum value is 10 minutes;
@@ -4105,9 +4231,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_ReservationAffinity *reservationAffinity;
 
 /**
- *  Optional. Resource manager tags to add to all instances (see Resource
- *  manager tags resources
- *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)).
+ *  Optional. Resource manager tags
+ *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)
+ *  to add to all instances (see Use secure tags in Dataproc
+ *  (https://cloud.google.com/dataproc/docs/guides/attach-secure-tags)).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig_ResourceManagerTags *resourceManagerTags;
 
@@ -4186,9 +4313,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Optional. Resource manager tags to add to all instances (see Resource
- *  manager tags resources
- *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)).
+ *  Optional. Resource manager tags
+ *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)
+ *  to add to all instances (see Use secure tags in Dataproc
+ *  (https://cloud.google.com/dataproc/docs/guides/attach-secure-tags)).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6208,7 +6336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  overridden metrics are collected for the metric source. For example, if one
  *  or more spark:executive metrics are listed as metric overrides, other SPARK
  *  metrics are not collected. The collection of the metrics for other enabled
- *  custom metric sources is unaffected. For example, if both SPARK andd YARN
+ *  custom metric sources is unaffected. For example, if both SPARK and YARN
  *  metric sources are enabled, and overrides are provided for Spark metrics
  *  only, all YARN metrics are collected.
  */
@@ -6441,6 +6569,12 @@ GTLR_DEPRECATED
  *        Update node group operation type. (Value: "UPDATE")
  *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateLabels
  *        Update node group label operation type. (Value: "UPDATE_LABELS")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateMetadataConfig
+ *        This operation type is used to update the metadata config of a node
+ *        group. We update the metadata of the VMs in the node group and await
+ *        for intended config change to be completed at the node group level.
+ *        Currently, only the identity config update is supported. (Value:
+ *        "UPDATE_METADATA_CONFIG")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
@@ -7945,6 +8079,34 @@ GTLR_DEPRECATED
 
 
 /**
+ *  List of all Native queries for a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationNativeSqlQueries" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationSqlQueriesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Native SQL Execution Data
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NativeSqlExecutionUiData *> *sparkApplicationNativeSqlQueries;
+
+@end
+
+
+/**
  *  List of all queries for a Spark Application.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -8164,6 +8326,34 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_JobData *> *sparkApplicationJobs;
+
+@end
+
+
+/**
+ *  List of all Native SQL queries details for a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationNativeSqlQueries" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationNativeSqlQueriesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Native SQL Execution Data
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NativeSqlExecutionUiData *> *sparkApplicationNativeSqlQueries;
 
 @end
 
@@ -11316,12 +11506,22 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *milliDcuSeconds;
 
 /**
+ *  Optional. Slot usage in (milliSlot x seconds).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliSlotSeconds;
+
+/**
  *  Optional. Shuffle storage usage in (GB x seconds) (see Dataproc Serverless
  *  pricing (https://cloud.google.com/dataproc-serverless/pricing)).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shuffleStorageGbSeconds;
+
+/** Optional. The timestamp of the usage metrics. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -11359,6 +11559,13 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *milliDcuPremium;
+
+/**
+ *  Optional. Milli (one-thousandth) Slot usage of the workload.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliSlot;
 
 /**
  *  Optional. Shuffle Storage in gigabytes (GB). (see Dataproc Serverless

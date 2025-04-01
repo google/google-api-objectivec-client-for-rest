@@ -2495,6 +2495,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. ExcludeCidrRanges flag. Specifies a set of CIDR blocks that allows
+ *  exclusion of particular CIDR ranges from the auto-allocation process,
+ *  without having to reserve these blocks
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeCidrRanges;
+
+/**
+ *  Optional. Immutable ranges cannot have their fields modified, except for
+ *  labels and description.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *immutable;
+
+/**
  *  The IP range that this internal range defines. NOTE: IPv6 ranges are limited
  *  to usage=EXTERNAL_TO_VPC and peering=FOR_SELF. NOTE: For IPv6 Ranges this
  *  field is compulsory, i.e. the address range must be specified explicitly.
@@ -2699,6 +2714,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *producerNetwork;
 
 /**
+ *  Output only. The proposed exclude export IP ranges waiting for hub
+ *  administration's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
+
+/**
  *  Optional. The proposed include export IP ranges waiting for hub
  *  administration's approval.
  */
@@ -2769,6 +2790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  connected to the NCC Hub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *producerVpcSpokes;
+
+/**
+ *  Output only. The proposed exclude export IP ranges waiting for hub
+ *  administration's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
 
 /**
  *  Optional. The proposed include export IP ranges waiting for hub

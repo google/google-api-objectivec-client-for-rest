@@ -12,6 +12,20 @@
 
 #import <GoogleAPIClientForREST/GTLRWorkloadManagerQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// evaluationType
+NSString * const kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified = @"EVALUATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManagerEvaluationTypeOther       = @"OTHER";
+NSString * const kGTLRWorkloadManagerEvaluationTypeSap         = @"SAP";
+NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac      = @"SCC_IAC";
+NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer   = @"SQL_SERVER";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRWorkloadManagerQuery
 
 @dynamic fields;
@@ -451,7 +465,7 @@
 
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
 
-@dynamic customRulesBucket, filter, pageSize, pageToken, parent;
+@dynamic customRulesBucket, evaluationType, filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

@@ -1355,12 +1355,13 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_ListTimeSeriesResponse
-@dynamic executionErrors, nextPageToken, timeSeries, unit;
+@dynamic executionErrors, nextPageToken, timeSeries, unit, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"executionErrors" : [GTLRMonitoring_Status class],
-    @"timeSeries" : [GTLRMonitoring_TimeSeries class]
+    @"timeSeries" : [GTLRMonitoring_TimeSeries class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -2284,10 +2285,10 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_UptimeCheckConfig
-@dynamic checkerType, contentMatchers, displayName, httpCheck, internalCheckers,
-         isInternal, logCheckFailures, monitoredResource, name, period,
-         resourceGroup, selectedRegions, syntheticMonitor, tcpCheck, timeout,
-         userLabels;
+@dynamic checkerType, contentMatchers, disabled, displayName, httpCheck,
+         internalCheckers, isInternal, logCheckFailures, monitoredResource,
+         name, period, resourceGroup, selectedRegions, syntheticMonitor,
+         tcpCheck, timeout, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

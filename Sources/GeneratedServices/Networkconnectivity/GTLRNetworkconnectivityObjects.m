@@ -678,9 +678,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_InternalRange
-@dynamic createTime, descriptionProperty, ipCidrRange, labels, migration, name,
-         network, overlaps, peering, prefixLength, targetCidrRange, updateTime,
-         usage, users;
+@dynamic createTime, descriptionProperty, excludeCidrRanges, immutable,
+         ipCidrRange, labels, migration, name, network, overlaps, peering,
+         prefixLength, targetCidrRange, updateTime, usage, users;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -688,6 +688,7 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"excludeCidrRanges" : [NSString class],
     @"overlaps" : [NSString class],
     @"targetCidrRange" : [NSString class],
     @"users" : [NSString class]
@@ -738,12 +739,14 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_LinkedProducerVpcNetwork
 @dynamic excludeExportRanges, includeExportRanges, network, peering,
-         producerNetwork, proposedIncludeExportRanges, serviceConsumerVpcSpoke;
+         producerNetwork, proposedExcludeExportRanges,
+         proposedIncludeExportRanges, serviceConsumerVpcSpoke;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludeExportRanges" : [NSString class],
     @"includeExportRanges" : [NSString class],
+    @"proposedExcludeExportRanges" : [NSString class],
     @"proposedIncludeExportRanges" : [NSString class]
   };
   return map;
@@ -778,13 +781,14 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_LinkedVpcNetwork
 @dynamic excludeExportRanges, includeExportRanges, producerVpcSpokes,
-         proposedIncludeExportRanges, uri;
+         proposedExcludeExportRanges, proposedIncludeExportRanges, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludeExportRanges" : [NSString class],
     @"includeExportRanges" : [NSString class],
     @"producerVpcSpokes" : [NSString class],
+    @"proposedExcludeExportRanges" : [NSString class],
     @"proposedIncludeExportRanges" : [NSString class]
   };
   return map;

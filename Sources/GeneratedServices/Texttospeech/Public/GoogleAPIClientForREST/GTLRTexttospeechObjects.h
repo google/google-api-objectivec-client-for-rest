@@ -612,11 +612,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 /**
  *  Optional. The pronunciation customizations are applied to the input. If this
  *  is set, the input is synthesized using the given pronunciation
- *  customizations. The initial support is for English, French, Italian, German,
- *  and Spanish (EFIGS) languages, as provided in VoiceSelectionParams. Journey
- *  and Instant Clone voices aren't supported. In order to customize the
- *  pronunciation of a phrase, there must be an exact match of the phrase in the
- *  input types. If using SSML, the phrase must not be inside a phoneme tag.
+ *  customizations. The initial support is for en-us, with plans to expand to
+ *  other locales in the future. Instant Clone voices aren't supported. In order
+ *  to customize the pronunciation of a phrase, there must be an exact match of
+ *  the phrase in the input types. If using SSML, the phrase must not be inside
+ *  a phoneme tag.
  */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_CustomPronunciations *customPronunciations;
 

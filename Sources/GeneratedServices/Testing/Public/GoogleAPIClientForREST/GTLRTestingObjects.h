@@ -133,6 +133,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orche
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator;
 
 // ----------------------------------------------------------------------------
+// GTLRTesting_AndroidModel.accessDeniedReasons
+
+/**
+ *  Do not use. For proto versioning only.
+ *
+ *  Value: "ACCESS_DENIED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_AccessDeniedReasonUnspecified;
+/**
+ *  The model is for viewing purposes only. Access and utilization require
+ *  acceptance of an End User License Agreement (EULA).
+ *
+ *  Value: "EULA_NOT_ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_EulaNotAccepted;
+
+// ----------------------------------------------------------------------------
 // GTLRTesting_AndroidModel.form
 
 /**
@@ -1240,6 +1257,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  A description of an Android device tests may be run on.
  */
 @interface GTLRTesting_AndroidModel : GTLRObject
+
+/**
+ *  Reasons for access denial. This model is accessible if this list is empty,
+ *  otherwise the model is viewable only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessDeniedReasons;
 
 /**
  *  The company that this device is branded with. Example: "Google", "Samsung".

@@ -1657,6 +1657,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @interface GTLRDeploymentManager_InstancesBulkInsertOperationMetadata : GTLRObject
 
 /**
+ *  [Output Only] The machine type of the VMs that were created used internally
+ *  only by KCP flex bulk insert.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
  *  Status information per location (location name is key). Example key:
  *  zones/us-central1-a
  */

@@ -1012,6 +1012,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_ImageImportOsAdaptationParameters.bootConversion
+
+/**
+ *  Convert from BIOS to EFI.
+ *
+ *  Value: "BIOS_TO_EFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BiosToEfi;
+/**
+ *  Unspecified conversion type.
+ *
+ *  Value: "BOOT_CONVERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BootConversionUnspecified;
+/**
+ *  No conversion.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_None;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_ImageImportOsAdaptationParameters.licenseType
 
 /**
@@ -3631,6 +3653,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Parameters affecting the OS adaptation process.
  */
 @interface GTLRVMMigrationService_ImageImportOsAdaptationParameters : GTLRObject
+
+/**
+ *  Optional. By default the image will keep its existing boot option. Setting
+ *  this property will trigger an internal process which will convert the image
+ *  from using the existing boot option to another. The size of the boot disk
+ *  might be increased to allow the conversion
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BiosToEfi
+ *        Convert from BIOS to EFI. (Value: "BIOS_TO_EFI")
+ *    @arg @c kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BootConversionUnspecified
+ *        Unspecified conversion type. (Value: "BOOT_CONVERSION_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_None
+ *        No conversion. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *bootConversion;
 
 /**
  *  Optional. Set to true in order to generalize the imported image. The

@@ -96,6 +96,13 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_Bill
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Postpaid = @"POSTPAID";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid = @"PREPAID";
 
+// GTLRApigee_GoogleCloudApigeeV1DnsZone.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Active = @"ACTIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Creating = @"CREATING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Deleting = @"DELETING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Updating = @"UPDATING";
+
 // GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.connectionState
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Accepted = @"ACCEPTED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Closed = @"CLOSED";
@@ -1778,6 +1785,32 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1DnsZone
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DnsZone
+@dynamic createTime, descriptionProperty, domain, name, peeringConfig, state,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig
+@dynamic targetNetworkId, targetProjectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1DocumentationFile
 //
 
@@ -2739,6 +2772,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListDnsZonesResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListDnsZonesResponse
+@dynamic dnsZones, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsZones" : [GTLRApigee_GoogleCloudApigeeV1DnsZone class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dnsZones";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListEndpointAttachmentsResponse
 //
 
@@ -3038,6 +3093,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 + (NSString *)collectionItemsKey {
   return @"securityIncidents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ListSecurityMonitoringConditionsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSecurityMonitoringConditionsResponse
+@dynamic nextPageToken, securityMonitoringConditions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityMonitoringConditions" : [GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityMonitoringConditions";
 }
 
 @end
@@ -4499,6 +4576,17 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition
+@dynamic createTime, include, includeAllResources, name, profile, scope,
+         totalDeployedResources, totalMonitoredResources, updateTime;
 @end
 
 

@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Docs documents.
 // Documentation:
-//   https://developers.google.com/docs/
+//   https://developers.google.com/workspace/docs/
 
 #import <GoogleAPIClientForREST/GTLRDocsObjects.h>
 
@@ -2153,7 +2153,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_SubstringMatchCriteria
-@dynamic matchCase, text;
+@dynamic matchCase, searchByRegex, text;
 @end
 
 

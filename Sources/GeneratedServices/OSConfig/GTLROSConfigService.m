@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   OS Config API (osconfig/v1)
+//   OS Config API (osconfig/v2)
 // Description:
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
