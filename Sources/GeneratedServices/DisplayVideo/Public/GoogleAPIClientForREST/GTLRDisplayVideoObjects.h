@@ -92,6 +92,8 @@
 @class GTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentThemeTargetingOptionDetails;
 @class GTLRDisplayVideo_ConversionCountingConfig;
 @class GTLRDisplayVideo_CounterEvent;
 @class GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest;
@@ -2753,6 +2755,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType;
 /**
+ *  Filter website content by content themes (for example, religion).
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentThemeExclusion;
+/**
  *  Target ads during a chosen time period on a specific day.
  *
  *  Value: "TARGETING_TYPE_DAY_AND_TIME"
@@ -4006,6 +4014,198 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingO
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails.contentTheme
+
+/**
+ *  Fighting video games.
+ *
+ *  Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames;
+/**
+ *  Mature games.
+ *
+ *  Value: "CONTENT_THEME_MATURE_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeMatureGames;
+/**
+ *  Not yet determined health sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources;
+/**
+ *  Not yet determined news sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources;
+/**
+ *  Politics.
+ *
+ *  Value: "CONTENT_THEME_POLITICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemePolitics;
+/**
+ *  Recent news.
+ *
+ *  Value: "CONTENT_THEME_RECENT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeRecentNews;
+/**
+ *  Religion.
+ *
+ *  Value: "CONTENT_THEME_RELIGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeReligion;
+/**
+ *  Unpleasant health content.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent;
+/**
+ *  Unpleasant news.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews;
+/**
+ *  This enum is only a placeholder and doesn't specify a DV360 content theme.
+ *
+ *  Value: "CONTENT_THEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails.excludedContentTheme
+
+/**
+ *  Fighting video games.
+ *
+ *  Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeFightingVideoGames;
+/**
+ *  Mature games.
+ *
+ *  Value: "CONTENT_THEME_MATURE_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeMatureGames;
+/**
+ *  Not yet determined health sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedHealthSources;
+/**
+ *  Not yet determined news sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedNewsSources;
+/**
+ *  Politics.
+ *
+ *  Value: "CONTENT_THEME_POLITICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemePolitics;
+/**
+ *  Recent news.
+ *
+ *  Value: "CONTENT_THEME_RECENT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeRecentNews;
+/**
+ *  Religion.
+ *
+ *  Value: "CONTENT_THEME_RELIGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeReligion;
+/**
+ *  Unpleasant health content.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantHealthContent;
+/**
+ *  Unpleasant news.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantNews;
+/**
+ *  This enum is only a placeholder and doesn't specify a DV360 content theme.
+ *
+ *  Value: "CONTENT_THEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentThemeTargetingOptionDetails.contentTheme
+
+/**
+ *  Fighting video games.
+ *
+ *  Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames;
+/**
+ *  Mature games.
+ *
+ *  Value: "CONTENT_THEME_MATURE_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeMatureGames;
+/**
+ *  Not yet determined health sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources;
+/**
+ *  Not yet determined news sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources;
+/**
+ *  Politics.
+ *
+ *  Value: "CONTENT_THEME_POLITICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemePolitics;
+/**
+ *  Recent news.
+ *
+ *  Value: "CONTENT_THEME_RECENT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeRecentNews;
+/**
+ *  Religion.
+ *
+ *  Value: "CONTENT_THEME_RELIGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeReligion;
+/**
+ *  Unpleasant health content.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent;
+/**
+ *  Unpleasant news.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews;
+/**
+ *  This enum is only a placeholder and doesn't specify a DV360 content theme.
+ *
+ *  Value: "CONTENT_THEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest.targetingType
 
 /**
@@ -4111,6 +4311,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
+/**
+ *  Filter website content by content themes (for example, religion).
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -5367,6 +5573,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
+/**
+ *  Filter website content by content themes (for example, religion).
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -8923,7 +9135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FrequencyCap_TimeUnit_TimeU
  *
  *  Value: "TIME_UNIT_LIFETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FrequencyCap_TimeUnit_TimeUnitLifetime;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FrequencyCap_TimeUnit_TimeUnitLifetime GTLR_DEPRECATED;
 /**
  *  The frequency cap will be applied to a number of minutes.
  *
@@ -12838,12 +13050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Partner_EntityStatus_Entity
 // GTLRDisplayVideo_PartnerCost.costType
 
 /**
- *  The cost is charged for using AdLingo. Billed through DV360.
- *
- *  Value: "PARTNER_COST_TYPE_ADLINGO_FEE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlingoFee;
-/**
  *  The cost is charged for using Adloox. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_ADLOOX"
@@ -14072,7 +14278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_Ti
  *
  *  Value: "TIME_UNIT_LIFETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitLifetime;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitLifetime GTLR_DEPRECATED;
 /**
  *  The frequency cap will be applied to a number of minutes.
  *
@@ -14238,6 +14444,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType;
+/**
+ *  Filter website content by content themes (for example, religion).
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentThemeExclusion;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -17302,6 +17514,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails *contentStreamTypeDetails;
 
 /**
+ *  Content theme details. This field will be populated when the targeting_type
+ *  is `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`. Content theme are targeting
+ *  exclusions. Advertiser level content theme exclusions, if set, are always
+ *  applied in serving (even though they aren't visible in resource settings).
+ *  Resource settings can exclude content theme in addition to advertiser
+ *  exclusions.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails *contentThemeExclusionDetails;
+
+/**
  *  Day and time details. This field will be populated when the targeting_type
  *  is `TARGETING_TYPE_DAY_AND_TIME`.
  */
@@ -17542,6 +17764,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -20079,6 +20304,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Targeting details for content theme. This will be populated in the details
+ *  field of an AssignedTargetingOption when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`.
+ */
+@interface GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. An enum for the DV360 content theme classifier.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames
+ *        Fighting video games. (Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeMatureGames
+ *        Mature games. (Value: "CONTENT_THEME_MATURE_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources
+ *        Not yet determined health sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources
+ *        Not yet determined news sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemePolitics
+ *        Politics. (Value: "CONTENT_THEME_POLITICS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeRecentNews
+ *        Recent news. (Value: "CONTENT_THEME_RECENT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeReligion
+ *        Religion. (Value: "CONTENT_THEME_RELIGION")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent
+ *        Unpleasant health content. (Value:
+ *        "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews
+ *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnspecified
+ *        This enum is only a placeholder and doesn't specify a DV360 content
+ *        theme. (Value: "CONTENT_THEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentTheme;
+
+/**
+ *  Required. An enum for the DV360 content theme classified to be EXCLUDED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeFightingVideoGames
+ *        Fighting video games. (Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeMatureGames
+ *        Mature games. (Value: "CONTENT_THEME_MATURE_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedHealthSources
+ *        Not yet determined health sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedNewsSources
+ *        Not yet determined news sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemePolitics
+ *        Politics. (Value: "CONTENT_THEME_POLITICS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeRecentNews
+ *        Recent news. (Value: "CONTENT_THEME_RECENT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeReligion
+ *        Religion. (Value: "CONTENT_THEME_RELIGION")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantHealthContent
+ *        Unpleasant health content. (Value:
+ *        "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantNews
+ *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnspecified
+ *        This enum is only a placeholder and doesn't specify a DV360 content
+ *        theme. (Value: "CONTENT_THEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *excludedContentTheme;
+
+/** Required. ID of the content theme to be EXCLUDED. */
+@property(nonatomic, copy, nullable) NSString *excludedTargetingOptionId;
+
+@end
+
+
+/**
+ *  Represents a targetable content theme. This will be populated in the
+ *  content_theme_details field of the TargetingOption when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`.
+ */
+@interface GTLRDisplayVideo_ContentThemeTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. An enum for the DV360 content theme content classifier.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames
+ *        Fighting video games. (Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeMatureGames
+ *        Mature games. (Value: "CONTENT_THEME_MATURE_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources
+ *        Not yet determined health sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources
+ *        Not yet determined news sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemePolitics
+ *        Politics. (Value: "CONTENT_THEME_POLITICS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeRecentNews
+ *        Recent news. (Value: "CONTENT_THEME_RECENT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeReligion
+ *        Religion. (Value: "CONTENT_THEME_RELIGION")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent
+ *        Unpleasant health content. (Value:
+ *        "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews
+ *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnspecified
+ *        This enum is only a placeholder and doesn't specify a DV360 content
+ *        theme. (Value: "CONTENT_THEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentTheme;
+
+@end
+
+
+/**
  *  Settings that control how conversions are counted. All post-click
  *  conversions will be counted. A percentage value can be set for post-view
  *  conversions counting.
@@ -20215,6 +20556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -21740,6 +22084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -23676,7 +24023,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  of this field to 10000. Otherwise, the set value must be greater than 0 and
  *  less than or equal to 540. Only applicable to first party audiences. This
  *  field is required if one of the following audience_type is used: *
- *  `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
+ *  `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` *Warning*:
+ *  Starting on **April 7, 2025**, audiences will no longer be able to have
+ *  infinite membership duration. This field will no longer accept the value
+ *  10000 and all audiences with membership durations greater than 540 days will
+ *  be updated to a membership duration of 540 days. [Read more about this
+ *  announced
+ *  change](/display-video/api/deprecations#features.audience_duration).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -24014,11 +24367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  The time unit in which the frequency cap will be applied. Required when
- *  unlimited is `false`. *Warning*: On **February 28, 2025**, frequency cap
- *  time periods greater than 30 days will no longer be accepted. This field
- *  will no longer accept the value `TIME_UNIT_LIFETIME`. [Read more about this
- *  announced
- *  change](/display-video/api/deprecations#features.lifetime_frequency_cap).
+ *  unlimited is `false`.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FrequencyCap_TimeUnit_TimeUnitDays The frequency
@@ -24047,15 +24396,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The number of time_unit the frequency cap will last. Required when unlimited
  *  is `false`. The following restrictions apply based on the value of
- *  time_unit: * `TIME_UNIT_LIFETIME` - this field is output only and will
- *  default to 1 * `TIME_UNIT_MONTHS` - must be between 1 and 2 *
- *  `TIME_UNIT_WEEKS` - must be between 1 and 4 * `TIME_UNIT_DAYS` - must be
- *  between 1 and 6 * `TIME_UNIT_HOURS` - must be between 1 and 23 *
- *  `TIME_UNIT_MINUTES` - must be between 1 and 59 *Warning*: On **February 28,
- *  2025**, frequency cap time periods greater than 30 days will no longer be
- *  accepted. This field will no longer accept the value 2 if the value of
- *  time_unit is `TIME_UNIT_MONTHS`. [Read more about this announced
- *  change](/display-video/api/deprecations#features.lifetime_frequency_cap).
+ *  time_unit: * `TIME_UNIT_MONTHS` - must be 1 * `TIME_UNIT_WEEKS` - must be
+ *  between 1 and 4 * `TIME_UNIT_DAYS` - must be between 1 and 6 *
+ *  `TIME_UNIT_HOURS` - must be between 1 and 23 * `TIME_UNIT_MINUTES` - must be
+ *  between 1 and 59
  *
  *  Uses NSNumber of intValue.
  */
@@ -25212,12 +25556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
-/**
- *  Required. The frequency capping setting of the insertion order. *Warning*:
- *  On **February 28, 2025**, frequency cap time periods greater than 30 days
- *  will no longer be accepted. [Read more about this announced
- *  change](/display-video/api/deprecations#features.lifetime_frequency_cap)
- */
+/** Required. The frequency capping setting of the insertion order. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FrequencyCap *frequencyCap;
 
 /**
@@ -26719,10 +27058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Required. The impression frequency cap settings of the line item. The
  *  max_impressions field in this settings object must be used if assigning a
- *  limited cap. *Warning*: On **February 28, 2025**, frequency cap time periods
- *  greater than 30 days will no longer be accepted. [Read more about this
- *  announced
- *  change](/display-video/api/deprecations#features.lifetime_frequency_cap)
+ *  limited cap.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FrequencyCap *frequencyCap;
 
@@ -29116,9 +29452,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Required. The type of the partner cost.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlingoFee
- *        The cost is charged for using AdLingo. Billed through DV360. (Value:
- *        "PARTNER_COST_TYPE_ADLINGO_FEE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox The
  *        cost is charged for using Adloox. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_ADLOOX")
@@ -30708,17 +31041,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Required. Whether to enable Optimized Targeting for the line item. Optimized
  *  targeting is not compatible with all bid strategies. Attempting to set this
- *  field to `true` for a line item using one of the following combinations of
- *  BiddingStrategy fields and BiddingStrategyPerformanceGoalType will result in
- *  an error: maximize_auto_spend_bid: *
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` *
+ *  field to `true` for a line item using the BiddingStrategy field fixed_bid or
+ *  one of the following combinations of BiddingStrategy fields and
+ *  BiddingStrategyPerformanceGoalType will result in an error:
+ *  maximize_auto_spend_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` *
  *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` *
  *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED`
  *  performance_goal_auto_bid: *
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` *Warning*: Starting
- *  **March 6, 2025**, this field will stop being compatible when using the
- *  BiddingStrategy field fixed_bid. [Read more about this announced
- *  change](/display-video/api/deprecations#features.ot_fixed_bid)
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`
  *
  *  Uses NSNumber of boolValue.
  */
@@ -30771,6 +31101,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Content stream type resource details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails *contentStreamTypeDetails;
+
+/** Content theme details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentThemeTargetingOptionDetails *contentThemeDetails;
 
 /** Device make and model resource details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DeviceMakeModelTargetingOptionDetails *deviceMakeModelDetails;
@@ -30889,6 +31222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -32052,10 +32388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  The view frequency cap settings of the line item. The max_views field in
- *  this settings object must be used if assigning a limited cap. *Warning*: On
- *  **February 28, 2025**, frequency cap time periods greater than 30 days will
- *  no longer be accepted. [Read more about this announced
- *  change](/display-video/api/deprecations#features.lifetime_frequency_cap)
+ *  this settings object must be used if assigning a limited cap.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FrequencyCap *viewFrequencyCap;
 

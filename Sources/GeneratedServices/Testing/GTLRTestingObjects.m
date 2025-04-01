@@ -19,6 +19,10 @@ NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_DoNo
 NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_OrchestratorOptionUnspecified = @"ORCHESTRATOR_OPTION_UNSPECIFIED";
 NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator = @"USE_ORCHESTRATOR";
 
+// GTLRTesting_AndroidModel.accessDeniedReasons
+NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_AccessDeniedReasonUnspecified = @"ACCESS_DENIED_REASON_UNSPECIFIED";
+NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_EulaNotAccepted = @"EULA_NOT_ACCEPTED";
+
 // GTLRTesting_AndroidModel.form
 NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified = @"DEVICE_FORM_UNSPECIFIED";
 NSString * const kGTLRTesting_AndroidModel_Form_Emulator       = @"EMULATOR";
@@ -278,8 +282,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidModel
-@dynamic brand, codename, form, formFactor, identifier, labInfo,
-         lowFpsVideoRecording, manufacturer, name, perVersionInfo,
+@dynamic accessDeniedReasons, brand, codename, form, formFactor, identifier,
+         labInfo, lowFpsVideoRecording, manufacturer, name, perVersionInfo,
          screenDensity, screenX, screenY, supportedAbis, supportedVersionIds,
          tags, thumbnailUrl;
 
@@ -289,6 +293,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accessDeniedReasons" : [NSString class],
     @"perVersionInfo" : [GTLRTesting_PerAndroidVersionInfo class],
     @"supportedAbis" : [NSString class],
     @"supportedVersionIds" : [NSString class],

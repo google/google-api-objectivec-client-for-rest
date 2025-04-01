@@ -268,6 +268,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  Method: container.projects.locations.clusters.fetchClusterUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersFetchClusterUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster) of the cluster to get.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *` or
+ *  `projects/ * /zones/ * /clusters/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_ClusterUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  @param name Required. The name (project, location, cluster) of the cluster
+ *    to get. Specified in the format `projects/ * /locations/ * /clusters/ *`
+ *    or `projects/ * /zones/ * /clusters/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersFetchClusterUpgradeInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the details of a specific cluster.
  *
  *  Method: container.projects.locations.clusters.get
@@ -528,6 +563,42 @@ NS_ASSUME_NONNULL_BEGIN
  *    /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  Method: container.projects.locations.clusters.nodePools.fetchNodePoolUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsFetchNodePoolUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster, nodepool) of the nodepool to
+ *  get. Specified in the format `projects/ * /locations/ * /clusters/ *
+ *  /nodePools/ *` or `projects/ * /zones/ * /clusters/ * /nodePools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_NodePoolUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  @param name Required. The name (project, location, cluster, nodepool) of the
+ *    nodepool to get. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ * /nodePools/ *` or `projects/ * /zones/ * /clusters/ *
+ *    /nodePools/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsFetchNodePoolUpgradeInfo
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1713,6 +1784,41 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  Method: container.projects.zones.clusters.fetchClusterUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersFetchClusterUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster) of the cluster to get.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *` or
+ *  `projects/ * /zones/ * /clusters/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_ClusterUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  @param name Required. The name (project, location, cluster) of the cluster
+ *    to get. Specified in the format `projects/ * /locations/ * /clusters/ *`
+ *    or `projects/ * /zones/ * /clusters/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsZonesClustersFetchClusterUpgradeInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the details of a specific cluster.
  *
  *  Method: container.projects.zones.clusters.get
@@ -2336,6 +2442,42 @@ GTLR_DEPRECATED
                       zoneProperty:(NSString *)zoneProperty
                          clusterId:(NSString *)clusterId
                         nodePoolId:(NSString *)nodePoolId;
+
+@end
+
+/**
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  Method: container.projects.zones.clusters.nodePools.fetchNodePoolUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsFetchNodePoolUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster, nodepool) of the nodepool to
+ *  get. Specified in the format `projects/ * /locations/ * /clusters/ *
+ *  /nodePools/ *` or `projects/ * /zones/ * /clusters/ * /nodePools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_NodePoolUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  @param name Required. The name (project, location, cluster, nodepool) of the
+ *    nodepool to get. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ * /nodePools/ *` or `projects/ * /zones/ * /clusters/ *
+ *    /nodePools/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsFetchNodePoolUpgradeInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

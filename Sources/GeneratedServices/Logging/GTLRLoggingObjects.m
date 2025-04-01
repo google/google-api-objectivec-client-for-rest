@@ -168,6 +168,61 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_AppHub
+//
+
+@implementation GTLRLogging_AppHub
+@dynamic application, service, workload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_AppHubApplication
+//
+
+@implementation GTLRLogging_AppHubApplication
+@dynamic container, identifier, location;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_AppHubService
+//
+
+@implementation GTLRLogging_AppHubService
+@dynamic criticalityType, environmentType, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_AppHubWorkload
+//
+
+@implementation GTLRLogging_AppHubWorkload
+@dynamic criticalityType, environmentType, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_BigQueryDataset
 //
 
@@ -870,8 +925,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogEntry
-@dynamic errorGroups, httpRequest, insertId, jsonPayload, labels, logName,
-         metadata, operation, protoPayload, receiveTimestamp, resource,
+@dynamic apphub, errorGroups, httpRequest, insertId, jsonPayload, labels,
+         logName, metadata, operation, protoPayload, receiveTimestamp, resource,
          severity, sourceLocation, spanId, split, textPayload, timestamp, trace,
          traceSampled;
 

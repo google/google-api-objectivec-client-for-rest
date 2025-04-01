@@ -6423,8 +6423,8 @@ GTLR_DEPRECATED
 
 /**
  *  The id of the corresponding YouTube channel. In case of a channel comment
- *  this is the channel the comment refers to. In case of a video comment it's
- *  the video's channel.
+ *  this is the channel the comment refers to. In case of a video or post
+ *  comment it's the video/post's channel.
  */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
@@ -6451,8 +6451,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *moderationStatus;
 
-/** The unique id of the parent comment, only set for replies. */
+/** The unique id of the top-level comment, only set for replies. */
 @property(nonatomic, copy, nullable) NSString *parentId;
+
+/** The ID of the post the comment refers to, if any. */
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /** The date and time when the comment was originally published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
@@ -6496,10 +6499,11 @@ GTLR_DEPRECATED
 
 
 /**
- *  The id of the author's YouTube channel, if any.
+ *  Contains the id of the author's YouTube channel, if any.
  */
 @interface GTLRYouTube_CommentSnippetAuthorChannelId : GTLRObject
 
+/** The id of the author's YouTube channel. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -6620,8 +6624,8 @@ GTLR_DEPRECATED
 
 /**
  *  The YouTube channel the comments in the thread refer to or the channel with
- *  the video the comments refer to. If video_id isn't set the comments refer to
- *  the channel itself.
+ *  the video the comments refer to. If neither video_id nor post_id is set the
+ *  comments refer to the channel itself.
  */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
@@ -6633,6 +6637,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *isPublic;
 
+/** The ID of the post the comments refer to, if any. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
 /** The top level comment of this thread. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Comment *topLevelComment;
 
@@ -6643,10 +6650,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *totalReplyCount;
 
-/**
- *  The ID of the video the comments refer to, if any. No video_id implies a
- *  channel discussion comment.
- */
+/** The ID of the video the comments refer to, if any. */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
 @end

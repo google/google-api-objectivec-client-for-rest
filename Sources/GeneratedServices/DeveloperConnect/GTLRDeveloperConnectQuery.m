@@ -28,6 +28,228 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @end
 
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsCreate
+
+@dynamic accountConnectorId, parent, requestId, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AccountConnector *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/accountConnectors";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Operation class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsDelete
+
+@dynamic ETag, force, name, requestId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Operation class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_AccountConnector class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/accountConnectors";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDeveloperConnect_ListAccountConnectorsResponse class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsPatch
+
+@dynamic allowMissing, name, requestId, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AccountConnector *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Operation class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDelete
+
+@dynamic ETag, name, requestId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Operation class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDeleteSelf
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/users:deleteSelf";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDeleteSelf *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_Operation class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.deleteSelf";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchAccessToken
+
+@dynamic accountConnector;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_FetchAccessTokenRequest *)object
+               accountConnector:(NSString *)accountConnector {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"accountConnector" ];
+  NSString *pathURITemplate = @"v1/{+accountConnector}/users:fetchAccessToken";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchAccessToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountConnector = accountConnector;
+  query.expectedObjectClass = [GTLRDeveloperConnect_FetchAccessTokenResponse class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.fetchAccessToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchSelf
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/users:fetchSelf";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchSelf *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_User class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.fetchSelf";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/users";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDeveloperConnect_ListUsersResponse class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsCreate
 
 @dynamic connectionId, parent, requestId, validateOnly;
@@ -498,7 +720,14 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

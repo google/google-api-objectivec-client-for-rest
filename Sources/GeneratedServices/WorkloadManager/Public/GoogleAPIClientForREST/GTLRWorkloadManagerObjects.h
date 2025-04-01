@@ -3185,6 +3185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @interface GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount : GTLRObject
 
+/** Optional. Names of the disks providing this mount point. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *diskNames;
+
 /** Optional. Filesystem mount point. */
 @property(nonatomic, copy, nullable) NSString *mountPoint;
 

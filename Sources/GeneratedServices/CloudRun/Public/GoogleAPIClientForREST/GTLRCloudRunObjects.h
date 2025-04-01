@@ -3821,6 +3821,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
+ *  Optional. Output only. True if GPU zonal redundancy is disabled on this
+ *  revision.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
+
+/**
  *  Output only. Unstructured key value map that can be used to organize and
  *  categorize objects. User-provided labels are shared with Google's billing
  *  system, so they can be used to filter, or break down billing charges by
@@ -4111,6 +4119,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        Unspecified (Value: "EXECUTION_ENVIRONMENT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *executionEnvironment;
+
+/**
+ *  Optional. True if GPU zonal redundancy is disabled on this revision.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
 
 /**
  *  Optional. Disables health checking containers during deployment.
@@ -4427,6 +4442,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
+ *  Optional. IAP settings on the Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *iapEnabled;
+
+/**
  *  Optional. Provides the ingress settings for this Service. On output, returns
  *  the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if
  *  no revision is active.
@@ -4449,8 +4471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Disables IAM permission check for run.routes.invoke for callers of
- *  this service. This feature is available by invitation only. For more
- *  information, visit
+ *  this service. For more information, visit
  *  https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
  *
  *  Uses NSNumber of boolValue.
@@ -4608,6 +4629,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  process in Cloud Run.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Condition *terminalCondition;
+
+/**
+ *  Output only. True if Cloud Run Threat Detection monitoring is enabled for
+ *  the parent project of this Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threatDetectionEnabled;
 
 /**
  *  Optional. Specifies how to distribute traffic over a collection of Revisions
@@ -5875,31 +5904,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
-
-/**
- *  Optional. A maximum percentage of instances that will be moved in each step
- *  of traffic split changes. When set to a positive value, the server will
- *  bring up, at most, that percentage of new instances at a time before moving
- *  traffic to them. After moving traffic, the server will bring down instances
- *  of the old revision. This can reduce a spike of total active instances
- *  during changes from one revision to another but specifying how many extra
- *  instances can be brought up at a time.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSurge;
-
-/**
- *  Optional. A maximum percentage of instances that may be unavailable during
- *  changes from one revision to another. When set to a positive value, the
- *  server may bring down instances before bringing up new instances. This can
- *  prevent a spike of total active instances during changes from one revision
- *  by reducing the pool of instances before bringing up new ones. Some requests
- *  may be slow or fail to serve during the transition.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxUnavailable;
 
 /**
  *  Optional. The minimum count of instances distributed among revisions based

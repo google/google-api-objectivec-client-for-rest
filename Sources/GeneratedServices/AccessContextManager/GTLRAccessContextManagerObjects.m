@@ -445,13 +445,14 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_EgressTo
-@dynamic externalResources, operations, resources;
+@dynamic externalResources, operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"externalResources" : [NSString class],
     @"operations" : [GTLRAccessContextManager_ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }
@@ -579,12 +580,13 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_IngressTo
-@dynamic operations, resources;
+@dynamic operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"operations" : [GTLRAccessContextManager_ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }

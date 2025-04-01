@@ -198,6 +198,11 @@ NSString * const kGTLRVMMigrationService_ImageImportJob_State_Running = @"RUNNIN
 NSString * const kGTLRVMMigrationService_ImageImportJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRVMMigrationService_ImageImportJob_State_Succeeded = @"SUCCEEDED";
 
+// GTLRVMMigrationService_ImageImportOsAdaptationParameters.bootConversion
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BiosToEfi = @"BIOS_TO_EFI";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BootConversionUnspecified = @"BOOT_CONVERSION_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_None = @"NONE";
+
 // GTLRVMMigrationService_ImageImportOsAdaptationParameters.licenseType
 NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeByol = @"COMPUTE_ENGINE_LICENSE_TYPE_BYOL";
 NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeDefault = @"COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT";
@@ -1191,7 +1196,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ImageImportOsAdaptationParameters
-@dynamic generalize, licenseType;
+@dynamic bootConversion, generalize, licenseType;
 @end
 
 

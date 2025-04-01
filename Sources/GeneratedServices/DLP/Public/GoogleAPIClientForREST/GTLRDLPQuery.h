@@ -1748,6 +1748,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
+ *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  to learn more.
+ *
+ *  Method: dlp.organizations.locations.infoTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsInfoTypesList : GTLRDLPQuery
+
+/**
+ *  filter to only return infoTypes supported by certain parts of the API.
+ *  Defaults to supported_by=INSPECT.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  BCP-47 language code for localized infoType friendly names. If omitted, or
+ *  if localized strings are not available, en-US strings will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Deprecated. This field has no effect. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  The parent resource name. The format of this value is as follows:
+ *  `locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
+ *
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
+ *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  to learn more.
+ *
+ *  @param parent The parent resource name. The format of this value is as
+ *    follows: `locations/{location_id}`
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsInfoTypesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
@@ -5895,6 +5946,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2RedactImageRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
+ *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  to learn more.
+ *
+ *  Method: dlp.projects.locations.infoTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsInfoTypesList : GTLRDLPQuery
+
+/**
+ *  filter to only return infoTypes supported by certain parts of the API.
+ *  Defaults to supported_by=INSPECT.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  BCP-47 language code for localized infoType friendly names. If omitted, or
+ *  if localized strings are not available, en-US strings will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Deprecated. This field has no effect. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  The parent resource name. The format of this value is as follows:
+ *  `locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
+ *
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See
+ *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  to learn more.
+ *
+ *  @param parent The parent resource name. The format of this value is as
+ *    follows: `locations/{location_id}`
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsInfoTypesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

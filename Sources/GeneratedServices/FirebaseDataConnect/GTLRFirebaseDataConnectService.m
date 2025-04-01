@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase Data Connect API (firebasedataconnect/v1beta)
+//   Firebase Data Connect API (firebasedataconnect/v1)
 // Description:
 //   Firebase Data Connect is a relational database service for mobile and web
 //   apps that lets you build and scale using a fully-managed PostgreSQL

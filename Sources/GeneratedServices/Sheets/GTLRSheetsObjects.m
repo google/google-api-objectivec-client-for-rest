@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Sheets.
 // Documentation:
-//   https://developers.google.com/sheets/
+//   https://developers.google.com/workspace/sheets/
 
 #import <GoogleAPIClientForREST/GTLRSheetsObjects.h>
 

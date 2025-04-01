@@ -875,7 +875,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Optional. Name of the snapshot to use as the source for the disk. If set,
- *  size_gb and fs_type must be empty.
+ *  size_gb and fs_type must be empty. Must be formatted as ext4 file system
+ *  with no partitions.
  */
 @property(nonatomic, copy, nullable) NSString *sourceSnapshot;
 
@@ -1888,8 +1889,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Output only. Whether this workstation cluster is in degraded mode, in which
- *  case it may require user action to restore full functionality. Details can
- *  be found in conditions.
+ *  case it may require user action to restore full functionality. The
+ *  conditions field contains detailed information about the status of the
+ *  cluster.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1947,8 +1949,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  Optional. Tag keys/values directly bound to this resource. For example:
- *  "123/environment": "production", "123/costCenter": "marketing"
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationCluster_Tags *tags;
 
@@ -1994,8 +1997,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Optional. Tag keys/values directly bound to this resource. For example:
- *  "123/environment": "production", "123/costCenter": "marketing"
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2029,7 +2033,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 /** Optional. Client-specified annotations. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationConfig_Annotations *annotations;
 
-/** Output only. Status conditions describing the current resource state. */
+/**
+ *  Output only. Status conditions describing the workstation configuration's
+ *  current state.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_Status *> *conditions;
 
 /**
@@ -2042,8 +2049,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. Whether this resource is degraded, in which case it may require
- *  user action to restore full functionality. See also the conditions field.
+ *  Output only. Whether this workstation configuration is in degraded mode, in
+ *  which case it may require user action to restore full functionality. The
+ *  conditions field contains detailed information about the status of the
+ *  configuration.
  *
  *  Uses NSNumber of boolValue.
  */

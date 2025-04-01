@@ -18,6 +18,7 @@
 @class GTLRSecurityCommandCenter_Access;
 @class GTLRSecurityCommandCenter_AccessReview;
 @class GTLRSecurityCommandCenter_AdaptiveProtection;
+@class GTLRSecurityCommandCenter_AffectedResources;
 @class GTLRSecurityCommandCenter_Allowed;
 @class GTLRSecurityCommandCenter_Application;
 @class GTLRSecurityCommandCenter_Asset;
@@ -43,6 +44,7 @@
 @class GTLRSecurityCommandCenter_AzureTenant;
 @class GTLRSecurityCommandCenter_BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_Binding;
+@class GTLRSecurityCommandCenter_Chokepoint;
 @class GTLRSecurityCommandCenter_CloudArmor;
 @class GTLRSecurityCommandCenter_CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_CloudDlpInspection;
@@ -57,6 +59,7 @@
 @class GTLRSecurityCommandCenter_CustomModuleValidationErrors;
 @class GTLRSecurityCommandCenter_Cve;
 @class GTLRSecurityCommandCenter_Cvssv3;
+@class GTLRSecurityCommandCenter_Cwe;
 @class GTLRSecurityCommandCenter_DataAccessEvent;
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_DataFlowEvent;
@@ -107,6 +110,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Access;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AccessReview;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack;
@@ -122,6 +126,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureTenant;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Binding;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Chokepoint;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpInspection;
@@ -133,6 +138,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Container;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cve;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cvssv3;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cwe;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Database;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent;
@@ -1006,6 +1012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetecti
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.findingClass
 
+/**
+ *  Describes a resource or resource group where high risk attack paths
+ *  converge, based on attack path simulations (APS).
+ *
+ *  Value: "CHOKEPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Chokepoint;
 /**
  *  Unspecified finding class.
  *
@@ -2124,6 +2137,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding.findingClass
 
 /**
+ *  Describes a resource or resource group where high risk attack paths
+ *  converge, based on attack path simulations (APS).
+ *
+ *  Value: "CHOKEPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Chokepoint;
+/**
  *  Unspecified finding class.
  *
  *  Value: "FINDING_CLASS_UNSPECIFIED"
@@ -2299,6 +2319,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership.groupType
 
+/**
+ *  Group represents a chokepoint.
+ *
+ *  Value: "GROUP_TYPE_CHOKEPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership_GroupType_GroupTypeChokepoint;
 /**
  *  Group represents a toxic combination.
  *
@@ -2728,6 +2754,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AutomatedExfiltration;
 /**
+ *  T1547
+ *
+ *  Value: "BOOT_OR_LOGON_AUTOSTART_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_BootOrLogonAutostartExecution;
+/**
  *  T1037
  *
  *  Value: "BOOT_OR_LOGON_INITIALIZATION_SCRIPTS"
@@ -2770,6 +2802,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CommandAndScriptingInterpreter;
 /**
+ *  T1027.010
+ *
+ *  Value: "COMMAND_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CommandObfuscation;
+/**
+ *  T1027.004
+ *
+ *  Value: "COMPILE_AFTER_DELIVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CompileAfterDelivery;
+/**
+ *  T1554
+ *
+ *  Value: "COMPROMISE_HOST_SOFTWARE_BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CompromiseHostSoftwareBinary;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -2781,6 +2831,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerAndResourceDiscovery;
+/**
+ *  T1136
+ *
+ *  Value: "CREATE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CreateAccount;
 /**
  *  T1543
  *
@@ -2799,6 +2855,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "DATA_DESTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DataDestruction;
+/**
+ *  T1132
+ *
+ *  Value: "DATA_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DataEncoding;
+/**
+ *  T1001
+ *
+ *  Value: "DATA_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DataObfuscation;
+/**
+ *  T1001.002
+ *
+ *  Value: "DATA_OBFUSCATION_STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DataObfuscationSteganography;
 /**
  *  T1078.001
  *
@@ -2878,6 +2952,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExternalProxy;
 /**
+ *  T1495
+ *
+ *  Value: "FIRMWARE_CORRUPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_FirmwareCorruption;
+/**
+ *  T1564.001
+ *
+ *  Value: "HIDDEN_FILES_AND_DIRECTORIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_HiddenFilesAndDirectories;
+/**
+ *  T1564.002
+ *
+ *  Value: "HIDDEN_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_HiddenUsers;
+/**
+ *  T1564
+ *
+ *  Value: "HIDE_ARTIFACTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_HideArtifacts;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
@@ -2902,11 +3000,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_InhibitSystemRecovery;
 /**
+ *  T1547.006
+ *
+ *  Value: "KERNEL_MODULES_AND_EXTENSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_KernelModulesAndExtensions;
+/**
  *  T1570
  *
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LateralToolTransfer;
+/**
+ *  T1136.001
+ *
+ *  Value: "LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LocalAccount;
 /**
  *  T1078.003
  *
@@ -2944,6 +3054,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_MultiHopProxy;
 /**
+ *  T1104
+ *
+ *  Value: "MULTI_STAGE_CHANNELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_MultiStageChannels;
+/**
  *  T1106
  *
  *  Value: "NATIVE_API"
@@ -2961,6 +3077,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "NETWORK_SERVICE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_NetworkServiceDiscovery;
+/**
+ *  T1027
+ *
+ *  Value: "OBFUSCATED_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ObfuscatedFilesOrInfo;
 /**
  *  T1588
  *
@@ -3028,6 +3150,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_SshAuthorizedKeys;
 /**
+ *  T1608
+ *
+ *  Value: "STAGE_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_StageCapabilities;
+/**
+ *  T1132.001
+ *
+ *  Value: "STANDARD_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_StandardEncoding;
+/**
  *  T1037.005
  *
  *  Value: "STARTUP_ITEMS"
@@ -3051,6 +3185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "STEAL_WEB_SESSION_COOKIE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_StealWebSessionCookie;
+/**
+ *  T1027.003
+ *
+ *  Value: "STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Steganography;
 /**
  *  Unspecified value.
  *
@@ -3246,6 +3386,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AutomatedExfiltration;
 /**
+ *  T1547
+ *
+ *  Value: "BOOT_OR_LOGON_AUTOSTART_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_BootOrLogonAutostartExecution;
+/**
  *  T1037
  *
  *  Value: "BOOT_OR_LOGON_INITIALIZATION_SCRIPTS"
@@ -3288,6 +3434,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CommandAndScriptingInterpreter;
 /**
+ *  T1027.010
+ *
+ *  Value: "COMMAND_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CommandObfuscation;
+/**
+ *  T1027.004
+ *
+ *  Value: "COMPILE_AFTER_DELIVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CompileAfterDelivery;
+/**
+ *  T1554
+ *
+ *  Value: "COMPROMISE_HOST_SOFTWARE_BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CompromiseHostSoftwareBinary;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -3299,6 +3463,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerAndResourceDiscovery;
+/**
+ *  T1136
+ *
+ *  Value: "CREATE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CreateAccount;
 /**
  *  T1543
  *
@@ -3317,6 +3487,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "DATA_DESTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DataDestruction;
+/**
+ *  T1132
+ *
+ *  Value: "DATA_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DataEncoding;
+/**
+ *  T1001
+ *
+ *  Value: "DATA_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DataObfuscation;
+/**
+ *  T1001.002
+ *
+ *  Value: "DATA_OBFUSCATION_STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DataObfuscationSteganography;
 /**
  *  T1078.001
  *
@@ -3396,6 +3584,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExternalProxy;
 /**
+ *  T1495
+ *
+ *  Value: "FIRMWARE_CORRUPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_FirmwareCorruption;
+/**
+ *  T1564.001
+ *
+ *  Value: "HIDDEN_FILES_AND_DIRECTORIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_HiddenFilesAndDirectories;
+/**
+ *  T1564.002
+ *
+ *  Value: "HIDDEN_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_HiddenUsers;
+/**
+ *  T1564
+ *
+ *  Value: "HIDE_ARTIFACTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_HideArtifacts;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
@@ -3420,11 +3632,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_InhibitSystemRecovery;
 /**
+ *  T1547.006
+ *
+ *  Value: "KERNEL_MODULES_AND_EXTENSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_KernelModulesAndExtensions;
+/**
  *  T1570
  *
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LateralToolTransfer;
+/**
+ *  T1136.001
+ *
+ *  Value: "LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LocalAccount;
 /**
  *  T1078.003
  *
@@ -3462,6 +3686,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_MultiHopProxy;
 /**
+ *  T1104
+ *
+ *  Value: "MULTI_STAGE_CHANNELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_MultiStageChannels;
+/**
  *  T1106
  *
  *  Value: "NATIVE_API"
@@ -3479,6 +3709,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "NETWORK_SERVICE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_NetworkServiceDiscovery;
+/**
+ *  T1027
+ *
+ *  Value: "OBFUSCATED_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ObfuscatedFilesOrInfo;
 /**
  *  T1588
  *
@@ -3546,6 +3782,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_SshAuthorizedKeys;
 /**
+ *  T1608
+ *
+ *  Value: "STAGE_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_StageCapabilities;
+/**
+ *  T1132.001
+ *
+ *  Value: "STANDARD_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_StandardEncoding;
+/**
  *  T1037.005
  *
  *  Value: "STARTUP_ITEMS"
@@ -3569,6 +3817,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "STEAL_WEB_SESSION_COOKIE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_StealWebSessionCookie;
+/**
+ *  T1027.003
+ *
+ *  Value: "STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Steganography;
 /**
  *  Unspecified value.
  *
@@ -3961,6 +4215,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 // GTLRSecurityCommandCenter_GroupMembership.groupType
 
 /**
+ *  Group represents a chokepoint.
+ *
+ *  Value: "GROUP_TYPE_CHOKEPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GroupMembership_GroupType_GroupTypeChokepoint;
+/**
  *  Group represents a toxic combination.
  *
  *  Value: "GROUP_TYPE_TOXIC_COMBINATION"
@@ -4274,6 +4534,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AutomatedExfiltration;
 /**
+ *  T1547
+ *
+ *  Value: "BOOT_OR_LOGON_AUTOSTART_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_BootOrLogonAutostartExecution;
+/**
  *  T1037
  *
  *  Value: "BOOT_OR_LOGON_INITIALIZATION_SCRIPTS"
@@ -4316,6 +4582,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CommandAndScriptingInterpreter;
 /**
+ *  T1027.010
+ *
+ *  Value: "COMMAND_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CommandObfuscation;
+/**
+ *  T1027.004
+ *
+ *  Value: "COMPILE_AFTER_DELIVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CompileAfterDelivery;
+/**
+ *  T1554
+ *
+ *  Value: "COMPROMISE_HOST_SOFTWARE_BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CompromiseHostSoftwareBinary;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -4327,6 +4611,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ContainerAndResourceDiscovery;
+/**
+ *  T1136
+ *
+ *  Value: "CREATE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateAccount;
 /**
  *  T1543
  *
@@ -4345,6 +4635,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "DATA_DESTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataDestruction;
+/**
+ *  T1132
+ *
+ *  Value: "DATA_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataEncoding;
+/**
+ *  T1001
+ *
+ *  Value: "DATA_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataObfuscation;
+/**
+ *  T1001.002
+ *
+ *  Value: "DATA_OBFUSCATION_STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataObfuscationSteganography;
 /**
  *  T1078.001
  *
@@ -4424,6 +4732,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy;
 /**
+ *  T1495
+ *
+ *  Value: "FIRMWARE_CORRUPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_FirmwareCorruption;
+/**
+ *  T1564.001
+ *
+ *  Value: "HIDDEN_FILES_AND_DIRECTORIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_HiddenFilesAndDirectories;
+/**
+ *  T1564.002
+ *
+ *  Value: "HIDDEN_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_HiddenUsers;
+/**
+ *  T1564
+ *
+ *  Value: "HIDE_ARTIFACTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_HideArtifacts;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
@@ -4448,11 +4780,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InhibitSystemRecovery;
 /**
+ *  T1547.006
+ *
+ *  Value: "KERNEL_MODULES_AND_EXTENSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_KernelModulesAndExtensions;
+/**
  *  T1570
  *
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LateralToolTransfer;
+/**
+ *  T1136.001
+ *
+ *  Value: "LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccount;
 /**
  *  T1078.003
  *
@@ -4490,6 +4834,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_MultiHopProxy;
 /**
+ *  T1104
+ *
+ *  Value: "MULTI_STAGE_CHANNELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_MultiStageChannels;
+/**
  *  T1106
  *
  *  Value: "NATIVE_API"
@@ -4507,6 +4857,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "NETWORK_SERVICE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NetworkServiceDiscovery;
+/**
+ *  T1027
+ *
+ *  Value: "OBFUSCATED_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ObfuscatedFilesOrInfo;
 /**
  *  T1588
  *
@@ -4574,6 +4930,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SshAuthorizedKeys;
 /**
+ *  T1608
+ *
+ *  Value: "STAGE_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_StageCapabilities;
+/**
+ *  T1132.001
+ *
+ *  Value: "STANDARD_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_StandardEncoding;
+/**
  *  T1037.005
  *
  *  Value: "STARTUP_ITEMS"
@@ -4597,6 +4965,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "STEAL_WEB_SESSION_COOKIE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_StealWebSessionCookie;
+/**
+ *  T1027.003
+ *
+ *  Value: "STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Steganography;
 /**
  *  Unspecified value.
  *
@@ -4792,6 +5166,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AutomatedExfiltration;
 /**
+ *  T1547
+ *
+ *  Value: "BOOT_OR_LOGON_AUTOSTART_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_BootOrLogonAutostartExecution;
+/**
  *  T1037
  *
  *  Value: "BOOT_OR_LOGON_INITIALIZATION_SCRIPTS"
@@ -4834,6 +5214,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CommandAndScriptingInterpreter;
 /**
+ *  T1027.010
+ *
+ *  Value: "COMMAND_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CommandObfuscation;
+/**
+ *  T1027.004
+ *
+ *  Value: "COMPILE_AFTER_DELIVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CompileAfterDelivery;
+/**
+ *  T1554
+ *
+ *  Value: "COMPROMISE_HOST_SOFTWARE_BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CompromiseHostSoftwareBinary;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -4845,6 +5243,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ContainerAndResourceDiscovery;
+/**
+ *  T1136
+ *
+ *  Value: "CREATE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateAccount;
 /**
  *  T1543
  *
@@ -4863,6 +5267,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "DATA_DESTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataDestruction;
+/**
+ *  T1132
+ *
+ *  Value: "DATA_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataEncoding;
+/**
+ *  T1001
+ *
+ *  Value: "DATA_OBFUSCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataObfuscation;
+/**
+ *  T1001.002
+ *
+ *  Value: "DATA_OBFUSCATION_STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataObfuscationSteganography;
 /**
  *  T1078.001
  *
@@ -4942,6 +5364,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy;
 /**
+ *  T1495
+ *
+ *  Value: "FIRMWARE_CORRUPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_FirmwareCorruption;
+/**
+ *  T1564.001
+ *
+ *  Value: "HIDDEN_FILES_AND_DIRECTORIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_HiddenFilesAndDirectories;
+/**
+ *  T1564.002
+ *
+ *  Value: "HIDDEN_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_HiddenUsers;
+/**
+ *  T1564
+ *
+ *  Value: "HIDE_ARTIFACTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_HideArtifacts;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
@@ -4966,11 +5412,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InhibitSystemRecovery;
 /**
+ *  T1547.006
+ *
+ *  Value: "KERNEL_MODULES_AND_EXTENSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_KernelModulesAndExtensions;
+/**
  *  T1570
  *
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LateralToolTransfer;
+/**
+ *  T1136.001
+ *
+ *  Value: "LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccount;
 /**
  *  T1078.003
  *
@@ -5008,6 +5466,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_MultiHopProxy;
 /**
+ *  T1104
+ *
+ *  Value: "MULTI_STAGE_CHANNELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_MultiStageChannels;
+/**
  *  T1106
  *
  *  Value: "NATIVE_API"
@@ -5025,6 +5489,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "NETWORK_SERVICE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NetworkServiceDiscovery;
+/**
+ *  T1027
+ *
+ *  Value: "OBFUSCATED_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ObfuscatedFilesOrInfo;
 /**
  *  T1588
  *
@@ -5092,6 +5562,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SshAuthorizedKeys;
 /**
+ *  T1608
+ *
+ *  Value: "STAGE_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_StageCapabilities;
+/**
+ *  T1132.001
+ *
+ *  Value: "STANDARD_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_StandardEncoding;
+/**
  *  T1037.005
  *
  *  Value: "STARTUP_ITEMS"
@@ -5115,6 +5597,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "STEAL_WEB_SESSION_COOKIE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_StealWebSessionCookie;
+/**
+ *  T1027.003
+ *
+ *  Value: "STEGANOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Steganography;
 /**
  *  Unspecified value.
  *
@@ -5613,6 +6101,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
+
+@end
+
+
+/**
+ *  Details about resources affected by this finding.
+ */
+@interface GTLRSecurityCommandCenter_AffectedResources : GTLRObject
+
+/**
+ *  The count of resources affected by the finding.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 @end
 
@@ -6469,6 +6972,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains details about a chokepoint, which is a resource or resource group
+ *  where high-risk attack paths converge, based on [attack path simulations]
+ *  (https://cloud.google.com/security-command-center/docs/attack-exposure-learn#attack_path_simulations).
+ */
+@interface GTLRSecurityCommandCenter_Chokepoint : GTLRObject
+
+/**
+ *  List of resource names of findings associated with this chokepoint. For
+ *  example, organizations/123/sources/456/findings/789. This list will have at
+ *  most 100 findings.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFindings;
+
+@end
+
+
+/**
  *  Fields related to Google Cloud Armor findings.
  */
 @interface GTLRSecurityCommandCenter_CloudArmor : GTLRObject
@@ -7117,6 +7637,28 @@ GTLR_DEPRECATED
 
 
 /**
+ *  CWE stands for Common Weakness Enumeration. Information about this weakness,
+ *  as described by [CWE](https://cwe.mitre.org/).
+ */
+@interface GTLRSecurityCommandCenter_Cwe : GTLRObject
+
+/**
+ *  The CWE identifier, e.g. CWE-94
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Any reference to the details on the CWE, for example,
+ *  https://cwe.mitre.org/data/definitions/94.html
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Reference *> *references;
+
+@end
+
+
+/**
  *  Details about a data access attempt made by a principal not authorized under
  *  applicable data security policy.
  */
@@ -7748,6 +8290,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Access *access;
 
+/** AffectedResources associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AffectedResources *affectedResources;
+
 /** Represents an application associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Application *application;
 
@@ -7772,6 +8317,14 @@ GTLR_DEPRECATED
  *  field is immutable after creation time. Example: "XSS_FLASH_INJECTION"
  */
 @property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Contains details about a chokepoint, which is a resource or resource group
+ *  where high-risk attack paths converge, based on [attack path simulations]
+ *  (https://cloud.google.com/security-command-center/docs/attack-exposure-learn#attack_path_simulations).
+ *  This field cannot be updated. Its value is ignored in all update requests.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Chokepoint *chokepoint;
 
 /** Fields related to Cloud Armor findings. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudArmor *cloudArmor;
@@ -7871,6 +8424,10 @@ GTLR_DEPRECATED
  *  The class of the finding.
  *
  *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Chokepoint
+ *        Describes a resource or resource group where high risk attack paths
+ *        converge, based on attack path simulations (APS). (Value:
+ *        "CHOKEPOINT")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified
  *        Unspecified finding class. (Value: "FINDING_CLASS_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration
@@ -9548,6 +10105,21 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about resources affected by this finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources : GTLRObject
+
+/**
+ *  The count of resources affected by the finding.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+@end
+
+
+/**
  *  Allowed IP rule.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed : GTLRObject
@@ -10052,6 +10624,23 @@ GTLR_DEPRECATED
  *  The response to a BulkMute request. Contains the LRO information.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2BulkMuteFindingsResponse : GTLRObject
+@end
+
+
+/**
+ *  Contains details about a chokepoint, which is a resource or resource group
+ *  where high-risk attack paths converge, based on [attack path simulations]
+ *  (https://cloud.google.com/security-command-center/docs/attack-exposure-learn#attack_path_simulations).
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Chokepoint : GTLRObject
+
+/**
+ *  List of resource names of findings associated with this chokepoint. For
+ *  example, organizations/123/sources/456/findings/789. This list will have at
+ *  most 100 findings.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFindings;
+
 @end
 
 
@@ -10593,6 +11182,28 @@ GTLR_DEPRECATED
 
 
 /**
+ *  CWE stands for Common Weakness Enumeration. Information about this weakness,
+ *  as described by [CWE](https://cwe.mitre.org/).
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cwe : GTLRObject
+
+/**
+ *  The CWE identifier, e.g. CWE-94
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Any reference to the details on the CWE, for example,
+ *  https://cwe.mitre.org/data/definitions/94.html
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Reference *> *references;
+
+@end
+
+
+/**
  *  Details about a data access attempt made by a principal not authorized under
  *  applicable data security policy.
  */
@@ -11046,6 +11657,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Access *access;
 
+/** AffectedResources associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources *affectedResources;
+
 /** Represents an application associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application *application;
 
@@ -11075,6 +11689,14 @@ GTLR_DEPRECATED
  *  source. Example: "XSS_FLASH_INJECTION"
  */
 @property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Contains details about a chokepoint, which is a resource or resource group
+ *  where high-risk attack paths converge, based on [attack path simulations]
+ *  (https://cloud.google.com/security-command-center/docs/attack-exposure-learn#attack_path_simulations).
+ *  This field cannot be updated. Its value is ignored in all update requests.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Chokepoint *chokepoint;
 
 /** Fields related to Cloud Armor findings. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor *cloudArmor;
@@ -11177,6 +11799,10 @@ GTLR_DEPRECATED
  *  The class of the finding.
  *
  *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Chokepoint
+ *        Describes a resource or resource group where high risk attack paths
+ *        converge, based on attack path simulations (APS). (Value:
+ *        "CHOKEPOINT")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_FindingClassUnspecified
  *        Unspecified finding class. (Value: "FINDING_CLASS_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Misconfiguration
@@ -11536,6 +12162,8 @@ GTLR_DEPRECATED
  *  Type of group.
  *
  *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership_GroupType_GroupTypeChokepoint
+ *        Group represents a chokepoint. (Value: "GROUP_TYPE_CHOKEPOINT")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership_GroupType_GroupTypeToxicCombination
  *        Group represents a toxic combination. (Value:
  *        "GROUP_TYPE_TOXIC_COMBINATION")
@@ -13471,11 +14099,33 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cve *cve;
 
+/**
+ *  Represents one or more Common Weakness Enumeration (CWE) information on this
+ *  vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cwe *> *cwes;
+
 /** The fixed package is relevant to the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Package *fixedPackage;
 
 /** The offending package is relevant to the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Package *offendingPackage;
+
+/**
+ *  Provider provided risk_score based on multiple factors. The higher the risk
+ *  score, the more risky the vulnerability is.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *providerRiskScore;
+
+/**
+ *  Represents whether the vulnerability is reachable (detected via static
+ *  analysis)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reachable;
 
 /** The security bulletin is relevant to this finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityBulletin *securityBulletin;
@@ -13785,6 +14435,8 @@ GTLR_DEPRECATED
  *  Type of group.
  *
  *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GroupMembership_GroupType_GroupTypeChokepoint
+ *        Group represents a chokepoint. (Value: "GROUP_TYPE_CHOKEPOINT")
  *    @arg @c kGTLRSecurityCommandCenter_GroupMembership_GroupType_GroupTypeToxicCombination
  *        Group represents a toxic combination. (Value:
  *        "GROUP_TYPE_TOXIC_COMBINATION")
@@ -16439,11 +17091,33 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Cve *cve;
 
+/**
+ *  Represents one or more Common Weakness Enumeration (CWE) information on this
+ *  vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Cwe *> *cwes;
+
 /** The fixed package is relevant to the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Package *fixedPackage;
 
 /** The offending package is relevant to the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Package *offendingPackage;
+
+/**
+ *  Provider provided risk_score based on multiple factors. The higher the risk
+ *  score, the more risky the vulnerability is.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *providerRiskScore;
+
+/**
+ *  Represents whether the vulnerability is reachable (detected via static
+ *  analysis)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reachable;
 
 /** The security bulletin is relevant to this finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityBulletin *securityBulletin;

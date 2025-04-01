@@ -533,6 +533,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_BaseImage
+//
+
+@implementation GTLRContainerAnalysis_BaseImage
+@dynamic layerCount, name, repository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_BatchCreateNotesRequest
 //
 
@@ -766,8 +776,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_BuildStep
 @dynamic allowExitCodes, allowFailure, args, automapSubstitutions, dir,
-         entrypoint, env, exitCode, identifier, name, pullTiming, script,
-         secretEnv, status, timeout, timing, volumes, waitFor;
+         entrypoint, env, exitCode, identifier, name, pullTiming, results,
+         script, secretEnv, status, timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -778,6 +788,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
     @"allowExitCodes" : [NSNumber class],
     @"args" : [NSString class],
     @"env" : [NSString class],
+    @"results" : [GTLRContainerAnalysis_StepResult class],
     @"secretEnv" : [NSString class],
     @"volumes" : [GTLRContainerAnalysis_Volume class],
     @"waitFor" : [NSString class]
@@ -1880,7 +1891,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GrafeasV1FileLocation
-@dynamic filePath;
+@dynamic filePath, layerDetails;
 @end
 
 
@@ -2164,6 +2175,24 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_Layer
 @dynamic arguments, directive;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_LayerDetails
+//
+
+@implementation GTLRContainerAnalysis_LayerDetails
+@dynamic baseImages, command, diffId, index;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"baseImages" : [GTLRContainerAnalysis_BaseImage class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2957,6 +2986,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_StepResult
+//
+
+@implementation GTLRContainerAnalysis_StepResult
+@dynamic attestationContentName, attestationType, name;
 @end
 
 

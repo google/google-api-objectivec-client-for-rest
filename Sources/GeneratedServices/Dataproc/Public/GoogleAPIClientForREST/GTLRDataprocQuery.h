@@ -824,6 +824,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
 @end
 
 /**
+ *  Obtain build data for Native Job
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessNativeBuildInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeBuildInfo : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse.
+ *
+ *  Obtain build data for Native Job
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeBuildInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a particular Native SQL Query for a Spark
+ *  Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessNativeSqlQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeSqlQuery : GTLRDataprocQuery
+
+/** Required. Execution ID */
+@property(nonatomic, assign) long long executionId;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse.
+ *
+ *  Obtain data corresponding to a particular Native SQL Query for a Spark
+ *  Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeSqlQuery
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the
  *  number of clusters returned as part of the graph to 10000.
  *
@@ -1257,6 +1330,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchJobs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to Native SQL Queries for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchNativeSqlQueries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchNativeSqlQueries : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of queries to return in each response. The service
+ *  may return fewer than this. The default page size is 10; the maximum page
+ *  size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSparkApplicationNativeSqlQueries call. Provide this token to retrieve
+ *  the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse.
+ *
+ *  Obtain data corresponding to Native SQL Queries for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchNativeSqlQueries
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2154,6 +2279,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
 @end
 
 /**
+ *  Obtain data corresponding to Native Build Information for a Spark
+ *  Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessNativeBuildInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeBuildInfo : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse.
+ *
+ *  Obtain data corresponding to Native Build Information for a Spark
+ *  Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeBuildInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a particular Native SQL Query for a Spark
+ *  Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessNativeSqlQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeSqlQuery : GTLRDataprocQuery
+
+/** Required. Execution ID */
+@property(nonatomic, assign) long long executionId;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse.
+ *
+ *  Obtain data corresponding to a particular Native SQL Query for a Spark
+ *  Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeSqlQuery
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the
  *  number of clusters returned as part of the graph to 10000.
  *
@@ -2590,6 +2792,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchJobs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to Native SQL Queries for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchNativeSqlQueries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchNativeSqlQueries : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of queries to return in each response. The service
+ *  may return fewer than this. The default page size is 10; the maximum page
+ *  size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationSqlQueries call. Provide this token to retrieve
+ *  the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse.
+ *
+ *  Obtain data corresponding to Native SQL Queries for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchNativeSqlQueries
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Vertex AI Search for Retail API (retail/v2)
+//   Vertex AI Search for commerce API (retail/v2)
 // Description:
-//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Vertex AI Search for commerce API is made up of Retail Search, Browse and
 //   Recommendations. These discovery AI solutions help you implement
 //   personalized search, browse and recommendations, based on machine learning
 //   models, across your websites and mobile applications.
@@ -3211,10 +3211,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
 @dynamic boostSpec, branch, canonicalFilter, conversationalSearchSpec,
-         dynamicFacetSpec, entity, facetSpecs, filter, labels, offset, orderBy,
-         pageCategories, pageSize, pageToken, personalizationSpec, query,
-         queryExpansionSpec, searchMode, spellCorrectionSpec,
-         tileNavigationSpec, userInfo, variantRollupKeys, visitorId;
+         dynamicFacetSpec, entity, facetSpecs, filter, labels, languageCode,
+         offset, orderBy, pageCategories, pageSize, pageToken,
+         personalizationSpec, placeId, query, queryExpansionSpec, regionCode,
+         searchMode, spellCorrectionSpec, tileNavigationSpec, userInfo,
+         variantRollupKeys, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

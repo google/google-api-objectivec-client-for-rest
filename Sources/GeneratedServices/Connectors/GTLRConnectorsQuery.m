@@ -15,6 +15,9 @@
 // Constants
 
 // view
+NSString * const kGTLRConnectorsViewActionSchemaViewBasic      = @"ACTION_SCHEMA_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewActionSchemaViewEnriched   = @"ACTION_SCHEMA_VIEW_ENRICHED";
+NSString * const kGTLRConnectorsViewActionSchemaViewUnspecified = @"ACTION_SCHEMA_VIEW_UNSPECIFIED";
 NSString * const kGTLRConnectorsViewActionViewBasic            = @"ACTION_VIEW_BASIC";
 NSString * const kGTLRConnectorsViewActionViewFull             = @"ACTION_VIEW_FULL";
 NSString * const kGTLRConnectorsViewActionViewUnspecified      = @"ACTION_VIEW_UNSPECIFIED";
@@ -64,7 +67,7 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

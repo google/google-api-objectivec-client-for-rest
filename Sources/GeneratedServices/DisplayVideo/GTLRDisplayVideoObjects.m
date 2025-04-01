@@ -454,6 +454,7 @@ NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_Targeti
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentInstreamPosition = @"TARGETING_TYPE_CONTENT_INSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentOutstreamPosition = @"TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType = @"TARGETING_TYPE_CONTENT_STREAM_TYPE";
+NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentThemeExclusion = @"TARGETING_TYPE_CONTENT_THEME_EXCLUSION";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeDayAndTime = @"TARGETING_TYPE_DAY_AND_TIME";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeDeviceMakeModel = @"TARGETING_TYPE_DEVICE_MAKE_MODEL";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeDeviceType = @"TARGETING_TYPE_DEVICE_TYPE";
@@ -683,6 +684,42 @@ NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_Conte
 NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentOnDemand = @"CONTENT_ON_DEMAND";
 NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified = @"CONTENT_STREAM_TYPE_UNSPECIFIED";
 
+// GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails.contentTheme
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames = @"CONTENT_THEME_FIGHTING_VIDEO_GAMES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeMatureGames = @"CONTENT_THEME_MATURE_GAMES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources = @"CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources = @"CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemePolitics = @"CONTENT_THEME_POLITICS";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeRecentNews = @"CONTENT_THEME_RECENT_NEWS";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeReligion = @"CONTENT_THEME_RELIGION";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent = @"CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews = @"CONTENT_THEME_UNPLEASANT_NEWS";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnspecified = @"CONTENT_THEME_UNSPECIFIED";
+
+// GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails.excludedContentTheme
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeFightingVideoGames = @"CONTENT_THEME_FIGHTING_VIDEO_GAMES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeMatureGames = @"CONTENT_THEME_MATURE_GAMES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedHealthSources = @"CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedNewsSources = @"CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemePolitics = @"CONTENT_THEME_POLITICS";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeRecentNews = @"CONTENT_THEME_RECENT_NEWS";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeReligion = @"CONTENT_THEME_RELIGION";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantHealthContent = @"CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantNews = @"CONTENT_THEME_UNPLEASANT_NEWS";
+NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnspecified = @"CONTENT_THEME_UNSPECIFIED";
+
+// GTLRDisplayVideo_ContentThemeTargetingOptionDetails.contentTheme
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames = @"CONTENT_THEME_FIGHTING_VIDEO_GAMES";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeMatureGames = @"CONTENT_THEME_MATURE_GAMES";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources = @"CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources = @"CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemePolitics = @"CONTENT_THEME_POLITICS";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeRecentNews = @"CONTENT_THEME_RECENT_NEWS";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeReligion = @"CONTENT_THEME_RELIGION";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent = @"CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews = @"CONTENT_THEME_UNPLEASANT_NEWS";
+NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnspecified = @"CONTENT_THEME_UNSPECIFIED";
+
 // GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest.targetingType
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAgeRange = @"TARGETING_TYPE_AGE_RANGE";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeApp = @"TARGETING_TYPE_APP";
@@ -700,6 +737,7 @@ NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentInstreamPosition = @"TARGETING_TYPE_CONTENT_INSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentOutstreamPosition = @"TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType = @"TARGETING_TYPE_CONTENT_STREAM_TYPE";
+NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion = @"TARGETING_TYPE_CONTENT_THEME_EXCLUSION";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime = @"TARGETING_TYPE_DAY_AND_TIME";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDeviceMakeModel = @"TARGETING_TYPE_DEVICE_MAKE_MODEL";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDeviceType = @"TARGETING_TYPE_DEVICE_TYPE";
@@ -922,6 +960,7 @@ NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentInstreamPosition = @"TARGETING_TYPE_CONTENT_INSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentOutstreamPosition = @"TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType = @"TARGETING_TYPE_CONTENT_STREAM_TYPE";
+NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion = @"TARGETING_TYPE_CONTENT_THEME_EXCLUSION";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime = @"TARGETING_TYPE_DAY_AND_TIME";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDeviceMakeModel = @"TARGETING_TYPE_DEVICE_MAKE_MODEL";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDeviceType = @"TARGETING_TYPE_DEVICE_TYPE";
@@ -2261,7 +2300,6 @@ NSString * const kGTLRDisplayVideo_Partner_EntityStatus_EntityStatusScheduledFor
 NSString * const kGTLRDisplayVideo_Partner_EntityStatus_EntityStatusUnspecified = @"ENTITY_STATUS_UNSPECIFIED";
 
 // GTLRDisplayVideo_PartnerCost.costType
-NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlingoFee = @"PARTNER_COST_TYPE_ADLINGO_FEE";
 NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox = @"PARTNER_COST_TYPE_ADLOOX";
 NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlooxPrebid = @"PARTNER_COST_TYPE_ADLOOX_PREBID";
 NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdsafe = @"PARTNER_COST_TYPE_ADSAFE";
@@ -2509,6 +2547,7 @@ NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeCo
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentInstreamPosition = @"TARGETING_TYPE_CONTENT_INSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentOutstreamPosition = @"TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType = @"TARGETING_TYPE_CONTENT_STREAM_TYPE";
+NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentThemeExclusion = @"TARGETING_TYPE_CONTENT_THEME_EXCLUSION";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeDayAndTime = @"TARGETING_TYPE_DAY_AND_TIME";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeDeviceMakeModel = @"TARGETING_TYPE_DEVICE_MAKE_MODEL";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeDeviceType = @"TARGETING_TYPE_DEVICE_TYPE";
@@ -3065,9 +3104,10 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
          carrierAndIspDetails, categoryDetails, channelDetails,
          contentDurationDetails, contentGenreDetails,
          contentInstreamPositionDetails, contentOutstreamPositionDetails,
-         contentStreamTypeDetails, dayAndTimeDetails, deviceMakeModelDetails,
-         deviceTypeDetails, digitalContentLabelExclusionDetails,
-         environmentDetails, exchangeDetails, genderDetails, geoRegionDetails,
+         contentStreamTypeDetails, contentThemeExclusionDetails,
+         dayAndTimeDetails, deviceMakeModelDetails, deviceTypeDetails,
+         digitalContentLabelExclusionDetails, environmentDetails,
+         exchangeDetails, genderDetails, geoRegionDetails,
          householdIncomeDetails, inheritance, inventorySourceDetails,
          inventorySourceGroupDetails, keywordDetails, languageDetails, name,
          nativeContentPositionDetails, negativeKeywordListDetails, omidDetails,
@@ -4010,6 +4050,26 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 @implementation GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails
 @dynamic contentStreamType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails
+@dynamic contentTheme, excludedContentTheme, excludedTargetingOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContentThemeTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentThemeTargetingOptionDetails
+@dynamic contentTheme;
 @end
 
 
@@ -6954,14 +7014,14 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
          carrierAndIspDetails, categoryDetails, contentDurationDetails,
          contentGenreDetails, contentInstreamPositionDetails,
          contentOutstreamPositionDetails, contentStreamTypeDetails,
-         deviceMakeModelDetails, deviceTypeDetails, digitalContentLabelDetails,
-         environmentDetails, exchangeDetails, genderDetails, geoRegionDetails,
-         householdIncomeDetails, languageDetails, name,
-         nativeContentPositionDetails, omidDetails, onScreenPositionDetails,
-         operatingSystemDetails, parentalStatusDetails, poiDetails,
-         sensitiveCategoryDetails, subExchangeDetails, targetingOptionId,
-         targetingType, userRewardedContentDetails, videoPlayerSizeDetails,
-         viewabilityDetails;
+         contentThemeDetails, deviceMakeModelDetails, deviceTypeDetails,
+         digitalContentLabelDetails, environmentDetails, exchangeDetails,
+         genderDetails, geoRegionDetails, householdIncomeDetails,
+         languageDetails, name, nativeContentPositionDetails, omidDetails,
+         onScreenPositionDetails, operatingSystemDetails, parentalStatusDetails,
+         poiDetails, sensitiveCategoryDetails, subExchangeDetails,
+         targetingOptionId, targetingType, userRewardedContentDetails,
+         videoPlayerSizeDetails, viewabilityDetails;
 @end
 
 

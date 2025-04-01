@@ -56,6 +56,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfig;
@@ -155,6 +156,9 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpecExportJobScope;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpecImportJobScope;
@@ -1296,6 +1300,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entry
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent.eventType
+
+/**
+ *  EntryLink create event.
+ *
+ *  Value: "ENTRY_LINK_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EntryLinkCreate;
+/**
+ *  EntryLink delete event.
+ *
+ *  Value: "ENTRY_LINK_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EntryLinkDelete;
+/**
+ *  An unspecified event type.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Environment.state
 
 /**
@@ -1708,6 +1734,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeM
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob.type
 
+/**
+ *  Export job type.
+ *
+ *  Value: "EXPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Export;
 /**
  *  Import job.
  *
@@ -3213,7 +3245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
  *  discovery periodically. Successive discovery runs must be scheduled at least
- *  60 minutes apart. The default value is to run discovery every 60 minutes. To
+ *  60 minutes apart. The default value is to run discovery every 60 minutes.To
  *  explicitly set a timezone to the cron tab, apply a prefix in the cron tab:
  *  "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE}
  *  may only be a valid string from IANA time zone database. For example,
@@ -3871,6 +3903,9 @@ GTLR_DEPRECATED
 /** Output only. Configuration for metadata publishing. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing *bigqueryPublishing;
 
+/** Output only. Statistics of the DataDiscoveryScan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics *scanStatistics;
+
 @end
 
 
@@ -3883,6 +3918,80 @@ GTLR_DEPRECATED
  *  Output only. The BigQuery dataset the discovered tables are published to.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
+
+/** Output only. The location of the BigQuery publishing dataset. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+@end
+
+
+/**
+ *  Statistics of the DataDiscoveryScan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics : GTLRObject
+
+/**
+ *  The data processed in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataProcessedBytes;
+
+/**
+ *  The number of filesets created.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filesetsCreated;
+
+/**
+ *  The number of filesets deleted.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filesetsDeleted;
+
+/**
+ *  The number of filesets updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filesetsUpdated;
+
+/**
+ *  The number of files excluded.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filesExcluded;
+
+/**
+ *  The number of files scanned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scannedFileCount;
+
+/**
+ *  The number of tables created.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tablesCreated;
+
+/**
+ *  The number of tables deleted.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tablesDeleted;
+
+/**
+ *  The number of tables updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tablesUpdated;
 
 @end
 
@@ -4467,9 +4576,8 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension : GTLRObject
 
 /**
- *  The dimension name a rule belongs to. Supported dimensions are
- *  "COMPLETENESS", "ACCURACY", "CONSISTENCY", "VALIDITY", "UNIQUENESS",
- *  "FRESHNESS", "VOLUME"
+ *  Optional. The dimension name a rule belongs to. Custom dimension name is
+ *  supported with all uppercase letters and maximum length of 30 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4488,7 +4596,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension *dimension;
 
 /**
- *  Whether the dimension passed or failed.
+ *  Output only. Whether the dimension passed or failed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4519,14 +4627,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult *> *columns;
 
 /**
- *  A list of results at the dimension level.A dimension will have a
- *  corresponding DataQualityDimensionResult if and only if there is at least
+ *  Output only. A list of results at the dimension level.A dimension will have
+ *  a corresponding DataQualityDimensionResult if and only if there is at least
  *  one rule with the 'dimension' field set to it.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult *> *dimensions;
 
 /**
- *  Overall data quality result -- true if all rules passed.
+ *  Output only. Overall data quality result -- true if all rules passed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4536,16 +4644,16 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResult *postScanActionsResult;
 
 /**
- *  The count of rows processed.
+ *  Output only. The count of rows processed.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
 
-/** A list of all the rules in a job, and their results. */
+/** Output only. A list of all the rules in a job, and their results. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult *> *rules;
 
-/** The data scanned for this result. */
+/** Output only. The data scanned for this result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData *scannedData;
 
 /**
@@ -4774,52 +4882,54 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *assertionRowCount;
 
 /**
- *  The number of rows a rule was evaluated against.This field is only valid for
- *  row-level type rules.Evaluated count can be configured to either include all
- *  rows (default) - with null rows automatically failing rule evaluation, or
- *  exclude null rows from the evaluated_count, by setting ignore_nulls =
- *  true.This field is not set for rule SqlAssertion.
+ *  Output only. The number of rows a rule was evaluated against.This field is
+ *  only valid for row-level type rules.Evaluated count can be configured to
+ *  either include all rows (default) - with null rows automatically failing
+ *  rule evaluation, or exclude null rows from the evaluated_count, by setting
+ *  ignore_nulls = true.This field is not set for rule SqlAssertion.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *evaluatedCount;
 
 /**
- *  The query to find rows that did not pass this rule.This field is only valid
- *  for row-level type rules.
+ *  Output only. The query to find rows that did not pass this rule.This field
+ *  is only valid for row-level type rules.
  */
 @property(nonatomic, copy, nullable) NSString *failingRowsQuery;
 
 /**
- *  The number of rows with null values in the specified column.
+ *  Output only. The number of rows with null values in the specified column.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nullCount;
 
 /**
- *  Whether the rule passed or failed.
+ *  Output only. Whether the rule passed or failed.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passed;
 
 /**
- *  This field is not set for rule SqlAssertion.
+ *  Output only. The number of rows which passed a rule evaluation.This field is
+ *  only valid for row-level type rules.This field is not set for rule
+ *  SqlAssertion.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passedCount;
 
 /**
- *  The ratio of passed_count / evaluated_count.This field is only valid for
- *  row-level type rules.
+ *  Output only. The ratio of passed_count / evaluated_count.This field is only
+ *  valid for row-level type rules.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passRatio;
 
-/** The rule specified in the DataQualitySpec, as is. */
+/** Output only. The rule specified in the DataQualitySpec, as is. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *rule;
 
 @end
@@ -6400,6 +6510,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Payload associated with Entry related log events.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent : GTLRObject
+
+/**
+ *  The type of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EntryLinkCreate
+ *        EntryLink create event. (Value: "ENTRY_LINK_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EntryLinkDelete
+ *        EntryLink delete event. (Value: "ENTRY_LINK_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EventTypeUnspecified
+ *        An unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/** The log message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
  *  Information related to the source system of the data resource that is
  *  represented by the entry.
  */
@@ -7942,6 +8079,12 @@ GTLR_DEPRECATED
 /** Output only. The time when the metadata job was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. Export job result. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobResult *exportResult;
+
+/** Export job specification. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpec *exportSpec;
+
 /** Output only. Import job result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobResult *importResult;
 
@@ -7965,6 +8108,8 @@ GTLR_DEPRECATED
  *  Required. Metadata job type.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Export
+ *        Export job type. (Value: "EXPORT")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Import
  *        Import job. (Value: "IMPORT")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_TypeUnspecified
@@ -7994,6 +8139,97 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Labels : GTLRObject
+@end
+
+
+/**
+ *  Export Job Results. The result is based on the snapshot at the time when the
+ *  job is created.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobResult : GTLRObject
+
+/** Output only. The error message if the export job failed. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Output only. The number of entries that have been exported.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportedEntries;
+
+@end
+
+
+/**
+ *  Export job specification.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpec : GTLRObject
+
+/**
+ *  Required. The root path of the exported metadata. Must be in the format:
+ *  "gs://" Or specify a customized prefix after the bucket: "gs://///.../". The
+ *  length limit of the customized prefix is 128 characters. The bucket must be
+ *  in the same VPC-SC perimeter with the job.
+ */
+@property(nonatomic, copy, nullable) NSString *outputPath;
+
+/** Required. Selects the entries to be exported by this job. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpecExportJobScope *scope;
+
+@end
+
+
+/**
+ *  Scope of the export job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpecExportJobScope : GTLRObject
+
+/**
+ *  The aspect types that are in scope for the export job. Optional. If
+ *  specified, only aspects of the specified types will be affected by the job.
+ *  Must follow the format: "projects//locations//aspectTypes/"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aspectTypes;
+
+/**
+ *  The entry groups that are in scope for the export job. Optional. If
+ *  specified, only entries in the specified entry groups will be exported by
+ *  the job. Must be in the VPC-SC perimeter of the job. The location of the
+ *  entry groups must be the same as the job. Either projects or entry_groups
+ *  can be specified when organization_level_export is set to false. Must follow
+ *  the format: "projects//locations//entryGroups/"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entryGroups;
+
+/**
+ *  If specified, only entries of the specified types will be affected by the
+ *  job. Must follow the format: "projects//locations//entryTypes/"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entryTypes;
+
+/**
+ *  Indicating if it is an organization level export job. - When set to true,
+ *  exports all entries from entry groups and projects sharing the same
+ *  organization id of the Metadata Job. Only projects and entry groups in the
+ *  VPC-SC perimeter will be exported. The projects and entry groups are
+ *  ignored. - When set to false, one of the projects or entry groups must be
+ *  specified. - Default to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationLevel;
+
+/**
+ *  The projects that are in the scope of the export job. Can either be project
+ *  numbers or project IDs. If specified, only the entries from the specified
+ *  projects will be exported. The projects must be in the same organization and
+ *  in the VPC-SC perimeter. Either projects or entry_groups can be specified
+ *  when organization_level_export is set to false. Must follow the format:
+ *  "projects/"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projects;
+
 @end
 
 
@@ -9646,7 +9882,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
  *  discovery periodically. Successive discovery runs must be scheduled at least
- *  60 minutes apart. The default value is to run discovery every 60 minutes. To
+ *  60 minutes apart. The default value is to run discovery every 60 minutes.To
  *  explicitly set a timezone to the cron tab, apply a prefix in the cron tab:
  *  "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE}
  *  may only be a valid string from IANA time zone database. For example,

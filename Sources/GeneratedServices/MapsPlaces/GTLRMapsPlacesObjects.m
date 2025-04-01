@@ -540,7 +540,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
          iconBackgroundColor, iconMaskBaseUri, identifier,
          internationalPhoneNumber, liveMusic, location, menuForChildren, name,
          nationalPhoneNumber, outdoorSeating, parkingOptions, paymentOptions,
-         photos, plusCode, priceLevel, priceRange, primaryType,
+         photos, plusCode, postalAddress, priceLevel, priceRange, primaryType,
          primaryTypeDisplayName, pureServiceAreaBusiness, rating,
          regularOpeningHours, regularSecondaryOpeningHours, reservable,
          restroom, reviews, servesBeer, servesBreakfast, servesBrunch,
@@ -1043,6 +1043,26 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 @implementation GTLRMapsPlaces_GoogleTypeMoney
 @dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleTypePostalAddress
+//
+
+@implementation GTLRMapsPlaces_GoogleTypePostalAddress
+@dynamic addressLines, administrativeArea, languageCode, locality, organization,
+         postalCode, recipients, regionCode, revision, sortingCode, sublocality;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressLines" : [NSString class],
+    @"recipients" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

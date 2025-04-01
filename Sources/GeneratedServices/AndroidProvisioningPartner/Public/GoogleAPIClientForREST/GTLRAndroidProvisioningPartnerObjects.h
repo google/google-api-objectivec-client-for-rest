@@ -1132,7 +1132,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @interface GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest : GTLRObject
 
-/** Required. Required. The device identifier to search for. */
+/**
+ *  Required. Required. The device identifier to search for. If serial number is
+ *  provided then case insensitive serial number matches are allowed.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**

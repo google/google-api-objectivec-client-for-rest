@@ -360,8 +360,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gets a `TranscriptEntry` resource by entry ID. Note: The transcript entries
  *  returned by the Google Meet API might not match the transcription found in
- *  the Google Docs transcript file. This can occur when the Google Docs
- *  transcript file is modified after generation.
+ *  the Google Docs transcript file. This can occur when 1) we have interleaved
+ *  speakers within milliseconds, or 2) the Google Docs transcript file is
+ *  modified after generation.
  *
  *  Method: meet.conferenceRecords.transcripts.entries.get
  *
@@ -379,8 +380,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a `TranscriptEntry` resource by entry ID. Note: The transcript entries
  *  returned by the Google Meet API might not match the transcription found in
- *  the Google Docs transcript file. This can occur when the Google Docs
- *  transcript file is modified after generation.
+ *  the Google Docs transcript file. This can occur when 1) we have interleaved
+ *  speakers within milliseconds, or 2) the Google Docs transcript file is
+ *  modified after generation.
  *
  *  @param name Required. Resource name of the `TranscriptEntry`.
  *
@@ -394,8 +396,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the structured transcript entries per transcript. By default, ordered
  *  by start time and in ascending order. Note: The transcript entries returned
  *  by the Google Meet API might not match the transcription found in the Google
- *  Docs transcript file. This can occur when the Google Docs transcript file is
- *  modified after generation.
+ *  Docs transcript file. This can occur when 1) we have interleaved speakers
+ *  within milliseconds, or 2) the Google Docs transcript file is modified after
+ *  generation.
  *
  *  Method: meet.conferenceRecords.transcripts.entries.list
  *
@@ -428,8 +431,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the structured transcript entries per transcript. By default, ordered
  *  by start time and in ascending order. Note: The transcript entries returned
  *  by the Google Meet API might not match the transcription found in the Google
- *  Docs transcript file. This can occur when the Google Docs transcript file is
- *  modified after generation.
+ *  Docs transcript file. This can occur when 1) we have interleaved speakers
+ *  within milliseconds, or 2) the Google Docs transcript file is modified after
+ *  generation.
  *
  *  @param parent Required. Format:
  *    `conferenceRecords/{conference_record}/transcripts/{transcript}`

@@ -249,7 +249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Header_Type_MetricTally;
  *  and UK do not have a TCF string or the Consent Management Platform (CMP)
  *  indicated by the TCF string is not Google certified. As a result,
  *  basic/limited ads will be served. See
- *  https://support.google.com/adsense/answer/13554116
+ *  https://support.google.com/adsense/answer/13554116.
  *
  *  Value: "AD_PERSONALIZATION_RESTRICTED"
  */
@@ -328,9 +328,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_EntityType_SiteSecti
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_AdvertiserPreference;
 /**
  *  Topics that are primarily related to the Google Publisher Policy (GPP)
- *  https://support.google.com/publisherpolicies/answer/10502938 or the Google
+ *  (https://support.google.com/publisherpolicies/answer/10502938) or the Google
  *  Publisher Restrictions (GPR) policies
- *  https://support.google.com/publisherpolicies/answer/10437795.
+ *  (https://support.google.com/publisherpolicies/answer/10437795).
  *
  *  Value: "POLICY"
  */
@@ -1234,7 +1234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *        EEA and UK do not have a TCF string or the Consent Management Platform
  *        (CMP) indicated by the TCF string is not Google certified. As a
  *        result, basic/limited ads will be served. See
- *        https://support.google.com/adsense/answer/13554116 (Value:
+ *        https://support.google.com/adsense/answer/13554116. (Value:
  *        "AD_PERSONALIZATION_RESTRICTED")
  *    @arg @c kGTLRAdsense_PolicyIssue_Action_AdServedWithClickConfirmation Ads
  *        are being served for the entity but Confirmed Click is being applied
@@ -1376,10 +1376,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *        "ADVERTISER_PREFERENCE")
  *    @arg @c kGTLRAdsense_PolicyTopic_Type_Policy Topics that are primarily
  *        related to the Google Publisher Policy (GPP)
- *        https://support.google.com/publisherpolicies/answer/10502938 or the
+ *        (https://support.google.com/publisherpolicies/answer/10502938) or the
  *        Google Publisher Restrictions (GPR) policies
- *        https://support.google.com/publisherpolicies/answer/10437795. (Value:
- *        "POLICY")
+ *        (https://support.google.com/publisherpolicies/answer/10437795).
+ *        (Value: "POLICY")
  *    @arg @c kGTLRAdsense_PolicyTopic_Type_PolicyTopicTypeUnspecified The type
  *        is unspecified. (Value: "POLICY_TOPIC_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAdsense_PolicyTopic_Type_Regulatory Any topics that are a

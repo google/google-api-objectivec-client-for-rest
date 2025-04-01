@@ -287,10 +287,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  space](https://developers.google.com/workspace/chat/delete-spaces). Supports
  *  the following types of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
- *  - [App
+ *  - Developer Preview: [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth).
+ *  Requires that the Chat app created the space using app authentication. -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  You can authenticate and authorize this method with administrator privileges
@@ -330,10 +330,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  space](https://developers.google.com/workspace/chat/delete-spaces). Supports
  *  the following types of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
- *  - [App
+ *  - Developer Preview: [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth).
+ *  Requires that the Chat app created the space using app authentication. -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  You can authenticate and authorize this method with administrator privileges
@@ -946,10 +946,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  space](https://developers.google.com/workspace/chat/update-members).
  *  Supports the following types of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
- *  - [App
+ *  - Developer Preview: [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth).
+ *  Requires that the Chat app created the space using app authentication. -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  You can authenticate and authorize this method with administrator privileges
@@ -996,10 +996,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  space](https://developers.google.com/workspace/chat/update-members).
  *  Supports the following types of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
- *  - [App
+ *  - Developer Preview: [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth).
+ *  Requires that the Chat app created the space using app authentication. -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  You can authenticate and authorize this method with administrator privileges
@@ -2133,6 +2133,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.spaceEvents.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppSpaces
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatMessages
@@ -2190,6 +2192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.spaceEvents.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppSpaces
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatMessages

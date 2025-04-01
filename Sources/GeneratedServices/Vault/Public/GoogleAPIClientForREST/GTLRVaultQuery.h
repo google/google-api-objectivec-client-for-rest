@@ -12,7 +12,7 @@
 //   privilege. For example, to download an export, an account needs the
 //   **Manage Exports** privilege and the matter shared with them.
 // Documentation:
-//   https://developers.google.com/vault
+//   https://developers.google.com/workspace/vault
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -77,7 +77,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasic;
 FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasicHold;
 /**
  *  Returns the basic details and a list of matter owners and collaborators (see
- *  [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *  [MatterPermissions](https://developers.google.com/workspace/vault/reference/rest/v1/matters#matterpermission)).
  *
  *  Value: "FULL"
  */
@@ -407,7 +407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *        state. Default choice. (Value: "BASIC")
  *    @arg @c kGTLRVaultViewFull Returns the basic details and a list of matter
  *        owners and collaborators (see
- *        [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *        [MatterPermissions](https://developers.google.com/workspace/vault/reference/rest/v1/matters#matterpermission)).
  *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -860,7 +860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *        state. Default choice. (Value: "BASIC")
  *    @arg @c kGTLRVaultViewFull Returns the basic details and a list of matter
  *        owners and collaborators (see
- *        [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *        [MatterPermissions](https://developers.google.com/workspace/vault/reference/rest/v1/matters#matterpermission)).
  *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;

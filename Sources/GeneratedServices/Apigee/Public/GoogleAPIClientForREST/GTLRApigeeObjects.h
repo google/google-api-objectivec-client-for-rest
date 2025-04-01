@@ -82,6 +82,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1DimensionMetric;
+@class GTLRApigee_GoogleCloudApigeeV1DnsZone;
+@class GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig;
 @class GTLRApigee_GoogleCloudApigeeV1DocumentationFile;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule;
@@ -184,6 +186,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityIncident;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig;
@@ -611,6 +614,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonet
  *  Value: "PREPAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1DnsZone.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.connectionState
@@ -5321,6 +5358,81 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  A DNS zone is a resource under an Apigee organization that is used to create
+ *  a DNS peering with Apigee's network. DNS peering will let Apigee instances
+ *  resolve the hostnames created in a peered network.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DnsZone : GTLRObject
+
+/** Output only. The time that this resource was created on the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Description of the resource. String of at most 1024 characters
+ *  associated with this resource for the user's convenience.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The domain name for hosts in this private zone, for instance
+ *  "example.com.".
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Identifier. Unique name for the resource. Defined by the server Format:
+ *  "organizations/{organization}/dnsZones/{dns_zone}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** DNS PEERING zone configuration. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig *peeringConfig;
+
+/**
+ *  Output only. State of the DNS Peering. Values other than `ACTIVE` mean the
+ *  resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Active Resource is
+ *        provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Creating Resource is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Deleting The resource
+ *        is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Updating The resource
+ *        is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time that this resource was updated on the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Fields for DNS PEERING zone.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig : GTLRObject
+
+/**
+ *  Required. The VPC network where the records for that private DNS zone's
+ *  namespace are available. Apigee will be performing DNS peering with this VPC
+ *  network.
+ */
+@property(nonatomic, copy, nullable) NSString *targetNetworkId;
+
+/** Required. The ID of the project that contains the producer VPC network. */
+@property(nonatomic, copy, nullable) NSString *targetProjectId;
+
+@end
+
+
+/**
  *  Documentation file contents for a catalog item.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DocumentationFile : GTLRObject
@@ -6442,9 +6554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Customer Managed Encryption Key (CMEK) used for disk and volume encryption.
- *  If not specified, a Google-Managed encryption key will be used. Use the
- *  following format:
+ *  Optional. Customer Managed Encryption Key (CMEK) used for disk and volume
+ *  encryption. If not specified, a Google-Managed encryption key will be used.
+ *  Use the following format:
  *  `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)`
  */
 @property(nonatomic, copy, nullable) NSString *diskEncryptionKeyName;
@@ -7108,6 +7220,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for list DNS zones.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dnsZones" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListDnsZonesResponse : GTLRCollectionObject
+
+/**
+ *  DNS zones in a given organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DnsZone *> *dnsZones;
+
+/**
+ *  Page token that you can include in an `ListDnsZones` request to retrieve the
+ *  next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response for ListEndpointAttachments method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7420,6 +7559,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityIncident *> *securityIncidents;
+
+@end
+
+
+/**
+ *  Response for ListSecurityMonitoringConditions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityMonitoringConditions" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityMonitoringConditionsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of security monitoring conditions in the organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition *> *securityMonitoringConditions;
 
 @end
 
@@ -8098,7 +8264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Organization : GTLRObject
 
-/** Addon configurations of the Apigee organization. */
+/** Optional. Addon configurations of the Apigee organization. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AddonsConfig *addonsConfig;
 
 /**
@@ -8110,19 +8276,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *analyticsRegion GTLR_DEPRECATED;
 
 /**
- *  Cloud KMS key name used for encrypting API consumer data. If not specified
- *  or [BillingType](#BillingType) is `EVALUATION`, a Google-Managed encryption
- *  key will be used. Format: `projects/ * /locations/ * /keyRings/ *
+ *  Optional. Cloud KMS key name used for encrypting API consumer data. If not
+ *  specified or [BillingType](#BillingType) is `EVALUATION`, a Google-Managed
+ *  encryption key will be used. Format: `projects/ * /locations/ * /keyRings/ *
  *  /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *apiConsumerDataEncryptionKeyName;
 
 /**
- *  This field is needed only for customers using non-default data residency
- *  regions. Apigee stores some control plane data only in single region. This
- *  field determines which single region Apigee should use. For example:
- *  "us-west1" when control plane is in US or "europe-west2" when control plane
- *  is in EU.
+ *  Optional. This field is needed only for customers using non-default data
+ *  residency regions. Apigee stores some control plane data only in single
+ *  region. This field determines which single region Apigee should use. For
+ *  example: "us-west1" when control plane is in US or "europe-west2" when
+ *  control plane is in EU.
  */
 @property(nonatomic, copy, nullable) NSString *apiConsumerDataLocation;
 
@@ -8137,8 +8303,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
 
 /**
- *  Compute Engine network used for Service Networking to be peered with Apigee
- *  runtime instances. See [Getting started with the Service Networking
+ *  Optional. Compute Engine network used for Service Networking to be peered
+ *  with Apigee runtime instances. See [Getting started with the Service
+ *  Networking
  *  API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
  *  Valid only when [RuntimeType](#RuntimeType) is set to `CLOUD`. The value
  *  must be set before the creation of a runtime instance and can be updated
@@ -8161,7 +8328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
- *  Billing type of the Apigee organization. See [Apigee
+ *  Optional. Billing type of the Apigee organization. See [Apigee
  *  pricing](https://cloud.google.com/apigee/pricing).
  *
  *  Likely values:
@@ -8187,11 +8354,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *caCertificate;
 
 /**
- *  Cloud KMS key name used for encrypting control plane data that is stored in
- *  a multi region. Only used for the data residency region "US" or "EU". If not
- *  specified or [BillingType](#BillingType) is `EVALUATION`, a Google-Managed
- *  encryption key will be used. Format: `projects/ * /locations/ * /keyRings/ *
- *  /cryptoKeys/ *`
+ *  Optional. Cloud KMS key name used for encrypting control plane data that is
+ *  stored in a multi region. Only used for the data residency region "US" or
+ *  "EU". If not specified or [BillingType](#BillingType) is `EVALUATION`, a
+ *  Google-Managed encryption key will be used. Format: `projects/ * /locations/
+ *  * /keyRings/ * /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *controlPlaneEncryptionKeyName;
 
@@ -8207,7 +8374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *customerName;
 
 /**
- *  Description of the Apigee organization.
+ *  Optional. Description of the Apigee organization.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -8230,8 +8397,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *disableVpcPeering;
 
 /**
- *  Display name for the Apigee organization. Unused, but reserved for future
- *  use.
+ *  Optional. Display name for the Apigee organization. Unused, but reserved for
+ *  future use.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -8257,7 +8424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Configuration for the Portals settings.
+ *  Optional. Configuration for the Portals settings.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8266,11 +8433,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Output only. Project ID associated with the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Properties defined in the Apigee organization profile. */
+/** Optional. Properties defined in the Apigee organization profile. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Properties *properties;
 
 /**
- *  Cloud KMS key name used for encrypting the data that is stored and
+ *  Optional. Cloud KMS key name used for encrypting the data that is stored and
  *  replicated across runtime instances. Update is not allowed after the
  *  organization is created. If not specified or [RuntimeType](#RuntimeType) is
  *  `TRIAL`, a Google-Managed encryption key will be used. For example:
@@ -10501,6 +10668,55 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *trafficCount;
+
+@end
+
+
+/**
+ *  Security monitoring condition for risk assessment version 2.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition : GTLRObject
+
+/** Output only. The time of the security monitoring condition creation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Include only these resources. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray *include;
+
+/** Include all resources under the scope. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll *includeAllResources;
+
+/**
+ *  Identifier. Name of the security monitoring condition resource. Format:
+ *  organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. ID of security profile of the security monitoring condition. */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/**
+ *  Required. Scope of the security monitoring condition. For Apigee, the
+ *  environment is the scope of the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Output only. Total number of deployed resources within scope.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDeployedResources;
+
+/**
+ *  Output only. Total number of monitored resources within this condition.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalMonitoredResources;
+
+/** Output only. The time of the security monitoring condition update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

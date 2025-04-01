@@ -179,8 +179,9 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
          containsSecrets, containsVolumeData, createTime, deleteLockDays,
          deleteLockExpireTime, descriptionProperty, encryptionKey, ETag, labels,
          manual, name, permissiveMode, podCount, resourceCount, retainDays,
-         retainExpireTime, selectedApplications, selectedNamespaces, sizeBytes,
-         state, stateReason, uid, updateTime, volumeCount;
+         retainExpireTime, satisfiesPzi, satisfiesPzs, selectedApplications,
+         selectedNamespaces, sizeBytes, state, stateReason, uid, updateTime,
+         volumeCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -566,11 +567,12 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 //
 
 @implementation GTLRBackupforGKE_ListBackupsResponse
-@dynamic backups, nextPageToken;
+@dynamic backups, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"backups" : [GTLRBackupforGKE_Backup class]
+    @"backups" : [GTLRBackupforGKE_Backup class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1137,8 +1139,9 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 //
 
 @implementation GTLRBackupforGKE_VolumeBackup
-@dynamic completeTime, createTime, diskSizeBytes, ETag, format, name, sourcePvc,
-         state, stateMessage, storageBytes, uid, updateTime, volumeBackupHandle;
+@dynamic completeTime, createTime, diskSizeBytes, ETag, format, name,
+         satisfiesPzi, satisfiesPzs, sourcePvc, state, stateMessage,
+         storageBytes, uid, updateTime, volumeBackupHandle;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -53,6 +53,7 @@
 @class GTLROracleDatabase_Operation_Metadata;
 @class GTLROracleDatabase_Operation_Response;
 @class GTLROracleDatabase_ScheduledOperationDetails;
+@class GTLROracleDatabase_SourceConfig;
 @class GTLROracleDatabase_Status;
 @class GTLROracleDatabase_Status_Details_Item;
 @class GTLROracleDatabase_TimeOfDay;
@@ -1612,6 +1613,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
+ *  Output only. List of supported GCP region to clone the Autonomous Database
+ *  for disaster recovery. Format: `project/{project}/locations/{location}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disasterRecoverySupportedLocations;
+
+/**
  *  Optional. The display name for the Autonomous Database. The name does not
  *  have to be unique within your project.
  */
@@ -1639,8 +1646,21 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
+/**
+ *  Output only. The peer Autonomous Database names of the given Autonomous
+ *  Database.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *peerAutonomousDatabases;
+
 /** Optional. The properties of the Autonomous Database. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_AutonomousDatabaseProperties *properties;
+
+/**
+ *  Optional. The source Autonomous Database configuration for the standby
+ *  Autonomous Database. The source Autonomous Database is configured while
+ *  creating the Peer Autonomous Database and can't be updated after creation.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_SourceConfig *sourceConfig;
 
 @end
 
@@ -2097,6 +2117,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *databaseManagementState;
 
 /**
+ *  Output only. The date and time the Autonomous Data Guard role was changed
+ *  for the standby Autonomous Database.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dataGuardRoleChangedTime;
+
+/**
  *  Output only. The current state of the Data Safe registration for the
  *  Autonomous Database.
  *
@@ -2163,6 +2189,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        Autonomous Transaction Processing database. (Value: "OLTP")
  */
 @property(nonatomic, copy, nullable) NSString *dbWorkload;
+
+/**
+ *  Output only. The date and time the Disaster Recovery role was changed for
+ *  the standby Autonomous Database.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *disasterRecoveryRoleChangedTime;
 
 /**
  *  Output only. This field indicates the number of seconds of data loss during
@@ -4384,6 +4416,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The request for `AutonomousDatabase.Restart`.
+ */
+@interface GTLROracleDatabase_RestartAutonomousDatabaseRequest : GTLRObject
+@end
+
+
+/**
  *  The request for `AutonomousDatabase.Restore`.
  */
 @interface GTLROracleDatabase_RestoreAutonomousDatabaseRequest : GTLRObject
@@ -4433,6 +4472,35 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The source configuration for the standby Autonomnous Database.
+ */
+@interface GTLROracleDatabase_SourceConfig : GTLRObject
+
+/**
+ *  Optional. This field specifies if the replication of automatic backups is
+ *  enabled when creating a Data Guard.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automaticBackupsReplicationEnabled;
+
+/**
+ *  Optional. The name of the primary Autonomous Database that is used to create
+ *  a Peer Autonomous Database from a source.
+ */
+@property(nonatomic, copy, nullable) NSString *autonomousDatabase;
+
+@end
+
+
+/**
+ *  The request for `AutonomousDatabase.Start`.
+ */
+@interface GTLROracleDatabase_StartAutonomousDatabaseRequest : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -4474,6 +4542,24 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLROracleDatabase_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  The request for `AutonomousDatabase.Stop`.
+ */
+@interface GTLROracleDatabase_StopAutonomousDatabaseRequest : GTLRObject
+@end
+
+
+/**
+ *  The request for `AutonomousDatabase.Switchover`.
+ */
+@interface GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest : GTLRObject
+
+/** Required. The peer database name to switch over to. */
+@property(nonatomic, copy, nullable) NSString *peerAutonomousDatabase;
+
 @end
 
 

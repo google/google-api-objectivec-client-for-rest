@@ -44,12 +44,14 @@
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupSource;
 @class GTLRCloudAlloyDBAdmin_CsvExportOptions;
 @class GTLRCloudAlloyDBAdmin_CsvImportOptions;
+@class GTLRCloudAlloyDBAdmin_DenyMaintenancePeriod;
 @class GTLRCloudAlloyDBAdmin_EncryptionConfig;
 @class GTLRCloudAlloyDBAdmin_EncryptionInfo;
 @class GTLRCloudAlloyDBAdmin_GcsDestination;
 @class GTLRCloudAlloyDBAdmin_GoogleCloudLocationLocation;
 @class GTLRCloudAlloyDBAdmin_GoogleCloudLocationLocation_Labels;
 @class GTLRCloudAlloyDBAdmin_GoogleCloudLocationLocation_Metadata;
+@class GTLRCloudAlloyDBAdmin_GoogleTypeDate;
 @class GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay;
 @class GTLRCloudAlloyDBAdmin_Instance;
 @class GTLRCloudAlloyDBAdmin_Instance_Annotations;
@@ -1578,6 +1580,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  Indicates that the instance is nearing memory limit.
+ *
+ *  Value: "SIGNAL_TYPE_MEMORY_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit;
+/**
  *  Represents if the log_min_messages database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to warning or another recommended value.
  *
@@ -1712,6 +1720,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_QUOTA_LIMIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeQuotaLimit;
+/**
+ *  Indicates that the instance has read intensive workload.
+ *
+ *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload;
 /**
  *  Detects if a database instance/cluster is suspended.
  *
@@ -2480,6 +2494,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  Indicates that the instance is nearing memory limit.
+ *
+ *  Value: "SIGNAL_TYPE_MEMORY_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit;
+/**
  *  Represents if the log_min_messages database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to warning or another recommended value.
  *
@@ -2614,6 +2634,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_QUOTA_LIMIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeQuotaLimit;
+/**
+ *  Indicates that the instance has read intensive workload.
+ *
+ *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload;
 /**
  *  Detects if a database instance/cluster is suspended.
  *
@@ -3854,7 +3880,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. Update time stamp */
+/**
+ *  Output only. Update time stamp Users should not infer any meaning from this
+ *  field. Its value is generally unrelated to the timing of the backup creation
+ *  operation.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -4554,6 +4584,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  DenyMaintenancePeriod definition. Excepting emergencies, maintenance will
+ *  not be scheduled to start within this deny period. The start_date must be
+ *  less than the end_date.
+ */
+@interface GTLRCloudAlloyDBAdmin_DenyMaintenancePeriod : GTLRObject
+
+/**
+ *  Deny period end date. This can be: * A full date, with non-zero year, month
+ *  and day values OR * A month and day value, with a zero year for recurring
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *endDate;
+
+/**
+ *  Deny period start date. This can be: * A full date, with non-zero year,
+ *  month and day values OR * A month and day value, with a zero year for
+ *  recurring
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *startDate;
+
+/**
+ *  Time in UTC when the deny period starts on start_date and ends on end_date.
+ *  This can be: * Full time OR * All zeros for 00:00:00 UTC
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay *time;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -4780,6 +4839,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudAlloyDBAdmin_GoogleCloudLocationLocation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRCloudAlloyDBAdmin_GoogleTypeDate : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
 @end
 
 
@@ -5216,6 +5315,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePublicIp;
 
+/**
+ *  Output only. The resource link for the VPC network in which instance
+ *  resources are created and from which they are accessible via Private IP.
+ *  This will be the same value as the parent cluster's network. It is specified
+ *  in the form: // `projects/{project_number}/global/networks/{network_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
 @end
 
 
@@ -5465,6 +5572,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuCount;
 
+/**
+ *  Machine type of the VM instance. E.g. "n2-highmem-4", "n2-highmem-8",
+ *  "c4a-highmem-4-lssd". cpu_count must match the number of vCPUs in the
+ *  machine type.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
 @end
 
 
@@ -5487,6 +5601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  MaintenanceUpdatePolicy defines the policy for system updates.
  */
 @interface GTLRCloudAlloyDBAdmin_MaintenanceUpdatePolicy : GTLRObject
+
+/** Periods to deny maintenance. Currently limited to 1. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_DenyMaintenancePeriod *> *denyMaintenancePeriods;
 
 /** Preferred windows to perform maintenance. Currently limited to 1. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_MaintenanceWindow *> *maintenanceWindows;
@@ -6969,6 +7086,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit
+ *        Indicates that the instance is nearing memory limit. (Value:
+ *        "SIGNAL_TYPE_MEMORY_LIMIT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMinimalErrorLogging
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
@@ -7038,6 +7158,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        "SIGNAL_TYPE_QUERY_STATISTICS_LOGGED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeQuotaLimit
  *        Cluster nearing quota limit (Value: "SIGNAL_TYPE_QUOTA_LIMIT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload
+ *        Indicates that the instance has read intensive workload. (Value:
+ *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeResourceSuspended
  *        Detects if a database instance/cluster is suspended. (Value:
  *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")
@@ -7637,6 +7760,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit
+ *        Indicates that the instance is nearing memory limit. (Value:
+ *        "SIGNAL_TYPE_MEMORY_LIMIT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMinimalErrorLogging
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
@@ -7706,6 +7832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        "SIGNAL_TYPE_QUERY_STATISTICS_LOGGED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeQuotaLimit
  *        Cluster nearing quota limit (Value: "SIGNAL_TYPE_QUOTA_LIMIT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload
+ *        Indicates that the instance has read intensive workload. (Value:
+ *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeResourceSuspended
  *        Detects if a database instance/cluster is suspended. (Value:
  *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")

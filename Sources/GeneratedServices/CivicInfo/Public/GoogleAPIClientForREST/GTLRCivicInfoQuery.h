@@ -99,7 +99,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
- *  Fetches a @c GTLRCivicInfo_DivisionByAddressResponse.
+ *  Fetches a @c GTLRCivicInfo_ApiprotosV2DivisionByAddressResponse.
  *
  *  Lookup OCDIDs and names for divisions related to an address.
  *
@@ -126,7 +126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Fetches a @c GTLRCivicInfo_DivisionSearchResponse.
+ *  Fetches a @c GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse.
  *
  *  Searches for political divisions by their natural name or OCD ID.
  *
@@ -151,7 +151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, assign) BOOL productionDataOnly;
 
 /**
- *  Fetches a @c GTLRCivicInfo_ElectionsQueryResponse.
+ *  Fetches a @c GTLRCivicInfo_CivicinfoApiprotosV2ElectionsQueryResponse.
  *
  *  List of available elections to query.
  *
@@ -209,7 +209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, assign) BOOL returnAllAvailableData;
 
 /**
- *  Fetches a @c GTLRCivicInfo_VoterInfoResponse.
+ *  Fetches a @c GTLRCivicInfo_CivicinfoApiprotosV2VoterInfoResponse.
  *
  *  Looks up information relevant to a voter based on the voter's registered
  *  address.
@@ -286,7 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 /**
- *  Fetches a @c GTLRCivicInfo_RepresentativeInfoResponse.
+ *  Fetches a @c GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse.
  *
  *  Looks up political geography and representative information for a single
  *  address.
@@ -359,7 +359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 /**
- *  Fetches a @c GTLRCivicInfo_RepresentativeInfoData.
+ *  Fetches a @c GTLRCivicInfo_ApiprotosV2RepresentativeInfoData.
  *
  *  Looks up representative information for a single geographic division.
  *

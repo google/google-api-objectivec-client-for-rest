@@ -192,7 +192,14 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -295,7 +302,7 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsCreate
 
-@dynamic force, parent, privateConnectionId, requestId;
+@dynamic force, parent, privateConnectionId, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRDatastream_PrivateConnection *)object
                          parent:(NSString *)parent {

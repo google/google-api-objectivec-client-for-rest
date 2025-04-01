@@ -902,6 +902,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  Indicates that the instance is nearing memory limit.
+ *
+ *  Value: "SIGNAL_TYPE_MEMORY_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit;
+/**
  *  Represents if the log_min_messages database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to warning or another recommended value.
  *
@@ -1036,6 +1042,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_QUOTA_LIMIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeQuotaLimit;
+/**
+ *  Indicates that the instance has read intensive workload.
+ *
+ *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload;
 /**
  *  Detects if a database instance/cluster is suspended.
  *
@@ -1804,6 +1816,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  Indicates that the instance is nearing memory limit.
+ *
+ *  Value: "SIGNAL_TYPE_MEMORY_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit;
+/**
  *  Represents if the log_min_messages database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to warning or another recommended value.
  *
@@ -1938,6 +1956,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_QUOTA_LIMIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeQuotaLimit;
+/**
+ *  Indicates that the instance has read intensive workload.
+ *
+ *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload;
 /**
  *  Detects if a database instance/cluster is suspended.
  *
@@ -4423,6 +4447,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit
+ *        Indicates that the instance is nearing memory limit. (Value:
+ *        "SIGNAL_TYPE_MEMORY_LIMIT")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMinimalErrorLogging
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
@@ -4492,6 +4519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        "SIGNAL_TYPE_QUERY_STATISTICS_LOGGED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeQuotaLimit
  *        Cluster nearing quota limit (Value: "SIGNAL_TYPE_QUOTA_LIMIT")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload
+ *        Indicates that the instance has read intensive workload. (Value:
+ *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeResourceSuspended
  *        Detects if a database instance/cluster is suspended. (Value:
  *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")
@@ -5090,6 +5120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit
+ *        Indicates that the instance is nearing memory limit. (Value:
+ *        "SIGNAL_TYPE_MEMORY_LIMIT")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMinimalErrorLogging
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
@@ -5159,6 +5192,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        "SIGNAL_TYPE_QUERY_STATISTICS_LOGGED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeQuotaLimit
  *        Cluster nearing quota limit (Value: "SIGNAL_TYPE_QUOTA_LIMIT")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload
+ *        Indicates that the instance has read intensive workload. (Value:
+ *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeResourceSuspended
  *        Detects if a database instance/cluster is suspended. (Value:
  *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")

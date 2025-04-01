@@ -4050,6 +4050,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Enable advanced cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAdvancedCluster;
+
 /** Output only. The DNS name of VMware admin cluster's API server. */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
@@ -4601,6 +4608,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableBundledIngress;
+
+/**
+ *  Enable advanced cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAdvancedCluster;
 
 /**
  *  Enable control plane V2. Default to false.

@@ -705,9 +705,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @interface GTLRAndroidPublisherQuery_EditsCommit : GTLRAndroidPublisherQuery
 
 /**
- *  Indicates that the changes in this edit will not be reviewed until they are
- *  explicitly sent for review from the Google Play Console UI. These changes
- *  will be added to any other changes that are not yet sent for review.
+ *  When a rejection happens, the parameter will make sure that the changes in
+ *  this edit won't be reviewed until they are explicitly sent for review from
+ *  within the Google Play Console UI. These changes will be added to any other
+ *  changes that are not yet sent for review.
  */
 @property(nonatomic, assign) BOOL changesNotSentForReview;
 

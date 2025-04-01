@@ -279,6 +279,8 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationWarning =
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_DeprecatedSpecControlPlaneManagement = @"DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_DeprecatedSpecControlPlaneManagementSafe = @"DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT_SAFE";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_GkeSandboxUnsupported = @"GKE_SANDBOX_UNSUPPORTED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_LegacyMcSecrets = @"LEGACY_MC_SECRETS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ManagedCniNotEnabled = @"MANAGED_CNI_NOT_ENABLED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamCrossProjectPermissionDenied = @"MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamPermissionDenied = @"MESH_IAM_PERMISSION_DENIED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted = @"MODERNIZATION_ABORTED";
@@ -287,6 +289,7 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress =
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled = @"MODERNIZATION_SCHEDULED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationWillBeScheduled = @"MODERNIZATION_WILL_BE_SCHEDULED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired = @"NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NonStandardBinaryUsage = @"NON_STANDARD_BINARY_USAGE";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededBackendServices = @"QUOTA_EXCEEDED_BACKEND_SERVICES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededClientTlsPolicies = @"QUOTA_EXCEEDED_CLIENT_TLS_POLICIES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededEndpointPolicies = @"QUOTA_EXCEEDED_ENDPOINT_POLICIES";
@@ -302,8 +305,10 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpFilters =
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpRoutes = @"QUOTA_EXCEEDED_TCP_ROUTES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTlsRoutes = @"QUOTA_EXCEEDED_TLS_ROUTES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies = @"QUOTA_EXCEEDED_TRAFFIC_POLICIES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedGatewayClass = @"UNSUPPORTED_GATEWAY_CLASS";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedMultipleControlPlanes = @"UNSUPPORTED_MULTIPLE_CONTROL_PLANES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_VpcscGaSupported = @"VPCSC_GA_SUPPORTED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_WorkloadIdentityRequired = @"WORKLOAD_IDENTITY_REQUIRED";
 
 // GTLRGKEHub_ServiceMeshCondition.severity
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Severity_Error = @"ERROR";

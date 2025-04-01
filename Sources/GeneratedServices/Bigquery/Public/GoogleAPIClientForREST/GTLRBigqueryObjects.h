@@ -1158,6 +1158,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtens
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtension_JsonExtensionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_JobConfigurationLoad.sourceColumnMatch
+
+/**
+ *  Matches by name. This reads the header row as column names and reorders
+ *  columns to match the field names in the schema.
+ *
+ *  Value: "NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_Name;
+/**
+ *  Matches by position. This assumes that the columns are ordered the same way
+ *  as the schema.
+ *
+ *  Value: "POSITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_Position;
+/**
+ *  Uses sensible defaults based on how the schema is provided. If autodetect is
+ *  used, then columns are matched by name. Otherwise, columns are matched by
+ *  position. This is done to keep the behavior backward-compatible.
+ *
+ *  Value: "SOURCE_COLUMN_MATCH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_SourceColumnMatchUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_JobConfigurationTableCopy.operationType
 
 /**
@@ -5171,6 +5197,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *nullMarker;
 
 /**
+ *  Optional. A list of strings represented as SQL NULL value in a CSV file.
+ *  null_marker and null_markers can't be set at the same time. If null_marker
+ *  is set, null_markers has to be not set. If null_markers is set, null_marker
+ *  has to be not set. If both null_marker and null_markers are set at the same
+ *  time, a user error would be thrown. Any strings listed in null_markers,
+ *  including empty string would be interpreted as SQL NULL. This applies to all
+ *  column types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nullMarkers;
+
+/**
  *  Optional. Indicates if the embedded ASCII control characters (the first 32
  *  characters in the ASCII-table, from '\\x00' to '\\x1F') are preserved.
  *
@@ -5207,6 +5244,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipLeadingRows;
+
+/**
+ *  Optional. Controls the strategy used to match loaded columns to the schema.
+ *  If not set, a sensible default is chosen based on how the schema is
+ *  provided. If autodetect is used, then columns are matched by name.
+ *  Otherwise, columns are matched by position. This is done to keep the
+ *  behavior backward-compatible. Acceptable values are: POSITION - matches by
+ *  position. This assumes that the columns are ordered the same way as the
+ *  schema. NAME - matches by name. This reads the header row as column names
+ *  and reorders columns to match the field names in the schema.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceColumnMatch;
 
 @end
 
@@ -7807,6 +7856,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** [Pick one] Configures a query job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery *query;
 
+/**
+ *  Optional. The reservation that job would use. User can specify a reservation
+ *  to execute the job. If reservation is not set, reservation is determined
+ *  based on the rules defined by the reservation assignments. The expected
+ *  format is
+ *  `projects/{project}/locations/{location}/reservations/{reservation}`.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
 @end
 
 
@@ -8149,6 +8207,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *nullMarker;
 
 /**
+ *  Optional. A list of strings represented as SQL NULL value in a CSV file.
+ *  null_marker and null_markers can't be set at the same time. If null_marker
+ *  is set, null_markers has to be not set. If null_markers is set, null_marker
+ *  has to be not set. If both null_marker and null_markers are set at the same
+ *  time, a user error would be thrown. Any strings listed in null_markers,
+ *  including empty string would be interpreted as SQL NULL. This applies to all
+ *  column types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nullMarkers;
+
+/**
  *  Optional. Additional properties to set if sourceFormat is set to PARQUET.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
@@ -8245,6 +8314,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipLeadingRows;
+
+/**
+ *  Optional. Controls the strategy used to match loaded columns to the schema.
+ *  If not set, a sensible default is chosen based on how the schema is
+ *  provided. If autodetect is used, then columns are matched by name.
+ *  Otherwise, columns are matched by position. This is done to keep the
+ *  behavior backward-compatible.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_Name Matches
+ *        by name. This reads the header row as column names and reorders
+ *        columns to match the field names in the schema. (Value: "NAME")
+ *    @arg @c kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_Position
+ *        Matches by position. This assumes that the columns are ordered the
+ *        same way as the schema. (Value: "POSITION")
+ *    @arg @c kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_SourceColumnMatchUnspecified
+ *        Uses sensible defaults based on how the schema is provided. If
+ *        autodetect is used, then columns are matched by name. Otherwise,
+ *        columns are matched by position. This is done to keep the behavior
+ *        backward-compatible. (Value: "SOURCE_COLUMN_MATCH_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceColumnMatch;
 
 /**
  *  Optional. The format of the data files. For CSV files, specify "CSV". For
@@ -10931,6 +11022,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  request_id, but more than 15 minutes apart, idempotency is not guaranteed.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The reservation that jobs.query request would use. User can
+ *  specify a reservation to execute the job.query. The expected format is
+ *  `projects/{project}/locations/{location}/reservations/{reservation}`.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
 
 /**
  *  Optional. Optional: Specifies the maximum amount of time, in milliseconds,

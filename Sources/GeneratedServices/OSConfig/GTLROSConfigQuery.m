@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   OS Config API (osconfig/v1)
+//   OS Config API (osconfig/v2)
 // Description:
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
@@ -11,189 +11,17 @@
 
 #import <GoogleAPIClientForREST/GTLROSConfigQuery.h>
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// view
-NSString * const kGTLROSConfigViewBasic                    = @"BASIC";
-NSString * const kGTLROSConfigViewFull                     = @"FULL";
-NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLROSConfigQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsLocationsGlobalGetProjectFeatureSettings
+@implementation GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsCreate
 
-@dynamic name;
+@dynamic parent, policyOrchestratorId, requestId;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsGlobalGetProjectFeatureSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_ProjectFeatureSettings class];
-  query.loggingName = @"osconfig.projects.locations.global.getProjectFeatureSettings";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsGlobalUpdateProjectFeatureSettings
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_ProjectFeatureSettings *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsGlobalUpdateProjectFeatureSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_ProjectFeatureSettings class];
-  query.loggingName = @"osconfig.projects.locations.global.updateProjectFeatureSettings";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet
-
-@dynamic name, view;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_Inventory class];
-  query.loggingName = @"osconfig.projects.locations.instances.inventories.get";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList
-
-@dynamic filter, pageSize, pageToken, parent, view;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/inventories";
-  GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_ListInventoriesResponse class];
-  query.loggingName = @"osconfig.projects.locations.instances.inventories.list";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_OSPolicyAssignmentReport class];
-  query.loggingName = @"osconfig.projects.locations.instances.osPolicyAssignments.reports.get";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/reports";
-  GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_ListOSPolicyAssignmentReportsResponse class];
-  query.loggingName = @"osconfig.projects.locations.instances.osPolicyAssignments.reports.list";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_VulnerabilityReport class];
-  query.loggingName = @"osconfig.projects.locations.instances.vulnerabilityReports.get";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/vulnerabilityReports";
-  GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_ListVulnerabilityReportsResponse class];
-  query.loggingName = @"osconfig.projects.locations.instances.vulnerabilityReports.list";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsCreate
-
-@dynamic osPolicyAssignmentId, parent, requestId;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_OSPolicyAssignment *)object
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -202,97 +30,109 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/osPolicyAssignments";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsCreate *query =
+  NSString *pathURITemplate = @"v2/{+parent}/policyOrchestrators";
+  GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLROSConfig_Operation class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.create";
+  query.loggingName = @"osconfig.folders.locations.global.policyOrchestrators.create";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsDelete
+@implementation GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsDelete
 
-@dynamic name, requestId;
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsDelete *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLROSConfig_Operation class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.delete";
+  query.loggingName = @"osconfig.folders.locations.global.policyOrchestrators.delete";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsGet
+@implementation GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsGet *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_OSPolicyAssignment class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.get";
+  query.expectedObjectClass = [GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator class];
+  query.loggingName = @"osconfig.folders.locations.global.policyOrchestrators.get";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsList
+@implementation GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/osPolicyAssignments";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsList *query =
+  NSString *pathURITemplate = @"v2/{+parent}/policyOrchestrators";
+  GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_ListOSPolicyAssignmentsResponse class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.list";
+  query.expectedObjectClass = [GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse class];
+  query.loggingName = @"osconfig.folders.locations.global.policyOrchestrators.list";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsListRevisions
+@implementation GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsPatch
 
-@dynamic name, pageSize, pageToken;
+@dynamic name, updateMask;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:listRevisions";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsListRevisions *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
+                               HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_ListOSPolicyAssignmentRevisionsResponse class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.listRevisions";
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.folders.locations.global.policyOrchestrators.patch";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsCancel
+@implementation GTLROSConfigQuery_FoldersLocationsOperationsCancel
 
 @dynamic name;
 
@@ -305,263 +145,82 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsCancel *query =
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLROSConfigQuery_FoldersLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLROSConfig_Empty class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.operations.cancel";
+  query.loggingName = @"osconfig.folders.locations.operations.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsGet
+@implementation GTLROSConfigQuery_FoldersLocationsOperationsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_Operation class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsPatch
-
-@dynamic allowMissing, name, requestId, updateMask;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_OSPolicyAssignment *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_Operation class];
-  query.loggingName = @"osconfig.projects.locations.osPolicyAssignments.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsCreate
-
-@dynamic parent, patchDeploymentId;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_PatchDeployment *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/patchDeployments";
-  GTLROSConfigQuery_ProjectsPatchDeploymentsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_PatchDeployment class];
-  query.loggingName = @"osconfig.projects.patchDeployments.create";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsPatchDeploymentsDelete *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_FoldersLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLROSConfig_Empty class];
-  query.loggingName = @"osconfig.projects.patchDeployments.delete";
+  query.loggingName = @"osconfig.folders.locations.operations.delete";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsGet
+@implementation GTLROSConfigQuery_FoldersLocationsOperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsPatchDeploymentsGet *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_FoldersLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_PatchDeployment class];
-  query.loggingName = @"osconfig.projects.patchDeployments.get";
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.folders.locations.operations.get";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsList
+@implementation GTLROSConfigQuery_FoldersLocationsOperationsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, name, pageSize, pageToken;
 
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/patchDeployments";
-  GTLROSConfigQuery_ProjectsPatchDeploymentsList *query =
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLROSConfigQuery_FoldersLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_ListPatchDeploymentsResponse class];
-  query.loggingName = @"osconfig.projects.patchDeployments.list";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_PatchDeployment *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsPatchDeploymentsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_PatchDeployment class];
-  query.loggingName = @"osconfig.projects.patchDeployments.patch";
+  query.expectedObjectClass = [GTLROSConfig_ListOperationsResponse class];
+  query.loggingName = @"osconfig.folders.locations.operations.list";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsPause
+@implementation GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsCreate
 
-@dynamic name;
+@dynamic parent, policyOrchestratorId, requestId;
 
-+ (instancetype)queryWithObject:(GTLROSConfig_PausePatchDeploymentRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:pause";
-  GTLROSConfigQuery_ProjectsPatchDeploymentsPause *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_PatchDeployment class];
-  query.loggingName = @"osconfig.projects.patchDeployments.pause";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsResume
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_ResumePatchDeploymentRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:resume";
-  GTLROSConfigQuery_ProjectsPatchDeploymentsResume *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_PatchDeployment class];
-  query.loggingName = @"osconfig.projects.patchDeployments.resume";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsPatchJobsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_CancelPatchJobRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLROSConfigQuery_ProjectsPatchJobsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_PatchJob class];
-  query.loggingName = @"osconfig.projects.patchJobs.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_ProjectsPatchJobsExecute
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLROSConfig_ExecutePatchJobRequest *)object
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -570,72 +229,386 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/patchJobs:execute";
-  GTLROSConfigQuery_ProjectsPatchJobsExecute *query =
+  NSString *pathURITemplate = @"v2/{+parent}/policyOrchestrators";
+  GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_PatchJob class];
-  query.loggingName = @"osconfig.projects.patchJobs.execute";
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.organizations.locations.global.policyOrchestrators.create";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsPatchJobsGet
+@implementation GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsDelete
+
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.organizations.locations.global.policyOrchestrators.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_ProjectsPatchJobsGet *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_PatchJob class];
-  query.loggingName = @"osconfig.projects.patchJobs.get";
+  query.expectedObjectClass = [GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator class];
+  query.loggingName = @"osconfig.organizations.locations.global.policyOrchestrators.get";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsPatchJobsInstanceDetailsList
+@implementation GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/instanceDetails";
-  GTLROSConfigQuery_ProjectsPatchJobsInstanceDetailsList *query =
+  NSString *pathURITemplate = @"v2/{+parent}/policyOrchestrators";
+  GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_ListPatchJobInstanceDetailsResponse class];
-  query.loggingName = @"osconfig.projects.patchJobs.instanceDetails.list";
+  query.expectedObjectClass = [GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse class];
+  query.loggingName = @"osconfig.organizations.locations.global.policyOrchestrators.list";
   return query;
 }
 
 @end
 
-@implementation GTLROSConfigQuery_ProjectsPatchJobsList
+@implementation GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsPatch
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.organizations.locations.global.policyOrchestrators.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_OrganizationsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROSConfig_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLROSConfigQuery_OrganizationsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Empty class];
+  query.loggingName = @"osconfig.organizations.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_OrganizationsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_OrganizationsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Empty class];
+  query.loggingName = @"osconfig.organizations.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_OrganizationsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_OrganizationsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.organizations.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_OrganizationsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLROSConfigQuery_OrganizationsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_ListOperationsResponse class];
+  query.loggingName = @"osconfig.organizations.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsCreate
+
+@dynamic parent, policyOrchestratorId, requestId;
+
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/policyOrchestrators";
+  GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.projects.locations.global.policyOrchestrators.create";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsDelete
+
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.projects.locations.global.policyOrchestrators.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator class];
+  query.loggingName = @"osconfig.projects.locations.global.policyOrchestrators.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/patchJobs";
-  GTLROSConfigQuery_ProjectsPatchJobsList *query =
+  NSString *pathURITemplate = @"v2/{+parent}/policyOrchestrators";
+  GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLROSConfig_ListPatchJobsResponse class];
-  query.loggingName = @"osconfig.projects.patchJobs.list";
+  query.expectedObjectClass = [GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse class];
+  query.loggingName = @"osconfig.projects.locations.global.policyOrchestrators.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.projects.locations.global.policyOrchestrators.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROSConfig_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLROSConfigQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Empty class];
+  query.loggingName = @"osconfig.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Empty class];
+  query.loggingName = @"osconfig.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Operation class];
+  query.loggingName = @"osconfig.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLROSConfigQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_ListOperationsResponse class];
+  query.loggingName = @"osconfig.projects.locations.operations.list";
   return query;
 }
 

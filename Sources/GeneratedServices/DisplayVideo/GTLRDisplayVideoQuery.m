@@ -37,6 +37,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre = @"TAR
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition = @"TARGETING_TYPE_CONTENT_INSTREAM_POSITION";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition = @"TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType = @"TARGETING_TYPE_CONTENT_STREAM_TYPE";
+NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion = @"TARGETING_TYPE_CONTENT_THEME_EXCLUSION";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime = @"TARGETING_TYPE_DAY_AND_TIME";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel = @"TARGETING_TYPE_DEVICE_MAKE_MODEL";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType = @"TARGETING_TYPE_DEVICE_TYPE";

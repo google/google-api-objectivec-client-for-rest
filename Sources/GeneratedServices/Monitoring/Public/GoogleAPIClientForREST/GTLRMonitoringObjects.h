@@ -4625,6 +4625,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
+/**
+ *  Cloud regions that were unreachable which may have caused incomplete data to
+ *  be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -7217,6 +7223,13 @@ GTLR_DEPRECATED
  *  match is required as part of the/ Uptime check.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_ContentMatcher *> *contentMatchers;
+
+/**
+ *  Whether the check is disabled or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
  *  A human-friendly name for the Uptime check configuration. The display name

@@ -166,6 +166,33 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRestart
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_RestartAutonomousDatabaseRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:restart";
+  GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRestart *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.restart";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRestore
 
 @dynamic name;
@@ -188,6 +215,87 @@
   query.name = name;
   query.expectedObjectClass = [GTLROracleDatabase_Operation class];
   query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStart
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_StartAutonomousDatabaseRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:start";
+  GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStart *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.start";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStop
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_StopAutonomousDatabaseRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:stop";
+  GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.stop";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesSwitchover
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:switchover";
+  GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesSwitchover *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.switchover";
   return query;
 }
 
@@ -496,7 +604,14 @@
 
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

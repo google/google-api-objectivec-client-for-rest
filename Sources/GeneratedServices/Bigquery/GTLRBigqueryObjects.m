@@ -196,6 +196,11 @@ NSString * const kGTLRBigquery_JobConfigurationLoad_FileSetSpecType_FileSetSpecT
 NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtension_Geojson = @"GEOJSON";
 NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtension_JsonExtensionUnspecified = @"JSON_EXTENSION_UNSPECIFIED";
 
+// GTLRBigquery_JobConfigurationLoad.sourceColumnMatch
+NSString * const kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_Name = @"NAME";
+NSString * const kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_Position = @"POSITION";
+NSString * const kGTLRBigquery_JobConfigurationLoad_SourceColumnMatch_SourceColumnMatchUnspecified = @"SOURCE_COLUMN_MATCH_UNSPECIFIED";
+
 // GTLRBigquery_JobConfigurationTableCopy.operationType
 NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Clone = @"CLONE";
 NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Copy = @"COPY";
@@ -1221,7 +1226,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_CsvOptions
 @dynamic allowJaggedRows, allowQuotedNewlines, encoding, fieldDelimiter,
-         nullMarker, preserveAsciiControlCharacters, quote, skipLeadingRows;
+         nullMarker, nullMarkers, preserveAsciiControlCharacters, quote,
+         skipLeadingRows, sourceColumnMatch;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nullMarkers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2082,7 +2096,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobConfiguration
 @dynamic copyProperty, dryRun, extract, jobTimeoutMs, jobType, labels, load,
-         query;
+         query, reservation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"copyProperty" : @"copy" };
@@ -2137,17 +2151,19 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          decimalTargetTypes, destinationEncryptionConfiguration,
          destinationTable, destinationTableProperties, encoding, fieldDelimiter,
          fileSetSpecType, hivePartitioningOptions, ignoreUnknownValues,
-         jsonExtension, maxBadRecords, nullMarker, parquetOptions,
+         jsonExtension, maxBadRecords, nullMarker, nullMarkers, parquetOptions,
          preserveAsciiControlCharacters, projectionFields, quote,
          rangePartitioning, referenceFileSchemaUri, schema, schemaInline,
-         schemaInlineFormat, schemaUpdateOptions, skipLeadingRows, sourceFormat,
-         sourceUris, timeFormat, timePartitioning, timestampFormat, timeZone,
-         useAvroLogicalTypes, writeDisposition;
+         schemaInlineFormat, schemaUpdateOptions, skipLeadingRows,
+         sourceColumnMatch, sourceFormat, sourceUris, timeFormat,
+         timePartitioning, timestampFormat, timeZone, useAvroLogicalTypes,
+         writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"connectionProperties" : [GTLRBigquery_ConnectionProperty class],
     @"decimalTargetTypes" : [NSString class],
+    @"nullMarkers" : [NSString class],
     @"projectionFields" : [NSString class],
     @"schemaUpdateOptions" : [NSString class],
     @"sourceUris" : [NSString class]
@@ -3105,8 +3121,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          destinationEncryptionConfiguration, dryRun, formatOptions,
          jobCreationMode, jobTimeoutMs, kind, labels, location,
          maximumBytesBilled, maxResults, parameterMode, preserveNulls, query,
-         queryParameters, requestId, timeoutMs, useLegacySql, useQueryCache,
-         writeIncrementalResults;
+         queryParameters, requestId, reservation, timeoutMs, useLegacySql,
+         useQueryCache, writeIncrementalResults;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

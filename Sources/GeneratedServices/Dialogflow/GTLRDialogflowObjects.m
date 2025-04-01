@@ -2471,7 +2471,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService
 @dynamic allowedCaCerts, httpMethod, oauthConfig, parameterMapping, password,
-         requestBody, requestHeaders, serviceAgentAuth, uri, username,
+         requestBody, requestHeaders, secretVersionForUsernamePassword,
+         secretVersionsForRequestHeaders, serviceAgentAuth, uri, username,
          webhookType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2514,11 +2515,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_SecretVersionsForRequestHeaders
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_SecretVersionsForRequestHeaders
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig
-@dynamic clientId, clientSecret, scopes, tokenEndpoint;
+@dynamic clientId, clientSecret, scopes, secretVersionForClientSecret,
+         tokenEndpoint;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2527,6 +2543,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue
+@dynamic secretVersion;
 @end
 
 
@@ -5831,7 +5857,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService
 @dynamic allowedCaCerts, httpMethod, oauthConfig, parameterMapping, password,
-         requestBody, requestHeaders, serviceAgentAuth, uri, username,
+         requestBody, requestHeaders, secretVersionForUsernamePassword,
+         secretVersionsForRequestHeaders, serviceAgentAuth, uri, username,
          webhookType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -5874,11 +5901,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_SecretVersionsForRequestHeaders
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_SecretVersionsForRequestHeaders
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig
-@dynamic clientId, clientSecret, scopes, tokenEndpoint;
+@dynamic clientId, clientSecret, scopes, secretVersionForClientSecret,
+         tokenEndpoint;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5887,6 +5929,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue
+@dynamic secretVersion;
 @end
 
 
@@ -6429,7 +6481,25 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion
-@dynamic freeFormSuggestion, summarySuggestion;
+@dynamic freeFormSuggestion, summarySuggestion, toolCallInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolCallInfo" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo
+@dynamic toolCall, toolCallResult;
 @end
 
 
@@ -7773,6 +7843,50 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall
+@dynamic action, createTime, inputParameters, tool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult
+@dynamic action, content, createTime, error, rawContent, tool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResultError
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResultError
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest
 //
 
@@ -8126,7 +8240,25 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion
-@dynamic freeFormSuggestion, summarySuggestion;
+@dynamic freeFormSuggestion, summarySuggestion, toolCallInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolCallInfo" : [GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo
+@dynamic toolCall, toolCallResult;
 @end
 
 
@@ -9141,6 +9273,50 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SummarySuggestionSummarySection
 @dynamic section, summary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ToolCall
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCall
+@dynamic action, createTime, inputParameters, tool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult
+@dynamic action, content, createTime, error, rawContent, tool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError
+@dynamic message;
 @end
 
 

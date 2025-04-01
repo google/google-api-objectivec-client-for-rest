@@ -25,6 +25,58 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_PendingInstallApp
 NSString * const kGTLRDeveloperConnect_InstallationState_Stage_PendingUserOauth = @"PENDING_USER_OAUTH";
 NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
 
+// GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Github = @"GITHUB";
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Gitlab = @"GITLAB";
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google = @"GOOGLE";
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo = @"ROVO";
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry = @"SENTRY";
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified = @"SYSTEM_PROVIDER_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_AccountConnector
+//
+
+@implementation GTLRDeveloperConnect_AccountConnector
+@dynamic annotations, createTime, ETag, labels, name, oauthStartUri,
+         providerOauthConfig, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_AccountConnector_Annotations
+//
+
+@implementation GTLRDeveloperConnect_AccountConnector_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_AccountConnector_Labels
+//
+
+@implementation GTLRDeveloperConnect_AccountConnector_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDeveloperConnect_BitbucketCloudConfig
@@ -119,6 +171,48 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 //
 
 @implementation GTLRDeveloperConnect_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ExchangeError
+//
+
+@implementation GTLRDeveloperConnect_ExchangeError
+@dynamic code, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FetchAccessTokenRequest
+//
+
+@implementation GTLRDeveloperConnect_FetchAccessTokenRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FetchAccessTokenResponse
+//
+
+@implementation GTLRDeveloperConnect_FetchAccessTokenResponse
+@dynamic exchangeError, expirationTime, scopes, token;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -385,6 +479,29 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_ListAccountConnectorsResponse
+//
+
+@implementation GTLRDeveloperConnect_ListAccountConnectorsResponse
+@dynamic accountConnectors, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountConnectors" : [GTLRDeveloperConnect_AccountConnector class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"accountConnectors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_ListConnectionsResponse
 //
 
@@ -468,6 +585,29 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ListUsersResponse
+//
+
+@implementation GTLRDeveloperConnect_ListUsersResponse
+@dynamic nextPageToken, unreachable, users;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"users" : [GTLRDeveloperConnect_User class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"users";
 }
 
 @end
@@ -622,6 +762,24 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_ProviderOAuthConfig
+//
+
+@implementation GTLRDeveloperConnect_ProviderOAuthConfig
+@dynamic scopes, systemProviderId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_ServiceDirectoryConfig
 //
 
@@ -659,6 +817,16 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_User
+//
+
+@implementation GTLRDeveloperConnect_User
+@dynamic createTime, displayName, lastTokenRequestTime, name;
 @end
 
 

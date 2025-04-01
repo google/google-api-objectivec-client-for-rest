@@ -489,6 +489,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudNaturalLanguage/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudNaturalLanguage/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudObservability' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudObservability/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudObservability/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CloudOSLogin' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudOSLogin/**/*.{h,m}'

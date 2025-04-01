@@ -6,7 +6,7 @@
 // Description:
 //   The Google Tasks API lets you manage your tasks and task lists.
 // Documentation:
-//   https://developers.google.com/tasks/
+//   https://developers.google.com/workspace/tasks/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -252,7 +252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTasks_AssignmentInfo_SurfaceType_Space;
 @interface GTLRTasks_Task_Links_Item : GTLRObject
 
 /**
- *  The description. In HTML speak: Everything between <a> and </a>.
+ *  The description (might be empty).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -261,7 +261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTasks_AssignmentInfo_SurfaceType_Space;
 /** The URL. */
 @property(nonatomic, copy, nullable) NSString *link;
 
-/** Type of the link, e.g. "email". */
+/** Type of the link, e.g. "email", "generic", "chat_message", "keep_note". */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end

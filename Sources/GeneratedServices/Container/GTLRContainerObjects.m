@@ -90,6 +90,21 @@ NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4 = @"IPV4";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4Ipv6 = @"IPV4_IPV6";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified = @"STACK_TYPE_UNSPECIFIED";
 
+// GTLRContainer_ClusterUpgradeInfo.autoUpgradeStatus
+NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_Active = @"ACTIVE";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_MinorUpgradePaused = @"MINOR_UPGRADE_PAUSED";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_Unknown = @"UNKNOWN";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_UpgradePaused = @"UPGRADE_PAUSED";
+
+// GTLRContainer_ClusterUpgradeInfo.pausedReason
+NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_AutoUpgradePausedReasonUnspecified = @"AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_ClusterDisruptionBudget = @"CLUSTER_DISRUPTION_BUDGET";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_ClusterDisruptionBudgetMinorUpgrade = @"CLUSTER_DISRUPTION_BUDGET_MINOR_UPGRADE";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceExclusionNoMinorUpgrades = @"MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceExclusionNoUpgrades = @"MAINTENANCE_EXCLUSION_NO_UPGRADES";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceWindow = @"MAINTENANCE_WINDOW";
+NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_SystemConfig = @"SYSTEM_CONFIG";
+
 // GTLRContainer_CompliancePostureConfig.mode
 NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Disabled = @"DISABLED";
 NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Enabled = @"ENABLED";
@@ -265,6 +280,19 @@ NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_Any = @"ANY";
 NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_Balanced = @"BALANCED";
 NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_LocationPolicyUnspecified = @"LOCATION_POLICY_UNSPECIFIED";
 
+// GTLRContainer_NodePoolUpgradeInfo.autoUpgradeStatus
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_Active = @"ACTIVE";
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_MinorUpgradePaused = @"MINOR_UPGRADE_PAUSED";
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_Unknown = @"UNKNOWN";
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_UpgradePaused = @"UPGRADE_PAUSED";
+
+// GTLRContainer_NodePoolUpgradeInfo.pausedReason
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_AutoUpgradePausedReasonUnspecified = @"AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED";
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceExclusionNoMinorUpgrades = @"MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES";
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceExclusionNoUpgrades = @"MAINTENANCE_EXCLUSION_NO_UPGRADES";
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceWindow = @"MAINTENANCE_WINDOW";
+NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_SystemConfig = @"SYSTEM_CONFIG";
+
 // GTLRContainer_NodeTaint.effect
 NSString * const kGTLRContainer_NodeTaint_Effect_EffectUnspecified = @"EFFECT_UNSPECIFIED";
 NSString * const kGTLRContainer_NodeTaint_Effect_NoExecute     = @"NO_EXECUTE";
@@ -309,6 +337,11 @@ NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified = @"S
 // GTLRContainer_PlacementPolicy.type
 NSString * const kGTLRContainer_PlacementPolicy_Type_Compact   = @"COMPACT";
 NSString * const kGTLRContainer_PlacementPolicy_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRContainer_PodAutoscaling.hpaProfile
+NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_HpaProfileUnspecified = @"HPA_PROFILE_UNSPECIFIED";
+NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_None = @"NONE";
+NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_Performance = @"PERFORMANCE";
 
 // GTLRContainer_ReleaseChannel.channel
 NSString * const kGTLRContainer_ReleaseChannel_Channel_Extended = @"EXTENDED";
@@ -389,6 +422,18 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_Master = @"MASTER";
 NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_NodePool = @"NODE_POOL";
 NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified = @"UPGRADE_RESOURCE_TYPE_UNSPECIFIED";
+
+// GTLRContainer_UpgradeDetails.startType
+NSString * const kGTLRContainer_UpgradeDetails_StartType_Automatic = @"AUTOMATIC";
+NSString * const kGTLRContainer_UpgradeDetails_StartType_Manual = @"MANUAL";
+NSString * const kGTLRContainer_UpgradeDetails_StartType_StartTypeUnspecified = @"START_TYPE_UNSPECIFIED";
+
+// GTLRContainer_UpgradeDetails.state
+NSString * const kGTLRContainer_UpgradeDetails_State_Canceled  = @"CANCELED";
+NSString * const kGTLRContainer_UpgradeDetails_State_Failed    = @"FAILED";
+NSString * const kGTLRContainer_UpgradeDetails_State_Running   = @"RUNNING";
+NSString * const kGTLRContainer_UpgradeDetails_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRContainer_UpgradeDetails_State_Unknown   = @"UNKNOWN";
 
 // GTLRContainer_UpgradeEvent.resourceType
 NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Master = @"MASTER";
@@ -777,7 +822,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
          monitoringService, name, network, networkConfig, networkPolicy,
          nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
-         nodePools, notificationConfig, parentProductConfig,
+         nodePools, notificationConfig, parentProductConfig, podAutoscaling,
          privateClusterConfig, rbacBindingConfig, releaseChannel,
          resourceLabels, resourceUsageExportConfig, satisfiesPzi, satisfiesPzs,
          secretManagerConfig, securityPostureConfig, selfLink, servicesIpv4Cidr,
@@ -884,11 +929,12 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredNodePoolAutoscaling, desiredNodePoolId,
          desiredNodePoolLoggingConfig, desiredNodeVersion,
          desiredNotificationConfig, desiredParentProductConfig,
-         desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
-         desiredRbacBindingConfig, desiredReleaseChannel,
-         desiredResourceUsageExportConfig, desiredSecretManagerConfig,
-         desiredSecurityPostureConfig, desiredServiceExternalIpsConfig,
-         desiredShieldedNodes, desiredStackType, desiredVerticalPodAutoscaling,
+         desiredPodAutoscaling, desiredPrivateClusterConfig,
+         desiredPrivateIpv6GoogleAccess, desiredRbacBindingConfig,
+         desiredReleaseChannel, desiredResourceUsageExportConfig,
+         desiredSecretManagerConfig, desiredSecurityPostureConfig,
+         desiredServiceExternalIpsConfig, desiredShieldedNodes,
+         desiredStackType, desiredVerticalPodAutoscaling,
          desiredWorkloadIdentityConfig, enableK8sBetaApis, ETag,
          removedAdditionalPodRangesConfig, userManagedKeysConfig;
 
@@ -899,6 +945,28 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"desiredLocations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ClusterUpgradeInfo
+//
+
+@implementation GTLRContainer_ClusterUpgradeInfo
+@dynamic autoUpgradeStatus, endOfExtendedSupportTimestamp,
+         endOfStandardSupportTimestamp, minorTargetVersion, patchTargetVersion,
+         pausedReason, upgradeDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoUpgradeStatus" : [NSString class],
+    @"pausedReason" : [NSString class],
+    @"upgradeDetails" : [GTLRContainer_UpgradeDetails class]
   };
   return map;
 }
@@ -1153,7 +1221,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_EphemeralStorageLocalSsdConfig
-@dynamic localSsdCount;
+@dynamic dataCacheCount, localSsdCount;
 @end
 
 
@@ -1872,8 +1940,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic accelerators, advancedMachineFeatures, bootDiskKmsKey,
          confidentialNodes, containerdConfig, diskSizeGb, diskType,
          effectiveCgroupMode, enableConfidentialStorage,
-         ephemeralStorageLocalSsdConfig, fastSocket, gcfsConfig, gvnic,
-         imageType, kubeletConfig, labels, linuxNodeConfig,
+         ephemeralStorageLocalSsdConfig, fastSocket, flexStart, gcfsConfig,
+         gvnic, imageType, kubeletConfig, labels, linuxNodeConfig,
          localNvmeSsdBlockConfig, localSsdCount, localSsdEncryptionMode,
          loggingConfig, machineType, maxRunDuration, metadata, minCpuPlatform,
          nodeGroup, oauthScopes, preemptible, reservationAffinity,
@@ -2098,6 +2166,28 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NodePoolUpgradeInfo
+//
+
+@implementation GTLRContainer_NodePoolUpgradeInfo
+@dynamic autoUpgradeStatus, endOfExtendedSupportTimestamp,
+         endOfStandardSupportTimestamp, minorTargetVersion, patchTargetVersion,
+         pausedReason, upgradeDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoUpgradeStatus" : [NSString class],
+    @"pausedReason" : [NSString class],
+    @"upgradeDetails" : [GTLRContainer_UpgradeDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NodeTaint
 //
 
@@ -2229,6 +2319,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_PlacementPolicy
 @dynamic policyName, tpuTopology, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_PodAutoscaling
+//
+
+@implementation GTLRContainer_PodAutoscaling
+@dynamic hpaProfile;
 @end
 
 
@@ -2539,13 +2639,14 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_SecurityBulletinEvent
 @dynamic affectedSupportedMinors, briefDescription, bulletinId, bulletinUri,
-         cveIds, manualStepsRequired, patchedVersions, resourceTypeAffected,
-         severity, suggestedUpgradeTarget;
+         cveIds, manualStepsRequired, mitigatedVersions, patchedVersions,
+         resourceTypeAffected, severity, suggestedUpgradeTarget;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"affectedSupportedMinors" : [NSString class],
     @"cveIds" : [NSString class],
+    @"mitigatedVersions" : [NSString class],
     @"patchedVersions" : [NSString class]
   };
   return map;
@@ -2970,10 +3071,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_UpdateNodePoolRequest
 @dynamic accelerators, clusterId, confidentialNodes, containerdConfig,
-         diskSizeGb, diskType, ETag, fastSocket, gcfsConfig, gvnic, imageType,
-         kubeletConfig, labels, linuxNodeConfig, locations, loggingConfig,
-         machineType, maxRunDuration, name, nodeNetworkConfig, nodePoolId,
-         nodeVersion, projectId, queuedProvisioning, resourceLabels,
+         diskSizeGb, diskType, ETag, fastSocket, flexStart, gcfsConfig, gvnic,
+         imageType, kubeletConfig, labels, linuxNodeConfig, locations,
+         loggingConfig, machineType, maxRunDuration, name, nodeNetworkConfig,
+         nodePoolId, nodeVersion, projectId, queuedProvisioning, resourceLabels,
          resourceManagerTags, storagePools, tags, taints, upgradeSettings,
          windowsNodeConfig, workloadMetadataConfig, zoneProperty;
 
@@ -3004,6 +3105,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_UpgradeAvailableEvent
 @dynamic releaseChannel, resource, resourceType, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UpgradeDetails
+//
+
+@implementation GTLRContainer_UpgradeDetails
+@dynamic endTime, initialVersion, startTime, startType, state, targetVersion;
 @end
 
 

@@ -510,6 +510,25 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionRequest
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionResponse
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ResumeSubscriptionResponse
+@dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ServicePeriod
 //
 
@@ -625,6 +644,25 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails
 @dynamic billingCycleSpec, previousSubscriptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionRequest
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionResponse
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SuspendSubscriptionResponse
+@dynamic subscription;
 @end
 
 

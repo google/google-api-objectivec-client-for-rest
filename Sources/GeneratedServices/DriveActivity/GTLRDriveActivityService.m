@@ -6,7 +6,7 @@
 // Description:
 //   Provides a historical view of activity in Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/activity/
+//   https://developers.google.com/workspace/drive/activity/
 
 #import <GoogleAPIClientForREST/GTLRDriveActivity.h>
 

@@ -61,7 +61,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_DivisionByAddressResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_ApiprotosV2DivisionByAddressResponse class];
   query.loggingName = @"civicinfo.divisions.queryDivisionByAddress";
   return query;
 }
@@ -78,7 +78,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_DivisionSearchResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse class];
   query.loggingName = @"civicinfo.divisions.search";
   return query;
 }
@@ -95,7 +95,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_ElectionsQueryResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_CivicinfoApiprotosV2ElectionsQueryResponse class];
   query.loggingName = @"civicinfo.elections.electionQuery";
   return query;
 }
@@ -113,7 +113,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_VoterInfoResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_CivicinfoApiprotosV2VoterInfoResponse class];
   query.loggingName = @"civicinfo.elections.voterInfoQuery";
   return query;
 }
@@ -138,7 +138,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_RepresentativeInfoResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse class];
   query.loggingName = @"civicinfo.representatives.representativeInfoByAddress";
   return query;
 }
@@ -165,7 +165,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.ocdId = ocdId;
-  query.expectedObjectClass = [GTLRCivicInfo_RepresentativeInfoData class];
+  query.expectedObjectClass = [GTLRCivicInfo_ApiprotosV2RepresentativeInfoData class];
   query.loggingName = @"civicinfo.representatives.representativeInfoByDivision";
   return query;
 }

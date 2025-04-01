@@ -537,7 +537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelRequests;
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelRpm;
 /**
  *  Impressions. An impression is counted for each ad request where at least one
- *  ad has been downloaded to the user’s device and has begun to load. It is the
+ *  ad has been downloaded to the user's device and has begun to load. It is the
  *  number of ad units (for content ads) or search queries (for search ads) that
  *  showed ads.
  *
@@ -661,7 +661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsSpamRatio;
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsTotalEarnings;
 /**
  *  Impressions. An impression is counted for each ad request where at least one
- *  ad has been downloaded to the user’s device and has begun to load. It is the
+ *  ad has been downloaded to the user's device and has begun to load. It is the
  *  number of ad units (for content ads) or search queries (for search ads) that
  *  showed ads.
  *
@@ -669,7 +669,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsTotalEarnings;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsTotalImpressions;
 /**
- *  Number of results pages.
+ *  Number of results pages. This metric can only be used when generating a
+ *  report in the Google timezone, not the account timezone. Since the account
+ *  timezone is the default for report generation, this metric can only be used
+ *  by explicitly specifying `reportingTimeZone=GOOGLE_TIME_ZONE`.
  *
  *  Value: "WEBSEARCH_RESULT_PAGES"
  */
@@ -1983,12 +1986,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        least one ad. (Value: "MATCHED_AD_REQUESTS")
  *    @arg @c kGTLRAdsenseMetricsTotalImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "TOTAL_IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressions Ads shown. Different ad
@@ -2069,7 +2072,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        estimated earnings from revenue shared traffic before any parent and
  *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
- *        (Value: "WEBSEARCH_RESULT_PAGES")
+ *        This metric can only be used when generating a report in the Google
+ *        timezone, not the account timezone. Since the account timezone is the
+ *        default for report generation, this metric can only be used by
+ *        explicitly specifying `reportingTimeZone=GOOGLE_TIME_ZONE`. (Value:
+ *        "WEBSEARCH_RESULT_PAGES")
  *    @arg @c kGTLRAdsenseMetricsFunnelRequests Number of requests for non-ad
  *        units (for example a related search unit). For more information, see
  *        [Funnel requests](https://support.google.com/adsense/answer/11586959).
@@ -2404,12 +2411,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        least one ad. (Value: "MATCHED_AD_REQUESTS")
  *    @arg @c kGTLRAdsenseMetricsTotalImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "TOTAL_IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressions Ads shown. Different ad
@@ -2490,7 +2497,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        estimated earnings from revenue shared traffic before any parent and
  *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
- *        (Value: "WEBSEARCH_RESULT_PAGES")
+ *        This metric can only be used when generating a report in the Google
+ *        timezone, not the account timezone. Since the account timezone is the
+ *        default for report generation, this metric can only be used by
+ *        explicitly specifying `reportingTimeZone=GOOGLE_TIME_ZONE`. (Value:
+ *        "WEBSEARCH_RESULT_PAGES")
  *    @arg @c kGTLRAdsenseMetricsFunnelRequests Number of requests for non-ad
  *        units (for example a related search unit). For more information, see
  *        [Funnel requests](https://support.google.com/adsense/answer/11586959).

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase Data Connect API (firebasedataconnect/v1beta)
+//   Firebase Data Connect API (firebasedataconnect/v1)
 // Description:
 //   Firebase Data Connect is a relational database service for mobile and web
 //   apps that lets you build and scale using a fully-managed PostgreSQL
@@ -72,6 +72,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
  */
 @interface GTLRFirebaseDataConnectQuery_ProjectsLocationsList : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

@@ -1985,8 +1985,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 @implementation GTLRYouTube_CommentSnippet
 @dynamic authorChannelId, authorChannelUrl, authorDisplayName,
          authorProfileImageUrl, canRate, channelId, likeCount, moderationStatus,
-         parentId, publishedAt, textDisplay, textOriginal, updatedAt, videoId,
-         viewerRating;
+         parentId, postId, publishedAt, textDisplay, textOriginal, updatedAt,
+         videoId, viewerRating;
 @end
 
 
@@ -2066,8 +2066,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_CommentThreadSnippet
-@dynamic canReply, channelId, isPublic, topLevelComment, totalReplyCount,
-         videoId;
+@dynamic canReply, channelId, isPublic, postId, topLevelComment,
+         totalReplyCount, videoId;
 @end
 
 

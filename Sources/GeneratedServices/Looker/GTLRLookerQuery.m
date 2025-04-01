@@ -33,90 +33,6 @@
 
 @end
 
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRLooker_InstanceBackup *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/backups";
-  GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRLooker_Operation class];
-  query.loggingName = @"looker.projects.locations.instances.backups.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRLooker_Operation class];
-  query.loggingName = @"looker.projects.locations.instances.backups.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRLooker_InstanceBackup class];
-  query.loggingName = @"looker.projects.locations.instances.backups.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesBackupsList
-
-@dynamic orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/backups";
-  GTLRLookerQuery_ProjectsLocationsInstancesBackupsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRLooker_ListInstanceBackupsResponse class];
-  query.loggingName = @"looker.projects.locations.instances.backups.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRLookerQuery_ProjectsLocationsInstancesCreate
 
 @dynamic instanceId, parent;
@@ -304,33 +220,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLooker_Operation class];
   query.loggingName = @"looker.projects.locations.instances.restart";
-  return query;
-}
-
-@end
-
-@implementation GTLRLookerQuery_ProjectsLocationsInstancesRestore
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRLooker_RestoreInstanceRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:restore";
-  GTLRLookerQuery_ProjectsLocationsInstancesRestore *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRLooker_Operation class];
-  query.loggingName = @"looker.projects.locations.instances.restore";
   return query;
 }
 

@@ -24,6 +24,7 @@
 @class GTLRContainerAnalysis_Assessment;
 @class GTLRContainerAnalysis_AttestationNote;
 @class GTLRContainerAnalysis_AttestationOccurrence;
+@class GTLRContainerAnalysis_BaseImage;
 @class GTLRContainerAnalysis_BatchCreateNotesRequest_Notes;
 @class GTLRContainerAnalysis_Binding;
 @class GTLRContainerAnalysis_BuildDefinition;
@@ -135,6 +136,7 @@
 @class GTLRContainerAnalysis_Jwt;
 @class GTLRContainerAnalysis_KnowledgeBase;
 @class GTLRContainerAnalysis_Layer;
+@class GTLRContainerAnalysis_LayerDetails;
 @class GTLRContainerAnalysis_License;
 @class GTLRContainerAnalysis_Location;
 @class GTLRContainerAnalysis_Material;
@@ -185,6 +187,7 @@
 @class GTLRContainerAnalysis_SourceContext_Labels;
 @class GTLRContainerAnalysis_Status;
 @class GTLRContainerAnalysis_Status_Details_Item;
+@class GTLRContainerAnalysis_StepResult;
 @class GTLRContainerAnalysis_Subject;
 @class GTLRContainerAnalysis_Subject_Digest;
 @class GTLRContainerAnalysis_TimeSpan;
@@ -2113,6 +2116,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  BaseImage describes a base image of a container image.
+ */
+@interface GTLRContainerAnalysis_BaseImage : GTLRObject
+
+/**
+ *  The number of layers that the base image is composed of.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *layerCount;
+
+/** The name of the base image. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The repository name in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  Request to create notes in batch.
  */
 @interface GTLRContainerAnalysis_BatchCreateNotesRequest : GTLRObject
@@ -2449,7 +2473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  A step in the build pipeline. Next ID: 21
+ *  A step in the build pipeline. Next ID: 22
  */
 @interface GTLRContainerAnalysis_BuildStep : GTLRObject
 
@@ -2550,6 +2574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  image only.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_TimeSpan *pullTiming;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_StepResult *> *results;
 
 /**
  *  A shell script to be executed in the step. When script is provided, the user
@@ -5658,6 +5684,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
 
+/**
+ *  Each package found in a file should have its own layer metadata (that is,
+ *  information from the origin layer of the package).
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_LayerDetails *layerDetails;
+
 @end
 
 
@@ -6077,6 +6109,35 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  See https://docs.docker.com/engine/reference/builder/ for more information.
  */
 @property(nonatomic, copy, nullable) NSString *directive;
+
+@end
+
+
+/**
+ *  Details about the layer a package was found in.
+ */
+@interface GTLRContainerAnalysis_LayerDetails : GTLRObject
+
+/** The base images the layer is found within. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_BaseImage *> *baseImages;
+
+/**
+ *  The layer build command that was used to build the layer. This may not be
+ *  found in all layers depending on how the container image is built.
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/**
+ *  The diff ID (typically a sha256 hash) of the layer in the container image.
+ */
+@property(nonatomic, copy, nullable) NSString *diffId;
+
+/**
+ *  The index of the layer in the container image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 @end
 
@@ -7636,6 +7697,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRContainerAnalysis_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  StepResult is the declaration of a result for a build step.
+ */
+@interface GTLRContainerAnalysis_StepResult : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *attestationContentName;
+@property(nonatomic, copy, nullable) NSString *attestationType;
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 

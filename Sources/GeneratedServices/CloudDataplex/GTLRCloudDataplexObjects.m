@@ -237,6 +237,11 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStat
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusTransferred = @"TRANSFER_STATUS_TRANSFERRED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusUnspecified = @"TRANSFER_STATUS_UNSPECIFIED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent.eventType
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EntryLinkCreate = @"ENTRY_LINK_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EntryLinkDelete = @"ENTRY_LINK_DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1Environment.state
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_ActionRequired = @"ACTION_REQUIRED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Active = @"ACTIVE";
@@ -322,6 +327,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_Sta
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Updating = @"UPDATING";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob.type
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Export = @"EXPORT";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Import = @"IMPORT";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
@@ -1076,7 +1082,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResult
-@dynamic bigqueryPublishing;
+@dynamic bigqueryPublishing, scanStatistics;
 @end
 
 
@@ -1086,7 +1092,19 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing
-@dynamic dataset;
+@dynamic dataset, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics
+@dynamic dataProcessedBytes, filesetsCreated, filesetsDeleted, filesetsUpdated,
+         filesExcluded, scannedFileCount, tablesCreated, tablesDeleted,
+         tablesUpdated;
 @end
 
 
@@ -2043,6 +2061,16 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent
+@dynamic eventType, message, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource
 //
 
@@ -2895,8 +2923,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob
-@dynamic createTime, importResult, importSpec, labels, name, status, type, uid,
-         updateTime;
+@dynamic createTime, exportResult, exportSpec, importResult, importSpec, labels,
+         name, status, type, uid, updateTime;
 @end
 
 
@@ -2909,6 +2937,47 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobResult
+@dynamic errorMessage, exportedEntries;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpec
+@dynamic outputPath, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpecExportJobScope
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpecExportJobScope
+@dynamic aspectTypes, entryGroups, entryTypes, organizationLevel, projects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aspectTypes" : [NSString class],
+    @"entryGroups" : [NSString class],
+    @"entryTypes" : [NSString class],
+    @"projects" : [NSString class]
+  };
+  return map;
 }
 
 @end

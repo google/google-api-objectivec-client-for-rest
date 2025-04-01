@@ -63,6 +63,443 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  Creates a new AccountConnector in a given project and location.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsCreate : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The ID to use for the AccountConnector, which will become the
+ *  final component of the AccountConnector's resource name. Its format should
+ *  adhere to https://google.aip.dev/122#resource-id-segments Names must be
+ *  unique per-project per-location.
+ */
+@property(nonatomic, copy, nullable) NSString *accountConnectorId;
+
+/** Required. Location resource name as the account_connector’s parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Optional. If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Creates a new AccountConnector in a given project and location.
+ *
+ *  @param object The @c GTLRDeveloperConnect_AccountConnector to include in the
+ *    query.
+ *  @param parent Required. Location resource name as the account_connector’s
+ *    parent.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AccountConnector *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AccountConnector.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsDelete : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. The current etag of the AccountConnectorn. If an etag is provided
+ *  and does not match the current etag of the AccountConnector, deletion will
+ *  be blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. If set to true, any Users from this AccountConnector will also be
+ *  deleted. (Otherwise, the request will only work if the AccountConnector has
+ *  no Users.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Optional. If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Deletes a single AccountConnector.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AccountConnector.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsGet : GTLRDeveloperConnectQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_AccountConnector.
+ *
+ *  Gets details of a single AccountConnector.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists AccountConnectors in a given project and location.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsList : GTLRDeveloperConnectQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListAccountConnectorsRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_ListAccountConnectorsResponse.
+ *
+ *  Lists AccountConnectors in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListAccountConnectorsRequest
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AccountConnector.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsPatch : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. If set to true, and the userConnection is not found a new
+ *  userConnection will be created. In this situation `update_mask` is ignored.
+ *  The creation will succeed only if the input userConnection has all the
+ *  necessary
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. The resource name of the userConnection, in the format
+ *  `projects/{project}/locations/{location}/accountConnectors/{account_connector_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** Optional. If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Updates the parameters of a single AccountConnector.
+ *
+ *  @param object The @c GTLRDeveloperConnect_AccountConnector to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the userConnection, in the
+ *    format
+ *    `projects/{project}/locations/{location}/accountConnectors/{account_connector_id}`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AccountConnector *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a single User.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.users.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDelete : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Optional. If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Deletes a single User.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Delete the User of the user themselves.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.users.deleteSelf
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDeleteSelf : GTLRDeveloperConnectQuery
+
+/** Required. Name of the AccountConnector resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Delete the User of the user themselves.
+ *
+ *  @param name Required. Name of the AccountConnector resource
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersDeleteSelf
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches OAuth access token based on end user credentials.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.users.fetchAccessToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchAccessToken : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The resource name of the AccountConnector in the format `projects/
+ *  * /locations/ * /accountConnectors/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *accountConnector;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_FetchAccessTokenResponse.
+ *
+ *  Fetches OAuth access token based on end user credentials.
+ *
+ *  @param object The @c GTLRDeveloperConnect_FetchAccessTokenRequest to include
+ *    in the query.
+ *  @param accountConnector Required. The resource name of the AccountConnector
+ *    in the format `projects/ * /locations/ * /accountConnectors/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchAccessToken
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_FetchAccessTokenRequest *)object
+               accountConnector:(NSString *)accountConnector;
+
+@end
+
+/**
+ *  Fetches the User of the user themselves.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.users.fetchSelf
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchSelf : GTLRDeveloperConnectQuery
+
+/** Required. Name of the AccountConnector resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_User.
+ *
+ *  Fetches the User of the user themselves.
+ *
+ *  @param name Required. Name of the AccountConnector resource
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFetchSelf
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Users in a given project, location, and account_connector.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.users.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersList : GTLRDeveloperConnectQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListUsersRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_ListUsersResponse.
+ *
+ *  Lists Users in a given project, location, and account_connector.
+ *
+ *  @param parent Required. Parent value for ListUsersRequest
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new Connection in a given project and location.
  *
  *  Method: developerconnect.projects.locations.connections.create
@@ -892,6 +1329,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
  */
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsList : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

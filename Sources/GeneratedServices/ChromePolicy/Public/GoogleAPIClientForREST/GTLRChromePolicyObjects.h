@@ -235,6 +235,26 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV
 FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeZip;
 
 // ----------------------------------------------------------------------------
+// GTLRChromePolicy_Proto2DescriptorProto.visibility
+
+/** Value: "VISIBILITY_EXPORT" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityExport;
+/** Value: "VISIBILITY_LOCAL" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityLocal;
+/** Value: "VISIBILITY_UNSET" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityUnset;
+
+// ----------------------------------------------------------------------------
+// GTLRChromePolicy_Proto2EnumDescriptorProto.visibility
+
+/** Value: "VISIBILITY_EXPORT" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityExport;
+/** Value: "VISIBILITY_LOCAL" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityLocal;
+/** Value: "VISIBILITY_UNSET" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityUnset;
+
+// ----------------------------------------------------------------------------
 // GTLRChromePolicy_Proto2FieldDescriptorProto.label
 
 /**
@@ -1466,6 +1486,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_Proto2DescriptorProto *> *nestedType;
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_Proto2OneofDescriptorProto *> *oneofDecl;
 
+/**
+ *  Support for `export` and `local` keywords on enums.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityExport
+ *        Value "VISIBILITY_EXPORT"
+ *    @arg @c kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityLocal
+ *        Value "VISIBILITY_LOCAL"
+ *    @arg @c kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityUnset
+ *        Value "VISIBILITY_UNSET"
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
+
 @end
 
 
@@ -1476,6 +1509,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_Proto2EnumValueDescriptorProto *> *value;
+
+/**
+ *  Support for `export` and `local` keywords on enums.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityExport
+ *        Value "VISIBILITY_EXPORT"
+ *    @arg @c kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityLocal
+ *        Value "VISIBILITY_LOCAL"
+ *    @arg @c kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityUnset
+ *        Value "VISIBILITY_UNSET"
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -1652,6 +1698,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 /** file name, relative to root of source tree */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Names of files imported by this file purely for the purpose of providing
+ *  option extensions. These are excluded from the dependency list above.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *optionDependency;
 
 /** e.g. "foo", "foo.bar", etc. */
 @property(nonatomic, copy, nullable) NSString *package;

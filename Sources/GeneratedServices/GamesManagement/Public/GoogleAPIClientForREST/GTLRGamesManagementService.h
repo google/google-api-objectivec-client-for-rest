@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Management (gamesManagement/v1management)
+//   Google Play Games Services Management API (gamesManagement/v1management)
 // Description:
 //   The Google Play Games Management API allows developers to manage resources
 //   from the Google Play Game service.
@@ -38,7 +38,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesManagementGames;
 //
 
 /**
- *  Service for executing Google Play Game Management queries.
+ *  Service for executing Google Play Games Services Management API queries.
  *
  *  The Google Play Games Management API allows developers to manage resources
  *  from the Google Play Game service.

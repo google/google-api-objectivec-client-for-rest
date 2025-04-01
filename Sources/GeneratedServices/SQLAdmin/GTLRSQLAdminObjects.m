@@ -25,6 +25,54 @@ NSString * const kGTLRSQLAdmin_Backup_BackupKind_Physical      = @"PHYSICAL";
 NSString * const kGTLRSQLAdmin_Backup_BackupKind_Snapshot      = @"SNAPSHOT";
 NSString * const kGTLRSQLAdmin_Backup_BackupKind_SqlBackupKindUnspecified = @"SQL_BACKUP_KIND_UNSPECIFIED";
 
+// GTLRSQLAdmin_Backup.databaseVersion
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql51  = @"MYSQL_5_1";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql55  = @"MYSQL_5_5";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql56  = @"MYSQL_5_6";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql57  = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql80  = @"MYSQL_8_0";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8029 = @"MYSQL_8_0_29";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8030 = @"MYSQL_8_0_30";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8031 = @"MYSQL_8_0_31";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8032 = @"MYSQL_8_0_32";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8033 = @"MYSQL_8_0_33";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8034 = @"MYSQL_8_0_34";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84  = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres10 = @"POSTGRES_10";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres11 = @"POSTGRES_11";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres14 = @"POSTGRES_14";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres16 = @"POSTGRES_16";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Enterprise = @"SQLSERVER_2022_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+
 // GTLRSQLAdmin_Backup.state
 NSString * const kGTLRSQLAdmin_Backup_State_Deleting           = @"DELETING";
 NSString * const kGTLRSQLAdmin_Backup_State_DeletionFailed     = @"DELETION_FAILED";
@@ -61,6 +109,54 @@ NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Physical   = @"PHYSICAL";
 NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot   = @"SNAPSHOT";
 NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_SqlBackupKindUnspecified = @"SQL_BACKUP_KIND_UNSPECIFIED";
 
+// GTLRSQLAdmin_BackupRun.databaseVersion
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql51 = @"MYSQL_5_1";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8029 = @"MYSQL_8_0_29";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8030 = @"MYSQL_8_0_30";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8031 = @"MYSQL_8_0_31";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8032 = @"MYSQL_8_0_32";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8033 = @"MYSQL_8_0_33";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8034 = @"MYSQL_8_0_34";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres10 = @"POSTGRES_10";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres11 = @"POSTGRES_11";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres14 = @"POSTGRES_14";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres16 = @"POSTGRES_16";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Enterprise = @"SQLSERVER_2022_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+
 // GTLRSQLAdmin_BackupRun.status
 NSString * const kGTLRSQLAdmin_BackupRun_Status_Deleted        = @"DELETED";
 NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionFailed = @"DELETION_FAILED";
@@ -77,6 +173,11 @@ NSString * const kGTLRSQLAdmin_BackupRun_Status_Successful     = @"SUCCESSFUL";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated        = @"AUTOMATED";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand         = @"ON_DEMAND";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified = @"SQL_BACKUP_RUN_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_ConnectionPoolConfig.poolMode
+NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_PoolModeUnspecified = @"POOL_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Session = @"SESSION";
+NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Transaction = @"TRANSACTION";
 
 // GTLRSQLAdmin_ConnectSettings.backendType
 NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_External = @"EXTERNAL";
@@ -195,6 +296,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Web
 // GTLRSQLAdmin_DatabaseInstance.instanceType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance = @"ON_PREMISES_INSTANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadPoolInstance = @"READ_POOL_INSTANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadReplicaInstance = @"READ_REPLICA_INSTANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInstanceTypeUnspecified = @"SQL_INSTANCE_TYPE_UNSPECIFIED";
 
@@ -209,6 +311,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintenance = @"MAINTENANC
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_OnlineMaintenance = @"ONLINE_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate = @"PENDING_CREATE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete = @"PENDING_DELETE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Repairing = @"REPAIRING";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Runnable = @"RUNNABLE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified = @"SQL_INSTANCE_STATE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Suspended = @"SUSPENDED";
@@ -291,6 +394,11 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Express = @"SQLSERVER
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
 
+// GTLRSQLAdmin_Flag.flagScope
+NSString * const kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeConnectionPool = @"SQL_FLAG_SCOPE_CONNECTION_POOL";
+NSString * const kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeDatabase = @"SQL_FLAG_SCOPE_DATABASE";
+NSString * const kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeUnspecified = @"SQL_FLAG_SCOPE_UNSPECIFIED";
+
 // GTLRSQLAdmin_Flag.type
 NSString * const kGTLRSQLAdmin_Flag_Type_Boolean               = @"BOOLEAN";
 NSString * const kGTLRSQLAdmin_Flag_Type_Float                 = @"FLOAT";
@@ -356,6 +464,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_ClusterMaintenance = @"CL
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Create  = @"CREATE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone = @"CREATE_CLONE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateDatabase = @"CREATE_DATABASE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateReadPool = @"CREATE_READ_POOL";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateReplica = @"CREATE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateUser = @"CREATE_USER";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_DeferMaintenance = @"DEFER_MAINTENANCE";
@@ -380,6 +489,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary = @
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Reencrypt = @"REENCRYPT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ReleaseSsrsLease = @"RELEASE_SSRS_LEASE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_RepairReadPool = @"REPAIR_READ_POOL";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance = @"RESCHEDULE_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart = @"RESTART";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume = @"RESTORE_VOLUME";
@@ -406,6 +516,17 @@ NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUnspecified = 
 // GTLRSQLAdmin_PasswordValidationPolicy.complexity
 NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityDefault = @"COMPLEXITY_DEFAULT";
 NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityUnspecified = @"COMPLEXITY_UNSPECIFIED";
+
+// GTLRSQLAdmin_PoolNodeConfig.state
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Failed     = @"FAILED";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Maintenance = @"MAINTENANCE";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_OnlineMaintenance = @"ONLINE_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_PendingCreate = @"PENDING_CREATE";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_PendingDelete = @"PENDING_DELETE";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Repairing  = @"REPAIRING";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Runnable   = @"RUNNABLE";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_SqlInstanceStateUnspecified = @"SQL_INSTANCE_STATE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Suspended  = @"SUSPENDED";
 
 // GTLRSQLAdmin_Reschedule.rescheduleType
 NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate = @"IMMEDIATE";
@@ -628,10 +749,11 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_Backup
-@dynamic backupInterval, backupKind, backupRun, descriptionProperty, error,
-         expiryTime, instance, instanceDeletionTime, instanceSettings, kind,
-         kmsKey, kmsKeyVersion, location, maxChargeableBytes, name,
-         satisfiesPzi, satisfiesPzs, selfLink, state, timeZone, ttlDays, type;
+@dynamic backupInterval, backupKind, backupRun, databaseVersion,
+         descriptionProperty, error, expiryTime, instance, instanceDeletionTime,
+         instanceSettings, kind, kmsKey, kmsKeyVersion, location,
+         maxChargeableBytes, name, satisfiesPzi, satisfiesPzs, selfLink, state,
+         timeZone, ttlDays, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -708,10 +830,11 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_BackupRun
-@dynamic backupKind, descriptionProperty, diskEncryptionConfiguration,
-         diskEncryptionStatus, endTime, enqueuedTime, error, identifier,
-         instance, kind, location, maxChargeableBytes, selfLink, startTime,
-         status, timeZone, type, windowStartTime;
+@dynamic backupKind, databaseVersion, descriptionProperty,
+         diskEncryptionConfiguration, diskEncryptionStatus, endTime,
+         enqueuedTime, error, identifier, instance, kind, location,
+         maxChargeableBytes, selfLink, startTime, status, timeZone, type,
+         windowStartTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -799,19 +922,69 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_ConnectionPoolConfig
+//
+
+@implementation GTLRSQLAdmin_ConnectionPoolConfig
+@dynamic clientConnectionIdleTimeout, connectionPoolingEnabled, connPoolSize,
+         flags, maxClientConnections, poolMode, queryWaitTimeout,
+         serverConnectionIdleTimeout;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"flags" : [GTLRSQLAdmin_ConnectionPoolFlags class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ConnectionPoolFlags
+//
+
+@implementation GTLRSQLAdmin_ConnectionPoolFlags
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ConnectPoolNodeConfig
+//
+
+@implementation GTLRSQLAdmin_ConnectPoolNodeConfig
+@dynamic dnsName, dnsNames, ipAddresses, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsNames" : [GTLRSQLAdmin_DnsNameMapping class],
+    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_ConnectSettings
 //
 
 @implementation GTLRSQLAdmin_ConnectSettings
 @dynamic backendType, customSubjectAlternativeNames, databaseVersion, dnsName,
-         dnsNames, ipAddresses, kind, pscEnabled, region, serverCaCert,
-         serverCaMode;
+         dnsNames, ipAddresses, kind, nodeCount, nodes, pscEnabled, region,
+         serverCaCert, serverCaMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"customSubjectAlternativeNames" : [NSString class],
     @"dnsNames" : [GTLRSQLAdmin_DnsNameMapping class],
-    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class]
+    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class],
+    @"nodes" : [GTLRSQLAdmin_ConnectPoolNodeConfig class]
   };
   return map;
 }
@@ -869,11 +1042,11 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          ETag, failoverReplica, gceZone, geminiConfig,
          includeReplicasForMajorVersionUpgrade, instanceType, ipAddresses,
          ipv6Address, kind, maintenanceVersion, masterInstanceName, maxDiskSize,
-         name, onPremisesConfiguration, outOfDiskReport, primaryDnsName,
-         project, pscServiceAttachmentLink, region, replicaConfiguration,
-         replicaNames, replicationCluster, rootPassword, satisfiesPzi,
-         satisfiesPzs, scheduledMaintenance, secondaryGceZone, selfLink,
-         serverCaCert, serviceAccountEmailAddress, settings,
+         name, nodeCount, nodes, onPremisesConfiguration, outOfDiskReport,
+         primaryDnsName, project, pscServiceAttachmentLink, region,
+         replicaConfiguration, replicaNames, replicationCluster, rootPassword,
+         satisfiesPzi, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
+         selfLink, serverCaCert, serviceAccountEmailAddress, settings,
          sqlNetworkArchitecture, state, suspensionReason,
          switchTransactionLogsToCloudStorageEnabled, tags,
          upgradableDatabaseVersions, writeEndpoint;
@@ -887,6 +1060,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
     @"availableMaintenanceVersions" : [NSString class],
     @"dnsNames" : [GTLRSQLAdmin_DnsNameMapping class],
     @"ipAddresses" : [GTLRSQLAdmin_IpMapping class],
+    @"nodes" : [GTLRSQLAdmin_PoolNodeConfig class],
     @"replicaNames" : [NSString class],
     @"suspensionReason" : [NSString class],
     @"upgradableDatabaseVersions" : [GTLRSQLAdmin_AvailableDatabaseVersion class]
@@ -1222,8 +1396,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_Flag
-@dynamic allowedIntValues, allowedStringValues, appliesTo, inBeta, kind,
-         maxValue, minValue, name, requiresRestart, type;
+@dynamic allowedIntValues, allowedStringValues, appliesTo, flagScope, inBeta,
+         kind, maxValue, minValue, name, recommendedIntValue,
+         recommendedStringValue, requiresRestart, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1899,6 +2074,25 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_PoolNodeConfig
+//
+
+@implementation GTLRSQLAdmin_PoolNodeConfig
+@dynamic dnsName, dnsNames, gceZone, ipAddresses, name, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsNames" : [GTLRSQLAdmin_DnsNameMapping class],
+    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_PscAutoConnectionConfig
 //
 
@@ -2033,15 +2227,17 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_Settings
 @dynamic activationPolicy, activeDirectoryConfig, advancedMachineFeatures,
          authorizedGaeApplications, availabilityType, backupConfiguration,
-         collation, connectorEnforcement, crashSafeReplicationEnabled,
-         databaseFlags, databaseReplicationEnabled, dataCacheConfig,
-         dataDiskSizeGb, dataDiskType, deletionProtectionEnabled,
-         denyMaintenancePeriods, edition, enableDataplexIntegration,
-         enableGoogleMlIntegration, insightsConfig, ipConfiguration, kind,
-         locationPreference, maintenanceWindow, passwordValidationPolicy,
-         pricingPlan, replicationLagMaxSeconds, replicationType,
-         retainBackupsOnDelete, settingsVersion, sqlServerAuditConfig,
-         storageAutoResize, storageAutoResizeLimit, tier, timeZone, userLabels;
+         collation, connectionPoolConfig, connectorEnforcement,
+         crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
+         dataCacheConfig, dataDiskProvisionedIops,
+         dataDiskProvisionedThroughput, dataDiskSizeGb, dataDiskType,
+         deletionProtectionEnabled, denyMaintenancePeriods, edition,
+         enableDataplexIntegration, enableGoogleMlIntegration, insightsConfig,
+         ipConfiguration, kind, locationPreference, maintenanceWindow,
+         passwordValidationPolicy, pricingPlan, replicationLagMaxSeconds,
+         replicationType, retainBackupsOnDelete, settingsVersion,
+         sqlServerAuditConfig, storageAutoResize, storageAutoResizeLimit, tier,
+         timeZone, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

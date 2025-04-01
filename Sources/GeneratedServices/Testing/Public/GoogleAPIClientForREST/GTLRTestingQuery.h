@@ -482,6 +482,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @property(nonatomic, copy, nullable) NSString *environmentType;
 
 /**
+ *  Optional. Whether to include viewable only models in the response. This is
+ *  only applicable for Android models.
+ */
+@property(nonatomic, assign) BOOL includeViewableModels;
+
+/**
  *  For authorization, the cloud project requesting the TestEnvironmentCatalog.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;

@@ -198,6 +198,11 @@ NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_TypeUnspecified
 NSString * const kGTLRSpanner_RestoreInfo_SourceType_Backup    = @"BACKUP";
 NSString * const kGTLRSpanner_RestoreInfo_SourceType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRSpanner_TransactionOptions.isolationLevel
+NSString * const kGTLRSpanner_TransactionOptions_IsolationLevel_IsolationLevelUnspecified = @"ISOLATION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRSpanner_TransactionOptions_IsolationLevel_RepeatableRead = @"REPEATABLE_READ";
+NSString * const kGTLRSpanner_TransactionOptions_IsolationLevel_Serializable = @"SERIALIZABLE";
+
 // GTLRSpanner_Type.code
 NSString * const kGTLRSpanner_Type_Code_Array               = @"ARRAY";
 NSString * const kGTLRSpanner_Type_Code_Bool                = @"BOOL";
@@ -1939,7 +1944,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_PartialResultSet
-@dynamic chunkedValue, metadata, precommitToken, resumeToken, stats, values;
+@dynamic chunkedValue, last, metadata, precommitToken, resumeToken, stats,
+         values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2673,7 +2679,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_TransactionOptions
-@dynamic excludeTxnFromChangeStreams, partitionedDml, readOnly, readWrite;
+@dynamic excludeTxnFromChangeStreams, isolationLevel, partitionedDml, readOnly,
+         readWrite;
 @end
 
 

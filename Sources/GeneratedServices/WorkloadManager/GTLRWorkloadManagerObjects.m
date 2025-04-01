@@ -1213,7 +1213,15 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount
-@dynamic mountPoint, name;
+@dynamic diskNames, mountPoint, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"diskNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

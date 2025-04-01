@@ -754,6 +754,25 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_OrganizationsLocationsInfoTypesList
+
+@dynamic filter, languageCode, locationId, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/infoTypes";
+  GTLRDLPQuery_OrganizationsLocationsInfoTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse class];
+  query.loggingName = @"dlp.organizations.locations.infoTypes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate
 
 @dynamic parent;
@@ -2587,6 +2606,25 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2RedactImageResponse class];
   query.loggingName = @"dlp.projects.locations.image.redact";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsInfoTypesList
+
+@dynamic filter, languageCode, locationId, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/infoTypes";
+  GTLRDLPQuery_ProjectsLocationsInfoTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse class];
+  query.loggingName = @"dlp.projects.locations.infoTypes.list";
   return query;
 }
 

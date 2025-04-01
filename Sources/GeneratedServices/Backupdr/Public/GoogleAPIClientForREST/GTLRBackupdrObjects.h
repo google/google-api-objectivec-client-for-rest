@@ -2313,6 +2313,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupConsistencyTime;
 
+/**
+ *  Output only. If the last log backup were successful, this field has the
+ *  consistency date.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulLogBackupConsistencyTime;
+
 @end
 
 

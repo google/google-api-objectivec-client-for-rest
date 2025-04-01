@@ -472,7 +472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan
 /**
  *  This mode returns the query plan, overall execution statistics, operator
  *  level execution statistics along with the results. This has a performance
- *  overhead compared to the other modes. It is not recommended to use this mode
+ *  overhead compared to the other modes. It isn't recommended to use this mode
  *  for production traffic.
  *
  *  Value: "PROFILE"
@@ -851,8 +851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_User;
  *  transactions try to act on the same data, they automatically get serialized.
  *  Each transaction waits its turn to acquire the lock and avoids getting into
  *  deadlock situations. Because the exclusive lock hint is just a hint, it
- *  should not be considered equivalent to a mutex. In other words, you should
- *  not use Spanner exclusive locks as a mutual exclusion mechanism for the
+ *  shouldn't be considered equivalent to a mutex. In other words, you shouldn't
+ *  use Spanner exclusive locks as a mutual exclusion mechanism for the
  *  execution of code outside of Spanner. **Note:** Request exclusive locks
  *  judiciously because they block others from reading that data for the entire
  *  transaction, rather than just when the writes are being performed. Unless
@@ -876,7 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintExc
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintShared;
 /**
- *  Default value. LOCK_HINT_UNSPECIFIED is equivalent to LOCK_HINT_SHARED.
+ *  Default value. `LOCK_HINT_UNSPECIFIED` is equivalent to `LOCK_HINT_SHARED`.
  *
  *  Value: "LOCK_HINT_UNSPECIFIED"
  */
@@ -893,14 +893,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintUns
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByNoOrder;
 /**
  *  Read rows are returned in primary key order. In the event that this option
- *  is used in conjunction with the `partition_token` field, the API will return
- *  an `INVALID_ARGUMENT` error.
+ *  is used in conjunction with the `partition_token` field, the API returns an
+ *  `INVALID_ARGUMENT` error.
  *
  *  Value: "ORDER_BY_PRIMARY_KEY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByPrimaryKey;
 /**
- *  Default value. ORDER_BY_UNSPECIFIED is equivalent to ORDER_BY_PRIMARY_KEY.
+ *  Default value. `ORDER_BY_UNSPECIFIED` is equivalent to
+ *  `ORDER_BY_PRIMARY_KEY`.
  *
  *  Value: "ORDER_BY_UNSPECIFIED"
  */
@@ -913,19 +914,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByUnspe
  *  Optimistic lock mode. Locks for reads within the transaction are not
  *  acquired on read. Instead the locks are acquired on a commit to validate
  *  that read/queried data has not changed since the transaction started.
+ *  Semantics described only applies to SERIALIZABLE isolation.
  *
  *  Value: "OPTIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic;
 /**
  *  Pessimistic lock mode. Read locks are acquired immediately on read.
+ *  Semantics described only applies to SERIALIZABLE isolation.
  *
  *  Value: "PESSIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic;
 /**
- *  Default value. If the value is not specified, the pessimistic read lock is
- *  used.
+ *  Default value. * If isolation level is REPEATABLE_READ, then it is an error
+ *  to specify `read_lock_mode`. Locking semantics default to `OPTIMISTIC`. No
+ *  validation checks are done for reads, except to validate that the data that
+ *  was served at the snapshot time is unchanged at commit time in the following
+ *  cases: 1. reads done as part of queries that use `SELECT FOR UPDATE` 2.
+ *  reads done as part of statements with a `LOCK_SCANNED_RANGES` hint 3. reads
+ *  done as part of DML statements * At all other isolation levels, if
+ *  `read_lock_mode` is the default value, then pessimistic read locks are used.
  *
  *  Value: "READ_LOCK_MODE_UNSPECIFIED"
  */
@@ -1077,6 +1086,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreInfo_SourceType_Backup;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreInfo_SourceType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_TransactionOptions.isolationLevel
+
+/**
+ *  Default value. If the value is not specified, the `SERIALIZABLE` isolation
+ *  level is used.
+ *
+ *  Value: "ISOLATION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_TransactionOptions_IsolationLevel_IsolationLevelUnspecified;
+/**
+ *  All reads performed during the transaction observe a consistent snapshot of
+ *  the database, and the transaction will only successfully commit in the
+ *  absence of conflicts between its updates and any concurrent updates that
+ *  have occurred since that snapshot. Consequently, in contrast to
+ *  `SERIALIZABLE` transactions, only write-write conflicts are detected in
+ *  snapshot transactions. This isolation level does not support Read-only and
+ *  Partitioned DML transactions. When `REPEATABLE_READ` is specified on a
+ *  read-write transaction, the locking semantics default to `OPTIMISTIC`.
+ *
+ *  Value: "REPEATABLE_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_TransactionOptions_IsolationLevel_RepeatableRead;
+/**
+ *  All transactions appear as if they executed in a serial order, even if some
+ *  of the reads, writes, and other operations of distinct transactions actually
+ *  occurred in parallel. Spanner assigns commit timestamps that reflect the
+ *  order of committed transactions to implement this property. Spanner offers a
+ *  stronger guarantee than serializability called external consistency. For
+ *  further details, please refer to
+ *  https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability.
+ *
+ *  Value: "SERIALIZABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_TransactionOptions_IsolationLevel_Serializable;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Type.code
@@ -1825,15 +1870,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Required. The number of sessions to be created in this batch call. The API
- *  may return fewer than the requested number of sessions. If a specific number
+ *  can return fewer than the requested number of sessions. If a specific number
  *  of sessions are desired, the client can make additional calls to
- *  BatchCreateSessions (adjusting session_count as necessary).
+ *  `BatchCreateSessions` (adjusting session_count as necessary).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sessionCount;
 
-/** Parameters to be applied to each created session. */
+/** Parameters to apply to each created session. */
 @property(nonatomic, strong, nullable) GTLRSpanner_Session *sessionTemplate;
 
 @end
@@ -1857,14 +1902,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Optional. When `exclude_txn_from_change_streams` is set to `true`: *
- *  Modifications from all transactions in this batch write operation will not
- *  be recorded in change streams with DDL option `allow_txn_exclusion=true`
- *  that are tracking columns modified by these transactions. * Modifications
- *  from all transactions in this batch write operation will be recorded in
- *  change streams with DDL option `allow_txn_exclusion=false or not set` that
- *  are tracking columns modified by these transactions. When
+ *  Modifications from all transactions in this batch write operation are not be
+ *  recorded in change streams with DDL option `allow_txn_exclusion=true` that
+ *  are tracking columns modified by these transactions. * Modifications from
+ *  all transactions in this batch write operation are recorded in change
+ *  streams with DDL option `allow_txn_exclusion=false or not set` that are
+ *  tracking columns modified by these transactions. When
  *  `exclude_txn_from_change_streams` is set to `false` or not set,
- *  Modifications from all transactions in this batch write operation will be
+ *  Modifications from all transactions in this batch write operation are
  *  recorded in all change streams that are tracking columns modified by these
  *  transactions.
  *
@@ -1913,9 +1958,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Optional. Required for read-write transactions on a multiplexed session that
- *  commit mutations but do not perform any reads or queries. Clients should
- *  randomly select one of the mutations from the mutation set and send it as a
- *  part of this request.
+ *  commit mutations but don't perform any reads or queries. You must randomly
+ *  select one of the mutations from the mutation set and send it as a part of
+ *  this request.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Mutation *mutationKey;
 
@@ -1924,9 +1969,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Common options for this request. Priority is ignored for this request.
- *  Setting the priority in this request_options struct will not do anything. To
- *  set the priority for a transaction, set it on the reads and writes that are
- *  part of this transaction instead.
+ *  Setting the priority in this `request_options` struct doesn't do anything.
+ *  To set the priority for a transaction, set it on the reads and writes that
+ *  are part of this transaction instead.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
 
@@ -2107,8 +2152,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Optional. The amount of latency this request is configured to incur in order
- *  to improve throughput. If this field is not set, Spanner assumes requests
- *  are relatively latency sensitive and automatically determines an appropriate
+ *  to improve throughput. If this field isn't set, Spanner assumes requests are
+ *  relatively latency sensitive and automatically determines an appropriate
  *  delay time. You can specify a commit delay value between 0 and 500 ms.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxCommitDelay;
@@ -2121,9 +2166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Optional. If the read-write transaction was executed on a multiplexed
- *  session, the precommit token with the highest sequence number received in
- *  this transaction attempt, should be included here. Failing to do so will
- *  result in a FailedPrecondition error.
+ *  session, then you must include the precommit token with the highest sequence
+ *  number received in this transaction attempt. Failing to do so results in a
+ *  `FailedPrecondition` error.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_MultiplexedSessionPrecommitToken *precommitToken;
 
@@ -2131,8 +2176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
 
 /**
- *  If `true`, then statistics related to the transaction will be included in
- *  the CommitResponse. Default value is `false`.
+ *  If `true`, then statistics related to the transaction is included in the
+ *  CommitResponse. Default value is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2143,7 +2188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  previously-started transaction, commit with a temporary transaction is
  *  non-idempotent. That is, if the `CommitRequest` is sent to Cloud Spanner
  *  more than once (for instance, due to retries in the application, or in the
- *  transport library), it is possible that the mutations are executed more than
+ *  transport library), it's possible that the mutations are executed more than
  *  once. If this is undesirable, use BeginTransaction and Commit instead.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_TransactionOptions *singleUseTransaction;
@@ -2165,7 +2210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_CommitResponse : GTLRObject
 
 /**
- *  The statistics about this Commit. Not returned by default. For more
+ *  The statistics about this `Commit`. Not returned by default. For more
  *  information, see CommitRequest.return_commit_stats.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_CommitStats *commitStats;
@@ -2174,8 +2219,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTimestamp;
 
 /**
- *  If specified, transaction has not committed yet. Clients must retry the
- *  commit with the new precommit token.
+ *  If specified, transaction has not committed yet. You must retry the commit
+ *  with the new precommit token.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_MultiplexedSessionPrecommitToken *precommitToken;
 
@@ -2990,26 +3035,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  The DirectedReadOptions can be used to indicate which replicas or regions
- *  should be used for non-transactional reads or queries. DirectedReadOptions
- *  may only be specified for a read-only transaction, otherwise the API will
- *  return an `INVALID_ARGUMENT` error.
+ *  The `DirectedReadOptions` can be used to indicate which replicas or regions
+ *  should be used for non-transactional reads or queries. `DirectedReadOptions`
+ *  can only be specified for a read-only transaction, otherwise the API returns
+ *  an `INVALID_ARGUMENT` error.
  */
 @interface GTLRSpanner_DirectedReadOptions : GTLRObject
 
 /**
- *  Exclude_replicas indicates that specified replicas should be excluded from
- *  serving requests. Spanner will not route requests to the replicas in this
+ *  `Exclude_replicas` indicates that specified replicas should be excluded from
+ *  serving requests. Spanner doesn't route requests to the replicas in this
  *  list.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ExcludeReplicas *excludeReplicas;
 
 /**
- *  Include_replicas indicates the order of replicas (as they appear in this
- *  list) to process the request. If auto_failover_disabled is set to true and
- *  all replicas are exhausted without finding a healthy replica, Spanner will
- *  wait for a replica in the list to become available, requests may fail due to
- *  `DEADLINE_EXCEEDED` errors.
+ *  `Include_replicas` indicates the order of replicas (as they appear in this
+ *  list) to process the request. If `auto_failover_disabled` is set to `true`
+ *  and all replicas are exhausted without finding a healthy replica, Spanner
+ *  waits for a replica in the list to become available, requests might fail due
+ *  to `DEADLINE_EXCEEDED` errors.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_IncludeReplicas *includeReplicas;
 
@@ -3122,13 +3167,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_ExecuteBatchDmlRequest : GTLRObject
 
 /**
- *  Optional. If set to true, this request marks the end of the transaction. The
- *  transaction should be committed or aborted after these statements execute,
- *  and attempts to execute any other requests against this transaction
- *  (including reads and queries) will be rejected. Setting this option may
- *  cause some error reporting to be deferred until commit time (e.g. validation
- *  of unique constraints). Given this, successful execution of statements
- *  should not be assumed until a subsequent Commit call completes successfully.
+ *  Optional. If set to `true`, this request marks the end of the transaction.
+ *  After these statements execute, you must commit or abort the transaction.
+ *  Attempts to execute any other requests against this transaction (including
+ *  reads and queries) are rejected. Setting this option might cause some error
+ *  reporting to be deferred until commit time (for example, validation of
+ *  unique constraints). Given this, successful execution of statements
+ *  shouldn't be assumed until a subsequent `Commit` call completes
+ *  successfully.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3140,10 +3186,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  Required. A per-transaction sequence number used to identify this request.
  *  This field makes each request idempotent such that if the request is
- *  received multiple times, at most one will succeed. The sequence number must
- *  be monotonically increasing within the transaction. If a request arrives for
- *  the first time with an out-of-order sequence number, the transaction may be
- *  aborted. Replays of previously handled requests will yield the same response
+ *  received multiple times, at most one succeeds. The sequence number must be
+ *  monotonically increasing within the transaction. If a request arrives for
+ *  the first time with an out-of-order sequence number, the transaction might
+ *  be aborted. Replays of previously handled requests yield the same response
  *  as the first execution.
  *
  *  Uses NSNumber of longLongValue.
@@ -3190,8 +3236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_ExecuteBatchDmlResponse : GTLRObject
 
 /**
- *  Optional. A precommit token will be included if the read-write transaction
- *  is on a multiplexed session. The precommit token with the highest sequence
+ *  Optional. A precommit token is included if the read-write transaction is on
+ *  a multiplexed session. Pass the precommit token with the highest sequence
  *  number from this transaction attempt should be passed to the Commit request
  *  for this transaction.
  */
@@ -3223,8 +3269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  If this is for a partitioned query and this field is set to `true`, the
  *  request is executed with Spanner Data Boost independent compute resources.
- *  If the field is set to `true` but the request does not set
- *  `partition_token`, the API returns an `INVALID_ARGUMENT` error.
+ *  If the field is set to `true` but the request doesn't set `partition_token`,
+ *  the API returns an `INVALID_ARGUMENT` error.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3234,14 +3280,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRSpanner_DirectedReadOptions *directedReadOptions;
 
 /**
- *  Optional. If set to true, this statement marks the end of the transaction.
- *  The transaction should be committed or aborted after this statement
- *  executes, and attempts to execute any other requests against this
- *  transaction (including reads and queries) will be rejected. For DML
- *  statements, setting this option may cause some error reporting to be
- *  deferred until commit time (e.g. validation of unique constraints). Given
- *  this, successful execution of a DML statement should not be assumed until a
- *  subsequent Commit call completes successfully.
+ *  Optional. If set to `true`, this statement marks the end of the transaction.
+ *  After this statement executes, you must commit or abort the transaction.
+ *  Attempts to execute any other requests against this transaction (including
+ *  reads and queries) are rejected. For DML statements, setting this option
+ *  might cause some error reporting to be deferred until commit time (for
+ *  example, validation of unique constraints). Given this, successful execution
+ *  of a DML statement shouldn't be assumed until a subsequent `Commit` call
+ *  completes successfully.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3255,26 +3301,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  https://cloud.google.com/spanner/docs/lexical#identifiers. Parameters can
  *  appear anywhere that a literal value is expected. The same parameter name
  *  can be used more than once, for example: `"WHERE id > \@msg_id AND id <
- *  \@msg_id + 100"` It is an error to execute a SQL statement with unbound
+ *  \@msg_id + 100"` It's an error to execute a SQL statement with unbound
  *  parameters.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ExecuteSqlRequest_Params *params;
 
 /**
- *  It is not always possible for Cloud Spanner to infer the right SQL type from
+ *  It isn't always possible for Cloud Spanner to infer the right SQL type from
  *  a JSON value. For example, values of type `BYTES` and values of type
- *  `STRING` both appear in params as JSON strings. In these cases,
- *  `param_types` can be used to specify the exact SQL type for some or all of
- *  the SQL statement parameters. See the definition of Type for more
- *  information about SQL types.
+ *  `STRING` both appear in params as JSON strings. In these cases, you can use
+ *  `param_types` to specify the exact SQL type for some or all of the SQL
+ *  statement parameters. See the definition of Type for more information about
+ *  SQL types.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ExecuteSqlRequest_ParamTypes *paramTypes;
 
 /**
- *  If present, results will be restricted to the specified partition previously
- *  created using PartitionQuery(). There must be an exact match for the values
- *  of fields common to this message and the PartitionQueryRequest message used
- *  to create this partition_token.
+ *  If present, results are restricted to the specified partition previously
+ *  created using `PartitionQuery`. There must be an exact match for the values
+ *  of fields common to this message and the `PartitionQueryRequest` message
+ *  used to create this `partition_token`.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3295,8 +3341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *    @arg @c kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile This mode returns
  *        the query plan, overall execution statistics, operator level execution
  *        statistics along with the results. This has a performance overhead
- *        compared to the other modes. It is not recommended to use this mode
- *        for production traffic. (Value: "PROFILE")
+ *        compared to the other modes. It isn't recommended to use this mode for
+ *        production traffic. (Value: "PROFILE")
  *    @arg @c kGTLRSpanner_ExecuteSqlRequest_QueryMode_WithPlanAndStats This
  *        mode returns the query plan, overall (but not operator-level)
  *        execution statistics along with the results. (Value:
@@ -3328,11 +3374,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  A per-transaction sequence number used to identify this request. This field
  *  makes each request idempotent such that if the request is received multiple
- *  times, at most one will succeed. The sequence number must be monotonically
+ *  times, at most one succeeds. The sequence number must be monotonically
  *  increasing within the transaction. If a request arrives for the first time
- *  with an out-of-order sequence number, the transaction may be aborted.
- *  Replays of previously handled requests will yield the same response as the
- *  first execution. Required for DML statements. Ignored for queries.
+ *  with an out-of-order sequence number, the transaction can be aborted.
+ *  Replays of previously handled requests yield the same response as the first
+ *  execution. Required for DML statements. Ignored for queries.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3362,7 +3408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  https://cloud.google.com/spanner/docs/lexical#identifiers. Parameters can
  *  appear anywhere that a literal value is expected. The same parameter name
  *  can be used more than once, for example: `"WHERE id > \@msg_id AND id <
- *  \@msg_id + 100"` It is an error to execute a SQL statement with unbound
+ *  \@msg_id + 100"` It's an error to execute a SQL statement with unbound
  *  parameters.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -3375,12 +3421,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  It is not always possible for Cloud Spanner to infer the right SQL type from
+ *  It isn't always possible for Cloud Spanner to infer the right SQL type from
  *  a JSON value. For example, values of type `BYTES` and values of type
- *  `STRING` both appear in params as JSON strings. In these cases,
- *  `param_types` can be used to specify the exact SQL type for some or all of
- *  the SQL statement parameters. See the definition of Type for more
- *  information about SQL types.
+ *  `STRING` both appear in params as JSON strings. In these cases, you can use
+ *  `param_types` to specify the exact SQL type for some or all of the SQL
+ *  statement parameters. See the definition of Type for more information about
+ *  SQL types.
  *
  *  @note This class is documented as having more properties of
  *        GTLRSpanner_Type. Use @c -additionalJSONKeys and @c
@@ -3574,15 +3620,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  An IncludeReplicas contains a repeated set of ReplicaSelection which
+ *  An `IncludeReplicas` contains a repeated set of `ReplicaSelection` which
  *  indicates the order in which replicas should be considered.
  */
 @interface GTLRSpanner_IncludeReplicas : GTLRObject
 
 /**
- *  If true, Spanner will not route requests to a replica outside the
- *  include_replicas list when all of the specified replicas are unavailable or
- *  unhealthy. Default value is `false`.
+ *  If `true`, Spanner doesn't route requests to a replica outside the
+ *  <`include_replicas` list when all of the specified replicas are unavailable
+ *  or unhealthy. Default value is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5038,9 +5084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  When a read-write transaction is executed on a multiplexed session, this
- *  precommit token is sent back to the client as a part of the [Transaction]
- *  message in the BeginTransaction response and also as a part of the
- *  [ResultSet] and [PartialResultSet] responses.
+ *  precommit token is sent back to the client as a part of the Transaction
+ *  message in the BeginTransaction response and also as a part of the ResultSet
+ *  and PartialResultSet responses.
  */
 @interface GTLRSpanner_MultiplexedSessionPrecommitToken : GTLRObject
 
@@ -5265,16 +5311,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSNumber *chunkedValue;
 
 /**
+ *  Optional. Indicates whether this is the last `PartialResultSet` in the
+ *  stream. The server might optionally set this field. Clients shouldn't rely
+ *  on this field being set in all cases.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last;
+
+/**
  *  Metadata about the result set, such as row type information. Only present in
  *  the first response.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ResultSetMetadata *metadata;
 
 /**
- *  Optional. A precommit token will be included if the read-write transaction
- *  is on a multiplexed session. The precommit token with the highest sequence
- *  number from this transaction attempt should be passed to the Commit request
- *  for this transaction.
+ *  Optional. A precommit token is included if the read-write transaction has
+ *  multiplexed sessions enabled. Pass the precommit token with the highest
+ *  sequence number from this transaction attempt to the Commit request for this
+ *  transaction.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_MultiplexedSessionPrecommitToken *precommitToken;
 
@@ -5293,7 +5348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Query plan and execution statistics for the statement that produced this
  *  streaming result set. These can be requested by setting
  *  ExecuteSqlRequest.query_mode and are sent only once with the last response
- *  in the stream. This field will also be present in the last response for DML
+ *  in the stream. This field is also present in the last response for DML
  *  statements.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ResultSetStats *stats;
@@ -5303,39 +5358,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  into many `PartialResultSet` messages to accommodate large rows and/or large
  *  values. Every N complete values defines a row, where N is equal to the
  *  number of entries in metadata.row_type.fields. Most values are encoded based
- *  on type as described here. It is possible that the last value in values is
+ *  on type as described here. It's possible that the last value in values is
  *  "chunked", meaning that the rest of the value is sent in subsequent
  *  `PartialResultSet`(s). This is denoted by the chunked_value field. Two or
  *  more chunked values can be merged to form a complete value as follows: *
- *  `bool/number/null`: cannot be chunked * `string`: concatenate the strings *
+ *  `bool/number/null`: can't be chunked * `string`: concatenate the strings *
  *  `list`: concatenate the lists. If the last element in a list is a `string`,
  *  `list`, or `object`, merge it with the first element in the next list by
  *  applying these rules recursively. * `object`: concatenate the (field name,
  *  field value) pairs. If a field name is duplicated, then apply these rules
- *  recursively to merge the field values. Some examples of merging: # Strings
- *  are concatenated. "foo", "bar" => "foobar" # Lists of non-strings are
- *  concatenated. [2, 3], [4] => [2, 3, 4] # Lists are concatenated, but the
- *  last and first elements are merged # because they are strings. ["a", "b"],
- *  ["c", "d"] => ["a", "bc", "d"] # Lists are concatenated, but the last and
- *  first elements are merged # because they are lists. Recursively, the last
- *  and first elements # of the inner lists are merged because they are strings.
- *  ["a", ["b", "c"]], [["d"], "e"] => ["a", ["b", "cd"], "e"] # Non-overlapping
- *  object fields are combined. {"a": "1"}, {"b": "2"} => {"a": "1", "b": 2"} #
- *  Overlapping object fields are merged. {"a": "1"}, {"a": "2"} => {"a": "12"}
- *  # Examples of merging objects containing lists of strings. {"a": ["1"]},
- *  {"a": ["2"]} => {"a": ["12"]} For a more complete example, suppose a
- *  streaming SQL query is yielding a result set whose rows contain a single
- *  string field. The following `PartialResultSet`s might be yielded: {
- *  "metadata": { ... } "values": ["Hello", "W"] "chunked_value": true
- *  "resume_token": "Af65..." } { "values": ["orl"] "chunked_value": true } {
- *  "values": ["d"] "resume_token": "Zx1B..." } This sequence of
- *  `PartialResultSet`s encodes two rows, one containing the field value
- *  `"Hello"`, and a second containing the field value `"World" = "W" + "orl" +
- *  "d"`. Not all `PartialResultSet`s contain a `resume_token`. Execution can
- *  only be resumed from a previously yielded `resume_token`. For the above
- *  sequence of `PartialResultSet`s, resuming the query with `"resume_token":
- *  "Af65..."` will yield results from the `PartialResultSet` with value
- *  `["orl"]`.
+ *  recursively to merge the field values. Some examples of merging: Strings are
+ *  concatenated. "foo", "bar" => "foobar" Lists of non-strings are
+ *  concatenated. [2, 3], [4] => [2, 3, 4] Lists are concatenated, but the last
+ *  and first elements are merged because they are strings. ["a", "b"], ["c",
+ *  "d"] => ["a", "bc", "d"] Lists are concatenated, but the last and first
+ *  elements are merged because they are lists. Recursively, the last and first
+ *  elements of the inner lists are merged because they are strings. ["a", ["b",
+ *  "c"]], [["d"], "e"] => ["a", ["b", "cd"], "e"] Non-overlapping object fields
+ *  are combined. {"a": "1"}, {"b": "2"} => {"a": "1", "b": 2"} Overlapping
+ *  object fields are merged. {"a": "1"}, {"a": "2"} => {"a": "12"} Examples of
+ *  merging objects containing lists of strings. {"a": ["1"]}, {"a": ["2"]} =>
+ *  {"a": ["12"]} For a more complete example, suppose a streaming SQL query is
+ *  yielding a result set whose rows contain a single string field. The
+ *  following `PartialResultSet`s might be yielded: { "metadata": { ... }
+ *  "values": ["Hello", "W"] "chunked_value": true "resume_token": "Af65..." } {
+ *  "values": ["orl"] "chunked_value": true } { "values": ["d"] "resume_token":
+ *  "Zx1B..." } This sequence of `PartialResultSet`s encodes two rows, one
+ *  containing the field value `"Hello"`, and a second containing the field
+ *  value `"World" = "W" + "orl" + "d"`. Not all `PartialResultSet`s contain a
+ *  `resume_token`. Execution can only be resumed from a previously yielded
+ *  `resume_token`. For the above sequence of `PartialResultSet`s, resuming the
+ *  query with `"resume_token": "Af65..."` yields results from the
+ *  `PartialResultSet` with value "orl".
  *
  *  Can be any valid JSON type.
  */
@@ -5350,9 +5404,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_Partition : GTLRObject
 
 /**
- *  This token can be passed to Read, StreamingRead, ExecuteSql, or
- *  ExecuteStreamingSql requests to restrict the results to those identified by
- *  this partition token.
+ *  This token can be passed to `Read`, `StreamingRead`, `ExecuteSql`, or
+ *  `ExecuteStreamingSql` requests to restrict the results to those identified
+ *  by this partition token.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5370,27 +5424,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  Options for a PartitionQueryRequest and PartitionReadRequest.
+ *  Options for a `PartitionQueryRequest` and `PartitionReadRequest`.
  */
 @interface GTLRSpanner_PartitionOptions : GTLRObject
 
 /**
- *  **Note:** This hint is currently ignored by PartitionQuery and PartitionRead
- *  requests. The desired maximum number of partitions to return. For example,
- *  this may be set to the number of workers available. The default for this
- *  option is currently 10,000. The maximum value is currently 200,000. This is
- *  only a hint. The actual number of partitions returned may be smaller or
- *  larger than this maximum count request.
+ *  **Note:** This hint is currently ignored by `PartitionQuery` and
+ *  `PartitionRead` requests. The desired maximum number of partitions to
+ *  return. For example, this might be set to the number of workers available.
+ *  The default for this option is currently 10,000. The maximum value is
+ *  currently 200,000. This is only a hint. The actual number of partitions
+ *  returned can be smaller or larger than this maximum count request.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxPartitions;
 
 /**
- *  **Note:** This hint is currently ignored by PartitionQuery and PartitionRead
- *  requests. The desired data size for each partition generated. The default
- *  for this option is currently 1 GiB. This is only a hint. The actual size of
- *  each partition may be smaller or larger than this size request.
+ *  **Note:** This hint is currently ignored by `PartitionQuery` and
+ *  `PartitionRead` requests. The desired data size for each partition
+ *  generated. The default for this option is currently 1 GiB. This is only a
+ *  hint. The actual size of each partition can be smaller or larger than this
+ *  size request.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5410,13 +5465,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  parameter name (for example, `\@firstName`). Parameter names can contain
  *  letters, numbers, and underscores. Parameters can appear anywhere that a
  *  literal value is expected. The same parameter name can be used more than
- *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It is an
+ *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It's an
  *  error to execute a SQL statement with unbound parameters.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_PartitionQueryRequest_Params *params;
 
 /**
- *  It is not always possible for Cloud Spanner to infer the right SQL type from
+ *  It isn't always possible for Cloud Spanner to infer the right SQL type from
  *  a JSON value. For example, values of type `BYTES` and values of type
  *  `STRING` both appear in params as JSON strings. In these cases,
  *  `param_types` can be used to specify the exact SQL type for some or all of
@@ -5430,20 +5485,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Required. The query request to generate partitions for. The request fails if
- *  the query is not root partitionable. For a query to be root partitionable,
- *  it needs to satisfy a few conditions. For example, if the query execution
- *  plan contains a distributed union operator, then it must be the first
- *  operator in the plan. For more information about other conditions, see [Read
- *  data in
+ *  the query isn't root partitionable. For a query to be root partitionable, it
+ *  needs to satisfy a few conditions. For example, if the query execution plan
+ *  contains a distributed union operator, then it must be the first operator in
+ *  the plan. For more information about other conditions, see [Read data in
  *  parallel](https://cloud.google.com/spanner/docs/reads#read_data_in_parallel).
  *  The query request must not contain DML commands, such as `INSERT`, `UPDATE`,
- *  or `DELETE`. Use `ExecuteStreamingSql` with a PartitionedDml transaction for
- *  large, partition-friendly DML operations.
+ *  or `DELETE`. Use `ExecuteStreamingSql` with a `PartitionedDml` transaction
+ *  for large, partition-friendly DML operations.
  */
 @property(nonatomic, copy, nullable) NSString *sql;
 
 /**
- *  Read only snapshot transactions are supported, read/write and single use
+ *  Read-only snapshot transactions are supported, read and write and single-use
  *  transactions are not.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_TransactionSelector *transaction;
@@ -5457,7 +5511,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  parameter name (for example, `\@firstName`). Parameter names can contain
  *  letters, numbers, and underscores. Parameters can appear anywhere that a
  *  literal value is expected. The same parameter name can be used more than
- *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It is an
+ *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It's an
  *  error to execute a SQL statement with unbound parameters.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -5470,7 +5524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  It is not always possible for Cloud Spanner to infer the right SQL type from
+ *  It isn't always possible for Cloud Spanner to infer the right SQL type from
  *  a JSON value. For example, values of type `BYTES` and values of type
  *  `STRING` both appear in params as JSON strings. In these cases,
  *  `param_types` can be used to specify the exact SQL type for some or all of
@@ -5504,8 +5558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  Required. `key_set` identifies the rows to be yielded. `key_set` names the
  *  primary keys of the rows in table to be yielded, unless index is present. If
- *  index is present, then key_set instead names index keys in index. It is not
- *  an error for the `key_set` to name rows that do not exist in the database.
+ *  index is present, then key_set instead names index keys in index. It isn't
+ *  an error for the `key_set` to name rows that don't exist in the database.
  *  Read yields nothing for nonexistent rows.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_KeySet *keySet;
@@ -5787,11 +5841,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  statistics package. Specifying `latest` as a value instructs Cloud Spanner
  *  to use the latest generated statistics package. If not specified, Cloud
  *  Spanner uses the statistics package set at the database level options, or
- *  the latest package if the database option is not set. The statistics package
+ *  the latest package if the database option isn't set. The statistics package
  *  requested by the query has to be exempt from garbage collection. This can be
- *  achieved with the following DDL statement: ``` ALTER STATISTICS SET OPTIONS
- *  (allow_gc=false) ``` The list of available statistics packages can be
- *  queried from `INFORMATION_SCHEMA.SPANNER_STATISTICS`. Executing a SQL
+ *  achieved with the following DDL statement: ```sql ALTER STATISTICS SET
+ *  OPTIONS (allow_gc=false) ``` The list of available statistics packages can
+ *  be queried from `INFORMATION_SCHEMA.SPANNER_STATISTICS`. Executing a SQL
  *  statement with an invalid optimizer statistics package or with a statistics
  *  package that allows garbage collection fails with an `INVALID_ARGUMENT`
  *  error.
@@ -5807,8 +5861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  integer (from the list of supported optimizer versions) overrides the
  *  default optimizer version for query execution. The list of supported
  *  optimizer versions can be queried from
- *  SPANNER_SYS.SUPPORTED_OPTIMIZER_VERSIONS. Executing a SQL statement with an
- *  invalid optimizer version fails with an `INVALID_ARGUMENT` error. See
+ *  `SPANNER_SYS.SUPPORTED_OPTIMIZER_VERSIONS`. Executing a SQL statement with
+ *  an invalid optimizer version fails with an `INVALID_ARGUMENT` error. See
  *  https://cloud.google.com/spanner/docs/query-optimizer/manage-query-optimizer
  *  for more information on managing the query optimizer. The
  *  `optimizer_version` statement hint has precedence over this setting.
@@ -5973,8 +6027,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  If this is for a partitioned read and this field is set to `true`, the
  *  request is executed with Spanner Data Boost independent compute resources.
- *  If the field is set to `true` but the request does not set
- *  `partition_token`, the API returns an `INVALID_ARGUMENT` error.
+ *  If the field is set to `true` but the request doesn't set `partition_token`,
+ *  the API returns an `INVALID_ARGUMENT` error.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5996,15 +6050,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  index is present, then key_set instead names index keys in index. If the
  *  partition_token field is empty, rows are yielded in table primary key order
  *  (if index is empty) or index key order (if index is non-empty). If the
- *  partition_token field is not empty, rows will be yielded in an unspecified
- *  order. It is not an error for the `key_set` to name rows that do not exist
- *  in the database. Read yields nothing for nonexistent rows.
+ *  partition_token field isn't empty, rows are yielded in an unspecified order.
+ *  It isn't an error for the `key_set` to name rows that don't exist in the
+ *  database. Read yields nothing for nonexistent rows.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_KeySet *keySet;
 
 /**
  *  If greater than zero, only the first `limit` rows are yielded. If `limit` is
- *  zero, the default is no limit. A limit cannot be specified if
+ *  zero, the default is no limit. A limit can't be specified if
  *  `partition_token` is set.
  *
  *  Uses NSNumber of longLongValue.
@@ -6031,16 +6085,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        the transaction because then when multiple transactions try to act on
  *        the same data, they automatically get serialized. Each transaction
  *        waits its turn to acquire the lock and avoids getting into deadlock
- *        situations. Because the exclusive lock hint is just a hint, it should
- *        not be considered equivalent to a mutex. In other words, you should
- *        not use Spanner exclusive locks as a mutual exclusion mechanism for
- *        the execution of code outside of Spanner. **Note:** Request exclusive
- *        locks judiciously because they block others from reading that data for
- *        the entire transaction, rather than just when the writes are being
- *        performed. Unless you observe high write contention, you should use
- *        the default of shared read locks so you don't prematurely block other
- *        clients from reading the data that you're writing to. (Value:
- *        "LOCK_HINT_EXCLUSIVE")
+ *        situations. Because the exclusive lock hint is just a hint, it
+ *        shouldn't be considered equivalent to a mutex. In other words, you
+ *        shouldn't use Spanner exclusive locks as a mutual exclusion mechanism
+ *        for the execution of code outside of Spanner. **Note:** Request
+ *        exclusive locks judiciously because they block others from reading
+ *        that data for the entire transaction, rather than just when the writes
+ *        are being performed. Unless you observe high write contention, you
+ *        should use the default of shared read locks so you don't prematurely
+ *        block other clients from reading the data that you're writing to.
+ *        (Value: "LOCK_HINT_EXCLUSIVE")
  *    @arg @c kGTLRSpanner_ReadRequest_LockHint_LockHintShared Acquire shared
  *        locks. By default when you perform a read as part of a read-write
  *        transaction, Spanner acquires shared read locks, which allows other
@@ -6051,35 +6105,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        modes](https://cloud.google.com/spanner/docs/introspection/lock-statistics#explain-lock-modes).
  *        (Value: "LOCK_HINT_SHARED")
  *    @arg @c kGTLRSpanner_ReadRequest_LockHint_LockHintUnspecified Default
- *        value. LOCK_HINT_UNSPECIFIED is equivalent to LOCK_HINT_SHARED.
+ *        value. `LOCK_HINT_UNSPECIFIED` is equivalent to `LOCK_HINT_SHARED`.
  *        (Value: "LOCK_HINT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *lockHint;
 
 /**
- *  Optional. Order for the returned rows. By default, Spanner will return
- *  result rows in primary key order except for PartitionRead requests. For
- *  applications that do not require rows to be returned in primary key
+ *  Optional. Order for the returned rows. By default, Spanner returns result
+ *  rows in primary key order except for PartitionRead requests. For
+ *  applications that don't require rows to be returned in primary key
  *  (`ORDER_BY_PRIMARY_KEY`) order, setting `ORDER_BY_NO_ORDER` option allows
  *  Spanner to optimize row retrieval, resulting in lower latencies in certain
- *  cases (e.g. bulk point lookups).
+ *  cases (for example, bulk point lookups).
  *
  *  Likely values:
  *    @arg @c kGTLRSpanner_ReadRequest_OrderBy_OrderByNoOrder Read rows are
  *        returned in any order. (Value: "ORDER_BY_NO_ORDER")
  *    @arg @c kGTLRSpanner_ReadRequest_OrderBy_OrderByPrimaryKey Read rows are
  *        returned in primary key order. In the event that this option is used
- *        in conjunction with the `partition_token` field, the API will return
- *        an `INVALID_ARGUMENT` error. (Value: "ORDER_BY_PRIMARY_KEY")
+ *        in conjunction with the `partition_token` field, the API returns an
+ *        `INVALID_ARGUMENT` error. (Value: "ORDER_BY_PRIMARY_KEY")
  *    @arg @c kGTLRSpanner_ReadRequest_OrderBy_OrderByUnspecified Default value.
- *        ORDER_BY_UNSPECIFIED is equivalent to ORDER_BY_PRIMARY_KEY. (Value:
- *        "ORDER_BY_UNSPECIFIED")
+ *        `ORDER_BY_UNSPECIFIED` is equivalent to `ORDER_BY_PRIMARY_KEY`.
+ *        (Value: "ORDER_BY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  If present, results will be restricted to the specified partition previously
- *  created using PartitionRead(). There must be an exact match for the values
+ *  If present, results are restricted to the specified partition previously
+ *  created using `PartitionRead`. There must be an exact match for the values
  *  of fields common to this message and the PartitionReadRequest message used
  *  to create this partition_token.
  *
@@ -6139,13 +6193,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        mode. Locks for reads within the transaction are not acquired on read.
  *        Instead the locks are acquired on a commit to validate that
  *        read/queried data has not changed since the transaction started.
- *        (Value: "OPTIMISTIC")
+ *        Semantics described only applies to SERIALIZABLE isolation. (Value:
+ *        "OPTIMISTIC")
  *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic Pessimistic lock
- *        mode. Read locks are acquired immediately on read. (Value:
- *        "PESSIMISTIC")
+ *        mode. Read locks are acquired immediately on read. Semantics described
+ *        only applies to SERIALIZABLE isolation. (Value: "PESSIMISTIC")
  *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_ReadLockModeUnspecified
- *        Default value. If the value is not specified, the pessimistic read
- *        lock is used. (Value: "READ_LOCK_MODE_UNSPECIFIED")
+ *        Default value. * If isolation level is REPEATABLE_READ, then it is an
+ *        error to specify `read_lock_mode`. Locking semantics default to
+ *        `OPTIMISTIC`. No validation checks are done for reads, except to
+ *        validate that the data that was served at the snapshot time is
+ *        unchanged at commit time in the following cases: 1. reads done as part
+ *        of queries that use `SELECT FOR UPDATE` 2. reads done as part of
+ *        statements with a `LOCK_SCANNED_RANGES` hint 3. reads done as part of
+ *        DML statements * At all other isolation levels, if `read_lock_mode` is
+ *        the default value, then pessimistic read locks are used. (Value:
+ *        "READ_LOCK_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *readLockMode;
 
@@ -6233,15 +6296,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  one of the regions within the multi-region configuration of your database. *
  *  `type` - The type of the replica. Some examples of using replica_selectors
  *  are: * `location:us-east1` --> The "us-east1" replica(s) of any available
- *  type will be used to process the request. * `type:READ_ONLY` --> The
- *  "READ_ONLY" type replica(s) in nearest available location will be used to
- *  process the request. * `location:us-east1 type:READ_ONLY` --> The
- *  "READ_ONLY" type replica(s) in location "us-east1" will be used to process
- *  the request.
+ *  type is used to process the request. * `type:READ_ONLY` --> The "READ_ONLY"
+ *  type replica(s) in the nearest available location are used to process the
+ *  request. * `location:us-east1 type:READ_ONLY` --> The "READ_ONLY" type
+ *  replica(s) in location "us-east1" is used to process the request.
  */
 @interface GTLRSpanner_ReplicaSelection : GTLRObject
 
-/** The location or region of the serving requests, e.g. "us-east1". */
+/**
+ *  The location or region of the serving requests, for example, "us-east1".
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -6283,26 +6347,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  A per-request tag which can be applied to queries or reads, used for
- *  statistics collection. Both request_tag and transaction_tag can be specified
- *  for a read or query that belongs to a transaction. This field is ignored for
- *  requests where it's not applicable (e.g. CommitRequest). Legal characters
- *  for `request_tag` values are all printable characters (ASCII 32 - 126) and
- *  the length of a request_tag is limited to 50 characters. Values that exceed
- *  this limit are truncated. Any leading underscore (_) characters will be
- *  removed from the string.
+ *  statistics collection. Both `request_tag` and `transaction_tag` can be
+ *  specified for a read or query that belongs to a transaction. This field is
+ *  ignored for requests where it's not applicable (for example,
+ *  `CommitRequest`). Legal characters for `request_tag` values are all
+ *  printable characters (ASCII 32 - 126) and the length of a request_tag is
+ *  limited to 50 characters. Values that exceed this limit are truncated. Any
+ *  leading underscore (_) characters are removed from the string.
  */
 @property(nonatomic, copy, nullable) NSString *requestTag;
 
 /**
  *  A tag used for statistics collection about this transaction. Both
- *  request_tag and transaction_tag can be specified for a read or query that
- *  belongs to a transaction. The value of transaction_tag should be the same
- *  for all requests belonging to the same transaction. If this request doesn't
- *  belong to any transaction, transaction_tag will be ignored. Legal characters
- *  for `transaction_tag` values are all printable characters (ASCII 32 - 126)
- *  and the length of a transaction_tag is limited to 50 characters. Values that
- *  exceed this limit are truncated. Any leading underscore (_) characters will
- *  be removed from the string.
+ *  `request_tag` and `transaction_tag` can be specified for a read or query
+ *  that belongs to a transaction. The value of transaction_tag should be the
+ *  same for all requests belonging to the same transaction. If this request
+ *  doesn't belong to any transaction, `transaction_tag` is ignored. Legal
+ *  characters for `transaction_tag` values are all printable characters (ASCII
+ *  32 - 126) and the length of a `transaction_tag` is limited to 50 characters.
+ *  Values that exceed this limit are truncated. Any leading underscore (_)
+ *  characters are removed from the string.
  */
 @property(nonatomic, copy, nullable) NSString *transactionTag;
 
@@ -6478,10 +6542,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRSpanner_ResultSetMetadata *metadata;
 
 /**
- *  Optional. A precommit token will be included if the read-write transaction
- *  is on a multiplexed session. The precommit token with the highest sequence
- *  number from this transaction attempt should be passed to the Commit request
- *  for this transaction.
+ *  Optional. A precommit token is included if the read-write transaction is on
+ *  a multiplexed session. Pass the precommit token with the highest sequence
+ *  number from this transaction attempt to the Commit request for this
+ *  transaction.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_MultiplexedSessionPrecommitToken *precommitToken;
 
@@ -6499,7 +6563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  result set. These can be requested by setting ExecuteSqlRequest.query_mode.
  *  DML statements always produce stats containing the number of rows modified,
  *  unless executed using the ExecuteSqlRequest.QueryMode.PLAN
- *  ExecuteSqlRequest.query_mode. Other fields may or may not be populated,
+ *  ExecuteSqlRequest.query_mode. Other fields might or might not be populated,
  *  based on the ExecuteSqlRequest.query_mode.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ResultSetStats *stats;
@@ -6564,7 +6628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSNumber *rowCountExact;
 
 /**
- *  Partitioned DML does not offer exactly-once semantics, so it returns a lower
+ *  Partitioned DML doesn't offer exactly-once semantics, so it returns a lower
  *  bound of the rows modified.
  *
  *  Uses NSNumber of longLongValue.
@@ -6680,7 +6744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_Session : GTLRObject
 
 /**
- *  Output only. The approximate timestamp when the session is last used. It is
+ *  Output only. The approximate timestamp when the session is last used. It's
  *  typically earlier than the actual last use time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *approximateLastUseTime;
@@ -6703,7 +6767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRSpanner_Session_Labels *labels;
 
 /**
- *  Optional. If true, specifies a multiplexed session. Use a multiplexed
+ *  Optional. If `true`, specifies a multiplexed session. Use a multiplexed
  *  session for multiple, concurrent read-only operations. Don't use them for
  *  read-write transactions, partitioned reads, or partitioned queries. Use
  *  `sessions.create` to create multiplexed sessions. Don't use
@@ -6847,13 +6911,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  parameter name (for example, `\@firstName`). Parameter names can contain
  *  letters, numbers, and underscores. Parameters can appear anywhere that a
  *  literal value is expected. The same parameter name can be used more than
- *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It is an
+ *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It's an
  *  error to execute a SQL statement with unbound parameters.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Statement_Params *params;
 
 /**
- *  It is not always possible for Cloud Spanner to infer the right SQL type from
+ *  It isn't always possible for Cloud Spanner to infer the right SQL type from
  *  a JSON value. For example, values of type `BYTES` and values of type
  *  `STRING` both appear in params as JSON strings. In these cases,
  *  `param_types` can be used to specify the exact SQL type for some or all of
@@ -6874,7 +6938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  parameter name (for example, `\@firstName`). Parameter names can contain
  *  letters, numbers, and underscores. Parameters can appear anywhere that a
  *  literal value is expected. The same parameter name can be used more than
- *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It is an
+ *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It's an
  *  error to execute a SQL statement with unbound parameters.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -6887,7 +6951,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  It is not always possible for Cloud Spanner to infer the right SQL type from
+ *  It isn't always possible for Cloud Spanner to infer the right SQL type from
  *  a JSON value. For example, values of type `BYTES` and values of type
  *  `STRING` both appear in params as JSON strings. In these cases,
  *  `param_types` can be used to specify the exact SQL type for some or all of
@@ -7250,6 +7314,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *excludeTxnFromChangeStreams;
+
+/**
+ *  Isolation level for the transaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_TransactionOptions_IsolationLevel_IsolationLevelUnspecified
+ *        Default value. If the value is not specified, the `SERIALIZABLE`
+ *        isolation level is used. (Value: "ISOLATION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_TransactionOptions_IsolationLevel_RepeatableRead All
+ *        reads performed during the transaction observe a consistent snapshot
+ *        of the database, and the transaction will only successfully commit in
+ *        the absence of conflicts between its updates and any concurrent
+ *        updates that have occurred since that snapshot. Consequently, in
+ *        contrast to `SERIALIZABLE` transactions, only write-write conflicts
+ *        are detected in snapshot transactions. This isolation level does not
+ *        support Read-only and Partitioned DML transactions. When
+ *        `REPEATABLE_READ` is specified on a read-write transaction, the
+ *        locking semantics default to `OPTIMISTIC`. (Value: "REPEATABLE_READ")
+ *    @arg @c kGTLRSpanner_TransactionOptions_IsolationLevel_Serializable All
+ *        transactions appear as if they executed in a serial order, even if
+ *        some of the reads, writes, and other operations of distinct
+ *        transactions actually occurred in parallel. Spanner assigns commit
+ *        timestamps that reflect the order of committed transactions to
+ *        implement this property. Spanner offers a stronger guarantee than
+ *        serializability called external consistency. For further details,
+ *        please refer to
+ *        https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability.
+ *        (Value: "SERIALIZABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *isolationLevel;
 
 /**
  *  Partitioned DML transaction. Authorization to begin a Partitioned DML

@@ -4894,6 +4894,149 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates a new DNS zone.
+ *
+ *  Method: apigee.organizations.dnsZones.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDnsZonesCreate : GTLRApigeeQuery
+
+/**
+ *  Required. User assigned ID for this resource. Must be unique within the
+ *  organization. The name must be 1-63 characters long, must begin with a
+ *  letter, end with a letter or digit, and only contain lowercase letters,
+ *  digits or dashes.
+ */
+@property(nonatomic, copy, nullable) NSString *dnsZoneId;
+
+/** Required. Organization where the DNS zone will be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates a new DNS zone.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DnsZone to include in the
+ *    query.
+ *  @param parent Required. Organization where the DNS zone will be created.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDnsZonesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DnsZone *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a previously created DNS zone.
+ *
+ *  Method: apigee.organizations.dnsZones.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDnsZonesDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the DNS zone to delete. Use the following structure in
+ *  your request: `organizations/{org}/dnsZones/{dns_zone}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes a previously created DNS zone.
+ *
+ *  @param name Required. Name of the DNS zone to delete. Use the following
+ *    structure in your request: `organizations/{org}/dnsZones/{dns_zone}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDnsZonesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches the representation of an existing DNS zone.
+ *
+ *  Method: apigee.organizations.dnsZones.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDnsZonesGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the DNS zone to fetch. Use the following structure in your
+ *  request: `organizations/{org}/dnsZones/{dns_zone}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DnsZone.
+ *
+ *  Fetches the representation of an existing DNS zone.
+ *
+ *  @param name Required. Name of the DNS zone to fetch. Use the following
+ *    structure in your request: `organizations/{org}/dnsZones/{dns_zone}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDnsZonesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Enumerates DNS zones that have been created but not yet deleted.
+ *
+ *  Method: apigee.organizations.dnsZones.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDnsZonesList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number of DNS zones to return. If unspecified, at most 25
+ *  DNS zones will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token, returned from a previous `ListDnsZones` call, that you
+ *  can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization for which to list the DNS zones. Use the
+ *  following structure in your request: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListDnsZonesResponse.
+ *
+ *  Enumerates DNS zones that have been created but not yet deleted.
+ *
+ *  @param parent Required. Name of the organization for which to list the DNS
+ *    zones. Use the following structure in your request: `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDnsZonesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates an endpoint attachment. **Note:** Not supported for Apigee hybrid.
  *
  *  Method: apigee.organizations.endpointAttachments.create
@@ -12454,6 +12597,200 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsSecurityAssessmentResultsBatchCompute
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a security monitoring condition.
+ *
+ *  Method: apigee.organizations.securityMonitoringConditions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsCreate : GTLRApigeeQuery
+
+/** Required. The parent resource name. Format: `organizations/{org}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Optional: The security monitoring condition id. If not specified,
+ *  a monitoring condition uuid will be generated by the backend. This value
+ *  should be 4-63 characters, and valid characters are /a-z-/.
+ */
+@property(nonatomic, copy, nullable) NSString *securityMonitoringConditionId;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition.
+ *
+ *  Create a security monitoring condition.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition to include in
+ *    the query.
+ *  @param parent Required. The parent resource name. Format:
+ *    `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a security monitoring condition.
+ *
+ *  Method: apigee.organizations.securityMonitoringConditions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the security monitoring condition to delete. Format:
+ *  `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Delete a security monitoring condition.
+ *
+ *  @param name Required. The name of the security monitoring condition to
+ *    delete. Format:
+ *    `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a security monitoring condition.
+ *
+ *  Method: apigee.organizations.securityMonitoringConditions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsGet : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the security monitoring condition to get. Format:
+ *  `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition.
+ *
+ *  Get a security monitoring condition.
+ *
+ *  @param name Required. The name of the security monitoring condition to get.
+ *    Format:
+ *    `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List security monitoring conditions.
+ *
+ *  Method: apigee.organizations.securityMonitoringConditions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsList : GTLRApigeeQuery
+
+/**
+ *  Optional. Filter for the monitoring conditions. For example:
+ *  `profile=profile1 AND scope=env1`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The maximum number of monitoring conditions to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListSecurityMonitoringConditions` call. Provide this to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. For a specific organization, list all the security monitoring
+ *  conditions. Format: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1ListSecurityMonitoringConditionsResponse.
+ *
+ *  List security monitoring conditions.
+ *
+ *  @param parent Required. For a specific organization, list all the security
+ *    monitoring conditions. Format: `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a security monitoring condition.
+ *
+ *  Method: apigee.organizations.securityMonitoringConditions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsPatch : GTLRApigeeQuery
+
+/**
+ *  Identifier. Name of the security monitoring condition resource. Format:
+ *  organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. Valid fields to update are
+ *  `profile`, `scope`, `include_all_resources`, `include`, and `exclude`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition.
+ *
+ *  Update a security monitoring condition.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition to include in
+ *    the query.
+ *  @param name Identifier. Name of the security monitoring condition resource.
+ *    Format:
+ *    organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition *)object
                            name:(NSString *)name;
 
 @end

@@ -1137,15 +1137,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSNumber *checkServiceNetworkingUsePermission;
 
 /**
- *  Optional. Specifies a custom time bucket for Arcus subnetwork request
- *  idempotency. If two equivalent concurrent requests are made, Arcus will know
+ *  Optional. Specifies a custom time bucket for GCE subnetwork request
+ *  idempotency. If two equivalent concurrent requests are made, GCE will know
  *  to ignore the request if it has already been completed or is in progress.
  *  Only requests with matching compute_idempotency_window have guaranteed
  *  idempotency. Changing this time window between requests results in undefined
  *  behavior. Zero (or empty) value with custom_compute_idempotency_window=true
- *  specifies no idempotency (i.e. no request ID is provided to Arcus). Maximum
- *  value of 14 days (enforced by Arcus limit). For more information on how to
- *  use, see: go/revisit-sn-idempotency-window
+ *  specifies no idempotency (i.e. no request ID is provided to GCE). Maximum
+ *  value of 14 days (enforced by GCE limit).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *computeIdempotencyWindow;
 
@@ -1285,10 +1284,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Optional. Specifies if Service Networking should use a custom time bucket
- *  for Arcus idempotency. If false, Service Networking uses a 300 second (5
- *  minute) Arcus idempotency window. If true, Service Networking uses a custom
+ *  for GCE idempotency. If false, Service Networking uses a 300 second (5
+ *  minute) GCE idempotency window. If true, Service Networking uses a custom
  *  idempotency window provided by the user in field compute_idempotency_window.
- *  For more information on how to use, see: go/revisit-sn-idempotency-window
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3222,8 +3220,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  protobuf. This should be used **only** by APIs who have already set the
  *  language_settings.java.package_name" field in gapic.yaml. API teams should
  *  use the protobuf java_package option where possible. Example of a YAML
- *  configuration:: publishing: java_settings: library_package:
- *  com.google.cloud.pubsub.v1
+ *  configuration:: publishing: library_settings: java_settings:
+ *  library_package: com.google.cloud.pubsub.v1
  */
 @property(nonatomic, copy, nullable) NSString *libraryPackage;
 

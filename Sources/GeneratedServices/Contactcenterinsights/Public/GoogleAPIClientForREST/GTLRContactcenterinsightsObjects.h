@@ -28,6 +28,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteFeedbackLabelsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CallAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_DialogflowIntents;
@@ -132,10 +133,13 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsMetadataDownloadStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestGcsDestination;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestSheetsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestSheetsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_CustomHighlighterMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats;
@@ -440,6 +444,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "ISSUE_NAME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_IssueName;
+/**
+ *  The dimension is keyed by the conversation medium.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Medium;
 /**
  *  The dimension is keyed by QaQuestionIds-Answer value pairs. Note that: We
  *  only group by the QuestionId and not the revision-id of the scorecard this
@@ -1101,6 +1111,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "ISSUE_NAME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_IssueName;
+/**
+ *  The dimension is keyed by the conversation medium.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Medium;
 /**
  *  The dimension is keyed by QaQuestionIds-Answer value pairs. Note that: We
  *  only group by the QuestionId and not the revision-id of the scorecard this
@@ -2276,6 +2292,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Metadata for the BulkDeleteFeedbackLabels endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteFeedbackLabelsMetadata : GTLRObject
+
+/**
+ *  Partial errors during deletion operation that might cause the operation
+ *  output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** Output only. The original request for delete. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteFeedbackLabelsRequest *request;
+
+@end
+
+
+/**
+ *  Request for the BulkDeleteFeedbackLabels endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteFeedbackLabelsRequest : GTLRObject
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Supports
+ *  disjunctions (OR) and conjunctions (AND). Supported fields: *
+ *  `issue_model_id` * `qa_question_id` * `qa_scorecard_id` * `min_create_time`
+ *  * `max_create_time` * `min_update_time` * `max_update_time` *
+ *  `feedback_label_type`: QUALITY_AI, TOPIC_MODELING
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The parent resource for new feedback labels. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  Response for the BulkDeleteFeedbackLabels endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteFeedbackLabelsResponse : GTLRObject
+@end
+
+
+/**
  *  A piece of metadata that applies to a window of a call.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CallAnnotation : GTLRObject
@@ -3070,6 +3130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        The dimension is keyed by issues. (Value: "ISSUE")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_IssueName
  *        The dimension is keyed by issue names. (Value: "ISSUE_NAME")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Medium
+ *        The dimension is keyed by the conversation medium. (Value: "MEDIUM")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_QaQuestionAnswerValue
  *        The dimension is keyed by QaQuestionIds-Answer value pairs. Note that:
  *        We only group by the QuestionId and not the revision-id of the
@@ -4783,6 +4845,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  The metadata for querying performance overview.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryPerformanceOverviewMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response for querying performance overview.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryPerformanceOverviewResponse : GTLRObject
+
+/** The summary text of the performance. */
+@property(nonatomic, copy, nullable) NSString *summaryText;
+
+@end
+
+
+/**
  *  DLP resources used for redaction while ingesting conversations. DLP settings
  *  are applied to conversations ingested from the `UploadConversation` and
  *  `IngestConversations` endpoints, including conversation coming from CCAI
@@ -5734,6 +5814,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Metadata for the BulkDeleteFeedbackLabels endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsMetadata : GTLRObject
+
+/**
+ *  Partial errors during deletion operation that might cause the operation
+ *  output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** Output only. The original request for delete. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsRequest *request;
+
+@end
+
+
+/**
+ *  Request for the BulkDeleteFeedbackLabels endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsRequest : GTLRObject
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Supports
+ *  disjunctions (OR) and conjunctions (AND). Supported fields: *
+ *  `issue_model_id` * `qa_question_id` * `qa_scorecard_id` * `min_create_time`
+ *  * `max_create_time` * `min_update_time` * `max_update_time` *
+ *  `feedback_label_type`: QUALITY_AI, TOPIC_MODELING
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The parent resource for new feedback labels. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  Response for the BulkDeleteFeedbackLabels endpoint.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsResponse : GTLRObject
+@end
+
+
+/**
  *  Metadata for the BulkDownloadFeedbackLabel endpoint.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsMetadata : GTLRObject
@@ -5845,6 +5969,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Required. The parent resource for new feedback labels. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** A sheets document destination. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestSheetsDestination *sheetsDestination;
+
 /**
  *  Optional. If set, a template for labeling conversations and scorecard
  *  questions will be created from the conversation_filter and the questions
@@ -5911,6 +6038,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Google Sheets document details to write the feedback labels to.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequestSheetsDestination : GTLRObject
+
+/** Optional. The title of the new sheet to write the feedback labels to. */
+@property(nonatomic, copy, nullable) NSString *sheetTitle;
+
+/**
+ *  Required. The Google Sheets document to write the feedback labels to.
+ *  Retrieved from Google Sheets URI. E.g.
+ *  `https://docs.google.com/spreadsheets/d/1234567890` The spreadsheet must be
+ *  shared with the Insights P4SA. The spreadsheet ID written to will be
+ *  returned as `file_names` in the BulkDownloadFeedbackLabelsMetadata.
+ */
+@property(nonatomic, copy, nullable) NSString *spreadsheetUri;
+
+@end
+
+
+/**
  *  Response for the BulkDownloadFeedbackLabel endpoint.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsResponse : GTLRObject
@@ -5924,6 +6071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** A cloud storage bucket source. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource *gcsSource;
+
+/** A sheets document source. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestSheetsSource *sheetsSource;
 
 /**
  *  Optional. If set, upload will not happen and the labels will be validated.
@@ -5960,6 +6110,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  `gs://bucket_name/object_name`
  */
 @property(nonatomic, copy, nullable) NSString *objectUri;
+
+@end
+
+
+/**
+ *  Google Sheets document details to get the feedback label file from.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestSheetsSource : GTLRObject
+
+/**
+ *  Required. The Google Sheets document to write the feedback labels to.
+ *  Retrieved from Google Sheets URI. E.g.
+ *  `https://docs.google.com/spreadsheets/d/1234567890` The spreadsheet must be
+ *  shared with the Insights P4SA.
+ */
+@property(nonatomic, copy, nullable) NSString *spreadsheetUri;
 
 @end
 
@@ -6934,6 +7100,8 @@ GTLR_DEPRECATED
  *        The dimension is keyed by issues. (Value: "ISSUE")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_IssueName
  *        The dimension is keyed by issue names. (Value: "ISSUE_NAME")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Medium
+ *        The dimension is keyed by the conversation medium. (Value: "MEDIUM")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_QaQuestionAnswerValue
  *        The dimension is keyed by QaQuestionIds-Answer value pairs. Note that:
  *        We only group by the QuestionId and not the revision-id of the
@@ -9357,6 +9525,24 @@ GTLR_DEPRECATED
 
 /** The data points that make up the time series . */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint *> *dataPoints;
+
+@end
+
+
+/**
+ *  The metadata for querying performance overview.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response for querying performance overview.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewResponse : GTLRObject
+
+/** The summary text of the performance. */
+@property(nonatomic, copy, nullable) NSString *summaryText;
 
 @end
 

@@ -595,6 +595,10 @@ NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMod
 NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMode_PerConnection = @"PER_CONNECTION";
 NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMode_PerSession = @"PER_SESSION";
 
+// GTLRCompute_BackendServiceHAPolicy.fastIPMove
+NSString * const kGTLRCompute_BackendServiceHAPolicy_FastIPMove_Disabled = @"DISABLED";
+NSString * const kGTLRCompute_BackendServiceHAPolicy_FastIPMove_GarpRa = @"GARP_RA";
+
 // GTLRCompute_BackendServiceList_Warning.code
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -2535,6 +2539,7 @@ NSString * const kGTLRCompute_Interconnect_InterconnectType_Partner = @"PARTNER"
 // GTLRCompute_Interconnect.linkType
 NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet100gLr = @"LINK_TYPE_ETHERNET_100G_LR";
 NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr = @"LINK_TYPE_ETHERNET_10G_LR";
+NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet400gLr4 = @"LINK_TYPE_ETHERNET_400G_LR4";
 
 // GTLRCompute_Interconnect.operationalStatus
 NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsActive = @"OS_ACTIVE";
@@ -2751,6 +2756,7 @@ NSString * const kGTLRCompute_InterconnectLocation_AvailableFeatures_IfMacsec = 
 // GTLRCompute_InterconnectLocation.availableLinkTypes
 NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet100gLr = @"LINK_TYPE_ETHERNET_100G_LR";
 NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet10gLr = @"LINK_TYPE_ETHERNET_10G_LR";
+NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet400gLr4 = @"LINK_TYPE_ETHERNET_400G_LR4";
 
 // GTLRCompute_InterconnectLocation.continent
 NSString * const kGTLRCompute_InterconnectLocation_Continent_Africa = @"AFRICA";
@@ -8891,8 +8897,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          compressionMode, connectionDraining, connectionTrackingPolicy,
          consistentHash, creationTimestamp, customMetrics, customRequestHeaders,
          customResponseHeaders, descriptionProperty, edgeSecurityPolicy,
-         enableCDN, failoverPolicy, fingerprint, healthChecks, iap, identifier,
-         ipAddressSelectionPolicy, kind, loadBalancingScheme,
+         enableCDN, failoverPolicy, fingerprint, haPolicy, healthChecks, iap,
+         identifier, ipAddressSelectionPolicy, kind, loadBalancingScheme,
          localityLbPolicies, localityLbPolicy, logConfig, maxStreamDuration,
          metadatas, name, network, outlierDetection, port, portName, protocol,
          region, securityPolicy, securitySettings, selfLink, serviceBindings,
@@ -9107,6 +9113,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceHAPolicy
+//
+
+@implementation GTLRCompute_BackendServiceHAPolicy
+@dynamic fastIPMove;
 @end
 
 

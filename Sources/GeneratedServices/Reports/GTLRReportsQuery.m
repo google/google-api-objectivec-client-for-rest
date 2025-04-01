@@ -25,6 +25,7 @@ NSString * const kGTLRReportsApplicationNameContextAwareAccess = @"context_aware
 NSString * const kGTLRReportsApplicationNameDataStudio         = @"data_studio";
 NSString * const kGTLRReportsApplicationNameDrive              = @"drive";
 NSString * const kGTLRReportsApplicationNameGcp                = @"gcp";
+NSString * const kGTLRReportsApplicationNameGeminiForWorkspace = @"gemini_for_workspace";
 NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
 NSString * const kGTLRReportsApplicationNameGroups             = @"groups";
 NSString * const kGTLRReportsApplicationNameGroupsEnterprise   = @"groups_enterprise";

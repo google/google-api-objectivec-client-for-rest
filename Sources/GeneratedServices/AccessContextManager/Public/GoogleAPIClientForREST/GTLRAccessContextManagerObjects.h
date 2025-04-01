@@ -1290,6 +1290,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding EgressFrom. are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
+
 @end
 
 
@@ -1596,6 +1603,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  specified, then access to all resources inside the perimeter are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding IngressFrom are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
 

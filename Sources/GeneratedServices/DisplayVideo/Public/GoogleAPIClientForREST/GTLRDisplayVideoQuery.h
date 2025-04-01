@@ -157,6 +157,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType;
 /**
+ *  Filter website content by content themes (for example, religion).
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion;
+/**
  *  Target ads during a chosen time period on a specific day.
  *
  *  Value: "TARGETING_TYPE_DAY_AND_TIME"
@@ -863,6 +869,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1046,6 +1055,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -1279,6 +1291,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1459,6 +1474,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsList
  *
@@ -3620,6 +3638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3825,6 +3846,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -4047,6 +4071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4252,6 +4279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -4476,6 +4506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4681,6 +4714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -4939,6 +4975,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5141,6 +5180,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -6385,6 +6427,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6559,6 +6604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -6747,6 +6795,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6920,6 +6971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -7113,6 +7167,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7289,6 +7346,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -7513,6 +7573,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7687,6 +7750,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -10744,6 +10810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10916,6 +10985,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -11102,6 +11174,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11273,6 +11348,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -11462,6 +11540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11634,6 +11715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -11854,6 +11938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12023,6 +12110,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -12322,6 +12412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12507,6 +12600,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -12746,6 +12842,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12929,6 +13028,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -13113,6 +13215,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13285,6 +13390,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        for Ad Group resources under YouTube Programmatic Reservation line
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion).
+ *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

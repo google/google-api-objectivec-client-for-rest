@@ -19,6 +19,21 @@ NSString * const kGTLRManagedKafka_Cluster_State_Creating      = @"CREATING";
 NSString * const kGTLRManagedKafka_Cluster_State_Deleting      = @"DELETING";
 NSString * const kGTLRManagedKafka_Cluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRManagedKafka_ConnectCluster.state
+NSString * const kGTLRManagedKafka_ConnectCluster_State_Active = @"ACTIVE";
+NSString * const kGTLRManagedKafka_ConnectCluster_State_Creating = @"CREATING";
+NSString * const kGTLRManagedKafka_ConnectCluster_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedKafka_ConnectCluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRManagedKafka_Connector.state
+NSString * const kGTLRManagedKafka_Connector_State_Failed      = @"FAILED";
+NSString * const kGTLRManagedKafka_Connector_State_Paused      = @"PAUSED";
+NSString * const kGTLRManagedKafka_Connector_State_Restarting  = @"RESTARTING";
+NSString * const kGTLRManagedKafka_Connector_State_Running     = @"RUNNING";
+NSString * const kGTLRManagedKafka_Connector_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRManagedKafka_Connector_State_Stopped     = @"STOPPED";
+NSString * const kGTLRManagedKafka_Connector_State_Unassigned  = @"UNASSIGNED";
+
 // GTLRManagedKafka_RebalanceConfig.mode
 NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_AutoRebalanceOnScaleUp = @"AUTO_REBALANCE_ON_SCALE_UP";
 NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
@@ -78,6 +93,124 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 //
 
 @implementation GTLRManagedKafka_Cluster_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ConnectAccessConfig
+//
+
+@implementation GTLRManagedKafka_ConnectAccessConfig
+@dynamic networkConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkConfigs" : [GTLRManagedKafka_ConnectNetworkConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ConnectCluster
+//
+
+@implementation GTLRManagedKafka_ConnectCluster
+@dynamic capacityConfig, config, createTime, gcpConfig, kafkaCluster, labels,
+         name, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ConnectCluster_Config
+//
+
+@implementation GTLRManagedKafka_ConnectCluster_Config
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ConnectCluster_Labels
+//
+
+@implementation GTLRManagedKafka_ConnectCluster_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ConnectGcpConfig
+//
+
+@implementation GTLRManagedKafka_ConnectGcpConfig
+@dynamic accessConfig, secretPaths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secretPaths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ConnectNetworkConfig
+//
+
+@implementation GTLRManagedKafka_ConnectNetworkConfig
+@dynamic additionalSubnets, dnsDomainNames, primarySubnet;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalSubnets" : [NSString class],
+    @"dnsDomainNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_Connector
+//
+
+@implementation GTLRManagedKafka_Connector
+@dynamic configs, name, state, taskRestartPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_Connector_Configs
+//
+
+@implementation GTLRManagedKafka_Connector_Configs
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -181,6 +314,51 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 + (NSString *)collectionItemsKey {
   return @"clusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ListConnectClustersResponse
+//
+
+@implementation GTLRManagedKafka_ListConnectClustersResponse
+@dynamic connectClusters, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectClusters" : [GTLRManagedKafka_ConnectCluster class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"connectClusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ListConnectorsResponse
+//
+
+@implementation GTLRManagedKafka_ListConnectorsResponse
+@dynamic connectors, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectors" : [GTLRManagedKafka_Connector class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"connectors";
 }
 
 @end
@@ -373,11 +551,65 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_PauseConnectorRequest
+//
+
+@implementation GTLRManagedKafka_PauseConnectorRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_PauseConnectorResponse
+//
+
+@implementation GTLRManagedKafka_PauseConnectorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_RebalanceConfig
 //
 
 @implementation GTLRManagedKafka_RebalanceConfig
 @dynamic mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_RestartConnectorRequest
+//
+
+@implementation GTLRManagedKafka_RestartConnectorRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_RestartConnectorResponse
+//
+
+@implementation GTLRManagedKafka_RestartConnectorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ResumeConnectorRequest
+//
+
+@implementation GTLRManagedKafka_ResumeConnectorRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ResumeConnectorResponse
+//
+
+@implementation GTLRManagedKafka_ResumeConnectorResponse
 @end
 
 
@@ -410,6 +642,34 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_StopConnectorRequest
+//
+
+@implementation GTLRManagedKafka_StopConnectorRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_StopConnectorResponse
+//
+
+@implementation GTLRManagedKafka_StopConnectorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_TaskRetryPolicy
+//
+
+@implementation GTLRManagedKafka_TaskRetryPolicy
+@dynamic maximumBackoff, minimumBackoff;
 @end
 
 

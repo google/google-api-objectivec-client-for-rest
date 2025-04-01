@@ -12,7 +12,7 @@
 //   privilege. For example, to download an export, an account needs the
 //   **Manage Exports** privilege and the matter shared with them.
 // Documentation:
-//   https://developers.google.com/vault
+//   https://developers.google.com/workspace/vault
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -716,7 +716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
 
 /**
  *  Search the data of the accounts specified in
- *  [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
+ *  [AccountInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#accountinfo).
  *
  *  Value: "ACCOUNT"
  */
@@ -737,14 +737,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_DriveDocument;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_EntireOrg;
 /**
  *  Search the data of all accounts in the organizational unit specified in
- *  [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
+ *  [OrgUnitInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#orgunitinfo).
  *
  *  Value: "ORG_UNIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_OrgUnit;
 /**
  *  Search messages in the Chat spaces specified in
- *  [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
+ *  [HangoutsChatInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#hangoutschatinfo).
  *
  *  Value: "ROOM"
  */
@@ -757,14 +757,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Room;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified;
 /**
  *  Search the files in the shared drives specified in
- *  [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *  [SharedDriveInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#shareddriveinfo).
  *
  *  Value: "SHARED_DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SharedDrive;
 /**
  *  Search for sites by the published site URLs specified in
- *  [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *  [SitesUrlInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#sitesurlinfo).
  *
  *  Value: "SITES_URL"
  */
@@ -781,7 +781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive GTLR_DEPREC
 
 /**
  *  Search the data of the accounts specified in
- *  [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
+ *  [AccountInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#accountinfo).
  *
  *  Value: "ACCOUNT"
  */
@@ -802,14 +802,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_DriveDocument;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_EntireOrg;
 /**
  *  Search the data of all accounts in the organizational unit specified in
- *  [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
+ *  [OrgUnitInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#orgunitinfo).
  *
  *  Value: "ORG_UNIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_OrgUnit;
 /**
  *  Search messages in the Chat spaces specified in
- *  [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
+ *  [HangoutsChatInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#hangoutschatinfo).
  *
  *  Value: "ROOM"
  */
@@ -822,14 +822,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Room;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified;
 /**
  *  Search the files in the shared drives specified in
- *  [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *  [SharedDriveInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#shareddriveinfo).
  *
  *  Value: "SHARED_DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
 /**
  *  Search for sites by the published site URLs specified in
- *  [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *  [SitesUrlInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#sitesurlinfo).
  *
  *  Value: "SITES_URL"
  */
@@ -1665,8 +1665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 /**
  *  A list of Chat spaces IDs, as provided by the [Chat
- *  API](https://developers.google.com/chat). There is a limit of exporting from
- *  500 Chat spaces per request.
+ *  API](https://developers.google.com/workspace/chat). There is a limit of
+ *  exporting from 500 Chat spaces per request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roomId;
 
@@ -2433,7 +2433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Likely values:
  *    @arg @c kGTLRVault_Query_Method_Account Search the data of the accounts
  *        specified in
- *        [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
+ *        [AccountInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#accountinfo).
  *        (Value: "ACCOUNT")
  *    @arg @c kGTLRVault_Query_Method_DriveDocument Retrieve the documents
  *        specified in DriveDocumentInfo. (Value: "DRIVE_DOCUMENT")
@@ -2443,22 +2443,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        "ENTIRE_ORG")
  *    @arg @c kGTLRVault_Query_Method_OrgUnit Search the data of all accounts in
  *        the organizational unit specified in
- *        [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
+ *        [OrgUnitInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#orgunitinfo).
  *        (Value: "ORG_UNIT")
  *    @arg @c kGTLRVault_Query_Method_Room Search messages in the Chat spaces
  *        specified in
- *        [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
+ *        [HangoutsChatInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#hangoutschatinfo).
  *        (Value: "ROOM")
  *    @arg @c kGTLRVault_Query_Method_SearchMethodUnspecified A search method
  *        must be specified or else it is rejected. (Value:
  *        "SEARCH_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_Method_SharedDrive Search the files in the shared
  *        drives specified in
- *        [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *        [SharedDriveInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#shareddriveinfo).
  *        (Value: "SHARED_DRIVE")
  *    @arg @c kGTLRVault_Query_Method_SitesUrl Search for sites by the published
  *        site URLs specified in
- *        [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *        [SitesUrlInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#sitesurlinfo).
  *        (Value: "SITES_URL")
  *    @arg @c kGTLRVault_Query_Method_TeamDrive Search the data in the Team
  *        Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")
@@ -2474,7 +2474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Likely values:
  *    @arg @c kGTLRVault_Query_SearchMethod_Account Search the data of the
  *        accounts specified in
- *        [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
+ *        [AccountInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#accountinfo).
  *        (Value: "ACCOUNT")
  *    @arg @c kGTLRVault_Query_SearchMethod_DriveDocument Retrieve the documents
  *        specified in DriveDocumentInfo. (Value: "DRIVE_DOCUMENT")
@@ -2484,22 +2484,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        **OrgUnitInfo**. (Value: "ENTIRE_ORG")
  *    @arg @c kGTLRVault_Query_SearchMethod_OrgUnit Search the data of all
  *        accounts in the organizational unit specified in
- *        [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
+ *        [OrgUnitInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#orgunitinfo).
  *        (Value: "ORG_UNIT")
  *    @arg @c kGTLRVault_Query_SearchMethod_Room Search messages in the Chat
  *        spaces specified in
- *        [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
+ *        [HangoutsChatInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#hangoutschatinfo).
  *        (Value: "ROOM")
  *    @arg @c kGTLRVault_Query_SearchMethod_SearchMethodUnspecified A search
  *        method must be specified or else it is rejected. (Value:
  *        "SEARCH_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_SearchMethod_SharedDrive Search the files in the
  *        shared drives specified in
- *        [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *        [SharedDriveInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#shareddriveinfo).
  *        (Value: "SHARED_DRIVE")
  *    @arg @c kGTLRVault_Query_SearchMethod_SitesUrl Search for sites by the
  *        published site URLs specified in
- *        [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *        [SitesUrlInfo](https://developers.google.com/workspace/vault/reference/rest/v1/Query#sitesurlinfo).
  *        (Value: "SITES_URL")
  *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Search the data in the
  *        Team Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")

@@ -40,6 +40,12 @@ NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdExtreme = @"PD_EXT
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdSsd = @"PD_SSD";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdStandard = @"PD_STANDARD";
 
+// GTLRAIPlatformNotebooks_ConfidentialInstanceConfig.confidentialInstanceType
+NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified = @"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev = @"SEV";
+NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp = @"SEV_SNP";
+NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx = @"TDX";
+
 // GTLRAIPlatformNotebooks_DataDisk.diskEncryption
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncryption_Cmek = @"CMEK";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncryption_DiskEncryptionUnspecified = @"DISK_ENCRYPTION_UNSPECIFIED";
@@ -165,11 +171,22 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ConfidentialInstanceConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_ConfidentialInstanceConfig
+@dynamic confidentialInstanceType, enableConfidentialCompute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Config
 //
 
 @implementation GTLRAIPlatformNotebooks_Config
-@dynamic availableImages, defaultValues, supportedValues;
+@dynamic availableImages, defaultValues, disableWorkbenchLegacyCreation,
+         supportedValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -286,10 +303,11 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_GceSetup
-@dynamic acceleratorConfigs, bootDisk, containerImage, dataDisks,
-         disablePublicIp, enableIpForwarding, gpuDriverConfig, machineType,
-         metadata, minCpuPlatform, networkInterfaces, serviceAccounts,
-         shieldedInstanceConfig, tags, vmImage;
+@dynamic acceleratorConfigs, bootDisk, confidentialInstanceConfig,
+         containerImage, dataDisks, disablePublicIp, enableIpForwarding,
+         gpuDriverConfig, machineType, metadata, minCpuPlatform,
+         networkInterfaces, serviceAccounts, shieldedInstanceConfig, tags,
+         vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

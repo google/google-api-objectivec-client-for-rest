@@ -1736,12 +1736,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @interface GTLRPubsub_MessageTransform : GTLRObject
 
 /**
- *  Optional. If set to true, the transform is enabled. If false, the transform
- *  is disabled and will not be applied to messages. Defaults to `true`.
+ *  Optional. If true, the transform is disabled and will not be applied to
+ *  messages. Defaults to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Optional. This field is deprecated, use the `disabled` field to disable
+ *  transforms.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled GTLR_DEPRECATED;
 
 /**
  *  Optional. JavaScript User Defined Function. If multiple JavaScriptUDF's are

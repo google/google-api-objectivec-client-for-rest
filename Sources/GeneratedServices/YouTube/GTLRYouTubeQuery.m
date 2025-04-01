@@ -791,8 +791,8 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 @implementation GTLRYouTubeQuery_CommentThreadsList
 
 @dynamic allThreadsRelatedToChannelId, channelId, identifier, maxResults,
-         moderationStatus, order, pageToken, part, searchTerms, textFormat,
-         videoId;
+         moderationStatus, order, pageToken, part, postId, searchTerms,
+         textFormat, videoId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };

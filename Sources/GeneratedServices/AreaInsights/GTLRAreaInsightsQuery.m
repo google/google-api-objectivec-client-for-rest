@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Places Insights API (areainsights/v1)
+//   Places Aggregate API (areainsights/v1)
 // Description:
-//   Places Insights API.
+//   Places Aggregate API.
 // Documentation:
 //   https://g3doc.corp.google.com/geo/platform/area_insights/README.md?cl=head
 

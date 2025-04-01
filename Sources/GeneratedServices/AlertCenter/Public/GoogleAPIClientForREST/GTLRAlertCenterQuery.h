@@ -7,7 +7,7 @@
 //   Manages alerts on issues affecting your domain. Note: The current version
 //   of this API (v1beta1) is available to all Google Workspace customers.
 // Documentation:
-//   https://developers.google.com/admin-sdk/alertcenter/
+//   https://developers.google.com/workspace/admin/alertcenter/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -198,9 +198,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. A query string for filtering alert feedback results. For more
  *  details, see [Query
- *  filters](https://developers.google.com/admin-sdk/alertcenter/guides/query-filters)
+ *  filters](https://developers.google.com/workspace/admin/alertcenter/guides/query-filters)
  *  and [Supported query filter
- *  fields](https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
+ *  fields](https://developers.google.com/workspace/admin/alertcenter/reference/filter-fields#alerts.feedback.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -316,9 +316,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. A query string for filtering alert results. For more details, see
  *  [Query
- *  filters](https://developers.google.com/admin-sdk/alertcenter/guides/query-filters)
+ *  filters](https://developers.google.com/workspace/admin/alertcenter/guides/query-filters)
  *  and [Supported query filter
- *  fields](https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
+ *  fields](https://developers.google.com/workspace/admin/alertcenter/reference/filter-fields#alerts.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

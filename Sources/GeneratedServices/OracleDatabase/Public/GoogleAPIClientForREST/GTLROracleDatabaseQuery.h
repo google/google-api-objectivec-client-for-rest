@@ -356,6 +356,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Restarts an Autonomous Database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.restart
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRestart : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Autonomous Database in the following format:
+ *  projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Restarts an Autonomous Database.
+ *
+ *  @param object The @c GTLROracleDatabase_RestartAutonomousDatabaseRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Autonomous Database in the following
+ *    format:
+ *    projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRestart
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_RestartAutonomousDatabaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Restores a single Autonomous Database.
  *
  *  Method: oracledatabase.projects.locations.autonomousDatabases.restore
@@ -385,6 +419,110 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRestore
  */
 + (instancetype)queryWithObject:(GTLROracleDatabase_RestoreAutonomousDatabaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Starts an Autonomous Database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStart : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Autonomous Database in the following format:
+ *  projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Starts an Autonomous Database.
+ *
+ *  @param object The @c GTLROracleDatabase_StartAutonomousDatabaseRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Autonomous Database in the following
+ *    format:
+ *    projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStart
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_StartAutonomousDatabaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops an Autonomous Database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStop : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Autonomous Database in the following format:
+ *  projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Stops an Autonomous Database.
+ *
+ *  @param object The @c GTLROracleDatabase_StopAutonomousDatabaseRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Autonomous Database in the following
+ *    format:
+ *    projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesStop
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_StopAutonomousDatabaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Initiates a switchover of specified autonomous deatabase to the associated
+ *  peer database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.switchover
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesSwitchover : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Autonomous Database in the following format:
+ *  projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Initiates a switchover of specified autonomous deatabase to the associated
+ *  peer database.
+ *
+ *  @param object The @c GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest
+ *    to include in the query.
+ *  @param name Required. The name of the Autonomous Database in the following
+ *    format:
+ *    projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesSwitchover
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1061,6 +1199,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
  */
 @interface GTLROracleDatabaseQuery_ProjectsLocationsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

@@ -741,14 +741,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *systemDnsServers;
 
 /**
- *  Output only. Whether Chrome is blocking third-party software injection or
- *  not. This setting may be controlled by an enterprise policy:
+ *  Output only. Deprecated. The corresponding policy is now deprecated. Whether
+ *  Chrome is blocking third-party software injection or not. This setting may
+ *  be controlled by an enterprise policy:
  *  https://chromeenterprise.google/policies/?policy=ThirdPartyBlockingEnabled.
  *  Available on Windows only.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *thirdPartyBlockingEnabled;
+@property(nonatomic, strong, nullable) NSNumber *thirdPartyBlockingEnabled GTLR_DEPRECATED;
 
 /**
  *  Output only. The trigger which generated this set of signals.
@@ -817,7 +818,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
 
 
 /**
- *  Result message for VerifiedAccess.VerifyChallengeResponse.
+ *  Result message for VerifiedAccess.VerifyChallengeResponse. The response
+ *  returned when successful for Managed profiles on Unmanaged browsers will NOT
+ *  have devicePermanentId, keyTrustLevel, virtualDeviceId and customerId
+ *  fields. Managed profiles will INSTEAD have the profileCustomerId,
+ *  virtualProfileId, profilePermanentId and profileKeyTrustLevel fields.
  */
 @interface GTLRVerifiedaccess_VerifyChallengeResponseResult : GTLRObject
 
