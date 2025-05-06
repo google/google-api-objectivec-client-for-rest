@@ -1817,7 +1817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  [#next-free-field: 7]
+ *  [#next-free-field: 8]
  */
 @interface GTLRTrafficDirectorService_SocketAddress : GTLRObject
 
@@ -1849,6 +1849,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  resolver is capable of named port resolution.
  */
 @property(nonatomic, copy, nullable) NSString *namedPort;
+
+/**
+ *  The Linux network namespace to bind the socket to. If this is set, Envoy
+ *  will create the socket in the specified network namespace. Only supported on
+ *  Linux. [#not-implemented-hide:]
+ */
+@property(nonatomic, copy, nullable) NSString *networkNamespaceFilepath;
 
 /**
  *  portValue

@@ -389,8 +389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 @end
 
 /**
- *  Updates the retention period and description of the backup. You can use this
- *  API to update final backups only.
+ *  This API updates the following: 1- retention period and description of
+ *  backup in case of final backups only. 2- gcbdr_soft_delete_status of backup
+ *  in case of GCBDR managed backups only.
  *
  *  Method: sql.Backups.UpdateBackup
  *
@@ -407,8 +408,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields that you can update. You can update only the description
- *  and retention period of the final backup.
+ *  The list of fields that you can update. 1- You can update only the
+ *  description and retention period for a final backup. 2- You can update only
+ *  the gcbdr_soft_delete_status for GCBDR managed backup.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -417,8 +419,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Updates the retention period and description of the backup. You can use this
- *  API to update final backups only.
+ *  This API updates the following: 1- retention period and description of
+ *  backup in case of final backups only. 2- gcbdr_soft_delete_status of backup
+ *  in case of GCBDR managed backups only.
  *
  *  @param object The @c GTLRSQLAdmin_Backup to include in the query.
  *  @param name Output only. The resource name of the backup. Format:
@@ -1433,6 +1436,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 + (instancetype)queryWithObject:(GTLRSQLAdmin_DatabaseInstance *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Point in time restore for an instance managed by Google Cloud Backup and
+ *  Disaster Recovery.
+ *
+ *  Method: sql.instances.pointInTimeRestore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesPointInTimeRestore : GTLRSQLAdminQuery
+
+/**
+ *  Required. The parent resource where you created this instance. Format:
+ *  projects/{project}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Point in time restore for an instance managed by Google Cloud Backup and
+ *  Disaster Recovery.
+ *
+ *  @param object The @c GTLRSQLAdmin_PointInTimeRestoreContext to include in
+ *    the query.
+ *  @param parent Required. The parent resource where you created this instance.
+ *    Format: projects/{project}
+ *
+ *  @return GTLRSQLAdminQuery_InstancesPointInTimeRestore
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_PointInTimeRestoreContext *)object
+                         parent:(NSString *)parent;
 
 @end
 

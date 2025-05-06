@@ -6,12 +6,32 @@
 // Description:
 //   Create and manage meetings in Google Meet.
 // Documentation:
-//   https://developers.google.com/meet/api
+//   https://developers.google.com/workspace/meet/api
 
 #import <GoogleAPIClientForREST/GTLRMeetObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRMeet_ModerationRestrictions.chatRestriction
+NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_HostsOnly = @"HOSTS_ONLY";
+NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_NoRestriction = @"NO_RESTRICTION";
+NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_RestrictionTypeUnspecified = @"RESTRICTION_TYPE_UNSPECIFIED";
+
+// GTLRMeet_ModerationRestrictions.defaultJoinAsViewerType
+NSString * const kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_DefaultJoinAsViewerTypeUnspecified = @"DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED";
+NSString * const kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_Off = @"OFF";
+NSString * const kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_On = @"ON";
+
+// GTLRMeet_ModerationRestrictions.presentRestriction
+NSString * const kGTLRMeet_ModerationRestrictions_PresentRestriction_HostsOnly = @"HOSTS_ONLY";
+NSString * const kGTLRMeet_ModerationRestrictions_PresentRestriction_NoRestriction = @"NO_RESTRICTION";
+NSString * const kGTLRMeet_ModerationRestrictions_PresentRestriction_RestrictionTypeUnspecified = @"RESTRICTION_TYPE_UNSPECIFIED";
+
+// GTLRMeet_ModerationRestrictions.reactionRestriction
+NSString * const kGTLRMeet_ModerationRestrictions_ReactionRestriction_HostsOnly = @"HOSTS_ONLY";
+NSString * const kGTLRMeet_ModerationRestrictions_ReactionRestriction_NoRestriction = @"NO_RESTRICTION";
+NSString * const kGTLRMeet_ModerationRestrictions_ReactionRestriction_RestrictionTypeUnspecified = @"RESTRICTION_TYPE_UNSPECIFIED";
 
 // GTLRMeet_Recording.state
 NSString * const kGTLRMeet_Recording_State_Ended            = @"ENDED";
@@ -19,22 +39,47 @@ NSString * const kGTLRMeet_Recording_State_FileGenerated    = @"FILE_GENERATED";
 NSString * const kGTLRMeet_Recording_State_Started          = @"STARTED";
 NSString * const kGTLRMeet_Recording_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRMeet_RecordingConfig.autoRecordingGeneration
+NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_AutoGenerationTypeUnspecified = @"AUTO_GENERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_Off = @"OFF";
+NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_On = @"ON";
+
+// GTLRMeet_SmartNotesConfig.autoSmartNotesGeneration
+NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_AutoGenerationTypeUnspecified = @"AUTO_GENERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_Off = @"OFF";
+NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_On = @"ON";
+
 // GTLRMeet_SpaceConfig.accessType
 NSString * const kGTLRMeet_SpaceConfig_AccessType_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
 NSString * const kGTLRMeet_SpaceConfig_AccessType_Open         = @"OPEN";
 NSString * const kGTLRMeet_SpaceConfig_AccessType_Restricted   = @"RESTRICTED";
 NSString * const kGTLRMeet_SpaceConfig_AccessType_Trusted      = @"TRUSTED";
 
+// GTLRMeet_SpaceConfig.attendanceReportGenerationType
+NSString * const kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_AttendanceReportGenerationTypeUnspecified = @"ATTENDANCE_REPORT_GENERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_DoNotGenerate = @"DO_NOT_GENERATE";
+NSString * const kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_GenerateReport = @"GENERATE_REPORT";
+
 // GTLRMeet_SpaceConfig.entryPointAccess
 NSString * const kGTLRMeet_SpaceConfig_EntryPointAccess_All    = @"ALL";
 NSString * const kGTLRMeet_SpaceConfig_EntryPointAccess_CreatorAppOnly = @"CREATOR_APP_ONLY";
 NSString * const kGTLRMeet_SpaceConfig_EntryPointAccess_EntryPointAccessUnspecified = @"ENTRY_POINT_ACCESS_UNSPECIFIED";
+
+// GTLRMeet_SpaceConfig.moderation
+NSString * const kGTLRMeet_SpaceConfig_Moderation_ModerationUnspecified = @"MODERATION_UNSPECIFIED";
+NSString * const kGTLRMeet_SpaceConfig_Moderation_Off          = @"OFF";
+NSString * const kGTLRMeet_SpaceConfig_Moderation_On           = @"ON";
 
 // GTLRMeet_Transcript.state
 NSString * const kGTLRMeet_Transcript_State_Ended            = @"ENDED";
 NSString * const kGTLRMeet_Transcript_State_FileGenerated    = @"FILE_GENERATED";
 NSString * const kGTLRMeet_Transcript_State_Started          = @"STARTED";
 NSString * const kGTLRMeet_Transcript_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRMeet_TranscriptionConfig.autoTranscriptionGeneration
+NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_AutoGenerationTypeUnspecified = @"AUTO_GENERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_Off = @"OFF";
+NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = @"ON";
 
 // ----------------------------------------------------------------------------
 //
@@ -53,6 +98,16 @@ NSString * const kGTLRMeet_Transcript_State_StateUnspecified = @"STATE_UNSPECIFI
 
 @implementation GTLRMeet_AnonymousUser
 @dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMeet_ArtifactConfig
+//
+
+@implementation GTLRMeet_ArtifactConfig
+@dynamic recordingConfig, smartNotesConfig, transcriptionConfig;
 @end
 
 
@@ -238,6 +293,17 @@ NSString * const kGTLRMeet_Transcript_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMeet_ModerationRestrictions
+//
+
+@implementation GTLRMeet_ModerationRestrictions
+@dynamic chatRestriction, defaultJoinAsViewerType, presentRestriction,
+         reactionRestriction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMeet_Participant
 //
 
@@ -279,11 +345,31 @@ NSString * const kGTLRMeet_Transcript_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMeet_RecordingConfig
+//
+
+@implementation GTLRMeet_RecordingConfig
+@dynamic autoRecordingGeneration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMeet_SignedinUser
 //
 
 @implementation GTLRMeet_SignedinUser
 @dynamic displayName, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMeet_SmartNotesConfig
+//
+
+@implementation GTLRMeet_SmartNotesConfig
+@dynamic autoSmartNotesGeneration;
 @end
 
 
@@ -303,7 +389,8 @@ NSString * const kGTLRMeet_Transcript_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRMeet_SpaceConfig
-@dynamic accessType, entryPointAccess;
+@dynamic accessType, artifactConfig, attendanceReportGenerationType,
+         entryPointAccess, moderation, moderationRestrictions;
 @end
 
 
@@ -324,4 +411,14 @@ NSString * const kGTLRMeet_Transcript_State_StateUnspecified = @"STATE_UNSPECIFI
 
 @implementation GTLRMeet_TranscriptEntry
 @dynamic endTime, languageCode, name, participant, startTime, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMeet_TranscriptionConfig
+//
+
+@implementation GTLRMeet_TranscriptionConfig
+@dynamic autoTranscriptionGeneration;
 @end

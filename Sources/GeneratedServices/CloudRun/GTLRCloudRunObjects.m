@@ -39,6 +39,7 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ProgressDeadline
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RevisionFailed = @"REVISION_FAILED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_SecretsAccessCheckFailed = @"SECRETS_ACCESS_CHECK_FAILED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_VpcNetworkNotFound = @"VPC_NETWORK_NOT_FOUND";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_WaitingForOperation = @"WAITING_FOR_OPERATION";
 
 // GTLRCloudRun_GoogleCloudRunV2Condition.revisionReason
@@ -327,6 +328,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"A
 NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -1370,10 +1375,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_GoogleCloudRunV2Task
 @dynamic annotations, completionTime, conditions, containers, createTime,
          deleteTime, encryptionKey, ETag, execution, executionEnvironment,
-         expireTime, generation, index, job, labels, lastAttemptResult, logUri,
-         maxRetries, name, nodeSelector, observedGeneration, reconciling,
-         retried, satisfiesPzs, scheduledTime, serviceAccount, startTime,
-         timeout, uid, updateTime, volumes, vpcAccess;
+         expireTime, generation, gpuZonalRedundancyDisabled, index, job, labels,
+         lastAttemptResult, logUri, maxRetries, name, nodeSelector,
+         observedGeneration, reconciling, retried, satisfiesPzs, scheduledTime,
+         serviceAccount, startTime, timeout, uid, updateTime, volumes,
+         vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -2555,3 +2561,5 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_UtilStatusProto
 @dynamic canonicalCode, code, message, messageSet, space;
 @end
+
+#pragma clang diagnostic pop

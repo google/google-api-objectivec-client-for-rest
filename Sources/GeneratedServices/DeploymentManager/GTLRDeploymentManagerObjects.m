@@ -582,6 +582,7 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
          error, httpErrorMessage, httpErrorStatusCode, identifier, insertTime,
          instancesBulkInsertOperationMetadata, kind, name, operationGroupId,
          operationType, progress, region, selfLink, selfLinkWithId,
+         setAutoscalerLinkOperationMetadata,
          setCommonInstanceMetadataOperationMetadata, startTime, status,
          statusMessage, targetId, targetLink, user, warnings, zoneProperty;
 
@@ -922,6 +923,24 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 @implementation GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item
 @dynamic errorInfo, help, localizedMessage, quotaInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata
+//
+
+@implementation GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata
+@dynamic zonalIgmIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zonalIgmIds" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

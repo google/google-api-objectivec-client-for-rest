@@ -6,7 +6,7 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRDrive.h>
 

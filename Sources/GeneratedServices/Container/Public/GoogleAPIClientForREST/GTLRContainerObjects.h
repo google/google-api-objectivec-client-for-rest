@@ -664,6 +664,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_E
 FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ConfidentialNodes.confidentialInstanceType
+
+/**
+ *  No type specified. Do not use this value.
+ *
+ *  Value: "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified;
+/**
+ *  AMD Secure Encrypted Virtualization.
+ *
+ *  Value: "SEV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Sev;
+/**
+ *  AMD Secure Encrypted Virtualization - Secure Nested Paging.
+ *
+ *  Value: "SEV_SNP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_SevSnp;
+/**
+ *  Intel Trust Domain eXtension.
+ *
+ *  Value: "TDX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Tdx;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.currentState
 
 /**
@@ -2426,6 +2454,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_End
  *  Value: "EVENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_EventTypeUnspecified;
+/**
+ *  UPGRADE_LIFECYCLE indicates the event is about the upgrade lifecycle.
+ *
+ *  Value: "UPGRADE_LIFECYCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_UpgradeLifecycle;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeInfoEvent.resourceType
@@ -4388,6 +4422,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  makes nodes run on confidential VMs.
  */
 @interface GTLRContainer_ConfidentialNodes : GTLRObject
+
+/**
+ *  Defines the type of technology used by the confidential node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified
+ *        No type specified. Do not use this value. (Value:
+ *        "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Sev AMD
+ *        Secure Encrypted Virtualization. (Value: "SEV")
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_SevSnp
+ *        AMD Secure Encrypted Virtualization - Secure Nested Paging. (Value:
+ *        "SEV_SNP")
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Tdx
+ *        Intel Trust Domain eXtension. (Value: "TDX")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialInstanceType;
 
 /**
  *  Whether Confidential Nodes feature is enabled.
@@ -9932,6 +9983,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_EventTypeUnspecified
  *        EVENT_TYPE_UNSPECIFIED indicates the event type is unspecified.
  *        (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_UpgradeLifecycle
+ *        UPGRADE_LIFECYCLE indicates the event is about the upgrade lifecycle.
+ *        (Value: "UPGRADE_LIFECYCLE")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 

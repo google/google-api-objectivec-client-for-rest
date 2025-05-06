@@ -108,6 +108,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
+ *  Create an EncryptionConfig.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The ID of the EncryptionConfig to create. Currently, only a value
+ *  of "default" is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionConfigId;
+
+/** Required. The location at which the EncryptionConfig is to be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Create an EncryptionConfig.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig
+ *    to include in the query.
+ *  @param parent Required. The location at which the EncryptionConfig is to be
+ *    created.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete an EncryptionConfig.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsDelete : GTLRCloudDataplexQuery
+
+/** Optional. Etag of the EncryptionConfig. This is a strong etag. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the EncryptionConfig to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Delete an EncryptionConfig.
+ *
+ *  @param name Required. The name of the EncryptionConfig to delete.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get an EncryptionConfig.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsGet : GTLRCloudDataplexQuery
+
+/** Required. The name of the EncryptionConfig to fetch. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig.
+ *
+ *  Get an EncryptionConfig.
+ *
+ *  @param name Required. The name of the EncryptionConfig to fetch.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -154,6 +245,115 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  List EncryptionConfigs.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter the EncryptionConfigs to be returned. Using bare literals:
+ *  (These values will be matched anywhere it may appear in the object's field
+ *  values) * filter=some_value Using fields: (These values will be matched only
+ *  in the specified field) * filter=some_field=some_value Supported fields: *
+ *  name, key, create_time, update_time, encryption_state Example: *
+ *  filter=name=organizations/123/locations/us-central1/encryptionConfigs/test-config
+ *  conjunctions: (AND, OR, NOT) *
+ *  filter=name=organizations/123/locations/us-central1/encryptionConfigs/test-config
+ *  AND mode=CMEK logical operators: (>, <, >=, <=, !=, =, :), *
+ *  filter=create_time>2024-05-01T00:00:00.000Z
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of EncryptionConfigs to return. The service may
+ *  return fewer than this value. If unspecified, at most 10 EncryptionConfigs
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous ListEncryptionConfigs call.
+ *  Provide this to retrieve the subsequent page. When paginating, the
+ *  parameters - filter and order_by provided to ListEncryptionConfigs must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The location for which the EncryptionConfig is to be listed. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListEncryptionConfigsResponse.
+ *
+ *  List EncryptionConfigs.
+ *
+ *  @param parent Required. The location for which the EncryptionConfig is to be
+ *    listed.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update an EncryptionConfig.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Identifier. The resource name of the EncryptionConfig. Format:
+ *  organizations/{organization}/locations/{location}/encryptionConfigs/{encryption_config}
+ *  Global location is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Mask of fields to update. The service treats an omitted field mask
+ *  as an implied field mask equivalent to all fields that are populated (have a
+ *  non-empty value).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Update an EncryptionConfig.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig
+ *    to include in the query.
+ *  @param name Identifier. The resource name of the EncryptionConfig. Format:
+ *    organizations/{organization}/locations/{location}/encryptionConfigs/{encryption_config}
+ *    Global location is not supported.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2794,6 +2994,107 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates an Entry Link.
+ *
+ *  Method: dataplex.projects.locations.entryGroups.entryLinks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. Entry Link identifier * Must contain only lowercase letters,
+ *  numbers and hyphens. * Must start with a letter. * Must be between 1-63
+ *  characters. * Must end with a number or a letter. * Must be unique within
+ *  the EntryGroup.
+ */
+@property(nonatomic, copy, nullable) NSString *entryLinkId;
+
+/**
+ *  Required. The resource name of the parent Entry Group:
+ *  projects/{project}/locations/{location}/entryGroups/{entry_group}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink.
+ *
+ *  Creates an Entry Link.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent Entry Group:
+ *    projects/{project}/locations/{location}/entryGroups/{entry_group}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Entry Link.
+ *
+ *  Method: dataplex.projects.locations.entryGroups.entryLinks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the Entry Link:
+ *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink.
+ *
+ *  Deletes an Entry Link.
+ *
+ *  @param name Required. The resource name of the Entry Link:
+ *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an entry link.
+ *
+ *  Method: dataplex.projects.locations.entryGroups.entryLinks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the Entry Link:
+ *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink.
+ *
+ *  Gets an entry link.
+ *
+ *  @param name Required. The resource name of the Entry Link:
+ *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets an EntryGroup.
  *
  *  Method: dataplex.projects.locations.entryGroups.get
@@ -3580,6 +3881,111 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  GlossaryCategory APIs are CCFE passthrough APIs. Creates a new
+ *  GlossaryCategory resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesCreate : GTLRCloudDataplexQuery
+
+/** Required. Category ID: GlossaryCategory identifier. */
+@property(nonatomic, copy, nullable) NSString *categoryId;
+
+/**
+ *  Required. The parent resource where this GlossaryCategory will be created.
+ *  Format: projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ *  where locationId refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory.
+ *
+ *  GlossaryCategory APIs are CCFE passthrough APIs. Creates a new
+ *  GlossaryCategory resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory
+ *    to include in the query.
+ *  @param parent Required. The parent resource where this GlossaryCategory will
+ *    be created. Format:
+ *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} where
+ *    locationId refers to a GCP region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GlossaryCategory resource. All the categories and terms nested
+ *  directly under the category will be moved one level up to the parent in the
+ *  hierarchy.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the GlossaryCategory to delete. Format:
+ *  projects/{project}/locations/{location}/glossary/{glossary}/categories/{glossary_category}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_Empty.
+ *
+ *  Deletes a GlossaryCategory resource. All the categories and terms nested
+ *  directly under the category will be moved one level up to the parent in the
+ *  hierarchy.
+ *
+ *  @param name Required. The name of the GlossaryCategory to delete. Format:
+ *    projects/{project}/locations/{location}/glossary/{glossary}/categories/{glossary_category}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a specified GlossaryCategory resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the GlossaryCategory to retrieve. Format:
+ *  projects/{project}/locations/{location}/glossaries/{glossary}/categories/{glossary_category}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory.
+ *
+ *  Retrieves a specified GlossaryCategory resource.
+ *
+ *  @param name Required. The name of the GlossaryCategory to retrieve. Format:
+ *    projects/{project}/locations/{location}/glossaries/{glossary}/categories/{glossary_category}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -3626,6 +4032,116 @@ GTLR_DEPRECATED
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists GlossaryCategory resources in a glossary.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter expression that filters categories listed in the response.
+ *  Filters supported: List GlossaryCategories based on immediate parent in the
+ *  resource hierarchy. This will only return the GlossaryCategories nested
+ *  directly under the parent and no other subsequent nested categories will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Order by expression that orders categories listed in the response.
+ *  Order by fields are: name or create_time for the result. If not specified,
+ *  the ordering is undefined.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of categories to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 categories will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListGlossaryCategories
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to ListGlossaryCategories must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which has this collection of categories. Format:
+ *  projects/{project}/locations/{location}/glossaries/{glossary} Location is
+ *  the GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossaryCategoriesResponse.
+ *
+ *  Lists GlossaryCategory resources in a glossary.
+ *
+ *  @param parent Required. The parent, which has this collection of categories.
+ *    Format: projects/{project}/locations/{location}/glossaries/{glossary}
+ *    Location is the GCP region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a GlossaryCategory resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Output only. Identifier. The resource name of the GlossaryCategory. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory.
+ *
+ *  Updates a GlossaryCategory resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory
+ *    to include in the query.
+ *  @param name Output only. Identifier. The resource name of the
+ *    GlossaryCategory. Format:
+ *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3714,6 +4230,119 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates a new Glossary resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCreate : GTLRCloudDataplexQuery
+
+/** Required. Glossary ID: Glossary identifier. */
+@property(nonatomic, copy, nullable) NSString *glossaryId;
+
+/**
+ *  Required. The parent resource where this Glossary will be created. Format:
+ *  projects/{projectId}/locations/{locationId} where locationId refers to a GCP
+ *  region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Validates the request without actually creating the glossary.
+ *  Default: false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Creates a new Glossary resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Glossary to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this Glossary will be
+ *    created. Format: projects/{projectId}/locations/{locationId} where
+ *    locationId refers to a GCP region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Glossary *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Glossary resource. All the categories and terms within the
+ *  glossary must be deleted before a glossary can be deleted.
+ *
+ *  Method: dataplex.projects.locations.glossaries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The etag of the Glossary. If this is provided, it must match the
+ *  server's etag. If the etag is provided and does not match the
+ *  server-computed etag, the request must fail with a ABORTED error code.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the Glossary to delete. Format:
+ *  projects/{project}/locations/{location}/glossary/{glossary}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a Glossary resource. All the categories and terms within the
+ *  glossary must be deleted before a glossary can be deleted.
+ *
+ *  @param name Required. The name of the Glossary to delete. Format:
+ *    projects/{project}/locations/{location}/glossary/{glossary}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a specified Glossary resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the Glossary to retrieve. Format:
+ *  projects/{project}/locations/{location}/glossaries/{glossary}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Glossary.
+ *
+ *  Retrieves a specified Glossary resource.
+ *
+ *  @param name Required. The name of the Glossary to retrieve. Format:
+ *    projects/{project}/locations/{location}/glossaries/{glossary}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -3764,6 +4393,117 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Lists Glossary resources in a project and location.
+ *
+ *  Method: dataplex.projects.locations.glossaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter expression that filters glossaries listed in the response.
+ *  Initially, no filter is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Order by expression that orders glossaries listed in the response.
+ *  Order by fields are: name or create_time for the result. If not specified,
+ *  the ordering is undefined.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of glossaries to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 glossaries will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListGlossaries call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to ListGlossaries must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which has this collection of glossaries. Format:
+ *  projects/{project}/locations/{location} Location is the GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossariesResponse.
+ *
+ *  Lists Glossary resources in a project and location.
+ *
+ *  @param parent Required. The parent, which has this collection of glossaries.
+ *    Format: projects/{project}/locations/{location} Location is the GCP
+ *    region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Glossary resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Output only. Identifier. The resource name of the Glossary. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Validates the request without actually updating the glossary.
+ *  Default: false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a Glossary resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Glossary to
+ *    include in the query.
+ *  @param name Output only. Identifier. The resource name of the Glossary.
+ *    Format:
+ *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Glossary *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
  *  PERMISSION_DENIED errors.
@@ -3800,6 +4540,107 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  GlossaryTerm APIs are CCFE passthrough APIs. Creates a new GlossaryTerm
+ *  resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The parent resource where this GlossaryTerm will be created.
+ *  Format: projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ *  where locationId refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Term ID: GlossaryTerm identifier. */
+@property(nonatomic, copy, nullable) NSString *termId;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm.
+ *
+ *  GlossaryTerm APIs are CCFE passthrough APIs. Creates a new GlossaryTerm
+ *  resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this GlossaryTerm will be
+ *    created. Format:
+ *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} where
+ *    locationId refers to a GCP region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GlossaryTerm resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the GlossaryTerm to delete. Format:
+ *  projects/{project}/locations/{location}/glossary/{glossary}/terms/{glossary_term}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_Empty.
+ *
+ *  Deletes a GlossaryTerm resource.
+ *
+ *  @param name Required. The name of the GlossaryTerm to delete. Format:
+ *    projects/{project}/locations/{location}/glossary/{glossary}/terms/{glossary_term}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a specified GlossaryTerm resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the GlossaryTerm to retrieve. Format:
+ *  projects/{project}/locations/{location}/glossaries/{glossary}/terms/{glossary_term}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm.
+ *
+ *  Retrieves a specified GlossaryTerm resource.
+ *
+ *  @param name Required. The name of the GlossaryTerm to retrieve. Format:
+ *    projects/{project}/locations/{location}/glossaries/{glossary}/terms/{glossary_term}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -3850,6 +4691,114 @@ GTLR_DEPRECATED
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists GlossaryTerm resources in a glossary.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter expression that filters terms listed in the response.
+ *  Filters supported: List GlossaryTerms based on immediate parent in the
+ *  resource hierarchy. This will only return the terms nested directly under
+ *  the parent and no other subsequent nested terms will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Order by expression that orders terms listed in the response.
+ *  Order by fields are: name or create_time for the result. If not specified,
+ *  the ordering is undefined.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of terms to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 terms will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListGlossaryTerms call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to ListGlossaryTerms must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which has this collection of terms. Format:
+ *  projects/{project}/locations/{location}/glossaries/{glossary} Location is
+ *  the GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossaryTermsResponse.
+ *
+ *  Lists GlossaryTerm resources in a glossary.
+ *
+ *  @param parent Required. The parent, which has this collection of terms.
+ *    Format: projects/{project}/locations/{location}/glossaries/{glossary}
+ *    Location is the GCP region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a GlossaryTerm resource.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Output only. Identifier. The resource name of the GlossaryTerm. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/terms/{termId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm.
+ *
+ *  Updates a GlossaryTerm resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm to
+ *    include in the query.
+ *  @param name Output only. Identifier. The resource name of the GlossaryTerm.
+ *    Format:
+ *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/terms/{termId}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -7804,6 +8753,9 @@ GTLR_DEPRECATED
  *  the organization where the project provided in name is located.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
+
+/** Optional. Internal only. */
+@property(nonatomic, assign) BOOL semanticSearch;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResponse.

@@ -170,6 +170,11 @@ NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_DbWorkloadUn
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Dw = @"DW";
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Oltp = @"OLTP";
 
+// GTLROracleDatabase_CloudExadataInfrastructureProperties.computeModel
+NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelEcpu = @"COMPUTE_MODEL_ECPU";
+NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelOcpu = @"COMPUTE_MODEL_OCPU";
+NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelUnspecified = @"COMPUTE_MODEL_UNSPECIFIED";
+
 // GTLROracleDatabase_CloudExadataInfrastructureProperties.state
 NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_State_Available = @"AVAILABLE";
 NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_State_Failed = @"FAILED";
@@ -179,6 +184,11 @@ NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_State_
 NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_State_Terminated = @"TERMINATED";
 NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_State_Terminating = @"TERMINATING";
 NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_State_Updating = @"UPDATING";
+
+// GTLROracleDatabase_CloudVmClusterProperties.computeModel
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelEcpu = @"COMPUTE_MODEL_ECPU";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelOcpu = @"COMPUTE_MODEL_OCPU";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelUnspecified = @"COMPUTE_MODEL_UNSPECIFIED";
 
 // GTLROracleDatabase_CloudVmClusterProperties.diskRedundancy
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_DiskRedundancy_DiskRedundancyUnspecified = @"DISK_REDUNDANCY_UNSPECIFIED";
@@ -451,28 +461,29 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_AutonomousDatabaseProperties
-@dynamic actualUsedDataStorageSizeTb, allocatedStorageSizeTb, apexDetails,
-         arePrimaryAllowlistedIpsUsed, autonomousContainerDatabaseId,
-         availableUpgradeVersions, backupRetentionPeriodDays, characterSet,
-         computeCount, connectionStrings, connectionUrls, cpuCoreCount,
-         customerContacts, databaseManagementState, dataGuardRoleChangedTime,
-         dataSafeState, dataStorageSizeGb, dataStorageSizeTb, dbEdition,
-         dbVersion, dbWorkload, disasterRecoveryRoleChangedTime,
-         failedDataRecoveryDuration, isAutoScalingEnabled,
-         isLocalDataGuardEnabled, isStorageAutoScalingEnabled, licenseType,
-         lifecycleDetails, localAdgAutoFailoverMaxDataLossLimit,
-         localDisasterRecoveryType, localStandbyDb, maintenanceBeginTime,
-         maintenanceEndTime, maintenanceScheduleType,
-         memoryPerOracleComputeUnitGbs, memoryTableGbs, mtlsConnectionRequired,
-         nCharacterSet, nextLongTermBackupTime, ocid, ociUrl, openMode,
-         operationsInsightsState, peerDbIds, permissionLevel, privateEndpoint,
-         privateEndpointIp, privateEndpointLabel, refreshableMode,
-         refreshableState, role, scheduledOperationDetails, secretId,
-         sqlWebDeveloperUrl, state, supportedCloneRegions,
+@dynamic actualUsedDataStorageSizeTb, allocatedStorageSizeTb, allowlistedIps,
+         apexDetails, arePrimaryAllowlistedIpsUsed,
+         autonomousContainerDatabaseId, availableUpgradeVersions,
+         backupRetentionPeriodDays, characterSet, computeCount,
+         connectionStrings, connectionUrls, cpuCoreCount, customerContacts,
+         databaseManagementState, dataGuardRoleChangedTime, dataSafeState,
+         dataStorageSizeGb, dataStorageSizeTb, dbEdition, dbVersion, dbWorkload,
+         disasterRecoveryRoleChangedTime, failedDataRecoveryDuration,
+         isAutoScalingEnabled, isLocalDataGuardEnabled,
+         isStorageAutoScalingEnabled, licenseType, lifecycleDetails,
+         localAdgAutoFailoverMaxDataLossLimit, localDisasterRecoveryType,
+         localStandbyDb, maintenanceBeginTime, maintenanceEndTime,
+         maintenanceScheduleType, memoryPerOracleComputeUnitGbs, memoryTableGbs,
+         mtlsConnectionRequired, nCharacterSet, nextLongTermBackupTime, ocid,
+         ociUrl, openMode, operationsInsightsState, peerDbIds, permissionLevel,
+         privateEndpoint, privateEndpointIp, privateEndpointLabel,
+         refreshableMode, refreshableState, role, scheduledOperationDetails,
+         secretId, sqlWebDeveloperUrl, state, supportedCloneRegions,
          totalAutoBackupStorageSizeGbs, usedDataStorageSizeTbs, vaultId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowlistedIps" : [NSString class],
     @"availableUpgradeVersions" : [NSString class],
     @"customerContacts" : [GTLROracleDatabase_CustomerContact class],
     @"peerDbIds" : [NSString class],
@@ -558,13 +569,15 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_CloudExadataInfrastructureProperties
 @dynamic activatedStorageCount, additionalStorageCount, availableStorageSizeGb,
-         computeCount, cpuCount, customerContacts, dataStorageSizeTb,
-         dbNodeStorageSizeGb, dbServerVersion, maintenanceWindow, maxCpuCount,
-         maxDataStorageTb, maxDbNodeStorageSizeGb, maxMemoryGb, memorySizeGb,
+         computeCount, computeModel, cpuCount, customerContacts,
+         databaseServerType, dataStorageSizeTb, dbNodeStorageSizeGb,
+         dbServerVersion, maintenanceWindow, maxCpuCount, maxDataStorageTb,
+         maxDbNodeStorageSizeGb, maxMemoryGb, memorySizeGb,
          monthlyDbServerVersion, monthlyStorageServerVersion,
          nextMaintenanceRunId, nextMaintenanceRunTime,
          nextSecurityMaintenanceRunTime, ocid, ociUrl, shape, state,
-         storageCount, storageServerVersion, totalStorageSizeGb;
+         storageCount, storageServerType, storageServerVersion,
+         totalStorageSizeGb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -607,14 +620,14 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_CloudVmClusterProperties
-@dynamic clusterName, compartmentId, cpuCoreCount, dataStorageSizeTb,
-         dbNodeStorageSizeGb, dbServerOcids, diagnosticsDataCollectionOptions,
-         diskRedundancy, dnsListenerIp, domain, giVersion, hostname,
-         hostnamePrefix, licenseType, localBackupEnabled, memorySizeGb,
-         nodeCount, ocid, ociUrl, ocpuCount, scanDns, scanDnsRecordId,
-         scanIpIds, scanListenerPortTcp, scanListenerPortTcpSsl, shape,
-         sparseDiskgroupEnabled, sshPublicKeys, state, storageSizeGb,
-         systemVersion, timeZone;
+@dynamic clusterName, compartmentId, computeModel, cpuCoreCount,
+         dataStorageSizeTb, dbNodeStorageSizeGb, dbServerOcids,
+         diagnosticsDataCollectionOptions, diskRedundancy, dnsListenerIp,
+         domain, giVersion, hostname, hostnamePrefix, licenseType,
+         localBackupEnabled, memorySizeGb, nodeCount, ocid, ociUrl, ocpuCount,
+         scanDns, scanDnsRecordId, scanIpIds, scanListenerPortTcp,
+         scanListenerPortTcpSsl, shape, sparseDiskgroupEnabled, sshPublicKeys,
+         state, storageSizeGb, systemVersion, timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

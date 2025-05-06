@@ -3810,6 +3810,632 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Creates a playbook in a specified agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksCreate : GTLRDialogflowQuery
+
+/**
+ *  Required. The agent to create a playbook for. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook.
+ *
+ *  Creates a playbook in a specified agent.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook to
+ *    include in the query.
+ *  @param parent Required. The agent to create a playbook for. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specified playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksDelete : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the playbook to delete. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes a specified playbook.
+ *
+ *  @param name Required. The name of the playbook to delete. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an example in the specified playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.examples.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesCreate : GTLRDialogflowQuery
+
+/**
+ *  Required. The playbook to create an example for. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Example.
+ *
+ *  Creates an example in the specified playbook.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Example to
+ *    include in the query.
+ *  @param parent Required. The playbook to create an example for. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Example *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified example.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.examples.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesDelete : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the example to delete. Format:
+ *  `projects//locations//agents//playbooks//examples/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified example.
+ *
+ *  @param name Required. The name of the example to delete. Format:
+ *    `projects//locations//agents//playbooks//examples/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified example.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.examples.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the example. Format:
+ *  `projects//locations//agents//playbooks//examples/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Example.
+ *
+ *  Retrieves the specified example.
+ *
+ *  @param name Required. The name of the example. Format:
+ *    `projects//locations//agents//playbooks//examples/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of examples in the specified playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.examples.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesList : GTLRDialogflowQuery
+
+/**
+ *  Optional. The language to list examples for. If not specified, list all
+ *  examples under the playbook. Note: languages must be enabled in the agent
+ *  before they can be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional. The maximum number of items to return in a single page. By default
+ *  100 and at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The playbook to list the examples from. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ListExamplesResponse.
+ *
+ *  Returns a list of examples in the specified playbook.
+ *
+ *  @param parent Required. The playbook to list the examples from. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update the specified example.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.examples.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesPatch : GTLRDialogflowQuery
+
+/**
+ *  The unique identifier of the playbook example. Format:
+ *  `projects//locations//agents//playbooks//examples/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The mask to control which fields get updated. If the mask is not
+ *  present, all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Example.
+ *
+ *  Update the specified example.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Example to
+ *    include in the query.
+ *  @param name The unique identifier of the playbook example. Format:
+ *    `projects//locations//agents//playbooks//examples/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExamplesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Example *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Exports the specified playbook to a binary file. Note that resources (e.g.
+ *  examples, tools) that the playbook references will also be exported.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExport : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the playbook to export. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Exports the specified playbook to a binary file. Note that resources (e.g.
+ *  examples, tools) that the playbook references will also be exported.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportPlaybookRequest to include
+ *    in the query.
+ *  @param name Required. The name of the playbook to export. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksExport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ExportPlaybookRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified Playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the playbook. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook.
+ *
+ *  Retrieves the specified Playbook.
+ *
+ *  @param name Required. The name of the playbook. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports the specified playbook to the specified agent from a binary file.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksImport : GTLRDialogflowQuery
+
+/**
+ *  Required. The agent to import the playbook into. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Imports the specified playbook to the specified agent from a binary file.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportPlaybookRequest to include
+ *    in the query.
+ *  @param parent Required. The agent to import the playbook into. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksImport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ImportPlaybookRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a list of playbooks in the specified agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksList : GTLRDialogflowQuery
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The agent to list playbooks from. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ListPlaybooksResponse.
+ *
+ *  Returns a list of playbooks in the specified agent.
+ *
+ *  @param parent Required. The agent to list playbooks from. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified Playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksPatch : GTLRDialogflowQuery
+
+/**
+ *  The unique identifier of the playbook. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The mask to control which fields get updated. If the mask is not present,
+ *  all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook.
+ *
+ *  Updates the specified Playbook.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook to
+ *    include in the query.
+ *  @param name The unique identifier of the playbook. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a version for the specified Playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsCreate : GTLRDialogflowQuery
+
+/**
+ *  Required. The playbook to create a version for. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookVersion.
+ *
+ *  Creates a version for the specified Playbook.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookVersion
+ *    to include in the query.
+ *  @param parent Required. The playbook to create a version for. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified version of the Playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsDelete : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the playbook version to delete. Format:
+ *  `projects//locations//agents//playbooks//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified version of the Playbook.
+ *
+ *  @param name Required. The name of the playbook version to delete. Format:
+ *    `projects//locations//agents//playbooks//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified version of the Playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the playbook version. Format:
+ *  `projects//locations//agents//playbooks//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookVersion.
+ *
+ *  Retrieves the specified version of the Playbook.
+ *
+ *  @param name Required. The name of the playbook version. Format:
+ *    `projects//locations//agents//playbooks//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists versions for the specified Playbook.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsList : GTLRDialogflowQuery
+
+/**
+ *  Optional. The maximum number of items to return in a single page. By default
+ *  100 and at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The playbook to list versions for. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListPlaybookVersionsResponse.
+ *
+ *  Lists versions for the specified Playbook.
+ *
+ *  @param parent Required. The playbook to list versions for. Format:
+ *    `projects//locations//agents//playbooks/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves the specified version of the Playbook and stores it as the current
+ *  playbook draft, returning the playbook with resources updated.
+ *
+ *  Method: dialogflow.projects.locations.agents.playbooks.versions.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsRestore : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the playbook version. Format:
+ *  `projects//locations//agents//playbooks//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3RestorePlaybookVersionResponse.
+ *
+ *  Retrieves the specified version of the Playbook and stores it as the current
+ *  playbook draft, returning the playbook with resources updated.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3RestorePlaybookVersionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the playbook version. Format:
+ *    `projects//locations//agents//playbooks//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsPlaybooksVersionsRestore
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RestorePlaybookVersionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Restores the specified agent from a binary file. Replaces the current agent
  *  with a new one. Note that all existing resources in agent (e.g. intents,
  *  entity types, flows) will be removed. This method is a [long-running
@@ -4842,6 +5468,196 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Tool in the specified agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsCreate : GTLRDialogflowQuery
+
+/**
+ *  Required. The agent to create a Tool for. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Tool.
+ *
+ *  Creates a Tool in the specified agent.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Tool to include
+ *    in the query.
+ *  @param parent Required. The agent to create a Tool for. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Tool *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specified Tool.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsDelete : GTLRDialogflowQuery
+
+/**
+ *  This field has no effect for Tools not being used. For Tools that are used:
+ *  * If `force` is set to false, an error will be returned with message
+ *  indicating the referenced resources. * If `force` is set to true, Dialogflow
+ *  will remove the tool, as well as any references to the tool.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the Tool to be deleted. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes a specified Tool.
+ *
+ *  @param name Required. The name of the Tool to be deleted. Format:
+ *    `projects//locations//agents//tools/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified Tool.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the Tool. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Tool.
+ *
+ *  Retrieves the specified Tool.
+ *
+ *  @param name Required. The name of the Tool. Format:
+ *    `projects//locations//agents//tools/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of Tools in the specified agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsList : GTLRDialogflowQuery
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The agent to list the Tools from. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ListToolsResponse.
+ *
+ *  Returns a list of Tools in the specified agent.
+ *
+ *  @param parent Required. The agent to list the Tools from. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update the specified Tool.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsPatch : GTLRDialogflowQuery
+
+/**
+ *  The unique identifier of the Tool. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The mask to control which fields get updated. If the mask is not present,
+ *  all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Tool.
+ *
+ *  Update the specified Tool.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Tool to include
+ *    in the query.
+ *  @param name The unique identifier of the Tool. Format:
+ *    `projects//locations//agents//tools/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Tool *)object
                            name:(NSString *)name;
 
 @end

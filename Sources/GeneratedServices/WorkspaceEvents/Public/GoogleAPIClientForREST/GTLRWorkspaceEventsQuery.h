@@ -80,7 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Creates a Google Workspace subscription. To learn how to use this method,
  *  see [Create a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/create-subscription).
@@ -115,7 +114,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Creates a Google Workspace subscription. To learn how to use this method,
  *  see [Create a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/create-subscription).
@@ -130,7 +128,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Deletes a Google Workspace subscription. To learn how to use this method,
  *  see [Delete a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/delete-subscription).
@@ -184,7 +181,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Deletes a Google Workspace subscription. To learn how to use this method,
  *  see [Delete a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/delete-subscription).
@@ -199,8 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): Gets
- *  details about a Google Workspace subscription. To learn how to use this
+ *  Gets details about a Google Workspace subscription. To learn how to use this
  *  method, see [Get details about a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/get-subscription).
  *
@@ -235,8 +230,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Subscription.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview): Gets
- *  details about a Google Workspace subscription. To learn how to use this
+ *  Gets details about a Google Workspace subscription. To learn how to use this
  *  method, see [Get details about a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/get-subscription).
  *
@@ -250,9 +244,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
- *  Google Workspace subscriptions. To learn how to use this method, see [List
- *  Google Workspace
+ *  Lists Google Workspace subscriptions. To learn how to use this method, see
+ *  [List Google Workspace
  *  subscriptions](https://developers.google.com/workspace/events/guides/list-subscriptions).
  *
  *  Method: workspaceevents.subscriptions.list
@@ -314,9 +307,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_ListSubscriptionsResponse.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
- *  Google Workspace subscriptions. To learn how to use this method, see [List
- *  Google Workspace
+ *  Lists Google Workspace subscriptions. To learn how to use this method, see
+ *  [List Google Workspace
  *  subscriptions](https://developers.google.com/workspace/events/guides/list-subscriptions).
  *
  *  @return GTLRWorkspaceEventsQuery_SubscriptionsList
@@ -330,7 +322,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Updates or renews a Google Workspace subscription. To learn how to use this
  *  method, see [Update or renew a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/update-subscription).
@@ -384,7 +375,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Updates or renews a Google Workspace subscription. To learn how to use this
  *  method, see [Update or renew a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/update-subscription).
@@ -402,7 +392,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Reactivates a suspended Google Workspace subscription. This method resets
  *  your subscription's `State` field to `ACTIVE`. Before you use this method,
  *  you must fix the error that suspended the subscription. This method will
@@ -440,7 +429,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Reactivates a suspended Google Workspace subscription. This method resets
  *  your subscription's `State` field to `ACTIVE`. Before you use this method,
  *  you must fix the error that suspended the subscription. This method will

@@ -88,6 +88,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomFineTuningSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_Params;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AdditionalParams;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AuthParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorRealtimeSyncConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity_KeyPropertyMappings;
@@ -111,7 +114,10 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineCommonConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigEngineFeaturesConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigMostPopularFeatureConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig;
@@ -182,6 +188,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerCitation;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerCitationSource;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerGenerationSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerGenerationSpecUserDefinedClassifierSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerGroundingSupport;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest_UserLabels;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestAnswerGenerationSpec;
@@ -258,6 +266,11 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineConfigAgentCreationConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineCommonConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigEngineFeaturesConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigMostPopularFeatureConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineSearchEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpecQuerySetSpec;
@@ -376,6 +389,11 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineConfigAgentCreationConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineCommonConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigEngineFeaturesConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigMostPopularFeatureConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigOptimizationObjectiveConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FactChunk;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FactChunk_SourceMetadata;
@@ -593,6 +611,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "POTENTIAL_POLICY_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_PotentialPolicyViolation;
+/**
+ *  The user defined query classification ignored case. Google skips the answer
+ *  if the query is classified as a user defined query classification.
+ *
+ *  Value: "USER_DEFINED_CLASSIFICATION_QUERY_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_UserDefinedClassificationQueryIgnored;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer.state
@@ -683,6 +708,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo_Type_TypeUnspecified;
+/**
+ *  User defined query classification type.
+ *
+ *  Value: "USER_DEFINED_CLASSIFICATION_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo_Type_UserDefinedClassificationQuery;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep.state
@@ -1123,6 +1154,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_BlockingReasons_BlockingReasonUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.connectorModes
+
+/**
+ *  Connector utilized for actions.
+ *
+ *  Value: "ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorModes_Actions;
+/**
+ *  Connector mode unspecified.
+ *
+ *  Value: "CONNECTOR_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorModes_ConnectorModeUnspecified;
+/**
+ *  Connector utilized for data ingestion.
+ *
+ *  Value: "DATA_INGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorModes_DataIngestion;
+/**
+ *  Connector utilized for End User Authentication.
+ *
+ *  Value: "EUA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorModes_Eua;
+/**
+ *  Connector utilized for federated search.
+ *
+ *  Value: "FEDERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorModes_Federated;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.connectorType
 
 /**
@@ -1179,6 +1244,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "THIRD_PARTY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdParty;
+/**
+ *  Connector utilized for End User Authentication features.
+ *
+ *  Value: "THIRD_PARTY_EUA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdPartyEua;
 /**
  *  Federated connector, it is a third party connector that doesn't ingestion
  *  data, and search is powered by third party application's API.
@@ -2465,6 +2536,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite.indexingStatus
 
 /**
+ *  The target site change is pending but cancellable.
+ *
+ *  Value: "CANCELLABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_IndexingStatus_Cancellable;
+/**
+ *  The target site change is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_IndexingStatus_Cancelled;
+/**
  *  The previously indexed target site has been marked to be deleted. This is a
  *  transitioning state which will resulted in either: 1. target site deleted if
  *  unindexing is successful; 2. state reverts to SUCCEEDED if the unindexing
@@ -2653,6 +2736,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "POTENTIAL_POLICY_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer_AnswerSkippedReasons_PotentialPolicyViolation;
+/**
+ *  The user defined query classification ignored case. Google skips the answer
+ *  if the query is classified as a user defined query classification.
+ *
+ *  Value: "USER_DEFINED_CLASSIFICATION_QUERY_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer_AnswerSkippedReasons_UserDefinedClassificationQueryIgnored;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer.state
@@ -2743,6 +2833,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpecQueryClassificationSpec_Types_TypeUnspecified;
+/**
+ *  User defined query classification type.
+ *
+ *  Value: "USER_DEFINED_CLASSIFICATION_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpecQueryClassificationSpec_Types_UserDefinedClassificationQuery;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpecQueryRephraserSpecModelSpec.modelType
@@ -2902,6 +2998,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryUnderstandingInfoQueryClassificationInfo_Type_TypeUnspecified;
+/**
+ *  User defined query classification type.
+ *
+ *  Value: "USER_DEFINED_CLASSIFICATION_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryUnderstandingInfoQueryClassificationInfo_Type_UserDefinedClassificationQuery;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerStep.state
@@ -3306,6 +3408,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SOLUTION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_SolutionType_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig.trainingState
+
+/**
+ *  The engine training is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig_TrainingState_Paused;
+/**
+ *  The engine is training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig_TrainingState_Training;
+/**
+ *  Unspecified training state.
+ *
+ *  Value: "TRAINING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig_TrainingState_TrainingStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineSearchEngineConfig.searchAddOns
@@ -3825,6 +3949,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite.indexingStatus
 
+/**
+ *  The target site change is pending but cancellable.
+ *
+ *  Value: "CANCELLABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_IndexingStatus_Cancellable;
+/**
+ *  The target site change is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_IndexingStatus_Cancelled;
 /**
  *  The previously indexed target site has been marked to be deleted. This is a
  *  transitioning state which will resulted in either: 1. target site deleted if
@@ -4512,6 +4648,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_SolutionType_SolutionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig.trainingState
+
+/**
+ *  The engine training is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig_TrainingState_Paused;
+/**
+ *  The engine is training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig_TrainingState_Training;
+/**
+ *  Unspecified training state.
+ *
+ *  Value: "TRAINING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig_TrainingState_TrainingStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig.searchAddOns
 
 /**
@@ -5103,6 +5261,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite.indexingStatus
 
+/**
+ *  The target site change is pending but cancellable.
+ *
+ *  Value: "CANCELLABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_IndexingStatus_Cancellable;
+/**
+ *  The target site change is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_IndexingStatus_Cancelled;
 /**
  *  The previously indexed target site has been marked to be deleted. This is a
  *  transitioning state which will resulted in either: 1. target site deleted if
@@ -6417,6 +6587,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        (Value: "NON_ANSWER_SEEKING_QUERY_V2")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo_Type_TypeUnspecified
  *        Unspecified query classification type. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo_Type_UserDefinedClassificationQuery
+ *        User defined query classification type. (Value:
+ *        "USER_DEFINED_CLASSIFICATION_QUERY")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6960,8 +7133,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Optional. Query regex to match the whole search query. Cannot be set when
- *  Condition.query_terms is set. This is currently supporting promotion use
- *  case.
+ *  Condition.query_terms is set. Only supported for Basic Site Search promotion
+ *  serving controls.
  */
 @property(nonatomic, copy, nullable) NSString *queryRegex;
 
@@ -7664,6 +7837,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector : GTLRObject
 
+/**
+ *  Optional. Whether the connector will be created with an ACL config.
+ *  Currently this field only affects Cloud Storage and BigQuery connectors.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aclEnabled;
+
 /** Optional. Action configurations to make the connector support actions. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaActionConfig *actionConfig;
 
@@ -7686,6 +7867,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  start syncing data.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blockingReasons;
+
+/**
+ *  Optional. The modes enabled for this connector. Default state is
+ *  CONNECTOR_MODE_UNSPECIFIED.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *connectorModes;
 
 /**
  *  Output only. The type of connector. Each source can only map to one type.
@@ -7714,6 +7901,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdParty
  *        Third party connector to connector to third party application. (Value:
  *        "THIRD_PARTY")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdPartyEua
+ *        Connector utilized for End User Authentication features. (Value:
+ *        "THIRD_PARTY_EUA")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ThirdPartyFederated
  *        Federated connector, it is a third party connector that doesn't
  *        ingestion data, and search is powered by third party application's
@@ -7734,6 +7924,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Optional. Any target destinations used to connect to third-party services.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDestinationConfig *> *destinationConfigs;
+
+/**
+ *  Optional. Any params and credentials used specifically for EUA connectors.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig *endUserConfig;
 
 /** List of entities from the connected data source to ingest. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity *> *entities;
@@ -7965,6 +8160,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_Params : GTLRObject
+@end
+
+
+/**
+ *  Any params and credentials used specifically for EUA connectors.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig : GTLRObject
+
+/** Optional. Any additional parameters needed for EUA. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AdditionalParams *additionalParams;
+
+/** Optional. Any authentication parameters specific to EUA connectors. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AuthParams *authParams;
+
+@end
+
+
+/**
+ *  Optional. Any additional parameters needed for EUA.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AdditionalParams : GTLRObject
+@end
+
+
+/**
+ *  Optional. Any authentication parameters specific to EUA connectors.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AuthParams : GTLRObject
 @end
 
 
@@ -8705,6 +8938,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *enableTableAnnotation;
 
+/** Optional. List of HTML classes to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlClasses;
+
+/** Optional. List of HTML elements to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlElements;
+
+/** Optional. List of HTML ids to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlIds;
+
 @end
 
 
@@ -8994,6 +9236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig : GTLRObject
 
+/** Optional. Additional engine features config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigEngineFeaturesConfig *engineFeaturesConfig;
+
 /**
  *  The optimization objective. e.g., `cvr`. This field together with
  *  optimization_objective describe engine metadata to use to control engine
@@ -9045,6 +9290,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  More feature configs of the selected engine type.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigEngineFeaturesConfig : GTLRObject
+
+/** Most popular engine feature config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigMostPopularFeatureConfig *mostPopularConfig;
+
+/** Recommended for you engine feature config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig *recommendedForYouConfig;
+
+@end
+
+
+/**
+ *  Feature configurations that are required for creating a Most Popular engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigMostPopularFeatureConfig : GTLRObject
+
+/**
+ *  The time window of which the engine is queried at training and prediction
+ *  time. Positive integers only. The value translates to the last X days of
+ *  events. Currently required for the `most-popular-items` engine.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeWindowDays;
+
+@end
+
+
+/**
  *  Custom threshold for `cvr` optimization_objective.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig : GTLRObject
@@ -9061,6 +9337,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetFieldValueFloat;
+
+@end
+
+
+/**
+ *  Additional feature configurations for creating a `recommended-for-you`
+ *  engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig : GTLRObject
+
+/**
+ *  The type of event with which the engine is queried at prediction time. If
+ *  set to `generic`, only `view-item`, `media-play`,and `media-complete` will
+ *  be used as `context-event` in engine training. If set to `view-home-page`,
+ *  `view-home-page` will also be used as `context-events` in addition to
+ *  `view-item`, `media-play`, and `media-complete`. Currently supported for the
+ *  `recommended-for-you` engine. Currently supported values: `view-home-page`,
+ *  `generic`.
+ */
+@property(nonatomic, copy, nullable) NSString *contextEventType;
 
 @end
 
@@ -10931,6 +11227,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. The Document the user wants to promote. For site search, leave
+ *  unset and only populate uri. Can be set along with uri.
+ */
+@property(nonatomic, copy, nullable) NSString *document;
+
+/**
  *  Optional. The enabled promotion will be returned for any serving configs
  *  associated with the parent of the control this promotion is attached to.
  *  This flag is used for basic site search only.
@@ -12529,6 +12831,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Output only. Indexing status.
  *
  *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_IndexingStatus_Cancellable
+ *        The target site change is pending but cancellable. (Value:
+ *        "CANCELLABLE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_IndexingStatus_Cancelled
+ *        The target site change is cancelled. (Value: "CANCELLED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_IndexingStatus_Deleting
  *        The previously indexed target site has been marked to be deleted. This
  *        is a transitioning state which will resulted in either: 1. target site
@@ -12983,6 +13290,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** ID of the citation source. */
 @property(nonatomic, copy, nullable) NSString *referenceId;
+
+@end
+
+
+/**
+ *  The specification for answer generation.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerGenerationSpec : GTLRObject
+
+/** Optional. The specification for user specified classifier spec. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerGenerationSpecUserDefinedClassifierSpec *userDefinedClassifierSpec;
+
+@end
+
+
+/**
+ *  The specification for user defined classifier.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerGenerationSpecUserDefinedClassifierSpec : GTLRObject
+
+/**
+ *  Optional. Whether or not to enable and include user defined classifier.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableUserDefinedClassifier;
+
+/** Optional. The model id to be used for the user defined classifier. */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/** Optional. The preamble to be used for the user defined classifier. */
+@property(nonatomic, copy, nullable) NSString *preamble;
+
+/**
+ *  Optional. The seed value to be used for the user defined classifier.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seed;
+
+/** Optional. The task marker to be used for the user defined classifier. */
+@property(nonatomic, copy, nullable) NSString *taskMarker;
+
+/**
+ *  Optional. The temperature value to be used for the user defined classifier.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temperature;
+
+/**
+ *  Optional. The top-k value to be used for the user defined classifier.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topK;
+
+/**
+ *  Optional. The top-p value to be used for the user defined classifier.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topP;
 
 @end
 
@@ -13778,6 +14148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        (Value: "NON_ANSWER_SEEKING_QUERY_V2")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryUnderstandingInfoQueryClassificationInfo_Type_TypeUnspecified
  *        Unspecified query classification type. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryUnderstandingInfoQueryClassificationInfo_Type_UserDefinedClassificationQuery
+ *        User defined query classification type. (Value:
+ *        "USER_DEFINED_CLASSIFICATION_QUERY")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -14393,8 +14766,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Optional. Query regex to match the whole search query. Cannot be set when
- *  Condition.query_terms is set. This is currently supporting promotion use
- *  case.
+ *  Condition.query_terms is set. Only supported for Basic Site Search promotion
+ *  serving controls.
  */
 @property(nonatomic, copy, nullable) NSString *queryRegex;
 
@@ -15369,6 +15742,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *enableTableAnnotation;
 
+/** Optional. List of HTML classes to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlClasses;
+
+/** Optional. List of HTML elements to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlElements;
+
+/** Optional. List of HTML ids to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlIds;
+
 @end
 
 
@@ -15485,6 +15867,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The media industry vertical. (Value: "MEDIA")
  */
 @property(nonatomic, copy, nullable) NSString *industryVertical;
+
+/**
+ *  Configurations for the Media Engine. Only applicable on the data stores with
+ *  solution_type SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA
+ *  vertical.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig *mediaRecommendationEngineConfig;
 
 /**
  *  Immutable. The fully qualified resource name of the engine. This field must
@@ -15633,6 +16022,136 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  engine. Setting this may help improve LLM related features.
  */
 @property(nonatomic, copy, nullable) NSString *companyName;
+
+@end
+
+
+/**
+ *  Additional config specs for a Media Recommendation engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig : GTLRObject
+
+/** Optional. Additional engine features config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigEngineFeaturesConfig *engineFeaturesConfig;
+
+/**
+ *  The optimization objective. e.g., `cvr`. This field together with
+ *  optimization_objective describe engine metadata to use to control engine
+ *  training and serving. Currently supported values: `ctr`, `cvr`. If not
+ *  specified, we choose default based on engine type. Default depends on type
+ *  of recommendation: `recommended-for-you` => `ctr` `others-you-may-like` =>
+ *  `ctr`
+ */
+@property(nonatomic, copy, nullable) NSString *optimizationObjective;
+
+/**
+ *  Name and value of the custom threshold for cvr optimization_objective. For
+ *  target_field `watch-time`, target_field_value must be an integer value
+ *  indicating the media progress time in seconds between (0, 86400] (excludes
+ *  0, includes 86400) (e.g., 90). For target_field `watch-percentage`, the
+ *  target_field_value must be a valid float value between (0, 1.0] (excludes 0,
+ *  includes 1.0) (e.g., 0.5).
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig *optimizationObjectiveConfig;
+
+/**
+ *  The training state that the engine is in (e.g. `TRAINING` or `PAUSED`).
+ *  Since part of the cost of running the service is frequency of training -
+ *  this can be used to determine when to train engine in order to control cost.
+ *  If not specified: the default value for `CreateEngine` method is `TRAINING`.
+ *  The default value for `UpdateEngine` method is to keep the state the same as
+ *  before.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig_TrainingState_Paused
+ *        The engine training is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig_TrainingState_Training
+ *        The engine is training. (Value: "TRAINING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig_TrainingState_TrainingStateUnspecified
+ *        Unspecified training state. (Value: "TRAINING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingState;
+
+/**
+ *  Required. The type of engine. e.g., `recommended-for-you`. This field
+ *  together with optimization_objective describe engine metadata to use to
+ *  control engine training and serving. Currently supported values:
+ *  `recommended-for-you`, `others-you-may-like`, `more-like-this`,
+ *  `most-popular-items`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  More feature configs of the selected engine type.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigEngineFeaturesConfig : GTLRObject
+
+/** Most popular engine feature config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigMostPopularFeatureConfig *mostPopularConfig;
+
+/** Recommended for you engine feature config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig *recommendedForYouConfig;
+
+@end
+
+
+/**
+ *  Feature configurations that are required for creating a Most Popular engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigMostPopularFeatureConfig : GTLRObject
+
+/**
+ *  The time window of which the engine is queried at training and prediction
+ *  time. Positive integers only. The value translates to the last X days of
+ *  events. Currently required for the `most-popular-items` engine.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeWindowDays;
+
+@end
+
+
+/**
+ *  Custom threshold for `cvr` optimization_objective.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig : GTLRObject
+
+/**
+ *  Required. The name of the field to target. Currently supported values:
+ *  `watch-percentage`, `watch-time`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetField;
+
+/**
+ *  Required. The threshold to be applied to the target (e.g., 0.5).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetFieldValueFloat;
+
+@end
+
+
+/**
+ *  Additional feature configurations for creating a `recommended-for-you`
+ *  engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig : GTLRObject
+
+/**
+ *  The type of event with which the engine is queried at prediction time. If
+ *  set to `generic`, only `view-item`, `media-play`,and `media-complete` will
+ *  be used as `context-event` in engine training. If set to `view-home-page`,
+ *  `view-home-page` will also be used as `context-events` in addition to
+ *  `view-item`, `media-play`, and `media-complete`. Currently supported for the
+ *  `recommended-for-you` engine. Currently supported values: `view-home-page`,
+ *  `generic`.
+ */
+@property(nonatomic, copy, nullable) NSString *contextEventType;
 
 @end
 
@@ -16655,6 +17174,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. The Document the user wants to promote. For site search, leave
+ *  unset and only populate uri. Can be set along with uri.
+ */
+@property(nonatomic, copy, nullable) NSString *document;
 
 /**
  *  Optional. The enabled promotion will be returned for any serving configs
@@ -18137,6 +18662,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Output only. Indexing status.
  *
  *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_IndexingStatus_Cancellable
+ *        The target site change is pending but cancellable. (Value:
+ *        "CANCELLABLE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_IndexingStatus_Cancelled
+ *        The target site change is cancelled. (Value: "CANCELLED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_IndexingStatus_Deleting
  *        The previously indexed target site has been marked to be deleted. This
  *        is a transitioning state which will resulted in either: 1. target site
@@ -18813,6 +19343,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSNumber *groundingCheckRequired;
 
 /**
+ *  Confidence score for the claim in the answer candidate, in the range of [0,
+ *  1]. This is set only when enable_claim_level_score is true.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
  *  Position indicating the start of the claim in the answer candidate, measured
  *  in bytes. Note that this is not measured in characters and, therefore, must
  *  be rendered in the user interface keeping in mind that some characters may
@@ -18844,6 +19382,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *citationThreshold;
 
+/**
+ *  The control flag that enables claim-level grounding score in the response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableClaimLevelScore;
+
 @end
 
 
@@ -18853,11 +19398,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Chunk : GTLRObject
 
+/**
+ *  Output only. Annotation contents if the current chunk contains annotations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *annotationContents;
+
 /** Output only. Metadata of the current chunk. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkChunkMetadata *chunkMetadata;
 
 /** Content is a string from a document (parsed content). */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Output only. Image Data URLs if the current chunk contains images. Data URLs
+ *  are composed of four parts: a prefix (data:), a MIME type indicating the
+ *  type of data, an optional base64 token if non-textual, and the data itself:
+ *  data:,
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataUrls;
 
 /**
  *  Output only. This field is OUTPUT_ONLY. It contains derived data that are
@@ -19249,8 +19807,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Optional. Query regex to match the whole search query. Cannot be set when
- *  Condition.query_terms is set. This is currently supporting promotion use
- *  case.
+ *  Condition.query_terms is set. Only supported for Basic Site Search promotion
+ *  serving controls.
  */
 @property(nonatomic, copy, nullable) NSString *queryRegex;
 
@@ -20377,8 +20935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentAclInfo *aclInfo;
 
 /**
- *  The unstructured data linked to this document. Content must be set if this
- *  document is under a `CONTENT_REQUIRED` data store.
+ *  The unstructured data linked to this document. Content can only be set and
+ *  must be set if this document is under a `CONTENT_REQUIRED` data store.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentContent *content;
 
@@ -20519,11 +21077,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The MIME type of the content. Supported types: * `application/pdf` (PDF,
- *  only native PDFs are supported for now) * `text/html` (HTML) *
+ *  only native PDFs are supported for now) * `text/html` (HTML) * `text/plain`
+ *  (TXT) * `application/xml` or `text/xml` (XML) * `application/json` (JSON) *
  *  `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
  *  (DOCX) *
  *  `application/vnd.openxmlformats-officedocument.presentationml.presentation`
- *  (PPTX) * `text/plain` (TXT) See
+ *  (PPTX) * `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
+ *  (XLSX) * `application/vnd.ms-excel.sheet.macroenabled.12` (XLSM) The
+ *  following types are supported only if layout parser is enabled in the data
+ *  store: * `image/bmp` (BMP) * `image/gif` (GIF) * `image/jpeg` (JPEG) *
+ *  `image/png` (PNG) * `image/tiff` (TIFF) See
  *  https://www.iana.org/assignments/media-types/media-types.xhtml.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
@@ -20780,6 +21343,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *enableTableAnnotation;
 
+/** Optional. List of HTML classes to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlClasses;
+
+/** Optional. List of HTML elements to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlElements;
+
+/** Optional. List of HTML ids to exclude from the parsed content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlIds;
+
 @end
 
 
@@ -20918,6 +21490,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The media industry vertical. (Value: "MEDIA")
  */
 @property(nonatomic, copy, nullable) NSString *industryVertical;
+
+/**
+ *  Configurations for the Media Engine. Only applicable on the data stores with
+ *  solution_type SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA
+ *  vertical.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig *mediaRecommendationEngineConfig;
 
 /**
  *  Immutable. The fully qualified resource name of the engine. This field must
@@ -21071,6 +21650,136 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Additional config specs for a Media Recommendation engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig : GTLRObject
+
+/** Optional. Additional engine features config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigEngineFeaturesConfig *engineFeaturesConfig;
+
+/**
+ *  The optimization objective. e.g., `cvr`. This field together with
+ *  optimization_objective describe engine metadata to use to control engine
+ *  training and serving. Currently supported values: `ctr`, `cvr`. If not
+ *  specified, we choose default based on engine type. Default depends on type
+ *  of recommendation: `recommended-for-you` => `ctr` `others-you-may-like` =>
+ *  `ctr`
+ */
+@property(nonatomic, copy, nullable) NSString *optimizationObjective;
+
+/**
+ *  Name and value of the custom threshold for cvr optimization_objective. For
+ *  target_field `watch-time`, target_field_value must be an integer value
+ *  indicating the media progress time in seconds between (0, 86400] (excludes
+ *  0, includes 86400) (e.g., 90). For target_field `watch-percentage`, the
+ *  target_field_value must be a valid float value between (0, 1.0] (excludes 0,
+ *  includes 1.0) (e.g., 0.5).
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigOptimizationObjectiveConfig *optimizationObjectiveConfig;
+
+/**
+ *  The training state that the engine is in (e.g. `TRAINING` or `PAUSED`).
+ *  Since part of the cost of running the service is frequency of training -
+ *  this can be used to determine when to train engine in order to control cost.
+ *  If not specified: the default value for `CreateEngine` method is `TRAINING`.
+ *  The default value for `UpdateEngine` method is to keep the state the same as
+ *  before.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig_TrainingState_Paused
+ *        The engine training is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig_TrainingState_Training
+ *        The engine is training. (Value: "TRAINING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig_TrainingState_TrainingStateUnspecified
+ *        Unspecified training state. (Value: "TRAINING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingState;
+
+/**
+ *  Required. The type of engine. e.g., `recommended-for-you`. This field
+ *  together with optimization_objective describe engine metadata to use to
+ *  control engine training and serving. Currently supported values:
+ *  `recommended-for-you`, `others-you-may-like`, `more-like-this`,
+ *  `most-popular-items`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  More feature configs of the selected engine type.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigEngineFeaturesConfig : GTLRObject
+
+/** Most popular engine feature config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigMostPopularFeatureConfig *mostPopularConfig;
+
+/** Recommended for you engine feature config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig *recommendedForYouConfig;
+
+@end
+
+
+/**
+ *  Feature configurations that are required for creating a Most Popular engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigMostPopularFeatureConfig : GTLRObject
+
+/**
+ *  The time window of which the engine is queried at training and prediction
+ *  time. Positive integers only. The value translates to the last X days of
+ *  events. Currently required for the `most-popular-items` engine.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeWindowDays;
+
+@end
+
+
+/**
+ *  Custom threshold for `cvr` optimization_objective.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigOptimizationObjectiveConfig : GTLRObject
+
+/**
+ *  Required. The name of the field to target. Currently supported values:
+ *  `watch-percentage`, `watch-time`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetField;
+
+/**
+ *  Required. The threshold to be applied to the target (e.g., 0.5).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetFieldValueFloat;
+
+@end
+
+
+/**
+ *  Additional feature configurations for creating a `recommended-for-you`
+ *  engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigRecommendedForYouFeatureConfig : GTLRObject
+
+/**
+ *  The type of event with which the engine is queried at prediction time. If
+ *  set to `generic`, only `view-item`, `media-play`,and `media-complete` will
+ *  be used as `context-event` in engine training. If set to `view-home-page`,
+ *  `view-home-page` will also be used as `context-events` in addition to
+ *  `view-item`, `media-play`, and `media-complete`. Currently supported for the
+ *  `recommended-for-you` engine. Currently supported values: `view-home-page`,
+ *  `generic`.
+ */
+@property(nonatomic, copy, nullable) NSString *contextEventType;
+
+@end
+
+
+/**
  *  Configurations for a Search Engine.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig : GTLRObject
@@ -21105,6 +21814,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Text content of the fact chunk. Can be at most 10K characters long. */
 @property(nonatomic, copy, nullable) NSString *chunkText;
 
+/** The domain of the source. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
 /**
  *  The index of this chunk. Currently, only used for the streaming mode.
  *
@@ -21121,6 +21833,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** More fine-grained information for the source reference. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FactChunk_SourceMetadata *sourceMetadata;
+
+/** The title of the source. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The URI of the source. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -23385,6 +24103,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. The Document the user wants to promote. For site search, leave
+ *  unset and only populate uri. Can be set along with uri.
+ */
+@property(nonatomic, copy, nullable) NSString *document;
+
+/**
  *  Optional. The enabled promotion will be returned for any serving configs
  *  associated with the parent of the control this promotion is attached to.
  *  This flag is used for basic site search only.
@@ -24889,6 +25613,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig : GTLRObject
 
+/** Optional. The specification for answer generation. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerGenerationSpec *answerGenerationSpec;
+
 /**
  *  Boost controls to use in serving path. All triggered boost controls will be
  *  applied. Boost controls must be in the same data store as the serving
@@ -25367,6 +26094,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Output only. Indexing status.
  *
  *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_IndexingStatus_Cancellable
+ *        The target site change is pending but cancellable. (Value:
+ *        "CANCELLABLE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_IndexingStatus_Cancelled
+ *        The target site change is cancelled. (Value: "CANCELLED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_IndexingStatus_Deleting
  *        The previously indexed target site has been marked to be deleted. This
  *        is a transitioning state which will resulted in either: 1. target site

@@ -1614,6 +1614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *localName;
 
+/** Output only. The namespace of the cluster. */
+@property(nonatomic, copy, nullable) NSString *localNamespace;
+
 /** Maintenance configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalMaintenanceConfig *maintenanceConfig;
 

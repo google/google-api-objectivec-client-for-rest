@@ -1096,6 +1096,171 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesUserCredsCreate
+
+@dynamic parent, userCredsId;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1UserCreds *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userCreds";
+  GTLRFirestoreQuery_ProjectsDatabasesUserCredsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1UserCreds class];
+  query.loggingName = @"firestore.projects.databases.userCreds.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesUserCredsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesUserCredsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_Empty class];
+  query.loggingName = @"firestore.projects.databases.userCreds.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesUserCredsDisable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disable";
+  GTLRFirestoreQuery_ProjectsDatabasesUserCredsDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1UserCreds class];
+  query.loggingName = @"firestore.projects.databases.userCreds.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesUserCredsEnable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enable";
+  GTLRFirestoreQuery_ProjectsDatabasesUserCredsEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1UserCreds class];
+  query.loggingName = @"firestore.projects.databases.userCreds.enable";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesUserCredsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesUserCredsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1UserCreds class];
+  query.loggingName = @"firestore.projects.databases.userCreds.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesUserCredsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userCreds";
+  GTLRFirestoreQuery_ProjectsDatabasesUserCredsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ListUserCredsResponse class];
+  query.loggingName = @"firestore.projects.databases.userCreds.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesUserCredsResetPassword
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:resetPassword";
+  GTLRFirestoreQuery_ProjectsDatabasesUserCredsResetPassword *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1UserCreds class];
+  query.loggingName = @"firestore.projects.databases.userCreds.resetPassword";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsLocationsBackupsDelete
 
 @dynamic name;
@@ -1174,7 +1339,14 @@
 
 @implementation GTLRFirestoreQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

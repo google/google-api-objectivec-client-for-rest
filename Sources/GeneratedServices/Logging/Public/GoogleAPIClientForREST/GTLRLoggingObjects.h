@@ -1463,9 +1463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Required. The full resource name of the bucket to create a link for.
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 

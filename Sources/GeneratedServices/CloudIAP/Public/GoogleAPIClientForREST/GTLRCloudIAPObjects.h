@@ -971,7 +971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  operations, GCP service is expected to pass resource from customer request
  *  as is. For update/patch operations, GCP service is expected to compute the
  *  next state with the patch provided by the user. See
- *  go/custom-constraints-org-policy-integration-guide for additional details.
+ *  go/federated-custom-org-policy-integration-guide for additional details.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_ExpectedNextState *expectedNextState;
 
@@ -1058,7 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  operations, GCP service is expected to pass resource from customer request
  *  as is. For update/patch operations, GCP service is expected to compute the
  *  next state with the patch provided by the user. See
- *  go/custom-constraints-org-policy-integration-guide for additional details.
+ *  go/federated-custom-org-policy-integration-guide for additional details.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

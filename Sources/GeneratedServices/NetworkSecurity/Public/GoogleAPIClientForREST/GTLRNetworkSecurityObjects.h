@@ -54,6 +54,20 @@
 @class GTLRNetworkSecurity_GoogleIamV1Binding;
 @class GTLRNetworkSecurity_GoogleIamV1Policy;
 @class GTLRNetworkSecurity_HttpHeaderMatch;
+@class GTLRNetworkSecurity_InterceptDeployment;
+@class GTLRNetworkSecurity_InterceptDeployment_Labels;
+@class GTLRNetworkSecurity_InterceptDeploymentGroup;
+@class GTLRNetworkSecurity_InterceptDeploymentGroup_Labels;
+@class GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup;
+@class GTLRNetworkSecurity_InterceptDeploymentGroupDeployment;
+@class GTLRNetworkSecurity_InterceptEndpointGroup;
+@class GTLRNetworkSecurity_InterceptEndpointGroup_Labels;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociation;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails;
+@class GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup;
+@class GTLRNetworkSecurity_InterceptLocation;
 @class GTLRNetworkSecurity_ListAddressGroupReferencesResponseAddressGroupReference;
 @class GTLRNetworkSecurity_Location;
 @class GTLRNetworkSecurity_Location_Labels;
@@ -230,7 +244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protoc
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smb;
 /**
- *  SMTP prtocol
+ *  SMTP protocol
  *
  *  Value: "SMTP"
  */
@@ -441,6 +455,328 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptDeployment.state
+
+/**
+ *  The deployment is ready and in sync with the parent group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Active;
+/**
+ *  The deployment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Creating;
+/**
+ *  An attempt to delete the deployment has failed. This is a terminal state and
+ *  the deployment is not expected to recover. The only permitted operation is
+ *  to retry deleting the deployment.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_DeleteFailed;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Deleting;
+/**
+ *  The deployment is out of sync with the parent group. In most cases, this is
+ *  a result of a transient issue within the system (e.g. a delayed data-path
+ *  config) and the system is expected to recover automatically. See the parent
+ *  deployment group's state for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptDeploymentGroup.state
+
+/**
+ *  The deployment group is ready.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Active;
+/**
+ *  The deployment group is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Creating;
+/**
+ *  The deployment group is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Deleting;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptDeploymentGroupDeployment.state
+
+/**
+ *  The deployment is ready and in sync with the parent group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Active;
+/**
+ *  The deployment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Creating;
+/**
+ *  An attempt to delete the deployment has failed. This is a terminal state and
+ *  the deployment is not expected to recover. The only permitted operation is
+ *  to retry deleting the deployment.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_DeleteFailed;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Deleting;
+/**
+ *  The deployment is out of sync with the parent group. In most cases, this is
+ *  a result of a transient issue within the system (e.g. a delayed data-path
+ *  config) and the system is expected to recover automatically. See the parent
+ *  deployment group's state for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroup.state
+
+/**
+ *  The endpoint group is ready and in sync with the target deployment group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Active;
+/**
+ *  The deployment group backing this endpoint group has been force-deleted.
+ *  This endpoint group cannot be used and interception is effectively disabled.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Closed;
+/**
+ *  The endpoint group is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Creating;
+/**
+ *  An attempt to delete the endpoint group has failed. This is a terminal state
+ *  and the endpoint group is not expected to recover. The only permitted
+ *  operation is to retry deleting the endpoint group.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_DeleteFailed;
+/**
+ *  The endpoint group is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Deleting;
+/**
+ *  The endpoint group is out of sync with the backing deployment group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  See the associations field for details per network and location.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociation.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Active;
+/**
+ *  The association is disabled due to a breaking change in another resource.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Closed;
+/**
+ *  The association is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Creating;
+/**
+ *  An attempt to delete the association has failed. This is a terminal state
+ *  and the association is not expected to be usable as some of its resources
+ *  have been deleted. The only permitted operation is to retry deleting the
+ *  association.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_DeleteFailed;
+/**
+ *  The association is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Deleting;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  Check the `locations_details` field for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Active;
+/**
+ *  The association is disabled due to a breaking change in another resource.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Closed;
+/**
+ *  The association is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Creating;
+/**
+ *  An attempt to delete the association has failed. This is a terminal state
+ *  and the association is not expected to be usable as some of its resources
+ *  have been deleted. The only permitted operation is to retry deleting the
+ *  association.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_DeleteFailed;
+/**
+ *  The association is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Deleting;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  Check the `locations_details` field for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_Active;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptLocation.state
+
+/**
+ *  The resource is ready and in sync in the location.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptLocation_State_Active;
+/**
+ *  The resource is out of sync in the location. In most cases, this is a result
+ *  of a transient issue within the system (e.g. an inaccessible location) and
+ *  the system is expected to recover automatically.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptLocation_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptLocation_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_MirroringDeployment.state
@@ -1207,7 +1543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        Protocol not specified. (Value: "PROTOCOL_UNSPECIFIED")
  *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smb SMB protocol
  *        (Value: "SMB")
- *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smtp SMTP prtocol
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smtp SMTP protocol
  *        (Value: "SMTP")
  */
 @property(nonatomic, copy, nullable) NSString *protocol;
@@ -2626,6 +2962,650 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  A deployment represents a zonal intercept backend ready to accept
+ *  GENEVE-encapsulated traffic, e.g. a zonal instance group fronted by an
+ *  internal passthrough load balancer. Deployments are always part of a global
+ *  deployment group which represents a global intercept service.
+ */
+@interface GTLRNetworkSecurity_InterceptDeployment : GTLRObject
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the deployment. Used as additional
+ *  context for the deployment.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The regional forwarding rule that fronts the
+ *  interceptors, for example:
+ *  `projects/123456789/regions/us-central1/forwardingRules/my-rule`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/**
+ *  Required. Immutable. The deployment group that this deployment is a part of,
+ *  for example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptDeploymentGroup;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptDeployment_Labels *labels;
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment, for example:
+ *  `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This part of
+ *  the normal operation (e.g. linking a new association to the parent group).
+ *  See https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the deployment. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_Active The
+ *        deployment is ready and in sync with the parent group. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_Creating The
+ *        deployment is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_DeleteFailed An
+ *        attempt to delete the deployment has failed. This is a terminal state
+ *        and the deployment is not expected to recover. The only permitted
+ *        operation is to retry deleting the deployment. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_Deleting The
+ *        deployment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_OutOfSync The
+ *        deployment is out of sync with the parent group. In most cases, this
+ *        is a result of a transient issue within the system (e.g. a delayed
+ *        data-path config) and the system is expected to recover automatically.
+ *        See the parent deployment group's state for more details. (Value:
+ *        "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptDeployment_Labels : GTLRObject
+@end
+
+
+/**
+ *  A deployment group aggregates many zonal intercept backends (deployments)
+ *  into a single global intercept service. Consumers can connect this service
+ *  using an endpoint group.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroup : GTLRObject
+
+/**
+ *  Output only. The list of endpoint groups that are connected to this
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup *> *connectedEndpointGroups;
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the deployment group. Used as
+ *  additional context for the deployment group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptDeploymentGroup_Labels *labels;
+
+/**
+ *  Output only. The list of locations where the deployment group is present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptLocation *> *locations;
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment group, for
+ *  example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The list of Intercept Deployments that belong to this group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeploymentGroupDeployment *> *nestedDeployments GTLR_DEPRECATED;
+
+/**
+ *  Required. Immutable. The network that will be used for all child
+ *  deployments, for example: `projects/{project}/global/networks/{network}`.
+ *  See https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This is part of
+ *  the normal operation (e.g. adding a new deployment to the group) See
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the deployment group. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Active The
+ *        deployment group is ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Creating The
+ *        deployment group is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Deleting The
+ *        deployment group is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  An endpoint group connected to this deployment group.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup : GTLRObject
+
+/**
+ *  Output only. The connected endpoint group's resource name, for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A deployment belonging to this deployment group.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroupDeployment : GTLRObject
+
+/**
+ *  Output only. The name of the Intercept Deployment, in the format:
+ *  `projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Most recent known state of the deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Active
+ *        The deployment is ready and in sync with the parent group. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Creating
+ *        The deployment is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_DeleteFailed
+ *        An attempt to delete the deployment has failed. This is a terminal
+ *        state and the deployment is not expected to recover. The only
+ *        permitted operation is to retry deleting the deployment. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Deleting
+ *        The deployment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_OutOfSync
+ *        The deployment is out of sync with the parent group. In most cases,
+ *        this is a result of a transient issue within the system (e.g. a
+ *        delayed data-path config) and the system is expected to recover
+ *        automatically. See the parent deployment group's state for more
+ *        details. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  An endpoint group is a consumer frontend for a deployment group (backend).
+ *  In order to configure intercept for a network, consumers must create: - An
+ *  association between their network and the endpoint group. - A security
+ *  profile that points to the endpoint group. - A firewall rule that references
+ *  the security profile (group).
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroup : GTLRObject
+
+/** Output only. List of associations to this endpoint group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails *> *associations;
+
+/**
+ *  Output only. Details about the connected deployment group to this endpoint
+ *  group.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup *connectedDeploymentGroup;
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the endpoint group. Used as
+ *  additional context for the endpoint group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The deployment group that this endpoint group is
+ *  connected to, for example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptDeploymentGroup;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptEndpointGroup_Labels *labels;
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group, for
+ *  example:
+ *  `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This is part of
+ *  the normal operation (e.g. adding a new association to the group). See
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the endpoint group. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Active The
+ *        endpoint group is ready and in sync with the target deployment group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Closed The
+ *        deployment group backing this endpoint group has been force-deleted.
+ *        This endpoint group cannot be used and interception is effectively
+ *        disabled. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Creating The
+ *        endpoint group is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_DeleteFailed An
+ *        attempt to delete the endpoint group has failed. This is a terminal
+ *        state and the endpoint group is not expected to recover. The only
+ *        permitted operation is to retry deleting the endpoint group. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Deleting The
+ *        endpoint group is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_OutOfSync The
+ *        endpoint group is out of sync with the backing deployment group. In
+ *        most cases, this is a result of a transient issue within the system
+ *        (e.g. an inaccessible location) and the system is expected to recover
+ *        automatically. See the associations field for details per network and
+ *        location. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  An endpoint group association represents a link between a network and an
+ *  endpoint group in the organization. Creating an association creates the
+ *  networking infrastructure linking the network to the endpoint group, but
+ *  does not enable intercept by itself. To enable intercept, the user must also
+ *  create a network firewall policy containing intercept rules and associate it
+ *  with the network.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociation : GTLRObject
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Immutable. The endpoint group that this association is connected
+ *  to, for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptEndpointGroup;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels *labels;
+
+/**
+ *  Output only. The list of locations where the association is configured. This
+ *  information is retrieved from the linked endpoint group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptLocation *> *locations;
+
+/**
+ *  Output only. The list of locations where the association is present. This
+ *  information is retrieved from the linked endpoint group, and not configured
+ *  as part of the association itself.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails *> *locationsDetails GTLR_DEPRECATED;
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group association,
+ *  for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-association`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The VPC network that is associated. for example:
+ *  `projects/123456789/global/networks/my-network`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This part of
+ *  the normal operation (e.g. adding a new location to the target deployment
+ *  group). See https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Current state of the endpoint group association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Closed
+ *        The association is disabled due to a breaking change in another
+ *        resource. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Creating
+ *        The association is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_DeleteFailed
+ *        An attempt to delete the association has failed. This is a terminal
+ *        state and the association is not expected to be usable as some of its
+ *        resources have been deleted. The only permitted operation is to retry
+ *        deleting the association. (Value: "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Deleting
+ *        The association is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. Check the `locations_details` field for more details.
+ *        (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels : GTLRObject
+@end
+
+
+/**
+ *  The endpoint group's view of a connected association.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails : GTLRObject
+
+/**
+ *  Output only. The connected association's resource name, for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-ega`.
+ *  See https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The associated network, for example:
+ *  projects/123456789/global/networks/my-network. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. Most recent known state of the association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Closed
+ *        The association is disabled due to a breaking change in another
+ *        resource. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Creating
+ *        The association is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_DeleteFailed
+ *        An attempt to delete the association has failed. This is a terminal
+ *        state and the association is not expected to be usable as some of its
+ *        resources have been deleted. The only permitted operation is to retry
+ *        deleting the association. (Value: "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Deleting
+ *        The association is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. Check the `locations_details` field for more details.
+ *        (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Contains details about the state of an association in a specific cloud
+ *  location.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails : GTLRObject
+
+/** Output only. The cloud location, e.g. "us-central1-a" or "asia-south1". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The current state of the association in this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The endpoint group's view of a connected deployment group.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup : GTLRObject
+
+/**
+ *  Output only. The list of locations where the deployment group is present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptLocation *> *locations;
+
+/**
+ *  Output only. The connected deployment group's resource name, for example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Details about intercept in a specific cloud location.
+ */
+@interface GTLRNetworkSecurity_InterceptLocation : GTLRObject
+
+/** Output only. The cloud location, e.g. "us-central1-a" or "asia-south1". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The current state of the association in this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptLocation_State_Active The resource
+ *        is ready and in sync in the location. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptLocation_State_OutOfSync The
+ *        resource is out of sync in the location. In most cases, this is a
+ *        result of a transient issue within the system (e.g. an inaccessible
+ *        location) and the system is expected to recover automatically. (Value:
+ *        "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptLocation_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Response of the ListAddressGroupReferences method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2900,6 +3880,121 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListInterceptDeploymentGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptDeploymentGroups" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptDeploymentGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The deployment groups from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeploymentGroup *> *interceptDeploymentGroups;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListInterceptDeployments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptDeployments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  The deployments from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeployment *> *interceptDeployments;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListInterceptEndpointGroupAssociations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptEndpointGroupAssociations" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptEndpointGroupAssociationsResponse : GTLRCollectionObject
+
+/**
+ *  The associations from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroupAssociation *> *interceptEndpointGroupAssociations;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListInterceptEndpointGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptEndpointGroups" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptEndpointGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The endpoint groups from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroup *> *interceptEndpointGroups;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

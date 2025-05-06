@@ -48,6 +48,7 @@ NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_LoggableActionUns
 // GTLRStorageTransfer_LoggingConfig.logActionStates
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Failed = @"FAILED";
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified = @"LOGGABLE_ACTION_STATE_UNSPECIFIED";
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Skipped = @"SKIPPED";
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded = @"SUCCEEDED";
 
 // GTLRStorageTransfer_MetadataOptions.acl

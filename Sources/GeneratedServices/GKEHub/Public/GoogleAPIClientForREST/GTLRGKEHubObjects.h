@@ -98,6 +98,10 @@
 @class GTLRGKEHub_PolicyControllerState_ComponentStates;
 @class GTLRGKEHub_PolicyControllerTemplateLibraryConfig;
 @class GTLRGKEHub_PolicyControllerToleration;
+@class GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState;
+@class GTLRGKEHub_RBACRoleBindingActuationSpec;
+@class GTLRGKEHub_RBACRoleBindingActuationState;
+@class GTLRGKEHub_RBACRoleBindingActuationState_RbacrolebindingStates;
 @class GTLRGKEHub_ServiceMeshAnalysisMessage;
 @class GTLRGKEHub_ServiceMeshAnalysisMessage_Args;
 @class GTLRGKEHub_ServiceMeshAnalysisMessageBase;
@@ -1397,6 +1401,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryCo
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState.state
+
+/**
+ *  The RBACRoleBinding was created on the cluster but the specified custom role
+ *  does not exist on the cluster, hence the RBACRoleBinding has no effect.
+ *
+ *  Value: "CUSTOM_ROLE_MISSING_FROM_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_CustomRoleMissingFromCluster;
+/**
+ *  RBACRoleBinding is created properly on the cluster.
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_Ok;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "ROLE_BINDING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_RoleBindingStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshAnalysisMessageBase.level
@@ -3372,6 +3399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 /** Policycontroller-specific FeatureSpec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerSpec *policycontroller;
 
+/** Rbacrolebindingactuation-specific FeatureSpec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_RBACRoleBindingActuationSpec *rbacrolebindingactuation;
+
 /** ServiceMesh Feature Spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ServiceMeshSpec *servicemesh;
 
@@ -3404,6 +3434,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /** Policy Controller state */
 @property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerState *policycontroller;
+
+/** RBAC Role Binding Actuation state */
+@property(nonatomic, strong, nullable) GTLRGKEHub_RBACRoleBindingActuationState *rbacrolebindingactuation;
 
 /** Service mesh state */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ServiceMeshState *servicemesh;
@@ -4825,6 +4858,79 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 /** Matches a taint value. */
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  RBACRoleBindingState is the status of an RBACRoleBinding which exists on a
+ *  membership.
+ */
+@interface GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState : GTLRObject
+
+/**
+ *  The reason for the failure.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The state of the RBACRoleBinding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_CustomRoleMissingFromCluster
+ *        The RBACRoleBinding was created on the cluster but the specified
+ *        custom role does not exist on the cluster, hence the RBACRoleBinding
+ *        has no effect. (Value: "CUSTOM_ROLE_MISSING_FROM_CLUSTER")
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_Ok
+ *        RBACRoleBinding is created properly on the cluster. (Value: "OK")
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_RoleBindingStateUnspecified
+ *        Unspecified state. (Value: "ROLE_BINDING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time the RBACRoleBinding status was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  **RBAC RoleBinding Actuation**: The membership-specific input for
+ *  RBACRoleBindingActuation feature.
+ */
+@interface GTLRGKEHub_RBACRoleBindingActuationSpec : GTLRObject
+@end
+
+
+/**
+ *  **RBAC RoleBinding Actuation**: A membership-specific Feature state for the
+ *  RBACRoleBindingActuation fleet feature.
+ */
+@interface GTLRGKEHub_RBACRoleBindingActuationState : GTLRObject
+
+/**
+ *  Output only. The state of RBACRoleBindings using custom roles that exist on
+ *  the cluster, keyed by RBACRoleBinding resource name with format:
+ *  projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_RBACRoleBindingActuationState_RbacrolebindingStates *rbacrolebindingStates;
+
+@end
+
+
+/**
+ *  Output only. The state of RBACRoleBindings using custom roles that exist on
+ *  the cluster, keyed by RBACRoleBinding resource name with format:
+ *  projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_RBACRoleBindingActuationState_RbacrolebindingStates : GTLRObject
 @end
 
 

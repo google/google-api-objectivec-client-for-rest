@@ -509,6 +509,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @interface GTLRChromeUXReport_QueryHistoryRequest : GTLRObject
 
 /**
+ *  The number of collection periods to return. If not specified, the default is
+ *  25. If present, must be in the range [1, 40].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collectionPeriodCount;
+
+/**
  *  The form factor is a query dimension that specifies the device class that
  *  the record's data should belong to. Note: If no form factor is specified,
  *  then a special record with aggregated data over all form factors will be

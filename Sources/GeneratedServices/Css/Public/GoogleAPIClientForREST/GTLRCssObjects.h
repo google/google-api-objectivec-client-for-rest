@@ -24,12 +24,14 @@
 @class GTLRCss_HeadlineOfferInstallment;
 @class GTLRCss_HeadlineOfferSubscriptionCost;
 @class GTLRCss_ItemLevelIssue;
+@class GTLRCss_MethodDetails;
 @class GTLRCss_Price;
 @class GTLRCss_Product;
 @class GTLRCss_ProductDetail;
 @class GTLRCss_ProductDimension;
 @class GTLRCss_ProductStatus;
 @class GTLRCss_ProductWeight;
+@class GTLRCss_QuotaGroup;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -255,7 +257,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @property(nonatomic, copy, nullable) NSString *labelType;
 
 /**
- *  The resource name of the label. Format: accounts/{account}/labels/{label}
+ *  Identifier. The resource name of the label. Format:
+ *  accounts/{account}/labels/{label}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -774,6 +777,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 
 
 /**
+ *  Response message for the ListMethodGroups method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "quotaGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCss_ListQuotaGroupsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The methods, current quota usage and limits per each group. The quota is
+ *  shared between all methods in the group. The groups are sorted in descending
+ *  order based on quota_usage.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCss_QuotaGroup *> *quotaGroups;
+
+@end
+
+
+/**
+ *  The method details per method in the CSS API.
+ */
+@interface GTLRCss_MethodDetails : GTLRObject
+
+/**
+ *  Output only. The name of the method for example
+ *  `cssproductsservice.listcssproducts`.
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  Output only. The path for the method such as
+ *  `v1/cssproductsservice.listcssproducts`.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Output only. The sub-API that the method belongs to. In the CSS API, this is
+ *  always `css`.
+ */
+@property(nonatomic, copy, nullable) NSString *subapi;
+
+/** Output only. The API version that the method belongs to. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  The price represented as a number and currency.
  */
 @interface GTLRCss_Price : GTLRObject
@@ -932,7 +993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @property(nonatomic, strong, nullable) GTLRDateTime *freshnessTime GTLR_DEPRECATED;
 
 /**
- *  The name of the CSS Product input. Format:
+ *  Identifier. The name of the CSS Product input. Format:
  *  `accounts/{account}/cssProductInputs/{css_product_input}`, where the last
  *  section `css_product_input` consists of 3 parts:
  *  contentLanguage~feedLabel~offerId. Example:
@@ -1003,6 +1064,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  The group information for methods in the CSS API. The quota is shared
+ *  between all methods in the group. Even if none of the methods within the
+ *  group have usage the information for the group is returned.
+ */
+@interface GTLRCss_QuotaGroup : GTLRObject
+
+/** Output only. List of all methods group quota applies to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCss_MethodDetails *> *methodDetails;
+
+/**
+ *  Identifier. The resource name of the quota group. Format:
+ *  accounts/{account}/quotas/{group} Example:
+ *  `accounts/12345678/quotas/css-products-insert` Note: The {group} part is not
+ *  guaranteed to follow a specific pattern.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The maximum number of calls allowed per day for the group.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaLimit;
+
+/**
+ *  Output only. The maximum number of calls allowed per minute for the group.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaMinuteLimit;
+
+/**
+ *  Output only. The current quota usage, meaning the number of calls already
+ *  made on a given day to the methods in the group. The daily quota limits
+ *  reset at at 12:00 PM midday UTC.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaUsage;
 
 @end
 

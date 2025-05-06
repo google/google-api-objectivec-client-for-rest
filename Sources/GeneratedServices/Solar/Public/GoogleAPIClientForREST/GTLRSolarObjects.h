@@ -47,7 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Solar data is derived from enhanced satellite imagery processed at 0.25
- *  m/pixel.
+ *  m/pixel. **Note:** This enum is only available if
+ *  `experiments=EXPANDED_COVERAGE` is set in the request. For more information,
+ *  see [Expanded
+ *  Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
  *
  *  Value: "BASE"
  */
@@ -85,7 +88,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Me
 
 /**
  *  Solar data is derived from enhanced satellite imagery processed at 0.25
- *  m/pixel.
+ *  m/pixel. **Note:** This enum is only available if
+ *  `experiments=EXPANDED_COVERAGE` is set in the request. For more information,
+ *  see [Expanded
+ *  Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
  *
  *  Value: "BASE"
  */
@@ -172,6 +178,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  *  Likely values:
  *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_Base Solar data is
  *        derived from enhanced satellite imagery processed at 0.25 m/pixel.
+ *        **Note:** This enum is only available if
+ *        `experiments=EXPANDED_COVERAGE` is set in the request. For more
+ *        information, see [Expanded
+ *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
  *        (Value: "BASE")
  *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_High Solar data is
  *        derived from aerial imagery captured at low-altitude and processed at
@@ -312,8 +322,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  *
  *  Likely values:
  *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_Base Solar data is derived
- *        from enhanced satellite imagery processed at 0.25 m/pixel. (Value:
- *        "BASE")
+ *        from enhanced satellite imagery processed at 0.25 m/pixel. **Note:**
+ *        This enum is only available if `experiments=EXPANDED_COVERAGE` is set
+ *        in the request. For more information, see [Expanded
+ *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
+ *        (Value: "BASE")
  *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_High Solar data is derived
  *        from aerial imagery captured at low-altitude and processed at 0.1
  *        m/pixel. (Value: "HIGH")

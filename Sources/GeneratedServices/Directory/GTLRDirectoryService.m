@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRDirectory.h>
 

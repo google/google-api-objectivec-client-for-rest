@@ -1754,8 +1754,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_MetricUpdate
-@dynamic cumulative, distribution, gauge, internal, kind, meanCount, meanSum,
-         name, scalar, set, trie, updateTime;
+@dynamic boundedTrie, cumulative, distribution, gauge, internal, kind,
+         meanCount, meanSum, name, scalar, set, trie, updateTime;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

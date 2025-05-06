@@ -287,12 +287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql803
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8037;
 /**
- *  The database major version is MySQL 8.0 and the minor version is 38.
- *
- *  Value: "MYSQL_8_0_38"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8038;
-/**
  *  The database major version is MySQL 8.0 and the minor version is 39.
  *
  *  Value: "MYSQL_8_0_39"
@@ -530,6 +524,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_Type_OnDemand;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_Type_SqlBackupTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BackupConfiguration.backupTier
+
+/**
+ *  Deprecated: ADVANCED is deprecated. Please use ENHANCED instead.
+ *
+ *  Value: "ADVANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_Advanced GTLR_DEPRECATED;
+/**
+ *  Unspecified.
+ *
+ *  Value: "BACKUP_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_BackupTierUnspecified;
+/**
+ *  Instance is managed by Google Cloud Backup and DR Service.
+ *
+ *  Value: "ENHANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_Enhanced;
+/**
+ *  Instance is managed by Cloud SQL.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupConfiguration.transactionalLogStorageState
 
 /**
@@ -740,12 +762,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql
  *  Value: "MYSQL_8_0_37"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8037;
-/**
- *  The database major version is MySQL 8.0 and the minor version is 38.
- *
- *  Value: "MYSQL_8_0_38"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8038;
 /**
  *  The database major version is MySQL 8.0 and the minor version is 39.
  *
@@ -998,28 +1014,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRSQLAdmin_ConnectionPoolConfig.poolMode
-
-/**
- *  The pool mode is unknown.
- *
- *  Value: "POOL_MODE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_PoolModeUnspecified;
-/**
- *  The session mode for managed connection pooling.
- *
- *  Value: "SESSION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Session;
-/**
- *  The transaction(default) mode for managed connection pooling.
- *
- *  Value: "TRANSACTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Transaction;
-
-// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ConnectSettings.backendType
 
 /**
@@ -1158,12 +1152,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "MYSQL_8_0_37"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8037;
-/**
- *  The database major version is MySQL 8.0 and the minor version is 38.
- *
- *  Value: "MYSQL_8_0_38"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038;
 /**
  *  The database major version is MySQL 8.0 and the minor version is 39.
  *
@@ -1497,12 +1485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8037;
 /**
- *  The database major version is MySQL 8.0 and the minor version is 38.
- *
- *  Value: "MYSQL_8_0_38"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038;
-/**
  *  The database major version is MySQL 8.0 and the minor version is 39.
  *
  *  Value: "MYSQL_8_0_39"
@@ -1683,7 +1665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance;
 /**
- *  CloudSQL read pool.
+ *  A Cloud SQL read pool.
  *
  *  Value: "READ_POOL_INSTANCE"
  */
@@ -2029,12 +2011,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8036;
  *  Value: "MYSQL_8_0_37"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8037;
-/**
- *  The database major version is MySQL 8.0 and the minor version is 38.
- *
- *  Value: "MYSQL_8_0_38"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8038;
 /**
  *  The database major version is MySQL 8.0 and the minor version is 39.
  *
@@ -2690,6 +2666,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ManageBackup;
 /**
+ *  Pre-checks the major version upgrade operation.
+ *
+ *  Value: "PRE_CHECK_MAJOR_VERSION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade;
+/**
  *  Promotes a Cloud SQL replica instance.
  *
  *  Value: "PROMOTE_REPLICA"
@@ -2718,7 +2700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Reencry
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ReleaseSsrsLease;
 /**
- *  Repairs entire read pool or specified nodes in the read pool.
+ *  Repairs entire read pool or specified read pool nodes in the read pool.
  *
  *  Value: "REPAIR_READ_POOL"
  */
@@ -3863,7 +3845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  A backup resource.
+ *  A backup resource. Next ID: 30
  */
 @interface GTLRSQLAdmin_Backup : GTLRObject
 
@@ -3893,8 +3875,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *backupRun;
 
 /**
- *  Output only. The database version of the instance of when this backup was
- *  made.
+ *  Output only. The database version of the instance of at the time this backup
+ *  was made.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql51 The database version
@@ -3946,9 +3928,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8037 The database major
  *        version is MySQL 8.0 and the minor version is 37. (Value:
  *        "MYSQL_8_0_37")
- *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8038 The database major
- *        version is MySQL 8.0 and the minor version is 38. (Value:
- *        "MYSQL_8_0_38")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8039 The database major
  *        version is MySQL 8.0 and the minor version is 39. (Value:
  *        "MYSQL_8_0_39")
@@ -4168,6 +4147,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupRetentionSettings *backupRetentionSettings;
 
 /**
+ *  Output only. Backup tier that manages the backups for the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_BackupTier_Advanced Deprecated:
+ *        ADVANCED is deprecated. Please use ENHANCED instead. (Value:
+ *        "ADVANCED")
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_BackupTier_BackupTierUnspecified
+ *        Unspecified. (Value: "BACKUP_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_BackupTier_Enhanced Instance is
+ *        managed by Google Cloud Backup and DR Service. (Value: "ENHANCED")
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_BackupTier_Standard Instance is
+ *        managed by Cloud SQL. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *backupTier;
+
+/**
  *  (MySQL only) Whether binary log is enabled. If backup configuration is
  *  disabled, binarylog must be disabled as well.
  *
@@ -4344,7 +4339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *backupKind;
 
 /**
- *  Output only. The instance database version when this backup was made.
+ *  Output only. The instance database version at the time this backup was made.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql51 The database
@@ -4396,9 +4391,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8037 The database
  *        major version is MySQL 8.0 and the minor version is 37. (Value:
  *        "MYSQL_8_0_37")
- *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8038 The database
- *        major version is MySQL 8.0 and the minor version is 38. (Value:
- *        "MYSQL_8_0_38")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8039 The database
  *        major version is MySQL 8.0 and the minor version is 39. (Value:
  *        "MYSQL_8_0_39")
@@ -4722,9 +4714,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_ConnectionPoolConfig : GTLRObject
 
-/** Client idle timeout. */
-@property(nonatomic, strong, nullable) GTLRDuration *clientConnectionIdleTimeout GTLR_DEPRECATED;
-
 /**
  *  Whether managed connection pooling is enabled.
  *
@@ -4732,42 +4721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *connectionPoolingEnabled;
 
-/**
- *  Managed connection pool size.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *connPoolSize GTLR_DEPRECATED;
-
 /** Optional. List of connection pool configuration flags */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ConnectionPoolFlags *> *flags;
-
-/**
- *  Maximum number of client connections in connection pool.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxClientConnections GTLR_DEPRECATED;
-
-/**
- *  The managed connection pool mode for the instance.
- *
- *  Likely values:
- *    @arg @c kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_PoolModeUnspecified
- *        The pool mode is unknown. (Value: "POOL_MODE_UNSPECIFIED")
- *    @arg @c kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Session The session
- *        mode for managed connection pooling. (Value: "SESSION")
- *    @arg @c kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Transaction The
- *        transaction(default) mode for managed connection pooling. (Value:
- *        "TRANSACTION")
- */
-@property(nonatomic, copy, nullable) NSString *poolMode GTLR_DEPRECATED;
-
-/** Query wait timeout. */
-@property(nonatomic, strong, nullable) GTLRDuration *queryWaitTimeout GTLR_DEPRECATED;
-
-/** Server idle timeout. */
-@property(nonatomic, strong, nullable) GTLRDuration *serverConnectionIdleTimeout GTLR_DEPRECATED;
 
 @end
 
@@ -4792,23 +4747,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Details of a single node of a read pool.
+ *  Details of a single read pool node of a read pool.
  */
 @interface GTLRSQLAdmin_ConnectPoolNodeConfig : GTLRObject
 
-/** Output only. The DNS name of the node. */
+/** Output only. The DNS name of the read pool node. */
 @property(nonatomic, copy, nullable) NSString *dnsName;
 
-/** Output only. The list of DNS names used by this node. */
+/** Output only. The list of DNS names used by this read pool node. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DnsNameMapping *> *dnsNames;
 
 /**
  *  Output only. Mappings containing IP addresses that can be used to connect to
- *  the node.
+ *  the read pool node.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
 
-/** Output only. The name of the node. Doesn't include the project ID. */
+/**
+ *  Output only. The name of the read pool node. Doesn't include the project ID.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -4900,9 +4857,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8037 The
  *        database major version is MySQL 8.0 and the minor version is 37.
  *        (Value: "MYSQL_8_0_37")
- *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038 The
- *        database major version is MySQL 8.0 and the minor version is 38.
- *        (Value: "MYSQL_8_0_38")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039 The
  *        database major version is MySQL 8.0 and the minor version is 39.
  *        (Value: "MYSQL_8_0_39")
@@ -4987,15 +4941,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The number of nodes in a read pool.
+ *  The number of read pool nodes in a read pool.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
 
 /**
- *  Output only. Entries containing information about each node of the read
- *  pool.
+ *  Output only. Entries containing information about each read pool node of the
+ *  read pool.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ConnectPoolNodeConfig *> *nodes;
 
@@ -5213,9 +5167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8037 The
  *        database major version is MySQL 8.0 and the minor version is 37.
  *        (Value: "MYSQL_8_0_37")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038 The
- *        database major version is MySQL 8.0 and the minor version is 38.
- *        (Value: "MYSQL_8_0_38")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039 The
  *        database major version is MySQL 8.0 and the minor version is 39.
  *        (Value: "MYSQL_8_0_39")
@@ -5341,8 +5292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance An
  *        instance running on the customer's premises that is not managed by
  *        Cloud SQL. (Value: "ON_PREMISES_INSTANCE")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadPoolInstance
- *        CloudSQL read pool. (Value: "READ_POOL_INSTANCE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadPoolInstance A
+ *        Cloud SQL read pool. (Value: "READ_POOL_INSTANCE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadReplicaInstance A
  *        Cloud SQL instance acting as a read-replica. (Value:
  *        "READ_REPLICA_INSTANCE")
@@ -5383,15 +5334,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The number of nodes in a read pool.
+ *  The number of read pool nodes in a read pool.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
 
 /**
- *  Output only. Entries containing information about each node of the read
- *  pool.
+ *  Output only. Entries containing information about each read pool node of the
+ *  read pool.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PoolNodeConfig *> *nodes;
 
@@ -5910,7 +5861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Option for export offload.
+ *  Whether to perform a serverless export.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6132,8 +6083,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions : GTLRObject
 
 /**
- *  Optional. Use this option to include DROP SQL statements. These statements
- *  are used to delete database objects before running the import operation.
+ *  Optional. Use this option to include DROP <object> SQL statements. Use these
+ *  statements to delete database objects before running the import operation.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6924,6 +6875,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *backup;
 
+/**
+ *  The name of the backup that's used to restore a Cloud SQL instance: Format:
+ *  "projects/{project-id}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}/backups/{backup-uid}".
+ *  Only one of restore_backup_context, backup, backupdr_backup can be passed to
+ *  the input.
+ */
+@property(nonatomic, copy, nullable) NSString *backupdrBackup;
+
 /** Parameters required to perform the restore backup operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
 
@@ -7563,6 +7522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "MAJOR_VERSION_UPGRADE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ManageBackup Changes the
  *        BackupTier of a Cloud SQL instance. (Value: "MANAGE_BACKUP")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade
+ *        Pre-checks the major version upgrade operation. (Value:
+ *        "PRE_CHECK_MAJOR_VERSION_UPGRADE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PromoteReplica Promotes a
  *        Cloud SQL replica instance. (Value: "PROMOTE_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary
@@ -7578,8 +7540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        lease for the setup of SQL Server Reporting Services (SSRS). (Value:
  *        "RELEASE_SSRS_LEASE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RepairReadPool Repairs
- *        entire read pool or specified nodes in the read pool. (Value:
- *        "REPAIR_READ_POOL")
+ *        entire read pool or specified read pool nodes in the read pool.
+ *        (Value: "REPAIR_READ_POOL")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance
  *        Reschedule maintenance to another time. (Value:
  *        "RESCHEDULE_MAINTENANCE")
@@ -7861,33 +7823,87 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Details of a single node of a read pool.
+ *  The context to perform a point-in-time recovery of an instance managed by
+ *  Google Cloud Backup and Disaster Recovery.
+ */
+@interface GTLRSQLAdmin_PointInTimeRestoreContext : GTLRObject
+
+/**
+ *  Optional. The name of the allocated IP range for the internal IP Cloud SQL
+ *  instance. For example: "google-managed-services-default". If you set this,
+ *  then Cloud SQL creates the IP address for the cloned instance in the
+ *  allocated range. This range must comply with [RFC
+ *  1035](https://tools.ietf.org/html/rfc1035) standards. Specifically, the name
+ *  must be 1-63 characters long and match the regular expression
+ *  [a-z]([-a-z0-9]*[a-z0-9])?. Reserved for future use.
+ *  http://go/speckle-subnet-picker-clone
+ */
+@property(nonatomic, copy, nullable) NSString *allocatedIpRange;
+
+/**
+ *  The Google Cloud Backup and Disaster Recovery Datasource URI. Format:
+ *  projects/{project}/locations/{region}/backupVaults/{backupvault}/dataSources/{datasource}.
+ */
+@property(nonatomic, copy, nullable) NSString *datasource;
+
+/** Required. The date and time to which you want to restore the instance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
+
+/**
+ *  Optional. Point-in-time recovery of a regional instance in the specified
+ *  zones. If not specified, clone to the same secondary zone as the source
+ *  instance. This value cannot be the same as the preferred_zone field.
+ */
+@property(nonatomic, copy, nullable) NSString *preferredSecondaryZone;
+
+/**
+ *  Optional. Point-in-time recovery of an instance to the specified zone. If no
+ *  zone is specified, then clone to the same primary zone as the source
+ *  instance.
+ */
+@property(nonatomic, copy, nullable) NSString *preferredZone;
+
+/**
+ *  Optional. The resource link for the VPC network from which the Cloud SQL
+ *  instance is accessible for private IP. For example,
+ *  `/projects/myProject/global/networks/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *privateNetwork;
+
+/** Target instance name. */
+@property(nonatomic, copy, nullable) NSString *targetInstance;
+
+@end
+
+
+/**
+ *  Details of a single read pool node of a read pool.
  */
 @interface GTLRSQLAdmin_PoolNodeConfig : GTLRObject
 
-/** Output only. The DNS name of the node. */
+/** Output only. The DNS name of the read pool node. */
 @property(nonatomic, copy, nullable) NSString *dnsName;
 
-/** Output only. The list of DNS names used by this node. */
+/** Output only. The list of DNS names used by this read pool node. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DnsNameMapping *> *dnsNames;
 
-/** Output only. The serving zone of the node. */
+/** Output only. The zone of the read pool node. */
 @property(nonatomic, copy, nullable) NSString *gceZone;
 
 /**
  *  Output only. Mappings containing IP addresses that can be used to connect to
- *  the node.
+ *  the read pool node.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
 
 /**
- *  Output only. The name of the node, to be used for retrieving metrics and
- *  logs for the node.
+ *  Output only. The name of the read pool node, to be used for retrieving
+ *  metrics and logs.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The current state of the node.
+ *  Output only. The current state of the read pool node.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_PoolNodeConfig_State_Failed The creation of the
@@ -8361,7 +8377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Optional. When this parameter is set to true, Cloud SQL instances can
  *  connect to Vertex AI to pass requests for real-time predictions and insights
  *  to the AI. The default value is false. This applies only to Cloud SQL for
- *  PostgreSQL instances.
+ *  MySQL and Cloud SQL for PostgreSQL instances.
  *
  *  Uses NSNumber of boolValue.
  */

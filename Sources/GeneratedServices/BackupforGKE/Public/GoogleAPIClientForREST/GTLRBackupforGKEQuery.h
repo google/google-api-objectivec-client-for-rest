@@ -35,6 +35,313 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieve the details of a single BackupPlanBinding.
+ *
+ *  Method: gkebackup.projects.locations.backupChannels.backupPlanBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsGet : GTLRBackupforGKEQuery
+
+/**
+ *  Required. Fully qualified BackupPlanBinding name. Format: `projects/ *
+ *  /locations/ * /backupChannels/ * /backupPlanBindings/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_BackupPlanBinding.
+ *
+ *  Retrieve the details of a single BackupPlanBinding.
+ *
+ *  @param name Required. Fully qualified BackupPlanBinding name. Format:
+ *    `projects/ * /locations/ * /backupChannels/ * /backupPlanBindings/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackupPlanBindings in a given location.
+ *
+ *  Method: gkebackup.projects.locations.backupChannels.backupPlanBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsList : GTLRBackupforGKEQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBackupPlanBindings` call. Provide this to retrieve the subsequent page
+ *  in a multi-page list of results. When paginating, all other parameters
+ *  provided to `ListBackupPlanBindings` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The BackupChannel that contains the BackupPlanBindings to list.
+ *  Format: `projects/ * /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_ListBackupPlanBindingsResponse.
+ *
+ *  Lists BackupPlanBindings in a given location.
+ *
+ *  @param parent Required. The BackupChannel that contains the
+ *    BackupPlanBindings to list. Format: `projects/ * /locations/ *
+ *    /backupChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new BackupChannel in a given location.
+ *
+ *  Method: gkebackup.projects.locations.backupChannels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsCreate : GTLRBackupforGKEQuery
+
+/**
+ *  Optional. The client-provided short name for the BackupChannel resource.
+ *  This name must: - be between 1 and 63 characters long (inclusive) - consist
+ *  of only lower-case ASCII letters, numbers, and dashes - start with a
+ *  lower-case letter - end with a lower-case letter or number - be unique
+ *  within the set of BackupChannels in this location If the user does not
+ *  provide a name, a uuid will be used as the name.
+ */
+@property(nonatomic, copy, nullable) NSString *backupChannelId;
+
+/**
+ *  Required. The location within which to create the BackupChannel. Format:
+ *  `projects/ * /locations/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GoogleLongrunningOperation.
+ *
+ *  Creates a new BackupChannel in a given location.
+ *
+ *  @param object The @c GTLRBackupforGKE_BackupChannel to include in the query.
+ *  @param parent Required. The location within which to create the
+ *    BackupChannel. Format: `projects/ * /locations/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupforGKE_BackupChannel *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing BackupChannel.
+ *
+ *  Method: gkebackup.projects.locations.backupChannels.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsDelete : GTLRBackupforGKEQuery
+
+/**
+ *  Optional. If provided, this value must match the current value of the target
+ *  BackupChannel's etag field or the request is rejected.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. If set to true, any BackupPlanAssociations below this
+ *  BackupChannel will also be deleted. Otherwise, the request will only succeed
+ *  if the BackupChannel has no BackupPlanAssociations.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. Fully qualified BackupChannel name. Format: `projects/ *
+ *  /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GoogleLongrunningOperation.
+ *
+ *  Deletes an existing BackupChannel.
+ *
+ *  @param name Required. Fully qualified BackupChannel name. Format: `projects/
+ *    * /locations/ * /backupChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve the details of a single BackupChannel.
+ *
+ *  Method: gkebackup.projects.locations.backupChannels.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsGet : GTLRBackupforGKEQuery
+
+/**
+ *  Required. Fully qualified BackupChannel name. Format: `projects/ *
+ *  /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_BackupChannel.
+ *
+ *  Retrieve the details of a single BackupChannel.
+ *
+ *  @param name Required. Fully qualified BackupChannel name. Format: `projects/
+ *    * /locations/ * /backupChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackupChannels in a given location.
+ *
+ *  Method: gkebackup.projects.locations.backupChannels.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsList : GTLRBackupforGKEQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBackupChannels` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListBackupChannels` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The location that contains the BackupChannels to list. Format:
+ *  `projects/ * /locations/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_ListBackupChannelsResponse.
+ *
+ *  Lists BackupChannels in a given location.
+ *
+ *  @param parent Required. The location that contains the BackupChannels to
+ *    list. Format: `projects/ * /locations/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a BackupChannel.
+ *
+ *  Method: gkebackup.projects.locations.backupChannels.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsPatch : GTLRBackupforGKEQuery
+
+/**
+ *  Identifier. The fully qualified name of the BackupChannel. `projects/ *
+ *  /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. This is used to specify the fields to be overwritten in the
+ *  BackupChannel targeted for update. The values for each of these updated
+ *  fields will be taken from the `backup_channel` provided with this request.
+ *  Field names are relative to the root of the resource (e.g., `description`,
+ *  `labels`, etc.) If no `update_mask` is provided, all fields in
+ *  `backup_channel` will be written to the target BackupChannel resource. Note
+ *  that OUTPUT_ONLY and IMMUTABLE fields in `backup_channel` are ignored and
+ *  are not used to update the target BackupChannel.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GoogleLongrunningOperation.
+ *
+ *  Update a BackupChannel.
+ *
+ *  @param object The @c GTLRBackupforGKE_BackupChannel to include in the query.
+ *  @param name Identifier. The fully qualified name of the BackupChannel.
+ *    `projects/ * /locations/ * /backupChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupforGKE_BackupChannel *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Backup for the given BackupPlan.
  *
  *  Method: gkebackup.projects.locations.backupPlans.backups.create
@@ -1209,6 +1516,308 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new RestoreChannel in a given location.
+ *
+ *  Method: gkebackup.projects.locations.restoreChannels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsCreate : GTLRBackupforGKEQuery
+
+/**
+ *  Required. The location within which to create the RestoreChannel. Format:
+ *  `projects/ * /locations/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The client-provided short name for the RestoreChannel resource.
+ *  This name must: - be between 1 and 63 characters long (inclusive) - consist
+ *  of only lower-case ASCII letters, numbers, and dashes - start with a
+ *  lower-case letter - end with a lower-case letter or number - be unique
+ *  within the set of RestoreChannels in this location If the user does not
+ *  provide a name, a uuid will be used as the name.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreChannelId;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GoogleLongrunningOperation.
+ *
+ *  Creates a new RestoreChannel in a given location.
+ *
+ *  @param object The @c GTLRBackupforGKE_RestoreChannel to include in the
+ *    query.
+ *  @param parent Required. The location within which to create the
+ *    RestoreChannel. Format: `projects/ * /locations/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupforGKE_RestoreChannel *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing RestoreChannel.
+ *
+ *  Method: gkebackup.projects.locations.restoreChannels.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsDelete : GTLRBackupforGKEQuery
+
+/**
+ *  Optional. If provided, this value must match the current value of the target
+ *  RestoreChannel's etag field or the request is rejected.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. Fully qualified RestoreChannel name. Format: `projects/ *
+ *  /locations/ * /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GoogleLongrunningOperation.
+ *
+ *  Deletes an existing RestoreChannel.
+ *
+ *  @param name Required. Fully qualified RestoreChannel name. Format:
+ *    `projects/ * /locations/ * /restoreChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve the details of a single RestoreChannel.
+ *
+ *  Method: gkebackup.projects.locations.restoreChannels.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsGet : GTLRBackupforGKEQuery
+
+/**
+ *  Required. Fully qualified RestoreChannel name. Format: `projects/ *
+ *  /locations/ * /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_RestoreChannel.
+ *
+ *  Retrieve the details of a single RestoreChannel.
+ *
+ *  @param name Required. Fully qualified RestoreChannel name. Format:
+ *    `projects/ * /locations/ * /restoreChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RestoreChannels in a given location.
+ *
+ *  Method: gkebackup.projects.locations.restoreChannels.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsList : GTLRBackupforGKEQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListRestoreChannels` call. Provide this to retrieve the subsequent page in
+ *  a multi-page list of results. When paginating, all other parameters provided
+ *  to `ListRestoreChannels` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The location that contains the RestoreChannels to list. Format:
+ *  `projects/ * /locations/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_ListRestoreChannelsResponse.
+ *
+ *  Lists RestoreChannels in a given location.
+ *
+ *  @param parent Required. The location that contains the RestoreChannels to
+ *    list. Format: `projects/ * /locations/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a RestoreChannel.
+ *
+ *  Method: gkebackup.projects.locations.restoreChannels.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsPatch : GTLRBackupforGKEQuery
+
+/**
+ *  Identifier. The fully qualified name of the RestoreChannel. `projects/ *
+ *  /locations/ * /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. This is used to specify the fields to be overwritten in the
+ *  RestoreChannel targeted for update. The values for each of these updated
+ *  fields will be taken from the `restore_channel` provided with this request.
+ *  Field names are relative to the root of the resource (e.g., `description`,
+ *  `destination_project_id`, etc.) If no `update_mask` is provided, all fields
+ *  in `restore_channel` will be written to the target RestoreChannel resource.
+ *  Note that OUTPUT_ONLY and IMMUTABLE fields in `restore_channel` are ignored
+ *  and are not used to update the target RestoreChannel.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GoogleLongrunningOperation.
+ *
+ *  Update a RestoreChannel.
+ *
+ *  @param object The @c GTLRBackupforGKE_RestoreChannel to include in the
+ *    query.
+ *  @param name Identifier. The fully qualified name of the RestoreChannel.
+ *    `projects/ * /locations/ * /restoreChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupforGKE_RestoreChannel *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve the details of a single RestorePlanBinding.
+ *
+ *  Method: gkebackup.projects.locations.restoreChannels.restorePlanBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsGet : GTLRBackupforGKEQuery
+
+/**
+ *  Required. Fully qualified RestorePlanBinding name. Format: `projects/ *
+ *  /locations/ * /restoreChannels/ * /restorePlanBindings/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_RestorePlanBinding.
+ *
+ *  Retrieve the details of a single RestorePlanBinding.
+ *
+ *  @param name Required. Fully qualified RestorePlanBinding name. Format:
+ *    `projects/ * /locations/ * /restoreChannels/ * /restorePlanBindings/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RestorePlanBindings in a given location.
+ *
+ *  Method: gkebackup.projects.locations.restoreChannels.restorePlanBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsList : GTLRBackupforGKEQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListRestorePlanBindings` call. Provide this to retrieve the subsequent page
+ *  in a multi-page list of results. When paginating, all other parameters
+ *  provided to `ListRestorePlanBindings` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The RestoreChannel that contains the ListRestorePlanBindings to
+ *  list. Format: `projects/ * /locations/ * /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_ListRestorePlanBindingsResponse.
+ *
+ *  Lists RestorePlanBindings in a given location.
+ *
+ *  @param parent Required. The RestoreChannel that contains the
+ *    ListRestorePlanBindings to list. Format: `projects/ * /locations/ *
+ *    /restoreChannels/ *`
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

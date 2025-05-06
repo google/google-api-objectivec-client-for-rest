@@ -6,7 +6,7 @@
 // Description:
 //   An API for managing Drive Labels
 // Documentation:
-//   https://developers.google.com/drive/labels
+//   https://developers.google.com/workspace/drive/labels
 
 #import <GoogleAPIClientForREST/GTLRDriveLabelsObjects.h>
 

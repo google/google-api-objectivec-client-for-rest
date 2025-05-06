@@ -2550,7 +2550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Sets the inventory verification contract for the specified country.
+ *  Sets the inventory verification contact for the specified country.
  *
  *  Method: content.liasettings.setinventoryverificationcontact
  *
@@ -2588,7 +2588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c
  *  GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse.
  *
- *  Sets the inventory verification contract for the specified country.
+ *  Sets the inventory verification contact for the specified country.
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account

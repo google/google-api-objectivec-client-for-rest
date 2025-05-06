@@ -36,6 +36,7 @@ NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf8
 // GTLRCloudNaturalLanguage_CpuMetric.cpuType
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A2 = @"A2";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A3 = @"A3";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A4 = @"A4";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2 = @"C2";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2d = @"C2D";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C3 = @"C3";
@@ -67,6 +68,7 @@ NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu4g = @
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Megagpu8g = @"A3_MEGAGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Ultragpu8g = @"A3_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A4Highgpu8g = @"A4_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu16 = @"C2D_HIGHCPU_16";
 NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu2 = @"C2D_HIGHCPU_2";
@@ -251,7 +253,9 @@ NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TY
 
 // GTLRCloudNaturalLanguage_GpuMetric.gpuType
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaB200 = @"NVIDIA_B200";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH10080gb = @"NVIDIA_H100_80GB";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH200141gb = @"NVIDIA_H200_141GB";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4 = @"NVIDIA_L4";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
@@ -279,6 +283,7 @@ NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu4g = @
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Megagpu8g = @"A3_MEGAGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Ultragpu8g = @"A3_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A4Highgpu8g = @"A4_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu16 = @"C2D_HIGHCPU_16";
 NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu2 = @"C2D_HIGHCPU_2";
@@ -450,6 +455,7 @@ NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu4g = @
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Megagpu8g = @"A3_MEGAGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Ultragpu8g = @"A3_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A4Highgpu8g = @"A4_HIGHGPU_8G";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu16 = @"C2D_HIGHCPU_16";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu2 = @"C2D_HIGHCPU_2";
@@ -602,6 +608,7 @@ NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_UnknownMachineS
 // GTLRCloudNaturalLanguage_RamMetric.ramType
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A2 = @"A2";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A3 = @"A3";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A4 = @"A4";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C2 = @"C2";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C2d = @"C2D";
 NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C3 = @"C3";
@@ -671,6 +678,7 @@ NSString * const kGTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse_S
 
 // GTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation.computeEngineAcceleratorType
 NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaB200 = @"NVIDIA_B200";
 NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH10080gb = @"NVIDIA_H100_80GB";
 NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
 NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH200141gb = @"NVIDIA_H200_141GB";

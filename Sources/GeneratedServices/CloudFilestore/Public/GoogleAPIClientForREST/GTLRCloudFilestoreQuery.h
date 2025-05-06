@@ -790,17 +790,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsList : GTLRCloudFilestoreQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  If true, the returned list will include locations which are not yet
- *  revealed.
- */
-@property(nonatomic, assign) BOOL includeUnrevealedLocations;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;

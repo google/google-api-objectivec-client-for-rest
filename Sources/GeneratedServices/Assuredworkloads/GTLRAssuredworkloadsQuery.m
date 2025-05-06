@@ -128,6 +128,25 @@
 
 @end
 
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableComplianceUpdates
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enableComplianceUpdates";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableComplianceUpdates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.enableComplianceUpdates";
+  return query;
+}
+
+@end
+
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableResourceMonitoring
 
 @dynamic name;
@@ -261,6 +280,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse class];
   query.loggingName = @"assuredworkloads.organizations.locations.workloads.restrictAllowedResources";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesApply
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:apply";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesApply *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleLongrunningOperation class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.updates.apply";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/updates";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.updates.list";
   return query;
 }
 

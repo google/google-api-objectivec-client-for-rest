@@ -140,9 +140,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsDataSourcesCheckValidCreds : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The data source in the form:
- *  `projects/{project_id}/dataSources/{data_source_id}` or
- *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+ *  Required. The name of the data source. If you are using the regionless
+ *  method, the location must be `US` and the name should be in the following
+ *  form: * `projects/{project_id}/dataSources/{data_source_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -154,9 +156,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
- *  @param name Required. The data source in the form:
- *    `projects/{project_id}/dataSources/{data_source_id}` or
- *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+ *  @param name Required. The name of the data source. If you are using the
+ *    regionless method, the location must be `US` and the name should be in the
+ *    following form: * `projects/{project_id}/dataSources/{data_source_id}` If
+ *    you are using the regionalized method, the name should be in the following
+ *    form: *
+ *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesCheckValidCreds
  */
@@ -178,8 +183,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsDataSourcesGet : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/dataSources/{data_source_id}` or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: * `projects/{project_id}/dataSources/{data_source_id}` If
+ *  you are using the regionalized method, the name should be in the following
+ *  form: *
  *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -189,8 +197,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Retrieves a supported data source and returns its settings.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example: `projects/{project_id}/dataSources/{data_source_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: * `projects/{project_id}/dataSources/{data_source_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesGet
@@ -308,9 +319,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesCheckValidCreds : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The data source in the form:
- *  `projects/{project_id}/dataSources/{data_source_id}` or
- *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+ *  Required. The name of the data source. If you are using the regionless
+ *  method, the location must be `US` and the name should be in the following
+ *  form: * `projects/{project_id}/dataSources/{data_source_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -322,9 +335,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
- *  @param name Required. The data source in the form:
- *    `projects/{project_id}/dataSources/{data_source_id}` or
- *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+ *  @param name Required. The name of the data source. If you are using the
+ *    regionless method, the location must be `US` and the name should be in the
+ *    following form: * `projects/{project_id}/dataSources/{data_source_id}` If
+ *    you are using the regionalized method, the name should be in the following
+ *    form: *
+ *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesCheckValidCreds
  */
@@ -346,8 +362,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesGet : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/dataSources/{data_source_id}` or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: * `projects/{project_id}/dataSources/{data_source_id}` If
+ *  you are using the regionalized method, the name should be in the following
+ *  form: *
  *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -357,8 +376,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Retrieves a supported data source and returns its settings.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example: `projects/{project_id}/dataSources/{data_source_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: * `projects/{project_id}/dataSources/{data_source_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesGet
@@ -639,8 +661,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsDelete : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  Required. The name of the resource to delete. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: * `projects/{project_id}/transferConfigs/{config_id}` If you
+ *  are using the regionalized method, the name should be in the following form:
+ *  *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -651,8 +676,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Deletes a data transfer configuration, including any associated transfer
  *  runs and logs.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  @param name Required. The name of the resource to delete. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: * `projects/{project_id}/transferConfigs/{config_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsDelete
@@ -674,8 +702,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsGet : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: * `projects/{project_id}/transferConfigs/{config_id}` If you
+ *  are using the regionalized method, the name should be in the following form:
+ *  *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -685,8 +716,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Returns information about a data transfer config.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: * `projects/{project_id}/transferConfigs/{config_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsGet
@@ -726,8 +760,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The BigQuery project id for which transfer configs should be
- *  returned: `projects/{project_id}` or
- *  `projects/{project_id}/locations/{location_id}`
+ *  returned. If you are using the regionless method, the location must be `US`
+ *  and `parent` should be in the following form: * `projects/{project_id} If
+ *  you are using the regionalized method, `parent` should be in the following
+ *  form: * `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -738,7 +774,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  specified location.
  *
  *  @param parent Required. The BigQuery project id for which transfer configs
- *    should be returned: `projects/{project_id}` or
+ *    should be returned. If you are using the regionless method, the location
+ *    must be `US` and `parent` should be in the following form: *
+ *    `projects/{project_id} If you are using the regionalized method, `parent`
+ *    should be in the following form: *
  *    `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsList
@@ -854,9 +893,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsDelete : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
- *  or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -866,9 +907,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Deletes the specified transfer run.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: *
+ *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you
+ *    are using the regionalized method, the name should be in the following
+ *    form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsDelete
@@ -890,9 +934,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsGet : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
- *  or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -902,9 +948,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Returns information about the particular transfer run.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: *
+ *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you
+ *    are using the regionalized method, the name should be in the following
+ *    form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsGet
@@ -938,9 +987,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. Name of transfer configuration for which transfer runs should be
- *  retrieved. Format of transfer configuration resource name is:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
- *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  retrieved. If you are using the regionless method, the location must be `US`
+ *  and the name should be in the following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+ *  regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -981,9 +1032,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Returns information about running and completed transfer runs.
  *
  *  @param parent Required. Name of transfer configuration for which transfer
- *    runs should be retrieved. Format of transfer configuration resource name
- *    is: `projects/{project_id}/transferConfigs/{config_id}` or
- *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *    runs should be retrieved. If you are using the regionless method, the
+ *    location must be `US` and the name should be in the following form: *
+ *    `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+ *    regionalized method, the name should be in the following form: *
+ *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsList
  *
@@ -1035,8 +1088,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Transfer run name in the form:
- *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  Required. Transfer run name. If you are using the regionless method, the
+ *  location must be `US` and the name should be in the following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1046,8 +1101,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Returns log messages for the transfer run.
  *
- *  @param parent Required. Transfer run name in the form:
- *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  @param parent Required. Transfer run name. If you are using the regionless
+ *    method, the location must be `US` and the name should be in the following
+ *    form: * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsTransferLogsList
@@ -1076,9 +1134,11 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsScheduleRuns : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. Transfer configuration name in the form:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
- *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  Required. Transfer configuration name. If you are using the regionless
+ *  method, the location must be `US` and the name should be in the following
+ *  form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using
+ *  the regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1092,9 +1152,12 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.
- *  @param parent Required. Transfer configuration name in the form:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
- *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  @param parent Required. Transfer configuration name. If you are using the
+ *    regionless method, the location must be `US` and the name should be in the
+ *    following form: * `projects/{project_id}/transferConfigs/{config_id}` If
+ *    you are using the regionalized method, the name should be in the following
+ *    form: *
+ *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsScheduleRuns
  */
@@ -1104,10 +1167,13 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Start manual transfer runs to be executed now with schedule_time equal to
- *  current time. The transfer runs can be created for a time range where the
- *  run_time is between start_time (inclusive) and end_time (exclusive), or for
- *  a specific run_time.
+ *  Manually initiates transfer runs. You can schedule these runs in two ways:
+ *  1. For a specific point in time using the 'requested_run_time' parameter. 2.
+ *  For a period between 'start_time' (inclusive) and 'end_time' (exclusive). If
+ *  scheduling a single run, it is set to execute immediately (schedule_time
+ *  equals the current time). When scheduling multiple runs within a time range,
+ *  the first run starts now, and subsequent runs are delayed by 15 seconds
+ *  each.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.startManualRuns
  *
@@ -1118,25 +1184,33 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsStartManualRuns : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. Transfer configuration name in the form:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
- *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  Required. Transfer configuration name. If you are using the regionless
+ *  method, the location must be `US` and the name should be in the following
+ *  form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using
+ *  the regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_StartManualTransferRunsResponse.
  *
- *  Start manual transfer runs to be executed now with schedule_time equal to
- *  current time. The transfer runs can be created for a time range where the
- *  run_time is between start_time (inclusive) and end_time (exclusive), or for
- *  a specific run_time.
+ *  Manually initiates transfer runs. You can schedule these runs in two ways:
+ *  1. For a specific point in time using the 'requested_run_time' parameter. 2.
+ *  For a period between 'start_time' (inclusive) and 'end_time' (exclusive). If
+ *  scheduling a single run, it is set to execute immediately (schedule_time
+ *  equals the current time). When scheduling multiple runs within a time range,
+ *  the first run starts now, and subsequent runs are delayed by 15 seconds
+ *  each.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
  *    to include in the query.
- *  @param parent Required. Transfer configuration name in the form:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
- *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  @param parent Required. Transfer configuration name. If you are using the
+ *    regionless method, the location must be `US` and the name should be in the
+ *    following form: * `projects/{project_id}/transferConfigs/{config_id}` If
+ *    you are using the regionalized method, the name should be in the following
+ *    form: *
+ *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsStartManualRuns
  */
@@ -1279,8 +1353,11 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsDelete : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  Required. The name of the resource to delete. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: * `projects/{project_id}/transferConfigs/{config_id}` If you
+ *  are using the regionalized method, the name should be in the following form:
+ *  *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1291,8 +1368,11 @@ GTLR_DEPRECATED
  *  Deletes a data transfer configuration, including any associated transfer
  *  runs and logs.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  @param name Required. The name of the resource to delete. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: * `projects/{project_id}/transferConfigs/{config_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsDelete
@@ -1314,8 +1394,11 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsGet : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: * `projects/{project_id}/transferConfigs/{config_id}` If you
+ *  are using the regionalized method, the name should be in the following form:
+ *  *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1325,8 +1408,11 @@ GTLR_DEPRECATED
  *
  *  Returns information about a data transfer config.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: * `projects/{project_id}/transferConfigs/{config_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsGet
@@ -1366,8 +1452,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The BigQuery project id for which transfer configs should be
- *  returned: `projects/{project_id}` or
- *  `projects/{project_id}/locations/{location_id}`
+ *  returned. If you are using the regionless method, the location must be `US`
+ *  and `parent` should be in the following form: * `projects/{project_id} If
+ *  you are using the regionalized method, `parent` should be in the following
+ *  form: * `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1378,7 +1466,10 @@ GTLR_DEPRECATED
  *  specified location.
  *
  *  @param parent Required. The BigQuery project id for which transfer configs
- *    should be returned: `projects/{project_id}` or
+ *    should be returned. If you are using the regionless method, the location
+ *    must be `US` and `parent` should be in the following form: *
+ *    `projects/{project_id} If you are using the regionalized method, `parent`
+ *    should be in the following form: *
  *    `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsList
@@ -1494,9 +1585,11 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsDelete : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
- *  or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1506,9 +1599,12 @@ GTLR_DEPRECATED
  *
  *  Deletes the specified transfer run.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: *
+ *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you
+ *    are using the regionalized method, the name should be in the following
+ *    form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsDelete
@@ -1530,9 +1626,11 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsGet : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. The field will contain name of the resource requested, for
- *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
- *  or
+ *  Required. The name of the resource requested. If you are using the
+ *  regionless method, the location must be `US` and the name should be in the
+ *  following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1542,9 +1640,12 @@ GTLR_DEPRECATED
  *
  *  Returns information about the particular transfer run.
  *
- *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  @param name Required. The name of the resource requested. If you are using
+ *    the regionless method, the location must be `US` and the name should be in
+ *    the following form: *
+ *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you
+ *    are using the regionalized method, the name should be in the following
+ *    form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsGet
@@ -1578,9 +1679,11 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of transfer configuration for which transfer runs should be
- *  retrieved. Format of transfer configuration resource name is:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
- *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  retrieved. If you are using the regionless method, the location must be `US`
+ *  and the name should be in the following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+ *  regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1621,9 +1724,11 @@ GTLR_DEPRECATED
  *  Returns information about running and completed transfer runs.
  *
  *  @param parent Required. Name of transfer configuration for which transfer
- *    runs should be retrieved. Format of transfer configuration resource name
- *    is: `projects/{project_id}/transferConfigs/{config_id}` or
- *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *    runs should be retrieved. If you are using the regionless method, the
+ *    location must be `US` and the name should be in the following form: *
+ *    `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+ *    regionalized method, the name should be in the following form: *
+ *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsList
  *
@@ -1675,8 +1780,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Transfer run name in the form:
- *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  Required. Transfer run name. If you are using the regionless method, the
+ *  location must be `US` and the name should be in the following form: *
+ *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are
+ *  using the regionalized method, the name should be in the following form: *
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1686,8 +1793,11 @@ GTLR_DEPRECATED
  *
  *  Returns log messages for the transfer run.
  *
- *  @param parent Required. Transfer run name in the form:
- *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  @param parent Required. Transfer run name. If you are using the regionless
+ *    method, the location must be `US` and the name should be in the following
+ *    form: * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
+ *    If you are using the regionalized method, the name should be in the
+ *    following form: *
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsTransferLogsList
@@ -1716,9 +1826,11 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsScheduleRuns : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. Transfer configuration name in the form:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
- *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  Required. Transfer configuration name. If you are using the regionless
+ *  method, the location must be `US` and the name should be in the following
+ *  form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using
+ *  the regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1732,9 +1844,12 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.
- *  @param parent Required. Transfer configuration name in the form:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
- *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  @param parent Required. Transfer configuration name. If you are using the
+ *    regionless method, the location must be `US` and the name should be in the
+ *    following form: * `projects/{project_id}/transferConfigs/{config_id}` If
+ *    you are using the regionalized method, the name should be in the following
+ *    form: *
+ *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsScheduleRuns
  */
@@ -1744,10 +1859,13 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Start manual transfer runs to be executed now with schedule_time equal to
- *  current time. The transfer runs can be created for a time range where the
- *  run_time is between start_time (inclusive) and end_time (exclusive), or for
- *  a specific run_time.
+ *  Manually initiates transfer runs. You can schedule these runs in two ways:
+ *  1. For a specific point in time using the 'requested_run_time' parameter. 2.
+ *  For a period between 'start_time' (inclusive) and 'end_time' (exclusive). If
+ *  scheduling a single run, it is set to execute immediately (schedule_time
+ *  equals the current time). When scheduling multiple runs within a time range,
+ *  the first run starts now, and subsequent runs are delayed by 15 seconds
+ *  each.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.startManualRuns
  *
@@ -1758,25 +1876,33 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsStartManualRuns : GTLRBigQueryDataTransferQuery
 
 /**
- *  Required. Transfer configuration name in the form:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
- *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  Required. Transfer configuration name. If you are using the regionless
+ *  method, the location must be `US` and the name should be in the following
+ *  form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using
+ *  the regionalized method, the name should be in the following form: *
+ *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_StartManualTransferRunsResponse.
  *
- *  Start manual transfer runs to be executed now with schedule_time equal to
- *  current time. The transfer runs can be created for a time range where the
- *  run_time is between start_time (inclusive) and end_time (exclusive), or for
- *  a specific run_time.
+ *  Manually initiates transfer runs. You can schedule these runs in two ways:
+ *  1. For a specific point in time using the 'requested_run_time' parameter. 2.
+ *  For a period between 'start_time' (inclusive) and 'end_time' (exclusive). If
+ *  scheduling a single run, it is set to execute immediately (schedule_time
+ *  equals the current time). When scheduling multiple runs within a time range,
+ *  the first run starts now, and subsequent runs are delayed by 15 seconds
+ *  each.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
  *    to include in the query.
- *  @param parent Required. Transfer configuration name in the form:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
- *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+ *  @param parent Required. Transfer configuration name. If you are using the
+ *    regionless method, the location must be `US` and the name should be in the
+ *    following form: * `projects/{project_id}/transferConfigs/{config_id}` If
+ *    you are using the regionalized method, the name should be in the following
+ *    form: *
+ *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsStartManualRuns
  */

@@ -3178,7 +3178,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_QueryTimelineSample
 @dynamic activeUnits, completedUnits, elapsedMs, estimatedRunnableUnits,
-         pendingUnits, totalSlotMs;
+         pendingUnits, shuffleRamUsageRatio, totalSlotMs;
 @end
 
 

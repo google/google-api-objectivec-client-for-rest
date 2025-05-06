@@ -83,6 +83,82 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the Capability identified by the supplied resource name.
+ *
+ *  Method: cloudresourcemanager.folders.capabilities.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilitiesGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the capability to get. For example,
+ *  `folders/123/capabilities/app-management`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Capability.
+ *
+ *  Retrieves the Capability identified by the supplied resource name.
+ *
+ *  @param name Required. The name of the capability to get. For example,
+ *    `folders/123/capabilities/app-management`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilitiesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the Capability.
+ *
+ *  Method: cloudresourcemanager.folders.capabilities.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilitiesPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Immutable. Identifier. The resource name of the capability. Must be in the
+ *  following form: * `folders/{folder_id}/capabilities/{capability_name}` For
+ *  example, `folders/123/capabilities/app-management` Following are the allowed
+ *  {capability_name} values: * `app-management`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. Only [Capability.value] can be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the Capability.
+ *
+ *  @param object The @c GTLRCloudResourceManager_Capability to include in the
+ *    query.
+ *  @param name Immutable. Identifier. The resource name of the capability. Must
+ *    be in the following form: *
+ *    `folders/{folder_id}/capabilities/{capability_name}` For example,
+ *    `folders/123/capabilities/app-management` Following are the allowed
+ *    {capability_name} values: * `app-management`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilitiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Capability *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a folder in the resource hierarchy. Returns an `Operation` which can
  *  be used to track the progress of the folder creation workflow. Upon success,
  *  the `Operation.response` field will be populated with the created Folder. In

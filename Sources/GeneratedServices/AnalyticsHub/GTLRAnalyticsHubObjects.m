@@ -19,22 +19,6 @@ NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_DataRead = @"DATA_READ
 NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRAnalyticsHub_BigQueryConfig.state
-NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_Active = @"ACTIVE";
-NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
-NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_NotFound = @"NOT_FOUND";
-NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_PermissionDenied = @"PERMISSION_DENIED";
-NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
-NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRAnalyticsHub_CloudStorageConfig.state
-NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_Active = @"ACTIVE";
-NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
-NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_NotFound = @"NOT_FOUND";
-NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_PermissionDenied = @"PERMISSION_DENIED";
-NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
-NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
 // GTLRAnalyticsHub_DataExchange.discoveryType
 NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePrivate = @"DISCOVERY_TYPE_PRIVATE";
 NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePublic = @"DISCOVERY_TYPE_PUBLIC";
@@ -44,11 +28,6 @@ NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypeUnspe
 NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Active = @"ACTIVE";
 NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_CommercialStateUnspecified = @"COMMERCIAL_STATE_UNSPECIFIED";
 NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Onboarding = @"ONBOARDING";
-
-// GTLRAnalyticsHub_GooglePubsubV1Subscription.state
-NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_Active = @"ACTIVE";
-NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_ResourceError = @"RESOURCE_ERROR";
-NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRAnalyticsHub_Listing.categories
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryAdvertisingAndMarketing = @"CATEGORY_ADVERTISING_AND_MARKETING";
@@ -149,7 +128,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_BigQueryConfig
-@dynamic dropUnknownFields, serviceAccountEmail, state, table, useTableSchema,
+@dynamic dropUnknownFields, serviceAccountEmail, table, useTableSchema,
          useTopicSchema, writeMetadata;
 @end
 
@@ -198,7 +177,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 @implementation GTLRAnalyticsHub_CloudStorageConfig
 @dynamic avroConfig, bucket, filenameDatetimeFormat, filenamePrefix,
          filenameSuffix, maxBytes, maxDuration, maxMessages,
-         serviceAccountEmail, state, textConfig;
+         serviceAccountEmail, textConfig;
 @end
 
 
@@ -416,12 +395,11 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_GooglePubsubV1Subscription
-@dynamic ackDeadlineSeconds, analyticsHubSubscriptionInfo, bigqueryConfig,
-         cloudStorageConfig, deadLetterPolicy, detached,
-         enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
-         filter, labels, messageRetentionDuration, messageTransforms, name,
-         pushConfig, retainAckedMessages, retryPolicy, state,
-         topicMessageRetentionDuration;
+@dynamic ackDeadlineSeconds, bigqueryConfig, cloudStorageConfig,
+         deadLetterPolicy, detached, enableExactlyOnceDelivery,
+         enableMessageOrdering, expirationPolicy, filter, labels,
+         messageRetentionDuration, messageTransforms, name, pushConfig,
+         retainAckedMessages, retryPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -495,11 +473,11 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_Listing
-@dynamic bigqueryDataset, categories, commercialInfo, dataProvider,
-         descriptionProperty, discoveryType, displayName, documentation, icon,
-         logLinkedDatasetQueryUserEmail, name, primaryContact, publisher,
-         pubsubTopic, requestAccess, resourceType, restrictedExportConfig,
-         state;
+@dynamic allowOnlyMetadataSharing, bigqueryDataset, categories, commercialInfo,
+         dataProvider, descriptionProperty, discoveryType, displayName,
+         documentation, icon, logLinkedDatasetQueryUserEmail, name,
+         primaryContact, publisher, pubsubTopic, requestAccess, resourceType,
+         restrictedExportConfig, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -968,16 +946,6 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
   return [GTLRAnalyticsHub_LinkedResource class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalyticsHub_SubscriptionInfo
-//
-
-@implementation GTLRAnalyticsHub_SubscriptionInfo
-@dynamic listing, subscription;
 @end
 
 

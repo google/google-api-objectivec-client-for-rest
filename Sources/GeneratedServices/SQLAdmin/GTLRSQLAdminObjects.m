@@ -44,7 +44,6 @@ NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8034 = @"MYSQL_8_0_34
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
-NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
@@ -88,6 +87,12 @@ NSString * const kGTLRSQLAdmin_Backup_Type_Final               = @"FINAL";
 NSString * const kGTLRSQLAdmin_Backup_Type_OnDemand            = @"ON_DEMAND";
 NSString * const kGTLRSQLAdmin_Backup_Type_SqlBackupTypeUnspecified = @"SQL_BACKUP_TYPE_UNSPECIFIED";
 
+// GTLRSQLAdmin_BackupConfiguration.backupTier
+NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_Advanced = @"ADVANCED";
+NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_BackupTierUnspecified = @"BACKUP_TIER_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_Enhanced = @"ENHANCED";
+NSString * const kGTLRSQLAdmin_BackupConfiguration_BackupTier_Standard = @"STANDARD";
+
 // GTLRSQLAdmin_BackupConfiguration.transactionalLogStorageState
 NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_CloudStorage = @"CLOUD_STORAGE";
 NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_Disk = @"DISK";
@@ -128,7 +133,6 @@ NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8034 = @"MYSQL_8_0
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
-NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
@@ -174,11 +178,6 @@ NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated        = @"AUTOMATED";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand         = @"ON_DEMAND";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified = @"SQL_BACKUP_RUN_TYPE_UNSPECIFIED";
 
-// GTLRSQLAdmin_ConnectionPoolConfig.poolMode
-NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_PoolModeUnspecified = @"POOL_MODE_UNSPECIFIED";
-NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Session = @"SESSION";
-NSString * const kGTLRSQLAdmin_ConnectionPoolConfig_PoolMode_Transaction = @"TRANSACTION";
-
 // GTLRSQLAdmin_ConnectSettings.backendType
 NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_External = @"EXTERNAL";
 NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen = @"FIRST_GEN";
@@ -204,7 +203,6 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8034 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
-NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
@@ -264,7 +262,6 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8034 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
-NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
@@ -365,7 +362,6 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8034        = @"MYSQL_8_0_34"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8035        = @"MYSQL_8_0_35";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8036        = @"MYSQL_8_0_36";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8037        = @"MYSQL_8_0_37";
-NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8038        = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039        = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040        = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8041        = @"MYSQL_8_0_41";
@@ -484,6 +480,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_LogCleanup = @"LOG_CLEANU
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance = @"MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade = @"MAJOR_VERSION_UPGRADE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ManageBackup = @"MANAGE_BACKUP";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade = @"PRE_CHECK_MAJOR_VERSION_UPGRADE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica = @"PROMOTE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary = @"RECONFIGURE_OLD_PRIMARY";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
@@ -774,9 +771,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_BackupConfiguration
-@dynamic backupRetentionSettings, binaryLogEnabled, enabled, kind, location,
-         pointInTimeRecoveryEnabled, replicationLogArchivingEnabled, startTime,
-         transactionalLogStorageState, transactionLogRetentionDays;
+@dynamic backupRetentionSettings, backupTier, binaryLogEnabled, enabled, kind,
+         location, pointInTimeRecoveryEnabled, replicationLogArchivingEnabled,
+         startTime, transactionalLogStorageState, transactionLogRetentionDays;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -926,9 +923,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ConnectionPoolConfig
-@dynamic clientConnectionIdleTimeout, connectionPoolingEnabled, connPoolSize,
-         flags, maxClientConnections, poolMode, queryWaitTimeout,
-         serverConnectionIdleTimeout;
+@dynamic connectionPoolingEnabled, flags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1751,7 +1746,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_InstancesRestoreBackupRequest
-@dynamic backup, restoreBackupContext, restoreInstanceSettings;
+@dynamic backup, backupdrBackup, restoreBackupContext, restoreInstanceSettings;
 @end
 
 
@@ -2069,6 +2064,17 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_PerformDiskShrinkContext
 @dynamic targetSizeGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_PointInTimeRestoreContext
+//
+
+@implementation GTLRSQLAdmin_PointInTimeRestoreContext
+@dynamic allocatedIpRange, datasource, pointInTime, preferredSecondaryZone,
+         preferredZone, privateNetwork, targetInstance;
 @end
 
 

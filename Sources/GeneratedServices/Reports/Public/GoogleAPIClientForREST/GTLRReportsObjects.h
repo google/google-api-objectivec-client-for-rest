@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -672,13 +672,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRReports_ResourceDetails : GTLRObject
 
-/**
- *  Id of the application to which this resource belongs
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *applicationId;
-
 /** List of labels applied on the resource */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_AppliedLabel *> *appliedLabels;
 
@@ -688,9 +681,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Owner of the resource. */
-@property(nonatomic, copy, nullable) NSString *ownerEmail;
 
 /** Defines relationship of the resource to the events */
 @property(nonatomic, copy, nullable) NSString *relation;

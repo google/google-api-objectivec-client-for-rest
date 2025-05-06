@@ -18,16 +18,11 @@
 
 @class GTLRWorkloadManager_AgentCommand;
 @class GTLRWorkloadManager_AgentCommand_Parameters;
-@class GTLRWorkloadManager_APILayerServer;
-@class GTLRWorkloadManager_AvailabilityGroup;
-@class GTLRWorkloadManager_BackendServer;
 @class GTLRWorkloadManager_BackupProperties;
 @class GTLRWorkloadManager_BigQueryDestination;
 @class GTLRWorkloadManager_CloudResource;
-@class GTLRWorkloadManager_Cluster;
 @class GTLRWorkloadManager_Command;
 @class GTLRWorkloadManager_ComponentHealth;
-@class GTLRWorkloadManager_Database;
 @class GTLRWorkloadManager_DatabaseProperties;
 @class GTLRWorkloadManager_Evaluation;
 @class GTLRWorkloadManager_Evaluation_Labels;
@@ -35,14 +30,12 @@
 @class GTLRWorkloadManager_Execution_Labels;
 @class GTLRWorkloadManager_ExecutionResult;
 @class GTLRWorkloadManager_ExternalDataSources;
-@class GTLRWorkloadManager_FrontEndServer;
 @class GTLRWorkloadManager_GceInstanceFilter;
 @class GTLRWorkloadManager_HealthCheck;
 @class GTLRWorkloadManager_Insight;
 @class GTLRWorkloadManager_Instance;
 @class GTLRWorkloadManager_InstanceProperties;
 @class GTLRWorkloadManager_Layer;
-@class GTLRWorkloadManager_LoadBalancerServer;
 @class GTLRWorkloadManager_Location;
 @class GTLRWorkloadManager_Location_Labels;
 @class GTLRWorkloadManager_Location_Metadata;
@@ -83,11 +76,9 @@
 @class GTLRWorkloadManager_SqlserverValidationDetails;
 @class GTLRWorkloadManager_SqlserverValidationDetails_Fields;
 @class GTLRWorkloadManager_SqlserverValidationValidationDetail;
-@class GTLRWorkloadManager_SqlserverWorkload;
 @class GTLRWorkloadManager_Status;
 @class GTLRWorkloadManager_Status_Details_Item;
 @class GTLRWorkloadManager_Summary;
-@class GTLRWorkloadManager_ThreeTierWorkload;
 @class GTLRWorkloadManager_TorsoValidation;
 @class GTLRWorkloadManager_TorsoValidation_ValidationDetails;
 @class GTLRWorkloadManager_UpcomingMaintenanceEvent;
@@ -1352,66 +1343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  The API layer server
- */
-@interface GTLRWorkloadManager_APILayerServer : GTLRObject
-
-/** Output only. The api layer name */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. OS information */
-@property(nonatomic, copy, nullable) NSString *osVersion;
-
-/** Output only. resources in the component */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudResource *> *resources;
-
-@end
-
-
-/**
- *  The availability groups for sqlserver
- */
-@interface GTLRWorkloadManager_AvailabilityGroup : GTLRObject
-
-/** Output only. The databases */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
-
-/** Output only. The availability group name */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The primary server */
-@property(nonatomic, copy, nullable) NSString *primaryServer;
-
-/** Output only. The secondary servers */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryServers;
-
-@end
-
-
-/**
- *  The backend server
- */
-@interface GTLRWorkloadManager_BackendServer : GTLRObject
-
-/** Output only. The backup file */
-@property(nonatomic, copy, nullable) NSString *backupFile;
-
-/** Output only. The backup schedule */
-@property(nonatomic, copy, nullable) NSString *backupSchedule;
-
-/** Output only. The backend name */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. OS information */
-@property(nonatomic, copy, nullable) NSString *osVersion;
-
-/** Output only. resources in the component */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudResource *> *resources;
-
-@end
-
-
-/**
  *  Backup properties.
  */
 @interface GTLRWorkloadManager_BackupProperties : GTLRObject
@@ -1510,20 +1441,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  The cluster for sqlserver
- */
-@interface GTLRWorkloadManager_Cluster : GTLRObject
-
-/** Output only. The nodes */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *nodes;
-
-/** Output only. The witness server */
-@property(nonatomic, copy, nullable) NSString *witnessServer;
-
-@end
-
-
-/**
  *  * Command specifies the type of command to execute.
  */
 @interface GTLRWorkloadManager_Command : GTLRObject
@@ -1596,26 +1513,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  The database for sqlserver
- */
-@interface GTLRWorkloadManager_Database : GTLRObject
-
-/** Output only. The backup file */
-@property(nonatomic, copy, nullable) NSString *backupFile;
-
-/** Output only. The backup schedule */
-@property(nonatomic, copy, nullable) NSString *backupSchedule;
-
-/** Output only. The host VM */
-@property(nonatomic, copy, nullable) NSString *hostVm;
-
-/** Output only. The database name */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
  *  Database Properties.
  */
 @interface GTLRWorkloadManager_DatabaseProperties : GTLRObject
@@ -1658,7 +1555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  LINT.IfChange Message describing Evaluation object
+ *  Message describing Evaluation object
  */
 @interface GTLRWorkloadManager_Evaluation : GTLRObject
 
@@ -1899,23 +1796,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  *  {project_ID}.{dataset_ID}.{table_ID}
  */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  The front end server
- */
-@interface GTLRWorkloadManager_FrontEndServer : GTLRObject
-
-/** Output only. The frontend name */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. OS information */
-@property(nonatomic, copy, nullable) NSString *osVersion;
-
-/** Output only. resources in the component */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudResource *> *resources;
 
 @end
 
@@ -2316,20 +2196,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ScannedResource *> *scannedResources;
-
-@end
-
-
-/**
- *  The load balancer for sqlserver
- */
-@interface GTLRWorkloadManager_LoadBalancerServer : GTLRObject
-
-/** Output only. The IP address */
-@property(nonatomic, copy, nullable) NSString *ip;
-
-/** Output only. The VM name */
-@property(nonatomic, copy, nullable) NSString *vm;
 
 @end
 
@@ -3541,26 +3407,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  The body of sqlserver workload
- */
-@interface GTLRWorkloadManager_SqlserverWorkload : GTLRObject
-
-/** Output only. The availability groups for sqlserver */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_AvailabilityGroup *> *ags;
-
-/** Output only. The cluster for sqlserver */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_Cluster *cluster;
-
-/** Output only. The databases for sqlserver */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Database *> *databases;
-
-/** Output only. The load balancer for sqlserver */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_LoadBalancerServer *loadBalancerServer;
-
-@end
-
-
-/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -3630,26 +3476,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *newFixes NS_RETURNS_NOT_RETAINED;
-
-@end
-
-
-/**
- *  The body of three tier workload
- */
-@interface GTLRWorkloadManager_ThreeTierWorkload : GTLRObject
-
-/** Output only. The API layer for three tier workload */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_APILayerServer *apiLayer;
-
-/** Output only. The backend for three tier workload */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_BackendServer *backend;
-
-/** Output only. the workload endpoint */
-@property(nonatomic, copy, nullable) NSString *endpoint;
-
-/** Output only. The frontend for three tier workload */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_FrontEndServer *frontend;
 
 @end
 
@@ -3725,6 +3551,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 /** Optional. Maintenance status */
 @property(nonatomic, copy, nullable) NSString *maintenanceStatus;
 
+/**
+ *  Optional. Instance maintenance behavior. Could be "MIGRATE" or "TERMINATE".
+ */
+@property(nonatomic, copy, nullable) NSString *onHostMaintenance;
+
 /** Optional. Start time */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -3795,9 +3626,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 /** The sap workload content */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapWorkload *sapWorkload;
 
-/** The sqlserver workload content */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlserverWorkload *sqlserverWorkload;
-
 /**
  *  Output only. [output only] the current state if a a workload
  *
@@ -3814,9 +3642,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  *        unspecified (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state GTLR_DEPRECATED;
-
-/** The 3 tier web app workload content */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_ThreeTierWorkload *threeTierWorkload;
 
 /**
  *  Required. The type of the workload

@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRReportsObjects.h>
 
@@ -363,8 +363,7 @@
 //
 
 @implementation GTLRReports_ResourceDetails
-@dynamic applicationId, appliedLabels, identifier, ownerEmail, relation, title,
-         type;
+@dynamic appliedLabels, identifier, relation, title, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

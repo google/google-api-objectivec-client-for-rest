@@ -726,7 +726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
- *  A network setting contains network configurations.
+ *  A network setting contains network configurations. It adheres to the
+ *  PolicyAPI formats defined under the namespace
+ *  chrome.networks.{wifi/ethernet/cellular/vpn}.Details
  */
 @interface GTLRChromePolicy_GoogleChromePolicyVersionsV1NetworkSetting : GTLRObject
 
@@ -1686,8 +1688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @interface GTLRChromePolicy_Proto2FileDescriptorProto : GTLRObject
 
 /**
- *  BEGIN GOOGLE-INTERNAL TODO(b/297898292) Deprecate and remove this field in
- *  favor of enums. END GOOGLE-INTERNAL
+ *  copybara:strip_begin TODO(b/297898292) Deprecate and remove this field in
+ *  favor of enums. copybara:strip_end
  */
 @property(nonatomic, copy, nullable) NSString *editionDeprecated GTLR_DEPRECATED;
 

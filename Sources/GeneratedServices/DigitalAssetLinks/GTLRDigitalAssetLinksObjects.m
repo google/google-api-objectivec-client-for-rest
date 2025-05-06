@@ -79,7 +79,8 @@ NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeWrongCon
 //
 
 @implementation GTLRDigitalAssetLinks_BulkCheckRequest
-@dynamic defaultRelation, defaultSource, defaultTarget, statements;
+@dynamic defaultRelation, defaultSource, defaultTarget,
+         returnRelationExtensions, statements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -125,13 +126,28 @@ NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeWrongCon
 //
 
 @implementation GTLRDigitalAssetLinks_CheckResponse
-@dynamic debugString, errorCode, linked, maxAge;
+@dynamic debugString, errorCode, linked, maxAge, relationExtensions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errorCode" : [NSString class]
+    @"errorCode" : [NSString class],
+    @"relationExtensions" : [GTLRDigitalAssetLinks_CheckResponse_RelationExtensions_Item class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDigitalAssetLinks_CheckResponse_RelationExtensions_Item
+//
+
+@implementation GTLRDigitalAssetLinks_CheckResponse_RelationExtensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -162,7 +178,21 @@ NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeWrongCon
 //
 
 @implementation GTLRDigitalAssetLinks_Statement
-@dynamic relation, source, target;
+@dynamic relation, relationExtensions, source, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDigitalAssetLinks_Statement_RelationExtensions
+//
+
+@implementation GTLRDigitalAssetLinks_Statement_RelationExtensions
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

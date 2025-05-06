@@ -847,8 +847,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 /**
  *  Docker Registry to use for this deployment. This configuration is only
  *  applicable to 1st Gen functions, 2nd Gen functions can only use Artifact
- *  Registry. Deprecated: Container Registry option will no longer be available
- *  after March 2025:
+ *  Registry. Deprecated: as of March 2025, `CONTAINER_REGISTRY` option is no
+ *  longer available in response to Container Registry's deprecation:
  *  https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr
  *  Please use Artifact Registry instead, which is the default choice. If
  *  unspecified, it defaults to `ARTIFACT_REGISTRY`. If `docker_repository`
@@ -2401,6 +2401,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  Request for the `SetupFunctionUpgradeConfig` method.
  */
 @interface GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest : GTLRObject
+
+/**
+ *  Optional. The trigger's service account. The service account must have
+ *  permission to invoke Cloud Run services, the permission is
+ *  `run.routes.invoke`. If empty, defaults to the Compute Engine default
+ *  service account: `{project_number}-compute\@developer.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *triggerServiceAccount;
+
 @end
 
 

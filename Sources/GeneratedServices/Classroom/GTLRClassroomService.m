@@ -6,7 +6,7 @@
 // Description:
 //   Manages classes, rosters, and invitations in Google Classroom.
 // Documentation:
-//   https://developers.google.com/classroom/
+//   https://developers.google.com/workspace/classroom/
 
 #import <GoogleAPIClientForREST/GTLRClassroom.h>
 

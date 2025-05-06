@@ -62,7 +62,6 @@
 @class GTLRAnalyticsHub_Status_Details_Item;
 @class GTLRAnalyticsHub_Subscription;
 @class GTLRAnalyticsHub_Subscription_LinkedDatasetMap;
-@class GTLRAnalyticsHub_SubscriptionInfo;
 @class GTLRAnalyticsHub_TextConfig;
 
 // Generated comments include content from the discovery document; avoid them
@@ -102,95 +101,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_Data
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_LogTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAnalyticsHub_BigQueryConfig.state
-
-/**
- *  The subscription can actively send messages to BigQuery
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_Active;
-/**
- *  Cannot write to the destination because enforce_in_transit is set to true
- *  and the destination locations are not in the allowed regions.
- *
- *  Value: "IN_TRANSIT_LOCATION_RESTRICTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_InTransitLocationRestriction;
-/**
- *  Cannot write to the BigQuery table because it does not exist.
- *
- *  Value: "NOT_FOUND"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_NotFound;
-/**
- *  Cannot write to the BigQuery table because of permission denied errors. This
- *  can happen if - Pub/Sub SA has not been granted the [appropriate BigQuery
- *  IAM
- *  permissions](https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account)
- *  - bigquery.googleapis.com API is not enabled for the project
- *  ([instructions](https://cloud.google.com/service-usage/docs/enable-disable))
- *
- *  Value: "PERMISSION_DENIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_PermissionDenied;
-/**
- *  Cannot write to the BigQuery table due to a schema mismatch.
- *
- *  Value: "SCHEMA_MISMATCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_SchemaMismatch;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAnalyticsHub_CloudStorageConfig.state
-
-/**
- *  The subscription can actively send messages to Cloud Storage.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_Active;
-/**
- *  Cannot write to the destination because enforce_in_transit is set to true
- *  and the destination locations are not in the allowed regions.
- *
- *  Value: "IN_TRANSIT_LOCATION_RESTRICTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_InTransitLocationRestriction;
-/**
- *  Cannot write to the Cloud Storage bucket because it does not exist.
- *
- *  Value: "NOT_FOUND"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_NotFound;
-/**
- *  Cannot write to the Cloud Storage bucket because of permission denied
- *  errors.
- *
- *  Value: "PERMISSION_DENIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_PermissionDenied;
-/**
- *  Cannot write to the Cloud Storage bucket due to an incompatibility between
- *  the topic schema and subscription settings.
- *
- *  Value: "SCHEMA_MISMATCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_SchemaMismatch;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_DataExchange.discoveryType
@@ -235,30 +145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalytic
  *  Value: "ONBOARDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo_CommercialState_Onboarding;
-
-// ----------------------------------------------------------------------------
-// GTLRAnalyticsHub_GooglePubsubV1Subscription.state
-
-/**
- *  The subscription can actively receive messages
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_Active;
-/**
- *  The subscription cannot receive messages because of an error with the
- *  resource to which it pushes messages. See the more detailed error state in
- *  the corresponding configuration.
- *
- *  Value: "RESOURCE_ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_ResourceError;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_Listing.categories
@@ -538,35 +424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  Output only. An output-only field that indicates whether or not the
- *  subscription can receive messages.
- *
- *  Likely values:
- *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_Active The subscription can
- *        actively send messages to BigQuery (Value: "ACTIVE")
- *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_InTransitLocationRestriction
- *        Cannot write to the destination because enforce_in_transit is set to
- *        true and the destination locations are not in the allowed regions.
- *        (Value: "IN_TRANSIT_LOCATION_RESTRICTION")
- *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_NotFound Cannot write to
- *        the BigQuery table because it does not exist. (Value: "NOT_FOUND")
- *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_PermissionDenied Cannot
- *        write to the BigQuery table because of permission denied errors. This
- *        can happen if - Pub/Sub SA has not been granted the [appropriate
- *        BigQuery IAM
- *        permissions](https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account)
- *        - bigquery.googleapis.com API is not enabled for the project
- *        ([instructions](https://cloud.google.com/service-usage/docs/enable-disable))
- *        (Value: "PERMISSION_DENIED")
- *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_SchemaMismatch Cannot write
- *        to the BigQuery table due to a schema mismatch. (Value:
- *        "SCHEMA_MISMATCH")
- *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_StateUnspecified Default
- *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
  *  Optional. The name of the table to which to write data, of the form
  *  {projectId}.{datasetId}.{tableId}
  */
@@ -770,9 +627,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, strong, nullable) NSNumber *maxBytes;
 
 /**
- *  Optional. The maximum duration that can elapse before a new Cloud Storage
- *  file is created. Min 1 minute, max 10 minutes, default 5 minutes. May not
- *  exceed the subscription's acknowledgment deadline.
+ *  Optional. File batching settings. If no max_duration setting is specified, a
+ *  max_duration of 5 minutes will be set by default. max_duration is required
+ *  regardless of whether other file batching settings are specified. The
+ *  maximum duration that can elapse before a new Cloud Storage file is created.
+ *  Min 1 minute, max 10 minutes, default 5 minutes. May not exceed the
+ *  subscription's acknowledgement deadline.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxDuration;
 
@@ -793,31 +653,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
-
-/**
- *  Output only. An output-only field that indicates whether or not the
- *  subscription can receive messages.
- *
- *  Likely values:
- *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_Active The subscription
- *        can actively send messages to Cloud Storage. (Value: "ACTIVE")
- *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_InTransitLocationRestriction
- *        Cannot write to the destination because enforce_in_transit is set to
- *        true and the destination locations are not in the allowed regions.
- *        (Value: "IN_TRANSIT_LOCATION_RESTRICTION")
- *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_NotFound Cannot write
- *        to the Cloud Storage bucket because it does not exist. (Value:
- *        "NOT_FOUND")
- *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_PermissionDenied Cannot
- *        write to the Cloud Storage bucket because of permission denied errors.
- *        (Value: "PERMISSION_DENIED")
- *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_SchemaMismatch Cannot
- *        write to the Cloud Storage bucket due to an incompatibility between
- *        the topic schema and subscription settings. (Value: "SCHEMA_MISMATCH")
- *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_StateUnspecified
- *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Optional. If set, message data will be written to Cloud Storage in text
@@ -989,7 +824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  Optional. The maximum number of delivery attempts for any message. The value
  *  must be between 5 and 100. The number of delivery attempts is defined as 1 +
- *  (the sum of number of NACKs and number of times the acknowledgment deadline
+ *  (the sum of number of NACKs and number of times the acknowledgement deadline
  *  has been exceeded for the message). A NACK is any call to ModifyAckDeadline
  *  with a 0 deadline. Note that client libraries may automatically extend
  *  ack_deadlines. This field will be honored on a best effort basis. If this
@@ -1283,8 +1118,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
- *  A subscription resource. If none of `push_config`, `bigquery_config`, or
- *  `cloud_storage_config` is set, then the subscriber will pull and ack
+ *  Defines the destination Pub/Sub subscription. If none of `push_config`,
+ *  `bigquery_config`, `cloud_storage_config`, `pubsub_export_config`, or
+ *  `pubsublite_export_config` is set, then the subscriber will pull and ack
  *  messages using API methods. At most one of these fields may be set.
  */
 @interface GTLRAnalyticsHub_GooglePubsubV1Subscription : GTLRObject
@@ -1309,12 +1145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
-
-/**
- *  Output only. Information about the associated Analytics Hub subscription.
- *  Only set if the subscritpion is created by Analytics Hub.
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsHub_SubscriptionInfo *analyticsHubSubscriptionInfo;
 
 /**
  *  Optional. If delivery to BigQuery is used with this subscription, this field
@@ -1353,7 +1183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Optional. If true, Pub/Sub provides the following guarantees for the
  *  delivery of a message with a given value of `message_id` on this
  *  subscription: * The message sent to a subscriber is guaranteed not to be
- *  resent before the message's acknowledgment deadline expires. * An
+ *  resent before the message's acknowledgement deadline expires. * An
  *  acknowledged message will not be resent to a subscriber. Note that
  *  subscribers may still receive multiple copies of a message when
  *  `enable_exactly_once_delivery` is true if the message was published multiple
@@ -1443,35 +1273,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  this subscription. If not set, the default retry policy is applied. This
  *  generally implies that messages will be retried as soon as possible for
  *  healthy subscribers. RetryPolicy will be triggered on NACKs or
- *  acknowledgment deadline exceeded events for a given message.
+ *  acknowledgement deadline exceeded events for a given message.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_RetryPolicy *retryPolicy;
-
-/**
- *  Output only. An output-only field indicating whether or not the subscription
- *  can receive messages.
- *
- *  Likely values:
- *    @arg @c kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_Active The
- *        subscription can actively receive messages (Value: "ACTIVE")
- *    @arg @c kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_ResourceError
- *        The subscription cannot receive messages because of an error with the
- *        resource to which it pushes messages. See the more detailed error
- *        state in the corresponding configuration. (Value: "RESOURCE_ERROR")
- *    @arg @c kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_StateUnspecified
- *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  Output only. Indicates the minimum duration for which a message is retained
- *  after it is published to the subscription's topic. If this field is set,
- *  messages published to the subscription's topic in the last
- *  `topic_message_retention_duration` are always available to subscribers. See
- *  the `message_retention_duration` field in `Topic`. This field is set only in
- *  responses from the server; it is ignored if it is set in any requests.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *topicMessageRetentionDuration;
 
 @end
 
@@ -1573,6 +1377,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  data.
  */
 @interface GTLRAnalyticsHub_Listing : GTLRObject
+
+/**
+ *  Optional. If true, the listing is only available to get the resource
+ *  metadata. Listing is non subscribable.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowOnlyMetadataSharing;
 
 /** Shared dataset i.e. BigQuery dataset source. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_BigQueryDatasetSource *bigqueryDataset;
@@ -2111,8 +1923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Optional. Region hint on where the data might be published. Data affinity
- *  regions are modifiable. See go/regions for full listing of possible Cloud
- *  regions.
+ *  regions are modifiable. See https://cloud.google.com/about/locations for
+ *  full listing of possible Cloud regions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataAffinityRegions;
 
@@ -2293,7 +2105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  A policy that specifies how Pub/Sub retries message delivery. Retry delay
  *  will be exponential based on provided minimum and maximum backoffs.
  *  https://en.wikipedia.org/wiki/Exponential_backoff. RetryPolicy will be
- *  triggered on NACKs or acknowledgment deadline exceeded events for a given
+ *  triggered on NACKs or acknowledgement deadline exceeded events for a given
  *  message. Retry Policy is implemented on a best effort basis. At times, the
  *  delay between consecutive deliveries may not match the configuration. That
  *  is, delay can be more or less than configured backoff.
@@ -2620,29 +2432,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRAnalyticsHub_Subscription_LinkedDatasetMap : GTLRObject
-@end
-
-
-/**
- *  Information about an associated [Analytics Hub
- *  subscription](https://cloud.google.com/bigquery/docs/analytics-hub-manage-subscriptions).
- */
-@interface GTLRAnalyticsHub_SubscriptionInfo : GTLRObject
-
-/**
- *  Optional. The name of the associated Analytics Hub listing resource.
- *  Pattern:
- *  "projects/{project}/locations/{location}/dataExchanges/{data_exchange}/listings/{listing}"
- */
-@property(nonatomic, copy, nullable) NSString *listing;
-
-/**
- *  Optional. The name of the associated Analytics Hub subscription resource.
- *  Pattern:
- *  "projects/{project}/locations/{location}/subscriptions/{subscription}"
- */
-@property(nonatomic, copy, nullable) NSString *subscription;
-
 @end
 
 

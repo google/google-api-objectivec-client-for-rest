@@ -156,6 +156,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -290,6 +291,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reaso
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Unknown;
+/**
+ *  User-provided VPC network was not found.
+ *
+ *  Value: "VPC_NETWORK_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_VpcNetworkNotFound;
 /**
  *  Waiting for operation to complete.
  *
@@ -2087,6 +2094,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        "SECRETS_ACCESS_CHECK_FAILED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Unknown Reason
  *        unknown. Further details will be in message. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_VpcNetworkNotFound
+ *        User-provided VPC network was not found. (Value:
+ *        "VPC_NETWORK_NOT_FOUND")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_WaitingForOperation
  *        Waiting for operation to complete. (Value: "WAITING_FOR_OPERATION")
  */
@@ -4953,6 +4963,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
+ *  Optional. Output only. True if GPU zonal redundancy is disabled on this
+ *  task.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
+
+/**
  *  Output only. Index of the Task, unique per execution, and beginning at 0.
  *
  *  Uses NSNumber of intValue.
@@ -7107,8 +7125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
- *  Path to an artifact in the build's workspace to be uploaded to Artifact
- *  Registry. This can be either an absolute path, e.g.
+ *  Optional. Path to an artifact in the build's workspace to be uploaded to
+ *  Artifact Registry. This can be either an absolute path, e.g.
  *  /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar or a relative path from
  *  /workspace, e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
  */
@@ -8241,8 +8259,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  This is proto2's version of MessageSet.
+ *  This is proto2's version of MessageSet. DEPRECATED: DO NOT USE FOR NEW
+ *  FIELDS. If you are using editions or proto2, please make your own extendable
+ *  messages for your use case. If you are using proto3, please use `Any`
+ *  instead. MessageSet was the implementation of extensions for proto1. When
+ *  proto2 was introduced, extensions were implemented as a first-class feature.
+ *  This schema for MessageSet was meant to be a "bridge" solution to migrate
+ *  MessageSet-bearing messages from proto1 to proto2. This schema has been
+ *  open-sourced only to facilitate the migration of Google products with
+ *  MessageSet-bearing messages to open-source environments.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudRun_Proto2BridgeMessageSet : GTLRObject
 @end
 

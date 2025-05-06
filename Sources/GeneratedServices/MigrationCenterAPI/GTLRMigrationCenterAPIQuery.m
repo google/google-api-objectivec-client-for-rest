@@ -163,7 +163,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 @implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent, view;
+@dynamic filter, orderBy, pageSize, pageToken, parent, showHidden, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

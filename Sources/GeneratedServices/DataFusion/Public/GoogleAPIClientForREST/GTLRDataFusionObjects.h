@@ -31,6 +31,7 @@
 @class GTLRDataFusion_Instance;
 @class GTLRDataFusion_Instance_Labels;
 @class GTLRDataFusion_Instance_Options;
+@class GTLRDataFusion_Instance_Tags;
 @class GTLRDataFusion_Location;
 @class GTLRDataFusion_Location_Labels;
 @class GTLRDataFusion_Location_Metadata;
@@ -891,6 +892,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Tags *tags;
+
 /** Output only. The name of the tenant project. */
 @property(nonatomic, copy, nullable) NSString *tenantProjectId;
 
@@ -966,6 +974,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        fetch them all at once.
  */
 @interface GTLRDataFusion_Instance_Options : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataFusion_Instance_Tags : GTLRObject
 @end
 
 

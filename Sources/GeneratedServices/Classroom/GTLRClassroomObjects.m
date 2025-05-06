@@ -6,7 +6,7 @@
 // Description:
 //   Manages classes, rosters, and invitations in Google Classroom.
 // Documentation:
-//   https://developers.google.com/classroom/
+//   https://developers.google.com/workspace/classroom/
 
 #import <GoogleAPIClientForREST/GTLRClassroomObjects.h>
 
@@ -360,8 +360,9 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 @implementation GTLRClassroom_CourseWork
 @dynamic alternateLink, assigneeMode, assignment, associatedWithDeveloper,
          courseId, creationTime, creatorUserId, descriptionProperty, dueDate,
-         dueTime, gradeCategory, identifier, individualStudentsOptions,
-         materials, maxPoints, multipleChoiceQuestion, scheduledTime, state,
+         dueTime, gradeCategory, gradingPeriodId, identifier,
+         individualStudentsOptions, materials, maxPoints,
+         multipleChoiceQuestion, scheduledTime, state,
          submissionModificationMode, title, topicId, updateTime, workType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -575,6 +576,39 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_GradeHistory
 @dynamic actorUserId, gradeChangeType, gradeTimestamp, maxPoints, pointsEarned;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GradingPeriod
+//
+
+@implementation GTLRClassroom_GradingPeriod
+@dynamic endDate, identifier, startDate, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GradingPeriodSettings
+//
+
+@implementation GTLRClassroom_GradingPeriodSettings
+@dynamic applyToExistingCoursework, gradingPeriods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gradingPeriods" : [GTLRClassroom_GradingPeriod class]
+  };
+  return map;
+}
+
 @end
 
 

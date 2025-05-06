@@ -224,7 +224,7 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
          gcsBucket, labels, loggingConfig, maintenanceEvents, maintenancePolicy,
          name, networkConfig, options, p4ServiceAccount, patchRevision,
          privateInstance, satisfiesPzi, satisfiesPzs, serviceAccount,
-         serviceEndpoint, state, stateMessage, tenantProjectId, type,
+         serviceEndpoint, state, stateMessage, tags, tenantProjectId, type,
          updateTime, version, workforceIdentityServiceEndpoint, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -268,6 +268,20 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_Instance_Options
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_Instance_Tags
+//
+
+@implementation GTLRDataFusion_Instance_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

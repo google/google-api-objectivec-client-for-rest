@@ -18,6 +18,44 @@
 
 @end
 
+@implementation GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/allowedLocations";
+  GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIAMCredentials_WorkforcePoolAllowedLocations class];
+  query.loggingName = @"iamcredentials.locations.workforcePools.getAllowedLocations";
+  return query;
+}
+
+@end
+
+@implementation GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/allowedLocations";
+  GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations class];
+  query.loggingName = @"iamcredentials.projects.locations.workloadIdentityPools.getAllowedLocations";
+  return query;
+}
+
+@end
+
 @implementation GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateAccessToken
 
 @dynamic name;

@@ -30,6 +30,83 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_CustomEmojisCreate
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_CustomEmoji *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/customEmojis";
+  GTLRHangoutsChatQuery_CustomEmojisCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRHangoutsChat_CustomEmoji class];
+  query.loggingName = @"chat.customEmojis.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_CustomEmojisDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_CustomEmojisDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Empty class];
+  query.loggingName = @"chat.customEmojis.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_CustomEmojisGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_CustomEmojisGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_CustomEmoji class];
+  query.loggingName = @"chat.customEmojis.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_CustomEmojisList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/customEmojis";
+  GTLRHangoutsChatQuery_CustomEmojisList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRHangoutsChat_ListCustomEmojisResponse class];
+  query.loggingName = @"chat.customEmojis.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_MediaDownload
 
 @dynamic resourceName;

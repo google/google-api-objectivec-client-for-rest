@@ -258,6 +258,25 @@
 
 @end
 
+@implementation GTLRCssQuery_AccountsQuotasList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/quotas";
+  GTLRCssQuery_AccountsQuotasList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCss_ListQuotaGroupsResponse class];
+  query.loggingName = @"css.accounts.quotas.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCssQuery_AccountsUpdateLabels
 
 @dynamic name;

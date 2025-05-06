@@ -156,6 +156,12 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Re
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace = @"REPLACE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Update = @"UPDATE";
 
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.groundingConfig
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_GroundingConfigUnspecified = @"GROUNDING_CONFIG_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_NoGrounding = @"NO_GROUNDING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Relaxed = @"RELAXED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Strict = @"STRICT";
+
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified = @"OCCURRENCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalMultiple = @"OPTIONAL_MULTIPLE";
@@ -1539,9 +1545,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1Document
-@dynamic chunkedDocument, content, documentLayout, entities, entityRelations,
-         error, mimeType, pages, revisions, shardInfo, text, textChanges,
-         textStyles, uri;
+@dynamic chunkedDocument, content, docid, documentLayout, entities,
+         entityRelations, error, mimeType, pages, revisions, shardInfo, text,
+         textChanges, textStyles, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1650,7 +1656,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock
-@dynamic blockId, listBlock, pageSpan, tableBlock, textBlock;
+@dynamic blockId, boundingBox, listBlock, pageSpan, tableBlock, textBlock;
 @end
 
 
@@ -1803,7 +1809,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityNormalizedValue
 @dynamic addressValue, booleanValue, datetimeValue, dateValue, floatValue,
-         integerValue, moneyValue, text;
+         integerValue, moneyValue, signatureValue, text;
 @end
 
 
@@ -2335,7 +2341,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty
-@dynamic displayName, name, occurrenceType, valueType;
+@dynamic displayName, groundingConfig, name, occurrenceType, valueType;
 @end
 
 

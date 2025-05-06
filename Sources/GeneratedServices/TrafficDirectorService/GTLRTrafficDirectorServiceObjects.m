@@ -736,7 +736,8 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_SocketAddress
-@dynamic address, ipv4Compat, namedPort, portValue, protocol, resolverName;
+@dynamic address, ipv4Compat, namedPort, networkNamespaceFilepath, portValue,
+         protocol, resolverName;
 @end
 
 

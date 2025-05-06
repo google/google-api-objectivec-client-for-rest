@@ -37,6 +37,15 @@ NSString * const kGTLRBackupforGKE_BackupPlan_State_Provisioning = @"PROVISIONIN
 NSString * const kGTLRBackupforGKE_BackupPlan_State_Ready      = @"READY";
 NSString * const kGTLRBackupforGKE_BackupPlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBackupforGKE_BackupPlanDetails.state
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_ClusterPending = @"CLUSTER_PENDING";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deactivated = @"DEACTIVATED";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deleting = @"DELETING";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Failed = @"FAILED";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Ready = @"READY";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRBackupforGKE_DayOfWeekList.daysOfWeek
 NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Friday = @"FRIDAY";
@@ -210,6 +219,40 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_BackupChannel
+//
+
+@implementation GTLRBackupforGKE_BackupChannel
+@dynamic createTime, descriptionProperty, destinationProject,
+         destinationProjectId, ETag, labels, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BackupChannel_Labels
+//
+
+@implementation GTLRBackupforGKE_BackupChannel_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_BackupConfig
 //
 
@@ -252,6 +295,33 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BackupPlanBinding
+//
+
+@implementation GTLRBackupforGKE_BackupPlanBinding
+@dynamic backupPlan, backupPlanDetails, cluster, createTime, ETag, name, uid,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BackupPlanDetails
+//
+
+@implementation GTLRBackupforGKE_BackupPlanDetails
+@dynamic lastSuccessfulBackup, lastSuccessfulBackupTime,
+         nextScheduledBackupTime, protectedPodCount, rpoRiskLevel, state;
 @end
 
 
@@ -540,6 +610,52 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_ListBackupChannelsResponse
+//
+
+@implementation GTLRBackupforGKE_ListBackupChannelsResponse
+@dynamic backupChannels, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupChannels" : [GTLRBackupforGKE_BackupChannel class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backupChannels";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ListBackupPlanBindingsResponse
+//
+
+@implementation GTLRBackupforGKE_ListBackupPlanBindingsResponse
+@dynamic backupPlanBindings, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupPlanBindings" : [GTLRBackupforGKE_BackupPlanBinding class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backupPlanBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_ListBackupPlansResponse
 //
 
@@ -601,6 +717,52 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 + (NSString *)collectionItemsKey {
   return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ListRestoreChannelsResponse
+//
+
+@implementation GTLRBackupforGKE_ListRestoreChannelsResponse
+@dynamic nextPageToken, restoreChannels, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restoreChannels" : [GTLRBackupforGKE_RestoreChannel class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restoreChannels";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ListRestorePlanBindingsResponse
+//
+
+@implementation GTLRBackupforGKE_ListRestorePlanBindingsResponse
+@dynamic nextPageToken, restorePlanBindings, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restorePlanBindings" : [GTLRBackupforGKE_RestorePlanBinding class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restorePlanBindings";
 }
 
 @end
@@ -912,6 +1074,40 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_RestoreChannel
+//
+
+@implementation GTLRBackupforGKE_RestoreChannel
+@dynamic createTime, descriptionProperty, destinationProject,
+         destinationProjectId, ETag, labels, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_RestoreChannel_Labels
+//
+
+@implementation GTLRBackupforGKE_RestoreChannel_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_RestoreConfig
 //
 
@@ -982,6 +1178,21 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_RestorePlanBinding
+//
+
+@implementation GTLRBackupforGKE_RestorePlanBinding
+@dynamic backupPlan, createTime, ETag, name, restorePlan, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
 }
 
 @end

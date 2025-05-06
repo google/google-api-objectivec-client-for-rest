@@ -39,6 +39,8 @@
 @class GTLRMigrationCenterAPI_AwsRds;
 @class GTLRMigrationCenterAPI_AzureVmPlatformDetails;
 @class GTLRMigrationCenterAPI_BiosDetails;
+@class GTLRMigrationCenterAPI_CascadeLogicalDBsRule;
+@class GTLRMigrationCenterAPI_CascadingRule;
 @class GTLRMigrationCenterAPI_ComputeEngineMigrationTarget;
 @class GTLRMigrationCenterAPI_ComputeEnginePreferences;
 @class GTLRMigrationCenterAPI_ComputeEngineShapeDescriptor;
@@ -1628,6 +1630,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
+/**
+ *  Optional. When this value is set to 'true,' the response will include all
+ *  assets, including those that are hidden.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *showHidden;
+
 @end
 
 
@@ -1842,6 +1852,19 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** Output only. Asset information specific for logical databases. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DatabaseDetails *databaseDetails;
+
+/**
+ *  Optional. Indicates if the asset is hidden.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hidden;
+
+/** Optional. An optional reason for marking this asset as hidden. */
+@property(nonatomic, copy, nullable) NSString *hideReason;
+
+/** Output only. The timestamp when the asset was marked as hidden. */
+@property(nonatomic, strong, nullable) GTLRDateTime *hideTime;
 
 /** Output only. The list of insights associated with the asset. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_InsightList *insightList;
@@ -2088,6 +2111,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
  */
 @property(nonatomic, strong, nullable) NSNumber *allowMissing;
 
+/** Optional. Optional cascading rules for deleting related assets. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_CascadingRule *> *cascadingRules;
+
 /**
  *  Required. The IDs of the assets to delete. A maximum of 1000 assets can be
  *  deleted in a batch. Format:
@@ -2162,6 +2188,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRMigrationCenterAPI_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Cascading rule for related logical DBs.
+ */
+@interface GTLRMigrationCenterAPI_CascadeLogicalDBsRule : GTLRObject
+@end
+
+
+/**
+ *  Specifies cascading rules for traversing relations.
+ */
+@interface GTLRMigrationCenterAPI_CascadingRule : GTLRObject
+
+/** Cascading rule for related logical DBs. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_CascadeLogicalDBsRule *cascadeLogicalDbs;
+
 @end
 
 

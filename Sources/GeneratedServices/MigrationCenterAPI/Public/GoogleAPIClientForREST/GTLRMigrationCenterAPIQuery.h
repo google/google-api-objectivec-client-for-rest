@@ -353,6 +353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. When this value is set to 'true,' the response will include all
+ *  assets, including those that are hidden.
+ */
+@property(nonatomic, assign) BOOL showHidden;
+
+/**
  *  View of the assets. Defaults to BASIC.
  *
  *  Likely values:

@@ -52,6 +52,13 @@ NSString * const kGTLRLooker_Instance_State_StateUnspecified = @"STATE_UNSPECIFI
 NSString * const kGTLRLooker_Instance_State_Suspended        = @"SUSPENDED";
 NSString * const kGTLRLooker_Instance_State_Updating         = @"UPDATING";
 
+// GTLRLooker_InstanceBackup.state
+NSString * const kGTLRLooker_InstanceBackup_State_Active       = @"ACTIVE";
+NSString * const kGTLRLooker_InstanceBackup_State_Creating     = @"CREATING";
+NSString * const kGTLRLooker_InstanceBackup_State_Deleting     = @"DELETING";
+NSString * const kGTLRLooker_InstanceBackup_State_Failed       = @"FAILED";
+NSString * const kGTLRLooker_InstanceBackup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRLooker_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Friday = @"FRIDAY";
@@ -219,6 +226,39 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
          oauthConfig, platformEdition, privateIpEnabled, pscConfig, pscEnabled,
          publicIpEnabled, reservedRange, satisfiesPzi, satisfiesPzs, state,
          updateTime, userMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_InstanceBackup
+//
+
+@implementation GTLRLooker_InstanceBackup
+@dynamic createTime, encryptionConfig, expireTime, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_ListInstanceBackupsResponse
+//
+
+@implementation GTLRLooker_ListInstanceBackupsResponse
+@dynamic instanceBackups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instanceBackups" : [GTLRLooker_InstanceBackup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"instanceBackups";
+}
+
 @end
 
 
@@ -431,6 +471,16 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_RestartInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_RestoreInstanceRequest
+//
+
+@implementation GTLRLooker_RestoreInstanceRequest
+@dynamic backup;
 @end
 
 

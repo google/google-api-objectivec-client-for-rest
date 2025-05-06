@@ -6,7 +6,7 @@
 // Description:
 //   Manages classes, rosters, and invitations in Google Classroom.
 // Documentation:
-//   https://developers.google.com/classroom/
+//   https://developers.google.com/workspace/classroom/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -40,6 +40,7 @@
 @class GTLRClassroom_GradebookSettings;
 @class GTLRClassroom_GradeCategory;
 @class GTLRClassroom_GradeHistory;
+@class GTLRClassroom_GradingPeriod;
 @class GTLRClassroom_Guardian;
 @class GTLRClassroom_GuardianInvitation;
 @class GTLRClassroom_IndividualStudentsOptions;
@@ -1426,6 +1427,15 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @property(nonatomic, strong, nullable) GTLRClassroom_GradeCategory *gradeCategory;
 
 /**
+ *  Identifier of the grading period associated with the coursework. * At
+ *  creation, if unspecified, the grading period ID will be set based on the
+ *  `dueDate` (or `scheduledTime` if no `dueDate` is set). * To indicate no
+ *  association to any grading period, set this field to an empty string (""). *
+ *  If specified, it must match an existing grading period ID in the course.
+ */
+@property(nonatomic, copy, nullable) NSString *gradingPeriodId;
+
+/**
  *  Classroom-assigned identifier of this course work, unique per course.
  *  Read-only.
  *
@@ -2031,6 +2041,60 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  An individual grading period. Grading periods must not have overlapping date
+ *  ranges and must be listed in chronological order. For example, if the
+ *  end_date of a grading period is 2024-01-25, then the start_date of the next
+ *  grading period must be 2024-01-26 or later. Each grading period must have a
+ *  unique title within a course.
+ */
+@interface GTLRClassroom_GradingPeriod : GTLRObject
+
+/** Required. End date, in UTC, of the grading period. Inclusive. */
+@property(nonatomic, strong, nullable) GTLRClassroom_Date *endDate;
+
+/**
+ *  Output only. System generated grading period ID. Read-only.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Required. Start date, in UTC, of the grading period. Inclusive. */
+@property(nonatomic, strong, nullable) GTLRClassroom_Date *startDate;
+
+/** Required. Title of the grading period. For example, “Semester 1”. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Grading period settings that include all the individual grading periods in a
+ *  course.
+ */
+@interface GTLRClassroom_GradingPeriodSettings : GTLRObject
+
+/**
+ *  Supports toggling the application of grading periods on existing stream
+ *  items. Once set, this value is persisted meaning that it does not need to be
+ *  set in every request to update `GradingPeriodSettings`. If not previously
+ *  set, the default is False.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applyToExistingCoursework;
+
+/**
+ *  The list of grading periods in a specific course. Grading periods must not
+ *  have overlapping date ranges and must be listed in chronological order. Each
+ *  grading period must have a unique title within a course.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_GradingPeriod *> *gradingPeriods;
+
+@end
+
+
+/**
  *  Association between a student and a guardian of that student. The guardian
  *  may receive information about the student's course work.
  */
@@ -2593,7 +2657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 /** Google Drive file material. */
 @property(nonatomic, strong, nullable) GTLRClassroom_SharedDriveFile *driveFile;
 
-/** Google Forms material. */
+/** Google Forms material. Read-only. */
 @property(nonatomic, strong, nullable) GTLRClassroom_Form *form;
 
 /**

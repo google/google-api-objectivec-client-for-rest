@@ -28,7 +28,6 @@
   return @{
     @"civicinfo#divisionSearchResponse" : [GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse class],
     @"civicinfo#electionsQueryResponse" : [GTLRCivicInfo_CivicinfoApiprotosV2ElectionsQueryResponse class],
-    @"civicinfo#representativeInfoResponse" : [GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse class],
     @"civicinfo#voterInfoResponse" : [GTLRCivicInfo_CivicinfoApiprotosV2VoterInfoResponse class],
   };
 }

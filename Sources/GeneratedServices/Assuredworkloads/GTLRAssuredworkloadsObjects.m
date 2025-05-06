@@ -16,6 +16,14 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeV
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_ExistingChildResourceViolations = @"EXISTING_CHILD_RESOURCE_VIOLATIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation = @"SINGLE_VIOLATION";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata.action
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_Apply = @"APPLY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_WorkloadUpdateActionUnspecified = @"WORKLOAD_UPDATE_ACTION_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest.action
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_Apply = @"APPLY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified = @"WORKLOAD_UPDATE_ACTION_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners = @"ASSURED_WORKLOADS_FOR_PARTNERS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport = @"AU_REGIONS_AND_US_SUPPORT";
@@ -156,6 +164,12 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete = @"STATUS_COMPLETE";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending = @"STATUS_PENDING";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate.state
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Applied = @"APPLIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Available = @"AVAILABLE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Withdrawn = @"WITHDRAWN";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions.kajEnrollmentType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified = @"KAJ_ENROLLMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff = @"KEY_ACCESS_TRANSPARENCY_OFF";
@@ -207,6 +221,36 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata
+@dynamic action, createTime, updateName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest
+@dynamic action;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateResponse
+@dynamic appliedUpdate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis
 //
 
@@ -230,6 +274,15 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata
 @dynamic complianceRegime, createTime, displayName, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse
 @end
 
 
@@ -281,6 +334,28 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 + (NSString *)collectionItemsKey {
   return @"workloads";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse
+@dynamic nextPageToken, workloadUpdates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workloadUpdates" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workloadUpdates";
 }
 
 @end
@@ -342,6 +417,55 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy
+@dynamic constraint, inherit, reset, resource, rule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule
+@dynamic allowAll, denyAll, enforce, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues
+@dynamic allowedValues, deniedValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedValues" : [NSString class],
+    @"deniedValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate
+@dynamic appliedPolicy, suggestedPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest
 //
 
@@ -356,6 +480,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails
+@dynamic orgPolicyUpdate;
 @end
 
 
@@ -586,6 +720,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate
+@dynamic createTime, details, name, state, updateTime;
 @end
 
 

@@ -278,6 +278,38 @@ NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_Year = @"YEAR";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCss_ListQuotaGroupsResponse
+//
+
+@implementation GTLRCss_ListQuotaGroupsResponse
+@dynamic nextPageToken, quotaGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quotaGroups" : [GTLRCss_QuotaGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"quotaGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCss_MethodDetails
+//
+
+@implementation GTLRCss_MethodDetails
+@dynamic method, path, subapi, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCss_Price
 //
 
@@ -371,6 +403,24 @@ NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_Year = @"YEAR";
 
 @implementation GTLRCss_ProductWeight
 @dynamic unit, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCss_QuotaGroup
+//
+
+@implementation GTLRCss_QuotaGroup
+@dynamic methodDetails, name, quotaLimit, quotaMinuteLimit, quotaUsage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodDetails" : [GTLRCss_MethodDetails class]
+  };
+  return map;
+}
+
 @end
 
 

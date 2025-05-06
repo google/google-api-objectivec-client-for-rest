@@ -7489,7 +7489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Updates the certificate in an alias.
+ *  Updates the certificate in an alias. The updated certificate must be in PEM-
+ *  or DER-encoded X.509 format.
  *
  *  Method: apigee.organizations.environments.keystores.aliases.update
  *
@@ -7520,7 +7521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Alias.
  *
- *  Updates the certificate in an alias.
+ *  Updates the certificate in an alias. The updated certificate must be in PEM-
+ *  or DER-encoded X.509 format.
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param name Required. Name of the alias. Use the following format in your
@@ -8044,10 +8046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /** Filter that enables you to drill-down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  Maximum number of result items to return. The default and maximum value that
- *  can be returned is 14400.
- */
+/** Maximum number of result items to return. */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
@@ -8085,7 +8084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma-separated list of columns to sort the final result. */
+/** Comma-separated list of metrics to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
@@ -9674,10 +9673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /** Filter that enables you to drill down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  Maximum number of result items to return. The default and maximum value that
- *  can be returned is 14400.
- */
+/** Maximum number of result items to return. */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
@@ -9715,7 +9711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma-separated list of columns to sort the final result. */
+/** Comma-separated list of metrics to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
@@ -11132,10 +11128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /** Flag that enables drill-down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  Maximum number of result items to return. The default and maximum value that
- *  can be returned is 14400.
- */
+/** Maximum number of result items to return. */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
@@ -11169,7 +11162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma-separated list of columns to sort the final result. */
+/** Comma-separated list of metrics to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
@@ -12306,10 +12299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /** Filter that enables you to drill-down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  Maximum number of result items to return. The default and maximum value that
- *  can be returned is 14400.
- */
+/** Maximum number of result items to return. */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
@@ -12343,7 +12333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma-separated list of columns used to sort the final result. */
+/** Comma-separated list of metrics used to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**

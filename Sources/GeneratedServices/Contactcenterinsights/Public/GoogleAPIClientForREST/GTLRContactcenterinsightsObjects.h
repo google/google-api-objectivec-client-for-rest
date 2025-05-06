@@ -49,6 +49,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent;
@@ -107,6 +108,9 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SentimentData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SilenceData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData;
@@ -166,6 +170,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowIntent;
@@ -235,6 +240,9 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SentimentData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings_PubsubNotificationSettings;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig;
@@ -918,6 +926,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest.feedbackLabelType
 
+/**
+ *  Agent Assist Summarization labels.
+ *
+ *  Value: "AGENT_ASSIST_SUMMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_AgentAssistSummary;
 /**
  *  Unspecified format
  *
@@ -2986,6 +3000,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Dataset resource represents a collection of conversations that may be
+ *  bounded (Static Dataset, e.g. golden dataset for training), or unbounded
+ *  (Dynamic Dataset, e.g. live traffic, or agent training traffic)
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset : GTLRObject
+
+/** Output only. Dataset create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Dataset description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Immutable. Identifier. Resource name of the dataset. Format:
+ *  projects/{project}/locations/{location}/datasets/{dataset}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Metadata for deleting an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelMetadata : GTLRObject
@@ -3633,7 +3673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Represents a conversation, resource, and label provided by the user. Can
  *  take the form of a string label or a QaAnswer label. QaAnswer labels are
  *  used for Quality AI example conversations. String labels are used for Topic
- *  Modeling.
+ *  Modeling. AgentAssistSummary labels are used for Agent Assist Summarization.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FeedbackLabel : GTLRObject
 
@@ -3644,9 +3684,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  Resource name of the resource to be labeled. Supported resources: -
- *  qaScorecards/{scorecard}/revisions/{revision}/qaQuestions/{question} -
- *  issueModels/{issue_model}
+ *  Name of the resource to be labeled. Supported resources are: *
+ *  `projects/{project}/locations/{location}/qaScorecards/{scorecard}/revisions/{revision}/qaQuestions/{question}`
+ *  * `projects/{project}/locations/{location}/issueModels/{issue_model}` *
+ *  `projects/{project}/locations/{location}/generators/{generator_id}`
  */
 @property(nonatomic, copy, nullable) NSString *labeledResource;
 
@@ -4972,6 +5013,116 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  The metadata for an SampleConversationsToDataset operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Partial errors during sample conversations to dataset operation
+ *  that might cause the operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** Output only. The original request for sample conversations to dataset. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest *request;
+
+/** Output only. Statistics for SampleConversationsToDataset operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats *sampleConversationsToDatasetStats;
+
+@end
+
+
+/**
+ *  Statistics for SampleConversationsToDataset operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats : GTLRObject
+
+/**
+ *  Output only. The number of objects which were unable to be sampled due to
+ *  errors. The errors are populated in the partial_errors field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedSampleCount;
+
+/**
+ *  Output only. The number of new conversations added during this sample
+ *  operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successfulSampleCount;
+
+@end
+
+
+/**
+ *  The request to sample conversations to a dataset.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest : GTLRObject
+
+/** Required. The dataset resource to copy the conversations to. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset *destinationDataset;
+
+/** Required. The parent resource of the dataset. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. The sample rule used for sampling conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleRule *sampleRule;
+
+@end
+
+
+/**
+ *  The response to an SampleConversationsToDataset operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetResponse : GTLRObject
+@end
+
+
+/**
+ *  Message for sampling conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleRule : GTLRObject
+
+/**
+ *  To specify the filter for the conversions that should apply this sample
+ *  rule. An empty filter means this sample rule applies to all conversations.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationFilter;
+
+/**
+ *  Optional. Group by dimension to sample the conversation. If no dimension is
+ *  provided, the sampling will be applied to the project level. Current
+ *  supported dimensions is 'quality_metadata.agent_info.agent_id'.
+ */
+@property(nonatomic, copy, nullable) NSString *dimension;
+
+/**
+ *  Percentage of conversations that we should sample based on the dimension
+ *  between [0, 100].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplePercentage;
+
+/**
+ *  Number of the conversations that we should sample based on the dimension.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRow;
+
+@end
+
+
+/**
  *  The data for a sentiment annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SentimentData : GTLRObject
@@ -5935,6 +6086,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Optional. The type of feedback labels that will be downloaded.
  *
  *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_AgentAssistSummary
+ *        Agent Assist Summarization labels. (Value: "AGENT_ASSIST_SUMMARY")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_FeedbackLabelTypeUnspecified
  *        Unspecified format (Value: "FEEDBACK_LABEL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_QualityAi
@@ -6140,6 +6293,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  both training data and data labeled after deployment.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStats *currentStats;
+
+@end
+
+
+/**
+ *  The request for calculating conversation statistics.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsRequest : GTLRObject
+
+/**
+ *  A filter to reduce results to a specific subset. This field is useful for
+ *  getting statistics about conversations with specific properties.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 @end
 
@@ -6949,6 +7116,32 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Dataset resource represents a collection of conversations that may be
+ *  bounded (Static Dataset, e.g. golden dataset for training), or unbounded
+ *  (Dynamic Dataset, e.g. live traffic, or agent training traffic)
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset : GTLRObject
+
+/** Output only. Dataset create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Dataset description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Immutable. Identifier. Resource name of the dataset. Format:
+ *  projects/{project}/locations/{location}/datasets/{dataset}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Metadata for deleting an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteIssueModelMetadata : GTLRObject
@@ -7618,7 +7811,7 @@ GTLR_DEPRECATED
  *  Represents a conversation, resource, and label provided by the user. Can
  *  take the form of a string label or a QaAnswer label. QaAnswer labels are
  *  used for Quality AI example conversations. String labels are used for Topic
- *  Modeling.
+ *  Modeling. AgentAssistSummary labels are used for Agent Assist Summarization.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel : GTLRObject
 
@@ -7629,9 +7822,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  Resource name of the resource to be labeled. Supported resources: -
- *  qaScorecards/{scorecard}/revisions/{revision}/qaQuestions/{question} -
- *  issueModels/{issue_model}
+ *  Name of the resource to be labeled. Supported resources are: *
+ *  `projects/{project}/locations/{location}/qaScorecards/{scorecard}/revisions/{revision}/qaQuestions/{question}`
+ *  * `projects/{project}/locations/{location}/issueModels/{issue_model}` *
+ *  `projects/{project}/locations/{location}/generators/{generator_id}`
  */
 @property(nonatomic, copy, nullable) NSString *labeledResource;
 
@@ -9652,6 +9846,116 @@ GTLR_DEPRECATED
  *        SuggestKnowledgeAssist response. (Value: "SUGGESTED_QUERY")
  */
 @property(nonatomic, copy, nullable) NSString *querySource;
+
+@end
+
+
+/**
+ *  The metadata for an SampleConversationsToDataset operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Partial errors during sample conversations to dataset operation
+ *  that might cause the operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** Output only. The original request for sample conversations to dataset. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest *request;
+
+/** Output only. Statistics for SampleConversationsToDataset operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats *sampleConversationsToDatasetStats;
+
+@end
+
+
+/**
+ *  Statistics for SampleConversationsToDataset operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats : GTLRObject
+
+/**
+ *  Output only. The number of objects which were unable to be sampled due to
+ *  errors. The errors are populated in the partial_errors field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedSampleCount;
+
+/**
+ *  Output only. The number of new conversations added during this sample
+ *  operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successfulSampleCount;
+
+@end
+
+
+/**
+ *  The request to sample conversations to a dataset.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest : GTLRObject
+
+/** Required. The dataset resource to copy the conversations to. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset *destinationDataset;
+
+/** Required. The parent resource of the dataset. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. The sample rule used for sampling conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule *sampleRule;
+
+@end
+
+
+/**
+ *  The response to an SampleConversationsToDataset operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetResponse : GTLRObject
+@end
+
+
+/**
+ *  Message for sampling conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule : GTLRObject
+
+/**
+ *  To specify the filter for the conversions that should apply this sample
+ *  rule. An empty filter means this sample rule applies to all conversations.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationFilter;
+
+/**
+ *  Optional. Group by dimension to sample the conversation. If no dimension is
+ *  provided, the sampling will be applied to the project level. Current
+ *  supported dimensions is 'quality_metadata.agent_info.agent_id'.
+ */
+@property(nonatomic, copy, nullable) NSString *dimension;
+
+/**
+ *  Percentage of conversations that we should sample based on the dimension
+ *  between [0, 100].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplePercentage;
+
+/**
+ *  Number of the conversations that we should sample based on the dimension.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRow;
 
 @end
 

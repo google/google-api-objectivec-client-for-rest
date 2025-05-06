@@ -706,7 +706,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Migr
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationEnabled;
 /**
  *  Default value. Migration of Tag Templates from Data Catalog to Dataplex is
- *  not performed.
+ *  not performed. For projects that are under an organization, the project
+ *  inherits the organization's configuration when you set the project-level
+ *  configuration to unspecified (`TAG_TEMPLATE_MIGRATION_UNSPECIFIED`). This
+ *  means that when migration is enabled at the organization level, and the
+ *  project-level configuration is unspecified, the project is migrated. To
+ *  explicitly opt-in or opt-out individual projects, set the project-level
+ *  configuration to enabled (`TAG_TEMPLATE_MIGRATION_ENABLED`) or disabled
+ *  (`TAG_TEMPLATE_MIGRATION_DISABLED`).
  *
  *  Value: "TAG_TEMPLATE_MIGRATION_UNSPECIFIED"
  */
@@ -938,7 +945,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetC
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationEnabled;
 /**
  *  Default value. Migration of Tag Templates from Data Catalog to Dataplex is
- *  not performed.
+ *  not performed. For projects that are under an organization, the project
+ *  inherits the organization's configuration when you set the project-level
+ *  configuration to unspecified (`TAG_TEMPLATE_MIGRATION_UNSPECIFIED`). This
+ *  means that when migration is enabled at the organization level, and the
+ *  project-level configuration is unspecified, the project is migrated. To
+ *  explicitly opt-in or opt-out individual projects, set the project-level
+ *  configuration to enabled (`TAG_TEMPLATE_MIGRATION_ENABLED`) or disabled
+ *  (`TAG_TEMPLATE_MIGRATION_DISABLED`).
  *
  *  Value: "TAG_TEMPLATE_MIGRATION_UNSPECIFIED"
  */
@@ -2805,10 +2819,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        (Value: "TAG_TEMPLATE_MIGRATION_ENABLED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationUnspecified
  *        Default value. Migration of Tag Templates from Data Catalog to
- *        Dataplex is not performed. (Value:
+ *        Dataplex is not performed. For projects that are under an
+ *        organization, the project inherits the organization's configuration
+ *        when you set the project-level configuration to unspecified
+ *        (`TAG_TEMPLATE_MIGRATION_UNSPECIFIED`). This means that when migration
+ *        is enabled at the organization level, and the project-level
+ *        configuration is unspecified, the project is migrated. To explicitly
+ *        opt-in or opt-out individual projects, set the project-level
+ *        configuration to enabled (`TAG_TEMPLATE_MIGRATION_ENABLED`) or
+ *        disabled (`TAG_TEMPLATE_MIGRATION_DISABLED`). (Value:
  *        "TAG_TEMPLATE_MIGRATION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *tagTemplateMigration;
+
+/**
+ *  The time when the Tag Template migration was enabled. If the Tag Template
+ *  migration is not enabled, this field is not set.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *templateMigrationEnabledTime;
 
 @end
 
@@ -3637,7 +3665,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        (Value: "TAG_TEMPLATE_MIGRATION_ENABLED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationUnspecified
  *        Default value. Migration of Tag Templates from Data Catalog to
- *        Dataplex is not performed. (Value:
+ *        Dataplex is not performed. For projects that are under an
+ *        organization, the project inherits the organization's configuration
+ *        when you set the project-level configuration to unspecified
+ *        (`TAG_TEMPLATE_MIGRATION_UNSPECIFIED`). This means that when migration
+ *        is enabled at the organization level, and the project-level
+ *        configuration is unspecified, the project is migrated. To explicitly
+ *        opt-in or opt-out individual projects, set the project-level
+ *        configuration to enabled (`TAG_TEMPLATE_MIGRATION_ENABLED`) or
+ *        disabled (`TAG_TEMPLATE_MIGRATION_DISABLED`). (Value:
  *        "TAG_TEMPLATE_MIGRATION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *tagTemplateMigration;

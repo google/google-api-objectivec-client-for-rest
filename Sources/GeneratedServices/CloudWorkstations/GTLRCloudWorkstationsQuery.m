@@ -38,7 +38,14 @@
 
 @implementation GTLRCloudWorkstationsQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -210,7 +217,7 @@
 
 @implementation GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -348,7 +355,7 @@
 
 @implementation GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -586,7 +593,7 @@
 
 @implementation GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

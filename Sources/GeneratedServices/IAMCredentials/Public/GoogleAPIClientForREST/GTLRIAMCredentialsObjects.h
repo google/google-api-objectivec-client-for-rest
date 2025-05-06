@@ -112,6 +112,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *includeEmail;
 
+/**
+ *  Include the organization number of the service account in the token. If set
+ *  to `true`, the token will contain a `google.organization_number` claim. The
+ *  value of the claim will be `null` if the service account isn't associated
+ *  with an organization.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationNumberIncluded;
+
 @end
 
 
@@ -120,7 +130,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRIAMCredentials_GenerateIdTokenResponse : GTLRObject
 
-/** The OpenId Connect ID token. */
+/**
+ *  The OpenId Connect ID token. The token is a JSON Web Token (JWT) that
+ *  contains a payload with claims. See the [JSON Web Token
+ *  spec](https://tools.ietf.org/html/rfc7519) for more information. Here is an
+ *  example of a decoded JWT payload: ``` { "iss":
+ *  "https://accounts.google.com", "iat": 1496953245, "exp": 1496953245, "aud":
+ *  "https://www.example.com", "sub": "107517467455664443765", "azp":
+ *  "107517467455664443765", "email":
+ *  "my-iam-account\@my-project.iam.gserviceaccount.com", "email_verified":
+ *  true, "google": { "organization_number": 123456 } } ```
+ */
 @property(nonatomic, copy, nullable) NSString *token;
 
 @end
@@ -259,6 +279,40 @@ NS_ASSUME_NONNULL_BEGIN
  *  longer verify the signature.
  */
 @property(nonatomic, copy, nullable) NSString *signedJwt;
+
+@end
+
+
+/**
+ *  Represents a list of allowed locations for given workforce pool.
+ */
+@interface GTLRIAMCredentials_WorkforcePoolAllowedLocations : GTLRObject
+
+/** Output only. The hex encoded bitmap of the trust boundary locations */
+@property(nonatomic, copy, nullable) NSString *encodedLocations;
+
+/**
+ *  Output only. The human readable trust boundary locations. For example,
+ *  ["us-central1", "europe-west1"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+@end
+
+
+/**
+ *  Represents a list of allowed locations for given workload identity pool.
+ */
+@interface GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations : GTLRObject
+
+/** Output only. The hex encoded bitmap of the trust boundary locations */
+@property(nonatomic, copy, nullable) NSString *encodedLocations;
+
+/**
+ *  Output only. The human readable trust boundary locations. For example,
+ *  ["us-central1", "europe-west1"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
 @end
 

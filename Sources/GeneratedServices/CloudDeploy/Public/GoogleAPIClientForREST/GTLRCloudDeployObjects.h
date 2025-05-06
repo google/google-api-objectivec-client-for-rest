@@ -2844,7 +2844,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Optional. Whether to run verify tests after each percentage deployment.
+ *  Optional. Whether to run verify tests after each percentage deployment via
+ *  `skaffold verify`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3747,8 +3748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The weak etag of the `Automation` resource. This checksum is computed by the
- *  server based on the value of other fields, and may be sent on update and
+ *  The weak etag of the `DeployPolicy` resource. This checksum is computed by
+ *  the server based on the value of other fields, and may be sent on update and
  *  delete requests to ensure the client has an up-to-date value before
  *  proceeding.
  */
@@ -5123,7 +5124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profiles;
 
 /**
- *  Optional. Whether to run verify tests after the deployment.
+ *  Optional. Whether to run verify tests after the deployment via `skaffold
+ *  verify`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7030,18 +7032,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /**
  *  Optional. Configuration for the postdeploy job. If this is not configured,
- *  postdeploy job will not be present.
+ *  the postdeploy job will not be present.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Postdeploy *postdeploy;
 
 /**
  *  Optional. Configuration for the predeploy job. If this is not configured,
- *  predeploy job will not be present.
+ *  the predeploy job will not be present.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Optional. Whether to verify a deployment.
+ *  Optional. Whether to verify a deployment via `skaffold verify`.
  *
  *  Uses NSNumber of boolValue.
  */

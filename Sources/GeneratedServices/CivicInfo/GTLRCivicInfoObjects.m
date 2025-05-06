@@ -60,31 +60,6 @@ NSString * const kGTLRCivicInfo_SchemaV2ElectoralDistrict_Scope_Statewide = @"st
 NSString * const kGTLRCivicInfo_SchemaV2ElectoralDistrict_Scope_Township = @"township";
 NSString * const kGTLRCivicInfo_SchemaV2ElectoralDistrict_Scope_Ward = @"ward";
 
-// GTLRCivicInfo_SchemaV2Office.levels
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_AdministrativeArea1 = @"administrativeArea1";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_AdministrativeArea2 = @"administrativeArea2";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Country  = @"country";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_International = @"international";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Locality = @"locality";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Regional = @"regional";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Special  = @"special";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_SubLocality1 = @"subLocality1";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_SubLocality2 = @"subLocality2";
-
-// GTLRCivicInfo_SchemaV2Office.roles
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_DeputyHeadOfGovernment = @"deputyHeadOfGovernment";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_ExecutiveCouncil = @"executiveCouncil";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_GovernmentOfficer = @"governmentOfficer";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_HeadOfGovernment = @"headOfGovernment";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_HeadOfState = @"headOfState";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_HighestCourtJudge = @"highestCourtJudge";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_Judge     = @"judge";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_LegislatorLowerBody = @"legislatorLowerBody";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_LegislatorUpperBody = @"legislatorUpperBody";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_OtherRole = @"otherRole";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SchoolBoard = @"schoolBoard";
-NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPurposeOfficer = @"specialPurposeOfficer";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRCivicInfo_ApiprotosV2DivisionByAddressResponse
@@ -129,39 +104,6 @@ NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPurposeOfficer = @"s
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_ApiprotosV2RepresentativeInfoData
-//
-
-@implementation GTLRCivicInfo_ApiprotosV2RepresentativeInfoData
-@dynamic divisions, offices, officials;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"offices" : [GTLRCivicInfo_SchemaV2Office class],
-    @"officials" : [GTLRCivicInfo_SchemaV2Official class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_ApiprotosV2RepresentativeInfoData_Divisions
-//
-
-@implementation GTLRCivicInfo_ApiprotosV2RepresentativeInfoData_Divisions
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCivicInfo_SchemaV2GeographicDivision class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse
 //
 
@@ -191,39 +133,6 @@ NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPurposeOfficer = @"s
     @"elections" : [GTLRCivicInfo_SchemaV2Election class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse
-//
-
-@implementation GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse
-@dynamic divisions, kind, normalizedInput, offices, officials;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"offices" : [GTLRCivicInfo_SchemaV2Office class],
-    @"officials" : [GTLRCivicInfo_SchemaV2Official class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse_Divisions
-//
-
-@implementation GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse_Divisions
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCivicInfo_SchemaV2GeographicDivision class];
 }
 
 @end
@@ -419,49 +328,6 @@ NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPurposeOfficer = @"s
   NSDictionary<NSString *, Class> *map = @{
     @"alsoKnownAs" : [NSString class],
     @"officeIndices" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_SchemaV2Office
-//
-
-@implementation GTLRCivicInfo_SchemaV2Office
-@dynamic divisionId, levels, name, officialIndices, roles, sources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"levels" : [NSString class],
-    @"officialIndices" : [NSNumber class],
-    @"roles" : [NSString class],
-    @"sources" : [GTLRCivicInfo_SchemaV2Source class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_SchemaV2Official
-//
-
-@implementation GTLRCivicInfo_SchemaV2Official
-@dynamic address, channels, emails, name, party, phones, photoUrl, urls;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"address" : [GTLRCivicInfo_SchemaV2SimpleAddressType class],
-    @"channels" : [GTLRCivicInfo_SchemaV2Channel class],
-    @"emails" : [NSString class],
-    @"phones" : [NSString class],
-    @"urls" : [NSString class]
   };
   return map;
 }

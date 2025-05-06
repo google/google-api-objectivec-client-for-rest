@@ -34,6 +34,52 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_FoldersCapabilitiesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_FoldersCapabilitiesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Capability class];
+  query.loggingName = @"cloudresourcemanager.folders.capabilities.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_FoldersCapabilitiesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Capability *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_FoldersCapabilitiesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.folders.capabilities.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_FoldersCreate
 
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_Folder *)object {

@@ -69,6 +69,210 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
+ *  Creates a custom emoji. Custom emojis are only available for Google
+ *  Workspace accounts, and the administrator must turn custom emojis on for the
+ *  organization. For more information, see [Learn about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149) and [Manage custom
+ *  emoji permissions](https://support.google.com/a/answer/12850085). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.customEmojis.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatCustomemojis
+ */
+@interface GTLRHangoutsChatQuery_CustomEmojisCreate : GTLRHangoutsChatQuery
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_CustomEmoji.
+ *
+ *  Creates a custom emoji. Custom emojis are only available for Google
+ *  Workspace accounts, and the administrator must turn custom emojis on for the
+ *  organization. For more information, see [Learn about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149) and [Manage custom
+ *  emoji permissions](https://support.google.com/a/answer/12850085). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param object The @c GTLRHangoutsChat_CustomEmoji to include in the query.
+ *
+ *  @return GTLRHangoutsChatQuery_CustomEmojisCreate
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_CustomEmoji *)object;
+
+@end
+
+/**
+ *  Deletes a custom emoji. By default, users can only delete custom emoji they
+ *  created. [Emoji managers](https://support.google.com/a/answer/12850085)
+ *  assigned by the administrator can delete any custom emoji in the
+ *  organization. See [Learn about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149). Custom emojis are
+ *  only available for Google Workspace accounts, and the administrator must
+ *  turn custom emojis on for the organization. For more information, see [Learn
+ *  about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149) and [Manage custom
+ *  emoji permissions](https://support.google.com/a/answer/12850085). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.customEmojis.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatCustomemojis
+ */
+@interface GTLRHangoutsChatQuery_CustomEmojisDelete : GTLRHangoutsChatQuery
+
+/**
+ *  Required. Resource name of the custom emoji to delete. Format:
+ *  `customEmojis/{customEmoji}` You can use the emoji name as an alias for
+ *  `{customEmoji}`. For example, `customEmojis/:example-emoji:` where
+ *  `:example-emoji:` is the emoji name for a custom emoji.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Empty.
+ *
+ *  Deletes a custom emoji. By default, users can only delete custom emoji they
+ *  created. [Emoji managers](https://support.google.com/a/answer/12850085)
+ *  assigned by the administrator can delete any custom emoji in the
+ *  organization. See [Learn about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149). Custom emojis are
+ *  only available for Google Workspace accounts, and the administrator must
+ *  turn custom emojis on for the organization. For more information, see [Learn
+ *  about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149) and [Manage custom
+ *  emoji permissions](https://support.google.com/a/answer/12850085). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param name Required. Resource name of the custom emoji to delete. Format:
+ *    `customEmojis/{customEmoji}` You can use the emoji name as an alias for
+ *    `{customEmoji}`. For example, `customEmojis/:example-emoji:` where
+ *    `:example-emoji:` is the emoji name for a custom emoji.
+ *
+ *  @return GTLRHangoutsChatQuery_CustomEmojisDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns details about a custom emoji. Custom emojis are only available for
+ *  Google Workspace accounts, and the administrator must turn custom emojis on
+ *  for the organization. For more information, see [Learn about custom emojis
+ *  in Google Chat](https://support.google.com/chat/answer/12800149) and [Manage
+ *  custom emoji permissions](https://support.google.com/a/answer/12850085).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.customEmojis.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatCustomemojis
+ *    @c kGTLRAuthScopeHangoutsChatCustomemojisReadonly
+ */
+@interface GTLRHangoutsChatQuery_CustomEmojisGet : GTLRHangoutsChatQuery
+
+/**
+ *  Required. Resource name of the custom emoji. Format:
+ *  `customEmojis/{customEmoji}` You can use the emoji name as an alias for
+ *  `{customEmoji}`. For example, `customEmojis/:example-emoji:` where
+ *  `:example-emoji:` is the emoji name for a custom emoji.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_CustomEmoji.
+ *
+ *  Returns details about a custom emoji. Custom emojis are only available for
+ *  Google Workspace accounts, and the administrator must turn custom emojis on
+ *  for the organization. For more information, see [Learn about custom emojis
+ *  in Google Chat](https://support.google.com/chat/answer/12800149) and [Manage
+ *  custom emoji permissions](https://support.google.com/a/answer/12850085).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param name Required. Resource name of the custom emoji. Format:
+ *    `customEmojis/{customEmoji}` You can use the emoji name as an alias for
+ *    `{customEmoji}`. For example, `customEmojis/:example-emoji:` where
+ *    `:example-emoji:` is the emoji name for a custom emoji.
+ *
+ *  @return GTLRHangoutsChatQuery_CustomEmojisGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists custom emojis visible to the authenticated user. Custom emojis are
+ *  only available for Google Workspace accounts, and the administrator must
+ *  turn custom emojis on for the organization. For more information, see [Learn
+ *  about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149) and [Manage custom
+ *  emoji permissions](https://support.google.com/a/answer/12850085). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.customEmojis.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatCustomemojis
+ *    @c kGTLRAuthScopeHangoutsChatCustomemojisReadonly
+ */
+@interface GTLRHangoutsChatQuery_CustomEmojisList : GTLRHangoutsChatQuery
+
+/**
+ *  Optional. A query filter. Supports filtering by creator. To filter by
+ *  creator, you must specify a valid value. Currently only
+ *  `creator("users/me")` and `NOT creator("users/me")` are accepted to filter
+ *  custom emojis by whether they were created by the calling user or not. For
+ *  example, the following query returns custom emojis created by the caller:
+ *  ``` creator("users/me") ``` Invalid queries are rejected with an
+ *  `INVALID_ARGUMENT` error.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of custom emojis returned. The service can
+ *  return fewer custom emojis than this value. If unspecified, the default
+ *  value is 25. The maximum value is 200; values above 200 are changed to 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. (If resuming from a previous query.) A page token received from a
+ *  previous list custom emoji call. Provide this to retrieve the subsequent
+ *  page. When paginating, the filter value should match the call that provided
+ *  the page token. Passing a different value might lead to unexpected results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_ListCustomEmojisResponse.
+ *
+ *  Lists custom emojis visible to the authenticated user. Custom emojis are
+ *  only available for Google Workspace accounts, and the administrator must
+ *  turn custom emojis on for the organization. For more information, see [Learn
+ *  about custom emojis in Google
+ *  Chat](https://support.google.com/chat/answer/12800149) and [Manage custom
+ *  emoji permissions](https://support.google.com/a/answer/12850085). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @return GTLRHangoutsChatQuery_CustomEmojisList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Downloads media. Download is supported on the URI
  *  `/v1/media/{+name}?alt=media`.
  *
@@ -657,7 +861,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  You can authenticate and authorize this method with administrator privileges
- *  by setting the `use_admin_access` field in the request.
+ *  by setting the `use_admin_access` field in the request. To delete
+ *  memberships for space managers, the requester must be a space manager. If
+ *  you're using [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  the application must be the space creator.
  *
  *  Method: chat.spaces.members.delete
  *
@@ -674,8 +882,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Required. Resource name of the membership to delete. Chat apps can delete
  *  human users' or their own memberships. Chat apps can't delete other apps'
  *  memberships. When deleting a human membership, requires the
- *  `chat.memberships` scope and `spaces/{space}/members/{member}` format. You
- *  can use the email as an alias for `{member}`. For example,
+ *  `chat.memberships` scope with [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  or the `chat.memberships.app` scope with [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  and the `spaces/{space}/members/{member}` format. You can use the email as
+ *  an alias for `{member}`. For example,
  *  `spaces/{space}/members/example\@gmail.com` where `example\@gmail.com` is
  *  the email of the Google Chat user. When deleting an app membership, requires
  *  the `chat.memberships.app` scope and `spaces/{space}/members/app` format.
@@ -709,13 +921,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  You can authenticate and authorize this method with administrator privileges
- *  by setting the `use_admin_access` field in the request.
+ *  by setting the `use_admin_access` field in the request. To delete
+ *  memberships for space managers, the requester must be a space manager. If
+ *  you're using [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  the application must be the space creator.
  *
  *  @param name Required. Resource name of the membership to delete. Chat apps
  *    can delete human users' or their own memberships. Chat apps can't delete
  *    other apps' memberships. When deleting a human membership, requires the
- *    `chat.memberships` scope and `spaces/{space}/members/{member}` format. You
- *    can use the email as an alias for `{member}`. For example,
+ *    `chat.memberships` scope with [user
+ *    authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *    or the `chat.memberships.app` scope with [app
+ *    authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *    and the `spaces/{space}/members/{member}` format. You can use the email as
+ *    an alias for `{member}`. For example,
  *    `spaces/{space}/members/example\@gmail.com` where `example\@gmail.com` is
  *    the email of the Google Chat user. When deleting an app membership,
  *    requires the `chat.memberships.app` scope and `spaces/{space}/members/app`
@@ -1626,8 +1846,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  "{uid}" emoji.unicode = "🙂" OR user.name = "users/{user}" emoji.unicode =
  *  "🙂" OR emoji.custom_emoji.uid = "{uid}" OR user.name = "users/{user}"
  *  emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}" AND user.name =
- *  "users/{user}" ``` Invalid queries are rejected by the server with an
- *  `INVALID_ARGUMENT` error.
+ *  "users/{user}" ``` Invalid queries are rejected with an `INVALID_ARGUMENT`
+ *  error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

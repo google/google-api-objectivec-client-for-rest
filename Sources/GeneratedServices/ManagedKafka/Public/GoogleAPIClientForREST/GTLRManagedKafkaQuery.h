@@ -34,6 +34,317 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Incremental update: Adds an acl entry to an acl. Creates the acl if it does
+ *  not exist yet.
+ *
+ *  Method: managedkafka.projects.locations.clusters.acls.addAclEntry
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsAddAclEntry : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the acl to add the acl entry to. Structured like:
+ *  `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *  The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *  resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ */
+@property(nonatomic, copy, nullable) NSString *acl;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_AddAclEntryResponse.
+ *
+ *  Incremental update: Adds an acl entry to an acl. Creates the acl if it does
+ *  not exist yet.
+ *
+ *  @param object The @c GTLRManagedKafka_AclEntry to include in the query.
+ *  @param acl Required. The name of the acl to add the acl entry to. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *    The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *    resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsAddAclEntry
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_AclEntry *)object
+                            acl:(NSString *)acl;
+
+@end
+
+/**
+ *  Creates a new acl in the given project, location, and cluster.
+ *
+ *  Method: managedkafka.projects.locations.clusters.acls.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsCreate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The ID to use for the acl, which will become the final component
+ *  of the acl's name. The structure of `acl_id` defines the Resource Pattern
+ *  (resource_type, resource_name, pattern_type) of the acl. `acl_id` is
+ *  structured like one of the following: For acls on the cluster: `cluster` For
+ *  acls on a single resource within the cluster: `topic/{resource_name}`
+ *  `consumerGroup/{resource_name}` `transactionalId/{resource_name}` For acls
+ *  on all resources that match a prefix: `topicPrefixed/{resource_name}`
+ *  `consumerGroupPrefixed/{resource_name}`
+ *  `transactionalIdPrefixed/{resource_name}` For acls on all resources of a
+ *  given type (i.e. the wildcard literal "*"): `allTopics` (represents `topic/
+ *  *`) `allConsumerGroups` (represents `consumerGroup/ *`)
+ *  `allTransactionalIds` (represents `transactionalId/ *`)
+ */
+@property(nonatomic, copy, nullable) NSString *aclId;
+
+/**
+ *  Required. The parent cluster in which to create the acl. Structured like
+ *  `projects/{project}/locations/{location}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Acl.
+ *
+ *  Creates a new acl in the given project, location, and cluster.
+ *
+ *  @param object The @c GTLRManagedKafka_Acl to include in the query.
+ *  @param parent Required. The parent cluster in which to create the acl.
+ *    Structured like
+ *    `projects/{project}/locations/{location}/clusters/{cluster}`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_Acl *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an acl.
+ *
+ *  Method: managedkafka.projects.locations.clusters.acls.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the acl to delete. Structured like:
+ *  `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *  The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *  resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Empty.
+ *
+ *  Deletes an acl.
+ *
+ *  @param name Required. The name of the acl to delete. Structured like:
+ *    `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *    The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *    resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the properties of a single acl.
+ *
+ *  Method: managedkafka.projects.locations.clusters.acls.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the acl to return. Structured like:
+ *  `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *  The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *  resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Acl.
+ *
+ *  Returns the properties of a single acl.
+ *
+ *  @param name Required. The name of the acl to return. Structured like:
+ *    `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *    The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *    resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the acls in a given cluster.
+ *
+ *  Method: managedkafka.projects.locations.clusters.acls.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. The maximum number of acls to return. The service may return fewer
+ *  than this value. If unset or zero, all acls for the parent is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListAcls` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListAcls` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent cluster whose acls are to be listed. Structured like
+ *  `projects/{project}/locations/{location}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_ListAclsResponse.
+ *
+ *  Lists the acls in a given cluster.
+ *
+ *  @param parent Required. The parent cluster whose acls are to be listed.
+ *    Structured like
+ *    `projects/{project}/locations/{location}/clusters/{cluster}`.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the properties of a single acl.
+ *
+ *  Method: managedkafka.projects.locations.clusters.acls.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsPatch : GTLRManagedKafkaQuery
+
+/**
+ *  Identifier. The name for the acl. Represents a single Resource Pattern.
+ *  Structured like:
+ *  projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id} The
+ *  structure of `acl_id` defines the Resource Pattern (resource_type,
+ *  resource_name, pattern_type) of the acl. `acl_id` is structured like one of
+ *  the following: For acls on the cluster: `cluster` For acls on a single
+ *  resource within the cluster: `topic/{resource_name}`
+ *  `consumerGroup/{resource_name}` `transactionalId/{resource_name}` For acls
+ *  on all resources that match a prefix: `topicPrefixed/{resource_name}`
+ *  `consumerGroupPrefixed/{resource_name}`
+ *  `transactionalIdPrefixed/{resource_name}` For acls on all resources of a
+ *  given type (i.e. the wildcard literal "*"): `allTopics` (represents `topic/
+ *  *`) `allConsumerGroups` (represents `consumerGroup/ *`)
+ *  `allTransactionalIds` (represents `transactionalId/ *`)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Acl resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Acl.
+ *
+ *  Updates the properties of a single acl.
+ *
+ *  @param object The @c GTLRManagedKafka_Acl to include in the query.
+ *  @param name Identifier. The name for the acl. Represents a single Resource
+ *    Pattern. Structured like:
+ *    projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}
+ *    The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *    resource_name, pattern_type) of the acl. `acl_id` is structured like one
+ *    of the following: For acls on the cluster: `cluster` For acls on a single
+ *    resource within the cluster: `topic/{resource_name}`
+ *    `consumerGroup/{resource_name}` `transactionalId/{resource_name}` For acls
+ *    on all resources that match a prefix: `topicPrefixed/{resource_name}`
+ *    `consumerGroupPrefixed/{resource_name}`
+ *    `transactionalIdPrefixed/{resource_name}` For acls on all resources of a
+ *    given type (i.e. the wildcard literal "*"): `allTopics` (represents
+ *    `topic/ *`) `allConsumerGroups` (represents `consumerGroup/ *`)
+ *    `allTransactionalIds` (represents `transactionalId/ *`)
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsPatch
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_Acl *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Incremental update: Removes an acl entry from an acl. Deletes the acl if its
+ *  acl entries become empty (i.e. if the removed entry was the last one in the
+ *  acl).
+ *
+ *  Method: managedkafka.projects.locations.clusters.acls.removeAclEntry
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsRemoveAclEntry : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the acl to remove the acl entry from. Structured like:
+ *  `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *  The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *  resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ */
+@property(nonatomic, copy, nullable) NSString *acl;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_RemoveAclEntryResponse.
+ *
+ *  Incremental update: Removes an acl entry from an acl. Deletes the acl if its
+ *  acl entries become empty (i.e. if the removed entry was the last one in the
+ *  acl).
+ *
+ *  @param object The @c GTLRManagedKafka_AclEntry to include in the query.
+ *  @param acl Required. The name of the acl to remove the acl entry from.
+ *    Structured like:
+ *    `projects/{project}/locations/{location}/clusters/{cluster}/acls/{acl_id}`.
+ *    The structure of `acl_id` defines the Resource Pattern (resource_type,
+ *    resource_name, pattern_type) of the acl. See `Acl.name` for details.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsRemoveAclEntry
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_AclEntry *)object
+                            acl:(NSString *)acl;
+
+@end
+
+/**
  *  Deletes a single consumer group.
  *
  *  Method: managedkafka.projects.locations.clusters.consumerGroups.delete

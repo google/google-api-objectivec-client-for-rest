@@ -571,9 +571,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The full resource name of the bucket to create a link for.
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -588,9 +585,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The full resource name of the bucket to create a
  *    link for.
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsLinksCreate
  */
@@ -1285,6 +1279,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsList : GTLRLoggingQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -3179,9 +3179,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The full resource name of the bucket to create a link for.
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3196,9 +3193,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The full resource name of the bucket to create a
  *    link for.
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_FoldersLocationsBucketsLinksCreate
  */
@@ -4022,6 +4016,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLocationsList : GTLRLoggingQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -5500,9 +5500,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The full resource name of the bucket to create a link for.
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5517,9 +5514,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The full resource name of the bucket to create a
  *    link for.
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_LocationsBucketsLinksCreate
  */
@@ -6278,6 +6272,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LocationsList : GTLRLoggingQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -7136,9 +7136,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The full resource name of the bucket to create a link for.
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7153,9 +7150,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The full resource name of the bucket to create a
  *    link for.
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsLinksCreate
  */
@@ -7979,6 +7973,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsList : GTLRLoggingQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -9871,9 +9871,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The full resource name of the bucket to create a link for.
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -9888,9 +9885,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The full resource name of the bucket to create a
  *    link for.
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsBucketsLinksCreate
  */
@@ -10714,6 +10708,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLocationsList : GTLRLoggingQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

@@ -26,9 +26,11 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_PendingUserOauth 
 NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
 
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax = @"DATASTAX";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Github = @"GITHUB";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Gitlab = @"GITLAB";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google = @"GOOGLE";
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic = @"NEW_RELIC";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo = @"ROVO";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry = @"SENTRY";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified = @"SYSTEM_PROVIDER_UNSPECIFIED";

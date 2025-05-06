@@ -71,6 +71,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsList : GTLRCloudWorkstationsQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -376,6 +382,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersList : GTLRCloudWorkstationsQuery
 
+/**
+ *  Optional. Filter the WorkstationClusters to be listed. Possible filters are
+ *  described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -622,6 +634,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsList : GTLRCloudWorkstationsQuery
+
+/**
+ *  Optional. Filter the WorkstationConfigs to be listed. Possible filters are
+ *  described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1024,6 +1042,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsList : GTLRCloudWorkstationsQuery
+
+/**
+ *  Optional. Filter the Workstations to be listed. Possible filters are
+ *  described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;

@@ -1262,7 +1262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /**
  *  The parent's Drive ID that the script will be attached to. This is usually
- *  the ID of a Google Document or Google Sheet. This filed is optional, and if
+ *  the ID of a Google Document or Google Sheet. This field is optional, and if
  *  not set, a stand-alone script will be created.
  */
 @property(nonatomic, copy, nullable) NSString *parentId;

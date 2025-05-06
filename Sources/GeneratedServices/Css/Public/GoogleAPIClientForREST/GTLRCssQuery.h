@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCssQuery_AccountsCssProductInputsPatch : GTLRCssQuery
 
 /**
- *  The name of the CSS Product input. Format:
+ *  Identifier. The name of the CSS Product input. Format:
  *  `accounts/{account}/cssProductInputs/{css_product_input}`, where the last
  *  section `css_product_input` consists of 3 parts:
  *  contentLanguage~feedLabel~offerId. Example:
@@ -171,7 +171,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  minutes before the processed Css Product can be retrieved.
  *
  *  @param object The @c GTLRCss_ProductInput to include in the query.
- *  @param name The name of the CSS Product input. Format:
+ *  @param name Identifier. The name of the CSS Product input. Format:
  *    `accounts/{account}/cssProductInputs/{css_product_input}`, where the last
  *    section `css_product_input` consists of 3 parts:
  *    contentLanguage~feedLabel~offerId. Example:
@@ -422,7 +422,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCssQuery_AccountsLabelsPatch : GTLRCssQuery
 
 /**
- *  The resource name of the label. Format: accounts/{account}/labels/{label}
+ *  Identifier. The resource name of the label. Format:
+ *  accounts/{account}/labels/{label}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -432,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a label.
  *
  *  @param object The @c GTLRCss_AccountLabel to include in the query.
- *  @param name The resource name of the label. Format:
+ *  @param name Identifier. The resource name of the label. Format:
  *    accounts/{account}/labels/{label}
  *
  *  @return GTLRCssQuery_AccountsLabelsPatch
@@ -493,6 +494,53 @@ NS_ASSUME_NONNULL_BEGIN
  *    Format: accounts/{account}
  *
  *  @return GTLRCssQuery_AccountsListChildAccounts
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the daily call quota and usage per group for your CSS Center account.
+ *
+ *  Method: css.accounts.quotas.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCssContent
+ */
+@interface GTLRCssQuery_AccountsQuotasList : GTLRCssQuery
+
+/**
+ *  Optional. The maximum number of quotas to return in the response, used for
+ *  paging. Defaults to 500; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token (if provided) to retrieve the subsequent page. All other
+ *  parameters must match the original call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The CSS account that owns the collection of method quotas and
+ *  resources. In most cases, this is the CSS domain. Format: accounts/{account}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCss_ListQuotaGroupsResponse.
+ *
+ *  Lists the daily call quota and usage per group for your CSS Center account.
+ *
+ *  @param parent Required. The CSS account that owns the collection of method
+ *    quotas and resources. In most cases, this is the CSS domain. Format:
+ *    accounts/{account}
+ *
+ *  @return GTLRCssQuery_AccountsQuotasList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

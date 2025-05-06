@@ -630,11 +630,11 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_Instance
-@dynamic consumerDefinedName, createTime, instanceType, labels,
-         maintenancePolicyNames, maintenanceSchedules, maintenanceSettings,
-         name, notificationParameters, producerMetadata, provisionedResources,
-         slmInstanceTemplate, sloMetadata, softwareVersions, state,
-         tenantProjectId, updateTime;
+@dynamic consumerDefinedName, consumerProjectNumber, createTime, instanceType,
+         labels, maintenancePolicyNames, maintenanceSchedules,
+         maintenanceSettings, name, notificationParameters, producerMetadata,
+         provisionedResources, slmInstanceTemplate, sloMetadata,
+         softwareVersions, state, tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

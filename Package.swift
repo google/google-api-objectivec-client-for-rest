@@ -1082,6 +1082,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Storage"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_StorageBatchOperations",
+            targets: ["GoogleAPIClientForREST_StorageBatchOperations"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_StorageTransfer",
             targets: ["GoogleAPIClientForREST_StorageTransfer"]
         ),
@@ -2829,6 +2833,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Storage",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Storage",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_StorageBatchOperations",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/StorageBatchOperations",
             publicHeadersPath: "Public"
         ),
         .target(

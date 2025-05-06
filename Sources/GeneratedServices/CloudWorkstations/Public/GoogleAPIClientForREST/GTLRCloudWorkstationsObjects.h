@@ -811,9 +811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  empty if source_image is set. Must be empty if read_only is false. Updating
  *  source_snapshot will update content in the ephemeral directory after the
  *  workstation is restarted. Only file systems supported by Container-Optimized
- *  OS (COS) are explicitly supported. For a list of supported file systems,
- *  please refer to the [COS
- *  documentation](https://cloud.google.com/container-optimized-os/docs/concepts/supported-filesystems).
+ *  OS (COS) are explicitly supported. For a list of supported file systems, see
+ *  [the filesystems available in Container-Optimized
+ *  OS](https://cloud.google.com/container-optimized-os/docs/concepts/supported-filesystems).
  *  This field is mutable.
  */
 @property(nonatomic, copy, nullable) NSString *sourceSnapshot;

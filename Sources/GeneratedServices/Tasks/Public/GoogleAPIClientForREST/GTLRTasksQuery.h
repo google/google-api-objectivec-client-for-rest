@@ -361,8 +361,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all tasks in the specified task list. Does not return assigned tasks
- *  be default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden
+ *  Returns all tasks in the specified task list. Doesn't return assigned tasks
+ *  by default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden
  *  tasks per list and up to 100,000 tasks in total at a time.
  *
  *  Method: tasks.tasks.list
@@ -444,8 +444,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Tasks.
  *
- *  Returns all tasks in the specified task list. Does not return assigned tasks
- *  be default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden
+ *  Returns all tasks in the specified task list. Doesn't return assigned tasks
+ *  by default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden
  *  tasks per list and up to 100,000 tasks in total at a time.
  *
  *  @param tasklist Task list identifier.

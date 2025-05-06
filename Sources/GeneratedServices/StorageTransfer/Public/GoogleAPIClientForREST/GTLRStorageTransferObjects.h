@@ -299,6 +299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionS
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified;
 /**
+ *  The `COPY` action was skipped for this file. Only supported for agent-based
+ *  transfers. `SKIPPED` actions are logged as INFO.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Skipped;
+/**
  *  `LoggableAction` completed successfully. `SUCCEEDED` actions are logged as
  *  INFO.
  *

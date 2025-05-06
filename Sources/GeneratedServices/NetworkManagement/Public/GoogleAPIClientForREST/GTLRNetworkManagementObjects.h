@@ -63,6 +63,7 @@
 @class GTLRNetworkManagement_RouteInfo;
 @class GTLRNetworkManagement_ServerlessExternalConnectionInfo;
 @class GTLRNetworkManagement_ServerlessNegInfo;
+@class GTLRNetworkManagement_SingleEdgeResponse;
 @class GTLRNetworkManagement_Status;
 @class GTLRNetworkManagement_Status_Details_Item;
 @class GTLRNetworkManagement_Step;
@@ -115,7 +116,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Firewa
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported;
 /**
- *  Aborted because a PSC endpoint selection for the Google-managed service is
+ *  Aborted because endpoint selection for the Google-managed service is
+ *  ambiguous (several endpoints satisfy test input).
+ *
+ *  Value: "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_ENDPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousEndpoint;
+/**
+ *  Aborted because PSC endpoint selection for the Google-managed service is
  *  ambiguous (several PSC endpoints satisfy test input).
  *
  *  Value: "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT"
@@ -742,6 +750,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Instanc
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork;
 /**
+ *  Packet is dropped due to being sent to a backend of a passthrough load
+ *  balancer that doesn't use the same IP version as the frontend.
+ *
+ *  Value: "LOAD_BALANCER_BACKEND_IP_VERSION_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendIpVersionMismatch;
+/**
  *  Packet sent to a load balancer, which requires a proxy-only subnet and the
  *  subnet is not found.
  *
@@ -757,9 +772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBal
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination;
 /**
- *  Instance with only an internal IP address tries to access external hosts,
- *  but Cloud NAT is not enabled in the subnet, unless special configurations on
- *  a VM allow this connection.
+ *  Endpoint with only an internal IP address tries to access external hosts,
+ *  but there is no matching Cloud NAT gateway in the subnet.
  *
  *  Value: "NO_EXTERNAL_ADDRESS"
  */
@@ -771,6 +785,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExter
  *  Value: "NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromPeeredNetworkToDestination;
+/**
+ *  Packet with destination IP address within the reserved NAT64 range is
+ *  dropped due to no matching NAT gateway in the subnet.
+ *
+ *  Value: "NO_MATCHING_NAT64_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoMatchingNat64Gateway;
 /**
  *  No NAT subnets are defined for the PSC service attachment.
  *
@@ -798,8 +819,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination;
 /**
- *  Instance with only an internal IP address tries to access Google API and
- *  services, but private Google access is not enabled in the subnet.
+ *  Endpoint with only an internal IP address tries to access Google API and
+ *  services, but Private Google Access is not enabled in the subnet or is not
+ *  applicable.
  *
  *  Value: "PRIVATE_GOOGLE_ACCESS_DISALLOWED"
  */
@@ -855,6 +877,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegP
  *  Value: "PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingRuleMultiplePorts;
+/**
+ *  Packet is sent to the PSC port mapping service, but its destination port
+ *  does not match any port mapping rules.
+ *
+ *  Value: "PSC_PORT_MAPPING_PORT_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscPortMappingPortMismatch;
+/**
+ *  Sending packets directly to the PSC port mapping service without going
+ *  through the PSC connection is not supported.
+ *
+ *  Value: "PSC_PORT_MAPPING_WITHOUT_PSC_CONNECTION_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscPortMappingWithoutPscConnectionUnsupported;
 /**
  *  PSC endpoint is accessed via NCC, but PSC transitivity configuration is not
  *  yet propagated.
@@ -1006,6 +1042,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWr
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RoutingLoop;
 /**
+ *  Packet could be dropped because hybrid endpoint like a VPN gateway or
+ *  Interconnect is not allowed to send traffic to the Internet.
+ *
+ *  Value: "TRAFFIC_FROM_HYBRID_ENDPOINT_TO_INTERNET_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficFromHybridEndpointToInternetDisallowed;
+/**
  *  The type of traffic is blocked and the user cannot configure a firewall rule
  *  to enable it. See [Always blocked
  *  traffic](https://cloud.google.com/vpc/docs/firewalls#blockedtraffic) for
@@ -1031,6 +1074,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Unknown
  *  Value: "UNKNOWN_INTERNAL_ADDRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress;
+/**
+ *  Packet with destination IP address within the reserved NAT64 range is
+ *  dropped due to matching a route of an unsupported type.
+ *
+ *  Value: "UNSUPPORTED_ROUTE_MATCHED_FOR_NAT64_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnsupportedRouteMatchedForNat64Destination;
 /**
  *  Packet could be dropped because the health check traffic to the VPC
  *  connector is not allowed.
@@ -1394,6 +1444,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_Goog
  *  Value: "IAP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_Iap;
+/**
+ *  Google API via Serverless VPC Access.
+ *  https://cloud.google.com/vpc/docs/serverless-vpc-access
+ *
+ *  Value: "SERVERLESS_VPC_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_ServerlessVpcAccess;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerBackend.healthCheckFirewallState
@@ -1845,6 +1902,43 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_St
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Subnet;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_SingleEdgeResponse.result
+
+/**
+ *  No result was specified.
+ *
+ *  Value: "PROBING_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_SingleEdgeResponse_Result_ProbingResultUnspecified;
+/**
+ *  Less than 95% of packets reached the destination.
+ *
+ *  Value: "REACHABILITY_INCONSISTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_SingleEdgeResponse_Result_ReachabilityInconsistent;
+/**
+ *  At least 95% of packets reached the destination.
+ *
+ *  Value: "REACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_SingleEdgeResponse_Result_Reachable;
+/**
+ *  Reachability could not be determined. Possible reasons are: * The user lacks
+ *  permission to access some of the network resources required to run the test.
+ *  * No valid source endpoint could be derived from the request. * An internal
+ *  error occurred.
+ *
+ *  Value: "UNDETERMINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_SingleEdgeResponse_Result_Undetermined;
+/**
+ *  No packets reached the destination.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_SingleEdgeResponse_Result_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_Step.state
 
 /**
@@ -2254,10 +2348,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Aborted because the connection between the control plane and the node
  *        of the source cluster is initiated by the node and managed by the
  *        Konnectivity proxy. (Value: "GKE_KONNECTIVITY_PROXY_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousEndpoint
+ *        Aborted because endpoint selection for the Google-managed service is
+ *        ambiguous (several endpoints satisfy test input). (Value:
+ *        "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_ENDPOINT")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousPscEndpoint
- *        Aborted because a PSC endpoint selection for the Google-managed
- *        service is ambiguous (several PSC endpoints satisfy test input).
- *        (Value: "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT")
+ *        Aborted because PSC endpoint selection for the Google-managed service
+ *        is ambiguous (several PSC endpoints satisfy test input). (Value:
+ *        "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceUnknownIp
  *        Aborted because no endpoint with the packet's destination IP is found
  *        in the Google-managed project. (Value:
@@ -3036,6 +3134,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Packet is dropped due to a load balancer backend instance not having a
  *        network interface in the network expected by the load balancer.
  *        (Value: "LOAD_BALANCER_BACKEND_INVALID_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendIpVersionMismatch
+ *        Packet is dropped due to being sent to a backend of a passthrough load
+ *        balancer that doesn't use the same IP version as the frontend. (Value:
+ *        "LOAD_BALANCER_BACKEND_IP_VERSION_MISMATCH")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet
  *        Packet sent to a load balancer, which requires a proxy-only subnet and
  *        the subnet is not found. (Value: "LOAD_BALANCER_HAS_NO_PROXY_SUBNET")
@@ -3044,14 +3146,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        due to the destination IP address not belonging to any IP prefix
  *        advertised via BGP by the Cloud Router. (Value:
  *        "NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION")
- *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Instance
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Endpoint
  *        with only an internal IP address tries to access external hosts, but
- *        Cloud NAT is not enabled in the subnet, unless special configurations
- *        on a VM allow this connection. (Value: "NO_EXTERNAL_ADDRESS")
+ *        there is no matching Cloud NAT gateway in the subnet. (Value:
+ *        "NO_EXTERNAL_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromPeeredNetworkToDestination
  *        Packet from the unknown peered network is dropped due to no known
  *        route from the source network to the destination IP address. (Value:
  *        "NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoMatchingNat64Gateway
+ *        Packet with destination IP address within the reserved NAT64 range is
+ *        dropped due to no matching NAT gateway in the subnet. (Value:
+ *        "NO_MATCHING_NAT64_GATEWAY")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment
  *        No NAT subnets are defined for the PSC service attachment. (Value:
  *        "NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT")
@@ -3066,9 +3172,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        included to the local traffic selector of the VPN tunnel. (Value:
  *        "NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed
- *        Instance with only an internal IP address tries to access Google API
- *        and services, but private Google access is not enabled in the subnet.
- *        (Value: "PRIVATE_GOOGLE_ACCESS_DISALLOWED")
+ *        Endpoint with only an internal IP address tries to access Google API
+ *        and services, but Private Google Access is not enabled in the subnet
+ *        or is not applicable. (Value: "PRIVATE_GOOGLE_ACCESS_DISALLOWED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported
  *        Source endpoint tries to access Google API and services through the
  *        VPN tunnel to another network, but Private Google Access needs to be
@@ -3099,6 +3205,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        endpoint group), but the producer PSC forwarding rule has multiple
  *        ports specified. (Value:
  *        "PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscPortMappingPortMismatch
+ *        Packet is sent to the PSC port mapping service, but its destination
+ *        port does not match any port mapping rules. (Value:
+ *        "PSC_PORT_MAPPING_PORT_MISMATCH")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscPortMappingWithoutPscConnectionUnsupported
+ *        Sending packets directly to the PSC port mapping service without going
+ *        through the PSC connection is not supported. (Value:
+ *        "PSC_PORT_MAPPING_WITHOUT_PSC_CONNECTION_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscTransitivityNotPropagated
  *        PSC endpoint is accessed via NCC, but PSC transitivity configuration
  *        is not yet propagated. (Value: "PSC_TRANSITIVITY_NOT_PROPAGATED")
@@ -3175,6 +3289,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        (Value: "ROUTE_WRONG_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RoutingLoop Packet is stuck
  *        in a routing loop. (Value: "ROUTING_LOOP")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_TrafficFromHybridEndpointToInternetDisallowed
+ *        Packet could be dropped because hybrid endpoint like a VPN gateway or
+ *        Interconnect is not allowed to send traffic to the Internet. (Value:
+ *        "TRAFFIC_FROM_HYBRID_ENDPOINT_TO_INTERNET_DISALLOWED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked The type
  *        of traffic is blocked and the user cannot configure a firewall rule to
  *        enable it. See [Always blocked
@@ -3189,6 +3307,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        this is a shared VPC scenario, verify if the service project ID is
  *        provided as test input. Otherwise, verify if the IP address is being
  *        used in the project. (Value: "UNKNOWN_INTERNAL_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_UnsupportedRouteMatchedForNat64Destination
+ *        Packet with destination IP address within the reserved NAT64 range is
+ *        dropped due to matching a route of an unsupported type. (Value:
+ *        "UNSUPPORTED_ROUTE_MATCHED_FOR_NAT64_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorHealthCheckTrafficBlocked
  *        Packet could be dropped because the health check traffic to the VPC
  *        connector is not allowed. (Value:
@@ -3787,6 +3909,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_Iap
  *        Identity aware proxy.
  *        https://cloud.google.com/iap/docs/using-tcp-forwarding (Value: "IAP")
+ *    @arg @c kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_ServerlessVpcAccess
+ *        Google API via Serverless VPC Access.
+ *        https://cloud.google.com/vpc/docs/serverless-vpc-access (Value:
+ *        "SERVERLESS_VPC_ACCESS")
  */
 @property(nonatomic, copy, nullable) NSString *googleServiceType;
 
@@ -3821,6 +3947,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** URI of the PSC network attachment the NIC is attached to (if relevant). */
 @property(nonatomic, copy, nullable) NSString *pscNetworkAttachmentUri;
+
+/**
+ *  Indicates whether the Compute Engine instance is running.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *running;
 
 /** Service account authorized for the instance. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
@@ -4548,13 +4681,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *abortCause;
 
 /**
- *  The EdgeLocation from which a packet destined for/originating from the
- *  internet will egress/ingress the Google network. This will only be populated
- *  for a connectivity test which has an internet destination/source address.
- *  The absence of this field *must not* be used as an indication that the
- *  destination/source is part of the Google network.
+ *  The EdgeLocation from which a packet, destined to the internet, will egress
+ *  the Google network. This will only be populated for a connectivity test
+ *  which has an internet destination address. The absence of this field *must
+ *  not* be used as an indication that the destination is part of the Google
+ *  network.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_EdgeLocation *destinationEgressLocation;
+
+/** Probing results for all edge devices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_SingleEdgeResponse *> *edgeResponses;
 
 /**
  *  The source and destination endpoints derived from the test input and used
@@ -4566,6 +4702,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Details about an internal failure or the cancellation of active probing.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Status *error;
+
+/**
+ *  Whether all relevant edge devices were probed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *probedAllDevices;
 
 /**
  *  Latency as measured by active probing in one direction: from the source to
@@ -5040,6 +5183,70 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Probing results for a single edge device.
+ */
+@interface GTLRNetworkManagement_SingleEdgeResponse : GTLRObject
+
+/**
+ *  The EdgeLocation from which a packet, destined to the internet, will egress
+ *  the Google network. This will only be populated for a connectivity test
+ *  which has an internet destination address. The absence of this field *must
+ *  not* be used as an indication that the destination is part of the Google
+ *  network.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_EdgeLocation *destinationEgressLocation;
+
+/**
+ *  Router name in the format '{router}.{metroshard}'. For example: pf01.aaa01,
+ *  pr02.aaa01.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationRouter;
+
+/**
+ *  Latency as measured by active probing in one direction: from the source to
+ *  the destination endpoint.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_LatencyDistribution *probingLatency;
+
+/**
+ *  The overall result of active probing for this egress device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_SingleEdgeResponse_Result_ProbingResultUnspecified
+ *        No result was specified. (Value: "PROBING_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_SingleEdgeResponse_Result_ReachabilityInconsistent
+ *        Less than 95% of packets reached the destination. (Value:
+ *        "REACHABILITY_INCONSISTENT")
+ *    @arg @c kGTLRNetworkManagement_SingleEdgeResponse_Result_Reachable At
+ *        least 95% of packets reached the destination. (Value: "REACHABLE")
+ *    @arg @c kGTLRNetworkManagement_SingleEdgeResponse_Result_Undetermined
+ *        Reachability could not be determined. Possible reasons are: * The user
+ *        lacks permission to access some of the network resources required to
+ *        run the test. * No valid source endpoint could be derived from the
+ *        request. * An internal error occurred. (Value: "UNDETERMINED")
+ *    @arg @c kGTLRNetworkManagement_SingleEdgeResponse_Result_Unreachable No
+ *        packets reached the destination. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
+
+/**
+ *  Number of probes sent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentProbeCount;
+
+/**
+ *  Number of probes that reached the destination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successfulProbeCount;
 
 @end
 
@@ -5526,7 +5733,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  Optional. The state of the VPC Flow Log configuration. Default value is
- *  ENABLED. When creating a new configuration, it must be enabled.
+ *  ENABLED. When creating a new configuration, it must be enabled. Setting
+ *  state=DISABLED will pause the log generation for this config.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_State_Disabled When

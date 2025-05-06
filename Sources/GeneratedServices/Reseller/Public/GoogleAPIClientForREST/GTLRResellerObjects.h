@@ -321,7 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
  *  license for the product defined in `skuId`. This field's value is equivalent
  *  to the numerical count of users returned by the Enterprise License Manager
  *  API method:
- *  [`listForProductAndSku`](/admin-sdk/licensing/v1/reference/licenseAssignments/listForProductAndSku).
+ *  [`listForProductAndSku`](https://developers.google.com/workspace/admin/licensing/v1/reference/licenseAssignments/listForProductAndSku).
  *
  *  Uses NSNumber of intValue.
  */

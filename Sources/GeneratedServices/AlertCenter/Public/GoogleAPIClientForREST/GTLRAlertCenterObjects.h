@@ -440,6 +440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockPagePrint;
 /**
+ *  Block screenshot alert.
+ *
+ *  Value: "CHROME_BLOCK_SCREENSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockScreenshot;
+/**
  *  Block Chrome URL visit.
  *
  *  Value: "CHROME_BLOCK_URL_VISITED"
@@ -634,6 +640,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockPagePrint;
 /**
+ *  Block screenshot alert.
+ *
+ *  Value: "CHROME_BLOCK_SCREENSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockScreenshot;
+/**
  *  Block Chrome URL visit.
  *
  *  Value: "CHROME_BLOCK_URL_VISITED"
@@ -786,6 +798,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_
  *  Value: "UNLICENSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Unlicensed;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_VaultAcceleratedDeletion.actionType
+
+/**
+ *  AD Cancel action type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CANCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCancel;
+/**
+ *  AD Create action type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCreate;
+/**
+ *  Unspecified action type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_VaultAcceleratedDeletion.appType
+
+/**
+ *  Gmail app type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_APP_TYPE_GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeGmail;
+/**
+ *  Unspecified app type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_APP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_VoicemailRecipientError.invalidReason
@@ -1300,9 +1350,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  * Alerts from AppSettingsChanged bucket Rules configured by Admin which
- *  contain the below rules. Calendar settings changed Drive settings changed
- *  Email settings changed Mobile settings changed
+ *  Alerts from AppSettingsChanged bucket Rules configured by Admin which
+ *  contain the following rules: - Calendar settings changed - Drive settings
+ *  changed - Email settings changed - Mobile settings changed
  */
 @interface GTLRAlertCenter_AppSettingsChanged : GTLRObject
 
@@ -2049,7 +2099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  * Event occurred when primary admin changed in customer's account. The event
+ *  Event occurred when primary admin changed in customer's account. The event
  *  are being received from insight forwarder
  */
 @interface GTLRAlertCenter_PrimaryAdminChangedEvent : GTLRObject
@@ -2301,8 +2351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  * Event occurred when SSO Profile created in customer's account. The event
- *  are being received from insight forwarder
+ *  Event occurred when SSO Profile created in customer's account. The event are
+ *  being received from insight forwarder
  */
 @interface GTLRAlertCenter_SSOProfileCreatedEvent : GTLRObject
 
@@ -2313,8 +2363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  * Event occurred when SSO Profile deleted in customer's account. The event
- *  are being received from insight forwarder
+ *  Event occurred when SSO Profile deleted in customer's account. The event are
+ *  being received from insight forwarder
  */
 @interface GTLRAlertCenter_SSOProfileDeletedEvent : GTLRObject
 
@@ -2325,8 +2375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  * Event occurred when SSO Profile updated in customer's account. The event
- *  are being received from insight forwarder
+ *  Event occurred when SSO Profile updated in customer's account. The event are
+ *  being received from insight forwarder
  */
 @interface GTLRAlertCenter_SSOProfileUpdatedEvent : GTLRObject
 
@@ -2396,7 +2446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  * Event occurred when password was reset for super admin in customer's
+ *  Event occurred when password was reset for super admin in customer's
  *  account. The event are being received from insight forwarder
  */
 @interface GTLRAlertCenter_SuperAdminPasswordResetEvent : GTLRObject
@@ -2576,10 +2626,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  * Alerts from UserChanges bucket Rules for predefined rules which contain
- *  the below rules. Suspended user made active New user Added User suspended
- *  (by admin) User granted admin privileges User admin privileges revoked User
- *  deleted Users password changed
+ *  Alerts from UserChanges bucket Rules for predefined rules which contain the
+ *  following rules: - Suspended user made active - New user added - User
+ *  suspended (by admin) - User granted admin privileges - User admin privileges
+ *  revoked - User deleted - Users password changed
  */
 @interface GTLRAlertCenter_UserChanges : GTLRObject
 
@@ -2599,6 +2649,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /** Resource name that uniquely identifies the detector. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Alert that is triggered when a Vault accelerated deletion request is created
+ *  or canceled.
+ */
+@interface GTLRAlertCenter_VaultAcceleratedDeletion : GTLRObject
+
+/**
+ *  The action can be one of create and cancel
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCancel
+ *        AD Cancel action type (Value:
+ *        "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CANCEL")
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCreate
+ *        AD Create action type (Value:
+ *        "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CREATE")
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeUnspecified
+ *        Unspecified action type (Value:
+ *        "VAULT_ACCELERATED_DELETION_ACTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *actionType;
+
+/**
+ *  Currentlty only Gmail is supported as app type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeGmail
+ *        Gmail app type (Value: "VAULT_ACCELERATED_DELETION_APP_TYPE_GMAIL")
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeUnspecified
+ *        Unspecified app type (Value:
+ *        "VAULT_ACCELERATED_DELETION_APP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/** The UTC timestamp of when the AD request was created */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Accelerated deletion request ID intended to be used to construct the Vault
+ *  UI link to the AD request
+ */
+@property(nonatomic, copy, nullable) NSString *deletionRequestId;
+
+/**
+ *  Matter ID of the accelerated deletion request intended to be used to
+ *  construct the Vault UI link to the AD request
+ */
+@property(nonatomic, copy, nullable) NSString *matterId;
 
 @end
 

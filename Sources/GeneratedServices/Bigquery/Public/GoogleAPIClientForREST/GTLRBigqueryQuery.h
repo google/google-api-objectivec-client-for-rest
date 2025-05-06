@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 // datasetView
 
 /**
- *  Includes ACL information for the dataset, which defines dataset access for
+ *  Updates ACL information for the dataset, which defines dataset access for
  *  one or more entities.
  *
  *  Value: "ACL"
@@ -43,14 +43,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewAcl;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewDatasetViewUnspecified;
 /**
- *  Includes both dataset metadata and ACL information.
+ *  Updates both dataset metadata and ACL information.
  *
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewFull;
 /**
- *  Includes metadata information for the dataset, such as location, etag,
- *  lastModifiedTime, etc.
+ *  Updates metadata information for the dataset, such as friendlyName,
+ *  description, labels, etc.
  *
  *  Value: "METADATA"
  */
@@ -93,6 +93,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterPending;
  *  Value: "running"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
+
+// ----------------------------------------------------------------------------
+// updateMode
+
+/**
+ *  Includes ACL information for the dataset, which defines dataset access for
+ *  one or more entities.
+ *
+ *  Value: "UPDATE_ACL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateAcl;
+/**
+ *  Includes both dataset metadata and ACL information.
+ *
+ *  Value: "UPDATE_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateFull;
+/**
+ *  Includes metadata information for the dataset, such as friendlyName,
+ *  description, labels, etc.
+ *
+ *  Value: "UPDATE_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateMetadata;
+/**
+ *  The default value. Default to the UPDATE_FULL.
+ *
+ *  Value: "UPDATE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // view
@@ -226,14 +256,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Likely values:
  *    @arg @c kGTLRBigqueryDatasetViewDatasetViewUnspecified The default value.
  *        Default to the FULL view. (Value: "DATASET_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRBigqueryDatasetViewMetadata Includes metadata information for
- *        the dataset, such as location, etag, lastModifiedTime, etc. (Value:
+ *    @arg @c kGTLRBigqueryDatasetViewMetadata Updates metadata information for
+ *        the dataset, such as friendlyName, description, labels, etc. (Value:
  *        "METADATA")
- *    @arg @c kGTLRBigqueryDatasetViewAcl Includes ACL information for the
+ *    @arg @c kGTLRBigqueryDatasetViewAcl Updates ACL information for the
  *        dataset, which defines dataset access for one or more entities.
  *        (Value: "ACL")
- *    @arg @c kGTLRBigqueryDatasetViewFull Includes both dataset metadata and
- *        ACL information. (Value: "FULL")
+ *    @arg @c kGTLRBigqueryDatasetViewFull Updates both dataset metadata and ACL
+ *        information. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *datasetView;
 
@@ -397,6 +427,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
+ *  Optional. Specifies the fields of dataset that update/patch operation is
+ *  targeting By default, both metadata and ACL fields are updated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateModeUnspecified The default value.
+ *        Default to the UPDATE_FULL. (Value: "UPDATE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateMetadata Includes metadata
+ *        information for the dataset, such as friendlyName, description,
+ *        labels, etc. (Value: "UPDATE_METADATA")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateAcl Includes ACL information for the
+ *        dataset, which defines dataset access for one or more entities.
+ *        (Value: "UPDATE_ACL")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateFull Includes both dataset metadata
+ *        and ACL information. (Value: "UPDATE_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *updateMode;
+
+/**
  *  Fetches a @c GTLRBigquery_Dataset.
  *
  *  Updates information in an existing dataset. The update method replaces the
@@ -491,6 +539,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /** Required. Project ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Optional. Specifies the fields of dataset that update/patch operation is
+ *  targeting By default, both metadata and ACL fields are updated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateModeUnspecified The default value.
+ *        Default to the UPDATE_FULL. (Value: "UPDATE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateMetadata Includes metadata
+ *        information for the dataset, such as friendlyName, description,
+ *        labels, etc. (Value: "UPDATE_METADATA")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateAcl Includes ACL information for the
+ *        dataset, which defines dataset access for one or more entities.
+ *        (Value: "UPDATE_ACL")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateFull Includes both dataset metadata
+ *        and ACL information. (Value: "UPDATE_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *updateMode;
 
 /**
  *  Fetches a @c GTLRBigquery_Dataset.

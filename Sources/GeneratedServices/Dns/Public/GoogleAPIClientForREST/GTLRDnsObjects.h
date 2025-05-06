@@ -1209,6 +1209,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ManagedZoneForwardingConfigNameServerTarget : GTLRObject
 
+/** Fully qualified domain name for the forwarding target. */
+@property(nonatomic, copy, nullable) NSString *domainName;
+
 /**
  *  Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud
  *  DNS makes forwarding decisions based on IP address ranges; that is, RFC1918

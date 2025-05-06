@@ -508,7 +508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, strong, nullable) NSNumber *currentSlots;
 
 /**
- *  Number of slots to be scaled when needed.
+ *  Optional. Number of slots to be scaled when needed.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -929,13 +929,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  */
 @interface GTLRBigQueryReservation_Reservation : GTLRObject
 
-/** The configuration parameters for the auto scaling feature. */
+/** Optional. The configuration parameters for the auto scaling feature. */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Autoscale *autoscale;
 
 /**
- *  Job concurrency target which sets a soft upper bound on the number of jobs
- *  that can run concurrently in this reservation. This is a soft target due to
- *  asynchronous nature of the system and various optimizations for small
+ *  Optional. Job concurrency target which sets a soft upper bound on the number
+ *  of jobs that can run concurrently in this reservation. This is a soft target
+ *  due to asynchronous nature of the system and various optimizations for small
  *  queries. Default value is 0 which means that concurrency target will be
  *  automatically computed by the system. NOTE: this field is exposed as target
  *  job concurrency in the Information Schema, DDL and BigQuery CLI.
@@ -948,7 +948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Edition of the reservation.
+ *  Optional. Edition of the reservation.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified
@@ -964,10 +964,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, copy, nullable) NSString *edition;
 
 /**
- *  If false, any query or pipeline job using this reservation will use idle
- *  slots from other reservations within the same admin project. If true, a
- *  query or pipeline job using this reservation will execute with the slot
- *  capacity specified in the slot_capacity field at most.
+ *  Optional. If false, any query or pipeline job using this reservation will
+ *  use idle slots from other reservations within the same admin project. If
+ *  true, a query or pipeline job using this reservation will execute with the
+ *  slot capacity specified in the slot_capacity field at most.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1029,13 +1029,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary;
+@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary GTLR_DEPRECATED;
 
 /**
- *  The resource name of the reservation, e.g., `projects/ * /locations/ *
- *  /reservations/team1-prod`. The reservation_id must only contain lower case
- *  alphanumeric characters or dashes. It must start with a letter and must not
- *  end with a dash. Its maximum length is 64 characters.
+ *  Identifier. The resource name of the reservation, e.g., `projects/ *
+ *  /locations/ * /reservations/team1-prod`. The reservation_id must only
+ *  contain lower case alphanumeric characters or dashes. It must start with a
+ *  letter and must not end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1066,8 +1066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_ReplicationStatus *replicationStatus;
 
 /**
- *  The scaling mode for the reservation. If the field is present but max_slots
- *  is not present, requests will be rejected with error code
+ *  Optional. The scaling mode for the reservation. If the field is present but
+ *  max_slots is not present, requests will be rejected with error code
  *  `google.rpc.Code.INVALID_ARGUMENT`.
  *
  *  Likely values:
@@ -1129,7 +1129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, copy, nullable) NSString *secondaryLocation;
 
 /**
- *  Baseline slots available to this reservation. A slot is a unit of
+ *  Optional. Baseline slots available to this reservation. A slot is a unit of
  *  computational power in BigQuery, and serves as the unit of parallelism.
  *  Queries using this reservation might use more slots during runtime if
  *  ignore_idle_slots is set to false, or autoscaling is enabled. The total

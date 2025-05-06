@@ -19,9 +19,13 @@
 @class GTLRBackupforGKE_AuditLogConfig;
 @class GTLRBackupforGKE_Backup;
 @class GTLRBackupforGKE_Backup_Labels;
+@class GTLRBackupforGKE_BackupChannel;
+@class GTLRBackupforGKE_BackupChannel_Labels;
 @class GTLRBackupforGKE_BackupConfig;
 @class GTLRBackupforGKE_BackupPlan;
 @class GTLRBackupforGKE_BackupPlan_Labels;
+@class GTLRBackupforGKE_BackupPlanBinding;
+@class GTLRBackupforGKE_BackupPlanDetails;
 @class GTLRBackupforGKE_Binding;
 @class GTLRBackupforGKE_ClusterMetadata;
 @class GTLRBackupforGKE_ClusterMetadata_BackupCrdVersions;
@@ -51,10 +55,13 @@
 @class GTLRBackupforGKE_ResourceSelector_Labels;
 @class GTLRBackupforGKE_Restore;
 @class GTLRBackupforGKE_Restore_Labels;
+@class GTLRBackupforGKE_RestoreChannel;
+@class GTLRBackupforGKE_RestoreChannel_Labels;
 @class GTLRBackupforGKE_RestoreConfig;
 @class GTLRBackupforGKE_RestoreOrder;
 @class GTLRBackupforGKE_RestorePlan;
 @class GTLRBackupforGKE_RestorePlan_Labels;
+@class GTLRBackupforGKE_RestorePlanBinding;
 @class GTLRBackupforGKE_RetentionPolicy;
 @class GTLRBackupforGKE_RpoConfig;
 @class GTLRBackupforGKE_Schedule;
@@ -192,6 +199,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Ready;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_BackupPlanDetails.state
+
+/**
+ *  Waiting for cluster state to be RUNNING.
+ *
+ *  Value: "CLUSTER_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_ClusterPending;
+/**
+ *  The BackupPlan has been deactivated.
+ *
+ *  Value: "DEACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deactivated;
+/**
+ *  The BackupPlan is in the process of being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deleting;
+/**
+ *  BackupPlan creation has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Failed;
+/**
+ *  The BackupPlan is in the process of being created.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Provisioning;
+/**
+ *  The BackupPlan has successfully been created and is ready for Backups.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Ready;
+/**
+ *  Default first value for Enums.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupforGKE_DayOfWeekList.daysOfWeek
@@ -1044,6 +1097,87 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  A BackupChannel imposes constraints on where clusters can be backed up. The
+ *  BackupChannel should be in the same project and region as the cluster being
+ *  backed up. The backup can be created only in destination_project.
+ */
+@interface GTLRBackupforGKE_BackupChannel : GTLRObject
+
+/**
+ *  Output only. The timestamp when this BackupChannel resource was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User specified descriptive string for this BackupChannel.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The project where Backups are allowed to be stored. The
+ *  format is `projects/{project}`. Currently, {project} can only be the project
+ *  number. Support for project IDs will be added in the future.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProject;
+
+/**
+ *  Output only. The project_id where Backups are allowed to be stored. Example
+ *  Project ID: "my-project-id". This will be an OUTPUT_ONLY field to return the
+ *  project_id of the destination project.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProjectId;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a BackupChannel from overwriting each
+ *  other. It is strongly suggested that systems make use of the 'etag' in the
+ *  read-modify-write cycle to perform BackupChannel updates in order to avoid
+ *  race conditions: An `etag` is returned in the response to
+ *  `GetBackupChannel`, and systems are expected to put that etag in the request
+ *  to `UpdateBackupChannel` or `DeleteBackupChannel` to ensure that their
+ *  change will be applied to the same version of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. A set of custom labels supplied by user. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupChannel_Labels *labels;
+
+/**
+ *  Identifier. The fully qualified name of the BackupChannel. `projects/ *
+ *  /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp when this BackupChannel resource was last
+ *  updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. A set of custom labels supplied by user.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_BackupChannel_Labels : GTLRObject
+@end
+
+
+/**
  *  BackupConfig defines the configuration of Backups created via this
  *  BackupPlan.
  */
@@ -1256,6 +1390,129 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        fetch them all at once.
  */
 @interface GTLRBackupforGKE_BackupPlan_Labels : GTLRObject
+@end
+
+
+/**
+ *  A BackupPlanBinding binds a BackupPlan with a BackupChannel. This resource
+ *  is created automatically when a BackupPlan is created using a BackupChannel.
+ *  This also serves as a holder for cross-project fields that need to be
+ *  displayed in the current project.
+ */
+@interface GTLRBackupforGKE_BackupPlanBinding : GTLRObject
+
+/**
+ *  Output only. Immutable. The fully qualified name of the BackupPlan bound
+ *  with the parent BackupChannel. `projects/ * /locations/ *
+ *  /backupPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlan;
+
+/** Output only. Contains details about the backup plan/backup. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupPlanDetails *backupPlanDetails;
+
+/**
+ *  Output only. Immutable. The fully qualified name of the cluster that is
+ *  being backed up Valid formats: - `projects/ * /locations/ * /clusters/ *` -
+ *  `projects/ * /zones/ * /clusters/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a BackupPlanBinding from overwriting
+ *  each other. It is strongly suggested that systems make use of the 'etag' in
+ *  the read-modify-write cycle to perform BackupPlanBinding updates in order to
+ *  avoid race conditions: An `etag` is returned in the response to
+ *  `GetBackupPlanBinding`, and systems are expected to put that etag in the
+ *  request to `UpdateBackupPlanBinding` or `DeleteBackupPlanBinding` to ensure
+ *  that their change will be applied to the same version of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The fully qualified name of the BackupPlanBinding. `projects/ *
+ *  /locations/ * /backupChannels/ * /backupPlanBindings/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID4](https://en.wikipedia.org/wiki/Universally_unique_identifier)
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Contains metadata about the backup plan/backup.
+ */
+@interface GTLRBackupforGKE_BackupPlanDetails : GTLRObject
+
+/**
+ *  Output only. The fully qualified name of the last successful Backup created
+ *  under this BackupPlan. `projects/ * /locations/ * /backupPlans/ * /backups/
+ *  *`
+ */
+@property(nonatomic, copy, nullable) NSString *lastSuccessfulBackup;
+
+/**
+ *  Output only. Completion time of the last successful Backup. This is sourced
+ *  from a successful Backup's complete_time field.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupTime;
+
+/**
+ *  Output only. Start time of next scheduled backup under this BackupPlan by
+ *  either cron_schedule or rpo config. This is sourced from BackupPlan.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextScheduledBackupTime;
+
+/**
+ *  Output only. The number of Kubernetes Pods backed up in the last successful
+ *  Backup created via this BackupPlan.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protectedPodCount;
+
+/**
+ *  Output only. A number that represents the current risk level of this
+ *  BackupPlan from RPO perspective with 1 being no risk and 5 being highest
+ *  risk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rpoRiskLevel;
+
+/**
+ *  Output only. State of the BackupPlan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_ClusterPending Waiting
+ *        for cluster state to be RUNNING. (Value: "CLUSTER_PENDING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Deactivated The
+ *        BackupPlan has been deactivated. (Value: "DEACTIVATED")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Deleting The BackupPlan
+ *        is in the process of being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Failed BackupPlan
+ *        creation has failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Provisioning The
+ *        BackupPlan is in the process of being created. (Value: "PROVISIONING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Ready The BackupPlan has
+ *        successfully been created and is ready for Backups. (Value: "READY")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_StateUnspecified Default
+ *        first value for Enums. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -1636,6 +1893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  */
 @interface GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse : GTLRObject
 
+/** Required. The signed URL for downloading the backup index. */
 @property(nonatomic, copy, nullable) NSString *signedUrl;
 
 @end
@@ -1842,6 +2100,68 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  Response message for ListBackupChannels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backupChannels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBackupforGKE_ListBackupChannelsResponse : GTLRCollectionObject
+
+/**
+ *  The list of BackupChannels matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_BackupChannel *> *backupChannels;
+
+/**
+ *  A token which may be sent as page_token in a subsequent `ListBackupChannels`
+ *  call to retrieve the next page of results. If this field is omitted or
+ *  empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListBackupPlanBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backupPlanBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupforGKE_ListBackupPlanBindingsResponse : GTLRCollectionObject
+
+/**
+ *  The list of BackupPlanBindings matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_BackupPlanBinding *> *backupPlanBindings;
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListBackupPlanBindingss` call to retrieve the next page of results. If this
+ *  field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response message for ListBackupPlans.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1923,6 +2243,68 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListRestoreChannels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restoreChannels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBackupforGKE_ListRestoreChannelsResponse : GTLRCollectionObject
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListRestoreChannels` call to retrieve the next page of results. If this
+ *  field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RestoreChannels matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_RestoreChannel *> *restoreChannels;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListRestorePlanBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restorePlanBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupforGKE_ListRestorePlanBindingsResponse : GTLRCollectionObject
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListRestorePlanBindings` call to retrieve the next page of results. If this
+ *  field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RestorePlanBindings matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_RestorePlanBinding *> *restorePlanBindings;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2400,7 +2782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  User specified descriptive string for this Restore.
+ *  Optional. User specified descriptive string for this Restore.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2533,6 +2915,82 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        fetch them all at once.
  */
 @interface GTLRBackupforGKE_Restore_Labels : GTLRObject
+@end
+
+
+/**
+ *  A RestoreChannel imposes constraints on where backups can be restored. The
+ *  RestoreChannel should be in the same project and region as the backups. The
+ *  backups can only be restored in the `destination_project`.
+ */
+@interface GTLRBackupforGKE_RestoreChannel : GTLRObject
+
+/** Output only. The timestamp when this RestoreChannel was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User specified descriptive string for this RestoreChannel.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The project into which the backups will be restored.
+ *  The format is `projects/{project}`. Currently, {project} can only be the
+ *  project number. Support for project IDs will be added in the future.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProject;
+
+/**
+ *  Output only. The project_id where backups will be restored. Example Project
+ *  ID: "my-project-id". This will be an OUTPUT_ONLY field to return the
+ *  project_id of the destination project.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProjectId;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a RestoreChannel from overwriting each
+ *  other. It is strongly suggested that systems make use of the 'etag' in the
+ *  read-modify-write cycle to perform RestoreChannel updates in order to avoid
+ *  race conditions: An `etag` is returned in the response to
+ *  `GetRestoreChannel`, and systems are expected to put that etag in the
+ *  request to `UpdateRestoreChannel` or `DeleteRestoreChannel` to ensure that
+ *  their change will be applied to the same version of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. A set of custom labels supplied by user. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_RestoreChannel_Labels *labels;
+
+/**
+ *  Identifier. The fully qualified name of the RestoreChannel. `projects/ *
+ *  /locations/ * /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The timestamp when this RestoreChannel was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. A set of custom labels supplied by user.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_RestoreChannel_Labels : GTLRObject
 @end
 
 
@@ -2840,6 +3298,61 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        fetch them all at once.
  */
 @interface GTLRBackupforGKE_RestorePlan_Labels : GTLRObject
+@end
+
+
+/**
+ *  A RestorePlanBinding binds a RestorePlan with a RestoreChannel. This
+ *  resource is created automatically when a RestorePlan is created using a
+ *  RestoreChannel. This also serves as a holder for cross-project fields that
+ *  need to be displayed in the current project.
+ */
+@interface GTLRBackupforGKE_RestorePlanBinding : GTLRObject
+
+/**
+ *  Output only. The fully qualified name of the BackupPlan bound to the
+ *  specified RestorePlan. `projects/ * /locations/ *
+ *  /backukpPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlan;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a RestorePlanBinding from overwriting
+ *  each other. It is strongly suggested that systems make use of the 'etag' in
+ *  the read-modify-write cycle to perform RestorePlanBinding updates in order
+ *  to avoid race conditions: An `etag` is returned in the response to
+ *  `GetRestorePlanBinding`, and systems are expected to put that etag in the
+ *  request to `UpdateRestorePlanBinding` or `DeleteRestorePlanBinding` to
+ *  ensure that their change will be applied to the same version of the
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The fully qualified name of the RestorePlanBinding. `projects/ *
+ *  /locations/ * /restoreChannels/ * /restorePlanBindings/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The fully qualified name of the RestorePlan bound to this
+ *  RestoreChannel. `projects/ * /locations/ * /restorePlans/{restore_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *restorePlan;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID4](https://en.wikipedia.org/wiki/Universally_unique_identifier)
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 

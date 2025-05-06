@@ -455,7 +455,7 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_ManagedZoneForwardingConfigNameServerTarget
-@dynamic forwardingPath, ipv4Address, ipv6Address, kind;
+@dynamic domainName, forwardingPath, ipv4Address, ipv6Address, kind;
 @end
 
 

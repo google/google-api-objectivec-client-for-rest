@@ -544,7 +544,14 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @implementation GTLRAppengineQuery_AppsLocationsList
 
-@dynamic appsId, filter, pageSize, pageToken;
+@dynamic appsId, extraLocationTypes, filter, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithAppsId:(NSString *)appsId {
   NSArray *pathParams = @[ @"appsId" ];
@@ -1114,6 +1121,45 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
   query.versionsId = versionsId;
   query.expectedObjectClass = [GTLRAppengine_Operation class];
   query.loggingName = @"appengine.projects.locations.applications.services.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsPatch
+
+@dynamic applicationsId, locationsId, projectsId, servicesId, updateMask,
+         versionsId;
+
++ (instancetype)queryWithObject:(GTLRAppengine_Version *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+                     servicesId:(NSString *)servicesId
+                     versionsId:(NSString *)versionsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId", @"servicesId",
+    @"versionsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}/versions/{versionsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.servicesId = servicesId;
+  query.versionsId = versionsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.services.versions.patch";
   return query;
 }
 

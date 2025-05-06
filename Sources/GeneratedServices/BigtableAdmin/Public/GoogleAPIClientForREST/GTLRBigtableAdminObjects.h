@@ -578,8 +578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_MultiClusterRoutingUseAny *multiClusterRoutingUseAny;
 
 /**
- *  The unique name of the app profile. Values are of the form
- *  `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
+ *  The unique name of the app profile, up to 50 characters long. Values are of
+ *  the form `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2813,6 +2813,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for BigtableInstanceAdmin.ListLogicalViews.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "logicalViews" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigtableAdmin_ListLogicalViewsResponse : GTLRCollectionObject
+
+/**
+ *  The list of requested logical views.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_LogicalView *> *logicalViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for BigtableInstanceAdmin.ListMaterializedViews.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "materializedViews" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBigtableAdmin_ListMaterializedViewsResponse : GTLRCollectionObject
+
+/**
+ *  The list of requested materialized views.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_MaterializedView *> *materializedViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2928,6 +2982,13 @@ GTLR_DEPRECATED
  *  A SQL logical view object that can be referenced in SQL queries.
  */
 @interface GTLRBigtableAdmin_LogicalView : GTLRObject
+
+/**
+ *  Optional. Set to true to make the LogicalView protected against deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
 
 /**
  *  Optional. The etag for this logical view. This may be sent on update
@@ -3654,6 +3715,43 @@ GTLR_DEPRECATED
  *  backup), this field will be populated with information about the restore.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_RestoreInfo *restoreInfo;
+
+/**
+ *  The row key schema for this table. The schema is used to decode the raw row
+ *  key bytes into a structured format. The order of field declarations in this
+ *  schema is important, as it reflects how the raw row key bytes are
+ *  structured. Currently, this only affects how the key is read via a GoogleSQL
+ *  query from the ExecuteQuery API. For a SQL query, the _key column is still
+ *  read as raw bytes. But queries can reference the key fields by name, which
+ *  will be decoded from _key using provided type and encoding. Queries that
+ *  reference key fields will fail if they encounter an invalid row key. For
+ *  example, if _key = "some_id#2024-04-30#\\x00\\x13\\x00\\xf3" with the
+ *  following schema: { fields { field_name: "id" type { string { encoding:
+ *  utf8_bytes {} } } } fields { field_name: "date" type { string { encoding:
+ *  utf8_bytes {} } } } fields { field_name: "product_code" type { int64 {
+ *  encoding: big_endian_bytes {} } } } encoding { delimited_bytes { delimiter:
+ *  "#" } } } The decoded key parts would be: id = "some_id", date =
+ *  "2024-04-30", product_code = 1245427 The query "SELECT _key, product_code
+ *  FROM table" will return two columns:
+ *  /------------------------------------------------------\\ | _key |
+ *  product_code | | --------------------------------------|--------------| |
+ *  "some_id#2024-04-30#\\x00\\x13\\x00\\xf3" | 1245427 |
+ *  \\------------------------------------------------------/ The schema has the
+ *  following invariants: (1) The decoded field values are order-preserved. For
+ *  read, the field values will be decoded in sorted mode from the raw bytes.
+ *  (2) Every field in the schema must specify a non-empty name. (3) Every field
+ *  must specify a type with an associated encoding. The type is limited to
+ *  scalar types only: Array, Map, Aggregate, and Struct are not allowed. (4)
+ *  The field names must not collide with existing column family names and
+ *  reserved keywords "_key" and "_timestamp". The following update operations
+ *  are allowed for row_key_schema: - Update from an empty schema to a new
+ *  schema. - Remove the existing schema. This operation requires setting the
+ *  `ignore_warnings` flag to `true`, since it might be a backward incompatible
+ *  change. Without the flag, the update request will fail with an
+ *  INVALID_ARGUMENT error. Any other row key schema update operation (e.g.
+ *  update existing schema columns names or types) is currently unsupported.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct *rowKeySchema;
 
 /**
  *  Output only. Only available with STATS_VIEW, this includes summary

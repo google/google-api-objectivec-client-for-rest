@@ -1347,6 +1347,18 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueTy
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Unspecified = @"UNSPECIFIED";
 
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer.accountLevel
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_AssociateManager = @"ASSOCIATE_MANAGER";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountEngineTrack = @"CLIENT_ACCOUNT_ENGINE_TRACK";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountFacebook = @"CLIENT_ACCOUNT_FACEBOOK";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountGoogleAds = @"CLIENT_ACCOUNT_GOOGLE_ADS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountMicrosoft = @"CLIENT_ACCOUNT_MICROSOFT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountYahooJapan = @"CLIENT_ACCOUNT_YAHOO_JAPAN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Manager = @"MANAGER";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_SubManager = @"SUB_MANAGER";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Unspecified = @"UNSPECIFIED";
+
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer.accountStatus
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountStatus_Draft = @"DRAFT";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountStatus_Enabled = @"ENABLED";
@@ -3217,11 +3229,13 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer
-@dynamic accountStatus, accountType, autoTaggingEnabled,
-         conversionTrackingSetting, creationTime, currencyCode, descriptiveName,
-         doubleClickCampaignManagerSetting, engineId, finalUrlSuffix,
-         identifier, lastModifiedTime, manager, resourceName, status, timeZone,
-         trackingUrlTemplate;
+@dynamic accountLevel, accountStatus, accountType,
+         associateManagerDescriptiveName, associateManagerId,
+         autoTaggingEnabled, conversionTrackingSetting, creationTime,
+         currencyCode, descriptiveName, doubleClickCampaignManagerSetting,
+         engineId, finalUrlSuffix, identifier, lastModifiedTime, manager,
+         managerDescriptiveName, managerId, resourceName, status,
+         subManagerDescriptiveName, subManagerId, timeZone, trackingUrlTemplate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

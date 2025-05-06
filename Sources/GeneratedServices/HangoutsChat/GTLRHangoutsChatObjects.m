@@ -640,7 +640,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_CustomEmoji
-@dynamic uid;
+@dynamic emojiName, name, payload, temporaryImageUri, uid;
 @end
 
 
@@ -651,6 +651,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_CustomEmojiMetadata
 @dynamic customEmoji;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_CustomEmojiPayload
+//
+
+@implementation GTLRHangoutsChat_CustomEmojiPayload
+@dynamic fileContent, filename;
 @end
 
 
@@ -1238,7 +1248,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1SelectionItem
-@dynamic bottomText, selected, startIconUri, text, value;
+@dynamic bottomText, materialIcon, selected, startIconUri, text, value;
 @end
 
 
@@ -1392,6 +1402,28 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 @implementation GTLRHangoutsChat_KeyValue
 @dynamic bottomLabel, button, content, contentMultiline, icon, iconUrl, onClick,
          topLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ListCustomEmojisResponse
+//
+
+@implementation GTLRHangoutsChat_ListCustomEmojisResponse
+@dynamic customEmojis, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customEmojis" : [GTLRHangoutsChat_CustomEmoji class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customEmojis";
+}
+
 @end
 
 

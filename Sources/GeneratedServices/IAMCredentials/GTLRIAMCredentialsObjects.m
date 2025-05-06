@@ -47,7 +47,7 @@
 //
 
 @implementation GTLRIAMCredentials_GenerateIdTokenRequest
-@dynamic audience, delegates, includeEmail;
+@dynamic audience, delegates, includeEmail, organizationNumberIncluded;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -140,4 +140,40 @@
 
 @implementation GTLRIAMCredentials_SignJwtResponse
 @dynamic keyId, signedJwt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIAMCredentials_WorkforcePoolAllowedLocations
+//
+
+@implementation GTLRIAMCredentials_WorkforcePoolAllowedLocations
+@dynamic encodedLocations, locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations
+//
+
+@implementation GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations
+@dynamic encodedLocations, locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
 @end

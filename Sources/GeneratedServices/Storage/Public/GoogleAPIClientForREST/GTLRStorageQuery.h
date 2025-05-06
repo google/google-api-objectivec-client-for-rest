@@ -3689,6 +3689,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long ifSourceMetagenerationNotMatch;
 
 /**
+ *  Set of properties to return. Defaults to noAcl.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageProjectionFull Include all properties. (Value: "full")
+ *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
+ *        "noAcl")
+ */
+@property(nonatomic, copy, nullable) NSString *projection;
+
+/**
  *  Name of the source object. For information about how to URL encode object
  *  names to be path safe, see [Encoding URI Path
  *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).

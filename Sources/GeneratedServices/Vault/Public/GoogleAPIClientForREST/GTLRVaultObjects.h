@@ -1368,7 +1368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeSharedDrives GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) NSNumber *includeSharedDrives;
 
 /**
  *  Set to true to include Team Drive.

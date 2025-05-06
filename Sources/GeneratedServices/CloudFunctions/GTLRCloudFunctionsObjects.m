@@ -825,6 +825,7 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest
+@dynamic triggerServiceAccount;
 @end
 
 

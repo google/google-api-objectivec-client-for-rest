@@ -20,6 +20,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
@@ -336,6 +337,35 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "TRANSACTION_DECLINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionDeclined;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot.botType
+
+/**
+ *  Software program that interacts with a site and performs tasks autonomously.
+ *
+ *  Value: "AI_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_AiAgent;
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "BOT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_BotTypeUnspecified;
+/**
+ *  Software that extracts specific data from sites for use.
+ *
+ *  Value: "CONTENT_SCRAPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_ContentScraper;
+/**
+ *  Software that crawls sites and stores content for the purpose of efficient
+ *  retrieval, likely as part of a search engine.
+ *
+ *  Value: "SEARCH_INDEXER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_SearchIndexer;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
@@ -1173,6 +1203,39 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** Optional. The version of the client module. For example, "1.0.0". */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Bot information and metadata.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot : GTLRObject
+
+/**
+ *  Optional. Enumerated field representing the type of bot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_AiAgent
+ *        Software program that interacts with a site and performs tasks
+ *        autonomously. (Value: "AI_AGENT")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_BotTypeUnspecified
+ *        Default unspecified type. (Value: "BOT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_ContentScraper
+ *        Software that extracts specific data from sites for use. (Value:
+ *        "CONTENT_SCRAPER")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_SearchIndexer
+ *        Software that crawls sites and stores content for the purpose of
+ *        efficient retrieval, likely as part of a search engine. (Value:
+ *        "SEARCH_INDEXER")
+ */
+@property(nonatomic, copy, nullable) NSString *botType;
+
+/**
+ *  Optional. Enumerated string value that indicates the identity of the bot,
+ *  formatted in kebab-case.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2198,6 +2261,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  Output only. Bots with identities that have been verified by reCAPTCHA and
+ *  detected in the event.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot *> *verifiedBots;
 
 @end
 

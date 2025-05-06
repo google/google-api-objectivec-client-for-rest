@@ -122,6 +122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
 
 /**
+ *  Datastax provider. No scopes are allowed.
+ *
+ *  Value: "DATASTAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax;
+/**
  *  GitHub provider. Scopes can be found at
  *  https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
  *
@@ -143,6 +149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *  Value: "GOOGLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google;
+/**
+ *  New Relic provider. No scopes are allowed.
+ *
+ *  Value: "NEW_RELIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic;
 /**
  *  Rovo provider. Must select the "rovo" scope.
  *
@@ -174,7 +186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
 /** Optional. Allows users to store small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_AccountConnector_Annotations *annotations;
 
-/** Output only. The timestamp when the userConnection was created. */
+/** Output only. The timestamp when the accountConnector was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -188,7 +200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_AccountConnector_Labels *labels;
 
 /**
- *  Identifier. The resource name of the userConnection, in the format
+ *  Identifier. The resource name of the accountConnector, in the format
  *  `projects/{project}/locations/{location}/accountConnectors/{account_connector_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -199,7 +211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
 /** Provider OAuth config. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_ProviderOAuthConfig *providerOauthConfig;
 
-/** Output only. The timestamp when the userConnection was updated. */
+/** Output only. The timestamp when the accountConnector was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -1469,6 +1481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *  Immutable. Developer Connect provided OAuth.
  *
  *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax
+ *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Github
  *        GitHub provider. Scopes can be found at
  *        https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -1481,6 +1495,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *        Google provider. Recommended scopes:
  *        "https://www.googleapis.com/auth/drive.readonly",
  *        "https://www.googleapis.com/auth/documents.readonly" (Value: "GOOGLE")
+ *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic
+ *        New Relic provider. No scopes are allowed. (Value: "NEW_RELIC")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo
  *        Rovo provider. Must select the "rovo" scope. (Value: "ROVO")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry
