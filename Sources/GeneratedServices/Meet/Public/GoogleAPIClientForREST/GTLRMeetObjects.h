@@ -6,7 +6,7 @@
 // Description:
 //   Create and manage meetings in Google Meet.
 // Documentation:
-//   https://developers.google.com/meet/api
+//   https://developers.google.com/workspace/meet/api
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -16,17 +16,22 @@
 
 @class GTLRMeet_ActiveConference;
 @class GTLRMeet_AnonymousUser;
+@class GTLRMeet_ArtifactConfig;
 @class GTLRMeet_ConferenceRecord;
 @class GTLRMeet_DocsDestination;
 @class GTLRMeet_DriveDestination;
+@class GTLRMeet_ModerationRestrictions;
 @class GTLRMeet_Participant;
 @class GTLRMeet_ParticipantSession;
 @class GTLRMeet_PhoneUser;
 @class GTLRMeet_Recording;
+@class GTLRMeet_RecordingConfig;
 @class GTLRMeet_SignedinUser;
+@class GTLRMeet_SmartNotesConfig;
 @class GTLRMeet_SpaceConfig;
 @class GTLRMeet_Transcript;
 @class GTLRMeet_TranscriptEntry;
+@class GTLRMeet_TranscriptionConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -37,6 +42,94 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_ModerationRestrictions.chatRestriction
+
+/**
+ *  Meeting owner and co-host have the permission.
+ *
+ *  Value: "HOSTS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_HostsOnly;
+/**
+ *  All Participants have permissions.
+ *
+ *  Value: "NO_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_NoRestriction;
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "RESTRICTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_RestrictionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_ModerationRestrictions.defaultJoinAsViewerType
+
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_DefaultJoinAsViewerTypeUnspecified;
+/**
+ *  Users will by default join as contributors.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_Off;
+/**
+ *  Users will by default join as viewers.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_On;
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_ModerationRestrictions.presentRestriction
+
+/**
+ *  Meeting owner and co-host have the permission.
+ *
+ *  Value: "HOSTS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_PresentRestriction_HostsOnly;
+/**
+ *  All Participants have permissions.
+ *
+ *  Value: "NO_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_PresentRestriction_NoRestriction;
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "RESTRICTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_PresentRestriction_RestrictionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_ModerationRestrictions.reactionRestriction
+
+/**
+ *  Meeting owner and co-host have the permission.
+ *
+ *  Value: "HOSTS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_ReactionRestriction_HostsOnly;
+/**
+ *  All Participants have permissions.
+ *
+ *  Value: "NO_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_ReactionRestriction_NoRestriction;
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "RESTRICTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_ModerationRestrictions_ReactionRestriction_RestrictionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMeet_Recording.state
@@ -66,6 +159,50 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Recording_State_Started;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMeet_Recording_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_RecordingConfig.autoRecordingGeneration
+
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "AUTO_GENERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_AutoGenerationTypeUnspecified;
+/**
+ *  The artifact is not generated automatically.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_Off;
+/**
+ *  The artifact is generated automatically.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_On;
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_SmartNotesConfig.autoSmartNotesGeneration
+
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "AUTO_GENERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_AutoGenerationTypeUnspecified;
+/**
+ *  The artifact is not generated automatically.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_Off;
+/**
+ *  The artifact is generated automatically.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_On;
 
 // ----------------------------------------------------------------------------
 // GTLRMeet_SpaceConfig.accessType
@@ -99,6 +236,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_AccessType_Restricted;
 FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_AccessType_Trusted;
 
 // ----------------------------------------------------------------------------
+// GTLRMeet_SpaceConfig.attendanceReportGenerationType
+
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "ATTENDANCE_REPORT_GENERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_AttendanceReportGenerationTypeUnspecified;
+/**
+ *  Attendance report will not be generated.
+ *
+ *  Value: "DO_NOT_GENERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_DoNotGenerate;
+/**
+ *  Attendance report will be generated and sent to drive/email.
+ *
+ *  Value: "GENERATE_REPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_GenerateReport;
+
+// ----------------------------------------------------------------------------
 // GTLRMeet_SpaceConfig.entryPointAccess
 
 /**
@@ -121,6 +280,30 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_EntryPointAccess_Creato
  *  Value: "ENTRY_POINT_ACCESS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_EntryPointAccess_EntryPointAccessUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_SpaceConfig.moderation
+
+/**
+ *  Moderation type is not specified. This is used to indicate the user hasn't
+ *  specified any value as the user does not intend to update the state. Users
+ *  are not allowed to set the value as unspecified.
+ *
+ *  Value: "MODERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_Moderation_ModerationUnspecified;
+/**
+ *  Moderation is off.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_Moderation_Off;
+/**
+ *  Moderation is on.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SpaceConfig_Moderation_On;
 
 // ----------------------------------------------------------------------------
 // GTLRMeet_Transcript.state
@@ -151,6 +334,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_Started;
  */
 FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRMeet_TranscriptionConfig.autoTranscriptionGeneration
+
+/**
+ *  Default value specified by user policy. This should never be returned.
+ *
+ *  Value: "AUTO_GENERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_AutoGenerationTypeUnspecified;
+/**
+ *  The artifact is not generated automatically.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_Off;
+/**
+ *  The artifact is generated automatically.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On;
+
 /**
  *  Active conference.
  */
@@ -175,6 +380,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
  *  Output only. User provided name when they join a conference anonymously.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  Configuration related to meeting artifacts potentially generated by this
+ *  meeting space.
+ */
+@interface GTLRMeet_ArtifactConfig : GTLRObject
+
+/** Configuration for recording. */
+@property(nonatomic, strong, nullable) GTLRMeet_RecordingConfig *recordingConfig;
+
+/** Configuration for auto-smart-notes. */
+@property(nonatomic, strong, nullable) GTLRMeet_SmartNotesConfig *smartNotesConfig;
+
+/** Configuration for auto-transcript. */
+@property(nonatomic, strong, nullable) GTLRMeet_TranscriptionConfig *transcriptionConfig;
 
 @end
 
@@ -450,6 +673,70 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
 
 
 /**
+ *  Defines restrictions for features when the meeting is moderated.
+ */
+@interface GTLRMeet_ModerationRestrictions : GTLRObject
+
+/**
+ *  Defines who has permission to send chat messages in the meeting space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_ModerationRestrictions_ChatRestriction_HostsOnly Meeting
+ *        owner and co-host have the permission. (Value: "HOSTS_ONLY")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_ChatRestriction_NoRestriction All
+ *        Participants have permissions. (Value: "NO_RESTRICTION")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_ChatRestriction_RestrictionTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "RESTRICTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *chatRestriction;
+
+/**
+ *  Defines whether to restrict the default role assigned to users as viewer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_DefaultJoinAsViewerTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_Off Users
+ *        will by default join as contributors. (Value: "OFF")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_DefaultJoinAsViewerType_On Users
+ *        will by default join as viewers. (Value: "ON")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultJoinAsViewerType;
+
+/**
+ *  Defines who has permission to share their screen in the meeting space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_ModerationRestrictions_PresentRestriction_HostsOnly
+ *        Meeting owner and co-host have the permission. (Value: "HOSTS_ONLY")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_PresentRestriction_NoRestriction
+ *        All Participants have permissions. (Value: "NO_RESTRICTION")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_PresentRestriction_RestrictionTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "RESTRICTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *presentRestriction;
+
+/**
+ *  Defines who has permission to send reactions in the meeting space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_ModerationRestrictions_ReactionRestriction_HostsOnly
+ *        Meeting owner and co-host have the permission. (Value: "HOSTS_ONLY")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_ReactionRestriction_NoRestriction
+ *        All Participants have permissions. (Value: "NO_RESTRICTION")
+ *    @arg @c kGTLRMeet_ModerationRestrictions_ReactionRestriction_RestrictionTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "RESTRICTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reactionRestriction;
+
+@end
+
+
+/**
  *  User who attended or is attending a conference.
  */
 @interface GTLRMeet_Participant : GTLRObject
@@ -562,6 +849,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
 
 
 /**
+ *  Configuration related to recording in a meeting space.
+ */
+@interface GTLRMeet_RecordingConfig : GTLRObject
+
+/**
+ *  Defines whether a meeting space is automatically recorded when someone with
+ *  the privilege to record joins the meeting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_RecordingConfig_AutoRecordingGeneration_AutoGenerationTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "AUTO_GENERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMeet_RecordingConfig_AutoRecordingGeneration_Off The artifact
+ *        is not generated automatically. (Value: "OFF")
+ *    @arg @c kGTLRMeet_RecordingConfig_AutoRecordingGeneration_On The artifact
+ *        is generated automatically. (Value: "ON")
+ */
+@property(nonatomic, copy, nullable) NSString *autoRecordingGeneration;
+
+@end
+
+
+/**
  *  A signed-in user can be: a) An individual joining from a personal computer,
  *  mobile device, or through companion mode. b) A robot account used by
  *  conference room devices.
@@ -580,6 +890,32 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
  *  People API. Format: `users/{user}`
  */
 @property(nonatomic, copy, nullable) NSString *user;
+
+@end
+
+
+/**
+ *  Configuration related to smart notes in a meeting space. For more
+ *  information about smart notes, see ["Take notes for me" in Google
+ *  Meet](https://support.google.com/meet/answer/14754931).
+ */
+@interface GTLRMeet_SmartNotesConfig : GTLRObject
+
+/**
+ *  Defines whether to automatically generate a summary and recap of the meeting
+ *  for all invitees in the organization when someone with the privilege to
+ *  enable smart notes joins the meeting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_AutoGenerationTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "AUTO_GENERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_Off The
+ *        artifact is not generated automatically. (Value: "OFF")
+ *    @arg @c kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_On The
+ *        artifact is generated automatically. (Value: "ON")
+ */
+@property(nonatomic, copy, nullable) NSString *autoSmartNotesGeneration;
 
 @end
 
@@ -616,7 +952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
  *  is the resource identifier for the space. It's a unique, server-generated ID
  *  and is case sensitive. For example, `jQCFfuBOdN5z`. For more information,
  *  see [How Meet identifies a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -650,6 +986,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *accessType;
 
 /**
+ *  Configuration pertaining to the auto-generated artifacts that the meeting
+ *  supports.
+ */
+@property(nonatomic, strong, nullable) GTLRMeet_ArtifactConfig *artifactConfig;
+
+/**
+ *  Whether attendance report is enabled for the meeting space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_AttendanceReportGenerationTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "ATTENDANCE_REPORT_GENERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_DoNotGenerate
+ *        Attendance report will not be generated. (Value: "DO_NOT_GENERATE")
+ *    @arg @c kGTLRMeet_SpaceConfig_AttendanceReportGenerationType_GenerateReport
+ *        Attendance report will be generated and sent to drive/email. (Value:
+ *        "GENERATE_REPORT")
+ */
+@property(nonatomic, copy, nullable) NSString *attendanceReportGenerationType;
+
+/**
  *  Defines the entry points that can be used to join meetings hosted in this
  *  meeting space. Default: EntryPointAccess.ALL
  *
@@ -665,6 +1022,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
  *        Unused. (Value: "ENTRY_POINT_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *entryPointAccess;
+
+/**
+ *  The pre-configured moderation mode for the Meeting. Default: Controlled by
+ *  the user's policies.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_SpaceConfig_Moderation_ModerationUnspecified Moderation
+ *        type is not specified. This is used to indicate the user hasn't
+ *        specified any value as the user does not intend to update the state.
+ *        Users are not allowed to set the value as unspecified. (Value:
+ *        "MODERATION_UNSPECIFIED")
+ *    @arg @c kGTLRMeet_SpaceConfig_Moderation_Off Moderation is off. (Value:
+ *        "OFF")
+ *    @arg @c kGTLRMeet_SpaceConfig_Moderation_On Moderation is on. (Value:
+ *        "ON")
+ */
+@property(nonatomic, copy, nullable) NSString *moderation;
+
+/**
+ *  When moderation.ON, these restrictions go into effect for the meeting. When
+ *  moderation.OFF, will be reset to default ModerationRestrictions.
+ */
+@property(nonatomic, strong, nullable) GTLRMeet_ModerationRestrictions *moderationRestrictions;
 
 @end
 
@@ -743,6 +1123,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_Transcript_State_StateUnspecified;
  *  words. Note that the limit is subject to change.
  */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Configuration related to transcription in a meeting space.
+ */
+@interface GTLRMeet_TranscriptionConfig : GTLRObject
+
+/**
+ *  Defines whether the content of a meeting is automatically transcribed when
+ *  someone with the privilege to transcribe joins the meeting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_AutoGenerationTypeUnspecified
+ *        Default value specified by user policy. This should never be returned.
+ *        (Value: "AUTO_GENERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_Off The
+ *        artifact is not generated automatically. (Value: "OFF")
+ *    @arg @c kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On The
+ *        artifact is generated automatically. (Value: "ON")
+ */
+@property(nonatomic, copy, nullable) NSString *autoTranscriptionGeneration;
 
 @end
 

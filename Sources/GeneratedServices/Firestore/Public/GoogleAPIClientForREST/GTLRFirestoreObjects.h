@@ -52,6 +52,7 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
+@class GTLRFirestore_GoogleFirestoreAdminV1Database_Tags;
 @class GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1FlatIndex;
@@ -61,11 +62,14 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexField;
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
+@class GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity;
+@class GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags;
 @class GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1SourceInfo;
 @class GTLRFirestore_GoogleFirestoreAdminV1Stats;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta;
+@class GTLRFirestore_GoogleFirestoreAdminV1UserCreds;
 @class GTLRFirestore_GoogleFirestoreAdminV1VectorConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence;
 @class GTLRFirestore_GoogleLongrunningOperation;
@@ -413,6 +417,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.databaseEdition
+
+/**
+ *  Not used.
+ *
+ *  Value: "DATABASE_EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_DatabaseEditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Enterprise;
+/**
+ *  Standard edition. This is the default setting if not specified.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.deleteProtectionState
 
 /**
@@ -660,6 +686,46 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Ap
  *  Value: "DATASTORE_MODE_API"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi;
+/**
+ *  The index can only be used by the MONGODB_COMPATIBLE_API.
+ *
+ *  Value: "MONGODB_COMPATIBLE_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_MongodbCompatibleApi;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Index.density
+
+/**
+ *  An index entry will be added regardless of whether the document contains any
+ *  of the fields specified in the index. Non-existent fields are treated as
+ *  having a NULL value when generating index entries.
+ *
+ *  Value: "DENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_Dense;
+/**
+ *  Unspecified. It will use database default setting. This value is input only.
+ *
+ *  Value: "DENSITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_DensityUnspecified;
+/**
+ *  In order for an index entry to be added, the document must contain all
+ *  fields specified in the index. This is the only allowed value for indexes
+ *  having ApiScope `ANY_API` and `DATASTORE_MODE_API`.
+ *
+ *  Value: "SPARSE_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAll;
+/**
+ *  In order for an index entry to be added, the document must contain at least
+ *  one of the fields specified in the index. Non-existent fields are treated as
+ *  having a NULL value when generating index entries.
+ *
+ *  Value: "SPARSE_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAny;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
@@ -952,6 +1018,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfi
  *  Value: "REMOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1UserCreds.state
+
+/**
+ *  The user creds are disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Disabled;
+/**
+ *  The user creds are enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Enabled;
+/**
+ *  The default value. Should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence.day
@@ -2480,6 +2568,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Immutable. The edition of the database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_DatabaseEditionUnspecified
+ *        Not used. (Value: "DATABASE_EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Enterprise
+ *        Enterprise edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Standard
+ *        Standard edition. This is the default setting if not specified.
+ *        (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseEdition;
+
+/**
  *  State of delete protection for the database.
  *
  *  Likely values:
@@ -2516,6 +2618,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Background: Free tier is the ability of a Firestore database to
+ *  use a small amount of resources every day without being charged. Once usage
+ *  exceeds the free tier limit further usage is charged. Whether this database
+ *  can make use of the free tier. Only one database per project can be eligible
+ *  for the free tier. The first (or next) database that is created in a project
+ *  without a free tier database will be marked as eligible for the free tier.
+ *  Databases that are created while there is a free tier database will not be
+ *  eligible for the free tier.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeTier;
 
 /**
  *  Output only. The key_prefix for this database. This key_prefix is used, in
@@ -2567,6 +2683,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SourceInfo *sourceInfo;
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Database_Tags *tags;
+
+/**
  *  The type of the database. See
  *  https://cloud.google.com/datastore/docs/firestore-or-datastore for
  *  information about how to choose.
@@ -2604,9 +2727,37 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1Database_Tags : GTLRObject
+@end
+
+
+/**
  *  Metadata related to the delete database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1DeleteDatabaseMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request for FirestoreAdmin.DisableUserCreds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest : GTLRObject
+@end
+
+
+/**
+ *  The request for FirestoreAdmin.EnableUserCreds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest : GTLRObject
 @end
 
 
@@ -2988,8 +3139,35 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi
  *        The index can only be used by the Firestore in Datastore Mode query
  *        API. (Value: "DATASTORE_MODE_API")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_MongodbCompatibleApi
+ *        The index can only be used by the MONGODB_COMPATIBLE_API. (Value:
+ *        "MONGODB_COMPATIBLE_API")
  */
 @property(nonatomic, copy, nullable) NSString *apiScope;
+
+/**
+ *  Immutable. The density configuration of the index.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_Dense An index
+ *        entry will be added regardless of whether the document contains any of
+ *        the fields specified in the index. Non-existent fields are treated as
+ *        having a NULL value when generating index entries. (Value: "DENSE")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_DensityUnspecified
+ *        Unspecified. It will use database default setting. This value is input
+ *        only. (Value: "DENSITY_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAll In
+ *        order for an index entry to be added, the document must contain all
+ *        fields specified in the index. This is the only allowed value for
+ *        indexes having ApiScope `ANY_API` and `DATASTORE_MODE_API`. (Value:
+ *        "SPARSE_ALL")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAny In
+ *        order for an index entry to be added, the document must contain at
+ *        least one of the fields specified in the index. Non-existent fields
+ *        are treated as having a NULL value when generating index entries.
+ *        (Value: "SPARSE_ANY")
+ */
+@property(nonatomic, copy, nullable) NSString *density;
 
 /**
  *  The fields supported by this index. For composite indexes, this requires a
@@ -3002,6 +3180,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  with a field path equal to the field path of the associated field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1IndexField *> *fields;
+
+/**
+ *  Optional. Whether the index is multikey. By default, the index is not
+ *  multikey. For non-multikey indexes, none of the paths in the index
+ *  definition reach or traverse an array, except via an explicit array index.
+ *  For multikey indexes, at most one of the paths in the index definition reach
+ *  or traverse an array, except via an explicit array index. Violations will
+ *  result in errors. Note this field only applies to index with
+ *  MONGODB_COMPATIBLE_API ApiScope.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multikey;
 
 /**
  *  Output only. A server defined name for this index. The form of this name for
@@ -3037,6 +3228,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        "QUERY_SCOPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *queryScope;
+
+/**
+ *  Optional. The number of shards for the index.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shardCount;
 
 /**
  *  Output only. The serving state of the index.
@@ -3344,6 +3542,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The response for FirestoreAdmin.ListUserCreds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ListUserCredsResponse : GTLRObject
+
+/** The user creds for the database. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1UserCreds *> *userCreds;
+
+@end
+
+
+/**
  *  The metadata message for google.cloud.location.Location.metadata.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1LocationMetadata : GTLRObject
@@ -3369,6 +3578,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedWork;
+
+@end
+
+
+/**
+ *  The request for FirestoreAdmin.ResetUserPassword.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest : GTLRObject
+@end
+
+
+/**
+ *  Describes a Resource Identity principal.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity : GTLRObject
+
+/**
+ *  Output only. Principal identifier string. See:
+ *  https://cloud.google.com/iam/docs/principal-identifiers
+ */
+@property(nonatomic, copy, nullable) NSString *principal;
 
 @end
 
@@ -3457,6 +3687,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig *encryptionConfig;
 
+/**
+ *  Optional. Immutable. Tags to be bound to the restored database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags *tags;
+
+@end
+
+
+/**
+ *  Optional. Immutable. Tags to be bound to the restored database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags : GTLRObject
 @end
 
 
@@ -3580,6 +3831,49 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Metadata related to the update database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata : GTLRObject
+@end
+
+
+/**
+ *  A Cloud Firestore User Creds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1UserCreds : GTLRObject
+
+/** Output only. The time the user creds were created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The resource name of the UserCreds. Format:
+ *  `projects/{project}/databases/{database}/userCreds/{user_creds}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Resource Identity descriptor. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity *resourceIdentity;
+
+/**
+ *  Output only. The plaintext server-generated password for the user creds.
+ *  Only populated in responses for CreateUserCreds and ResetUserPassword.
+ */
+@property(nonatomic, copy, nullable) NSString *securePassword;
+
+/**
+ *  Output only. Whether the user creds are enabled or disabled. Defaults to
+ *  ENABLED on creation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Disabled The
+ *        user creds are disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Enabled The
+ *        user creds are enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_StateUnspecified
+ *        The default value. Should not be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time the user creds were last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 

@@ -59,6 +59,48 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_Acl
+//
+
+@implementation GTLRManagedKafka_Acl
+@dynamic aclEntries, ETag, name, patternType, resourceName, resourceType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aclEntries" : [GTLRManagedKafka_AclEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_AclEntry
+//
+
+@implementation GTLRManagedKafka_AclEntry
+@dynamic host, operation, permissionType, principal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_AddAclEntryResponse
+//
+
+@implementation GTLRManagedKafka_AddAclEntryResponse
+@dynamic acl, aclCreated;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_CancelOperationRequest
 //
 
@@ -293,6 +335,28 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 @implementation GTLRManagedKafka_GcpConfig
 @dynamic accessConfig, kmsKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_ListAclsResponse
+//
+
+@implementation GTLRManagedKafka_ListAclsResponse
+@dynamic acls, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acls" : [GTLRManagedKafka_Acl class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"acls";
+}
+
 @end
 
 
@@ -574,6 +638,16 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 @implementation GTLRManagedKafka_RebalanceConfig
 @dynamic mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_RemoveAclEntryResponse
+//
+
+@implementation GTLRManagedKafka_RemoveAclEntryResponse
+@dynamic acl, aclDeleted;
 @end
 
 

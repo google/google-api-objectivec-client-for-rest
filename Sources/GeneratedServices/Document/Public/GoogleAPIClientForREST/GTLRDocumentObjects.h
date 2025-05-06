@@ -872,6 +872,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Update;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.groundingConfig
+
+/**
+ *  Unspecified grounding config. It defaults to `STRICT` grounding.
+ *
+ *  Value: "GROUNDING_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_GroundingConfigUnspecified;
+/**
+ *  Allow no grounding.
+ *
+ *  Value: "NO_GROUNDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_NoGrounding;
+/**
+ *  Relaxed grounding.
+ *
+ *  Value: "RELAXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Relaxed;
+/**
+ *  Strict grounding.
+ *
+ *  Value: "STRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Strict;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
 
 /**
@@ -3267,6 +3295,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
+/**
+ *  Optional. An internal identifier for document. Should be loggable (no PII).
+ */
+@property(nonatomic, copy, nullable) NSString *docid;
+
 /** Parsed layout of the document. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayout *documentLayout;
 
@@ -3431,6 +3464,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** ID of the block. */
 @property(nonatomic, copy, nullable) NSString *blockId;
+
+/** Identifies the bounding box for the block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly *boundingBox;
 
 /** Block consisting of list content/structure. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock *listBlock;
@@ -3701,6 +3737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
+
+/**
+ *  signatureValue
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signatureValue;
 
 /**
  *  Optional. An optional field to store a normalized string. For some entity
@@ -4760,6 +4803,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** User defined name for the property. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Grounding config of the entity type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_GroundingConfigUnspecified
+ *        Unspecified grounding config. It defaults to `STRICT` grounding.
+ *        (Value: "GROUNDING_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_NoGrounding
+ *        Allow no grounding. (Value: "NO_GROUNDING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Relaxed
+ *        Relaxed grounding. (Value: "RELAXED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Strict
+ *        Strict grounding. (Value: "STRICT")
+ */
+@property(nonatomic, copy, nullable) NSString *groundingConfig;
 
 /**
  *  The name of the property. Follows the same guidelines as the EntityType

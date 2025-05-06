@@ -110,6 +110,12 @@ NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Disabled = @"DISABL
 NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Enabled = @"ENABLED";
 NSString * const kGTLRContainer_CompliancePostureConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
+// GTLRContainer_ConfidentialNodes.confidentialInstanceType
+NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified = @"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Sev = @"SEV";
+NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_SevSnp = @"SEV_SNP";
+NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Tdx = @"TDX";
+
 // GTLRContainer_DatabaseEncryption.currentState
 NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecrypted = @"CURRENT_STATE_DECRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionError = @"CURRENT_STATE_DECRYPTION_ERROR";
@@ -444,6 +450,7 @@ NSString * const kGTLRContainer_UpgradeEvent_ResourceType_UpgradeResourceTypeUns
 NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_CosMilestoneVersionUpdate = @"COS_MILESTONE_VERSION_UPDATE";
 NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_EndOfSupport = @"END_OF_SUPPORT";
 NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_UpgradeLifecycle = @"UPGRADE_LIFECYCLE";
 
 // GTLRContainer_UpgradeInfoEvent.resourceType
 NSString * const kGTLRContainer_UpgradeInfoEvent_ResourceType_Master = @"MASTER";
@@ -1032,7 +1039,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ConfidentialNodes
-@dynamic enabled;
+@dynamic confidentialInstanceType, enabled;
 @end
 
 

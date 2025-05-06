@@ -171,11 +171,13 @@ NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_All = @"ALL";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_DataStateUnspecified = @"DATA_STATE_UNSPECIFIED";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final = @"FINAL";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_HourlyAll = @"HOURLY_ALL";
 
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.dimensions
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Country = @"COUNTRY";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Date = @"DATE";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Device = @"DEVICE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Hour = @"HOUR";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Page = @"PAGE";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Query = @"QUERY";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_SearchAppearance = @"SEARCH_APPEARANCE";

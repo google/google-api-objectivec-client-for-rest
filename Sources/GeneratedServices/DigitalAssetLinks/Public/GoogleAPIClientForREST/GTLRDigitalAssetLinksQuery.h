@@ -99,6 +99,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *relation;
 
 /**
+ *  Whether to return relation_extensions payloads specified in the source
+ *  Digital Asset Links statements linking the requested source and target
+ *  assets by the requested relation type. If this is set to `false` (default),
+ *  relation_extensions specified will not be returned, even if they are
+ *  specified in the DAL statement file. If set to `true`, the API will
+ *  propagate any and all relation_extensions, across statements, linking the
+ *  source and target assets by the requested relation type, if specified in the
+ *  DAL statement file.
+ */
+@property(nonatomic, assign) BOOL returnRelationExtensions;
+
+/**
  *  The uppercase SHA-265 fingerprint of the certificate. From the PEM
  *  certificate, it can be acquired like this: $ keytool -printcert -file
  *  $CERTFILE | grep SHA256: SHA256:
@@ -244,6 +256,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  with relation `delegate_permission/common.handle_all_urls`.
  */
 @property(nonatomic, copy, nullable) NSString *relation;
+
+/**
+ *  Whether to return any relation_extensions payloads specified in the source
+ *  digital asset links statements. If this is set to `false` (default),
+ *  relation_extensions specified will not be returned, even if they are
+ *  specified in the DAL statement file. If set to `true`, the API will
+ *  propagate relation_extensions associated with each statement's relation
+ *  type, if specified in the DAL statement file.
+ */
+@property(nonatomic, assign) BOOL returnRelationExtensions;
 
 /**
  *  The uppercase SHA-265 fingerprint of the certificate. From the PEM

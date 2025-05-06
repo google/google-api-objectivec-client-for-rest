@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalan
 // GTLRNetworkServices_AuthzExtension.wireFormat
 
 /**
- *  The extension service uses ExtProc GRPC API over a gRPC stream. This is the
+ *  The extension service uses ext_proc gRPC API over a gRPC stream. This is the
  *  default value if the wire format is not specified. The backend service for
  *  the extension must use HTTP2 or H2C as the protocol. All `supported_events`
  *  for a client request are sent as part of the same gRPC stream.
@@ -870,7 +870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc The
- *        extension service uses ExtProc GRPC API over a gRPC stream. This is
+ *        extension service uses ext_proc gRPC API over a gRPC stream. This is
  *        the default value if the wire format is not specified. The backend
  *        service for the extension must use HTTP2 or H2C as the protocol. All
  *        `supported_events` for a client request are sent as part of the same
@@ -1313,12 +1313,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The
  *  following variables are supported in the metadata: `{forwarding_rule_id}` -
  *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set for plugin extensions. Setting it results in a
+ *  validation error. You can set metadata at either the resource level or the
+ *  extension level. The extension level metadata is recommended because you can
+ *  pass a different set of metadata through each extension to the backend. This
  *  field is subject to following limitations: * The total size of the metadata
  *  must be less than 1KiB. * The total number of keys in the metadata must be
- *  less than 20. * The length of each key must be less than 64 characters. *
+ *  less than 16. * The length of each key must be less than 64 characters. *
  *  The length of each value must be less than 1024 characters. * All values
- *  must be strings. This field is not supported for plugin extensions. Setting
- *  it results in a validation error.
+ *  must be strings.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionChainExtension_Metadata *metadata;
 
@@ -1361,7 +1364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Optional. Specifies the timeout for each individual message on the stream.
- *  The timeout must be between `10`-`1000` milliseconds. Required for callout
+ *  The timeout must be between `10`-`10000` milliseconds. Required for callout
  *  extensions. This field is not supported for plugin extensions. Setting it
  *  results in a validation error.
  */
@@ -1378,12 +1381,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The
  *  following variables are supported in the metadata: `{forwarding_rule_id}` -
  *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set for plugin extensions. Setting it results in a
+ *  validation error. You can set metadata at either the resource level or the
+ *  extension level. The extension level metadata is recommended because you can
+ *  pass a different set of metadata through each extension to the backend. This
  *  field is subject to following limitations: * The total size of the metadata
  *  must be less than 1KiB. * The total number of keys in the metadata must be
- *  less than 20. * The length of each key must be less than 64 characters. *
+ *  less than 16. * The length of each key must be less than 64 characters. *
  *  The length of each value must be less than 1024 characters. * All values
- *  must be strings. This field is not supported for plugin extensions. Setting
- *  it results in a validation error.
+ *  must be strings.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2827,8 +2833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Required. A list of references to the forwarding rules to which this service
- *  extension is attached. At least one forwarding rule is required. There can
- *  be only one `LbRouteExtension` resource per forwarding rule.
+ *  extension is attached. At least one forwarding rule is required. Only one
+ *  `LbRouteExtension` resource can be associated with a forwarding rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
 
@@ -2863,12 +2869,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. The metadata provided here is included as part of the
  *  `metadata_context` (of type `google.protobuf.Struct`) in the
- *  `ProcessingRequest` message sent to the extension server. The metadata is
- *  available under the namespace `com.google.lb_route_extension.`. The
- *  following variables are supported in the metadata Struct:
- *  `{forwarding_rule_id}` - substituted with the forwarding rule's fully
- *  qualified resource name. This field is not supported for plugin extensions.
- *  Setting it results in a validation error.
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_route_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbRouteExtension_Metadata *metadata;
 
@@ -2903,12 +2913,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. The metadata provided here is included as part of the
  *  `metadata_context` (of type `google.protobuf.Struct`) in the
- *  `ProcessingRequest` message sent to the extension server. The metadata is
- *  available under the namespace `com.google.lb_route_extension.`. The
- *  following variables are supported in the metadata Struct:
- *  `{forwarding_rule_id}` - substituted with the forwarding rule's fully
- *  qualified resource name. This field is not supported for plugin extensions.
- *  Setting it results in a validation error.
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_route_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2949,8 +2963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Optional. A list of references to the forwarding rules to which this service
- *  extension is attached. At least one forwarding rule is required. There can
- *  be only one `LBTrafficExtension` resource per forwarding rule.
+ *  extension is attached. At least one forwarding rule is required. Only one
+ *  `LbTrafficExtension` resource can be associated with a forwarding rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
 
@@ -2983,13 +2997,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
- *  Optional. The metadata provided here is included in the
- *  `ProcessingRequest.metadata_context.filter_metadata` map field. The metadata
- *  is available under the key `com.google.lb_traffic_extension.`. The following
- *  variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_traffic_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
  *  substituted with the forwarding rule's fully qualified resource name. This
- *  field is not supported for plugin extensions. Setting it results in a
- *  validation error.
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbTrafficExtension_Metadata *metadata;
 
@@ -3022,13 +3041,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  Optional. The metadata provided here is included in the
- *  `ProcessingRequest.metadata_context.filter_metadata` map field. The metadata
- *  is available under the key `com.google.lb_traffic_extension.`. The following
- *  variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_traffic_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
  *  substituted with the forwarding rule's fully qualified resource name. This
- *  field is not supported for plugin extensions. Setting it results in a
- *  validation error.
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4055,7 +4079,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  ServiceBinding can be used to: - Bind a Service Directory Service to be used
  *  in a BackendService resource. This feature will be deprecated soon. - Bind a
  *  Private Service Connect producer service to be used in consumer Cloud
- *  Service Mesh or Application Load Balancers.
+ *  Service Mesh or Application Load Balancers. - Bind a Cloud Run service to be
+ *  used in consumer Cloud Service Mesh or Application Load Balancers.
  */
 @interface GTLRNetworkServices_ServiceBinding : GTLRObject
 

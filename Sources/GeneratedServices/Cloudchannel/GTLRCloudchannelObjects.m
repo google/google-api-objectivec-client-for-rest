@@ -84,6 +84,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_O
 
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent.eventType
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created = @"CREATED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_PartnerDetached = @"PARTNER_DETACHED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Updated = @"UPDATED";
 
@@ -143,6 +144,11 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_String = 
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_CostAtList = @"COST_AT_LIST";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_DirectCustomerCost = @"DIRECT_CUSTOMER_COST";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_RebillingBasisUnspecified = @"REBILLING_BASIS_UNSPECIFIED";
+
+// GTLRCloudchannel_GoogleCloudChannelV1Customer.customerAttestationState
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_CustomerAttestationStateUnspecified = @"CUSTOMER_ATTESTATION_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_Exempt = @"EXEMPT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_NonExemptAndInfoVerified = @"NON_EXEMPT_AND_INFO_VERIFIED";
 
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_AllowedCustomerTypes_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
@@ -467,7 +473,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent
-@dynamic eventType, opportunity;
+@dynamic eventType, opportunity, partner;
 @end
 
 
@@ -871,8 +877,9 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Customer
 @dynamic alternateEmail, channelPartnerId, cloudIdentityId, cloudIdentityInfo,
-         correlationId, createTime, domain, languageCode, name, orgDisplayName,
-         orgPostalAddress, primaryContactInfo, updateTime;
+         correlationId, createTime, customerAttestationState, domain,
+         languageCode, name, orgDisplayName, orgPostalAddress,
+         primaryContactInfo, updateTime;
 @end
 
 

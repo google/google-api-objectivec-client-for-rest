@@ -85,6 +85,16 @@ NSString * const kGTLRTPU_Symptom_SymptomType_OutOfMemory      = @"OUT_OF_MEMORY
 NSString * const kGTLRTPU_Symptom_SymptomType_ProjectAbuse     = @"PROJECT_ABUSE";
 NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM_TYPE_UNSPECIFIED";
 
+// GTLRTPU_UpcomingMaintenance.maintenanceStatus
+NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Ongoing = @"ONGOING";
+NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Pending = @"PENDING";
+NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Unknown = @"UNKNOWN";
+
+// GTLRTPU_UpcomingMaintenance.type
+NSString * const kGTLRTPU_UpcomingMaintenance_Type_Scheduled   = @"SCHEDULED";
+NSString * const kGTLRTPU_UpcomingMaintenance_Type_UnknownType = @"UNKNOWN_TYPE";
+NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled = @"UNSCHEDULED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRTPU_AcceleratorConfig
@@ -520,7 +530,8 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
          dataDisks, descriptionProperty, health, healthDescription, identifier,
          labels, metadata, multisliceNode, name, networkConfig, networkConfigs,
          networkEndpoints, queuedResource, runtimeVersion, schedulingConfig,
-         serviceAccount, shieldedInstanceConfig, state, symptoms, tags;
+         serviceAccount, shieldedInstanceConfig, state, symptoms, tags,
+         upcomingMaintenance;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -842,4 +853,15 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_UpcomingMaintenance
+//
+
+@implementation GTLRTPU_UpcomingMaintenance
+@dynamic canReschedule, latestWindowStartTime, maintenanceStatus, type,
+         windowEndTime, windowStartTime;
 @end

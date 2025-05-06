@@ -89,6 +89,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatWa
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileDownload = @"CHROME_BLOCK_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileUpload = @"CHROME_BLOCK_FILE_UPLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockPagePrint = @"CHROME_BLOCK_PAGE_PRINT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockScreenshot = @"CHROME_BLOCK_SCREENSHOT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockUrlVisited = @"CHROME_BLOCK_URL_VISITED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockWebContentUpload = @"CHROME_BLOCK_WEB_CONTENT_UPLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeStoreContent = @"CHROME_STORE_CONTENT";
@@ -124,6 +125,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatWar
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileDownload = @"CHROME_BLOCK_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileUpload = @"CHROME_BLOCK_FILE_UPLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockPagePrint = @"CHROME_BLOCK_PAGE_PRINT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockScreenshot = @"CHROME_BLOCK_SCREENSHOT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockUrlVisited = @"CHROME_BLOCK_URL_VISITED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockWebContentUpload = @"CHROME_BLOCK_WEB_CONTENT_UPLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeStoreContent = @"CHROME_STORE_CONTENT";
@@ -152,6 +154,15 @@ NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Suspended = @"SUSP
 NSString * const kGTLRAlertCenter_TransferError_InvalidReason_TransferInvalidReasonUnspecified = @"TRANSFER_INVALID_REASON_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_TransferError_InvalidReason_TransferTargetDeleted = @"TRANSFER_TARGET_DELETED";
 NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Unlicensed = @"UNLICENSED";
+
+// GTLRAlertCenter_VaultAcceleratedDeletion.actionType
+NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCancel = @"VAULT_ACCELERATED_DELETION_ACTION_TYPE_CANCEL";
+NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCreate = @"VAULT_ACCELERATED_DELETION_ACTION_TYPE_CREATE";
+NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeUnspecified = @"VAULT_ACCELERATED_DELETION_ACTION_TYPE_UNSPECIFIED";
+
+// GTLRAlertCenter_VaultAcceleratedDeletion.appType
+NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeGmail = @"VAULT_ACCELERATED_DELETION_APP_TYPE_GMAIL";
+NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeUnspecified = @"VAULT_ACCELERATED_DELETION_APP_TYPE_UNSPECIFIED";
 
 // GTLRAlertCenter_VoicemailRecipientError.invalidReason
 NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_EmailInvalidReasonUnspecified = @"EMAIL_INVALID_REASON_UNSPECIFIED";
@@ -1171,6 +1182,16 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 
 @implementation GTLRAlertCenter_UserDefinedDetectorInfo
 @dynamic displayName, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_VaultAcceleratedDeletion
+//
+
+@implementation GTLRAlertCenter_VaultAcceleratedDeletion
+@dynamic actionType, appType, createTime, deletionRequestId, matterId;
 @end
 
 

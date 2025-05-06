@@ -1050,6 +1050,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *appsId;
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like "displayName=tokyo", and is documented in more
  *  detail in AIP-160 (https://google.aip.dev/160).
@@ -2170,6 +2176,127 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
                      applicationsId:(NSString *)applicationsId
                          servicesId:(NSString *)servicesId
                          versionsId:(NSString *)versionsId;
+
+@end
+
+/**
+ *  Updates the specified Version resource. You can specify the following fields
+ *  depending on the App Engine environment and type of scaling that the version
+ *  resource uses:Standard environment instance_class
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+ *  scaling in the standard environment: automatic_scaling.min_idle_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.max_idle_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automaticScaling.standard_scheduler_settings.max_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.min_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_cpu_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_throughput_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic
+ *  scaling or manual scaling in the standard environment: serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)
+ *  manual_scaling.instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible
+ *  environment serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+ *  scaling in the flexible environment: automatic_scaling.min_total_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.max_total_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.cool_down_period_sec
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.cpu_utilization.target_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual
+ *  scaling in the flexible environment: manual_scaling.instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)
+ *
+ *  Method: appengine.projects.locations.applications.services.versions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsPatch : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the resource to update. Example:
+ *  apps/myapp/services/default/versions/1.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *servicesId;
+
+/**
+ *  Standard field mask for the set of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *versionsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Updates the specified Version resource. You can specify the following fields
+ *  depending on the App Engine environment and type of scaling that the version
+ *  resource uses:Standard environment instance_class
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+ *  scaling in the standard environment: automatic_scaling.min_idle_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.max_idle_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automaticScaling.standard_scheduler_settings.max_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.min_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_cpu_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_throughput_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic
+ *  scaling or manual scaling in the standard environment: serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)
+ *  manual_scaling.instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible
+ *  environment serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+ *  scaling in the flexible environment: automatic_scaling.min_total_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.max_total_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.cool_down_period_sec
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automatic_scaling.cpu_utilization.target_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual
+ *  scaling in the flexible environment: manual_scaling.instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)
+ *
+ *  @param object The @c GTLRAppengine_Version to include in the query.
+ *  @param projectsId Part of `name`. Name of the resource to update. Example:
+ *    apps/myapp/services/default/versions/1.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param servicesId Part of `name`. See documentation of `projectsId`.
+ *  @param versionsId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_Version *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+                     servicesId:(NSString *)servicesId
+                     versionsId:(NSString *)versionsId;
 
 @end
 

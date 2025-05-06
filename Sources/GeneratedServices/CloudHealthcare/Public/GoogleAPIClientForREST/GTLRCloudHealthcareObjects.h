@@ -2428,14 +2428,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. For future use.
+ *  Output only. Whether the dataset satisfies zone isolation.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
- *  Output only. For future use.
+ *  Output only. Whether the dataset satisfies zone separation.
  *
  *  Uses NSNumber of boolValue.
  */

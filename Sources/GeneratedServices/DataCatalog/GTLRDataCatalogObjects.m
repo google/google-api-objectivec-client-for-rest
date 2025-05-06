@@ -973,7 +973,8 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig
-@dynamic catalogUiExperience, tagTemplateMigration;
+@dynamic catalogUiExperience, tagTemplateMigration,
+         templateMigrationEnabledTime;
 @end
 
 

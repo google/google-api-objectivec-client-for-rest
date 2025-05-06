@@ -57,6 +57,12 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Annota
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionAccepted = @"TRANSACTION_ACCEPTED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionDeclined = @"TRANSACTION_DECLINED";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot.botType
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_AiAgent = @"AI_AGENT";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_BotTypeUnspecified = @"BOT_TYPE_UNSPECIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_ContentScraper = @"CONTENT_SCRAPER";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_SearchIndexer = @"SEARCH_INDEXER";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled = @"DISABLED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled = @"ENABLED";
@@ -284,6 +290,16 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment
 @dynamic client, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot
+@dynamic botType, name;
 @end
 
 
@@ -817,12 +833,13 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis
-@dynamic challenge, extendedVerdictReasons, reasons, score;
+@dynamic challenge, extendedVerdictReasons, reasons, score, verifiedBots;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"extendedVerdictReasons" : [NSString class],
-    @"reasons" : [NSString class]
+    @"reasons" : [NSString class],
+    @"verifiedBots" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot class]
   };
   return map;
 }

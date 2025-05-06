@@ -281,61 +281,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_APILayerServer
-//
-
-@implementation GTLRWorkloadManager_APILayerServer
-@dynamic name, osVersion, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRWorkloadManager_CloudResource class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_AvailabilityGroup
-//
-
-@implementation GTLRWorkloadManager_AvailabilityGroup
-@dynamic databases, name, primaryServer, secondaryServers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"databases" : [NSString class],
-    @"secondaryServers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_BackendServer
-//
-
-@implementation GTLRWorkloadManager_BackendServer
-@dynamic backupFile, backupSchedule, name, osVersion, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRWorkloadManager_CloudResource class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_BackupProperties
 //
 
@@ -382,24 +327,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_Cluster
-//
-
-@implementation GTLRWorkloadManager_Cluster
-@dynamic nodes, witnessServer;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"nodes" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_Command
 //
 
@@ -425,16 +352,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_Database
-//
-
-@implementation GTLRWorkloadManager_Database
-@dynamic backupFile, backupSchedule, hostVm, name;
 @end
 
 
@@ -557,24 +474,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 @implementation GTLRWorkloadManager_ExternalDataSources
 @dynamic assetType, name, type, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_FrontEndServer
-//
-
-@implementation GTLRWorkloadManager_FrontEndServer
-@dynamic name, osVersion, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRWorkloadManager_CloudResource class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -840,16 +739,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
   return @"scannedResources";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_LoadBalancerServer
-//
-
-@implementation GTLRWorkloadManager_LoadBalancerServer
-@dynamic ip, vm;
 @end
 
 
@@ -1442,25 +1331,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_SqlserverWorkload
-//
-
-@implementation GTLRWorkloadManager_SqlserverWorkload
-@dynamic ags, cluster, databases, loadBalancerServer;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ags" : [GTLRWorkloadManager_AvailabilityGroup class],
-    @"databases" : [GTLRWorkloadManager_Database class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_Status
 //
 
@@ -1503,16 +1373,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_ThreeTierWorkload
-//
-
-@implementation GTLRWorkloadManager_ThreeTierWorkload
-@dynamic apiLayer, backend, endpoint, frontend;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_TorsoValidation
 //
 
@@ -1541,7 +1401,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_UpcomingMaintenanceEvent
-@dynamic endTime, maintenanceStatus, startTime, type;
+@dynamic endTime, maintenanceStatus, onHostMaintenance, startTime, type;
 @end
 
 
@@ -1576,7 +1436,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 @implementation GTLRWorkloadManager_WorkloadProfile
 @dynamic application, ascs, database, labels, name, refreshedTime, sapWorkload,
-         sqlserverWorkload, state, threeTierWorkload, workloadType;
+         state, workloadType;
 @end
 
 

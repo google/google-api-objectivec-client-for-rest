@@ -515,10 +515,10 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 @dynamic adminClusterMembership, adminClusterName, annotations,
          bareMetalVersion, binaryAuthorization, clusterOperations, controlPlane,
          createTime, deleteTime, descriptionProperty, endpoint, ETag, fleet,
-         loadBalancer, localName, maintenanceConfig, maintenanceStatus, name,
-         networkConfig, nodeAccessConfig, nodeConfig, osEnvironmentConfig,
-         proxy, reconciling, securityConfig, state, status, storage, uid,
-         updateTime, upgradePolicy, validationCheck;
+         loadBalancer, localName, localNamespace, maintenanceConfig,
+         maintenanceStatus, name, networkConfig, nodeAccessConfig, nodeConfig,
+         osEnvironmentConfig, proxy, reconciling, securityConfig, state, status,
+         storage, uid, updateTime, upgradePolicy, validationCheck;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

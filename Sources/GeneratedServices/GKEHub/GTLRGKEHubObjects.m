@@ -260,6 +260,11 @@ NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_
 NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_InstallationUnspecified = @"INSTALLATION_UNSPECIFIED";
 NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_NotInstalled = @"NOT_INSTALLED";
 
+// GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState.state
+NSString * const kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_CustomRoleMissingFromCluster = @"CUSTOM_ROLE_MISSING_FROM_CLUSTER";
+NSString * const kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_Ok = @"OK";
+NSString * const kGTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState_State_RoleBindingStateUnspecified = @"ROLE_BINDING_STATE_UNSPECIFIED";
+
 // GTLRGKEHub_ServiceMeshAnalysisMessageBase.level
 NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_Error = @"ERROR";
 NSString * const kGTLRGKEHub_ServiceMeshAnalysisMessageBase_Level_Info = @"INFO";
@@ -875,7 +880,8 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 
 @implementation GTLRGKEHub_FeatureSpec
 @dynamic cloudbuild, configmanagement, identityservice, origin,
-         policycontroller, servicemesh, workloadcertificate;
+         policycontroller, rbacrolebindingactuation, servicemesh,
+         workloadcertificate;
 @end
 
 
@@ -886,7 +892,8 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 
 @implementation GTLRGKEHub_FeatureState
 @dynamic appdevexperience, clusterupgrade, configmanagement, identityservice,
-         metering, policycontroller, servicemesh, state;
+         metering, policycontroller, rbacrolebindingactuation, servicemesh,
+         state;
 @end
 
 
@@ -1539,6 +1546,54 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"operatorProperty" : @"operator" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState
+//
+
+@implementation GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState
+@dynamic descriptionProperty, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_RBACRoleBindingActuationSpec
+//
+
+@implementation GTLRGKEHub_RBACRoleBindingActuationSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_RBACRoleBindingActuationState
+//
+
+@implementation GTLRGKEHub_RBACRoleBindingActuationState
+@dynamic rbacrolebindingStates;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_RBACRoleBindingActuationState_RbacrolebindingStates
+//
+
+@implementation GTLRGKEHub_RBACRoleBindingActuationState_RbacrolebindingStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_RBACRoleBindingActuationRBACRoleBindingState class];
 }
 
 @end

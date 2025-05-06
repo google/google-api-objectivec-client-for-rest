@@ -6,7 +6,7 @@
 // Description:
 //   Create and manage meetings in Google Meet.
 // Documentation:
-//   https://developers.google.com/meet/api
+//   https://developers.google.com/workspace/meet/api
 
 #import <GoogleAPIClientForREST/GTLRMeet.h>
 

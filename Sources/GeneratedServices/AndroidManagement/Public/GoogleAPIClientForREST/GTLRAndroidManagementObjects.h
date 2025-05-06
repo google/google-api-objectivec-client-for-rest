@@ -30,6 +30,7 @@
 @class GTLRAndroidManagement_AppProcessStartEvent;
 @class GTLRAndroidManagement_AppTrackInfo;
 @class GTLRAndroidManagement_AppVersion;
+@class GTLRAndroidManagement_BackupServiceToggledEvent;
 @class GTLRAndroidManagement_BlockAction;
 @class GTLRAndroidManagement_CertAuthorityInstalledEvent;
 @class GTLRAndroidManagement_CertAuthorityRemovedEvent;
@@ -55,9 +56,12 @@
 @class GTLRAndroidManagement_DisplaySettings;
 @class GTLRAndroidManagement_DnsEvent;
 @class GTLRAndroidManagement_DpcMigrationInfo;
+@class GTLRAndroidManagement_Eid;
+@class GTLRAndroidManagement_EidInfo;
 @class GTLRAndroidManagement_EnrollmentCompleteEvent;
 @class GTLRAndroidManagement_EnrollmentToken;
 @class GTLRAndroidManagement_Enterprise;
+@class GTLRAndroidManagement_EuiccChipInfo;
 @class GTLRAndroidManagement_ExtensionConfig;
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_FilePulledEvent;
@@ -117,6 +121,8 @@
 @class GTLRAndroidManagement_PowerManagementEvent;
 @class GTLRAndroidManagement_ProxyInfo;
 @class GTLRAndroidManagement_RemoteLockEvent;
+@class GTLRAndroidManagement_RequestDeviceInfoParams;
+@class GTLRAndroidManagement_RequestDeviceInfoStatus;
 @class GTLRAndroidManagement_ScreenBrightnessSettings;
 @class GTLRAndroidManagement_ScreenTimeoutSettings;
 @class GTLRAndroidManagement_SecurityPosture;
@@ -932,6 +938,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_User
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_BackupServiceToggledEvent.backupServiceState
+
+/**
+ *  Backup service is enabled
+ *
+ *  Value: "BACKUP_SERVICE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceDisabled;
+/**
+ *  Backup service is disabled
+ *
+ *  Value: "BACKUP_SERVICE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceEnabled;
+/**
+ *  No value is set
+ *
+ *  Value: "BACKUP_SERVICE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_BlockAction.blockScope
 
 /**
@@ -1453,6 +1481,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Preparing
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceConnectivityManagement.bluetoothSharing
+
+/**
+ *  Bluetooth sharing is allowed.Supported on Android 8 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported on work profiles if the
+ *  Android version is less than 8.
+ *
+ *  Value: "BLUETOOTH_SHARING_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingAllowed;
+/**
+ *  Bluetooth sharing is disallowed.Supported on Android 8 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported on fully managed devices if
+ *  the Android version is less than 8.
+ *
+ *  Value: "BLUETOOTH_SHARING_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingDisallowed;
+/**
+ *  Unspecified. Defaults to BLUETOOTH_SHARING_DISALLOWED on work profiles and
+ *  BLUETOOTH_SHARING_ALLOWED on fully managed devices.
+ *
+ *  Value: "BLUETOOTH_SHARING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceConnectivityManagement.configureWifi
 
 /**
@@ -1970,6 +2025,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoog
  *  Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_ManagedGooglePlayAccountsEnterpriseTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_EnterpriseUpgradeEvent.upgradeState
+
+/**
+ *  The upgrade has succeeded.
+ *
+ *  Value: "UPGRADE_STATE_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "UPGRADE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
@@ -3045,6 +3116,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPol
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PersonalUsagePolicies.bluetoothSharing
+
+/**
+ *  Bluetooth sharing is allowed on personal profile.Supported on Android 8 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported if this is set
+ *  for a personal device.
+ *
+ *  Value: "BLUETOOTH_SHARING_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingAllowed;
+/**
+ *  Bluetooth sharing is disallowed on personal profile.Supported on Android 8
+ *  and above. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 8. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported if this is set for a personal device.
+ *
+ *  Value: "BLUETOOTH_SHARING_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingDisallowed;
+/**
+ *  Unspecified. Defaults to BLUETOOTH_SHARING_ALLOWED.
+ *
+ *  Value: "BLUETOOTH_SHARING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PersonalUsagePolicies.personalPlayStoreMode
 
 /**
@@ -3737,6 +3835,61 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Owner
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_RequestDeviceInfoParams.deviceInfo
+
+/**
+ *  This value is disallowed.
+ *
+ *  Value: "DEVICE_INFO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_DeviceInfoUnspecified;
+/**
+ *  Request the identifier for eSIM. The user will be asked to approve the
+ *  disclosure of the information before the result can be returned. If the user
+ *  doesn't approve the disclosure, USER_DECLINED will be returned. This is
+ *  supported only for personally owned devices with work profiles and Android
+ *  versions 13 and above.
+ *
+ *  Value: "EID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_Eid;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_RequestDeviceInfoStatus.status
+
+/**
+ *  The user has not completed the actions required to share device information.
+ *
+ *  Value: "PENDING_USER_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_PendingUserAction;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_StatusUnspecified;
+/**
+ *  Device information has been successfully delivered.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Succeeded;
+/**
+ *  The requested device info is not supported on this device, e.g. eSIM is not
+ *  supported on the device.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Unsupported;
+/**
+ *  The user declined sharing device information.
+ *
+ *  Value: "USER_DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_UserDeclined;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
 
 /**
@@ -4127,6 +4280,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventTyp
  *  Value: "APP_PROCESS_START"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_AppProcessStart;
+/**
+ *  Indicates backupServiceToggledEvent has been set.
+ *
+ *  Value: "BACKUP_SERVICE_TOGGLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_BackupServiceToggled;
 /**
  *  Indicates cert_authority_installed_event has been set.
  *
@@ -5435,6 +5594,37 @@ GTLR_DEPRECATED
 
 
 /**
+ *  An admin has enabled or disabled backup service.
+ */
+@interface GTLRAndroidManagement_BackupServiceToggledEvent : GTLRObject
+
+/** Package name of the admin app requesting the change. */
+@property(nonatomic, copy, nullable) NSString *adminPackageName;
+
+/**
+ *  User ID of the admin app from the which the change was requested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adminUserId;
+
+/**
+ *  Whether the backup service is enabled
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceDisabled
+ *        Backup service is enabled (Value: "BACKUP_SERVICE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceEnabled
+ *        Backup service is disabled (Value: "BACKUP_SERVICE_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceStateUnspecified
+ *        No value is set (Value: "BACKUP_SERVICE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *backupServiceState;
+
+@end
+
+
+/**
  *  Batched event logs of events from the device.
  */
 @interface GTLRAndroidManagement_BatchUsageLogEvents : GTLRObject
@@ -5693,7 +5883,11 @@ GTLR_DEPRECATED
 
 /**
  *  If the command failed, an error code explaining the failure. This is not set
- *  when the command is cancelled by the caller.
+ *  when the command is cancelled by the caller. For reasoning about command
+ *  errors, prefer fields in the following order (most preferred first): 1.
+ *  Command-specific fields like clearAppsDataStatus, startLostModeStatus, or
+ *  similar, if they exist. 2. This field, if set. 3. The generic error field in
+ *  the Operation that wraps the command.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_ApiLevel The API level of
@@ -5720,6 +5914,18 @@ GTLR_DEPRECATED
  *  INVALID_VALUE.
  */
 @property(nonatomic, copy, nullable) NSString *newPassword NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Optional. Parameters for the REQUEST_DEVICE_INFO command to get device
+ *  related information. If this is set, then it is suggested that type should
+ *  not be set. In this case, the server automatically sets it to
+ *  REQUEST_DEVICE_INFO . It is also acceptable to explicitly set type to
+ *  REQUEST_DEVICE_INFO.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_RequestDeviceInfoParams *requestDeviceInfoParams;
+
+/** Output only. Status of the REQUEST_DEVICE_INFO command. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_RequestDeviceInfoStatus *requestDeviceInfoStatus;
 
 /** For commands of type RESET_PASSWORD, optionally specifies flags. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resetPasswordFlags;
@@ -6491,6 +6697,26 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_DeviceConnectivityManagement : GTLRObject
 
 /**
+ *  Optional. Controls whether Bluetooth sharing is allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingAllowed
+ *        Bluetooth sharing is allowed.Supported on Android 8 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported on work profiles if the
+ *        Android version is less than 8. (Value: "BLUETOOTH_SHARING_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingDisallowed
+ *        Bluetooth sharing is disallowed.Supported on Android 8 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported on fully managed
+ *        devices if the Android version is less than 8. (Value:
+ *        "BLUETOOTH_SHARING_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingUnspecified
+ *        Unspecified. Defaults to BLUETOOTH_SHARING_DISALLOWED on work profiles
+ *        and BLUETOOTH_SHARING_ALLOWED on fully managed devices. (Value:
+ *        "BLUETOOTH_SHARING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *bluetoothSharing;
+
+/**
  *  Controls Wi-Fi configuring privileges. Based on the option set, user will
  *  have either full or limited or no control in configuring Wi-Fi networks.
  *
@@ -6934,6 +7160,28 @@ GTLR_DEPRECATED
 
 
 /**
+ *  EID information for each eUICC chip.
+ */
+@interface GTLRAndroidManagement_Eid : GTLRObject
+
+/** Output only. The EID */
+@property(nonatomic, copy, nullable) NSString *eid;
+
+@end
+
+
+/**
+ *  Information related to the EIDs of the device.
+ */
+@interface GTLRAndroidManagement_EidInfo : GTLRObject
+
+/** Output only. EID information for each eUICC chip. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Eid *> *eids;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -7171,6 +7419,48 @@ GTLR_DEPRECATED
  *  this enterprise. A page of terms is generated for each value in this list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TermsAndConditions *> *termsAndConditions;
+
+@end
+
+
+/**
+ *  An event sent for an enterprise upgrade. An enterprise upgrade is a process
+ *  that upgrades a managed Google Play Accounts enterprise to a managed Google
+ *  domain.
+ */
+@interface GTLRAndroidManagement_EnterpriseUpgradeEvent : GTLRObject
+
+/**
+ *  The name of upgraded enterprise in the format "enterprises/{enterprise}"
+ */
+@property(nonatomic, copy, nullable) NSString *enterprise;
+
+/**
+ *  Output only. The upgrade state of the enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded
+ *        The upgrade has succeeded. (Value: "UPGRADE_STATE_SUCCEEDED")
+ *    @arg @c kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified
+ *        Unspecified. This value is not used. (Value:
+ *        "UPGRADE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *upgradeState;
+
+@end
+
+
+/**
+ *  Information related to the eUICC chip.
+ */
+@interface GTLRAndroidManagement_EuiccChipInfo : GTLRObject
+
+/**
+ *  Output only. The Embedded Identity Document (EID) that identifies the eUICC
+ *  chip for each eUICC chip on the device. This is available on company owned
+ *  devices running Android 13 and above.
+ */
+@property(nonatomic, copy, nullable) NSString *eid;
 
 @end
 
@@ -7417,6 +7707,9 @@ GTLR_DEPRECATED
  *  devices running Android 12 and above.
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseSpecificId;
+
+/** Output only. Information related to the eUICC chip. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_EuiccChipInfo *> *euiccChipInfo;
 
 /**
  *  GPU shutdown temperature thresholds in Celsius for each GPU on the device.
@@ -9285,6 +9578,27 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountTypesWithManagementDisabled;
 
 /**
+ *  Optional. Whether bluetooth sharing is allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingAllowed
+ *        Bluetooth sharing is allowed on personal profile.Supported on Android
+ *        8 and above. A NonComplianceDetail with MANAGEMENT_MODE is reported if
+ *        this is set for a personal device. (Value:
+ *        "BLUETOOTH_SHARING_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingDisallowed
+ *        Bluetooth sharing is disallowed on personal profile.Supported on
+ *        Android 8 and above. A NonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is less than 8. A NonComplianceDetail with
+ *        MANAGEMENT_MODE is reported if this is set for a personal device.
+ *        (Value: "BLUETOOTH_SHARING_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingUnspecified
+ *        Unspecified. Defaults to BLUETOOTH_SHARING_ALLOWED. (Value:
+ *        "BLUETOOTH_SHARING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *bluetoothSharing;
+
+/**
  *  If true, the camera is disabled on the personal profile.
  *
  *  Uses NSNumber of boolValue.
@@ -10494,6 +10808,61 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Parameters associated with the REQUEST_DEVICE_INFO command to get device
+ *  related information.
+ */
+@interface GTLRAndroidManagement_RequestDeviceInfoParams : GTLRObject
+
+/**
+ *  Required. Type of device information to be requested.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_DeviceInfoUnspecified
+ *        This value is disallowed. (Value: "DEVICE_INFO_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_Eid
+ *        Request the identifier for eSIM. The user will be asked to approve the
+ *        disclosure of the information before the result can be returned. If
+ *        the user doesn't approve the disclosure, USER_DECLINED will be
+ *        returned. This is supported only for personally owned devices with
+ *        work profiles and Android versions 13 and above. (Value: "EID")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceInfo;
+
+@end
+
+
+/**
+ *  Status of the REQUEST_DEVICE_INFO command.
+ */
+@interface GTLRAndroidManagement_RequestDeviceInfoStatus : GTLRObject
+
+/** Information related to the EIDs of the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_EidInfo *eidInfo;
+
+/**
+ *  Output only. Status of a REQUEST_DEVICE_INFO command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_PendingUserAction
+ *        The user has not completed the actions required to share device
+ *        information. (Value: "PENDING_USER_ACTION")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_StatusUnspecified
+ *        Unspecified. This value is not used. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Succeeded
+ *        Device information has been successfully delivered. (Value:
+ *        "SUCCEEDED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Unsupported
+ *        The requested device info is not supported on this device, e.g. eSIM
+ *        is not supported on the device. (Value: "UNSUPPORTED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_UserDeclined
+ *        The user declined sharing device information. (Value: "USER_DECLINED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  Controls for the screen brightness settings.
  */
 @interface GTLRAndroidManagement_ScreenBrightnessSettings : GTLRObject
@@ -11276,6 +11645,9 @@ GTLR_DEPRECATED
 /** An app process was started. Part of SECURITY_LOGS. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AppProcessStartEvent *appProcessStartEvent;
 
+/** An admin has enabled or disabled backup service. Part of SECURITY_LOGS. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_BackupServiceToggledEvent *backupServiceToggledEvent;
+
 /**
  *  A new root certificate was installed into the system's trusted credential
  *  storage. Part of SECURITY_LOGS.
@@ -11342,6 +11714,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_AppProcessStart
  *        Indicates app_process_start_event has been set. (Value:
  *        "APP_PROCESS_START")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_BackupServiceToggled
+ *        Indicates backupServiceToggledEvent has been set. (Value:
+ *        "BACKUP_SERVICE_TOGGLED")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_CertAuthorityInstalled
  *        Indicates cert_authority_installed_event has been set. (Value:
  *        "CERT_AUTHORITY_INSTALLED")

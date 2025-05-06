@@ -652,7 +652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
-@property(nonatomic, assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine GTLR_DEPRECATED;
 
 /**
  *  The *pageToken* parameter identifies a specific page in the result set that

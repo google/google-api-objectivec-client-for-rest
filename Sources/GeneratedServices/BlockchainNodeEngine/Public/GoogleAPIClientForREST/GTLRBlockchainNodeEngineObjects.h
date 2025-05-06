@@ -305,15 +305,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
 /**
  *  Optional. When true, the node is only accessible via Private Service
  *  Connect; no public endpoints are exposed. Otherwise, the node is only
- *  accessible via public endpoints. Warning: Private Service Connect enabled
- *  nodes may require a manual migration effort to remain compatible with future
- *  versions of the product. If this feature is enabled, you will be notified of
- *  these changes along with any required action to avoid disruption. See
- *  https://cloud.google.com/vpc/docs/private-service-connect.
+ *  accessible via public endpoints. Warning: These nodes are deprecated, please
+ *  use public endpoints instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *privateServiceConnectEnabled;
+@property(nonatomic, strong, nullable) NSNumber *privateServiceConnectEnabled GTLR_DEPRECATED;
 
 /**
  *  Output only. A status representing the state of the node.
@@ -909,7 +906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *managedValidatorClient;
+@property(nonatomic, strong, nullable) NSNumber *managedValidatorClient GTLR_DEPRECATED;
 
 /**
  *  URLs for MEV-relay services to use for block building. When set, a

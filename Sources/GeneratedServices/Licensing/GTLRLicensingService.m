@@ -7,7 +7,7 @@
 //   The Google Enterprise License Manager API lets you manage Google Workspace
 //   and related licenses for all users of a customer that you manage.
 // Documentation:
-//   https://developers.google.com/admin-sdk/licensing/
+//   https://developers.google.com/workspace/admin/licensing/
 
 #import <GoogleAPIClientForREST/GTLRLicensing.h>
 

@@ -19,7 +19,9 @@
 @class GTLRDigitalAssetLinks_Asset;
 @class GTLRDigitalAssetLinks_CertificateInfo;
 @class GTLRDigitalAssetLinks_CheckResponse;
+@class GTLRDigitalAssetLinks_CheckResponse_RelationExtensions_Item;
 @class GTLRDigitalAssetLinks_Statement;
+@class GTLRDigitalAssetLinks_Statement_RelationExtensions;
 @class GTLRDigitalAssetLinks_StatementTemplate;
 @class GTLRDigitalAssetLinks_WebAsset;
 
@@ -314,6 +316,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode
 @property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *defaultTarget;
 
 /**
+ *  Same configuration as in CheckRequest; all statement checks will use the
+ *  same configuration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnRelationExtensions;
+
+/**
  *  List of statements to check. For each statement, you can omit a field if the
  *  corresponding default_* field below was supplied. Minimum 1 statement;
  *  maximum 1,000 statements. Any additional statements will be ignored.
@@ -436,6 +446,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxAge;
 
+/**
+ *  Statements may specify relation level extensions/payloads to express more
+ *  details when declaring permissions to grant from the source asset to the
+ *  target asset. When requested, the API will return relation_extensions
+ *  specified in any and all statements linking the requested source and target
+ *  assets by the relation specified in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDigitalAssetLinks_CheckResponse_RelationExtensions_Item *> *relationExtensions;
+
+@end
+
+
+/**
+ *  GTLRDigitalAssetLinks_CheckResponse_RelationExtensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDigitalAssetLinks_CheckResponse_RelationExtensions_Item : GTLRObject
 @end
 
 
@@ -493,12 +524,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode
  */
 @property(nonatomic, copy, nullable) NSString *relation;
 
+/**
+ *  Statements may specify relation level extensions/payloads to express more
+ *  details when declaring permissions to grant from the source asset to the
+ *  target asset. These relation extensions should be specified in the
+ *  `relation_extensions` object, keyed by the relation type they're associated
+ *  with. { relation: ["delegate_permission/common.handle_all_urls"], target:
+ *  {...}, relation_extensions: { "delegate_permission/common.handle_all_urls":
+ *  { ...handle_all_urls specific payload specified here... } } } When
+ *  requested, and specified in the statement file, the API will return
+ *  relation_extensions associated with the statement's relation type. i.e. the
+ *  API will only return relation_extensions specified for
+ *  "delegate_permission/common.handle_all_urls" if this statement object's
+ *  relation type is "delegate_permission/common.handle_all_urls".
+ */
+@property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Statement_RelationExtensions *relationExtensions;
+
 /** Every statement has a source asset. REQUIRED */
 @property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *source;
 
 /** Every statement has a target asset. REQUIRED */
 @property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *target;
 
+@end
+
+
+/**
+ *  Statements may specify relation level extensions/payloads to express more
+ *  details when declaring permissions to grant from the source asset to the
+ *  target asset. These relation extensions should be specified in the
+ *  `relation_extensions` object, keyed by the relation type they're associated
+ *  with. { relation: ["delegate_permission/common.handle_all_urls"], target:
+ *  {...}, relation_extensions: { "delegate_permission/common.handle_all_urls":
+ *  { ...handle_all_urls specific payload specified here... } } } When
+ *  requested, and specified in the statement file, the API will return
+ *  relation_extensions associated with the statement's relation type. i.e. the
+ *  API will only return relation_extensions specified for
+ *  "delegate_permission/common.handle_all_urls" if this statement object's
+ *  relation type is "delegate_permission/common.handle_all_urls".
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDigitalAssetLinks_Statement_RelationExtensions : GTLRObject
 @end
 
 

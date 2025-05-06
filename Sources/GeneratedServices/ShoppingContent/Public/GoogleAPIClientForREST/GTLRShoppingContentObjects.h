@@ -9307,7 +9307,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Required product attributes are primarily defined by the product data
  *  specification. See the Product Data Specification Help Center article for
  *  information. Product data. After inserting, updating, or deleting a product,
- *  it may take several minutes before changes take effect.
+ *  it may take several minutes before changes take effect. The following
+ *  reference documentation lists the field names in the **camelCase** casing
+ *  style while the Products Data Specification lists the names in the
+ *  **snake_case** casing style.
  */
 @interface GTLRShoppingContent_Product : GTLRObject
 

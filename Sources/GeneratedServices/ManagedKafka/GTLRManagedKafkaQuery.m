@@ -16,6 +16,171 @@
 
 @end
 
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsAddAclEntry
+
+@dynamic acl;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_AclEntry *)object
+                            acl:(NSString *)acl {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"acl" ];
+  NSString *pathURITemplate = @"v1/{+acl}:addAclEntry";
+  GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsAddAclEntry *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.acl = acl;
+  query.expectedObjectClass = [GTLRManagedKafka_AddAclEntryResponse class];
+  query.loggingName = @"managedkafka.projects.locations.clusters.acls.addAclEntry";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsCreate
+
+@dynamic aclId, parent;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_Acl *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/acls";
+  GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_Acl class];
+  query.loggingName = @"managedkafka.projects.locations.clusters.acls.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_Empty class];
+  query.loggingName = @"managedkafka.projects.locations.clusters.acls.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_Acl class];
+  query.loggingName = @"managedkafka.projects.locations.clusters.acls.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/acls";
+  GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_ListAclsResponse class];
+  query.loggingName = @"managedkafka.projects.locations.clusters.acls.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_Acl *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_Acl class];
+  query.loggingName = @"managedkafka.projects.locations.clusters.acls.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsRemoveAclEntry
+
+@dynamic acl;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_AclEntry *)object
+                            acl:(NSString *)acl {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"acl" ];
+  NSString *pathURITemplate = @"v1/{+acl}:removeAclEntry";
+  GTLRManagedKafkaQuery_ProjectsLocationsClustersAclsRemoveAclEntry *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.acl = acl;
+  query.expectedObjectClass = [GTLRManagedKafka_RemoveAclEntryResponse class];
+  query.loggingName = @"managedkafka.projects.locations.clusters.acls.removeAclEntry";
+  return query;
+}
+
+@end
+
 @implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersConsumerGroupsDelete
 
 @dynamic name;

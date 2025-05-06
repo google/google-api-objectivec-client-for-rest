@@ -98,6 +98,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpacesCreate;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatBot;
 /**
+ *  Authorization scope: View, create, and delete custom emoji in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.customemojis"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatCustomemojis;
+/**
+ *  Authorization scope: View custom emoji in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.customemojis.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatCustomemojisReadonly;
+/**
  *  Authorization scope: Delete conversations and spaces and remove access to
  *  associated files in Google Chat
  *

@@ -1053,7 +1053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *appId;
 
 /**
- *  Type of the app.
+ *  Type of the app. Optional. If not provided, an app type will be inferred
+ *  from the format of the app ID.
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagementAppTypeAppTypeUnspecified App type not

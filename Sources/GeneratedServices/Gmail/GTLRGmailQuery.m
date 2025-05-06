@@ -7,7 +7,7 @@
 //   The Gmail API lets you view and manage Gmail mailbox data like threads,
 //   messages, and labels.
 // Documentation:
-//   https://developers.google.com/gmail/api/
+//   https://developers.google.com/workspace/gmail/api/
 
 #import <GoogleAPIClientForREST/GTLRGmailQuery.h>
 

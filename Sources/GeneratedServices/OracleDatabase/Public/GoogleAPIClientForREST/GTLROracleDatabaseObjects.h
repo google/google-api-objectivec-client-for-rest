@@ -861,6 +861,30 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWor
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Oltp;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_CloudExadataInfrastructureProperties.computeModel
+
+/**
+ *  Abstract measure of compute resources. ECPUs are based on the number of
+ *  cores elastically allocated from a pool of compute and storage servers.
+ *
+ *  Value: "COMPUTE_MODEL_ECPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelEcpu;
+/**
+ *  Physical measure of compute resources. OCPUs are based on the physical core
+ *  of a processor.
+ *
+ *  Value: "COMPUTE_MODEL_OCPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelOcpu;
+/**
+ *  Unspecified compute model.
+ *
+ *  Value: "COMPUTE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_CloudExadataInfrastructureProperties.state
 
 /**
@@ -911,6 +935,30 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudExadataInfrastructur
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_CloudVmClusterProperties.computeModel
+
+/**
+ *  Abstract measure of compute resources. ECPUs are based on the number of
+ *  cores elastically allocated from a pool of compute and storage servers.
+ *
+ *  Value: "COMPUTE_MODEL_ECPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelEcpu;
+/**
+ *  Physical measure of compute resources. OCPUs are based on the physical core
+ *  of a processor.
+ *
+ *  Value: "COMPUTE_MODEL_OCPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelOcpu;
+/**
+ *  Unspecified compute model.
+ *
+ *  Value: "COMPUTE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_CloudVmClusterProperties.diskRedundancy
@@ -2026,6 +2074,11 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, strong, nullable) NSNumber *allocatedStorageSizeTb;
 
+/**
+ *  Optional. The list of allowlisted IP addresses for the Autonomous Database.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowlistedIps;
+
 /** Output only. The details for the Oracle APEX Application Development. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_AutonomousDatabaseApex *apexDetails;
 
@@ -2828,6 +2881,22 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSNumber *computeCount;
 
 /**
+ *  Output only. The compute model of the Exadata Infrastructure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelEcpu
+ *        Abstract measure of compute resources. ECPUs are based on the number
+ *        of cores elastically allocated from a pool of compute and storage
+ *        servers. (Value: "COMPUTE_MODEL_ECPU")
+ *    @arg @c kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelOcpu
+ *        Physical measure of compute resources. OCPUs are based on the physical
+ *        core of a processor. (Value: "COMPUTE_MODEL_OCPU")
+ *    @arg @c kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelUnspecified
+ *        Unspecified compute model. (Value: "COMPUTE_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *computeModel;
+
+/**
  *  Output only. The number of enabled CPU cores.
  *
  *  Uses NSNumber of intValue.
@@ -2836,6 +2905,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 /** Optional. The list of customer contacts. */
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_CustomerContact *> *customerContacts;
+
+/** Output only. The database server type of the Exadata Infrastructure. */
+@property(nonatomic, copy, nullable) NSString *databaseServerType;
 
 /**
  *  Output only. Size, in terabytes, of the DATA disk group.
@@ -2966,6 +3038,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, strong, nullable) NSNumber *storageCount;
 
+/** Output only. The storage server type of the Exadata Infrastructure. */
+@property(nonatomic, copy, nullable) NSString *storageServerType;
+
 /**
  *  Output only. The software version of the storage servers (cells) in the
  *  Exadata Infrastructure.
@@ -2989,10 +3064,10 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @interface GTLROracleDatabase_CloudVmCluster : GTLRObject
 
-/** Required. CIDR range of the backup subnet. */
+/** Optional. CIDR range of the backup subnet. */
 @property(nonatomic, copy, nullable) NSString *backupSubnetCidr;
 
-/** Required. Network settings. CIDR to use for cluster IP allocation. */
+/** Optional. Network settings. CIDR to use for cluster IP allocation. */
 @property(nonatomic, copy, nullable) NSString *cidr;
 
 /** Output only. The date and time that the VM cluster was created. */
@@ -3024,7 +3099,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the VPC network. Format:
+ *  Optional. The name of the VPC network. Format:
  *  projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -3057,6 +3132,22 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 /** Output only. Compartment ID of cluster. */
 @property(nonatomic, copy, nullable) NSString *compartmentId;
+
+/**
+ *  Output only. The compute model of the VM Cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelEcpu
+ *        Abstract measure of compute resources. ECPUs are based on the number
+ *        of cores elastically allocated from a pool of compute and storage
+ *        servers. (Value: "COMPUTE_MODEL_ECPU")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelOcpu
+ *        Physical measure of compute resources. OCPUs are based on the physical
+ *        core of a processor. (Value: "COMPUTE_MODEL_OCPU")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_ComputeModel_ComputeModelUnspecified
+ *        Unspecified compute model. (Value: "COMPUTE_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *computeModel;
 
 /**
  *  Required. Number of enabled CPU cores.
@@ -4553,7 +4644,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
- *  The request for `AutonomousDatabase.Switchover`.
+ *  The request for `OracleDatabase.SwitchoverAutonomousDatabase`.
  */
 @interface GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest : GTLRObject
 

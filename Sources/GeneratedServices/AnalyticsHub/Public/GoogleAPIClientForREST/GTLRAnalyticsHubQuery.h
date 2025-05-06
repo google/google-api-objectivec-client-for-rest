@@ -93,8 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The ID of the data exchange. Must contain only Unicode letters,
- *  numbers (0-9), underscores (_). Should not use characters that require
- *  URL-escaping, or characters outside of ASCII, spaces. Max length: 100 bytes.
+ *  numbers (0-9), underscores (_). Max length: 100 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *dataExchangeId;
 
@@ -280,9 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The ID of the listing to create. Must contain only Unicode
- *  letters, numbers (0-9), underscores (_). Should not use characters that
- *  require URL-escaping, or characters outside of ASCII, spaces. Max length:
- *  100 bytes.
+ *  letters, numbers (0-9), underscores (_). Max length: 100 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *listingId;
 

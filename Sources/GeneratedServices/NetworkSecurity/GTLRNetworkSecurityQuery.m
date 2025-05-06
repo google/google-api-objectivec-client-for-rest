@@ -1854,9 +1854,460 @@
 
 @end
 
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsCreate
+
+@dynamic interceptDeploymentGroupId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeploymentGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptDeploymentGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeploymentGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeploymentGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_InterceptDeploymentGroup class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeploymentGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptDeploymentGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListInterceptDeploymentGroupsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeploymentGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeploymentGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeploymentGroups.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsCreate
+
+@dynamic interceptDeploymentId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeployment *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptDeployments";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeployments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeployments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_InterceptDeployment class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeployments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptDeployments";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListInterceptDeploymentsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeployments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeployment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptDeployments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsCreate
+
+@dynamic interceptEndpointGroupAssociationId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroupAssociation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptEndpointGroupAssociations";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroupAssociations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroupAssociations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_InterceptEndpointGroupAssociation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroupAssociations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptEndpointGroupAssociations";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListInterceptEndpointGroupAssociationsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroupAssociations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroupAssociation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroupAssociations.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsCreate
+
+@dynamic interceptEndpointGroupId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptEndpointGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_InterceptEndpointGroup class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interceptEndpointGroups";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListInterceptEndpointGroupsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.interceptEndpointGroups.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkSecurityQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

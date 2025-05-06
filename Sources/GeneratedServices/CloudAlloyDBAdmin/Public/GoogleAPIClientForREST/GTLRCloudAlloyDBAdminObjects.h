@@ -3729,6 +3729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *clusterUid;
 
+/** Output only. Timestamp when the resource finished being created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createCompletionTime;
+
 /** Output only. Create time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -6001,7 +6004,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *consumerNetwork;
 
-/** Output only. The status of the service connection policy. */
+/**
+ *  Output only. The status of the service connection policy. Possible values:
+ *  "STATE_UNSPECIFIED" - Default state, when Connection Map is created
+ *  initially. "VALID" - Set when policy and map configuration is valid, and
+ *  their matching can lead to allowing creation of PSC Connections subject to
+ *  other constraints like connections limit. "CONNECTION_POLICY_MISSING" - No
+ *  Service Connection Policy found for this network and Service Class
+ *  "POLICY_LIMIT_REACHED" - Service Connection Policy limit reached for this
+ *  network and Service Class "CONSUMER_INSTANCE_PROJECT_NOT_ALLOWLISTED" - The
+ *  consumer instance project is not in
+ *  AllowedGoogleProducersResourceHierarchyLevels of the matching
+ *  ServiceConnectionPolicy.
+ */
 @property(nonatomic, copy, nullable) NSString *consumerNetworkStatus;
 
 /**
@@ -6013,7 +6028,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /** Output only. The IP address of the PSC service automation endpoint. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
-/** Output only. The status of the PSC service automation connection. */
+/**
+ *  Output only. The status of the PSC service automation connection. Possible
+ *  values: "STATE_UNSPECIFIED" - An invalid state as the default case. "ACTIVE"
+ *  - The connection has been created successfully. "FAILED" - The connection is
+ *  not functional since some resources on the connection fail to be created.
+ *  "CREATING" - The connection is being created. "DELETING" - The connection is
+ *  being deleted. "CREATE_REPAIRING" - The connection is being repaired to
+ *  complete creation. "DELETE_REPAIRING" - The connection is being repaired to
+ *  complete deletion.
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 @end
@@ -6252,7 +6276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Message for restoring a Cluster from a backup or another cluster at a given
- *  point in time.
+ *  point in time. NEXT_ID: 11
  */
 @interface GTLRCloudAlloyDBAdmin_RestoreClusterRequest : GTLRObject
 

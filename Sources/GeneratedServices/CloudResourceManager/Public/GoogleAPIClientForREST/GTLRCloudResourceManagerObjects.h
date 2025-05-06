@@ -458,6 +458,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  Representation of a Capability.
+ */
+@interface GTLRCloudResourceManager_Capability : GTLRObject
+
+/**
+ *  Immutable. Identifier. The resource name of the capability. Must be in the
+ *  following form: * `folders/{folder_id}/capabilities/{capability_name}` For
+ *  example, `folders/123/capabilities/app-management` Following are the allowed
+ *  {capability_name} values: * `app-management`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The configured value of the capability at the given parent
+ *  resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
  *  Metadata pertaining to the Folder creation process.
  */
 @interface GTLRCloudResourceManager_CreateFolderMetadata : GTLRObject
@@ -686,6 +710,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @interface GTLRCloudResourceManager_Folder : GTLRObject
 
+/**
+ *  Output only. Optional capabilities configured for this folder (via
+ *  UpdateCapability API). Example: `folders/123/capabilities/app-management`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *configuredCapabilities;
+
 /** Output only. Timestamp when the folder was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -708,6 +738,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  ensure the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Management Project associated with this folder (if
+ *  app-management capability is enabled). Example: `projects/google-mp-123`
+ *  OUTPUT ONLY.
+ */
+@property(nonatomic, copy, nullable) NSString *managementProject;
 
 /**
  *  Output only. The resource name of the folder. Its format is

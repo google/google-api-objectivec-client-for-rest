@@ -670,6 +670,75 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsCreate
+
+@dynamic logicalViewId, parent;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_LogicalView *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logicalViews";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Empty class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_LogicalView class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGetIamPolicy
 
 @dynamic resource;
@@ -692,6 +761,52 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
   query.loggingName = @"bigtableadmin.projects.instances.logicalViews.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logicalViews";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_ListLogicalViewsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_LogicalView *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.logicalViews.patch";
   return query;
 }
 
@@ -751,6 +866,75 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate
+
+@dynamic materializedViewId, parent;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MaterializedView *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/materializedViews";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Empty class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_MaterializedView class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGetIamPolicy
 
 @dynamic resource;
@@ -773,6 +957,52 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
   query.loggingName = @"bigtableadmin.projects.instances.materializedViews.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/materializedViews";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_ListMaterializedViewsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MaterializedView *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.materializedViews.patch";
   return query;
 }
 
@@ -1303,7 +1533,7 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesPatch
 
-@dynamic name, updateMask;
+@dynamic ignoreWarnings, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_Table *)object
                            name:(NSString *)name {
@@ -1492,7 +1722,14 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @implementation GTLRBigtableAdminQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

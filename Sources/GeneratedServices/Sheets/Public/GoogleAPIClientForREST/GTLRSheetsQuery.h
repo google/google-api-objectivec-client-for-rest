@@ -400,6 +400,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @interface GTLRSheetsQuery_SpreadsheetsGet : GTLRSheetsQuery
 
 /**
+ *  True if tables should be excluded in the banded ranges. False if not set.
+ */
+@property(nonatomic, assign) BOOL excludeTablesInBandedRanges;
+
+/**
  *  True if grid data should be returned. This parameter is ignored if a field
  *  mask was set in the request.
  */

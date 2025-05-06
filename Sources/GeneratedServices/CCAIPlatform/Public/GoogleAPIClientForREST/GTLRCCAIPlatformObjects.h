@@ -644,6 +644,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_AdminUser *adminUser;
 
 /**
+ *  Optional. Whether the advanced reporting feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advancedReportingEnabled;
+
+/**
  *  Optional. Whether to enable users to be created in the CCAIP-instance
  *  concurrently to having users in Cloud identity
  *

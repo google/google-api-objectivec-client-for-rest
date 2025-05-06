@@ -36,6 +36,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the trust boundary info for a given workforce pool.
+ *
+ *  Method: iamcredentials.locations.workforcePools.getAllowedLocations
+ */
+@interface GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations : GTLRIAMCredentialsQuery
+
+/** Required. Resource name of workforce pool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIAMCredentials_WorkforcePoolAllowedLocations.
+ *
+ *  Returns the trust boundary info for a given workforce pool.
+ *
+ *  @param name Required. Resource name of workforce pool.
+ *
+ *  @return GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the trust boundary info for a given workload identity pool.
+ *
+ *  Method: iamcredentials.projects.locations.workloadIdentityPools.getAllowedLocations
+ */
+@interface GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations : GTLRIAMCredentialsQuery
+
+/** Required. Resource name of workload identity pool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations.
+ *
+ *  Returns the trust boundary info for a given workload identity pool.
+ *
+ *  @param name Required. Resource name of workload identity pool.
+ *
+ *  @return GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Generates an OAuth 2.0 access token for a service account.
  *
  *  Method: iamcredentials.projects.serviceAccounts.generateAccessToken

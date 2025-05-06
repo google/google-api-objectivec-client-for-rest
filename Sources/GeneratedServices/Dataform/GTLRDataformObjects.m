@@ -59,6 +59,55 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_ActionErrorTable
+//
+
+@implementation GTLRDataform_ActionErrorTable
+@dynamic retentionDays, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_ActionIncrementalLoadMode
+//
+
+@implementation GTLRDataform_ActionIncrementalLoadMode
+@dynamic column;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_ActionLoadConfig
+//
+
+@implementation GTLRDataform_ActionLoadConfig
+@dynamic append, maximum, replace, unique;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_ActionSimpleLoadMode
+//
+
+@implementation GTLRDataform_ActionSimpleLoadMode
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_ActionSqlDefinition
+//
+
+@implementation GTLRDataform_ActionSqlDefinition
+@dynamic errorTable, loadConfig, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_Assertion
 //
 
@@ -129,9 +178,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_CodeCompilationConfig
-@dynamic assertionSchema, databaseSuffix, defaultDatabase, defaultLocation,
-         defaultNotebookRuntimeOptions, defaultSchema, schemaSuffix,
-         tablePrefix, vars;
+@dynamic assertionSchema, builtinAssertionNamePrefix, databaseSuffix,
+         defaultDatabase, defaultLocation, defaultNotebookRuntimeOptions,
+         defaultSchema, schemaSuffix, tablePrefix, vars;
 @end
 
 
@@ -299,8 +348,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_CompilationResultAction
-@dynamic assertion, canonicalTarget, declaration, filePath, internalMetadata,
-         notebook, operations, relation, target;
+@dynamic assertion, canonicalTarget, dataPreparation, declaration, filePath,
+         internalMetadata, notebook, operations, relation, target;
 @end
 
 
@@ -331,6 +380,35 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_DataEncryptionState
 @dynamic kmsKeyVersionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_DataPreparation
+//
+
+@implementation GTLRDataform_DataPreparation
+@dynamic contentsSql, contentsYaml, dependencyTargets, disabled, tags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dependencyTargets" : [GTLRDataform_Target class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_DataPreparationAction
+//
+
+@implementation GTLRDataform_DataPreparationAction
+@dynamic contentsSql, contentsYaml, generatedSql, jobId;
 @end
 
 
@@ -379,6 +457,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_ErrorTable
+//
+
+@implementation GTLRDataform_ErrorTable
+@dynamic retentionDays, target;
 @end
 
 
@@ -503,6 +591,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 @implementation GTLRDataform_GitRemoteSettings
 @dynamic authenticationTokenSecretVersion, defaultBranch,
          sshAuthenticationConfig, tokenStatus, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_IncrementalLoadMode
+//
+
+@implementation GTLRDataform_IncrementalLoadMode
+@dynamic column;
 @end
 
 
@@ -734,6 +832,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
   return @"workspaces";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_LoadConfig
+//
+
+@implementation GTLRDataform_LoadConfig
+@dynamic append, maximum, replace, unique;
 @end
 
 
@@ -1322,6 +1430,25 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_SimpleLoadMode
+//
+
+@implementation GTLRDataform_SimpleLoadMode
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_SqlDefinition
+//
+
+@implementation GTLRDataform_SqlDefinition
+@dynamic errorTable, load, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_SshAuthenticationConfig
 //
 
@@ -1424,8 +1551,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowConfig
-@dynamic createTime, cronSchedule, internalMetadata, invocationConfig, name,
-         recentScheduledExecutionRecords, releaseConfig, timeZone, updateTime;
+@dynamic createTime, cronSchedule, disabled, internalMetadata, invocationConfig,
+         name, recentScheduledExecutionRecords, releaseConfig, timeZone,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1455,8 +1583,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowInvocationAction
-@dynamic bigqueryAction, canonicalTarget, failureReason, internalMetadata,
-         invocationTiming, notebookAction, state, target;
+@dynamic bigqueryAction, canonicalTarget, dataPreparationAction, failureReason,
+         internalMetadata, invocationTiming, notebookAction, state, target;
 @end
 
 

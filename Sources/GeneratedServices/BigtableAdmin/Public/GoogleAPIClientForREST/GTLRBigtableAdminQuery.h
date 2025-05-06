@@ -381,8 +381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, assign) BOOL ignoreWarnings;
 
 /**
- *  The unique name of the app profile. Values are of the form
- *  `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
+ *  The unique name of the app profile, up to 50 characters long. Values are of
+ *  the form `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -400,7 +400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Updates an app profile within an instance.
  *
  *  @param object The @c GTLRBigtableAdmin_AppProfile to include in the query.
- *  @param name The unique name of the app profile. Values are of the form
+ *  @param name The unique name of the app profile, up to 50 characters long.
+ *    Values are of the form
  *    `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesPatch
@@ -1395,6 +1396,128 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Creates a logical view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The ID to use for the logical view, which will become the final
+ *  component of the logical view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *logicalViewId;
+
+/**
+ *  Required. The parent instance where this logical view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Creates a logical view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_LogicalView to include in the query.
+ *  @param parent Required. The parent instance where this logical view will be
+ *    created. Format: `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_LogicalView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a logical view from an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsDelete : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The current etag of the logical view. If an etag is provided and
+ *  does not match the current etag of the logical view, deletion will be
+ *  blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The unique name of the logical view to be deleted. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a logical view from an instance.
+ *
+ *  @param name Required. The unique name of the logical view to be deleted.
+ *    Format:
+ *    `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a logical view.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGet : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the requested logical view. Values are of the
+ *  form `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_LogicalView.
+ *
+ *  Gets information about a logical view.
+ *
+ *  @param name Required. The unique name of the requested logical view. Values
+ *    are of the form
+ *    `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for an instance resource. Returns an empty
  *  policy if an instance exists but does not have a policy set.
  *
@@ -1434,6 +1557,105 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists information about logical views in an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The maximum number of logical views to return. The service may
+ *  return fewer than this value
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListLogicalViews` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListLogicalViews` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the instance for which the list of logical
+ *  views is requested. Values are of the form
+ *  `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListLogicalViewsResponse.
+ *
+ *  Lists information about logical views in an instance.
+ *
+ *  @param parent Required. The unique name of the instance for which the list
+ *    of logical views is requested. Values are of the form
+ *    `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a logical view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsPatch : GTLRBigtableAdminQuery
+
+/**
+ *  Identifier. The unique name of the logical view. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates a logical view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_LogicalView to include in the query.
+ *  @param name Identifier. The unique name of the logical view. Format:
+ *    `projects/{project}/instances/{instance}/logicalViews/{logical_view}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_LogicalView *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1522,6 +1744,130 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Creates a materialized view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The ID to use for the materialized view, which will become the
+ *  final component of the materialized view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *materializedViewId;
+
+/**
+ *  Required. The parent instance where this materialized view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Creates a materialized view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_MaterializedView to include in the
+ *    query.
+ *  @param parent Required. The parent instance where this materialized view
+ *    will be created. Format: `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MaterializedView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a materialized view from an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsDelete : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The current etag of the materialized view. If an etag is provided
+ *  and does not match the current etag of the materialized view, deletion will
+ *  be blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The unique name of the materialized view to be deleted. Format:
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a materialized view from an instance.
+ *
+ *  @param name Required. The unique name of the materialized view to be
+ *    deleted. Format:
+ *    `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a materialized view.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGet : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the requested materialized view. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_MaterializedView.
+ *
+ *  Gets information about a materialized view.
+ *
+ *  @param name Required. The unique name of the requested materialized view.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for an instance resource. Returns an empty
  *  policy if an instance exists but does not have a policy set.
  *
@@ -1561,6 +1907,106 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists information about materialized views in an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The maximum number of materialized views to return. The service
+ *  may return fewer than this value
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMaterializedViews`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMaterializedViews` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the instance for which the list of materialized
+ *  views is requested. Values are of the form
+ *  `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListMaterializedViewsResponse.
+ *
+ *  Lists information about materialized views in an instance.
+ *
+ *  @param parent Required. The unique name of the instance for which the list
+ *    of materialized views is requested. Values are of the form
+ *    `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a materialized view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsPatch : GTLRBigtableAdminQuery
+
+/**
+ *  Identifier. The unique name of the materialized view. Format:
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates a materialized view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_MaterializedView to include in the
+ *    query.
+ *  @param name Identifier. The unique name of the materialized view. Format:
+ *    `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MaterializedView *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2581,6 +3027,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesPatch : GTLRBigtableAdminQuery
 
+/** Optional. If true, ignore safety checks when updating the table. */
+@property(nonatomic, assign) BOOL ignoreWarnings;
+
 /**
  *  The unique name of the table. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`. Views:
@@ -2879,6 +3328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsLocationsList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

@@ -321,7 +321,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_AggregateAssetsValuesRequest
-@dynamic aggregations, filter;
+@dynamic aggregations, filter, showHidden;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -495,8 +495,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 @implementation GTLRMigrationCenterAPI_Asset
 @dynamic assignedGroups, attributes, createTime, databaseDeploymentDetails,
-         databaseDetails, insightList, labels, machineDetails, name,
-         performanceData, sources, title, updateTime;
+         databaseDetails, hidden, hideReason, hideTime, insightList, labels,
+         machineDetails, name, performanceData, sources, title, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -655,10 +655,11 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_BatchDeleteAssetsRequest
-@dynamic allowMissing, names;
+@dynamic allowMissing, cascadingRules, names;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"cascadingRules" : [GTLRMigrationCenterAPI_CascadingRule class],
     @"names" : [NSString class]
   };
   return map;
@@ -724,6 +725,25 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_CascadeLogicalDBsRule
+//
+
+@implementation GTLRMigrationCenterAPI_CascadeLogicalDBsRule
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_CascadingRule
+//
+
+@implementation GTLRMigrationCenterAPI_CascadingRule
+@dynamic cascadeLogicalDbs;
 @end
 
 

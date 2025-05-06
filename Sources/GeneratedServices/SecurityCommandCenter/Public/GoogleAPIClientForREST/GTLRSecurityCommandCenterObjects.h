@@ -292,7 +292,6 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -451,34 +450,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfil
  *  Value: "PROJECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Project;
-
-// ----------------------------------------------------------------------------
-// GTLRSecurityCommandCenter_ComplianceSnapshot.cloudProvider
-
-/**
- *  The cloud provider is Amazon Web Services.
- *
- *  Value: "AMAZON_WEB_SERVICES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_AmazonWebServices;
-/**
- *  The cloud provider is unspecified.
- *
- *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_CloudProviderUnspecified;
-/**
- *  The cloud provider is Google Cloud Platform.
- *
- *  Value: "GOOGLE_CLOUD_PLATFORM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_GoogleCloudPlatform;
-/**
- *  The cloud provider is Microsoft Azure.
- *
- *  Value: "MICROSOFT_AZURE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Connection.protocol
@@ -2832,6 +2803,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerAndResourceDiscovery;
 /**
+ *  T1053.007
+ *
+ *  Value: "CONTAINER_ORCHESTRATION_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerOrchestrationJob;
+/**
  *  T1136
  *
  *  Value: "CREATE_ACCOUNT"
@@ -3126,6 +3103,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ScanningIpBlocks;
 /**
+ *  T1053
+ *
+ *  Value: "SCHEDULED_TASK_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ScheduledTaskJob;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -3203,6 +3186,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TOKEN_IMPERSONATION_OR_THEFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_TokenImpersonationOrTheft;
+/**
+ *  T1537
+ *
+ *  Value: "TRANSFER_DATA_TO_CLOUD_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_TransferDataToCloudAccount;
 /**
  *  T1059.004
  *
@@ -3463,6 +3452,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerAndResourceDiscovery;
+/**
+ *  T1053.007
+ *
+ *  Value: "CONTAINER_ORCHESTRATION_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerOrchestrationJob;
 /**
  *  T1136
  *
@@ -3758,6 +3753,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ScanningIpBlocks;
 /**
+ *  T1053
+ *
+ *  Value: "SCHEDULED_TASK_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ScheduledTaskJob;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -3835,6 +3836,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TOKEN_IMPERSONATION_OR_THEFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_TokenImpersonationOrTheft;
+/**
+ *  T1537
+ *
+ *  Value: "TRANSFER_DATA_TO_CLOUD_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_TransferDataToCloudAccount;
 /**
  *  T1059.004
  *
@@ -4612,6 +4619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ContainerAndResourceDiscovery;
 /**
+ *  T1053.007
+ *
+ *  Value: "CONTAINER_ORCHESTRATION_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ContainerOrchestrationJob;
+/**
  *  T1136
  *
  *  Value: "CREATE_ACCOUNT"
@@ -4906,6 +4919,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScanningIpBlocks;
 /**
+ *  T1053
+ *
+ *  Value: "SCHEDULED_TASK_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScheduledTaskJob;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -4983,6 +5002,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "TOKEN_IMPERSONATION_OR_THEFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_TokenImpersonationOrTheft;
+/**
+ *  T1537
+ *
+ *  Value: "TRANSFER_DATA_TO_CLOUD_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_TransferDataToCloudAccount;
 /**
  *  T1059.004
  *
@@ -5243,6 +5268,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ContainerAndResourceDiscovery;
+/**
+ *  T1053.007
+ *
+ *  Value: "CONTAINER_ORCHESTRATION_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ContainerOrchestrationJob;
 /**
  *  T1136
  *
@@ -5538,6 +5569,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScanningIpBlocks;
 /**
+ *  T1053
+ *
+ *  Value: "SCHEDULED_TASK_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScheduledTaskJob;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -5615,6 +5652,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "TOKEN_IMPERSONATION_OR_THEFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_TokenImpersonationOrTheft;
+/**
+ *  T1537
+ *
+ *  Value: "TRANSFER_DATA_TO_CLOUD_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_TransferDataToCloudAccount;
 /**
  *  T1059.004
  *
@@ -7145,58 +7188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** Version of the standard or benchmark, for example, 1.1 */
 @property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
- *  Result containing the properties and count of a ComplianceSnapshot request.
- */
-GTLR_DEPRECATED
-@interface GTLRSecurityCommandCenter_ComplianceSnapshot : GTLRObject
-
-/** The category of Findings matching. */
-@property(nonatomic, copy, nullable) NSString *category;
-
-/**
- *  The cloud provider for the compliance snapshot.
- *
- *  Likely values:
- *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_AmazonWebServices
- *        The cloud provider is Amazon Web Services. (Value:
- *        "AMAZON_WEB_SERVICES")
- *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_CloudProviderUnspecified
- *        The cloud provider is unspecified. (Value:
- *        "CLOUD_PROVIDER_UNSPECIFIED")
- *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
- *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_MicrosoftAzure
- *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
- */
-@property(nonatomic, copy, nullable) NSString *cloudProvider;
-
-/** The compliance standard (ie CIS). */
-@property(nonatomic, copy, nullable) NSString *complianceStandard;
-
-/** The compliance version (ie 1.3) in CIS 1.3. */
-@property(nonatomic, copy, nullable) NSString *complianceVersion;
-
-/**
- *  Total count of findings for the given properties.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/** The leaf container resource name that is closest to the snapshot. */
-@property(nonatomic, copy, nullable) NSString *leafContainerResource;
-
-/** The compliance snapshot name. Format: //sources//complianceSnapshots/ */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The snapshot time of the snapshot. */
-@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 @end
 

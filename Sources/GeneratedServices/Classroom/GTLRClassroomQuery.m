@@ -6,7 +6,7 @@
 // Description:
 //   Manages classes, rosters, and invitations in Google Classroom.
 // Documentation:
-//   https://developers.google.com/classroom/
+//   https://developers.google.com/workspace/classroom/
 
 #import <GoogleAPIClientForREST/GTLRClassroomQuery.h>
 
@@ -1669,6 +1669,25 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesGetGradingPeriodSettings
+
+@dynamic courseId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId {
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/gradingPeriodSettings";
+  GTLRClassroomQuery_CoursesGetGradingPeriodSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_GradingPeriodSettings class];
+  query.loggingName = @"classroom.courses.getGradingPeriodSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesList
 
 @dynamic courseStates, pageSize, pageToken, studentId, teacherId;
@@ -2291,6 +2310,33 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRClassroom_Course class];
   query.loggingName = @"classroom.courses.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesUpdateGradingPeriodSettings
+
+@dynamic courseId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_GradingPeriodSettings *)object
+                       courseId:(NSString *)courseId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/gradingPeriodSettings";
+  GTLRClassroomQuery_CoursesUpdateGradingPeriodSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_GradingPeriodSettings class];
+  query.loggingName = @"classroom.courses.updateGradingPeriodSettings";
   return query;
 }
 

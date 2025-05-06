@@ -55,6 +55,7 @@
 @class GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item;
+@class GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
@@ -1909,6 +1910,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, copy, nullable) NSString *selfLinkWithId;
 
 /**
+ *  This field is used internally by the Autoscaler team and should not be
+ *  promoted to "alpha/beta/v1".
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata *setAutoscalerLinkOperationMetadata;
+
+/**
  *  [Output Only] If the operation is for projects.setCommonInstanceMetadata,
  *  this field will contain information on all underlying zonal actions and
  *  their state.
@@ -2974,6 +2981,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Help *help;
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_LocalizedMessage *localizedMessage;
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_QuotaExceededInfo *quotaInfo;
+
+@end
+
+
+/**
+ *  GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata
+ */
+@interface GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata : GTLRObject
+
+/**
+ *  List of zonal IGM IDs part of the RMIG.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *zonalIgmIds;
 
 @end
 

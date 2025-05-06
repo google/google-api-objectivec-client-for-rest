@@ -780,8 +780,8 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 /**
  *  Output only. The publishing settings for a form. This field isn't set for
- *  legacy forms because they don't have the `publish_settings` field. All newly
- *  created forms support publish settings. Forms with `publish_settings` value
+ *  legacy forms because they don't have the publish_settings field. All newly
+ *  created forms support publish settings. Forms with publish_settings value
  *  set can call SetPublishSettings API to publish or unpublish the form.
  */
 @property(nonatomic, strong, nullable) GTLRForms_PublishSettings *publishSettings;
@@ -789,7 +789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 /**
  *  Output only. The form URI to share with responders. This opens a page that
  *  allows the user to submit responses but not edit the questions. For forms
- *  that have `publish_settings` value set, this will be the published form URI.
+ *  that have publish_settings value set, this is the published form URI.
  */
 @property(nonatomic, copy, nullable) NSString *responderUri;
 
@@ -804,13 +804,13 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  *  *content* has been updated; however, a changed ID can also be due to
  *  internal factors such as ID format changes. Form content excludes form
  *  metadata, including: * sharing settings (who has access to the form) *
- *  `publish_settings` (if the form supports publishing and if it is published)
+ *  publish_settings (if the form supports publishing and if it is published)
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
  *  The form's settings. This must be updated with UpdateSettingsRequest; it is
- *  ignored during `forms.create` and UpdateFormInfoRequest.
+ *  ignored during CreateForm and UpdateFormInfoRequest.
  */
 @property(nonatomic, strong, nullable) GTLRForms_Ettings *settings;
 
@@ -1015,8 +1015,8 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 /**
  *  Output only. The title of the document which is visible in Drive. If
- *  `Info.title` is empty, `document_title` may appear in its place in the
- *  Google Forms UI and be visible to responders. `document_title` can be set on
+ *  Info.title is empty, `document_title` may appear in its place in the Google
+ *  Forms UI and be visible to responders. `document_title` can be set on
  *  create, but cannot be modified by a batchUpdate request. Please use the
  *  [Google Drive
  *  API](https://developers.google.com/drive/api/v3/reference/files/update) if
@@ -1505,11 +1505,11 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 
 /**
- *  The response of a `SetPublishSettings` request.
+ *  The response of a SetPublishSettings request.
  */
 @interface GTLRForms_SetPublishSettingsResponse : GTLRObject
 
-/** Required. The ID of the Form. This is same as the `Form.form_id` field. */
+/** Required. The ID of the Form. This is same as the Form.form_id field. */
 @property(nonatomic, copy, nullable) NSString *formId;
 
 /** The publish settings of the form. */

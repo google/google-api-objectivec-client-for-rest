@@ -783,8 +783,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_BatchDeleteVersionsRequest : GTLRObject
 
 /**
- *  Required. The names of the versions to delete. A maximum of 10000 versions
- *  can be deleted in a batch.
+ *  Required. The names of the versions to delete. The maximum number of
+ *  versions deleted per batch is determined by the service and is dependent on
+ *  the available resources in the region.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -2759,14 +2760,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_RemoteRepositoryConfig *remoteRepositoryConfig;
 
 /**
- *  Output only. If set, the repository satisfies physical zone isolation.
+ *  Output only. Whether or not this repository satisfies PZI.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
- *  Output only. If set, the repository satisfies physical zone separation.
+ *  Output only. Whether or not this repository satisfies PZS.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3045,9 +3046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /**
  *  The ID of the version of the generic artifact. If the version does not
  *  exist, a new version will be created. The version_id must start and end with
- *  a letter or number, can only contain lowercase letters, numbers, hyphens and
- *  periods, i.e. [a-z0-9-.] and cannot exceed a total of 128 characters.
- *  Creating a version called `latest` is not allowed.
+ *  a letter or number, can only contain lowercase letters, numbers, the
+ *  following characters [-.+~:], i.e.[a-z0-9-.+~:] and cannot exceed a total of
+ *  128 characters. Creating a version called `latest` is not allowed.
  */
 @property(nonatomic, copy, nullable) NSString *versionId;
 

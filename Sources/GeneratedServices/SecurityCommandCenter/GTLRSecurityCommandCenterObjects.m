@@ -47,12 +47,6 @@ NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Organ
 NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_ParentTypeUnspecified = @"PARENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Project = @"PROJECT";
 
-// GTLRSecurityCommandCenter_ComplianceSnapshot.cloudProvider
-NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_AmazonWebServices = @"AMAZON_WEB_SERVICES";
-NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
-NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_GoogleCloudPlatform = @"GOOGLE_CLOUD_PLATFORM";
-NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_MicrosoftAzure = @"MICROSOFT_AZURE";
-
 // GTLRSecurityCommandCenter_Connection.protocol
 NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Esp = @"ESP";
 NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Gre = @"GRE";
@@ -515,6 +509,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CompromiseHostSoftwareBinary = @"COMPROMISE_HOST_SOFTWARE_BINARY";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerAdministrationCommand = @"CONTAINER_ADMINISTRATION_COMMAND";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerAndResourceDiscovery = @"CONTAINER_AND_RESOURCE_DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerOrchestrationJob = @"CONTAINER_ORCHESTRATION_JOB";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CreateAccount = @"CREATE_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CreateSnapshot = @"CREATE_SNAPSHOT";
@@ -564,6 +559,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Python = @"PYTHON";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ScanningIpBlocks = @"SCANNING_IP_BLOCKS";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ScheduledTaskJob = @"SCHEDULED_TASK_JOB";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ServiceStop = @"SERVICE_STOP";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_SharedModules = @"SHARED_MODULES";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_SoftwareDeploymentTools = @"SOFTWARE_DEPLOYMENT_TOOLS";
@@ -577,6 +573,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Steganography = @"STEGANOGRAPHY";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_TechniqueUnspecified = @"TECHNIQUE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_TokenImpersonationOrTheft = @"TOKEN_IMPERSONATION_OR_THEFT";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_TransferDataToCloudAccount = @"TRANSFER_DATA_TO_CLOUD_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_UnixShell = @"UNIX_SHELL";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_UserExecution = @"USER_EXECUTION";
@@ -623,6 +620,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CompromiseHostSoftwareBinary = @"COMPROMISE_HOST_SOFTWARE_BINARY";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerAdministrationCommand = @"CONTAINER_ADMINISTRATION_COMMAND";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerAndResourceDiscovery = @"CONTAINER_AND_RESOURCE_DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerOrchestrationJob = @"CONTAINER_ORCHESTRATION_JOB";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CreateAccount = @"CREATE_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CreateSnapshot = @"CREATE_SNAPSHOT";
@@ -672,6 +670,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Python = @"PYTHON";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ScanningIpBlocks = @"SCANNING_IP_BLOCKS";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ScheduledTaskJob = @"SCHEDULED_TASK_JOB";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ServiceStop = @"SERVICE_STOP";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_SharedModules = @"SHARED_MODULES";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_SoftwareDeploymentTools = @"SOFTWARE_DEPLOYMENT_TOOLS";
@@ -685,6 +684,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Steganography = @"STEGANOGRAPHY";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_TechniqueUnspecified = @"TECHNIQUE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_TokenImpersonationOrTheft = @"TOKEN_IMPERSONATION_OR_THEFT";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_TransferDataToCloudAccount = @"TRANSFER_DATA_TO_CLOUD_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_UnixShell = @"UNIX_SHELL";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_UserExecution = @"USER_EXECUTION";
@@ -838,6 +838,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Com
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CompromiseHostSoftwareBinary = @"COMPROMISE_HOST_SOFTWARE_BINARY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ContainerAdministrationCommand = @"CONTAINER_ADMINISTRATION_COMMAND";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ContainerAndResourceDiscovery = @"CONTAINER_AND_RESOURCE_DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ContainerOrchestrationJob = @"CONTAINER_ORCHESTRATION_JOB";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateAccount = @"CREATE_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateSnapshot = @"CREATE_SNAPSHOT";
@@ -887,6 +888,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Pro
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Python = @"PYTHON";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScanningIpBlocks = @"SCANNING_IP_BLOCKS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScheduledTaskJob = @"SCHEDULED_TASK_JOB";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ServiceStop = @"SERVICE_STOP";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SharedModules = @"SHARED_MODULES";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SoftwareDeploymentTools = @"SOFTWARE_DEPLOYMENT_TOOLS";
@@ -900,6 +902,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Ste
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Steganography = @"STEGANOGRAPHY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_TechniqueUnspecified = @"TECHNIQUE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_TokenImpersonationOrTheft = @"TOKEN_IMPERSONATION_OR_THEFT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_TransferDataToCloudAccount = @"TRANSFER_DATA_TO_CLOUD_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UnixShell = @"UNIX_SHELL";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UserExecution = @"USER_EXECUTION";
@@ -946,6 +949,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Compil
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CompromiseHostSoftwareBinary = @"COMPROMISE_HOST_SOFTWARE_BINARY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ContainerAdministrationCommand = @"CONTAINER_ADMINISTRATION_COMMAND";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ContainerAndResourceDiscovery = @"CONTAINER_AND_RESOURCE_DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ContainerOrchestrationJob = @"CONTAINER_ORCHESTRATION_JOB";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateAccount = @"CREATE_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateSnapshot = @"CREATE_SNAPSHOT";
@@ -995,6 +999,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Proxy 
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Python = @"PYTHON";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScanningIpBlocks = @"SCANNING_IP_BLOCKS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScheduledTaskJob = @"SCHEDULED_TASK_JOB";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ServiceStop = @"SERVICE_STOP";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SharedModules = @"SHARED_MODULES";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SoftwareDeploymentTools = @"SOFTWARE_DEPLOYMENT_TOOLS";
@@ -1008,6 +1013,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_StealW
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Steganography = @"STEGANOGRAPHY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_TechniqueUnspecified = @"TECHNIQUE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_TokenImpersonationOrTheft = @"TOKEN_IMPERSONATION_OR_THEFT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_TransferDataToCloudAccount = @"TRANSFER_DATA_TO_CLOUD_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnixShell = @"UNIX_SHELL";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UserExecution = @"USER_EXECUTION";
@@ -1081,10 +1087,6 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_GoogleCloudPlatform = @"GOOGLE_CLOUD_PLATFORM";
 NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_MicrosoftAzure = @"MICROSOFT_AZURE";
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -1644,17 +1646,6 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSecurityCommandCenter_ComplianceSnapshot
-//
-
-@implementation GTLRSecurityCommandCenter_ComplianceSnapshot
-@dynamic category, cloudProvider, complianceStandard, complianceVersion, count,
-         leafContainerResource, name, snapshotTime;
 @end
 
 
@@ -5756,5 +5747,3 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 @implementation GTLRSecurityCommandCenter_YaraRuleSignature
 @dynamic yaraRule;
 @end
-
-#pragma clang diagnostic pop

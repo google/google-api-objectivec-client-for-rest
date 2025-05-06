@@ -7026,11 +7026,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_LeadFormSubmit;
 /**
- *  Conversions that come from Salesforce. Read only.
+ *  Deprecated: The Salesforce integration will be going away and replaced with
+ *  an improved way to import your conversions from Salesforce. - see
+ *  https://support.google.com/google-ads/answer/14728349
  *
  *  Value: "SALESFORCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Salesforce;
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Salesforce GTLR_DEPRECATED;
 /**
  *  Conversions imported from Search Ads 360 Floodlight data. Read only.
  *
@@ -7616,6 +7618,70 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCu
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer.accountLevel
+
+/**
+ *  Associate manager.
+ *
+ *  Value: "ASSOCIATE_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_AssociateManager;
+/**
+ *  Client account (Engine Track)
+ *
+ *  Value: "CLIENT_ACCOUNT_ENGINE_TRACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountEngineTrack;
+/**
+ *  Client account (Facebook)
+ *
+ *  Value: "CLIENT_ACCOUNT_FACEBOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountFacebook;
+/**
+ *  Client account (Google Ads)
+ *
+ *  Value: "CLIENT_ACCOUNT_GOOGLE_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountGoogleAds;
+/**
+ *  Client account (Microsoft)
+ *
+ *  Value: "CLIENT_ACCOUNT_MICROSOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountMicrosoft;
+/**
+ *  Client account (Yahoo Japan)
+ *
+ *  Value: "CLIENT_ACCOUNT_YAHOO_JAPAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountYahooJapan;
+/**
+ *  Top-level manager.
+ *
+ *  Value: "MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Manager;
+/**
+ *  Sub manager.
+ *
+ *  Value: "SUB_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_SubManager;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer.accountStatus
@@ -14469,7 +14535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  A view on the usage of ad group ad asset combination.
+ *  A view on the usage of asset group asset top combinations.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupTopCombinationView : GTLRObject
 
@@ -16550,7 +16616,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Conversions reported when a user submits a lead form. Read only.
  *        (Value: "LEAD_FORM_SUBMIT")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Salesforce
- *        Conversions that come from Salesforce. Read only. (Value:
+ *        Deprecated: The Salesforce integration will be going away and replaced
+ *        with an improved way to import your conversions from Salesforce. - see
+ *        https://support.google.com/google-ads/answer/14728349 (Value:
  *        "SALESFORCE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_SearchAds360
  *        Conversions imported from Search Ads 360 Floodlight data. Read only.
@@ -17166,6 +17234,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer : GTLRObject
 
 /**
+ *  Output only. The account level of the customer: Manager, Sub-manager,
+ *  Associate manager, Service account.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_AssociateManager
+ *        Associate manager. (Value: "ASSOCIATE_MANAGER")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountEngineTrack
+ *        Client account (Engine Track) (Value: "CLIENT_ACCOUNT_ENGINE_TRACK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountFacebook
+ *        Client account (Facebook) (Value: "CLIENT_ACCOUNT_FACEBOOK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountGoogleAds
+ *        Client account (Google Ads) (Value: "CLIENT_ACCOUNT_GOOGLE_ADS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountMicrosoft
+ *        Client account (Microsoft) (Value: "CLIENT_ACCOUNT_MICROSOFT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_ClientAccountYahooJapan
+ *        Client account (Yahoo Japan) (Value: "CLIENT_ACCOUNT_YAHOO_JAPAN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Manager
+ *        Top-level manager. (Value: "MANAGER")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_SubManager
+ *        Sub manager. (Value: "SUB_MANAGER")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer_AccountLevel_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *accountLevel;
+
+/**
  *  Output only. Account status, for example, Enabled, Paused, Removed, etc.
  *
  *  Likely values:
@@ -17215,6 +17312,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Yahoo Japan account. (Value: "YAHOO_JAPAN")
  */
 @property(nonatomic, copy, nullable) NSString *accountType;
+
+/** Output only. The descriptive name of the associate manager. */
+@property(nonatomic, copy, nullable) NSString *associateManagerDescriptiveName;
+
+/**
+ *  Output only. The customer ID of the associate manager. A 0 value indicates
+ *  that the customer has no SA360 associate manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *associateManagerId;
 
 /**
  *  Whether auto-tagging is enabled for the customer.
@@ -17275,6 +17383,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, strong, nullable) NSNumber *manager;
 
+/** Output only. The descriptive name of the manager. */
+@property(nonatomic, copy, nullable) NSString *managerDescriptiveName;
+
+/**
+ *  Output only. The customer ID of the manager. A 0 value indicates that the
+ *  customer has no SA360 manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *managerId;
+
 /**
  *  Immutable. The resource name of the customer. Customer resource names have
  *  the form: `customers/{customer_id}`
@@ -17304,6 +17423,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/** Output only. The descriptive name of the sub manager. */
+@property(nonatomic, copy, nullable) NSString *subManagerDescriptiveName;
+
+/**
+ *  Output only. The customer ID of the sub manager. A 0 value indicates that
+ *  the customer has no sub SA360 manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subManagerId;
 
 /** Immutable. The local timezone ID of the customer. */
 @property(nonatomic, copy, nullable) NSString *timeZone;

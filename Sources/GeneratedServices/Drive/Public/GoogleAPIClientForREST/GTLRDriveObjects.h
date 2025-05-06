@@ -6,7 +6,7 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -727,7 +727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  A region of the document represented as a JSON string. For details on
  *  defining anchor properties, refer to [Manage comments and
- *  replies](https://developers.google.com/drive/api/v3/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/v3/manage-comments).
  */
 @property(nonatomic, copy, nullable) NSString *anchor;
 
@@ -2860,10 +2860,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  world access to a file or a folder hierarchy. By default, permissions
  *  requests only return a subset of fields. Permission kind, ID, type, and role
  *  are always returned. To retrieve specific fields, see
- *  https://developers.google.com/drive/api/guides/fields-parameter. Some
- *  resource methods (such as `permissions.update`) require a `permissionId`.
- *  Use the `permissions.list` method to retrieve the ID for a file, folder, or
- *  shared drive.
+ *  https://developers.google.com/workspace/drive/api/guides/fields-parameter.
+ *  Some resource methods (such as `permissions.update`) require a
+ *  `permissionId`. Use the `permissions.list` method to retrieve the ID for a
+ *  file, folder, or shared drive.
  */
 @interface GTLRDrive_Permission : GTLRObject
 
@@ -3832,7 +3832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Identifies what kind of resource this is. Value: the fixed
- *  string `"drive#user"`.
+ *  string `drive#user`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

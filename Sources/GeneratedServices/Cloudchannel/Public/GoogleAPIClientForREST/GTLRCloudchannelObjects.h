@@ -488,6 +488,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1O
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created;
 /**
+ *  Partner has been detached from the opportunity and can no longer access it.
+ *
+ *  Value: "PARTNER_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_PartnerDetached;
+/**
  *  Not used.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -773,6 +779,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Conditi
  *  Value: "REBILLING_BASIS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_RebillingBasisUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1Customer.customerAttestationState
+
+/**
+ *  Default value if not set yet
+ *
+ *  Value: "CUSTOMER_ATTESTATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_CustomerAttestationStateUnspecified;
+/**
+ *  Customer is exempt from attesting based on exemption list at
+ *  https://cloud.google.com/terms/direct-tos-exemptions. Contact information of
+ *  customer will be mandatory.
+ *
+ *  Value: "EXEMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_Exempt;
+/**
+ *  Customer is not exempt and has verified the information provided is correct.
+ *  Contact information of customer will be mandatory.
+ *
+ *  Value: "NON_EXEMPT_AND_INFO_VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_NonExemptAndInfoVerified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
@@ -2032,9 +2063,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter *> *parameters;
 
 /**
- *  Optional. Price reference ID for the offer. Optional field only for offers
- *  that require additional price information. Used to guarantee that the
- *  pricing is consistent between quoting the offer and placing the order.
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
  */
 @property(nonatomic, copy, nullable) NSString *priceReferenceId;
 
@@ -2218,6 +2249,9 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created
  *        New opportunity created. (Value: "CREATED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_PartnerDetached
+ *        Partner has been detached from the opportunity and can no longer
+ *        access it. (Value: "PARTNER_DETACHED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_TypeUnspecified
  *        Not used. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Updated
@@ -2227,6 +2261,9 @@ GTLR_DEPRECATED
 
 /** Resource name of the opportunity. Format: opportunities/{opportunity} */
 @property(nonatomic, copy, nullable) NSString *opportunity;
+
+/** Resource name of the partner. Format: partners/{partner} */
+@property(nonatomic, copy, nullable) NSString *partner;
 
 @end
 
@@ -2749,9 +2786,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 
 /**
- *  Optional. Price reference ID for the offer. Optional field only for offers
- *  that require additional price information. Used to guarantee that the
- *  pricing is consistent between quoting the offer and placing the order.
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
  */
 @property(nonatomic, copy, nullable) NSString *priceReferenceId;
 
@@ -3255,6 +3292,25 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Indicate if a customer is attesting about the correctness of
+ *  provided information. Only required if creating a GCP Entitlement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_CustomerAttestationStateUnspecified
+ *        Default value if not set yet (Value:
+ *        "CUSTOMER_ATTESTATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_Exempt
+ *        Customer is exempt from attesting based on exemption list at
+ *        https://cloud.google.com/terms/direct-tos-exemptions. Contact
+ *        information of customer will be mandatory. (Value: "EXEMPT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_NonExemptAndInfoVerified
+ *        Customer is not exempt and has verified the information provided is
+ *        correct. Contact information of customer will be mandatory. (Value:
+ *        "NON_EXEMPT_AND_INFO_VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *customerAttestationState;
+
+/**
  *  Required. The customer's primary domain. Must match the primary contact
  *  email's domain.
  */
@@ -3499,9 +3555,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 
 /**
- *  Optional. Price reference ID for the offer. Optional field only for offers
- *  that require additional price information. Used to guarantee that the
- *  pricing is consistent between quoting the offer and placing the order.
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
  */
 @property(nonatomic, copy, nullable) NSString *priceReferenceId;
 
@@ -4059,7 +4115,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of Offers requested.
+ *  The list of Offers requested. The pricing information for each Offer only
+ *  includes the base price. Effective prices and discounts aren't populated.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4959,9 +5016,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Offer *offer;
 
 /**
- *  Optional. Price reference ID for the offer. Optional field only for offers
- *  that require additional price information. Used to guarantee that the
- *  pricing is consistent between quoting the offer and placing the order.
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
  */
 @property(nonatomic, copy, nullable) NSString *priceReferenceId;
 
@@ -5550,9 +5607,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Offer *offer;
 
 /**
- *  Optional. Price reference ID for the offer. Optional field only for offers
- *  that require additional price information. Used to guarantee that the
- *  pricing is consistent between quoting the offer and placing the order.
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
  */
 @property(nonatomic, copy, nullable) NSString *priceReferenceId;
 

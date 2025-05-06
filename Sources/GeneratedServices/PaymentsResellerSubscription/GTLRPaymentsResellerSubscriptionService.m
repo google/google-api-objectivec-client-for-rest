@@ -11,7 +11,7 @@
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopePaymentsResellerSubscriptionOpenid = @"openid";
+NSString * const kGTLRAuthScopePaymentsResellerSubscriptionSdmService = @"https://www.googleapis.com/auth/sdm.service";
 
 // ----------------------------------------------------------------------------
 //   GTLRPaymentsResellerSubscriptionService

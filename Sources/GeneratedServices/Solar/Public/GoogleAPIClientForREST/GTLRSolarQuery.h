@@ -28,7 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 // experiments
 
 /**
- *  Expands the geographic region available for querying solar data.
+ *  Expands the geographic region available for querying solar data. For more
+ *  information, see [Expanded
+ *  Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
  *
  *  Value: "EXPANDED_COVERAGE"
  */
@@ -45,7 +47,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarExperimentsExperimentUnspecified;
 
 /**
  *  Solar data is derived from enhanced satellite imagery processed at 0.25
- *  m/pixel.
+ *  m/pixel. **Note:** This enum is only available if
+ *  `experiments=EXPANDED_COVERAGE` is set in the request. For more information,
+ *  see [Expanded
+ *  Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
  *
  *  Value: "BASE"
  */
@@ -151,7 +156,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @arg @c kGTLRSolarExperimentsExperimentUnspecified No experiments are
  *        specified. (Value: "EXPERIMENT_UNSPECIFIED")
  *    @arg @c kGTLRSolarExperimentsExpandedCoverage Expands the geographic
- *        region available for querying solar data. (Value: "EXPANDED_COVERAGE")
+ *        region available for querying solar data. For more information, see
+ *        [Expanded
+ *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
+ *        (Value: "EXPANDED_COVERAGE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
@@ -178,7 +186,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @arg @c kGTLRSolarRequiredQualityLow Solar data is derived from enhanced
  *        satellite imagery processed at 0.25 m/pixel. (Value: "LOW")
  *    @arg @c kGTLRSolarRequiredQualityBase Solar data is derived from enhanced
- *        satellite imagery processed at 0.25 m/pixel. (Value: "BASE")
+ *        satellite imagery processed at 0.25 m/pixel. **Note:** This enum is
+ *        only available if `experiments=EXPANDED_COVERAGE` is set in the
+ *        request. For more information, see [Expanded
+ *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
+ *        (Value: "BASE")
  */
 @property(nonatomic, copy, nullable) NSString *requiredQuality;
 
@@ -223,7 +235,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @arg @c kGTLRSolarExperimentsExperimentUnspecified No experiments are
  *        specified. (Value: "EXPERIMENT_UNSPECIFIED")
  *    @arg @c kGTLRSolarExperimentsExpandedCoverage Expands the geographic
- *        region available for querying solar data. (Value: "EXPANDED_COVERAGE")
+ *        region available for querying solar data. For more information, see
+ *        [Expanded
+ *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
+ *        (Value: "EXPANDED_COVERAGE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
@@ -271,7 +286,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @arg @c kGTLRSolarRequiredQualityLow Solar data is derived from enhanced
  *        satellite imagery processed at 0.25 m/pixel. (Value: "LOW")
  *    @arg @c kGTLRSolarRequiredQualityBase Solar data is derived from enhanced
- *        satellite imagery processed at 0.25 m/pixel. (Value: "BASE")
+ *        satellite imagery processed at 0.25 m/pixel. **Note:** This enum is
+ *        only available if `experiments=EXPANDED_COVERAGE` is set in the
+ *        request. For more information, see [Expanded
+ *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
+ *        (Value: "BASE")
  */
 @property(nonatomic, copy, nullable) NSString *requiredQuality;
 

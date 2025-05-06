@@ -492,7 +492,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Initiates a switchover of specified autonomous deatabase to the associated
+ *  Initiates a switchover of specified autonomous database to the associated
  *  peer database.
  *
  *  Method: oracledatabase.projects.locations.autonomousDatabases.switchover
@@ -511,7 +511,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROracleDatabase_Operation.
  *
- *  Initiates a switchover of specified autonomous deatabase to the associated
+ *  Initiates a switchover of specified autonomous database to the associated
  *  peer database.
  *
  *  @param object The @c GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest

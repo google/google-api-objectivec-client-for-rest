@@ -104,6 +104,7 @@ NSString * const kGTLRBackupdr_BackupPlan_State_Creating       = @"CREATING";
 NSString * const kGTLRBackupdr_BackupPlan_State_Deleting       = @"DELETING";
 NSString * const kGTLRBackupdr_BackupPlan_State_Inactive       = @"INACTIVE";
 NSString * const kGTLRBackupdr_BackupPlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_BackupPlan_State_Updating       = @"UPDATING";
 
 // GTLRBackupdr_BackupPlanAssociation.state
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Active = @"ACTIVE";

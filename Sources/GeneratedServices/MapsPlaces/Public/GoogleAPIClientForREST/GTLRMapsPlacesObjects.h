@@ -41,11 +41,12 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Place;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAccessibilityOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent;
-@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriod;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
@@ -53,10 +54,10 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceParkingOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePaymentOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePlusCode;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceReviewSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Polyline;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange;
-@class GTLRMapsPlaces_GoogleMapsPlacesV1References;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Review;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters;
@@ -1306,14 +1307,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *content;
 
 /**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. References that are related to this block of content.
+ *  The list of resource names of the referenced places. This name can be used
+ *  in other APIs that accept Place resource names.
  */
-@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1References *references;
-
-/** The topic of the content, for example "overview" or "restaurant". */
-@property(nonatomic, copy, nullable) NSString *topic;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referencedPlaces;
 
 @end
 
@@ -1744,13 +1741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *allowsDogs;
 
-/**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. AI-generated summary of the area that the place is in.
- */
-@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary *areaSummary;
-
 /** A set of data provider that must be shown with this result. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution *> *attributions;
 
@@ -1828,6 +1818,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *editorialSummary;
 
+/** The summary of amenities near the EV charging station. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary *evChargeAmenitySummary;
+
 /** Information of ev charging options. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptions *evChargeOptions;
 
@@ -1840,11 +1833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions *fuelOptions;
 
-/**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. AI-generated summary of the place.
- */
+/** AI-generated summary of the place. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary *generativeSummary;
 
 /**
@@ -1918,6 +1907,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** A human-readable phone number for the place, in national format. */
 @property(nonatomic, copy, nullable) NSString *nationalPhoneNumber;
+
+/** A summary of points of interest near the place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary *neighborhoodSummary;
 
 /**
  *  Place provides outdoor seating.
@@ -2052,6 +2044,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  reviews can be returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
+
+/** AI-generated summary of the place using user reviews. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceReviewSummary *reviewSummary;
 
 /**
  *  Specifies if the place serves beer.
@@ -2245,25 +2240,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. AI-generated summary of the area that the place is in.
- */
-@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary : GTLRObject
-
-/**
- *  Content blocks that compose the area summary. Each block has a separate
- *  topic about the area.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *> *contentBlocks;
-
-/** A link where users can flag a problem with the summary. */
-@property(nonatomic, copy, nullable) NSString *flagContentUri;
-
-@end
-
-
-/**
  *  Information about data providers of this place.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution : GTLRObject
@@ -2296,30 +2272,56 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. AI-generated summary of the place.
+ *  The summary of amenities near the EV charging station. This only applies to
+ *  places with type `electric_vehicle_charging_station`. The `overview` field
+ *  is guaranteed to be provided while the other fields are optional.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary : GTLRObject
+
+/** A summary of the nearby coffee options. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *coffee;
+
+/**
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
+
+/** A link where users can flag a problem with the summary. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/**
+ *  An overview of the available amenities. This is guaranteed to be provided.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *overview;
+
+/** A summary of the nearby restaurants. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *restaurant;
+
+/** A summary of the nearby gas stations. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *store;
+
+@end
+
+
+/**
+ *  AI-generated summary of the place.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary : GTLRObject
 
 /**
- *  The detailed description of the place.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
  */
-@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *descriptionProperty;
-
-/** A link where users can flag a problem with the description summary. */
-@property(nonatomic, copy, nullable) NSString *descriptionFlagContentUri;
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
 
 /** The overview of the place. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *overview;
 
 /** A link where users can flag a problem with the overview summary. */
 @property(nonatomic, copy, nullable) NSString *overviewFlagContentUri;
-
-/** References that are used to generate the summary description. */
-@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1References *references;
 
 @end
 
@@ -2335,27 +2337,45 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *directionsUri;
 
-/**
- *  A link to show photos of this place. This link is currently not supported on
- *  Google Maps Mobile and only works on the web version of Google Maps.
- */
+/** A link to show reviews of this place on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *photosUri;
 
 /** A link to show this place. */
 @property(nonatomic, copy, nullable) NSString *placeUri;
 
-/**
- *  A link to show reviews of this place. This link is currently not supported
- *  on Google Maps Mobile and only works on the web version of Google Maps.
- */
+/** A link to show reviews of this place on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *reviewsUri;
 
-/**
- *  A link to write a review for this place. This link is currently not
- *  supported on Google Maps Mobile and only works on the web version of Google
- *  Maps.
- */
+/** A link to show reviews of this place on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *writeAReviewUri;
+
+@end
+
+
+/**
+ *  A summary of points of interest near the place.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary : GTLRObject
+
+/**
+ *  A detailed description of the neighborhood.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *descriptionProperty;
+
+/**
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
+
+/** A link where users can flag a problem with the summary. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** An overview summary of the neighborhood. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *overview;
 
 @end
 
@@ -2641,6 +2661,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  AI-generated summary of the place using user reviews.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceReviewSummary : GTLRObject
+
+/**
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
+
+/** A link where users can flag a problem with the summary. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** The summary of user reviews. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;
+
+@end
+
+
+/**
  *  Sub-destinations are specific places associated with a main place. These
  *  provide more specific destinations for users who are searching within a
  *  large or complex place, like an airport, national park, university, or
@@ -2706,25 +2747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  amount.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeMoney *startPrice;
-
-@end
-
-
-/**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. Reference that the generative content is related to.
- */
-@interface GTLRMapsPlaces_GoogleMapsPlacesV1References : GTLRObject
-
-/**
- *  The list of resource names of the referenced places. This name can be used
- *  in other APIs that accept Place resource names.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *places;
-
-/** Reviews that serve as references. */
-@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
 
 @end
 

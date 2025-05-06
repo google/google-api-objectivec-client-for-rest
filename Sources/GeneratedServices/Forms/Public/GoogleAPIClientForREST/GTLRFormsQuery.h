@@ -238,7 +238,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFormsQuery_FormsSetPublishSettings : GTLRFormsQuery
 
 /**
- *  Required. The ID of the form. You can get the id from `Form.form_id` field.
+ *  Required. The ID of the form. You can get the id from Form.form_id field.
  */
 @property(nonatomic, copy, nullable) NSString *formId;
 
@@ -251,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRForms_SetPublishSettingsRequest to include in the
  *    query.
  *  @param formId Required. The ID of the form. You can get the id from
- *    `Form.form_id` field.
+ *    Form.form_id field.
  *
  *  @return GTLRFormsQuery_FormsSetPublishSettings
  */

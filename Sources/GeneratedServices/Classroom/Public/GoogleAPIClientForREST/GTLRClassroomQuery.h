@@ -6,7 +6,7 @@
 // Description:
 //   Manages classes, rosters, and invitations in Google Classroom.
 // Documentation:
-//   https://developers.google.com/classroom/
+//   https://developers.google.com/workspace/classroom/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -872,7 +872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -897,7 +897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Optional. The identifier of the attachment. This field is required for all
  *  requests except when the user is in the [Attachment Discovery
- *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
+ *  iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 
@@ -921,7 +921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -1749,7 +1749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -1774,7 +1774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Optional. The identifier of the attachment. This field is required for all
  *  requests except when the user is in the [Attachment Discovery
- *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
+ *  iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 
@@ -1798,7 +1798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -2368,7 +2368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -2393,7 +2393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Optional. The identifier of the attachment. This field is required for all
  *  requests except when the user is in the [Attachment Discovery
- *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
+ *  iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 
@@ -2417,7 +2417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -2701,10 +2701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  the `CourseWork` object, an `INVALID_ARGUMENT` error is returned. The
  *  following fields may be specified by teachers: * `title` * `description` *
  *  `state` * `due_date` * `due_time` * `max_points` * `scheduled_time` *
- *  `submission_modification_mode` * `topic_id` * `grading_period_id` Available
- *  in
- *  [V1_20240401_PREVIEW](https://developers.google.com/classroom/reference/preview)
- *  and later.
+ *  `submission_modification_mode` * `topic_id` * `grading_period_id`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2742,7 +2739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Creates a rubric. The requesting user and course owner must have rubrics
  *  creation capabilities. For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  For further details, see [Rubrics structure and known
  *  limitations](/classroom/rubrics/limitations). This request must be made by
  *  the Google Cloud console of the [OAuth client
@@ -2774,7 +2771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  Creates a rubric. The requesting user and course owner must have rubrics
  *  creation capabilities. For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  For further details, see [Rubrics structure and known
  *  limitations](/classroom/rubrics/limitations). This request must be made by
  *  the Google Cloud console of the [OAuth client
@@ -2803,7 +2800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Deletes a rubric. The requesting user and course owner must have rubrics
  *  creation capabilities. For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  This request must be made by the Google Cloud console of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
  *  corresponding rubric. This method returns the following error codes: *
@@ -2838,7 +2835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  Deletes a rubric. The requesting user and course owner must have rubrics
  *  creation capabilities. For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  This request must be made by the Google Cloud console of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
  *  corresponding rubric. This method returns the following error codes: *
@@ -2976,7 +2973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  [limited](/classroom/rubrics/limitations) once grading has started. The
  *  requesting user and course owner must have rubrics creation capabilities.
  *  For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  This request must be made by the Google Cloud console of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
  *  parent course work item. This method returns the following error codes: *
@@ -3035,7 +3032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  [limited](/classroom/rubrics/limitations) once grading has started. The
  *  requesting user and course owner must have rubrics creation capabilities.
  *  For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  This request must be made by the Google Cloud console of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
  *  parent course work item. This method returns the following error codes: *
@@ -3608,7 +3605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  [limited](/classroom/rubrics/limitations) once grading has started. The
  *  requesting user and course owner must have rubrics creation capabilities.
  *  For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  This request must be made by the Google Cloud console of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
  *  parent course work item. This method returns the following error codes: *
@@ -3667,7 +3664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  [limited](/classroom/rubrics/limitations) once grading has started. The
  *  requesting user and course owner must have rubrics creation capabilities.
  *  For details, see [licensing
- *  requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements).
+ *  requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements).
  *  This request must be made by the Google Cloud console of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
  *  parent course work item. This method returns the following error codes: *
@@ -3808,6 +3805,39 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @return GTLRClassroomQuery_CoursesGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns the grading period settings in a course. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user isn't
+ *  permitted to access the grading period settings in the requested course or
+ *  for access errors. * `NOT_FOUND` if the requested course does not exist.
+ *
+ *  Method: classroom.courses.getGradingPeriodSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourses
+ *    @c kGTLRAuthScopeClassroomCoursesReadonly
+ */
+@interface GTLRClassroomQuery_CoursesGetGradingPeriodSettings : GTLRClassroomQuery
+
+/** Required. The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Fetches a @c GTLRClassroom_GradingPeriodSettings.
+ *
+ *  Returns the grading period settings in a course. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user isn't
+ *  permitted to access the grading period settings in the requested course or
+ *  for access errors. * `NOT_FOUND` if the requested course does not exist.
+ *
+ *  @param courseId Required. The identifier of the course.
+ *
+ *  @return GTLRClassroomQuery_CoursesGetGradingPeriodSettings
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId;
 
 @end
 
@@ -4400,7 +4430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -4425,7 +4455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Optional. The identifier of the attachment. This field is required for all
  *  requests except when the user is in the [Attachment Discovery
- *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
+ *  iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 
@@ -4449,7 +4479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  maintain the integrity of its own data and permissions model, an add-on
  *  should call this to validate query parameters and the requesting user's role
  *  whenever the add-on is opened in an
- *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  [iframe](https://developers.google.com/workspace/classroom/add-ons/get-started/iframes/iframes-overview).
  *  This method returns the following error codes: * `PERMISSION_DENIED` for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
  *  `NOT_FOUND` if one of the identified resources does not exist.
@@ -4466,7 +4496,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Adds a user as a student of a course. Domain administrators are permitted to
- *  [directly add](https://developers.google.com/classroom/guides/manage-users)
+ *  [directly
+ *  add](https://developers.google.com/workspace/classroom/guides/manage-users)
  *  users within their domain as students to courses within their domain.
  *  Students are permitted to add themselves to a course using an enrollment
  *  code. This method returns the following error codes: * `PERMISSION_DENIED`
@@ -4504,7 +4535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_Student.
  *
  *  Adds a user as a student of a course. Domain administrators are permitted to
- *  [directly add](https://developers.google.com/classroom/guides/manage-users)
+ *  [directly
+ *  add](https://developers.google.com/workspace/classroom/guides/manage-users)
  *  users within their domain as students to courses within their domain.
  *  Students are permitted to add themselves to a course using an enrollment
  *  code. This method returns the following error codes: * `PERMISSION_DENIED`
@@ -4681,7 +4713,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Creates a teacher of a course. Domain administrators are permitted to
- *  [directly add](https://developers.google.com/classroom/guides/manage-users)
+ *  [directly
+ *  add](https://developers.google.com/workspace/classroom/guides/manage-users)
  *  users within their domain as teachers to courses within their domain.
  *  Non-admin users should send an Invitation instead. This method returns the
  *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
@@ -4712,7 +4745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_Teacher.
  *
  *  Creates a teacher of a course. Domain administrators are permitted to
- *  [directly add](https://developers.google.com/classroom/guides/manage-users)
+ *  [directly
+ *  add](https://developers.google.com/workspace/classroom/guides/manage-users)
  *  users within their domain as teachers to courses within their domain.
  *  Non-admin users should send an Invitation instead. This method returns the
  *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
@@ -5193,6 +5227,69 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object
                      identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Updates grading period settings of a course. Individual grading periods can
+ *  be added, removed, or modified using this method. The requesting user and
+ *  course owner must be eligible to modify Grading Periods. For details, see
+ *  [licensing
+ *  requirements](https://developers.google.com/workspace/classroom/grading-periods/manage-grading-periods#licensing_requirements).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user is not permitted to modify the grading period settings in a
+ *  course or for access errors: * UserIneligibleToUpdateGradingPeriodSettings *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course does not exist.
+ *
+ *  Method: classroom.courses.updateGradingPeriodSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourses
+ */
+@interface GTLRClassroomQuery_CoursesUpdateGradingPeriodSettings : GTLRClassroomQuery
+
+/** Required. The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Mask that identifies which fields in the GradingPeriodSettings to update.
+ *  The GradingPeriodSettings `grading_periods` list will be fully replaced by
+ *  the grading periods specified in the update request. For example: * Grading
+ *  periods included in the list without an ID are considered additions, and a
+ *  new ID will be assigned when the request is made. * Grading periods that
+ *  currently exist, but are missing from the request will be considered
+ *  deletions. * Grading periods with an existing ID and modified data are
+ *  considered edits. Unmodified data will be left as is. * Grading periods
+ *  included with an unknown ID will result in an error. The following fields
+ *  may be specified: * `grading_periods` * `apply_to_existing_coursework`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_GradingPeriodSettings.
+ *
+ *  Updates grading period settings of a course. Individual grading periods can
+ *  be added, removed, or modified using this method. The requesting user and
+ *  course owner must be eligible to modify Grading Periods. For details, see
+ *  [licensing
+ *  requirements](https://developers.google.com/workspace/classroom/grading-periods/manage-grading-periods#licensing_requirements).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user is not permitted to modify the grading period settings in a
+ *  course or for access errors: * UserIneligibleToUpdateGradingPeriodSettings *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course does not exist.
+ *
+ *  @param object The @c GTLRClassroom_GradingPeriodSettings to include in the
+ *    query.
+ *  @param courseId Required. The identifier of the course.
+ *
+ *  @return GTLRClassroomQuery_CoursesUpdateGradingPeriodSettings
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_GradingPeriodSettings *)object
+                       courseId:(NSString *)courseId;
 
 @end
 

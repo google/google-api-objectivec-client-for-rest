@@ -6,7 +6,7 @@
 // Description:
 //   Create and manage meetings in Google Meet.
 // Documentation:
-//   https://developers.google.com/meet/api
+//   https://developers.google.com/workspace/meet/api
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -544,7 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Ends an active conference (if there's one). For an example, see [End active
- *  conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference).
+ *  conference](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#end-active-conference).
  *
  *  Method: meet.spaces.endActiveConference
  *
@@ -558,7 +558,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource identifier for the space. It's a unique, server-generated ID
  *  and is case sensitive. For example, `jQCFfuBOdN5z`. For more information,
  *  see [How Meet identifies a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -566,7 +566,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_Empty.
  *
  *  Ends an active conference (if there's one). For an example, see [End active
- *  conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference).
+ *  conference](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#end-active-conference).
  *
  *  @param object The @c GTLRMeet_EndActiveConferenceRequest to include in the
  *    query.
@@ -574,7 +574,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `{space}` is the resource identifier for the space. It's a unique,
  *    server-generated ID and is case sensitive. For example, `jQCFfuBOdN5z`.
  *    For more information, see [How Meet identifies a meeting
- *    space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ *    space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  *
  *  @return GTLRMeetQuery_SpacesEndActiveConference
  */
@@ -585,7 +585,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets details about a meeting space. For an example, see [Get a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#get-meeting-space).
  *
  *  Method: meet.spaces.get
  *
@@ -609,7 +609,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  information, see [Learn about meeting codes in Google
  *  Meet](https://support.google.com/meet/answer/10710509). For more
  *  information, see [How Meet identifies a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -617,7 +617,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_Space.
  *
  *  Gets details about a meeting space. For an example, see [Get a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#get-meeting-space).
  *
  *  @param name Required. Resource name of the space. Format: `spaces/{space}`
  *    or `spaces/{meetingCode}`. `{space}` is the resource identifier for the
@@ -631,7 +631,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    information, see [Learn about meeting codes in Google
  *    Meet](https://support.google.com/meet/answer/10710509). For more
  *    information, see [How Meet identifies a meeting
- *    space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ *    space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  *
  *  @return GTLRMeetQuery_SpacesGet
  */
@@ -641,7 +641,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates details about a meeting space. For an example, see [Update a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#update-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#update-meeting-space).
  *
  *  Method: meet.spaces.patch
  *
@@ -656,7 +656,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is the resource identifier for the space. It's a unique, server-generated ID
  *  and is case sensitive. For example, `jQCFfuBOdN5z`. For more information,
  *  see [How Meet identifies a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -675,14 +675,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_Space.
  *
  *  Updates details about a meeting space. For an example, see [Update a meeting
- *  space](https://developers.google.com/meet/api/guides/meeting-spaces#update-meeting-space).
+ *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#update-meeting-space).
  *
  *  @param object The @c GTLRMeet_Space to include in the query.
  *  @param name Immutable. Resource name of the space. Format: `spaces/{space}`.
  *    `{space}` is the resource identifier for the space. It's a unique,
  *    server-generated ID and is case sensitive. For example, `jQCFfuBOdN5z`.
  *    For more information, see [How Meet identifies a meeting
- *    space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ *    space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  *
  *  @return GTLRMeetQuery_SpacesPatch
  */

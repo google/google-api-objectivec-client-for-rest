@@ -124,6 +124,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventEntityDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventPartitionDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventTableDetails;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Entity;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntityCompatibilityStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntityCompatibilityStatusCompatibility;
@@ -131,6 +133,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySourceAncestor;
@@ -147,6 +150,12 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime_Properties;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Glossary;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Glossary_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels;
@@ -898,7 +907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Cancelled;
 /**
- *  Data scan job was createed.
+ *  Data scan job was created.
  *
  *  Value: "CREATED"
  */
@@ -1230,6 +1239,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Disco
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventTableDetails_Type_TableTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig.encryptionState
+
+/**
+ *  The encryption of data has completed successfully.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_Completed;
+/**
+ *  The encryption state of the database when the EncryptionConfig is created or
+ *  updated. If the encryption fails, it is retried indefinitely and the state
+ *  is shown as ENCRYPTING.
+ *
+ *  Value: "ENCRYPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_Encrypting;
+/**
+ *  State is not specified.
+ *
+ *  Value: "ENCRYPTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_EncryptionStateUnspecified;
+/**
+ *  The encryption of data has failed. The state is set to FAILED when the
+ *  encryption fails due to reasons like permission issues, invalid key etc.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_Failed;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails.errorCode
+
+/**
+ *  Error because of internal server error, will be retried automatically.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails_ErrorCode_InternalError;
+/**
+ *  User action is required to resolve the error.
+ *
+ *  Value: "REQUIRE_USER_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails_ErrorCode_RequireUserAction;
+/**
+ *  The error code is not specified
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails_ErrorCode_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Entity.system
 
 /**
@@ -1298,6 +1360,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entry
  *  Value: "TRANSFER_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference.type
+
+/**
+ *  The entry is referenced as the source of the directional entry link.
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Source;
+/**
+ *  The entry is referenced as the target of the directional entry link.
+ *
+ *  Value: "TARGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Target;
+/**
+ *  Unspecified reference type. Implies that the entry is referenced in a
+ *  non-directional entry link.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent.eventType
@@ -1735,7 +1820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeM
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob.type
 
 /**
- *  Export job type.
+ *  Export job.
  *
  *  Value: "EXPORT"
  */
@@ -2927,7 +3012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Autorization for an AspectType.
+ *  Authorization for an AspectType.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeAuthorization : GTLRObject
 
@@ -3903,7 +3988,7 @@ GTLR_DEPRECATED
 /** Output only. Configuration for metadata publishing. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing *bigqueryPublishing;
 
-/** Output only. Statistics of the DataDiscoveryScan. */
+/** Output only. Describes result statistics of a data scan discovery job. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics *scanStatistics;
 
 @end
@@ -3926,7 +4011,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Statistics of the DataDiscoveryScan.
+ *  Describes result statistics of a data scan discovery job.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics : GTLRObject
 
@@ -4526,6 +4611,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. The BigQuery table to export DataProfileScan results to. Format:
  *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ *  or projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
  */
 @property(nonatomic, copy, nullable) NSString *resultsTable;
 
@@ -5240,6 +5326,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. The BigQuery table to export DataQualityScan results to. Format:
  *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ *  or projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
  */
 @property(nonatomic, copy, nullable) NSString *resultsTable;
 
@@ -5503,7 +5590,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Cancelled
  *        Data scan job was cancelled. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Created
- *        Data scan job was createed. (Value: "CREATED")
+ *        Data scan job was created. (Value: "CREATED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Failed
  *        Data scan job was unsuccessful. (Value: "FAILED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Started
@@ -6191,6 +6278,95 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A Resource designed to manage encryption configurations for customers to
+ *  support Customer Managed Encryption Keys (CMEK).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig : GTLRObject
+
+/** Output only. The time when the Encryption configuration was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The state of encryption of the databases.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_Completed
+ *        The encryption of data has completed successfully. (Value:
+ *        "COMPLETED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_Encrypting
+ *        The encryption state of the database when the EncryptionConfig is
+ *        created or updated. If the encryption fails, it is retried
+ *        indefinitely and the state is shown as ENCRYPTING. (Value:
+ *        "ENCRYPTING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_EncryptionStateUnspecified
+ *        State is not specified. (Value: "ENCRYPTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig_EncryptionState_Failed
+ *        The encryption of data has failed. The state is set to FAILED when the
+ *        encryption fails due to reasons like permission issues, invalid key
+ *        etc. (Value: "FAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionState;
+
+/** Etag of the EncryptionConfig. This is a strong etag. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Details of the failure if anything related to Cmek db fails.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails *failureDetails;
+
+/**
+ *  Optional. If a key is chosen, it means that the customer is using CMEK. If a
+ *  key is not chosen, it means that the customer is using Google managed
+ *  encryption.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Identifier. The resource name of the EncryptionConfig. Format:
+ *  organizations/{organization}/locations/{location}/encryptionConfigs/{encryption_config}
+ *  Global location is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The time when the Encryption configuration was last updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Details of the failure if anything related to Cmek db fails.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails : GTLRObject
+
+/**
+ *  Output only. The error code for the failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails_ErrorCode_InternalError
+ *        Error because of internal server error, will be retried automatically.
+ *        (Value: "INTERNAL_ERROR")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails_ErrorCode_RequireUserAction
+ *        User action is required to resolve the error. (Value:
+ *        "REQUIRE_USER_ACTION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfigFailureDetails_ErrorCode_Unknown
+ *        The error code is not specified (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/**
+ *  Output only. The error message will be shown to the user. Set only if the
+ *  error code is REQUIRE_USER_ACTION.
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+@end
+
+
+/**
  *  Represents tables and fileset metadata contained within a zone.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Entity : GTLRObject
@@ -6506,6 +6682,77 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  EntryLink represents a link between two entries.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink : GTLRObject
+
+/** Output only. The time when the Entry Link was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Immutable. Relative resource name of the Entry Link Type used to
+ *  create this Entry Link, of the form:
+ *  projects/{project}/locations/{location}/entryLinkTypes/{entry_link_type}.
+ */
+@property(nonatomic, copy, nullable) NSString *entryLinkType;
+
+/**
+ *  Required. Specifies the entries referenced in the entry link. There should
+ *  be exactly two entry references.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference *> *entryReferences;
+
+/**
+ *  Output only. Immutable. Identifier. The relative resource name of the Entry
+ *  Link, of the form:
+ *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time when the Entry Link was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Reference to the Entry that is linked through the entry link.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference : GTLRObject
+
+/**
+ *  Required. Immutable. The relative resource name of the referenced entry, of
+ *  the form:
+ *  projects/{project}/locations/{location}/entryGroups/{entryGroup}/entries/{entry}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The path in the entry that is referenced in the entry link. Empty
+ *  path denotes that the entry itself is referenced in the entry link.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Required. Immutable. The reference type of the entry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Source
+ *        The entry is referenced as the source of the directional entry link.
+ *        (Value: "SOURCE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Target
+ *        The entry is referenced as the target of the directional entry link.
+ *        (Value: "TARGET")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Unspecified
+ *        Unspecified reference type. Implies that the entry is referenced in a
+ *        non-directional entry link. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -6987,6 +7234,213 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *> *rule;
 
+@end
+
+
+/**
+ *  A Glossary represents a collection of categories and terms defined by the
+ *  user. Glossary is a top level resource and is the GCP parent resource of all
+ *  the categories and terms within it.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Glossary : GTLRObject
+
+/**
+ *  Output only. The number of categories in the glossary.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *categoryCount;
+
+/** Output only. The time at which the glossary was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The user-mutable description of the glossary.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. User friendly display name of the glossary. This is user-mutable.
+ *  This will be same as the glossaryId, if not specified.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Needed for resource freshness validation. This checksum is
+ *  computed by the server based on the value of other fields, and may be sent
+ *  on update and delete requests to ensure the client has an up-to-date value
+ *  before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the Glossary. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Glossary_Labels *labels;
+
+/**
+ *  Output only. Identifier. The resource name of the Glossary. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The number of terms in the glossary.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *termCount;
+
+/**
+ *  Output only. System generated unique id for the Glossary. This ID will be
+ *  different if the Glossary is deleted and re-created with the same name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time at which the glossary was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the Glossary.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Glossary_Labels : GTLRObject
+@end
+
+
+/**
+ *  A GlossaryCategory represents a collection of categories and terms within a
+ *  Glossary that are related to each other.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory : GTLRObject
+
+/** Output only. The time at which the GlossaryCategory was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The user-mutable description of the GlossaryCategory.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. User friendly display name of the GlossaryCategory. This is
+ *  user-mutable. This will be same as the categoryId, if not specified.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. User-defined labels for the GlossaryCategory. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory_Labels *labels;
+
+/**
+ *  Output only. Identifier. The resource name of the GlossaryCategory. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The immediate parent of the GlossaryCategory in the
+ *  resource-hierarchy. It can either be a Glossary or a Category. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} OR
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Output only. System generated unique id for the GlossaryCategory. This ID
+ *  will be different if the GlossaryCategory is deleted and re-created with the
+ *  same name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time at which the GlossaryCategory was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the GlossaryCategory.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory_Labels : GTLRObject
+@end
+
+
+/**
+ *  GlossaryTerms are the core of glossary. A GlossaryTerm holds a rich text
+ *  description that can be attached to entries or specific columns to enrich
+ *  them.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm : GTLRObject
+
+/** Output only. The time at which the GlossaryTerm was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The user-mutable description of the GlossaryTerm.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. User friendly display name of the GlossaryTerm. This is
+ *  user-mutable. This will be same as the termId, if not specified.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. User-defined labels for the GlossaryTerm. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm_Labels *labels;
+
+/**
+ *  Output only. Identifier. The resource name of the GlossaryTerm. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/terms/{termId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The immediate parent of the GlossaryTerm in the
+ *  resource-hierarchy. It can either be a Glossary or a Category. Format:
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} OR
+ *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Output only. System generated unique id for the GlossaryTerm. This ID will
+ *  be different if the GlossaryTerm is deleted and re-created with the same
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time at which the GlossaryTerm was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the GlossaryTerm.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm_Labels : GTLRObject
 @end
 
 
@@ -7733,6 +8187,36 @@ GTLR_DEPRECATED
 
 
 /**
+ *  List EncryptionConfigs Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "encryptionConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListEncryptionConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The list of EncryptionConfigs under the given parent location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig *> *encryptionConfigs;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
  *  List metadata entities response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7869,6 +8353,96 @@ GTLR_DEPRECATED
  *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  List Glossaries Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "glossaries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossariesResponse : GTLRCollectionObject
+
+/**
+ *  Lists the glossaries in the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Glossary *> *glossaries;
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that the service couldn't reach. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
+ *  List GlossaryCategories Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "categories" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossaryCategoriesResponse : GTLRCollectionObject
+
+/**
+ *  Lists the glossaryCategories in the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory *> *categories;
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that the service couldn't reach. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
+ *  List GlossaryTerms Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "terms" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossaryTermsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Lists the terms in the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm *> *terms;
+
+/** Locations that the service couldn't reach. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
 
 @end
 
@@ -8109,7 +8683,7 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Export
- *        Export job type. (Value: "EXPORT")
+ *        Export job. (Value: "EXPORT")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Import
  *        Import job. (Value: "IMPORT")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_TypeUnspecified
@@ -8143,16 +8717,17 @@ GTLR_DEPRECATED
 
 
 /**
- *  Export Job Results. The result is based on the snapshot at the time when the
- *  job is created.
+ *  Summary results from a metadata export job. The results are a snapshot of
+ *  the metadata at the time when the job was created. The exported entries are
+ *  saved to a Cloud Storage bucket.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobResult : GTLRObject
 
-/** Output only. The error message if the export job failed. */
+/** Output only. The error message if the metadata export job failed. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  Output only. The number of entries that have been exported.
+ *  Output only. The number of entries that were exported.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8162,71 +8737,81 @@ GTLR_DEPRECATED
 
 
 /**
- *  Export job specification.
+ *  Job specification for a metadata export job.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpec : GTLRObject
 
 /**
- *  Required. The root path of the exported metadata. Must be in the format:
- *  "gs://" Or specify a customized prefix after the bucket: "gs://///.../". The
- *  length limit of the customized prefix is 128 characters. The bucket must be
- *  in the same VPC-SC perimeter with the job.
+ *  Required. The root path of the Cloud Storage bucket to export the metadata
+ *  to, in the format gs://{bucket}/. You can optionally specify a custom prefix
+ *  after the bucket name, in the format gs://{bucket}/{prefix}/. The maximum
+ *  length of the custom prefix is 128 characters. Dataplex constructs the
+ *  object path for the exported files by using the bucket name and prefix that
+ *  you provide, followed by a system-generated path.The bucket must be in the
+ *  same VPC Service Controls perimeter as the job.
  */
 @property(nonatomic, copy, nullable) NSString *outputPath;
 
-/** Required. Selects the entries to be exported by this job. */
+/** Required. The scope of the export job. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpecExportJobScope *scope;
 
 @end
 
 
 /**
- *  Scope of the export job.
+ *  The scope of the export job.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobSpecExportJobScope : GTLRObject
 
 /**
- *  The aspect types that are in scope for the export job. Optional. If
- *  specified, only aspects of the specified types will be affected by the job.
- *  Must follow the format: "projects//locations//aspectTypes/"
+ *  The aspect types that are in scope for the export job, specified as relative
+ *  resource names in the format
+ *  projects/{project_id_or_number}/locations/{location}/aspectTypes/{aspect_type_id}.
+ *  Only aspects that belong to the specified aspect types are affected by the
+ *  job.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectTypes;
 
 /**
- *  The entry groups that are in scope for the export job. Optional. If
- *  specified, only entries in the specified entry groups will be exported by
- *  the job. Must be in the VPC-SC perimeter of the job. The location of the
- *  entry groups must be the same as the job. Either projects or entry_groups
- *  can be specified when organization_level_export is set to false. Must follow
- *  the format: "projects//locations//entryGroups/"
+ *  The entry groups whose metadata you want to export, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}.
+ *  Only the entries in the specified entry groups are exported.The entry groups
+ *  must be in the same location and the same VPC Service Controls perimeter as
+ *  the job.If you set the job scope to be a list of entry groups, then set the
+ *  organization-level export flag to false and don't provide a list of
+ *  projects.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryGroups;
 
 /**
- *  If specified, only entries of the specified types will be affected by the
- *  job. Must follow the format: "projects//locations//entryTypes/"
+ *  The entry types that are in scope for the export job, specified as relative
+ *  resource names in the format
+ *  projects/{project_id_or_number}/locations/{location}/entryTypes/{entry_type_id}.
+ *  Only entries that belong to the specified entry types are affected by the
+ *  job.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryTypes;
 
 /**
- *  Indicating if it is an organization level export job. - When set to true,
- *  exports all entries from entry groups and projects sharing the same
- *  organization id of the Metadata Job. Only projects and entry groups in the
- *  VPC-SC perimeter will be exported. The projects and entry groups are
- *  ignored. - When set to false, one of the projects or entry groups must be
- *  specified. - Default to false.
+ *  Whether the metadata export job is an organization-level export job. If
+ *  true, the job exports the entries from the same organization and VPC Service
+ *  Controls perimeter as the job. The project that the job belongs to
+ *  determines the VPC Service Controls perimeter. If you set the job scope to
+ *  be at the organization level, then don't provide a list of projects or entry
+ *  groups. If false, you must specify a list of projects or a list of entry
+ *  groups whose entries you want to export.The default is false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *organizationLevel;
 
 /**
- *  The projects that are in the scope of the export job. Can either be project
- *  numbers or project IDs. If specified, only the entries from the specified
- *  projects will be exported. The projects must be in the same organization and
- *  in the VPC-SC perimeter. Either projects or entry_groups can be specified
- *  when organization_level_export is set to false. Must follow the format:
- *  "projects/"
+ *  The projects whose metadata you want to export, in the format
+ *  projects/{project_id_or_number}. Only the entries from the specified
+ *  projects are exported.The projects must be in the same organization and VPC
+ *  Service Controls perimeter as the job.If you set the job scope to be a list
+ *  of projects, then set the organization-level export flag to false and don't
+ *  provide a list of entry groups.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projects;
 
@@ -8382,7 +8967,7 @@ GTLR_DEPRECATED
  *  Optional. The URI of a Cloud Storage bucket or folder (beginning with gs://
  *  and ending with /) that contains the metadata import files for this job.A
  *  metadata import file defines the values to set for each of the entries and
- *  aspects in a metadata job. For more information about how to create a
+ *  aspects in a metadata import job. For more information about how to create a
  *  metadata import file and the file requirements, see Metadata import file
  *  (https://cloud.google.com/dataplex/docs/import-metadata#metadata-import-file).You
  *  can provide multiple metadata import files in the same metadata job. The

@@ -1538,41 +1538,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Calls the Bouncer method ShouldThrottle to check if a request should be
- *  throttled.
- *
- *  Method: beyondcorp.projects.locations.appGateways.shouldThrottle
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
- */
-GTLR_DEPRECATED
-@interface GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysShouldThrottle : GTLRBeyondCorpQuery
-
-/** Required. Name of the resource */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Optional. The port that is being throttled */
-@property(nonatomic, assign) NSInteger port;
-
-/** Optional. The current throughput through the port (mbps) */
-@property(nonatomic, assign) long long requestedAmount;
-
-/**
- *  Fetches a @c GTLRBeyondCorp_ShouldThrottleResponse.
- *
- *  Calls the Bouncer method ShouldThrottle to check if a request should be
- *  throttled.
- *
- *  @param name Required. Name of the resource
- *
- *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysShouldThrottle
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Returns permissions that a caller has on the specified resource. If the
  *  resource does not exist, this will return an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building
@@ -2023,6 +1988,12 @@ GTLR_DEPRECATED
  *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
  */
 @interface GTLRBeyondCorpQuery_ProjectsLocationsList : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

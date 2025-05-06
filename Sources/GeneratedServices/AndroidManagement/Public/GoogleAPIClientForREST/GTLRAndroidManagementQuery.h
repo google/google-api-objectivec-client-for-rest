@@ -1174,7 +1174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  The name of the web app in the form
- *  enterprises/{enterpriseId}/webApp/{packageName}.
+ *  enterprises/{enterpriseId}/webApps/{packageName}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1184,7 +1184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Gets a web app.
  *
  *  @param name The name of the web app in the form
- *    enterprises/{enterpriseId}/webApp/{packageName}.
+ *    enterprises/{enterpriseId}/webApps/{packageName}.
  *
  *  @return GTLRAndroidManagementQuery_EnterprisesWebAppsGet
  */

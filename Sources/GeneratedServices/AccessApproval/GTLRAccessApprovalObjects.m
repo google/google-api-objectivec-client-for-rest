@@ -22,6 +22,13 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleResponseToProductio
 NSString * const kGTLRAccessApproval_AccessReason_Type_ThirdPartyDataRequest = @"THIRD_PARTY_DATA_REQUEST";
 NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRAccessApproval_CustomerApprovalApprovalPolicy.justificationBasedApprovalPolicy
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledAll = @"JUSTIFICATION_BASED_APPROVAL_ENABLED_ALL";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledExternalJustifications = @"JUSTIFICATION_BASED_APPROVAL_ENABLED_EXTERNAL_JUSTIFICATIONS";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalInherited = @"JUSTIFICATION_BASED_APPROVAL_INHERITED";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalNotEnabled = @"JUSTIFICATION_BASED_APPROVAL_NOT_ENABLED";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalPolicyUnspecified = @"JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED";
+
 // GTLRAccessApproval_EnrolledService.enrollmentLevel
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll = @"BLOCK_ALL";
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified = @"ENROLLMENT_LEVEL_UNSPECIFIED";
@@ -120,7 +127,8 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 //
 
 @implementation GTLRAccessApproval_ApproveDecision
-@dynamic approveTime, autoApproved, expireTime, invalidateTime, signatureInfo;
+@dynamic approveTime, autoApproved, expireTime, invalidateTime, policyApproved,
+         signatureInfo;
 @end
 
 
@@ -131,6 +139,16 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 
 @implementation GTLRAccessApproval_AugmentedInfo
 @dynamic command;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessApproval_CustomerApprovalApprovalPolicy
+//
+
+@implementation GTLRAccessApproval_CustomerApprovalApprovalPolicy
+@dynamic justificationBasedApprovalPolicy;
 @end
 
 
@@ -229,11 +247,11 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 //
 
 @implementation GTLRAccessApproval_Settings
-@dynamic activeKeyVersion, ancestorHasActiveKeyVersion, enrolledAncestor,
-         enrolledServices, invalidKeyVersion, name, notificationEmails,
-         notificationPubsubTopic, preferNoBroadApprovalRequests,
-         preferredRequestExpirationDays, requestScopeMaxWidthPreference,
-         requireCustomerVisibleJustification;
+@dynamic activeKeyVersion, ancestorHasActiveKeyVersion, approvalPolicy,
+         effectiveApprovalPolicy, enrolledAncestor, enrolledServices,
+         invalidKeyVersion, name, notificationEmails, notificationPubsubTopic,
+         preferNoBroadApprovalRequests, preferredRequestExpirationDays,
+         requestScopeMaxWidthPreference, requireCustomerVisibleJustification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

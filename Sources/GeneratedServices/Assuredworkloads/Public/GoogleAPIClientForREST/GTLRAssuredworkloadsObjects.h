@@ -16,6 +16,11 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisGroup;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisResult;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveImpact;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation;
@@ -31,6 +36,7 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Metadata;
@@ -71,6 +77,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "SINGLE_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata.action
+
+/**
+ *  The update is applied.
+ *
+ *  Value: "APPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_Apply;
+/**
+ *  Unspecified value.
+ *
+ *  Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_WorkloadUpdateActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest.action
+
+/**
+ *  The update is applied.
+ *
+ *  Value: "APPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_Apply;
+/**
+ *  Unspecified value.
+ *
+ *  Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
@@ -803,6 +841,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate.state
+
+/**
+ *  The update has been applied.
+ *
+ *  Value: "APPLIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Applied;
+/**
+ *  The update is available to be applied.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Available;
+/**
+ *  Unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_StateUnspecified;
+/**
+ *  The update has been withdrawn by the service.
+ *
+ *  Value: "WITHDRAWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Withdrawn;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions.kajEnrollmentType
 
 /**
@@ -883,6 +949,61 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /** The next page token. Is empty if the last page is reached. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Operation metadata to give request details of ApplyWorkloadUpdate.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata : GTLRObject
+
+/**
+ *  Optional. The time the operation was created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_Apply
+ *        The update is applied. (Value: "APPLY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_WorkloadUpdateActionUnspecified
+ *        Unspecified value. (Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Optional. Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The resource name of the update */
+@property(nonatomic, copy, nullable) NSString *updateName;
+
+@end
+
+
+/**
+ *  Request to apply update to a workload.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest : GTLRObject
+
+/**
+ *  The action to be performed on the update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_Apply
+ *        The update is applied. (Value: "APPLY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified
+ *        Unspecified value. (Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+@end
+
+
+/**
+ *  Response for ApplyWorkloadUpdate endpoint.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateResponse : GTLRObject
+
+/** The update that was applied. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate *appliedUpdate;
 
 @end
 
@@ -1000,6 +1121,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  Response for EnableComplianceUpdates endpoint.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse : GTLRObject
+@end
+
+
+/**
  *  Response for EnableResourceMonitoring endpoint.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableResourceMonitoringResponse : GTLRObject
@@ -1050,6 +1178,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload *> *workloads;
+
+@end
+
+
+/**
+ *  Response of listing the compliance updates per workload with pagination.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workloadUpdates" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse : GTLRCollectionObject
+
+/** The next page token. Return empty if reached the last page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of workload updates for a given workload.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate *> *workloadUpdates;
 
 @end
 
@@ -1130,6 +1282,111 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  This assured workload service object is used to represent the org policy
+ *  attached to a resource. It servces the same purpose as the
+ *  orgpolicy.v2.Policy object but with functionality that is limited to what is
+ *  supported by Assured Workloads(e.g. only one rule under one OrgPolicy
+ *  object, no conditions, etc).
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy : GTLRObject
+
+/**
+ *  The constraint name of the OrgPolicy. e.g.
+ *  "constraints/gcp.resourceLocations".
+ */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
+/**
+ *  If `inherit` is true, policy rules of the lowest ancestor in the resource
+ *  hierarchy chain are inherited. If it is false, policy rules are not
+ *  inherited.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inherit;
+
+/**
+ *  Ignores policies set above this resource and restores to the
+ *  `constraint_default` value. `reset` can only be true when `rules` is empty
+ *  and `inherit` is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reset;
+
+/**
+ *  Resource that the OrgPolicy attaches to. Format: folders/123" projects/123".
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/** The rule of the OrgPolicy. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule *rule;
+
+@end
+
+
+/**
+ *  A rule used to express this policy.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule : GTLRObject
+
+/**
+ *  ListPolicy only when all values are allowed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAll;
+
+/**
+ *  ListPolicy only when all values are denied.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *denyAll;
+
+/**
+ *  BooleanPolicy only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforce;
+
+/** ListPolicy only when custom values are specified. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues *values;
+
+@end
+
+
+/**
+ *  The values allowed for a ListPolicy.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues : GTLRObject
+
+/** List of values allowed at this resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
+
+/** List of values denied at this resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deniedValues;
+
+@end
+
+
+/**
+ *  Represents an update for an org policy control applied on an Assured
+ *  Workload resource. The inherited org policy is not considered.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate : GTLRObject
+
+/** The org policy currently applied on the assured workload resource. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy *appliedPolicy;
+
+/** The suggested org policy that replaces the applied policy. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy *suggestedPolicy;
+
+@end
+
+
+/**
  *  Request for restricting list of available resources in Workload environment.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest : GTLRObject
@@ -1165,6 +1422,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Response for restricting the list of allowed resources.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse : GTLRObject
+@end
+
+
+/**
+ *  The details of the update.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails : GTLRObject
+
+/** Update to one org policy, e.g. gcp.resourceLocation. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate *orgPolicyUpdate;
+
 @end
 
 
@@ -1962,6 +2230,45 @@ GTLR_DEPRECATED
  *        SAA enrollment pending. (Value: "STATUS_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *setupStatus;
+
+@end
+
+
+/**
+ *  A workload update is a change to the workload's compliance configuration.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate : GTLRObject
+
+/** The time the update was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The details of the update. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails *details;
+
+/**
+ *  Output only. Immutable. Identifier. Resource name of the WorkloadUpdate.
+ *  Format:
+ *  organizations/{organization}/locations/{location}/workloads/{workload}/updates/{update}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Applied
+ *        The update has been applied. (Value: "APPLIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Available
+ *        The update is available to be applied. (Value: "AVAILABLE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_StateUnspecified
+ *        Unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Withdrawn
+ *        The update has been withdrawn by the service. (Value: "WITHDRAWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time the update was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

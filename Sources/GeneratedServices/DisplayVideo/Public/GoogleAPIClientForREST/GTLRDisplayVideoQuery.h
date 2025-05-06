@@ -157,7 +157,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType;
 /**
- *  Filter website content by content themes (for example, religion).
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
  *
  *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
  */
@@ -870,8 +873,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1056,8 +1062,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -1292,8 +1301,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1475,8 +1487,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsList
  *
@@ -3639,8 +3654,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3847,8 +3865,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -4072,8 +4093,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4280,8 +4304,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -4507,8 +4534,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4715,8 +4745,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -4976,8 +5009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5181,8 +5217,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -5229,10 +5268,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Field by which to sort the list. Acceptable values are: * `displayName`
- *  (default) * `entityStatus` * `updateTime` The default sorting order is
- *  ascending. To specify descending order for a field, a suffix "desc" should
- *  be added to the field name. For example, `displayName desc`.
+ *  Field by which to sort the list. Acceptable values are: * `advertiserId`
+ *  (default) * `displayName` * `entityStatus` * `updateTime` The default
+ *  sorting order is ascending. To specify descending order for a field, a
+ *  suffix "desc" should be added to the field name. For example, `displayName
+ *  desc`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -6428,8 +6468,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6605,8 +6648,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -6796,8 +6842,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6972,8 +7021,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -7008,7 +7060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
  *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *  `TARGETING_TYPE_KEYWORD`
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -7168,8 +7220,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7184,7 +7239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *    `TARGETING_TYPE_KEYWORD`
+ *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this advertiser that identifies the assigned targeting
  *    option being requested.
@@ -7347,8 +7402,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -7414,7 +7472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
  *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *  `TARGETING_TYPE_KEYWORD`
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -7574,8 +7632,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7591,7 +7652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *    `TARGETING_TYPE_KEYWORD`
+ *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -7751,8 +7812,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -8016,10 +8080,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Updates an existing custom bidding algorithm. Returns the updated custom
- *  bidding algorithm if successful. *Warning*: Starting **April 1, 2025**,
- *  requests updating custom bidding algorithms that are assigned to line items
- *  will return an error. [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  bidding algorithm if successful. Requests updating a custom bidding
+ *  algorithm assigned to a line item will return an error.
  *
  *  Method: displayvideo.customBiddingAlgorithms.patch
  *
@@ -8045,10 +8107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_CustomBiddingAlgorithm.
  *
  *  Updates an existing custom bidding algorithm. Returns the updated custom
- *  bidding algorithm if successful. *Warning*: Starting **April 1, 2025**,
- *  requests updating custom bidding algorithms that are assigned to line items
- *  will return an error. [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  bidding algorithm if successful. Requests updating a custom bidding
+ *  algorithm assigned to a line item will return an error.
  *
  *  @param object The @c GTLRDisplayVideo_CustomBiddingAlgorithm to include in
  *    the query.
@@ -8064,10 +8124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Creates a new rules resource. Returns the newly created rules resource if
- *  successful. *Warning*: Starting **April 1, 2025**, requests updating custom
- *  bidding algorithms that are assigned to line items will return an error.
- *  [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  successful. Requests creating a custom bidding rules resource under an
+ *  algorithm assigned to a line item will return an error.
  *
  *  Method: displayvideo.customBiddingAlgorithms.rules.create
  *
@@ -8095,10 +8153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_CustomBiddingAlgorithmRules.
  *
  *  Creates a new rules resource. Returns the newly created rules resource if
- *  successful. *Warning*: Starting **April 1, 2025**, requests updating custom
- *  bidding algorithms that are assigned to line items will return an error.
- *  [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  successful. Requests creating a custom bidding rules resource under an
+ *  algorithm assigned to a line item will return an error.
  *
  *  @param object The @c GTLRDisplayVideo_CustomBiddingAlgorithmRules to include
  *    in the query.
@@ -8221,10 +8277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Creates a new custom bidding script. Returns the newly created script if
- *  successful. *Warning*: Starting **April 1, 2025**, requests updating custom
- *  bidding algorithms that are assigned to line items will return an error.
- *  [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  successful. Requests creating a custom bidding script under an algorithm
+ *  assigned to a line item will return an error.
  *
  *  Method: displayvideo.customBiddingAlgorithms.scripts.create
  *
@@ -8249,10 +8303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_CustomBiddingScript.
  *
  *  Creates a new custom bidding script. Returns the newly created script if
- *  successful. *Warning*: Starting **April 1, 2025**, requests updating custom
- *  bidding algorithms that are assigned to line items will return an error.
- *  [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  successful. Requests creating a custom bidding script under an algorithm
+ *  assigned to a line item will return an error.
  *
  *  @param object The @c GTLRDisplayVideo_CustomBiddingScript to include in the
  *    query.
@@ -10811,8 +10863,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10986,8 +11041,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -11175,8 +11233,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11349,8 +11410,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -11541,8 +11605,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11716,8 +11783,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -11939,8 +12009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12111,8 +12184,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -12131,9 +12207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  is SdfDownloadTaskMetadata. If the request is successful, the response type
  *  of the operation is SdfDownloadTask. The response will not include the
  *  download files, which must be retrieved with media.download. The state of
- *  operation can be retrieved with sdfdownloadtask.operations.get. Any errors
- *  can be found in the error.message. Note that error.details is expected to be
- *  empty.
+ *  operation can be retrieved with `sdfdownloadtasks.operations.get`. Any
+ *  errors can be found in the error.message. Note that error.details is
+ *  expected to be empty.
  *
  *  Method: displayvideo.sdfdownloadtasks.create
  *
@@ -12150,9 +12226,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  is SdfDownloadTaskMetadata. If the request is successful, the response type
  *  of the operation is SdfDownloadTask. The response will not include the
  *  download files, which must be retrieved with media.download. The state of
- *  operation can be retrieved with sdfdownloadtask.operations.get. Any errors
- *  can be found in the error.message. Note that error.details is expected to be
- *  empty.
+ *  operation can be retrieved with `sdfdownloadtasks.operations.get`. Any
+ *  errors can be found in the error.message. Note that error.details is
+ *  expected to be empty.
  *
  *  @param object The @c GTLRDisplayVideo_CreateSdfDownloadTaskRequest to
  *    include in the query.
@@ -12413,8 +12489,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12601,8 +12680,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -12843,8 +12925,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13029,8 +13114,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -13216,8 +13304,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13391,8 +13482,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        items. Targeting of this type cannot be created or updated using the
  *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

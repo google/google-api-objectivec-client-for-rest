@@ -925,6 +925,33 @@ NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOP
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesPointInTimeRestore
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_PointInTimeRestoreContext *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:pointInTimeRestore";
+  GTLRSQLAdminQuery_InstancesPointInTimeRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.pointInTimeRestore";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesPromoteReplica
 
 @dynamic failover, instance, project;

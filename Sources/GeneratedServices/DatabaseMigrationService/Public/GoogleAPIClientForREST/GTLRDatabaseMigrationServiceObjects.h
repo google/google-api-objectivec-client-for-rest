@@ -2308,6 +2308,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectIde
  *  Value: "MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_MigrationJobObjectTypeUnspecified;
+/**
+ *  The migration job object is a schema.
+ *
+ *  Value: "SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Schema;
+/**
+ *  The migration job object is a table.
+ *
+ *  Value: "TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Table;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_SourceObjectsConfig.objectsSelectionType
@@ -7348,6 +7360,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
+ *  Optional. The schema name. This will be required only if the object uses a
+ *  schema name as part of its unique identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
+ *  Optional. The table name. This will be required only if the object is a
+ *  level below database or schema.
+ */
+@property(nonatomic, copy, nullable) NSString *table;
+
+/**
  *  Required. The type of the migration job object.
  *
  *  Likely values:
@@ -7356,6 +7380,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_MigrationJobObjectTypeUnspecified
  *        The type of the migration job object is unknown. (Value:
  *        "MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Schema
+ *        The migration job object is a schema. (Value: "SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Table
+ *        The migration job object is a table. (Value: "TABLE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

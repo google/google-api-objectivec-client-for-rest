@@ -742,6 +742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeEncryptionKeyNotCustomerManaged;
 /**
+ *  Encryption org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied;
+/**
  *  Represents if the log_hostname database flag for a Cloud SQL for PostgreSQL
  *  instance is not set to off.
  *
@@ -830,11 +836,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfTables;
 /**
+ *  Heavy read pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_READ_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighReadPressure;
+/**
  *  Represents high number of unvacuumed transactions
  *
  *  Value: "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighTransactionIdUtilization;
+/**
+ *  Heavy write pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_WRITE_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighWritePressure;
 /**
  *  Detects if a database instance/cluster has a hot node.
  *
@@ -854,6 +872,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeInefficientQuery;
 /**
+ *  Indicates that the database has large rows beyond the recommended limit.
+ *
+ *  Value: "SIGNAL_TYPE_LARGE_ROWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLargeRows;
+/**
  *  Represents if the last backup of a resource failed.
  *
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_FAILED"
@@ -866,6 +890,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupOld;
+/**
+ *  Location org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied;
 /**
  *  Represents if the log_min_duration_statement database flag for a Cloud SQL
  *  for PostgreSQL instance is not set to -1.
@@ -901,6 +931,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
+/**
+ *  Indicates that the instance's max server memory is configured higher than
+ *  the recommended value.
+ *
+ *  Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMaxServerMemory;
 /**
  *  Indicates that the instance is nearing memory limit.
  *
@@ -1656,6 +1693,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeEncryptionKeyNotCustomerManaged;
 /**
+ *  Encryption org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied;
+/**
  *  Represents if the log_hostname database flag for a Cloud SQL for PostgreSQL
  *  instance is not set to off.
  *
@@ -1744,11 +1787,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfTables;
 /**
+ *  Heavy read pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_READ_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighReadPressure;
+/**
  *  Represents high number of unvacuumed transactions
  *
  *  Value: "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighTransactionIdUtilization;
+/**
+ *  Heavy write pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_WRITE_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighWritePressure;
 /**
  *  Detects if a database instance/cluster has a hot node.
  *
@@ -1768,6 +1823,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeInefficientQuery;
 /**
+ *  Indicates that the database has large rows beyond the recommended limit.
+ *
+ *  Value: "SIGNAL_TYPE_LARGE_ROWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLargeRows;
+/**
  *  Represents if the last backup of a resource failed.
  *
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_FAILED"
@@ -1780,6 +1841,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLastBackupOld;
+/**
+ *  Location org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied;
 /**
  *  Represents if the log_min_duration_statement database flag for a Cloud SQL
  *  for PostgreSQL instance is not set to -1.
@@ -1815,6 +1882,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
+/**
+ *  Indicates that the instance's max server memory is configured higher than
+ *  the recommended value.
+ *
+ *  Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMaxServerMemory;
 /**
  *  Indicates that the instance is nearing memory limit.
  *
@@ -2840,6 +2914,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeBigta
  *  Value: "PRODUCT_TYPE_CLOUD_SQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeCloudSql;
+/**
+ *  Compute Engine self managed databases
+ *
+ *  Value: "PRODUCT_TYPE_COMPUTE_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeComputeEngine;
 /**
  *  Firestore product area in GCP.
  *
@@ -4360,6 +4440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if a SQL database instance is not encrypted with
  *        customer-managed encryption keys (CMEK). (Value:
  *        "SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied
+ *        Encryption org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExcessiveLoggingOfClientHostname
  *        Represents if the log_hostname database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to off. (Value:
@@ -4409,9 +4492,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfTables
  *        Represents high table count close to SLA limit. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighReadPressure
+ *        Heavy read pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_READ_PRESSURE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighTransactionIdUtilization
  *        Represents high number of unvacuumed transactions (Value:
  *        "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighWritePressure
+ *        Heavy write pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_WRITE_PRESSURE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHotNode
  *        Detects if a database instance/cluster has a hot node. (Value:
  *        "SIGNAL_TYPE_HOT_NODE")
@@ -4421,12 +4510,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeInefficientQuery
  *        Indicates that the instance has inefficient queries detected. (Value:
  *        "SIGNAL_TYPE_INEFFICIENT_QUERY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLargeRows
+ *        Indicates that the database has large rows beyond the recommended
+ *        limit. (Value: "SIGNAL_TYPE_LARGE_ROWS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupFailed
  *        Represents if the last backup of a resource failed. (Value:
  *        "SIGNAL_TYPE_LAST_BACKUP_FAILED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupOld
  *        Represents if the last backup of a resource is older than some
  *        threshold value. (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied
+ *        Location org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLoggingExcessiveStatementInfo
  *        Represents if the log_min_duration_statement database flag for a Cloud
  *        SQL for PostgreSQL instance is not set to -1. (Value:
@@ -4447,6 +4542,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMaxServerMemory
+ *        Indicates that the instance's max server memory is configured higher
+ *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit
  *        Indicates that the instance is nearing memory limit. (Value:
  *        "SIGNAL_TYPE_MEMORY_LIMIT")
@@ -5033,6 +5131,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if a SQL database instance is not encrypted with
  *        customer-managed encryption keys (CMEK). (Value:
  *        "SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied
+ *        Encryption org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExcessiveLoggingOfClientHostname
  *        Represents if the log_hostname database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to off. (Value:
@@ -5082,9 +5183,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfTables
  *        Represents high table count close to SLA limit. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighReadPressure
+ *        Heavy read pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_READ_PRESSURE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighTransactionIdUtilization
  *        Represents high number of unvacuumed transactions (Value:
  *        "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighWritePressure
+ *        Heavy write pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_WRITE_PRESSURE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHotNode
  *        Detects if a database instance/cluster has a hot node. (Value:
  *        "SIGNAL_TYPE_HOT_NODE")
@@ -5094,12 +5201,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeInefficientQuery
  *        Indicates that the instance has inefficient queries detected. (Value:
  *        "SIGNAL_TYPE_INEFFICIENT_QUERY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLargeRows
+ *        Indicates that the database has large rows beyond the recommended
+ *        limit. (Value: "SIGNAL_TYPE_LARGE_ROWS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLastBackupFailed
  *        Represents if the last backup of a resource failed. (Value:
  *        "SIGNAL_TYPE_LAST_BACKUP_FAILED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLastBackupOld
  *        Represents if the last backup of a resource is older than some
  *        threshold value. (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied
+ *        Location org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLoggingExcessiveStatementInfo
  *        Represents if the log_min_duration_statement database flag for a Cloud
  *        SQL for PostgreSQL instance is not set to -1. (Value:
@@ -5120,6 +5233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMaxServerMemory
+ *        Indicates that the instance's max server memory is configured higher
+ *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit
  *        Indicates that the instance is nearing memory limit. (Value:
  *        "SIGNAL_TYPE_MEMORY_LIMIT")
@@ -6875,6 +6991,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        area in GCP (Value: "PRODUCT_TYPE_BIGTABLE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeCloudSql Cloud SQL product
  *        area in GCP (Value: "PRODUCT_TYPE_CLOUD_SQL")
+ *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeComputeEngine Compute
+ *        Engine self managed databases (Value: "PRODUCT_TYPE_COMPUTE_ENGINE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeFirestore Firestore
  *        product area in GCP. (Value: "PRODUCT_TYPE_FIRESTORE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeMemorystore Memorystore

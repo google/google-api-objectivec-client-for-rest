@@ -816,8 +816,8 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, strong, nullable) GTLREventarc_Enrollment_Labels *labels;
 
 /**
- *  Required. Resource name of the message bus identifying the source of the
- *  messages. It matches the form
+ *  Required. Immutable. Resource name of the message bus identifying the source
+ *  of the messages. It matches the form
  *  projects/{project}/locations/{location}/messageBuses/{messageBus}.
  */
 @property(nonatomic, copy, nullable) NSString *messageBus;

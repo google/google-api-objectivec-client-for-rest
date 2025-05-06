@@ -57,6 +57,7 @@
 @class GTLRTPU_SuspendingData;
 @class GTLRTPU_Symptom;
 @class GTLRTPU_Tpu;
+@class GTLRTPU_UpcomingMaintenance;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -457,6 +458,51 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_ProjectAbuse;
  *  Value: "SYMPTOM_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTPU_UpcomingMaintenance.maintenanceStatus
+
+/**
+ *  There is ongoing maintenance on this VM.
+ *
+ *  Value: "ONGOING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Ongoing;
+/**
+ *  There is pending maintenance.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Pending;
+/**
+ *  Unknown maintenance status. Do not use this value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTPU_UpcomingMaintenance.type
+
+/**
+ *  Scheduled maintenance (e.g. maintenance after uptime guarantee is complete).
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_Scheduled;
+/**
+ *  No type specified. Do not use this value.
+ *
+ *  Value: "UNKNOWN_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_UnknownType;
+/**
+ *  Unscheduled maintenance (e.g. emergency maintenance during uptime
+ *  guarantee).
+ *
+ *  Value: "UNSCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled;
 
 /**
  *  A TPU accelerator configuration.
@@ -1241,6 +1287,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
+/** Output only. Upcoming maintenance on this TPU node. */
+@property(nonatomic, strong, nullable) GTLRTPU_UpcomingMaintenance *upcomingMaintenance;
+
 @end
 
 
@@ -1803,6 +1852,67 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /** Optional. The TPU node(s) being requested. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_NodeSpec *> *nodeSpec;
+
+@end
+
+
+/**
+ *  Upcoming Maintenance notification information.
+ */
+@interface GTLRTPU_UpcomingMaintenance : GTLRObject
+
+/**
+ *  Indicates if the maintenance can be customer triggered.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canReschedule;
+
+/**
+ *  The latest time for the planned maintenance window to start. This timestamp
+ *  value is in RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *latestWindowStartTime;
+
+/**
+ *  The status of the maintenance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Ongoing There is
+ *        ongoing maintenance on this VM. (Value: "ONGOING")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Pending There is
+ *        pending maintenance. (Value: "PENDING")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Unknown Unknown
+ *        maintenance status. Do not use this value. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceStatus;
+
+/**
+ *  Defines the type of maintenance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_Type_Scheduled Scheduled maintenance
+ *        (e.g. maintenance after uptime guarantee is complete). (Value:
+ *        "SCHEDULED")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_Type_UnknownType No type specified.
+ *        Do not use this value. (Value: "UNKNOWN_TYPE")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_Type_Unscheduled Unscheduled
+ *        maintenance (e.g. emergency maintenance during uptime guarantee).
+ *        (Value: "UNSCHEDULED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The time by which the maintenance disruption will be completed. This
+ *  timestamp value is in RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *windowEndTime;
+
+/**
+ *  The current start time of the maintenance window. This timestamp value is in
+ *  RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *windowStartTime;
 
 @end
 

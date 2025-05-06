@@ -39,6 +39,7 @@
 @class GTLRHangoutsChat_CommonEventObject_Parameters;
 @class GTLRHangoutsChat_CustomEmoji;
 @class GTLRHangoutsChat_CustomEmojiMetadata;
+@class GTLRHangoutsChat_CustomEmojiPayload;
 @class GTLRHangoutsChat_DateInput;
 @class GTLRHangoutsChat_DateTimeInput;
 @class GTLRHangoutsChat_DeletionMetadata;
@@ -640,15 +641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionTy
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_DeprecatedEvent.dialogEventType
 
-/**
- *  A user closes a dialog without submitting information. The Chat app only
- *  receives this interaction event when users click the close icon in the top
- *  right corner of the dialog. When the user closes the dialog by other means
- *  (such as refreshing the browser, clicking outside the dialog box, or
- *  pressing the escape key), no event is sent. .
- *
- *  Value: "CANCEL_DIALOG"
- */
+/** Value: "CANCEL_DIALOG" */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog;
 /**
  *  A user opens a dialog.
@@ -793,13 +786,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_Load
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_BorderTypeUnspecified;
 /**
- *  Default value. No border.
+ *  No border.
  *
  *  Value: "NO_BORDER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_NoBorder;
 /**
- *  Outline.
+ *  Default value. Outline.
  *
  *  Value: "STROKE"
  */
@@ -2674,9 +2667,39 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Represents a custom emoji.
+ *  Represents a [custom
+ *  emoji](https://support.google.com/chat/answer/12800149).
  */
 @interface GTLRHangoutsChat_CustomEmoji : GTLRObject
+
+/**
+ *  Optional. Immutable. User-provided name for the custom emoji, which is
+ *  unique within the organization. Required when the custom emoji is created,
+ *  output only otherwise. Emoji names must start and end with colons, must be
+ *  lowercase and can only contain alphanumeric characters, hyphens, and
+ *  underscores. Hyphens and underscores should be used to separate words and
+ *  cannot be used consecutively. Example: `:valid-emoji-name:`
+ */
+@property(nonatomic, copy, nullable) NSString *emojiName;
+
+/**
+ *  Identifier. The resource name of the custom emoji, assigned by the server.
+ *  Format: `customEmojis/{customEmoji}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Input only. Payload data. Required when the custom emoji is
+ *  created.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_CustomEmojiPayload *payload;
+
+/**
+ *  Output only. A temporary image URL for the custom emoji, valid for at least
+ *  10 minutes. Note that this is not populated in the response when the custom
+ *  emoji is created.
+ */
+@property(nonatomic, copy, nullable) NSString *temporaryImageUri;
 
 /** Output only. Unique key for the custom emoji resource. */
 @property(nonatomic, copy, nullable) NSString *uid;
@@ -2691,6 +2714,30 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** The custom emoji. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_CustomEmoji *customEmoji;
+
+@end
+
+
+/**
+ *  Payload data for the custom emoji.
+ */
+@interface GTLRHangoutsChat_CustomEmojiPayload : GTLRObject
+
+/**
+ *  Required. Input only. The image used for the custom emoji. The payload must
+ *  be under 256 KB and the dimension of the image must be square and between 64
+ *  and 500 pixels. The restrictions are subject to change.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fileContent;
+
+/**
+ *  Required. Input only. The image file name. Supported file extensions:
+ *  `.png`, `.jpg`, `.gif`.
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
 
 @end
 
@@ -2824,13 +2871,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  interaction event received.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog A
- *        user closes a dialog without submitting information. The Chat app only
- *        receives this interaction event when users click the close icon in the
- *        top right corner of the dialog. When the user closes the dialog by
- *        other means (such as refreshing the browser, clicking outside the
- *        dialog box, or pressing the escape key), no event is sent. . (Value:
- *        "CANCEL_DIALOG")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog
+ *        Value "CANCEL_DIALOG"
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog A
  *        user opens a dialog. (Value: "REQUEST_DIALOG")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog A
@@ -3239,10 +3281,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_BorderTypeUnspecified
  *        Don't use. Unspecified. (Value: "BORDER_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_NoBorder
- *        Default value. No border. (Value: "NO_BORDER")
- *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_Stroke Outline.
- *        (Value: "STROKE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_NoBorder No
+ *        border. (Value: "NO_BORDER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_Stroke Default
+ *        value. Outline. (Value: "STROKE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4646,6 +4688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *bottomText;
 
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1MaterialIcon *materialIcon;
+
 /**
  *  Whether the item is selected by default. If the selection input only accepts
  *  one value (such as for radio buttons or a dropdown menu), only set this
@@ -4655,12 +4699,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *selected;
 
-/**
- *  For multiselect menus, the URL for the icon displayed next to the item's
- *  `text` field. Supports PNG and JPEG files. Must be an `HTTPS` URL. For
- *  example,
- *  `https://developers.google.com/workspace/chat/images/quickstart-app-avatar.png`.
- */
 @property(nonatomic, copy, nullable) NSString *startIconUri;
 
 /** The text that identifies or describes the item to users. */
@@ -5411,6 +5449,33 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
 @property(nonatomic, copy, nullable) NSString *topLabel;
+
+@end
+
+
+/**
+ *  A response to list custom emojis.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customEmojis" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_ListCustomEmojisResponse : GTLRCollectionObject
+
+/**
+ *  Unordered list. List of custom emojis.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CustomEmoji *> *customEmojis;
+
+/**
+ *  A token that you can send as `pageToken` to retrieve the next page of
+ *  results. If empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

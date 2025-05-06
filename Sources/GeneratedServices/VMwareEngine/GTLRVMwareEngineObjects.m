@@ -279,6 +279,26 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_Internet    = @"INTERNET";
 NSString * const kGTLRVMwareEngine_VpcNetwork_Type_Intranet    = @"INTRANET";
 NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRVMwareEngine_WeeklyTimeInterval.endDay
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Friday = @"FRIDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Monday = @"MONDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Saturday = @"SATURDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Sunday = @"SUNDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Thursday = @"THURSDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Tuesday = @"TUESDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Wednesday = @"WEDNESDAY";
+
+// GTLRVMwareEngine_WeeklyTimeInterval.startDay
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Friday = @"FRIDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Monday = @"MONDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Saturday = @"SATURDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Sunday = @"SUNDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Thursday = @"THURSDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Tuesday = @"TUESDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WEDNESDAY";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRVMwareEngine_Announcement
@@ -430,7 +450,15 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRVMwareEngine_Constraints
-@dynamic minHoursDay, minHoursWeek, rescheduleDateRange;
+@dynamic disallowedIntervals, minHoursDay, minHoursWeek, rescheduleDateRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disallowedIntervals" : [GTLRVMwareEngine_WeeklyTimeInterval class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1718,4 +1746,14 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 @implementation GTLRVMwareEngine_VpcNetwork
 @dynamic network, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_WeeklyTimeInterval
+//
+
+@implementation GTLRVMwareEngine_WeeklyTimeInterval
+@dynamic endDay, endTime, startDay, startTime;
 @end

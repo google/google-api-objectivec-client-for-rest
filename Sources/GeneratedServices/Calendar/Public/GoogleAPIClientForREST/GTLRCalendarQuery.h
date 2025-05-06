@@ -6,7 +6,7 @@
 // Description:
 //   Manipulates events and other calendar data.
 // Documentation:
-//   https://developers.google.com/google-apps/calendar/firstapp
+//   https://developers.google.com/workspace/calendar/firstapp
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 

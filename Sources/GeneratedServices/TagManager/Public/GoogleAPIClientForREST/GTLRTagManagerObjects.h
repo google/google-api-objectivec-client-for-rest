@@ -1329,12 +1329,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Number of Google tag configs in the container version. */
 @property(nonatomic, copy, nullable) NSString *numGtagConfigs;
 
-/** Number of macros in the container version. */
-@property(nonatomic, copy, nullable) NSString *numMacros GTLR_DEPRECATED;
-
-/** Number of rules in the container version. */
-@property(nonatomic, copy, nullable) NSString *numRules GTLR_DEPRECATED;
-
 /** Number of tags in the container version. */
 @property(nonatomic, copy, nullable) NSString *numTags;
 
@@ -2552,12 +2546,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  Blocking rule IDs. If any of the listed rules evaluate to true, the tag will
- *  not fire.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *blockingRuleId GTLR_DEPRECATED;
-
-/**
  *  Blocking trigger IDs. If any of the listed triggers evaluate to true, the
  *  tag will not fire.
  */
@@ -2574,12 +2562,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  recomputed whenever the tag is modified.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/**
- *  Firing rule IDs. A tag will fire when any of the listed rules are true and
- *  all of its blockingRuleIds (if any specified) are false.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *firingRuleId GTLR_DEPRECATED;
 
 /**
  *  Firing trigger IDs. A tag will fire when any of the listed triggers are true

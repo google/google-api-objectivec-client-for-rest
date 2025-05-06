@@ -19,6 +19,7 @@
 @class GTLRAccessApproval_ApprovalRequest;
 @class GTLRAccessApproval_ApproveDecision;
 @class GTLRAccessApproval_AugmentedInfo;
+@class GTLRAccessApproval_CustomerApprovalApprovalPolicy;
 @class GTLRAccessApproval_DismissDecision;
 @class GTLRAccessApproval_EnrolledService;
 @class GTLRAccessApproval_ResourceProperties;
@@ -91,6 +92,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_ThirdPa
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessApproval_CustomerApprovalApprovalPolicy.justificationBasedApprovalPolicy
+
+/**
+ *  Instant approval is enabled for all accesses.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_ENABLED_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledAll;
+/**
+ *  Instant approval is enabled for external justifications.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_ENABLED_EXTERNAL_JUSTIFICATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledExternalJustifications;
+/**
+ *  Instant approval is inherited from the parent.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_INHERITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalInherited;
+/**
+ *  Instant approval is not enabled for any accesses.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_NOT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalNotEnabled;
+/**
+ *  Default value for proto.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessApproval_EnrolledService.enrollmentLevel
@@ -547,6 +582,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
 /** If set, denotes the timestamp at which the approval is invalidated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *invalidateTime;
 
+/**
+ *  True when the request has been approved by the customer's defined policy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyApproved;
+
 /** The signature for the ApprovalRequest and details on how it was signed. */
 @property(nonatomic, strong, nullable) GTLRAccessApproval_SignatureInfo *signatureInfo;
 
@@ -563,6 +605,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *  actor without adding any additional characters (such as quotation marks).
  */
 @property(nonatomic, copy, nullable) NSString *command;
+
+@end
+
+
+/**
+ *  Represents all the policies that can be set for Customer Approval.
+ */
+@interface GTLRAccessApproval_CustomerApprovalApprovalPolicy : GTLRObject
+
+/**
+ *  Optional. Policy for approval based on the justification given.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledAll
+ *        Instant approval is enabled for all accesses. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_ENABLED_ALL")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledExternalJustifications
+ *        Instant approval is enabled for external justifications. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_ENABLED_EXTERNAL_JUSTIFICATIONS")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalInherited
+ *        Instant approval is inherited from the parent. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_INHERITED")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalNotEnabled
+ *        Instant approval is not enabled for any accesses. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_NOT_ENABLED")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalPolicyUnspecified
+ *        Default value for proto. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *justificationBasedApprovalPolicy;
 
 @end
 
@@ -743,6 +815,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ancestorHasActiveKeyVersion;
+
+/** Optional. Policy for approval. This contains all policies. */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_CustomerApprovalApprovalPolicy *approvalPolicy;
+
+/**
+ *  Output only. Policy for approval included inherited settings to understand
+ *  the exact policy applied to this resource. This is a read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_CustomerApprovalApprovalPolicy *effectiveApprovalPolicy;
 
 /**
  *  Output only. This field is read only (not settable via

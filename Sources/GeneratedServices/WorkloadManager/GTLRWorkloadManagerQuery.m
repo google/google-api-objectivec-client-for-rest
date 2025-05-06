@@ -362,7 +362,14 @@ NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer   = @"SQL_SERVER";
 
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

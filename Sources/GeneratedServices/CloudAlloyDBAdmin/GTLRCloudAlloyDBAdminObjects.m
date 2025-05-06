@@ -708,11 +708,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_Backup
-@dynamic annotations, clusterName, clusterUid, createTime, databaseVersion,
-         deleteTime, descriptionProperty, displayName, encryptionConfig,
-         encryptionInfo, ETag, expiryQuantity, expiryTime, labels, name,
-         reconciling, satisfiesPzs, sizeBytes, state, tags, type, uid,
-         updateTime;
+@dynamic annotations, clusterName, clusterUid, createCompletionTime, createTime,
+         databaseVersion, deleteTime, descriptionProperty, displayName,
+         encryptionConfig, encryptionInfo, ETag, expiryQuantity, expiryTime,
+         labels, name, reconciling, satisfiesPzs, sizeBytes, state, tags, type,
+         uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

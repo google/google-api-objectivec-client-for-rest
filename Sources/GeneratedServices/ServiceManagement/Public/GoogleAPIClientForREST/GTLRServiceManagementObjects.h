@@ -3148,8 +3148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  protobuf. This should be used **only** by APIs who have already set the
  *  language_settings.java.package_name" field in gapic.yaml. API teams should
  *  use the protobuf java_package option where possible. Example of a YAML
- *  configuration:: publishing: java_settings: library_package:
- *  com.google.cloud.pubsub.v1
+ *  configuration:: publishing: library_settings: java_settings:
+ *  library_package: com.google.cloud.pubsub.v1
  */
 @property(nonatomic, copy, nullable) NSString *libraryPackage;
 

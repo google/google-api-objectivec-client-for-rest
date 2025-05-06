@@ -1901,6 +1901,251 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a user creds.
+ *
+ *  Method: firestore.projects.databases.userCreds.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsCreate : GTLRFirestoreQuery
+
+/**
+ *  Required. A parent name of the form
+ *  `projects/{project_id}/databases/{database_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the user creds, which will become the final
+ *  component of the user creds's resource name. This value should be 4-63
+ *  characters. Valid characters are /a-z-/ with first character a letter and
+ *  the last a letter or a number. Must not be UUID-like
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
+ */
+@property(nonatomic, copy, nullable) NSString *userCredsId;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Create a user creds.
+ *
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds to
+ *    include in the query.
+ *  @param parent Required. A parent name of the form
+ *    `projects/{project_id}/databases/{database_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1UserCreds *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a user creds.
+ *
+ *  Method: firestore.projects.databases.userCreds.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsDelete : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_Empty.
+ *
+ *  Deletes a user creds.
+ *
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Disables a user creds. No-op if the user creds are already disabled.
+ *
+ *  Method: firestore.projects.databases.userCreds.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsDisable : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Disables a user creds. No-op if the user creds are already disabled.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest to include in
+ *    the query.
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsDisable
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enables a user creds. No-op if the user creds are already enabled.
+ *
+ *  Method: firestore.projects.databases.userCreds.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsEnable : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Enables a user creds. No-op if the user creds are already enabled.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest to include in
+ *    the query.
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsEnable
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a user creds resource. Note that the returned resource does not contain
+ *  the secret value itself.
+ *
+ *  Method: firestore.projects.databases.userCreds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsGet : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Gets a user creds resource. Note that the returned resource does not contain
+ *  the secret value itself.
+ *
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all user creds in the database. Note that the returned resource does
+ *  not contain the secret value itself.
+ *
+ *  Method: firestore.projects.databases.userCreds.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsList : GTLRFirestoreQuery
+
+/**
+ *  Required. A parent database name of the form
+ *  `projects/{project_id}/databases/{database_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListUserCredsResponse.
+ *
+ *  List all user creds in the database. Note that the returned resource does
+ *  not contain the secret value itself.
+ *
+ *  @param parent Required. A parent database name of the form
+ *    `projects/{project_id}/databases/{database_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Resets the password of a user creds.
+ *
+ *  Method: firestore.projects.databases.userCreds.resetPassword
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsResetPassword : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Resets the password of a user creds.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest to include in
+ *    the query.
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsResetPassword
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a backup.
  *
  *  Method: firestore.projects.locations.backups.delete
@@ -2045,6 +2290,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsLocationsList : GTLRFirestoreQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

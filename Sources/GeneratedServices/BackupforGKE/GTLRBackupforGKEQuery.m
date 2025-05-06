@@ -17,6 +17,159 @@
 
 @end
 
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_BackupPlanBinding class];
+  query.loggingName = @"gkebackup.projects.locations.backupChannels.backupPlanBindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupPlanBindings";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsBackupPlanBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupforGKE_ListBackupPlanBindingsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.backupChannels.backupPlanBindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsCreate
+
+@dynamic backupChannelId, parent;
+
++ (instancetype)queryWithObject:(GTLRBackupforGKE_BackupChannel *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupChannels";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupforGKE_GoogleLongrunningOperation class];
+  query.loggingName = @"gkebackup.projects.locations.backupChannels.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsDelete
+
+@dynamic ETag, force, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_GoogleLongrunningOperation class];
+  query.loggingName = @"gkebackup.projects.locations.backupChannels.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_BackupChannel class];
+  query.loggingName = @"gkebackup.projects.locations.backupChannels.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupChannels";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupforGKE_ListBackupChannelsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.backupChannels.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBackupforGKE_BackupChannel *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupChannelsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_GoogleLongrunningOperation class];
+  query.loggingName = @"gkebackup.projects.locations.backupChannels.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsCreate
 
 @dynamic backupId, parent;
@@ -659,6 +812,159 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBackupforGKE_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"gkebackup.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsCreate
+
+@dynamic parent, restoreChannelId;
+
++ (instancetype)queryWithObject:(GTLRBackupforGKE_RestoreChannel *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/restoreChannels";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupforGKE_GoogleLongrunningOperation class];
+  query.loggingName = @"gkebackup.projects.locations.restoreChannels.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_GoogleLongrunningOperation class];
+  query.loggingName = @"gkebackup.projects.locations.restoreChannels.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_RestoreChannel class];
+  query.loggingName = @"gkebackup.projects.locations.restoreChannels.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/restoreChannels";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupforGKE_ListRestoreChannelsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.restoreChannels.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBackupforGKE_RestoreChannel *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_GoogleLongrunningOperation class];
+  query.loggingName = @"gkebackup.projects.locations.restoreChannels.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_RestorePlanBinding class];
+  query.loggingName = @"gkebackup.projects.locations.restoreChannels.restorePlanBindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/restorePlanBindings";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestoreChannelsRestorePlanBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupforGKE_ListRestorePlanBindingsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.restoreChannels.restorePlanBindings.list";
   return query;
 }
 

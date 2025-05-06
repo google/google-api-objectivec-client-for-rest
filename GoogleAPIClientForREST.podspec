@@ -1389,6 +1389,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Storage/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Storage/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'StorageBatchOperations' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/StorageBatchOperations/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/StorageBatchOperations/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'StorageTransfer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/StorageTransfer/**/*.{h,m}'

@@ -762,21 +762,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryReques
  *  Value: "FINAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final;
+/**
+ *  Include hourly data, full and partial. Required when grouping by HOUR.
+ *
+ *  Value: "HOURLY_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_HourlyAll;
 
 // ----------------------------------------------------------------------------
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.dimensions
 
-/** Value: "COUNTRY" */
+/**
+ *  Group by country, specified by 3-letter country code ([ISO 3166-1
+ *  alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)).
+ *
+ *  Value: "COUNTRY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Country;
-/** Value: "DATE" */
+/**
+ *  Group by date, which is returned in YYYY-MM-DD format, in PT time (UTC -
+ *  7:00/8:00).
+ *
+ *  Value: "DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Date;
-/** Value: "DEVICE" */
+/**
+ *  Group by device type (DESKTOP, MOBILE and TABLET).
+ *
+ *  Value: "DEVICE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Device;
-/** Value: "PAGE" */
+/**
+ *  Group by hour, which is returned in YYYY-MM-DDThh:mm:ss[+|-]hh:mm format
+ *  (ISO-8601 extended offset date-time format) in PT time (UTC - 7:00/8:00).
+ *  Data is available up to 10 days. Requires setting the dataState to
+ *  HOURLY_ALL.
+ *
+ *  Value: "HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Hour;
+/**
+ *  Group by page, a URI string.
+ *
+ *  Value: "PAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Page;
-/** Value: "QUERY" */
+/**
+ *  Group by query string.
+ *
+ *  Value: "QUERY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Query;
-/** Value: "SEARCH_APPEARANCE" */
+/**
+ *  Group by search result feature.
+ *
+ *  Value: "SEARCH_APPEARANCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_SearchAppearance;
 
 // ----------------------------------------------------------------------------
@@ -1776,6 +1817,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Default value, should not be used. (Value: "DATA_STATE_UNSPECIFIED")
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final
  *        Include full final data only, without partial. (Value: "FINAL")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_HourlyAll
+ *        Include hourly data, full and partial. Required when grouping by HOUR.
+ *        (Value: "HOURLY_ALL")
  */
 @property(nonatomic, copy, nullable) NSString *dataState;
 

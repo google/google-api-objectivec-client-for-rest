@@ -4086,8 +4086,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
- *  Path to an artifact in the build's workspace to be uploaded to Artifact
- *  Registry. This can be either an absolute path, e.g.
+ *  Optional. Path to an artifact in the build's workspace to be uploaded to
+ *  Artifact Registry. This can be either an absolute path, e.g.
  *  /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar or a relative path from
  *  /workspace, e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
  */

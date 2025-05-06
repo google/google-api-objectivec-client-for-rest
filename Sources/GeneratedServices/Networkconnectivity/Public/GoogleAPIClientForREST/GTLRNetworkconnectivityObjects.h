@@ -2784,7 +2784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  Output only. The list of Producer VPC spokes that this VPC spoke is a
  *  service consumer VPC spoke for. These producer VPCs are connected through
  *  VPC peering to this spoke's backing VPC network. Because they are directly
- *  connected throuh VPC peering, NCC export filters do not apply between the
+ *  connected through VPC peering, NCC export filters do not apply between the
  *  service consumer VPC spoke and any of its producer VPC spokes. This VPC
  *  spoke cannot be deleted as long as any of these producer VPC spokes are
  *  connected to the NCC Hub.

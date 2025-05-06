@@ -426,6 +426,8 @@ NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilter
 // GTLRDatabaseMigrationService_SourceObjectIdentifier.type
 NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Database = @"DATABASE";
 NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_MigrationJobObjectTypeUnspecified = @"MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Schema = @"SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_SourceObjectIdentifier_Type_Table = @"TABLE";
 
 // GTLRDatabaseMigrationService_SourceObjectsConfig.objectsSelectionType
 NSString * const kGTLRDatabaseMigrationService_SourceObjectsConfig_ObjectsSelectionType_AllObjects = @"ALL_OBJECTS";
@@ -2329,7 +2331,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SourceObjectIdentifier
-@dynamic database, type;
+@dynamic database, schema, table, type;
 @end
 
 

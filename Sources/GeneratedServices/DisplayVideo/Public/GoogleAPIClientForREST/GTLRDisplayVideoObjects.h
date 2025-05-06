@@ -33,6 +33,7 @@
 @class GTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_AgeRangeTargetingOptionDetails;
 @class GTLRDisplayVideo_AlgorithmRulesComparisonValue;
+@class GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal;
 @class GTLRDisplayVideo_AlgorithmRulesRule;
 @class GTLRDisplayVideo_AlgorithmRulesRuleCondition;
 @class GTLRDisplayVideo_AlgorithmRulesRuleset;
@@ -881,7 +882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewabilit
 // GTLRDisplayVideo_Adloox.excludedAdlooxCategories
 
 /**
- *  Default value when a Adloox category is not specified or is unknown in this
+ *  Default value when a Scope3 category is not specified or is unknown in this
  *  version.
  *
  *  Value: "ADLOOX_UNSPECIFIED"
@@ -946,7 +947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCatego
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedFraudIvtMfaCategories_FraudIvtMfa;
 /**
- *  Default value when a Adloox Fraud, IVT, MFA category is not specified or is
+ *  Default value when a Scope3 Fraud, IVT, MFA category is not specified or is
  *  unknown in this version.
  *
  *  Value: "FRAUD_IVT_MFA_CATEGORY_UNSPECIFIED"
@@ -1740,6 +1741,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeChartboostGbid;
 /**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCommerceGrid;
+/**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
@@ -2040,6 +2047,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -2190,6 +2203,107 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_OnScreenPositionValue_OnScreenPositionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesComparisonValue.videoPlayerSizeValue
+
+/**
+ *  The dimensions of the video player are 1280×720 or greater (desktop), or
+ *  over 90% of the screen covered (mobile).
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_HD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeHd;
+/**
+ *  The dimensions of the video player are between 400x300 and 1280x720 pixels
+ *  (desktop), or 20% to 90% of the screen covered (mobile).
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeLarge;
+/**
+ *  The dimensions of the video player are less than 400×300 (desktop), or up to
+ *  20% of screen covered (mobile).
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeSmall;
+/**
+ *  The dimensions of the video player are unknown.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnknown;
+/**
+ *  Video player size is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real video player size.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal.conversionCounting
+
+/**
+ *  All conversions.
+ *
+ *  Value: "ALL_CONVERSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_AllConversions;
+/**
+ *  The action is not specified.
+ *
+ *  Value: "CONVERSION_COUNTING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_ConversionCountingUnspecified;
+/**
+ *  Post-click conversions.
+ *
+ *  Value: "POST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostClick;
+/**
+ *  Post-view conversions.
+ *
+ *  Value: "POST_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostView;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal.countingMethod
+
+/**
+ *  The count of conversions associated with the conversion activity.
+ *
+ *  Value: "CONVERSIONS_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_ConversionsCount;
+/**
+ *  The action is not specified.
+ *
+ *  Value: "COUNTING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_CountingMethodUnspecified;
+/**
+ *  The number of sales items associated with the conversion activity.
+ *
+ *  Value: "SALES_QUANTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesQuantity;
+/**
+ *  The sales revenue associated with the conversion activity.
+ *
+ *  Value: "SALES_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesValue;
+/**
+ *  The count of unique conversions associated with the conversion activity.
+ *  Only one conversion can be counted per impression.
+ *
+ *  Value: "UNIQUE_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_UniqueCount;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AlgorithmRulesRuleset.aggregationType
 
 /**
@@ -2216,6 +2330,75 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesRuleset_Aggre
  *  Value: "SUM_OF_VALUES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesRuleset_AggregationType_SumOfValues;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesSignal.activeViewSignal
+
+/**
+ *  Unknown signal.
+ *
+ *  Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewSignalUnspecified;
+/**
+ *  Whether Active View detects that your ad has been viewed. Value is stored in
+ *  the boolValue field of the comparison value.
+ *
+ *  Value: "ACTIVE_VIEW_VIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewViewed;
+/**
+ *  Whether Active View detects that your ad was audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_Audible;
+/**
+ *  Whether the ad was completed in view and audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "COMPLETED_IN_VIEW_AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_CompletedInViewAudible;
+/**
+ *  The time the ad was on screen in seconds. Value is stored in the int64Value
+ *  field of the comparison value.
+ *
+ *  Value: "TIME_ON_SCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_TimeOnScreen;
+/**
+ *  Whether the video was completed. Value is stored in the boolValue field of
+ *  the comparison value.
+ *
+ *  Value: "VIDEO_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoCompleted;
+/**
+ *  The size of the video player displaying the ad. Value is stored in the
+ *  videoPlayerSizeValue field of the comparison value.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoPlayerSize;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesSignal.clickSignal
+
+/**
+ *  Whether the ad was clicked. Value is stored in the boolValue field of the
+ *  comparison value.
+ *
+ *  Value: "CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_Click;
+/**
+ *  Unknown signal.
+ *
+ *  Value: "CLICK_SIGNAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_ClickSignalUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AlgorithmRulesSignal.impressionSignal
@@ -2344,6 +2527,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalCompari
  *  Value: "LESS_THAN_OR_EQUAL_TO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThanOrEqualTo;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesSignalValue.activeViewSignal
+
+/**
+ *  Unknown signal.
+ *
+ *  Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewSignalUnspecified;
+/**
+ *  Whether Active View detects that your ad has been viewed. Value is stored in
+ *  the boolValue field of the comparison value.
+ *
+ *  Value: "ACTIVE_VIEW_VIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewViewed;
+/**
+ *  Whether Active View detects that your ad was audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_Audible;
+/**
+ *  Whether the ad was completed in view and audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "COMPLETED_IN_VIEW_AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_CompletedInViewAudible;
+/**
+ *  The time the ad was on screen in seconds. Value is stored in the int64Value
+ *  field of the comparison value.
+ *
+ *  Value: "TIME_ON_SCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_TimeOnScreen;
+/**
+ *  Whether the video was completed. Value is stored in the boolValue field of
+ *  the comparison value.
+ *
+ *  Value: "VIDEO_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoCompleted;
+/**
+ *  The size of the video player displaying the ad. Value is stored in the
+ *  videoPlayerSizeValue field of the comparison value.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoPlayerSize;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AppAssignedTargetingOptionDetails.appPlatform
@@ -2755,7 +2990,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType;
 /**
- *  Filter website content by content themes (for example, religion).
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
  *
  *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
  */
@@ -4071,7 +4309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargeti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews;
 /**
- *  This enum is only a placeholder and doesn't specify a DV360 content theme.
+ *  Content theme is not specified or is unknown in this version.
  *
  *  Value: "CONTENT_THEME_UNSPECIFIED"
  */
@@ -4135,7 +4373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargeti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantNews;
 /**
- *  This enum is only a placeholder and doesn't specify a DV360 content theme.
+ *  Content theme is not specified or is unknown in this version.
  *
  *  Value: "CONTENT_THEME_UNSPECIFIED"
  */
@@ -4199,7 +4437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOption
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews;
 /**
- *  This enum is only a placeholder and doesn't specify a DV360 content theme.
+ *  Content theme is not specified or is unknown in this version.
  *
  *  Value: "CONTENT_THEME_UNSPECIFIED"
  */
@@ -4312,7 +4550,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
 /**
- *  Filter website content by content themes (for example, religion).
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
  *
  *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
  */
@@ -4622,6 +4863,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *  Value: "SDF_VERSION_8"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8;
+/**
+ *  SDF version 8.1.
+ *
+ *  Value: "SDF_VERSION_8_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -5574,7 +5821,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
 /**
- *  Filter website content by content themes (for example, religion).
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
  *
  *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
  */
@@ -6726,6 +6976,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeChartboostGbid;
 /**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCommerceGrid;
+/**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
@@ -7026,6 +7282,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -7239,6 +7501,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
@@ -7540,6 +7808,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -7753,6 +8027,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
@@ -8054,6 +8334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -8295,6 +8581,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
@@ -8595,6 +8887,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_SOVRN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSovrn;
+/**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotify;
 /**
  *  SpotXchange.
  *
@@ -9986,6 +10284,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeChartboostGbid;
 /**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCommerceGrid;
+/**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
@@ -10285,6 +10589,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_SOVRN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn;
+/**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotify;
 /**
  *  SpotXchange.
  *
@@ -11240,6 +11550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeChartboostGbid;
 /**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCommerceGrid;
+/**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
@@ -11539,6 +11855,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_SOVRN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSovrn;
+/**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotify;
 /**
  *  SpotXchange.
  *
@@ -13050,13 +13372,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Partner_EntityStatus_Entity
 // GTLRDisplayVideo_PartnerCost.costType
 
 /**
- *  The cost is charged for using Adloox. Billed by the partner.
+ *  The cost is charged for using Scope3 (previously known as Adloox). Billed by
+ *  the partner.
  *
  *  Value: "PARTNER_COST_TYPE_ADLOOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox;
 /**
- *  The cost is charged for using Adloox Pre-Bid. Billed through DV360.
+ *  The cost is charged for using Scope3 (previously known as Adloox) Pre-Bid.
+ *  Billed through DV360.
  *
  *  Value: "PARTNER_COST_TYPE_ADLOOX_PREBID"
  */
@@ -13844,6 +14168,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8;
 /**
+ *  SDF version 8.1.
+ *
+ *  Value: "SDF_VERSION_8_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -13943,6 +14273,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_8"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8;
+/**
+ *  SDF version 8.1.
+ *
+ *  Value: "SDF_VERSION_8_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -14445,7 +14781,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType;
 /**
- *  Filter website content by content themes (for example, religion).
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
  *
  *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
  */
@@ -15779,7 +16118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Details of Adloox brand safety settings.
+ *  Details of Scope3 (previously known as Adloox) brand safety settings.
  */
 @interface GTLRDisplayVideo_Adloox : GTLRObject
 
@@ -15918,10 +16257,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *displayIabViewability;
 
-/** Adloox categories to exclude. */
+/** Scope3 categories to exclude. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedAdlooxCategories;
 
-/** Optional. Adloox's fraud IVT MFA categories to exclude. */
+/** Optional. Scope3's fraud IVT MFA categories to exclude. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedFraudIvtMfaCategories;
 
 /**
@@ -16595,8 +16934,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_AlgorithmRules : GTLRObject
 
+/**
+ *  Attribution model for the algorithm. This field is only supported for
+ *  allowlisted partners.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attributionModelId;
+
 /** Rules for the impression signals. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AlgorithmRulesRuleset *impressionSignalRuleset;
+
+/**
+ *  Rules for the post-impression signals. This field is only supported for
+ *  allowlisted partners.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AlgorithmRulesRuleset *postImpressionSignalRuleset;
 
 @end
 
@@ -16710,6 +17063,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeChartboostGbid
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCore
@@ -16811,6 +17166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeStroer
@@ -16884,6 +17241,88 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** String value. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
+
+/**
+ *  Video player size value. This field is only supported for allowlisted
+ *  partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeHd
+ *        The dimensions of the video player are 1280×720 or greater (desktop),
+ *        or over 90% of the screen covered (mobile). (Value:
+ *        "VIDEO_PLAYER_SIZE_HD")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeLarge
+ *        The dimensions of the video player are between 400x300 and 1280x720
+ *        pixels (desktop), or 20% to 90% of the screen covered (mobile).
+ *        (Value: "VIDEO_PLAYER_SIZE_LARGE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeSmall
+ *        The dimensions of the video player are less than 400×300 (desktop), or
+ *        up to 20% of screen covered (mobile). (Value:
+ *        "VIDEO_PLAYER_SIZE_SMALL")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnknown
+ *        The dimensions of the video player are unknown. (Value:
+ *        "VIDEO_PLAYER_SIZE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnspecified
+ *        Video player size is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real video
+ *        player size. (Value: "VIDEO_PLAYER_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *videoPlayerSizeValue;
+
+@end
+
+
+/**
+ *  The rule to score impressions based on Floodlight conversion events.
+ */
+@interface GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal : GTLRObject
+
+/**
+ *  Required. The type of conversions to be used in impression value
+ *  computation, for example, post-click conversions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_AllConversions
+ *        All conversions. (Value: "ALL_CONVERSIONS")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_ConversionCountingUnspecified
+ *        The action is not specified. (Value:
+ *        "CONVERSION_COUNTING_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostClick
+ *        Post-click conversions. (Value: "POST_CLICK")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostView
+ *        Post-view conversions. (Value: "POST_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *conversionCounting;
+
+/**
+ *  Required. The way to acquire value from the floodlight activity, for
+ *  example, count of the conversion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_ConversionsCount
+ *        The count of conversions associated with the conversion activity.
+ *        (Value: "CONVERSIONS_COUNT")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_CountingMethodUnspecified
+ *        The action is not specified. (Value: "COUNTING_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesQuantity
+ *        The number of sales items associated with the conversion activity.
+ *        (Value: "SALES_QUANTITY")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesValue
+ *        The sales revenue associated with the conversion activity. (Value:
+ *        "SALES_VALUE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_UniqueCount
+ *        The count of unique conversions associated with the conversion
+ *        activity. Only one conversion can be counted per impression. (Value:
+ *        "UNIQUE_COUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *countingMethod;
+
+/**
+ *  Required. Id of the floodlight activity.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floodlightActivityId;
 
 @end
 
@@ -16964,6 +17403,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Signal used to evaluate rules.
  */
 @interface GTLRDisplayVideo_AlgorithmRulesSignal : GTLRObject
+
+/**
+ *  Signal based on active views. This field is only supported for allowlisted
+ *  partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewSignalUnspecified
+ *        Unknown signal. (Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewViewed
+ *        Whether Active View detects that your ad has been viewed. Value is
+ *        stored in the boolValue field of the comparison value. (Value:
+ *        "ACTIVE_VIEW_VIEWED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_Audible
+ *        Whether Active View detects that your ad was audible. Value is stored
+ *        in the boolValue field of the comparison value. (Value: "AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_CompletedInViewAudible
+ *        Whether the ad was completed in view and audible. Value is stored in
+ *        the boolValue field of the comparison value. (Value:
+ *        "COMPLETED_IN_VIEW_AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_TimeOnScreen
+ *        The time the ad was on screen in seconds. Value is stored in the
+ *        int64Value field of the comparison value. (Value: "TIME_ON_SCREEN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoCompleted
+ *        Whether the video was completed. Value is stored in the boolValue
+ *        field of the comparison value. (Value: "VIDEO_COMPLETED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoPlayerSize
+ *        The size of the video player displaying the ad. Value is stored in the
+ *        videoPlayerSizeValue field of the comparison value. (Value:
+ *        "VIDEO_PLAYER_SIZE")
+ */
+@property(nonatomic, copy, nullable) NSString *activeViewSignal;
+
+/**
+ *  Signal based on clicks. This field is only supported for allowlisted
+ *  partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_Click Whether
+ *        the ad was clicked. Value is stored in the boolValue field of the
+ *        comparison value. (Value: "CLICK")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_ClickSignalUnspecified
+ *        Unknown signal. (Value: "CLICK_SIGNAL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *clickSignal;
 
 /**
  *  Signal based on impressions.
@@ -17057,6 +17540,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Adjusted value of the signal used for rule evaluation.
  */
 @interface GTLRDisplayVideo_AlgorithmRulesSignalValue : GTLRObject
+
+/**
+ *  Signal based on active views. Only `TIME_ON_SCREEN` is supported. This field
+ *  is only supported for allowlisted partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewSignalUnspecified
+ *        Unknown signal. (Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewViewed
+ *        Whether Active View detects that your ad has been viewed. Value is
+ *        stored in the boolValue field of the comparison value. (Value:
+ *        "ACTIVE_VIEW_VIEWED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_Audible
+ *        Whether Active View detects that your ad was audible. Value is stored
+ *        in the boolValue field of the comparison value. (Value: "AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_CompletedInViewAudible
+ *        Whether the ad was completed in view and audible. Value is stored in
+ *        the boolValue field of the comparison value. (Value:
+ *        "COMPLETED_IN_VIEW_AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_TimeOnScreen
+ *        The time the ad was on screen in seconds. Value is stored in the
+ *        int64Value field of the comparison value. (Value: "TIME_ON_SCREEN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoCompleted
+ *        Whether the video was completed. Value is stored in the boolValue
+ *        field of the comparison value. (Value: "VIDEO_COMPLETED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoPlayerSize
+ *        The size of the video player displaying the ad. Value is stored in the
+ *        videoPlayerSizeValue field of the comparison value. (Value:
+ *        "VIDEO_PLAYER_SIZE")
+ */
+@property(nonatomic, copy, nullable) NSString *activeViewSignal;
+
+/**
+ *  Signal based on floodlight conversion events. This field is only supported
+ *  for allowlisted partners.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal *floodlightActivityConversionSignal;
 
 /**
  *  Value to use as result.
@@ -17765,8 +18285,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -20336,8 +20859,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews
  *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
  *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnspecified
- *        This enum is only a placeholder and doesn't specify a DV360 content
- *        theme. (Value: "CONTENT_THEME_UNSPECIFIED")
+ *        Content theme is not specified or is unknown in this version. (Value:
+ *        "CONTENT_THEME_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *contentTheme;
 
@@ -20367,8 +20890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantNews
  *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
  *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnspecified
- *        This enum is only a placeholder and doesn't specify a DV360 content
- *        theme. (Value: "CONTENT_THEME_UNSPECIFIED")
+ *        Content theme is not specified or is unknown in this version. (Value:
+ *        "CONTENT_THEME_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *excludedContentTheme;
 
@@ -20411,8 +20934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews
  *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
  *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnspecified
- *        This enum is only a placeholder and doesn't specify a DV360 content
- *        theme. (Value: "CONTENT_THEME_UNSPECIFIED")
+ *        Content theme is not specified or is unknown in this version. (Value:
+ *        "CONTENT_THEME_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *contentTheme;
 
@@ -20429,13 +20952,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The Floodlight activity configs used to track conversions. The number of
  *  conversions counted is the sum of all of the conversions counted by all of
- *  the Floodlight activity IDs specified in this field. *Warning*: Starting
- *  **April 1, 2025**, this field will no longer be writable while a custom
- *  bidding algorithm is assigned to the line item. If you set this field and
- *  assign a custom bidding algorithm in the same request, the floodlight
- *  activities must match the ones used by the custom bidding algorithm. [Read
- *  more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  the Floodlight activity IDs specified in this field. This field can't be
+ *  updated if a custom bidding algorithm is assigned to the line item. If you
+ *  set this field and assign a custom bidding algorithm in the same request,
+ *  the floodlight activities must match the ones used by the custom bidding
+ *  algorithm.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_TrackingFloodlightActivityConfig *> *floodlightActivityConfigs;
 
@@ -20557,8 +21078,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -20745,6 +21269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SDF version 8. Read the [v8 migration
  *        guide](/display-video/api/structured-data-file/v8-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_8")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81
+ *        SDF version 8.1. (Value: "SDF_VERSION_8_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -22085,8 +22611,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -23034,6 +23563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeChartboostGbid
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCore
@@ -23135,6 +23666,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeStroer
@@ -23237,6 +23770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeChartboostGbid
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCore
@@ -23338,6 +23873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeStroer
@@ -23441,6 +23978,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeChartboostGbid
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCore Core.
@@ -23542,6 +24081,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeStroer
@@ -23648,6 +24189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeChartboostGbid
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCore
@@ -23749,6 +24292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeStroer
@@ -24019,17 +24564,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Output only. The duration in days that an entry remains in the audience
- *  after the qualifying event. If the audience has no expiration, set the value
- *  of this field to 10000. Otherwise, the set value must be greater than 0 and
- *  less than or equal to 540. Only applicable to first party audiences. This
- *  field is required if one of the following audience_type is used: *
- *  `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` *Warning*:
- *  Starting on **April 7, 2025**, audiences will no longer be able to have
- *  infinite membership duration. This field will no longer accept the value
- *  10000 and all audiences with membership durations greater than 540 days will
- *  be updated to a membership duration of 540 days. [Read more about this
- *  announced
- *  change](/display-video/api/deprecations#features.audience_duration).
+ *  after the qualifying event. The set value must be greater than 0 and less
+ *  than or equal to 540. Only applicable to first party audiences. This field
+ *  is required if one of the following audience_type is used: *
+ *  `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -25034,6 +25572,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeChartboostGbid
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCore Core.
@@ -25135,6 +25675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn Sovrn.
  *        (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeStroer Ströer
@@ -26138,6 +26680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeChartboostGbid
  *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCore Core.
@@ -26239,6 +26783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSovrn Sovrn.
  *        (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeStroer Ströer
@@ -26988,15 +27534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *campaignId;
 
-/**
- *  The conversion tracking setting of the line item. *Warning*: Starting
- *  **April 1, 2025**, the floodlight_activity_configs field will no longer be
- *  writable while a custom bidding algorithm is assigned to the line item. If
- *  you set this field and assign a custom bidding algorithm in the same
- *  request, the floodlight activities must match the ones used by the custom
- *  bidding algorithm. [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
- */
+/** The conversion tracking setting of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ConversionCountingConfig *conversionCounting;
 
 /**
@@ -28474,11 +29012,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The ID of the Custom Bidding Algorithm used by this strategy. Only
  *  applicable when performance_goal_type is set to
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. *Warning*: Starting
- *  **April 1, 2025**, assigning a custom bidding algorithm that uses floodlight
- *  activities not identified in floodlightActivityConfigs will return an error.
- *  [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom
+ *  bidding algorithm that uses floodlight activities not identified in
+ *  floodlightActivityConfigs will return an error.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -29453,11 +29989,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox The
- *        cost is charged for using Adloox. Billed by the partner. (Value:
- *        "PARTNER_COST_TYPE_ADLOOX")
+ *        cost is charged for using Scope3 (previously known as Adloox). Billed
+ *        by the partner. (Value: "PARTNER_COST_TYPE_ADLOOX")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlooxPrebid
- *        The cost is charged for using Adloox Pre-Bid. Billed through DV360.
- *        (Value: "PARTNER_COST_TYPE_ADLOOX_PREBID")
+ *        The cost is charged for using Scope3 (previously known as Adloox)
+ *        Pre-Bid. Billed through DV360. (Value:
+ *        "PARTNER_COST_TYPE_ADLOOX_PREBID")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdsafe The
  *        cost is charged for using AdSafe. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_ADSAFE")
@@ -29793,11 +30330,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The ID of the Custom Bidding Algorithm used by this strategy. Only
  *  applicable when performance_goal_type is set to
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. *Warning*: Starting
- *  **April 1, 2025**, assigning a custom bidding algorithm that uses floodlight
- *  activities not identified in floodlightActivityConfigs will return an error.
- *  [Read more about this announced
- *  change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom
+ *  bidding algorithm that uses floodlight activities not identified in
+ *  floodlightActivityConfigs will return an error.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -30466,6 +31001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Read the [v8 migration
  *        guide](/display-video/api/structured-data-file/v8-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_8")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81 SDF version 8.1.
+ *        (Value: "SDF_VERSION_8_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -30477,7 +31014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Type for the response returned by
- *  [SdfDownloadTaskService.CreateSdfDownloadTask].
+ *  SdfDownloadTaskService.CreateSdfDownloadTask.
  */
 @interface GTLRDisplayVideo_SdfDownloadTask : GTLRObject
 
@@ -30494,7 +31031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Type for the metadata returned by
- *  [SdfDownloadTaskService.CreateSdfDownloadTask].
+ *  SdfDownloadTaskService.CreateSdfDownloadTask.
  */
 @interface GTLRDisplayVideo_SdfDownloadTaskMetadata : GTLRObject
 
@@ -30542,6 +31079,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        version 8. Read the [v8 migration
  *        guide](/display-video/api/structured-data-file/v8-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_8")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81 SDF
+ *        version 8.1. (Value: "SDF_VERSION_8_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -31223,8 +31762,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentThemeExclusion
- *        Filter website content by content themes (for example, religion).
- *        (Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -31527,7 +32069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_ThirdPartyVerifierAssignedTargetingOptionDetails : GTLRObject
 
-/** Third party brand verifier -- Adloox. */
+/** Third party brand verifier -- Scope3 (previously known as Adloox). */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Adloox *adloox;
 
 /** Third party brand verifier -- DoubleVerify. */

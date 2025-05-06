@@ -47,6 +47,11 @@ NSString * const kGTLRNetAppFiles_BackupPolicy_State_Ready     = @"READY";
 NSString * const kGTLRNetAppFiles_BackupPolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_BackupPolicy_State_Updating  = @"UPDATING";
 
+// GTLRNetAppFiles_BackupVault.backupVaultType
+NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_BackupVaultTypeUnspecified = @"BACKUP_VAULT_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_CrossRegion = @"CROSS_REGION";
+NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_InRegion = @"IN_REGION";
+
 // GTLRNetAppFiles_BackupVault.state
 NSString * const kGTLRNetAppFiles_BackupVault_State_Creating   = @"CREATING";
 NSString * const kGTLRNetAppFiles_BackupVault_State_Deleting   = @"DELETING";
@@ -282,9 +287,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_Backup
-@dynamic backupType, chainStorageBytes, createTime, descriptionProperty, labels,
-         name, satisfiesPzi, satisfiesPzs, sourceSnapshot, sourceVolume, state,
-         volumeUsageBytes;
+@dynamic backupRegion, backupType, chainStorageBytes, createTime,
+         descriptionProperty, labels, name, satisfiesPzi, satisfiesPzs,
+         sourceSnapshot, sourceVolume, state, volumeRegion, volumeUsageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -361,7 +366,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_BackupVault
-@dynamic createTime, descriptionProperty, labels, name, state;
+@dynamic backupRegion, backupVaultType, createTime, descriptionProperty,
+         destinationBackupVault, labels, name, sourceBackupVault, sourceRegion,
+         state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

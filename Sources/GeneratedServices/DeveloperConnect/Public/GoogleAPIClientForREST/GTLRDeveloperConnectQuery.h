@@ -260,15 +260,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsPatch : GTLRDeveloperConnectQuery
 
 /**
- *  Optional. If set to true, and the userConnection is not found a new
- *  userConnection will be created. In this situation `update_mask` is ignored.
- *  The creation will succeed only if the input userConnection has all the
- *  necessary
+ *  Optional. If set to true, and the accountConnector is not found a new
+ *  accountConnector will be created. In this situation `update_mask` is
+ *  ignored. The creation will succeed only if the input accountConnector has
+ *  all the necessary
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Identifier. The resource name of the userConnection, in the format
+ *  Identifier. The resource name of the accountConnector, in the format
  *  `projects/{project}/locations/{location}/accountConnectors/{account_connector_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -305,7 +305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  *
  *  @param object The @c GTLRDeveloperConnect_AccountConnector to include in the
  *    query.
- *  @param name Identifier. The resource name of the userConnection, in the
+ *  @param name Identifier. The resource name of the accountConnector, in the
  *    format
  *    `projects/{project}/locations/{location}/accountConnectors/{account_connector_id}`.
  *
@@ -368,7 +368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
- *  Delete the User of the user themselves.
+ *  Delete the User based on the user credentials.
  *
  *  Method: developerconnect.projects.locations.accountConnectors.users.deleteSelf
  *
@@ -383,7 +383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 /**
  *  Fetches a @c GTLRDeveloperConnect_Operation.
  *
- *  Delete the User of the user themselves.
+ *  Delete the User based on the user credentials.
  *
  *  @param name Required. Name of the AccountConnector resource
  *
@@ -427,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
- *  Fetches the User of the user themselves.
+ *  Fetch the User based on the user credentials.
  *
  *  Method: developerconnect.projects.locations.accountConnectors.users.fetchSelf
  *
@@ -442,7 +442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 /**
  *  Fetches a @c GTLRDeveloperConnect_User.
  *
- *  Fetches the User of the user themselves.
+ *  Fetch the User based on the user credentials.
  *
  *  @param name Required. Name of the AccountConnector resource
  *

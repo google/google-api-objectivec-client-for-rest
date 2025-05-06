@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.products.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersProductsList : GTLRPaymentsResellerSubscriptionQuery
 
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.promotions.findEligible
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible : GTLRPaymentsResellerSubscriptionQuery
 
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.promotions.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsList : GTLRPaymentsResellerSubscriptionQuery
 
@@ -217,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.cancel
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCancel : GTLRPaymentsResellerSubscriptionQuery
 
@@ -257,7 +257,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCreate : GTLRPaymentsResellerSubscriptionQuery
 
@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.entitle
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsEntitle : GTLRPaymentsResellerSubscriptionQuery
 
@@ -346,7 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.extend
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsExtend : GTLRPaymentsResellerSubscriptionQuery
 
@@ -386,7 +386,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsGet : GTLRPaymentsResellerSubscriptionQuery
 
@@ -423,7 +423,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.provision
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsProvision : GTLRPaymentsResellerSubscriptionQuery
 
@@ -472,7 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.resume
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsResume : GTLRPaymentsResellerSubscriptionQuery
 
@@ -512,7 +512,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.suspend
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsSuspend : GTLRPaymentsResellerSubscriptionQuery
 
@@ -554,7 +554,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.undoCancel
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsUndoCancel : GTLRPaymentsResellerSubscriptionQuery
 
@@ -599,7 +599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.userSessions.generate
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersUserSessionsGenerate : GTLRPaymentsResellerSubscriptionQuery
 

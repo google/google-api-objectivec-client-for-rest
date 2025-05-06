@@ -4430,7 +4430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  Configuration for BigLake managed tables.
+ *  Configuration for BigQuery tables for Apache Iceberg (formerly BigLake
+ *  managed tables.)
  */
 @interface GTLRBigquery_BigLakeConfiguration : GTLRObject
 
@@ -8370,8 +8371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *timestampFormat;
 
 /**
- *  Optional. [Experimental] Default time zone that will apply when parsing
- *  timestamp values that have no specific time zone.
+ *  Optional. Default time zone that will apply when parsing timestamp values
+ *  that have no specific time zone.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -9197,10 +9198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** Output only. Referenced routines for the job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_RoutineReference *> *referencedRoutines;
 
-/**
- *  Output only. Referenced tables for the job. Queries that reference more than
- *  50 tables will not have a complete list.
- */
+/** Output only. Referenced tables for the job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableReference *> *referencedTables;
 
 /**
@@ -11307,6 +11305,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *pendingUnits;
 
 /**
+ *  Total shuffle usage ratio in shuffle RAM per reservation of this query. This
+ *  will be provided for reservation customers only.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleRamUsageRatio;
+
+/**
  *  Cumulative slot-ms consumed by the query.
  *
  *  Uses NSNumber of longLongValue.
@@ -12725,7 +12731,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_Table : GTLRObject
 
-/** Optional. Specifies the configuration of a BigLake managed table. */
+/**
+ *  Optional. Specifies the configuration of a BigQuery table for Apache
+ *  Iceberg.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_BigLakeConfiguration *biglakeConfiguration;
 
 /**

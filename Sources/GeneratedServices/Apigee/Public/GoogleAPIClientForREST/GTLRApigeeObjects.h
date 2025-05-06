@@ -3166,8 +3166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Output only. Time at which the API Security add-on expires in in
- *  milliseconds since epoch. If unspecified, the add-on will never expire.
+ *  Output only. Time at which the API Security add-on expires in milliseconds
+ *  since epoch. If unspecified, the add-on will never expire.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5107,7 +5107,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Developer app family. */
 @property(nonatomic, copy, nullable) NSString *appFamily;
 
-/** ID of the developer app. */
+/**
+ *  ID of the developer app. This ID is not user specified but is automatically
+ *  generated on app creation. appId is a UUID.
+ */
 @property(nonatomic, copy, nullable) NSString *appId;
 
 /** List of attributes for the developer app. */
@@ -8188,7 +8191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1OptimizedStats
+ *  Encapsulates a response format for JavaScript Optimized Scenario.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1OptimizedStats : GTLRObject
 
@@ -8221,7 +8224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode : GTLRObject
 
 /**
- *  data
+ *  List of data values.
  *
  *  Can be any valid JSON type.
  */

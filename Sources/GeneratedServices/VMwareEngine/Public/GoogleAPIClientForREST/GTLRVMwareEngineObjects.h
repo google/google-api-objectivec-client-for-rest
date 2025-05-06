@@ -70,6 +70,7 @@
 @class GTLRVMwareEngine_Vcenter;
 @class GTLRVMwareEngine_VmwareUpgradeComponent;
 @class GTLRVMwareEngine_VpcNetwork;
+@class GTLRVMwareEngine_WeeklyTimeInterval;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1397,6 +1398,110 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_Intranet;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_WeeklyTimeInterval.endDay
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_WeeklyTimeInterval.startDay
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday;
+
 /**
  *  Announcement for the resources of Vmware Engine.
  */
@@ -1836,6 +1941,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  that `Upgrade` specific requirements are met.
  */
 @interface GTLRVMwareEngine_Constraints : GTLRObject
+
+/**
+ *  Output only. Output Only. A list of intervals in which maintenance windows
+ *  are not allowed. Any time window that overlaps with any of these intervals
+ *  will be considered invalid.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_WeeklyTimeInterval *> *disallowedIntervals;
 
 /**
  *  Output only. Minimum number of hours must be allotted for the upgrade
@@ -5083,6 +5195,67 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *        value. This value should never be used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents a time interval, spanning across days of the week. Until local
+ *  timezones are supported, this interval is in UTC.
+ */
+@interface GTLRVMwareEngine_WeeklyTimeInterval : GTLRObject
+
+/**
+ *  Output only. The day on which the interval ends. Can be same as start day.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Friday Friday (Value:
+ *        "FRIDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Monday Monday (Value:
+ *        "MONDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Sunday Sunday (Value:
+ *        "SUNDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Wednesday Wednesday
+ *        (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *endDay;
+
+/** Output only. The time on the end day at which the interval ends. */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_TimeOfDay *endTime;
+
+/**
+ *  Output only. The day on which the interval starts.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday Wednesday
+ *        (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *startDay;
+
+/** Output only. The time on the start day at which the interval starts. */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_TimeOfDay *startTime;
 
 @end
 

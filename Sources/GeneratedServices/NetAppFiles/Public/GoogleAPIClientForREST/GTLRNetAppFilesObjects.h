@@ -236,6 +236,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupPolicy_State_StateUnsp
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupPolicy_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRNetAppFiles_BackupVault.backupVaultType
+
+/**
+ *  BackupVault type not set.
+ *
+ *  Value: "BACKUP_VAULT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_BackupVaultTypeUnspecified;
+/**
+ *  BackupVault type is CROSS_REGION.
+ *
+ *  Value: "CROSS_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_CrossRegion;
+/**
+ *  BackupVault type is IN_REGION.
+ *
+ *  Value: "IN_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_InRegion;
+
+// ----------------------------------------------------------------------------
 // GTLRNetAppFiles_BackupVault.state
 
 /**
@@ -1307,6 +1329,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @interface GTLRNetAppFiles_Backup : GTLRObject
 
 /**
+ *  Output only. Region in which backup is stored. Format:
+ *  `projects/{project_id}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *backupRegion;
+
+/**
  *  Output only. Type of backup, manually created or created by a backup policy.
  *
  *  Likely values:
@@ -1399,6 +1427,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        in the backup. (Value: "UPLOADING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Region of the volume from which the backup was created. Format:
+ *  `projects/{project_id}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *volumeRegion;
 
 /**
  *  Output only. Size of the file system when the backup was created. When
@@ -1563,6 +1597,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @interface GTLRNetAppFiles_BackupVault : GTLRObject
 
+/**
+ *  Optional. Region where the backups are stored. Format:
+ *  `projects/{project_id}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *backupRegion;
+
+/**
+ *  Optional. Type of backup vault to be created. Default is IN_REGION.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_BackupVault_BackupVaultType_BackupVaultTypeUnspecified
+ *        BackupVault type not set. (Value: "BACKUP_VAULT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_BackupVault_BackupVaultType_CrossRegion
+ *        BackupVault type is CROSS_REGION. (Value: "CROSS_REGION")
+ *    @arg @c kGTLRNetAppFiles_BackupVault_BackupVaultType_InRegion BackupVault
+ *        type is IN_REGION. (Value: "IN_REGION")
+ */
+@property(nonatomic, copy, nullable) NSString *backupVaultType;
+
 /** Output only. Create time of the backup vault. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1573,6 +1626,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Output only. Name of the Backup vault created in backup region. Format:
+ *  `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *destinationBackupVault;
+
 /** Resource labels to represent user provided metadata. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupVault_Labels *labels;
 
@@ -1581,6 +1640,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Name of the Backup vault created in source region. Format:
+ *  `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBackupVault;
+
+/**
+ *  Output only. Region in which the backup vault is created. Format:
+ *  `projects/{project_id}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *sourceRegion;
 
 /**
  *  Output only. The backup vault state.

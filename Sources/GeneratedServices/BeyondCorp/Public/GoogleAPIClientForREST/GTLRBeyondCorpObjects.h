@@ -65,7 +65,6 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -2589,22 +2588,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 /** A list of locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-@end
-
-
-/**
- *  Response message for calling ShouldThrottle
- */
-GTLR_DEPRECATED
-@interface GTLRBeyondCorp_ShouldThrottleResponse : GTLRObject
-
-/**
- *  Whether the port should be throttled
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shouldThrottle;
 
 @end
 

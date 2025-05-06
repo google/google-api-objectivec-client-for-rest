@@ -81,6 +81,65 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_DataRead
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRNetworkSecurity_InterceptDeployment.state
+NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_InterceptDeploymentGroup.state
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_InterceptDeploymentGroupDeployment.state
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_InterceptEndpointGroup.state
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Closed = @"CLOSED";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociation.state
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Closed = @"CLOSED";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails.state
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Closed = @"CLOSED";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails.state
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_InterceptLocation.state
+NSString * const kGTLRNetworkSecurity_InterceptLocation_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_InterceptLocation_State_OutOfSync = @"OUT_OF_SYNC";
+NSString * const kGTLRNetworkSecurity_InterceptLocation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRNetworkSecurity_MirroringDeployment.state
 NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Active = @"ACTIVE";
 NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Creating = @"CREATING";
@@ -934,6 +993,216 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_InterceptDeployment
+//
+
+@implementation GTLRNetworkSecurity_InterceptDeployment
+@dynamic createTime, descriptionProperty, forwardingRule,
+         interceptDeploymentGroup, labels, name, reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptDeployment_Labels
+//
+
+@implementation GTLRNetworkSecurity_InterceptDeployment_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptDeploymentGroup
+//
+
+@implementation GTLRNetworkSecurity_InterceptDeploymentGroup
+@dynamic connectedEndpointGroups, createTime, descriptionProperty, labels,
+         locations, name, nestedDeployments, network, reconciling, state,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectedEndpointGroups" : [GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup class],
+    @"locations" : [GTLRNetworkSecurity_InterceptLocation class],
+    @"nestedDeployments" : [GTLRNetworkSecurity_InterceptDeploymentGroupDeployment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptDeploymentGroup_Labels
+//
+
+@implementation GTLRNetworkSecurity_InterceptDeploymentGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup
+//
+
+@implementation GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptDeploymentGroupDeployment
+//
+
+@implementation GTLRNetworkSecurity_InterceptDeploymentGroupDeployment
+@dynamic name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptEndpointGroup
+//
+
+@implementation GTLRNetworkSecurity_InterceptEndpointGroup
+@dynamic associations, connectedDeploymentGroup, createTime,
+         descriptionProperty, interceptDeploymentGroup, labels, name,
+         reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associations" : [GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptEndpointGroup_Labels
+//
+
+@implementation GTLRNetworkSecurity_InterceptEndpointGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptEndpointGroupAssociation
+//
+
+@implementation GTLRNetworkSecurity_InterceptEndpointGroupAssociation
+@dynamic createTime, interceptEndpointGroup, labels, locations,
+         locationsDetails, name, network, reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRNetworkSecurity_InterceptLocation class],
+    @"locationsDetails" : [GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels
+//
+
+@implementation GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails
+//
+
+@implementation GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails
+@dynamic name, network, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails
+//
+
+@implementation GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails
+@dynamic location, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup
+//
+
+@implementation GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup
+@dynamic locations, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRNetworkSecurity_InterceptLocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_InterceptLocation
+//
+
+@implementation GTLRNetworkSecurity_InterceptLocation
+@dynamic location, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_ListAddressGroupReferencesResponse
 //
 
@@ -1141,6 +1410,95 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 + (NSString *)collectionItemsKey {
   return @"gatewaySecurityPolicyRules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListInterceptDeploymentGroupsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListInterceptDeploymentGroupsResponse
+@dynamic interceptDeploymentGroups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"interceptDeploymentGroups" : [GTLRNetworkSecurity_InterceptDeploymentGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"interceptDeploymentGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListInterceptDeploymentsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListInterceptDeploymentsResponse
+@dynamic interceptDeployments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"interceptDeployments" : [GTLRNetworkSecurity_InterceptDeployment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"interceptDeployments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListInterceptEndpointGroupAssociationsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListInterceptEndpointGroupAssociationsResponse
+@dynamic interceptEndpointGroupAssociations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"interceptEndpointGroupAssociations" : [GTLRNetworkSecurity_InterceptEndpointGroupAssociation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"interceptEndpointGroupAssociations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListInterceptEndpointGroupsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListInterceptEndpointGroupsResponse
+@dynamic interceptEndpointGroups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"interceptEndpointGroups" : [GTLRNetworkSecurity_InterceptEndpointGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"interceptEndpointGroups";
 }
 
 @end

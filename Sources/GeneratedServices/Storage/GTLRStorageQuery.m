@@ -1645,7 +1645,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
          ifMetagenerationMatch, ifMetagenerationNotMatch,
          ifSourceGenerationMatch, ifSourceGenerationNotMatch,
          ifSourceMetagenerationMatch, ifSourceMetagenerationNotMatch,
-         sourceObject, userProject;
+         projection, sourceObject, userProject;
 
 + (instancetype)queryWithBucket:(NSString *)bucket
                    sourceObject:(NSString *)sourceObject

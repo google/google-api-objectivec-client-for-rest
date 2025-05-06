@@ -7,7 +7,7 @@
 //   The Gmail API lets you view and manage Gmail mailbox data like threads,
 //   messages, and labels.
 // Documentation:
-//   https://developers.google.com/gmail/api/
+//   https://developers.google.com/workspace/gmail/api/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -1193,7 +1193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Only return messages with labels that match all of the specified label IDs.
  *  Messages in a thread might have labels that other messages in the same
  *  thread don't have. To learn more, see [Manage labels on messages and
- *  threads](https://developers.google.com/gmail/api/guides/labels#manage_labels_on_messages_threads).
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/labels#manage_labels_on_messages_threads).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
@@ -1289,7 +1289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc`
  *  headers. For example usage, see [Sending
- *  email](https://developers.google.com/gmail/api/guides/sending).
+ *  email](https://developers.google.com/workspace/gmail/api/guides/sending).
  *
  *  Method: gmail.users.messages.send
  *
@@ -1315,7 +1315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc`
  *  headers. For example usage, see [Sending
- *  email](https://developers.google.com/gmail/api/guides/sending).
+ *  email](https://developers.google.com/workspace/gmail/api/guides/sending).
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
  *  @param userId The user's email address. The special value `me` can be used

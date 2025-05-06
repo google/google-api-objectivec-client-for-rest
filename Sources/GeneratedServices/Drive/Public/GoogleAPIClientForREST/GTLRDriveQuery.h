@@ -6,7 +6,7 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -59,10 +59,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Gets information about the user, the user's Drive, and system capabilities.
  *  For more information, see [Return user
- *  info](https://developers.google.com/drive/api/guides/user-info). Required:
- *  The `fields` parameter must be set. To return the exact fields you need, see
- *  [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  info](https://developers.google.com/workspace/drive/api/guides/user-info).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.about.get
  *
@@ -82,10 +82,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Gets information about the user, the user's Drive, and system capabilities.
  *  For more information, see [Return user
- *  info](https://developers.google.com/drive/api/guides/user-info). Required:
- *  The `fields` parameter must be set. To return the exact fields you need, see
- *  [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  info](https://developers.google.com/workspace/drive/api/guides/user-info).
+ *  Required: The `fields` parameter must be set. To return the exact fields you
+ *  need, see [Return specific
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @return GTLRDriveQuery_AboutGet
  */
@@ -208,7 +208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Gets a specific app. For more information, see [Return user
- *  info](https://developers.google.com/drive/api/guides/user-info).
+ *  info](https://developers.google.com/workspace/drive/api/guides/user-info).
  *
  *  Method: drive.apps.get
  *
@@ -230,7 +230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_App.
  *
  *  Gets a specific app. For more information, see [Return user
- *  info](https://developers.google.com/drive/api/guides/user-info).
+ *  info](https://developers.google.com/workspace/drive/api/guides/user-info).
  *
  *  @param appId The ID of the app.
  *
@@ -242,7 +242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Lists a user's installed apps. For more information, see [Return user
- *  info](https://developers.google.com/drive/api/guides/user-info).
+ *  info](https://developers.google.com/workspace/drive/api/guides/user-info).
  *
  *  Method: drive.apps.list
  *
@@ -277,7 +277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_AppList.
  *
  *  Lists a user's installed apps. For more information, see [Return user
- *  info](https://developers.google.com/drive/api/guides/user-info).
+ *  info](https://developers.google.com/workspace/drive/api/guides/user-info).
  *
  *  @return GTLRDriveQuery_AppsList
  */
@@ -288,7 +288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Gets the starting pageToken for listing future changes. For more
  *  information, see [Retrieve
- *  changes](https://developers.google.com/drive/api/guides/manage-changes).
+ *  changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
  *
  *  Method: drive.changes.getStartPageToken
  *
@@ -333,7 +333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Gets the starting pageToken for listing future changes. For more
  *  information, see [Retrieve
- *  changes](https://developers.google.com/drive/api/guides/manage-changes).
+ *  changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
  *
  *  @return GTLRDriveQuery_ChangesGetStartPageToken
  */
@@ -344,7 +344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Lists the changes for a user or shared drive. For more information, see
  *  [Retrieve
- *  changes](https://developers.google.com/drive/api/guides/manage-changes).
+ *  changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
  *
  *  Method: drive.changes.list
  *
@@ -466,7 +466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Lists the changes for a user or shared drive. For more information, see
  *  [Retrieve
- *  changes](https://developers.google.com/drive/api/guides/manage-changes).
+ *  changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
  *
  *  @param pageToken The token for continuing a previous list request on the
  *    next page. This should be set to the value of 'nextPageToken' from the
@@ -484,7 +484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Subscribes to changes for a user. For more information, see [Notifications
- *  for resource changes](https://developers.google.com/drive/api/guides/push).
+ *  for resource
+ *  changes](https://developers.google.com/workspace/drive/api/guides/push).
  *
  *  Method: drive.changes.watch
  *
@@ -605,7 +606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_Channel.
  *
  *  Subscribes to changes for a user. For more information, see [Notifications
- *  for resource changes](https://developers.google.com/drive/api/guides/push).
+ *  for resource
+ *  changes](https://developers.google.com/workspace/drive/api/guides/push).
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param pageToken The token for continuing a previous list request on the
@@ -622,7 +624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Stops watching resources through this channel. For more information, see
  *  [Notifications for resource
- *  changes](https://developers.google.com/drive/api/guides/push).
+ *  changes](https://developers.google.com/workspace/drive/api/guides/push).
  *
  *  Method: drive.channels.stop
  *
@@ -644,7 +646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Stops watching resources through this channel. For more information, see
  *  [Notifications for resource
- *  changes](https://developers.google.com/drive/api/guides/push).
+ *  changes](https://developers.google.com/workspace/drive/api/guides/push).
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *
@@ -656,10 +658,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Creates a comment on a file. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.create
  *
@@ -676,10 +678,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_Comment.
  *
  *  Creates a comment on a file. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @param object The @c GTLRDrive_Comment to include in the query.
  *  @param fileId The ID of the file.
@@ -693,10 +695,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Deletes a comment. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.delete
  *
@@ -717,10 +719,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  be nil. This query does not fetch an object.
  *
  *  Deletes a comment. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -734,10 +736,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Gets a comment by ID. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.get
  *
@@ -767,10 +769,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_Comment.
  *
  *  Gets a comment by ID. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -784,10 +786,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Lists a file's comments. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.list
  *
@@ -834,10 +836,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_CommentList.
  *
  *  Lists a file's comments. For more information, see [Manage comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @param fileId The ID of the file.
  *
@@ -854,10 +856,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Updates a comment with patch semantics. For more information, see [Manage
  *  comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.update
  *
@@ -878,10 +880,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Updates a comment with patch semantics. For more information, see [Manage
  *  comments and
- *  replies](https://developers.google.com/drive/api/guides/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *  Required: The `fields` parameter must be set. To return the exact fields you
  *  need, see [Return specific
- *  fields](https://developers.google.com/drive/api/guides/fields-parameter).
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @param object The @c GTLRDrive_Comment to include in the query.
  *  @param fileId The ID of the file.
@@ -1044,8 +1046,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Lists the user's shared drives. This method accepts the `q` parameter, which
  *  is a search query combining one or more search terms. For more information,
- *  see the [Search for shared drives](/drive/api/guides/search-shareddrives)
- *  guide.
+ *  see the [Search for shared
+ *  drives](/workspace/drive/api/guides/search-shareddrives) guide.
  *
  *  Method: drive.drives.list
  *
@@ -1083,8 +1085,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Lists the user's shared drives. This method accepts the `q` parameter, which
  *  is a search query combining one or more search terms. For more information,
- *  see the [Search for shared drives](/drive/api/guides/search-shareddrives)
- *  guide.
+ *  see the [Search for shared
+ *  drives](/workspace/drive/api/guides/search-shareddrives) guide.
  *
  *  @return GTLRDriveQuery_DrivesList
  *
@@ -1259,8 +1261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  type, rather than the literal `* / *` value. The literal `* / *` is only
  *  used to indicate that any valid MIME type can be uploaded. For more
  *  information on uploading files, see [Upload file
- *  data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
- *  `files.create` must specify the MIME type
+ *  data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts
+ *  with `files.create` must specify the MIME type
  *  `application/vnd.google-apps.shortcut`. Apps should specify a file extension
  *  in the `name` property when inserting files with the API. For example, an
  *  operation to insert a JPEG file should specify something like `"name":
@@ -1356,8 +1358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  type, rather than the literal `* / *` value. The literal `* / *` is only
  *  used to indicate that any valid MIME type can be uploaded. For more
  *  information on uploading files, see [Upload file
- *  data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
- *  `files.create` must specify the MIME type
+ *  data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts
+ *  with `files.create` must specify the MIME type
  *  `application/vnd.google-apps.shortcut`. Apps should specify a file extension
  *  in the `name` property when inserting files with the API. For example, an
  *  operation to insert a JPEG file should specify something like `"name":
@@ -1613,9 +1615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  `alt=media`, then the response includes the file contents in the response
  *  body. Downloading content with `alt=media` only works if the file is stored
  *  in Drive. To download Google Docs, Sheets, and Slides use
- *  [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For
- *  more information, see [Download & export
- *  files](/drive/api/guides/manage-downloads).
+ *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
+ *  instead. For more information, see [Download & export
+ *  files](/workspace/drive/api/guides/manage-downloads).
  *
  *  Method: drive.files.get
  *
@@ -1678,9 +1680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  `alt=media`, then the response includes the file contents in the response
  *  body. Downloading content with `alt=media` only works if the file is stored
  *  in Drive. To download Google Docs, Sheets, and Slides use
- *  [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For
- *  more information, see [Download & export
- *  files](/drive/api/guides/manage-downloads).
+ *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
+ *  instead. For more information, see [Download & export
+ *  files](/workspace/drive/api/guides/manage-downloads).
  *
  *  @param fileId The ID of the file.
  *
@@ -1695,9 +1697,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  `alt=media`, then the response includes the file contents in the response
  *  body. Downloading content with `alt=media` only works if the file is stored
  *  in Drive. To download Google Docs, Sheets, and Slides use
- *  [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For
- *  more information, see [Download & export
- *  files](/drive/api/guides/manage-downloads).
+ *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
+ *  instead. For more information, see [Download & export
+ *  files](/workspace/drive/api/guides/manage-downloads).
  *
  *  @param fileId The ID of the file.
  *
@@ -1710,9 +1712,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Lists the user's files. This method accepts the `q` parameter, which is a
  *  search query combining one or more search terms. For more information, see
- *  the [Search for files & folders](/drive/api/guides/search-files) guide.
- *  *Note:* This method returns *all* files by default, including trashed files.
- *  If you don't want trashed files to appear in the list, use the
+ *  the [Search for files & folders](/workspace/drive/api/guides/search-files)
+ *  guide. *Note:* This method returns *all* files by default, including trashed
+ *  files. If you don't want trashed files to appear in the list, use the
  *  `trashed=false` query parameter to remove trashed files from the results.
  *
  *  Method: drive.files.list
@@ -1848,9 +1850,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Lists the user's files. This method accepts the `q` parameter, which is a
  *  search query combining one or more search terms. For more information, see
- *  the [Search for files & folders](/drive/api/guides/search-files) guide.
- *  *Note:* This method returns *all* files by default, including trashed files.
- *  If you don't want trashed files to appear in the list, use the
+ *  the [Search for files & folders](/workspace/drive/api/guides/search-files)
+ *  guide. *Note:* This method returns *all* files by default, including trashed
+ *  files. If you don't want trashed files to appear in the list, use the
  *  `trashed=false` query parameter to remove trashed files from the results.
  *
  *  @return GTLRDriveQuery_FilesList
@@ -1955,7 +1957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  valid MIME type, rather than the literal `* / *` value. The literal `* / *`
  *  is only used to indicate that any valid MIME type can be uploaded. For more
  *  information on uploading files, see [Upload file
- *  data](/drive/api/guides/manage-uploads).
+ *  data](/workspace/drive/api/guides/manage-uploads).
  *
  *  Method: drive.files.update
  *
@@ -2046,7 +2048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  valid MIME type, rather than the literal `* / *` value. The literal `* / *`
  *  is only used to indicate that any valid MIME type can be uploaded. For more
  *  information on uploading files, see [Upload file
- *  data](/drive/api/guides/manage-uploads).
+ *  data](/workspace/drive/api/guides/manage-uploads).
  *
  *  @param object The @c GTLRDrive_File to include in the query.
  *  @param fileId The ID of the file.

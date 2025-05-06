@@ -28,6 +28,12 @@ NSString * const kGTLRBigqueryStateFilterDone    = @"done";
 NSString * const kGTLRBigqueryStateFilterPending = @"pending";
 NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
+// updateMode
+NSString * const kGTLRBigqueryUpdateModeUpdateAcl             = @"UPDATE_ACL";
+NSString * const kGTLRBigqueryUpdateModeUpdateFull            = @"UPDATE_FULL";
+NSString * const kGTLRBigqueryUpdateModeUpdateMetadata        = @"UPDATE_METADATA";
+NSString * const kGTLRBigqueryUpdateModeUpdateModeUnspecified = @"UPDATE_MODE_UNSPECIFIED";
+
 // view
 NSString * const kGTLRBigqueryViewBasic                        = @"BASIC";
 NSString * const kGTLRBigqueryViewFull                         = @"FULL";
@@ -137,7 +143,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsPatch
 
-@dynamic accessPolicyVersion, datasetId, projectId;
+@dynamic accessPolicyVersion, datasetId, projectId, updateMode;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId
@@ -199,7 +205,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsUpdate
 
-@dynamic accessPolicyVersion, datasetId, projectId;
+@dynamic accessPolicyVersion, datasetId, projectId, updateMode;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId

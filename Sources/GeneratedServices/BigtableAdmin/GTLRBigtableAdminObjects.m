@@ -1211,6 +1211,50 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_ListLogicalViewsResponse
+//
+
+@implementation GTLRBigtableAdmin_ListLogicalViewsResponse
+@dynamic logicalViews, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logicalViews" : [GTLRBigtableAdmin_LogicalView class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"logicalViews";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_ListMaterializedViewsResponse
+//
+
+@implementation GTLRBigtableAdmin_ListMaterializedViewsResponse
+@dynamic materializedViews, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materializedViews" : [GTLRBigtableAdmin_MaterializedView class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"materializedViews";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_ListOperationsResponse
 //
 
@@ -1297,7 +1341,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_LogicalView
-@dynamic ETag, name, query;
+@dynamic deletionProtection, ETag, name, query;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1611,7 +1655,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 @implementation GTLRBigtableAdmin_Table
 @dynamic automatedBackupPolicy, changeStreamConfig, clusterStates,
          columnFamilies, deletionProtection, granularity, name, restoreInfo,
-         stats;
+         rowKeySchema, stats;
 @end
 
 

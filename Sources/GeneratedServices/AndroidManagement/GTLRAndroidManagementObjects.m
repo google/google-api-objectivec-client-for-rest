@@ -155,6 +155,11 @@ NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_NotUser
 NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacing = @"USER_FACING";
 NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacingTypeUnspecified = @"USER_FACING_TYPE_UNSPECIFIED";
 
+// GTLRAndroidManagement_BackupServiceToggledEvent.backupServiceState
+NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceDisabled = @"BACKUP_SERVICE_DISABLED";
+NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceEnabled = @"BACKUP_SERVICE_ENABLED";
+NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceStateUnspecified = @"BACKUP_SERVICE_STATE_UNSPECIFIED";
+
 // GTLRAndroidManagement_BlockAction.blockScope
 NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeDevice = @"BLOCK_SCOPE_DEVICE";
 NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeUnspecified = @"BLOCK_SCOPE_UNSPECIFIED";
@@ -247,6 +252,11 @@ NSString * const kGTLRAndroidManagement_Device_State_Disabled  = @"DISABLED";
 NSString * const kGTLRAndroidManagement_Device_State_Lost      = @"LOST";
 NSString * const kGTLRAndroidManagement_Device_State_PreparingForMigration = @"PREPARING_FOR_MIGRATION";
 NSString * const kGTLRAndroidManagement_Device_State_Provisioning = @"PROVISIONING";
+
+// GTLRAndroidManagement_DeviceConnectivityManagement.bluetoothSharing
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingAllowed = @"BLUETOOTH_SHARING_ALLOWED";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingDisallowed = @"BLUETOOTH_SHARING_DISALLOWED";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingUnspecified = @"BLUETOOTH_SHARING_UNSPECIFIED";
 
 // GTLRAndroidManagement_DeviceConnectivityManagement.configureWifi
 NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_AllowConfiguringWifi = @"ALLOW_CONFIGURING_WIFI";
@@ -344,6 +354,10 @@ NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeT
 NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_CustomerManaged = @"CUSTOMER_MANAGED";
 NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_EmmManaged = @"EMM_MANAGED";
 NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_ManagedGooglePlayAccountsEnterpriseTypeUnspecified = @"MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED";
+
+// GTLRAndroidManagement_EnterpriseUpgradeEvent.upgradeState
+NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded = @"UPGRADE_STATE_SUCCEEDED";
+NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified = @"UPGRADE_STATE_UNSPECIFIED";
 
 // GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
 NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified = @"GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED";
@@ -539,6 +553,11 @@ NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Av
 NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked = @"BLOCKED";
 NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
 
+// GTLRAndroidManagement_PersonalUsagePolicies.bluetoothSharing
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingAllowed = @"BLUETOOTH_SHARING_ALLOWED";
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingDisallowed = @"BLUETOOTH_SHARING_DISALLOWED";
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingUnspecified = @"BLUETOOTH_SHARING_UNSPECIFIED";
+
 // GTLRAndroidManagement_PersonalUsagePolicies.personalPlayStoreMode
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Allowlist = @"ALLOWLIST";
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist = @"BLACKLIST";
@@ -671,6 +690,17 @@ NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_CompanyOwned 
 NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_OwnershipUnspecified = @"OWNERSHIP_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned = @"PERSONALLY_OWNED";
 
+// GTLRAndroidManagement_RequestDeviceInfoParams.deviceInfo
+NSString * const kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_DeviceInfoUnspecified = @"DEVICE_INFO_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_Eid = @"EID";
+
+// GTLRAndroidManagement_RequestDeviceInfoStatus.status
+NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_PendingUserAction = @"PENDING_USER_ACTION";
+NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Unsupported = @"UNSUPPORTED";
+NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_UserDeclined = @"USER_DECLINED";
+
 // GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
 NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic = @"BRIGHTNESS_AUTOMATIC";
 NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed = @"BRIGHTNESS_FIXED";
@@ -743,6 +773,7 @@ NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_Securit
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_AdbShellCommand = @"ADB_SHELL_COMMAND";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_AdbShellInteractive = @"ADB_SHELL_INTERACTIVE";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_AppProcessStart = @"APP_PROCESS_START";
+NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_BackupServiceToggled = @"BACKUP_SERVICE_TOGGLED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_CertAuthorityInstalled = @"CERT_AUTHORITY_INSTALLED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_CertAuthorityRemoved = @"CERT_AUTHORITY_REMOVED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_CertValidationFailure = @"CERT_VALIDATION_FAILURE";
@@ -1054,6 +1085,16 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_BackupServiceToggledEvent
+//
+
+@implementation GTLRAndroidManagement_BackupServiceToggledEvent
+@dynamic adminPackageName, adminUserId, backupServiceState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_BatchUsageLogEvents
 //
 
@@ -1177,7 +1218,8 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_Command
 @dynamic clearAppsDataParams, clearAppsDataStatus, createTime, duration,
-         errorCode, newPassword, resetPasswordFlags, startLostModeParams,
+         errorCode, newPassword, requestDeviceInfoParams,
+         requestDeviceInfoStatus, resetPasswordFlags, startLostModeParams,
          startLostModeStatus, stopLostModeParams, stopLostModeStatus, type,
          userName;
 
@@ -1346,8 +1388,8 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 //
 
 @implementation GTLRAndroidManagement_DeviceConnectivityManagement
-@dynamic configureWifi, tetheringSettings, usbDataAccess, wifiDirectSettings,
-         wifiRoamingPolicy, wifiSsidPolicy;
+@dynamic bluetoothSharing, configureWifi, tetheringSettings, usbDataAccess,
+         wifiDirectSettings, wifiRoamingPolicy, wifiSsidPolicy;
 @end
 
 
@@ -1423,6 +1465,34 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_Eid
+//
+
+@implementation GTLRAndroidManagement_Eid
+@dynamic eid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_EidInfo
+//
+
+@implementation GTLRAndroidManagement_EidInfo
+@dynamic eids;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eids" : [GTLRAndroidManagement_Eid class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Empty
 //
 
@@ -1470,6 +1540,26 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_EnterpriseUpgradeEvent
+//
+
+@implementation GTLRAndroidManagement_EnterpriseUpgradeEvent
+@dynamic enterprise, upgradeState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_EuiccChipInfo
+//
+
+@implementation GTLRAndroidManagement_EuiccChipInfo
+@dynamic eid;
 @end
 
 
@@ -1577,9 +1667,10 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 @implementation GTLRAndroidManagement_HardwareInfo
 @dynamic batteryShutdownTemperatures, batteryThrottlingTemperatures, brand,
          cpuShutdownTemperatures, cpuThrottlingTemperatures,
-         deviceBasebandVersion, enterpriseSpecificId, gpuShutdownTemperatures,
-         gpuThrottlingTemperatures, hardware, manufacturer, model, serialNumber,
-         skinShutdownTemperatures, skinThrottlingTemperatures;
+         deviceBasebandVersion, enterpriseSpecificId, euiccChipInfo,
+         gpuShutdownTemperatures, gpuThrottlingTemperatures, hardware,
+         manufacturer, model, serialNumber, skinShutdownTemperatures,
+         skinThrottlingTemperatures;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1587,6 +1678,7 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
     @"batteryThrottlingTemperatures" : [NSNumber class],
     @"cpuShutdownTemperatures" : [NSNumber class],
     @"cpuThrottlingTemperatures" : [NSNumber class],
+    @"euiccChipInfo" : [GTLRAndroidManagement_EuiccChipInfo class],
     @"gpuShutdownTemperatures" : [NSNumber class],
     @"gpuThrottlingTemperatures" : [NSNumber class],
     @"skinShutdownTemperatures" : [NSNumber class],
@@ -2282,9 +2374,9 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 //
 
 @implementation GTLRAndroidManagement_PersonalUsagePolicies
-@dynamic accountTypesWithManagementDisabled, cameraDisabled, maxDaysWithWorkOff,
-         personalApplications, personalPlayStoreMode, privateSpacePolicy,
-         screenCaptureDisabled;
+@dynamic accountTypesWithManagementDisabled, bluetoothSharing, cameraDisabled,
+         maxDaysWithWorkOff, personalApplications, personalPlayStoreMode,
+         privateSpacePolicy, screenCaptureDisabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2450,6 +2542,26 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_RemoteLockEvent
 @dynamic adminPackageName, adminUserId, targetUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_RequestDeviceInfoParams
+//
+
+@implementation GTLRAndroidManagement_RequestDeviceInfoParams
+@dynamic deviceInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_RequestDeviceInfoStatus
+//
+
+@implementation GTLRAndroidManagement_RequestDeviceInfoStatus
+@dynamic eidInfo, status;
 @end
 
 
@@ -2720,16 +2832,16 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_UsageLogEvent
 @dynamic adbShellCommandEvent, adbShellInteractiveEvent, appProcessStartEvent,
-         certAuthorityInstalledEvent, certAuthorityRemovedEvent,
-         certValidationFailureEvent, connectEvent, cryptoSelfTestCompletedEvent,
-         dnsEvent, enrollmentCompleteEvent, eventId, eventTime, eventType,
-         filePulledEvent, filePushedEvent, keyDestructionEvent,
-         keyGeneratedEvent, keyguardDismissAuthAttemptEvent,
-         keyguardDismissedEvent, keyguardSecuredEvent, keyImportEvent,
-         keyIntegrityViolationEvent, logBufferSizeCriticalEvent,
-         loggingStartedEvent, loggingStoppedEvent, lostModeLocationEvent,
-         lostModeOutgoingPhoneCallEvent, mediaMountEvent, mediaUnmountEvent,
-         osShutdownEvent, osStartupEvent, remoteLockEvent,
+         backupServiceToggledEvent, certAuthorityInstalledEvent,
+         certAuthorityRemovedEvent, certValidationFailureEvent, connectEvent,
+         cryptoSelfTestCompletedEvent, dnsEvent, enrollmentCompleteEvent,
+         eventId, eventTime, eventType, filePulledEvent, filePushedEvent,
+         keyDestructionEvent, keyGeneratedEvent,
+         keyguardDismissAuthAttemptEvent, keyguardDismissedEvent,
+         keyguardSecuredEvent, keyImportEvent, keyIntegrityViolationEvent,
+         logBufferSizeCriticalEvent, loggingStartedEvent, loggingStoppedEvent,
+         lostModeLocationEvent, lostModeOutgoingPhoneCallEvent, mediaMountEvent,
+         mediaUnmountEvent, osShutdownEvent, osStartupEvent, remoteLockEvent,
          stopLostModeUserAttemptEvent, wipeFailureEvent;
 @end
 

@@ -17,8 +17,6 @@
 
 @class GTLRCivicInfo_ApiprotosV2DivisionByAddressResponse_Divisions;
 @class GTLRCivicInfo_ApiprotosV2DivisionSearchResult;
-@class GTLRCivicInfo_ApiprotosV2RepresentativeInfoData_Divisions;
-@class GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse_Divisions;
 @class GTLRCivicInfo_SchemaV2AdministrationRegion;
 @class GTLRCivicInfo_SchemaV2AdministrativeBody;
 @class GTLRCivicInfo_SchemaV2Candidate;
@@ -28,8 +26,6 @@
 @class GTLRCivicInfo_SchemaV2ElectionOfficial;
 @class GTLRCivicInfo_SchemaV2ElectoralDistrict;
 @class GTLRCivicInfo_SchemaV2GeographicDivision;
-@class GTLRCivicInfo_SchemaV2Office;
-@class GTLRCivicInfo_SchemaV2Official;
 @class GTLRCivicInfo_SchemaV2PollingLocation;
 @class GTLRCivicInfo_SchemaV2Precinct;
 @class GTLRCivicInfo_SchemaV2SimpleAddressType;
@@ -137,56 +133,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2ElectoralDistrict_Scop
 /** Value: "ward" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2ElectoralDistrict_Scope_Ward;
 
-// ----------------------------------------------------------------------------
-// GTLRCivicInfo_SchemaV2Office.levels
-
-/** Value: "administrativeArea1" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_AdministrativeArea1;
-/** Value: "administrativeArea2" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_AdministrativeArea2;
-/** Value: "country" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Country;
-/** Value: "international" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_International;
-/** Value: "locality" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Locality;
-/** Value: "regional" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Regional;
-/** Value: "special" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_Special;
-/** Value: "subLocality1" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_SubLocality1;
-/** Value: "subLocality2" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Levels_SubLocality2;
-
-// ----------------------------------------------------------------------------
-// GTLRCivicInfo_SchemaV2Office.roles
-
-/** Value: "deputyHeadOfGovernment" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_DeputyHeadOfGovernment;
-/** Value: "executiveCouncil" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_ExecutiveCouncil;
-/** Value: "governmentOfficer" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_GovernmentOfficer;
-/** Value: "headOfGovernment" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_HeadOfGovernment;
-/** Value: "headOfState" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_HeadOfState;
-/** Value: "highestCourtJudge" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_HighestCourtJudge;
-/** Value: "judge" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_Judge;
-/** Value: "legislatorLowerBody" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_LegislatorLowerBody;
-/** Value: "legislatorUpperBody" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_LegislatorUpperBody;
-/** Value: "otherRole" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_OtherRole;
-/** Value: "schoolBoard" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SchoolBoard;
-/** Value: "specialPurposeOfficer" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPurposeOfficer;
-
 /**
  *  GTLRCivicInfo_ApiprotosV2DivisionByAddressResponse
  */
@@ -238,46 +184,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPu
 
 
 /**
- *  GTLRCivicInfo_ApiprotosV2RepresentativeInfoData
- */
-@interface GTLRCivicInfo_ApiprotosV2RepresentativeInfoData : GTLRObject
-
-/**
- *  A map of political geographic divisions that contain the requested address,
- *  keyed by the unique Open Civic Data identifier for this division.
- */
-@property(nonatomic, strong, nullable) GTLRCivicInfo_ApiprotosV2RepresentativeInfoData_Divisions *divisions;
-
-/**
- *  Elected offices referenced by the divisions listed above. Will only be
- *  present if includeOffices was true in the request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SchemaV2Office *> *offices;
-
-/**
- *  Officials holding the offices listed above. Will only be present if
- *  includeOffices was true in the request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SchemaV2Official *> *officials;
-
-@end
-
-
-/**
- *  A map of political geographic divisions that contain the requested address,
- *  keyed by the unique Open Civic Data identifier for this division.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCivicInfo_SchemaV2GeographicDivision. Use @c -additionalJSONKeys
- *        and @c -additionalPropertyForName: to get the list of properties and
- *        then fetch them; or @c -additionalProperties to fetch them all at
- *        once.
- */
-@interface GTLRCivicInfo_ApiprotosV2RepresentativeInfoData_Divisions : GTLRObject
-@end
-
-
-/**
  *  The result of a division search query.
  */
 @interface GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse : GTLRObject
@@ -307,55 +213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPu
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-@end
-
-
-/**
- *  The result of a representative info lookup query.
- */
-@interface GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse : GTLRObject
-
-/**
- *  A map of political geographic divisions that contain the requested address,
- *  keyed by the unique Open Civic Data identifier for this division.
- */
-@property(nonatomic, strong, nullable) GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse_Divisions *divisions;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "civicinfo#representativeInfoResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The normalized version of the requested address */
-@property(nonatomic, strong, nullable) GTLRCivicInfo_SchemaV2SimpleAddressType *normalizedInput;
-
-/**
- *  Elected offices referenced by the divisions listed above. Will only be
- *  present if includeOffices was true in the request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SchemaV2Office *> *offices;
-
-/**
- *  Officials holding the offices listed above. Will only be present if
- *  includeOffices was true in the request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SchemaV2Official *> *officials;
-
-@end
-
-
-/**
- *  A map of political geographic divisions that contain the requested address,
- *  keyed by the unique Open Civic Data identifier for this division.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCivicInfo_SchemaV2GeographicDivision. Use @c -additionalJSONKeys
- *        and @c -additionalPropertyForName: to get the list of properties and
- *        then fetch them; or @c -additionalProperties to fetch them all at
- *        once.
- */
-@interface GTLRCivicInfo_CivicinfoApiprotosV2RepresentativeInfoResponse_Divisions : GTLRObject
 @end
 
 
@@ -906,83 +763,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2Office_Roles_SpecialPu
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *officeIndices;
-
-@end
-
-
-/**
- *  Information about an Office held by one or more Officials.
- */
-@interface GTLRCivicInfo_SchemaV2Office : GTLRObject
-
-/** The OCD ID of the division with which this office is associated. */
-@property(nonatomic, copy, nullable) NSString *divisionId;
-
-/**
- *  The levels of government of which this office is part. There may be more
- *  than one in cases where a jurisdiction effectively acts at two different
- *  levels of government; for example, the mayor of the District of Columbia
- *  acts at "locality" level, but also effectively at both
- *  "administrative-area-2" and "administrative-area-1".
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *levels;
-
-/** The human-readable name of the office. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  List of indices in the officials array of people who presently hold this
- *  office.
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *officialIndices;
-
-/**
- *  The roles which this office fulfills. Roles are not meant to be exhaustive,
- *  or to exactly specify the entire set of responsibilities of a given office,
- *  but are meant to be rough categories that are useful for general selection
- *  from or sorting of a list of offices.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
-
-/**
- *  A list of sources for this office. If multiple sources are listed, the data
- *  has been aggregated from those sources.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SchemaV2Source *> *sources;
-
-@end
-
-
-/**
- *  Information about a person holding an elected office.
- */
-@interface GTLRCivicInfo_SchemaV2Official : GTLRObject
-
-/** Addresses at which to contact the official. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SchemaV2SimpleAddressType *> *address;
-
-/** A list of known (social) media channels for this official. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SchemaV2Channel *> *channels;
-
-/** The direct email addresses for the official. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *emails;
-
-/** The official's name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The full name of the party the official belongs to. */
-@property(nonatomic, copy, nullable) NSString *party;
-
-/** The official's public contact phone numbers. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *phones;
-
-/** A URL for a photo of the official. */
-@property(nonatomic, copy, nullable) NSString *photoUrl;
-
-/** The official's public website URLs. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
 
 @end
 

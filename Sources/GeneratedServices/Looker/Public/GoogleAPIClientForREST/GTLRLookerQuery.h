@@ -58,6 +58,142 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Backup Looker instance.
+ *
+ *  Method: looker.projects.locations.instances.backups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate : GTLRLookerQuery
+
+/**
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLooker_Operation.
+ *
+ *  Backup Looker instance.
+ *
+ *  @param object The @c GTLRLooker_InstanceBackup to include in the query.
+ *  @param parent Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLooker_InstanceBackup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete backup.
+ *
+ *  Method: looker.projects.locations.instances.backups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete : GTLRLookerQuery
+
+/**
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}/backups/{backup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLooker_Operation.
+ *
+ *  Delete backup.
+ *
+ *  @param name Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}/backups/{backup}
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet
+ *
+ *  Method: looker.projects.locations.instances.backups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet : GTLRLookerQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLooker_InstanceBackup.
+ *
+ *  @param name Required. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}/backups/{backup}`.
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List backups of Looker instance.
+ *
+ *  Method: looker.projects.locations.instances.backups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesBackupsList : GTLRLookerQuery
+
+/**
+ *  Sort results. Default order is "create_time desc". Other supported fields
+ *  are "state" and "expire_time". https://google.aip.dev/132#ordering
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of instances to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token received from a previous ListInstances request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLooker_ListInstanceBackupsResponse.
+ *
+ *  List backups of Looker instance.
+ *
+ *  @param parent Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}.
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesBackupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new Instance in a given project and location.
  *
  *  Method: looker.projects.locations.instances.create
@@ -336,6 +472,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Restore Looker instance.
+ *
+ *  Method: looker.projects.locations.instances.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesRestore : GTLRLookerQuery
+
+/**
+ *  Required. Instance being restored Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLooker_Operation.
+ *
+ *  Restore Looker instance.
+ *
+ *  @param object The @c GTLRLooker_RestoreInstanceRequest to include in the
+ *    query.
+ *  @param name Required. Instance being restored Format:
+ *    projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesRestore
+ */
++ (instancetype)queryWithObject:(GTLRLooker_RestoreInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: looker.projects.locations.list
@@ -344,6 +513,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLookerCloudPlatform
  */
 @interface GTLRLookerQuery_ProjectsLocationsList : GTLRLookerQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

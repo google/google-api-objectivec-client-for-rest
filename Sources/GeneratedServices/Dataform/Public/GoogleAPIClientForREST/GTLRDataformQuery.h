@@ -603,7 +603,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Repositories in a given project and location.
+ *  Lists Repositories in a given project and location. **Note:** *This method
+ *  can return repositories not shown in the [Dataform
+ *  UI](https://console.cloud.google.com/bigquery/dataform)*.
  *
  *  Method: dataform.projects.locations.repositories.list
  *
@@ -647,7 +649,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_ListRepositoriesResponse.
  *
- *  Lists Repositories in a given project and location.
+ *  Lists Repositories in a given project and location. **Note:** *This method
+ *  can return repositories not shown in the [Dataform
+ *  UI](https://console.cloud.google.com/bigquery/dataform)*.
  *
  *  @param parent Required. The location in which to list repositories. Must be
  *    in the format `projects/ * /locations/ *`.

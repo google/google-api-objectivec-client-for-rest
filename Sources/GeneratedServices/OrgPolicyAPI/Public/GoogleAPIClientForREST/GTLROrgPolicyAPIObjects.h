@@ -316,6 +316,12 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 /** The human readable name. Mutable. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/**
+ *  Managed constraint and canned constraint sometimes can have equivalents.
+ *  This field is used to store the equivalent constraint name.
+ */
+@property(nonatomic, copy, nullable) NSString *equivalentConstraint;
+
 /** Defines this constraint as being a list constraint. */
 @property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintListConstraint *listConstraint;
 
