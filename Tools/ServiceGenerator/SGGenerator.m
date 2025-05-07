@@ -4341,12 +4341,20 @@ typedef struct {
 #define kUseItemsClass @"ITEMS_CLASS"
 
 static SGTypeFormatMapping kObjectParameterMappings[] = {
-  // http://code.google.com/apis/discovery/v1/reference.html#type-and-format-summary
+  // https://developers.google.com/discovery/v1/type-format
   { @"any", nil,             { @"id", NO, @"strong", @"Can be any valid JSON type." },
                              { @"id", NO, @"strong", @"Can be any valid JSON type." } },
+  // Bridging "message Value" in https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/struct.proto
+  { @"any", @"google.protobuf.Value",
+                             { @"id", NO, @"strong", @"Documented to be a google.protobuf.Value." },
+                             { @"id", NO, @"strong", @"Documented to be a google.protobuf.Value." } },
 
   { @"array", nil,           { @"NSArray", YES, @"strong", nil },
                              { @"NSArray", YES, @"strong", nil } },
+  // Bridging "message ListValue" in https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/struct.proto
+  { @"array", @"google.protobuf.ListValue",
+                             { @"NSArray", YES, @"strong", @"Documented to be a google.protobuf.ListValue." },
+                             { @"NSArray", YES, @"strong", @"Documented to be a google.protobuf.ListValue." } },
 
   { @"boolean", nil,         { @"NSNumber", YES, @"strong", @"Uses NSNumber of boolValue." },
                              { @"BOOL", NO, @"assign", nil } },
@@ -4363,6 +4371,14 @@ static SGTypeFormatMapping kObjectParameterMappings[] = {
 
   { @"object", nil,          { kUseItemsClass, YES, @"strong", nil },
                              { kUseItemsClass, YES, @"strong", nil } },
+  // Bridging https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/any.proto
+  { @"object", @"google.protobuf.Any",
+                             { kUseItemsClass, YES, @"strong", @"Documented to be a google.protobuf.Any." },
+                             { kUseItemsClass, YES, @"strong", @"Documented to be a google.protobuf.Any." }, },
+  // Bridging https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/struct.proto
+  { @"object", @"google.protobuf.Struct",
+                             { kUseItemsClass, YES, @"strong", @"Documented to be a google.protobuf.Struct." },
+                             { kUseItemsClass, YES, @"strong", @"Documented to be a google.protobuf.Struct." }, },
 
   { @"string", @"byte",      { @"NSString", YES, @"copy", @"Contains encoded binary data; GTLRBase64 can encode/decode (probably web-safe format)." },
                              { @"NSString", YES, @"copy", @"Contains encoded binary data; GTLRBase64 can encode/decode (probably web-safe format)." } },
