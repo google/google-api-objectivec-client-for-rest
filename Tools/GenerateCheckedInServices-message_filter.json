@@ -32,6 +32,9 @@
     "Method 'firebaseappdistribution.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'groupsmigration.archive.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'walletobjects.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
+    "Won't add the kind 'compute#InterconnectGroup' to the kind registry: it is used on multiple schema: InterconnectGroup, InterconnectGroupsListResponse",
+    "Won't add the kind 'compute#interconnectAttachmentGroup' to the kind registry: it is used on multiple schema: InterconnectAttachmentGroup, InterconnectAttachmentGroupsListResponse",
     "Won't add the kind 'compute#metadata' to the kind registry: it is used on multiple schema: InstanceSettingsMetadata, Metadata",
+    "Won't add the kind 'compute#reservationBlock' to the kind registry: it is used on multiple schema: ReservationBlock, ReservationBlocksListResponse",
   ]
 }

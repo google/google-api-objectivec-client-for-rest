@@ -113,7 +113,13 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#interconnect" : [GTLRCompute_Interconnect class],
     @"compute#interconnectAttachment" : [GTLRCompute_InterconnectAttachment class],
     @"compute#interconnectAttachmentAggregatedList" : [GTLRCompute_InterconnectAttachmentAggregatedList class],
+    // Skipping "compute#interconnectAttachmentGroup", was used on multiple classes:
+    //     GTLRCompute_InterconnectAttachmentGroup
+    //     GTLRCompute_InterconnectAttachmentGroupsListResponse
     @"compute#interconnectAttachmentList" : [GTLRCompute_InterconnectAttachmentList class],
+    // Skipping "compute#InterconnectGroup", was used on multiple classes:
+    //     GTLRCompute_InterconnectGroup
+    //     GTLRCompute_InterconnectGroupsListResponse
     @"compute#interconnectList" : [GTLRCompute_InterconnectList class],
     @"compute#interconnectLocation" : [GTLRCompute_InterconnectLocation class],
     @"compute#interconnectLocationList" : [GTLRCompute_InterconnectLocationList class],
@@ -179,6 +185,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#regionList" : [GTLRCompute_RegionList class],
     @"compute#reservation" : [GTLRCompute_Reservation class],
     @"compute#reservationAggregatedList" : [GTLRCompute_ReservationAggregatedList class],
+    // Skipping "compute#reservationBlock", was used on multiple classes:
+    //     GTLRCompute_ReservationBlock
+    //     GTLRCompute_ReservationBlocksListResponse
     @"compute#reservationList" : [GTLRCompute_ReservationList class],
     @"compute#resourcePolicy" : [GTLRCompute_ResourcePolicy class],
     @"compute#resourcePolicyAggregatedList" : [GTLRCompute_ResourcePolicyAggregatedList class],

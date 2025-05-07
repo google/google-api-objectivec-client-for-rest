@@ -17212,6 +17212,449 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 @end
 
 /**
+ *  Deletes the specified InterconnectAttachmentGroup in the given scope
+ *
+ *  Method: compute.interconnectAttachmentGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsDelete : GTLRComputeQuery
+
+/** Name of the InterconnectAttachmentGroup resource to delete. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified InterconnectAttachmentGroup in the given scope
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the InterconnectAttachmentGroup
+ *    resource to delete.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+     interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Returns the specified InterconnectAttachmentGroup resource in the given
+ *  scope.
+ *
+ *  Method: compute.interconnectAttachmentGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsGet : GTLRComputeQuery
+
+/** Name of the InterconnectAttachmentGroup resource to return. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectAttachmentGroup.
+ *
+ *  Returns the specified InterconnectAttachmentGroup resource in the given
+ *  scope.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the InterconnectAttachmentGroup
+ *    resource to return.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+     interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.interconnectAttachmentGroups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the InterconnectAttachmentStatuses for the specified
+ *  InterconnectAttachmentGroup resource.
+ *
+ *  Method: compute.interconnectAttachmentGroups.getOperationalStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsGetOperationalStatus : GTLRComputeQuery
+
+/** Name of the interconnectAttachmentGroup resource to query. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c
+ *  GTLRCompute_InterconnectAttachmentGroupsGetOperationalStatusResponse.
+ *
+ *  Returns the InterconnectAttachmentStatuses for the specified
+ *  InterconnectAttachmentGroup resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the interconnectAttachmentGroup
+ *    resource to query.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsGetOperationalStatus
+ */
++ (instancetype)queryWithProject:(NSString *)project
+     interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Creates a InterconnectAttachmentGroup in the specified project in the given
+ *  scope using the parameters that are included in the request.
+ *
+ *  Method: compute.interconnectAttachmentGroups.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a InterconnectAttachmentGroup in the specified project in the given
+ *  scope using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_InterconnectAttachmentGroup to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachmentGroup *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the InterconnectAttachmentGroups for a project in the given scope.
+ *
+ *  Method: compute.interconnectAttachmentGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectAttachmentGroupsListResponse.
+ *
+ *  Lists the InterconnectAttachmentGroups for a project in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified InterconnectAttachmentGroup resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  Method: compute.interconnectAttachmentGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsPatch : GTLRComputeQuery
+
+/** Name of the InterconnectAttachmentGroup resource to patch. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified InterconnectAttachmentGroup resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_InterconnectAttachmentGroup to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the InterconnectAttachmentGroup
+ *    resource to patch.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachmentGroup *)object
+                        project:(NSString *)project
+    interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.interconnectAttachmentGroups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.interconnectAttachmentGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Retrieves an aggregated list of interconnect attachments. To prevent
  *  failure, Google recommends that you set the `returnPartialSuccess` parameter
  *  to `true`.
@@ -17694,6 +18137,475 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 + (instancetype)queryWithObject:(GTLRCompute_RegionSetLabelsRequest *)object
                         project:(NSString *)project
                          region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Create Interconnects with redundancy by creating them in a specified
+ *  interconnect group.
+ *
+ *  Method: compute.interconnectGroups.createMembers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsCreateMembers : GTLRComputeQuery
+
+/** Name of the group resource to create members for. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Create Interconnects with redundancy by creating them in a specified
+ *  interconnect group.
+ *
+ *  @param object The @c GTLRCompute_InterconnectGroupsCreateMembersRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the group resource to create members for.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsCreateMembers
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectGroupsCreateMembersRequest *)object
+                        project:(NSString *)project
+              interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Deletes the specified InterconnectGroup in the given scope
+ *
+ *  Method: compute.interconnectGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsDelete : GTLRComputeQuery
+
+/** Name of the InterconnectGroup resource to delete. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified InterconnectGroup in the given scope
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the InterconnectGroup resource to delete.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+               interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Returns the specified InterconnectGroup resource in the given scope.
+ *
+ *  Method: compute.interconnectGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsGet : GTLRComputeQuery
+
+/** Name of the InterconnectGroup resource to return. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectGroup.
+ *
+ *  Returns the specified InterconnectGroup resource in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the InterconnectGroup resource to return.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+               interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.interconnectGroups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the interconnectStatuses for the specified InterconnectGroup.
+ *
+ *  Method: compute.interconnectGroups.getOperationalStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsGetOperationalStatus : GTLRComputeQuery
+
+/** Name of the interconnectGroup resource to query. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectGroupsGetOperationalStatusResponse.
+ *
+ *  Returns the interconnectStatuses for the specified InterconnectGroup.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the interconnectGroup resource to query.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsGetOperationalStatus
+ */
++ (instancetype)queryWithProject:(NSString *)project
+               interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Creates a InterconnectGroup in the specified project in the given scope
+ *  using the parameters that are included in the request.
+ *
+ *  Method: compute.interconnectGroups.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a InterconnectGroup in the specified project in the given scope
+ *  using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_InterconnectGroup to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectGroup *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the InterconnectGroups for a project in the given scope.
+ *
+ *  Method: compute.interconnectGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectGroupsListResponse.
+ *
+ *  Lists the InterconnectGroups for a project in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified InterconnectGroup resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  Method: compute.interconnectGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsPatch : GTLRComputeQuery
+
+/** Name of the InterconnectGroup resource to patch. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified InterconnectGroup resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_InterconnectGroup to include in the query.
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the InterconnectGroup resource to patch.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectGroup *)object
+                        project:(NSString *)project
+              interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.interconnectGroups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.interconnectGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
                        resource:(NSString *)resource;
 
 @end
@@ -18824,6 +19736,64 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 @end
 
 /**
+ *  Updates a License resource in the specified project. *Caution* This resource
+ *  is intended for use only by third-party partners who are creating Cloud
+ *  Marketplace images.
+ *
+ *  Method: compute.licenses.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_LicensesUpdate : GTLRComputeQuery
+
+/** The license name for this request. */
+@property(nonatomic, copy, nullable) NSString *license;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates a License resource in the specified project. *Caution* This resource
+ *  is intended for use only by third-party partners who are creating Cloud
+ *  Marketplace images.
+ *
+ *  @param object The @c GTLRCompute_License to include in the query.
+ *  @param project Project ID for this request.
+ *  @param license The license name for this request.
+ *
+ *  @return GTLRComputeQuery_LicensesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_License *)object
+                        project:(NSString *)project
+                        license:(NSString *)license;
+
+@end
+
+/**
  *  Deletes the specified machine image. Deleting a machine image is permanent
  *  and cannot be undone.
  *
@@ -19133,6 +20103,43 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
  *  @return GTLRComputeQuery_MachineImagesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the labels on a machine image. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  Method: compute.machineImages.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_MachineImagesSetLabels : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a machine image. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_MachineImagesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
 
@@ -37545,6 +38552,257 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Retrieves information about the specified reservation block.
+ *
+ *  Method: compute.reservationBlocks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationBlocksGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  The name of the reservation block. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationBlock;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationBlocksGetResponse.
+ *
+ *  Retrieves information about the specified reservation block.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *  @param reservationBlock The name of the reservation block. Name should
+ *    conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationBlocksGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     reservation:(NSString *)reservation
+                reservationBlock:(NSString *)reservationBlock;
+
+@end
+
+/**
+ *  Retrieves a list of reservation blocks under a single reservation.
+ *
+ *  Method: compute.reservationBlocks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationBlocksList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationBlocksListResponse.
+ *
+ *  Retrieves a list of reservation blocks under a single reservation.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationBlocksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     reservation:(NSString *)reservation;
+
+@end
+
+/**
+ *  Allows customers to perform maintenance on a reservation block
+ *
+ *  Method: compute.reservationBlocks.performMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationBlocksPerformMaintenance : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  The name of the reservation block. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationBlock;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Allows customers to perform maintenance on a reservation block
+ *
+ *  @param object The @c GTLRCompute_ReservationsBlocksPerformMaintenanceRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *  @param reservationBlock The name of the reservation block. Name should
+ *    conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationBlocksPerformMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationsBlocksPerformMaintenanceRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    reservation:(NSString *)reservation
+               reservationBlock:(NSString *)reservationBlock;
+
+@end
+
+/**
  *  Retrieves an aggregated list of reservations. To prevent failure, Google
  *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
@@ -37973,6 +39231,68 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Perform maintenance on an extended reservation
+ *
+ *  Method: compute.reservations.performMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationsPerformMaintenance : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Perform maintenance on an extended reservation
+ *
+ *  @param object The @c GTLRCompute_ReservationsPerformMaintenanceRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationsPerformMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationsPerformMaintenanceRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    reservation:(NSString *)reservation;
 
 @end
 
