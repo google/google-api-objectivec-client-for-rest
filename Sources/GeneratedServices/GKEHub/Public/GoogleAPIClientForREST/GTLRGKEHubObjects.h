@@ -1688,6 +1688,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaEx
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies;
 /**
+ *  THC pod unschedulable error code
+ *
+ *  Value: "THC_POD_UNSCHEDULABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ThcPodUnschedulable;
+/**
  *  Unsupported gateway class error code
  *
  *  Value: "UNSUPPORTED_GATEWAY_CLASS"
@@ -5131,6 +5137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies
  *        TrafficPolicy quota exceeded error code. (Value:
  *        "QUOTA_EXCEEDED_TRAFFIC_POLICIES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ThcPodUnschedulable THC pod
+ *        unschedulable error code (Value: "THC_POD_UNSCHEDULABLE")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedGatewayClass
  *        Unsupported gateway class error code (Value:
  *        "UNSUPPORTED_GATEWAY_CLASS")

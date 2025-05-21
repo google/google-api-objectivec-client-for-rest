@@ -34,6 +34,7 @@
 @class GTLRSheets_AddSlicerRequest;
 @class GTLRSheets_AddSlicerResponse;
 @class GTLRSheets_AddTableRequest;
+@class GTLRSheets_AddTableResponse;
 @class GTLRSheets_AppendCellsRequest;
 @class GTLRSheets_AppendDimensionRequest;
 @class GTLRSheets_AutoFillRequest;
@@ -3914,6 +3915,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
+ *  The result of adding a table.
+ */
+@interface GTLRSheets_AddTableResponse : GTLRObject
+
+/** Output only. The table that was added. */
+@property(nonatomic, strong, nullable) GTLRSheets_Table *table;
+
+@end
+
+
+/**
  *  Adds new cells after the last row with data in a sheet, inserting new rows
  *  into the sheet if necessary.
  */
@@ -4051,11 +4063,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_BandedRange : GTLRObject
 
 /**
- *  The ID of the banded range.
+ *  The ID of the banded range. If unset, refer to banded_range_reference.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bandedRangeId;
+
+/**
+ *  Output only. The reference of the banded range, used to identify the ID that
+ *  is not supported by the banded_range_id.
+ */
+@property(nonatomic, copy, nullable) NSString *bandedRangeReference;
 
 /**
  *  Properties for column bands. These properties are applied on a column-
@@ -10396,6 +10414,9 @@ GTLR_DEPRECATED
 
 /** A reply from adding a slicer. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddSlicerResponse *addSlicer;
+
+/** A reply from adding a table. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddTableResponse *addTable;
 
 /** A reply from cancelling data source object refreshes. */
 @property(nonatomic, strong, nullable) GTLRSheets_CancelDataSourceRefreshResponse *cancelDataSourceRefresh;

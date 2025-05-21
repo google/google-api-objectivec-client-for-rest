@@ -50,6 +50,12 @@
 @class GTLRBackupdr_DataSource_Labels;
 @class GTLRBackupdr_DataSourceBackupApplianceApplication;
 @class GTLRBackupdr_DataSourceGcpResource;
+@class GTLRBackupdr_DiskBackupProperties;
+@class GTLRBackupdr_DiskDataSourceProperties;
+@class GTLRBackupdr_DiskRestoreProperties;
+@class GTLRBackupdr_DiskRestoreProperties_Labels;
+@class GTLRBackupdr_DiskRestoreProperties_ResourceManagerTags;
+@class GTLRBackupdr_DiskTargetEnvironment;
 @class GTLRBackupdr_DisplayDevice;
 @class GTLRBackupdr_Entry;
 @class GTLRBackupdr_Expr;
@@ -79,6 +85,7 @@
 @class GTLRBackupdr_PlanConfig;
 @class GTLRBackupdr_PlanRule;
 @class GTLRBackupdr_Policy;
+@class GTLRBackupdr_RegionDiskTargetEnvironment;
 @class GTLRBackupdr_ResourceBackupConfig;
 @class GTLRBackupdr_ResourceBackupConfig_TargetResourceLabels;
 @class GTLRBackupdr_RuleConfigInfo;
@@ -669,6 +676,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_State_Error;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_State_StateUnspecified;
+/**
+ *  The backup vault is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_ComputeInstanceBackupProperties.keyRevocationActionType
@@ -803,6 +816,75 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSource_State_Error;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSource_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_DiskBackupProperties.architecture
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskBackupProperties_Architecture_ArchitectureUnspecified;
+/**
+ *  Disks with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskBackupProperties_Architecture_Arm64;
+/**
+ *  Disks with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskBackupProperties_Architecture_X8664;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_DiskRestoreProperties.accessMode
+
+/**
+ *  The AccessMode means the disk can be attached to multiple instances in RO
+ *  mode.
+ *
+ *  Value: "READ_ONLY_MANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadOnlyMany;
+/**
+ *  The AccessMode means the disk can be attached to multiple instances in RW
+ *  mode.
+ *
+ *  Value: "READ_WRITE_MANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadWriteMany;
+/**
+ *  The default AccessMode, means the disk can be attached to single instance in
+ *  RW mode.
+ *
+ *  Value: "READ_WRITE_SINGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadWriteSingle;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_DiskRestoreProperties.architecture
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_ArchitectureUnspecified;
+/**
+ *  Disks with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_Arm64;
+/**
+ *  Disks with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_X8664;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_GuestOsFeature.type
@@ -1981,6 +2063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Output only. Disk specific backup properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskBackupProperties *diskBackupProperties;
+
 /** Optional. The backup can not be deleted before this time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcedRetentionEndTime;
 
@@ -2464,6 +2549,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Output only. All resource types to which backupPlan can be applied. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedResourceTypes;
+
 /** Output only. When the `BackupPlan` was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -2698,6 +2786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        experiencing an issue and might be unusable. (Value: "ERROR")
  *    @arg @c kGTLRBackupdr_BackupVault_State_StateUnspecified State not set.
  *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_BackupVault_State_Updating The backup vault is being
+ *        updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3279,6 +3369,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_DataSource : GTLRObject
 
+/**
+ *  Output only. This field is set to true if the backup is blocked by vault
+ *  access restriction.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupBlockedByVaultAccessRestriction;
+
 /** Output only. Details of how the resource is configured for backup. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_BackupConfigInfo *backupConfigInfo;
 
@@ -3436,6 +3534,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_ComputeInstanceDataSourceProperties *computeInstanceDatasourceProperties;
 
 /**
+ *  DiskDataSourceProperties has a subset of Disk properties that are useful at
+ *  the Datasource level.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskDataSourceProperties *diskDatasourceProperties;
+
+/**
  *  Output only. Full resource pathname URL of the source Google Cloud resource.
  */
 @property(nonatomic, copy, nullable) NSString *gcpResourcename;
@@ -3448,6 +3552,279 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  compute.googleapis.com/Instance.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  DiskBackupProperties represents the properties of a Disk backup.
+ */
+@interface GTLRBackupdr_DiskBackupProperties : GTLRObject
+
+/**
+ *  The architecture of the source disk. Valid values are ARM64 or X86_64.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_DiskBackupProperties_Architecture_ArchitectureUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_DiskBackupProperties_Architecture_Arm64 Disks with
+ *        architecture ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRBackupdr_DiskBackupProperties_Architecture_X8664 Disks with
+ *        architecture X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  A description of the source disk.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A list of guest OS features that are applicable to this backup. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_GuestOsFeature *> *guestOsFeature;
+
+/**
+ *  A list of publicly available licenses that are applicable to this backup.
+ *  This is applicable if the original image had licenses attached, e.g. Windows
+ *  image.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
+
+/**
+ *  Region and zone are mutually exclusive fields. The URL of the region of the
+ *  source disk.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** The URL of the Zones where the source disk should be replicated. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaZones;
+
+/**
+ *  Size(in GB) of the source disk.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/** The source disk used to create this backup. */
+@property(nonatomic, copy, nullable) NSString *sourceDisk;
+
+/** The URL of the type of the disk. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The URL of the Zone where the source disk.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  DiskDataSourceProperties represents the properties of a Disk resource that
+ *  are stored in the DataSource. .
+ */
+@interface GTLRBackupdr_DiskDataSourceProperties : GTLRObject
+
+/**
+ *  The description of the disk.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Name of the disk backed up by the datasource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The size of the disk in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/** The type of the disk. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  DiskRestoreProperties represents the properties of a Disk restore.
+ */
+@interface GTLRBackupdr_DiskRestoreProperties : GTLRObject
+
+/**
+ *  Optional. The access mode of the disk.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadOnlyMany The
+ *        AccessMode means the disk can be attached to multiple instances in RO
+ *        mode. (Value: "READ_ONLY_MANY")
+ *    @arg @c kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadWriteMany The
+ *        AccessMode means the disk can be attached to multiple instances in RW
+ *        mode. (Value: "READ_WRITE_MANY")
+ *    @arg @c kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadWriteSingle The
+ *        default AccessMode, means the disk can be attached to single instance
+ *        in RW mode. (Value: "READ_WRITE_SINGLE")
+ */
+@property(nonatomic, copy, nullable) NSString *accessMode;
+
+/**
+ *  Optional. The architecture of the source disk. Valid values are ARM64 or
+ *  X86_64.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_DiskRestoreProperties_Architecture_ArchitectureUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_DiskRestoreProperties_Architecture_Arm64 Disks with
+ *        architecture ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRBackupdr_DiskRestoreProperties_Architecture_X8664 Disks with
+ *        architecture X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  Optional. An optional description of this resource. Provide this property
+ *  when you create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Encrypts the disk using a customer-supplied encryption key or a
+ *  customer-managed encryption key.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_CustomerEncryptionKey *diskEncryptionKey;
+
+/**
+ *  Optional. Indicates whether this disk is using confidential compute mode.
+ *  Encryption with a Cloud KMS key is required to enable this option.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+
+/**
+ *  Optional. A list of features to enable in the guest operating system. This
+ *  is applicable only for bootable images.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_GuestOsFeature *> *guestOsFeature;
+
+/**
+ *  Optional. Labels to apply to this disk. These can be modified later using
+ *  setLabels method. Label values can be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskRestoreProperties_Labels *labels;
+
+/**
+ *  Optional. A list of publicly available licenses that are applicable to this
+ *  backup. This is applicable if the original image had licenses attached, e.g.
+ *  Windows image
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
+
+/** Required. Name of the disk.. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Physical block size of the persistent disk, in bytes. If not
+ *  present in a request, a default value is used. Currently, the supported size
+ *  is 4096.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *physicalBlockSizeBytes;
+
+/**
+ *  Optional. Indicates how many IOPS to provision for the disk. This sets the
+ *  number of I/O operations per second that the disk can handle.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedIops;
+
+/**
+ *  Optional. Indicates how much throughput to provision for the disk. This sets
+ *  the number of throughput MB per second that the disk can handle.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
+
+/** Optional. Resource manager tags to be bound to the disk. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskRestoreProperties_ResourceManagerTags *resourceManagerTags;
+
+/** Optional. Resource policies applied to this disk. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicy;
+
+/**
+ *  Required. The size of the disk in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/**
+ *  Optional. The storage pool in which the new disk is created. You can provide
+ *  this as a partial or full URL to the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
+/**
+ *  Required. URL of the disk type resource describing which disk type to use to
+ *  create the disk.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Optional. Labels to apply to this disk. These can be modified later using
+ *  setLabels method. Label values can be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_DiskRestoreProperties_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Resource manager tags to be bound to the disk.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_DiskRestoreProperties_ResourceManagerTags : GTLRObject
+@end
+
+
+/**
+ *  DiskTargetEnvironment represents the target environment for the disk.
+ */
+@interface GTLRBackupdr_DiskTargetEnvironment : GTLRObject
+
+/** Required. Target project for the disk. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Required. Target zone for the disk.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -4886,6 +5263,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  RegionDiskTargetEnvironment represents the target environment for the disk.
+ */
+@interface GTLRBackupdr_RegionDiskTargetEnvironment : GTLRObject
+
+/** Required. Target project for the disk. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Required. Target region for the disk. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Required. Target URLs of the replica zones for the disk. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaZones;
+
+@end
+
+
+/**
  *  Message for deleting a DataSource.
  */
 @interface GTLRBackupdr_RemoveDataSourceRequest : GTLRObject
@@ -5001,6 +5395,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Compute Engine target environment to be used during restore. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_ComputeInstanceTargetEnvironment *computeInstanceTargetEnvironment;
+
+/** Disk properties to be overridden during restore. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskRestoreProperties *diskRestoreProperties;
+
+/** Disk target environment to be used during restore. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskTargetEnvironment *diskTargetEnvironment;
+
+/** Region disk target environment to be used during restore. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RegionDiskTargetEnvironment *regionDiskTargetEnvironment;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique

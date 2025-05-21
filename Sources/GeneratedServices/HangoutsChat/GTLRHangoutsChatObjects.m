@@ -1248,7 +1248,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1SelectionItem
-@dynamic bottomText, materialIcon, selected, startIconUri, text, value;
+@dynamic bottomText, selected, startIconUri, text, value;
 @end
 
 

@@ -41,6 +41,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_HumanAgent = @"HUMAN_AGENT";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified = @"ROLE_UNSPECIFIED";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset.type
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_Eval = @"EVAL";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_Live = @"LIVE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension.dimensionKey
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent = @"AGENT";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentTeam = @"AGENT_TEAM";
@@ -176,6 +181,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Co
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_EndUser = @"END_USER";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_HumanAgent = @"HUMAN_AGENT";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset.type
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_Eval = @"EVAL";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_Live = @"LIVE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension.dimensionKey
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent = @"AGENT";
@@ -915,7 +925,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset
-@dynamic createTime, descriptionProperty, name;
+@dynamic createTime, descriptionProperty, displayName, name, ttl, type,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1854,12 +1865,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadata
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadata
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadata
-@dynamic createTime, endTime, partialErrors, request,
-         sampleConversationsToDatasetStats;
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadata
+@dynamic createTime, endTime, partialErrors, request, sampleConversationsStats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1873,30 +1883,30 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadataSampleConversationsStats
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadataSampleConversationsStats
 @dynamic failedSampleCount, successfulSampleCount;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsRequest
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsRequest
 @dynamic destinationDataset, parent, sampleRule;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetResponse
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsResponse
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetResponse
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsResponse
 @end
 
 
@@ -2232,6 +2242,26 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView
+@dynamic conversationFilter, createTime, displayName, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet
+@dynamic createTime, displayName, name, updateTime;
 @end
 
 
@@ -2882,7 +2912,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset
-@dynamic createTime, descriptionProperty, name;
+@dynamic createTime, descriptionProperty, displayName, name, ttl, type,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3603,6 +3634,50 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewSetsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewSetsResponse
+@dynamic authorizedViewSets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizedViewSets" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authorizedViewSets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewsResponse
+@dynamic authorizedViews, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizedViews" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authorizedViews";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListConversationsResponse
 //
 
@@ -4219,12 +4294,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadata
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadata
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadata
-@dynamic createTime, endTime, partialErrors, request,
-         sampleConversationsToDatasetStats;
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadata
+@dynamic createTime, endTime, partialErrors, request, sampleConversationsStats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4238,30 +4312,30 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadataSampleConversationsStats
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadataSampleConversationsStats
 @dynamic failedSampleCount, successfulSampleCount;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest
 @dynamic destinationDataset, parent, sampleRule;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetResponse
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsResponse
 //
 
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetResponse
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsResponse
 @end
 
 
@@ -4272,6 +4346,28 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule
 @dynamic conversationFilter, dimension, samplePercentage, sampleRow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchAuthorizedViewsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchAuthorizedViewsResponse
+@dynamic authorizedViews, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizedViews" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authorizedViews";
+}
+
 @end
 
 

@@ -1365,20 +1365,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entry
 // GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference.type
 
 /**
- *  The entry is referenced as the source of the directional entry link.
+ *  The Entry is referenced as the source of the directional Entry Link.
  *
  *  Value: "SOURCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Source;
 /**
- *  The entry is referenced as the target of the directional entry link.
+ *  The Entry is referenced as the target of the directional Entry Link.
  *
  *  Value: "TARGET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Target;
 /**
- *  Unspecified reference type. Implies that the entry is referenced in a
- *  non-directional entry link.
+ *  Unspecified reference type. Implies that the Entry is referenced in a
+ *  non-directional Entry Link.
  *
  *  Value: "UNSPECIFIED"
  */
@@ -6686,7 +6686,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  EntryLink represents a link between two entries.
+ *  EntryLink represents a link between two Entries.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink : GTLRObject
 
@@ -6696,12 +6696,12 @@ GTLR_DEPRECATED
 /**
  *  Required. Immutable. Relative resource name of the Entry Link Type used to
  *  create this Entry Link, of the form:
- *  projects/{project}/locations/{location}/entryLinkTypes/{entry_link_type}.
+ *  `projects/{project_id_or_number}/locations/{location_id}/entryLinkTypes/{entry_link_type_id}.
  */
 @property(nonatomic, copy, nullable) NSString *entryLinkType;
 
 /**
- *  Required. Specifies the entries referenced in the entry link. There should
+ *  Required. Specifies the Entries referenced in the Entry Link. There should
  *  be exactly two entry references.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference *> *entryReferences;
@@ -6709,7 +6709,7 @@ GTLR_DEPRECATED
 /**
  *  Output only. Immutable. Identifier. The relative resource name of the Entry
  *  Link, of the form:
- *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6720,36 +6720,36 @@ GTLR_DEPRECATED
 
 
 /**
- *  Reference to the Entry that is linked through the entry link.
+ *  Reference to the Entry that is linked through the Entry Link.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference : GTLRObject
 
 /**
- *  Required. Immutable. The relative resource name of the referenced entry, of
+ *  Required. Immutable. The relative resource name of the referenced Entry, of
  *  the form:
- *  projects/{project}/locations/{location}/entryGroups/{entryGroup}/entries/{entry}.
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. The path in the entry that is referenced in the entry link. Empty
- *  path denotes that the entry itself is referenced in the entry link.
+ *  Immutable. The path in the Entry that is referenced in the Entry Link. Empty
+ *  path denotes that the Entry itself is referenced in the Entry Link.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Required. Immutable. The reference type of the entry.
+ *  Required. Immutable. The reference type of the Entry.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Source
- *        The entry is referenced as the source of the directional entry link.
+ *        The Entry is referenced as the source of the directional Entry Link.
  *        (Value: "SOURCE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Target
- *        The entry is referenced as the target of the directional entry link.
+ *        The Entry is referenced as the target of the directional Entry Link.
  *        (Value: "TARGET")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference_Type_Unspecified
- *        Unspecified reference type. Implies that the entry is referenced in a
- *        non-directional entry link. (Value: "UNSPECIFIED")
+ *        Unspecified reference type. Implies that the Entry is referenced in a
+ *        non-directional Entry Link. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

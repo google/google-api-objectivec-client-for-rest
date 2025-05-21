@@ -2282,9 +2282,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
  *  association to API products will not be made. Therefore, you should not
  *  specify the associated API products in your request. Instead, use the
- *  ProductizeAppGroupAppKey API to make the association after the consumer key
- *  and secret are created. If a consumer key and secret already exist, you can
- *  keep them or delete them using the DeleteAppGroupAppKey API.
+ *  UpdateAppGroupAppKey API to make the association after the consumer key and
+ *  secret are created. If a consumer key and secret already exist, you can keep
+ *  them or delete them using the DeleteAppGroupAppKey API.
  *
  *  Method: apigee.organizations.appgroups.apps.keys.create
  *
@@ -2311,9 +2311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
  *  association to API products will not be made. Therefore, you should not
  *  specify the associated API products in your request. Instead, use the
- *  ProductizeAppGroupAppKey API to make the association after the consumer key
- *  and secret are created. If a consumer key and secret already exist, you can
- *  keep them or delete them using the DeleteAppGroupAppKey API.
+ *  UpdateAppGroupAppKey API to make the association after the consumer key and
+ *  secret are created. If a consumer key and secret already exist, you can keep
+ *  them or delete them using the DeleteAppGroupAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey to include
  *    in the query.
@@ -2401,10 +2401,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Adds an API product to an AppGroupAppKey, enabling the app that holds the
  *  key to access the API resources bundled in the API product. In addition, you
- *  can add attributes to the AppGroupAppKey. This API replaces the existing
- *  attributes with those specified in the request. Include or exclude any
- *  existing attributes that you want to retain or delete, respectively. You can
- *  use the same key to access all API products associated with the app.
+ *  can add attributes and scopes to the AppGroupAppKey. This API replaces the
+ *  existing attributes with those specified in the request. Include or exclude
+ *  any existing attributes that you want to retain or delete, respectively. You
+ *  can use the same key to access all API products associated with the app.
  *
  *  Method: apigee.organizations.appgroups.apps.keys.updateAppGroupAppKey
  *
@@ -2425,10 +2425,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Adds an API product to an AppGroupAppKey, enabling the app that holds the
  *  key to access the API resources bundled in the API product. In addition, you
- *  can add attributes to the AppGroupAppKey. This API replaces the existing
- *  attributes with those specified in the request. Include or exclude any
- *  existing attributes that you want to retain or delete, respectively. You can
- *  use the same key to access all API products associated with the app.
+ *  can add attributes and scopes to the AppGroupAppKey. This API replaces the
+ *  existing attributes with those specified in the request. Include or exclude
+ *  any existing attributes that you want to retain or delete, respectively. You
+ *  can use the same key to access all API products associated with the app.
  *
  *  @param object The @c
  *    GTLRApigee_GoogleCloudApigeeV1UpdateAppGroupAppKeyRequest to include in
@@ -3922,10 +3922,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Adds an API product to a developer app key, enabling the app that holds the
  *  key to access the API resources bundled in the API product. In addition, you
- *  can add attributes to a developer app key. This API replaces the existing
- *  attributes with those specified in the request. Include or exclude any
- *  existing attributes that you want to retain or delete, respectively. You can
- *  use the same key to access all API products associated with the app.
+ *  can add attributes and scopes associated with the API product to the
+ *  developer app key. The status of the key can be updated via "action" Query
+ *  Parameter. None of the other fields can be updated via this API. This API
+ *  replaces the existing attributes with those specified in the request.
+ *  Include or exclude any existing attributes that you want to retain or
+ *  delete, respectively. None of the other fields can be updated. You can use
+ *  the same key to access all API products associated with the app.
  *
  *  Method: apigee.organizations.developers.apps.keys.updateDeveloperAppKey
  *
@@ -3952,10 +3955,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Adds an API product to a developer app key, enabling the app that holds the
  *  key to access the API resources bundled in the API product. In addition, you
- *  can add attributes to a developer app key. This API replaces the existing
- *  attributes with those specified in the request. Include or exclude any
- *  existing attributes that you want to retain or delete, respectively. You can
- *  use the same key to access all API products associated with the app.
+ *  can add attributes and scopes associated with the API product to the
+ *  developer app key. The status of the key can be updated via "action" Query
+ *  Parameter. None of the other fields can be updated via this API. This API
+ *  replaces the existing attributes with those specified in the request.
+ *  Include or exclude any existing attributes that you want to retain or
+ *  delete, respectively. None of the other fields can be updated. You can use
+ *  the same key to access all API products associated with the app.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.

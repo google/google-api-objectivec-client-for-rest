@@ -727,6 +727,15 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_RestartWebServerRequest
+//
+
+@implementation GTLRCloudComposer_RestartWebServerRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_SaveSnapshotRequest
 //
 

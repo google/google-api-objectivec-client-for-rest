@@ -39,6 +39,12 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Artifact_Metadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Attribution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequestModel;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigGoogleServiceAccountConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigHttpBasicAuthConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOauthConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOidcConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AutomaticResources;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AutoraterConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AutoscalingMetricSpec;
@@ -184,6 +190,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExportFractionSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExportModelOperationMetadataOutputInfo;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExportModelRequestOutputConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiElasticSearchParams;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiSimpleSearchParams;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Fact;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FasterDeploymentConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Feature;
@@ -517,6 +526,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagFileChunkingConfigFixedLengthChunking;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLayoutParser;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLlmParser;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagFileTransformationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagQuery;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfig;
@@ -527,6 +537,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigPinecone;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbANN;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbKNN;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigVertexVectorSearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RawOutput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RayLogsSpec;
@@ -844,6 +856,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Value;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexAiSearchConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStore;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VideoMetadata;
@@ -1058,6 +1071,84 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifa
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig.authType
+
+/**
+ *  API Key Auth.
+ *
+ *  Value: "API_KEY_AUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_ApiKeyAuth;
+/** Value: "AUTH_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_AuthTypeUnspecified;
+/**
+ *  Google Service Account Auth.
+ *
+ *  Value: "GOOGLE_SERVICE_ACCOUNT_AUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_GoogleServiceAccountAuth;
+/**
+ *  HTTP Basic Auth.
+ *
+ *  Value: "HTTP_BASIC_AUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_HttpBasicAuth;
+/**
+ *  No Auth.
+ *
+ *  Value: "NO_AUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_NoAuth;
+/**
+ *  OAuth auth.
+ *
+ *  Value: "OAUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_Oauth;
+/**
+ *  OpenID Connect (OIDC) Auth.
+ *
+ *  Value: "OIDC_AUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_OidcAuth;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig.httpElementLocation
+
+/**
+ *  Element is in the HTTP request body.
+ *
+ *  Value: "HTTP_IN_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInBody;
+/**
+ *  Element is in the HTTP request cookie.
+ *
+ *  Value: "HTTP_IN_COOKIE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInCookie;
+/**
+ *  Element is in the HTTP request header.
+ *
+ *  Value: "HTTP_IN_HEADER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInHeader;
+/**
+ *  Element is in the HTTP request path.
+ *
+ *  Value: "HTTP_IN_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInPath;
+/**
+ *  Element is in the HTTP request query.
+ *
+ *  Value: "HTTP_IN_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInQuery;
+/** Value: "HTTP_IN_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob.state
@@ -1852,6 +1943,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Export
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExportDataConfig_ExportUse_ExportUseUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi.apiSpec
+
+/**
+ *  Unspecified API spec. This value should not be used.
+ *
+ *  Value: "API_SPEC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ApiSpecUnspecified;
+/**
+ *  Elastic search API spec.
+ *
+ *  Value: "ELASTIC_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ElasticSearch;
+/**
+ *  Simple search API spec.
+ *
+ *  Value: "SIMPLE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_SimpleSearch;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Feature.valueType
 
 /**
@@ -2557,6 +2670,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Machin
  *  Value: "NVIDIA_A100_80GB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaA10080gb;
+/**
+ *  Nvidia B200 GPU.
+ *
+ *  Value: "NVIDIA_B200"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaB200;
 /**
  *  Nvidia H100 80Gb GPU.
  *
@@ -6494,6 +6613,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  */
 @property(nonatomic, copy, nullable) NSString *apiKeySecretVersion;
 
+/**
+ *  The API key string. Either this or `api_key_secret_version` must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *apiKeyString;
+
 @end
 
 
@@ -6797,6 +6921,188 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 /** Retrieved facts from RAG data sources. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Fact *> *facts;
+
+@end
+
+
+/**
+ *  Auth configuration to run the extension.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig : GTLRObject
+
+/** Config for API key auth. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig *apiKeyConfig;
+
+/**
+ *  Type of auth scheme.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_ApiKeyAuth
+ *        API Key Auth. (Value: "API_KEY_AUTH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_AuthTypeUnspecified
+ *        Value "AUTH_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_GoogleServiceAccountAuth
+ *        Google Service Account Auth. (Value: "GOOGLE_SERVICE_ACCOUNT_AUTH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_HttpBasicAuth
+ *        HTTP Basic Auth. (Value: "HTTP_BASIC_AUTH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_NoAuth
+ *        No Auth. (Value: "NO_AUTH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_Oauth
+ *        OAuth auth. (Value: "OAUTH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_OidcAuth
+ *        OpenID Connect (OIDC) Auth. (Value: "OIDC_AUTH")
+ */
+@property(nonatomic, copy, nullable) NSString *authType;
+
+/** Config for Google Service Account auth. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigGoogleServiceAccountConfig *googleServiceAccountConfig;
+
+/** Config for HTTP Basic auth. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigHttpBasicAuthConfig *httpBasicAuthConfig;
+
+/** Config for user oauth. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOauthConfig *oauthConfig;
+
+/** Config for user OIDC auth. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOidcConfig *oidcConfig;
+
+@end
+
+
+/**
+ *  Config for authentication with API key.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig : GTLRObject
+
+/**
+ *  Optional. The name of the SecretManager secret version resource storing the
+ *  API key. Format: `projects/{project}/secrets/{secrete}/versions/{version}` -
+ *  If both `api_key_secret` and `api_key_string` are specified, this field
+ *  takes precedence over `api_key_string`. - If specified, the
+ *  `secretmanager.versions.access` permission should be granted to Vertex AI
+ *  Extension Service Agent
+ *  (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+ *  on the specified resource.
+ */
+@property(nonatomic, copy, nullable) NSString *apiKeySecret;
+
+/** Optional. The API key to be used in the request directly. */
+@property(nonatomic, copy, nullable) NSString *apiKeyString;
+
+/**
+ *  Optional. The location of the API key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInBody
+ *        Element is in the HTTP request body. (Value: "HTTP_IN_BODY")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInCookie
+ *        Element is in the HTTP request cookie. (Value: "HTTP_IN_COOKIE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInHeader
+ *        Element is in the HTTP request header. (Value: "HTTP_IN_HEADER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInPath
+ *        Element is in the HTTP request path. (Value: "HTTP_IN_PATH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInQuery
+ *        Element is in the HTTP request query. (Value: "HTTP_IN_QUERY")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInUnspecified
+ *        Value "HTTP_IN_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *httpElementLocation;
+
+/**
+ *  Optional. The parameter name of the API key. E.g. If the API request is
+ *  "https://example.com/act?api_key=", "api_key" would be the parameter name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Config for Google Service Account Authentication.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigGoogleServiceAccountConfig : GTLRObject
+
+/**
+ *  Optional. The service account that the extension execution service runs as.
+ *  - If the service account is specified, the
+ *  `iam.serviceAccounts.getAccessToken` permission should be granted to Vertex
+ *  AI Extension Service Agent
+ *  (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+ *  on the specified service account. - If not specified, the Vertex AI
+ *  Extension Service Agent will be used to execute the Extension.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+@end
+
+
+/**
+ *  Config for HTTP Basic Authentication.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigHttpBasicAuthConfig : GTLRObject
+
+/**
+ *  Required. The name of the SecretManager secret version resource storing the
+ *  base64 encoded credentials. Format:
+ *  `projects/{project}/secrets/{secrete}/versions/{version}` - If specified,
+ *  the `secretmanager.versions.access` permission should be granted to Vertex
+ *  AI Extension Service Agent
+ *  (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+ *  on the specified resource.
+ */
+@property(nonatomic, copy, nullable) NSString *credentialSecret;
+
+@end
+
+
+/**
+ *  Config for user oauth.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOauthConfig : GTLRObject
+
+/**
+ *  Access token for extension endpoint. Only used to propagate token from
+ *  [[ExecuteExtensionRequest.runtime_auth_config]] at request time.
+ */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/**
+ *  The service account used to generate access tokens for executing the
+ *  Extension. - If the service account is specified, the
+ *  `iam.serviceAccounts.getAccessToken` permission should be granted to Vertex
+ *  AI Extension Service Agent
+ *  (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+ *  on the provided service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+@end
+
+
+/**
+ *  Config for user OIDC auth.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOidcConfig : GTLRObject
+
+/**
+ *  OpenID Connect formatted ID token for extension endpoint. Only used to
+ *  propagate token from [[ExecuteExtensionRequest.runtime_auth_config]] at
+ *  request time.
+ */
+@property(nonatomic, copy, nullable) NSString *idToken;
+
+/**
+ *  The service account used to generate an OpenID Connect (OIDC)-compatible JWT
+ *  token signed by the Google OIDC Provider (accounts.google.com) for extension
+ *  endpoint
+ *  (https://cloud.google.com/iam/docs/create-short-lived-credentials-direct#sa-credentials-oidc).
+ *  - The audience for the token will be set to the URL in the server url
+ *  defined in the OpenApi spec. - If the service account is provided, the
+ *  service account should grant `iam.serviceAccounts.getOpenIdToken` permission
+ *  to Vertex AI Extension Service Agent
+ *  (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents).
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 
@@ -7931,6 +8237,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  cached content.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Input only. Immutable. Customer-managed encryption key spec for a
+ *  `CachedContent`. If set, this `CachedContent` and all its sub-resources will
+ *  be secured by this key.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec *encryptionSpec;
 
 /**
  *  Timestamp of when this resource is considered expired. This is *always*
@@ -10858,6 +11171,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelRef : GTLRObject
 
+/** Immutable. The ID of the Checkpoint deployed in the DeployedModel. */
+@property(nonatomic, copy, nullable) NSString *checkpointId;
+
 /** Immutable. An ID of a DeployedModel in the above Endpoint. */
 @property(nonatomic, copy, nullable) NSString *deployedModelId;
 
@@ -13517,6 +13833,81 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TimeSeriesDataPoint *> *timeSeriesDataPoints;
 
+@end
+
+
+/**
+ *  Retrieve from data source powered by external API for grounding. The
+ *  external API is not owned by Google, but need to follow the pre-defined API
+ *  spec.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi : GTLRObject
+
+/**
+ *  The authentication config to access the API. Deprecated. Please use
+ *  auth_config instead.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ApiAuth *apiAuth GTLR_DEPRECATED;
+
+/**
+ *  The API spec that the external API implements.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ApiSpecUnspecified
+ *        Unspecified API spec. This value should not be used. (Value:
+ *        "API_SPEC_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ElasticSearch
+ *        Elastic search API spec. (Value: "ELASTIC_SEARCH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_SimpleSearch
+ *        Simple search API spec. (Value: "SIMPLE_SEARCH")
+ */
+@property(nonatomic, copy, nullable) NSString *apiSpec;
+
+/** The authentication config to access the API. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig *authConfig;
+
+/** Parameters for the elastic search API. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiElasticSearchParams *elasticSearchParams;
+
+/**
+ *  The endpoint of the external API. The system will call the API at this
+ *  endpoint to retrieve the data for grounding. Example:
+ *  https://acme.com:443/search
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/** Parameters for the simple search API. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiSimpleSearchParams *simpleSearchParams;
+
+@end
+
+
+/**
+ *  The search parameters to use for the ELASTIC_SEARCH spec.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiElasticSearchParams : GTLRObject
+
+/** The ElasticSearch index to use. */
+@property(nonatomic, copy, nullable) NSString *index;
+
+/**
+ *  Optional. Number of hits (chunks) to request. When specified, it is passed
+ *  to Elasticsearch as the `num_hits` param.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numHits;
+
+/** The ElasticSearch search template to use. */
+@property(nonatomic, copy, nullable) NSString *searchTemplate;
+
+@end
+
+
+/**
+ *  The search parameters to use for SIMPLE_SEARCH spec.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiSimpleSearchParams : GTLRObject
 @end
 
 
@@ -16356,6 +16747,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig : GTLRObject
 
 /**
+ *  Optional. Indicates whether to include thoughts in the response. If true,
+ *  thoughts are returned only when available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeThoughts;
+
+/**
  *  Optional. Indicates the thinking budget in tokens. This is only applied when
  *  enable_thinking is true.
  *
@@ -17185,6 +17584,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 /** Specifies the transformation config for RagFiles. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagFileTransformationConfig *ragFileTransformationConfig;
+
+/**
+ *  Rebuilds the ANN index to optimize for recall on the imported data. Only
+ *  applicable for RagCorpora running on RagManagedDb with `retrieval_strategy`
+ *  set to `ANN`. The rebuild will be performed using the existing ANN config
+ *  set on the RagCorpus. To change the ANN config, please use the
+ *  UpdateRagCorpus API. Default is false, i.e., index is not rebuilt.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rebuildAnnIndex;
 
 /** SharePoint sources. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources *sharePointSources;
@@ -19453,6 +19863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *        "ACCELERATOR_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaA10080gb
  *        Nvidia A100 80GB GPU. (Value: "NVIDIA_A100_80GB")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaB200
+ *        Nvidia B200 GPU. (Value: "NVIDIA_B200")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH10080gb
  *        Nvidia H100 80Gb GPU. (Value: "NVIDIA_H100_80GB")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH100Mega80gb
@@ -23798,6 +24210,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
+ *  Output only. Indicates if the part is thought from the model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thought;
+
+/**
  *  Optional. Video metadata. The metadata should only be specified while the
  *  video data is presented in inline_data or file_data.
  */
@@ -26544,6 +26963,9 @@ GTLR_DEPRECATED
 /** The Layout Parser to use for RagFiles. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLayoutParser *layoutParser;
 
+/** The LLM Parser to use for RagFiles. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLlmParser *llmParser;
+
 @end
 
 
@@ -26570,6 +26992,37 @@ GTLR_DEPRECATED
  *  `projects/{project_id}/locations/{location}/processors/{processor_id}/processorVersions/{processor_version_id}`
  */
 @property(nonatomic, copy, nullable) NSString *processorName;
+
+@end
+
+
+/**
+ *  Specifies the LLM parsing for RagFiles.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLlmParser : GTLRObject
+
+/**
+ *  The prompt to use for parsing. If not specified, a default prompt will be
+ *  used.
+ */
+@property(nonatomic, copy, nullable) NSString *customParsingPrompt;
+
+/**
+ *  The maximum number of requests the job is allowed to make to the LLM model
+ *  per minute. Consult
+ *  https://cloud.google.com/vertex-ai/generative-ai/docs/quotas and your
+ *  document size to set an appropriate value here. If unspecified, a default
+ *  value of 5000 QPM would be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxParsingRequestsPerMin;
+
+/**
+ *  The name of a LLM model used for parsing. Format: *
+ *  `projects/{project_id}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *modelName;
 
 @end
 
@@ -26727,6 +27180,53 @@ GTLR_DEPRECATED
  *  The config for the default RAG-managed Vector DB.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb : GTLRObject
+
+/**
+ *  Performs an ANN search on RagCorpus. Use this if you have a lot of files (>
+ *  10K) in your RagCorpus and want to reduce the search latency.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbANN *ann;
+
+/** Performs a KNN search on RagCorpus. Default choice if not specified. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbKNN *knn;
+
+@end
+
+
+/**
+ *  Config for ANN search. RagManagedDb uses a tree-based structure to partition
+ *  data and facilitate faster searches. As a tradeoff, it requires longer
+ *  indexing time and manual triggering of index rebuild via the ImportRagFiles
+ *  and UpdateRagCorpus API.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbANN : GTLRObject
+
+/**
+ *  Number of leaf nodes in the tree-based structure. Each leaf node contains
+ *  groups of closely related vectors along with their corresponding centroid.
+ *  Recommended value is 10 * sqrt(num of RagFiles in your RagCorpus). Default
+ *  value is 500.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leafCount;
+
+/**
+ *  The depth of the tree-based structure. Only depth values of 2 and 3 are
+ *  supported. Recommended value is 2 if you have if you have O(10K) files in
+ *  the RagCorpus and set this to 3 if more than that. Default value is 2.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *treeDepth;
+
+@end
+
+
+/**
+ *  Config for KNN search.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbKNN : GTLRObject
 @end
 
 
@@ -27121,7 +27621,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Identifier. The resource name of the ReasoningEngine. */
+/**
+ *  Identifier. The resource name of the ReasoningEngine. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Optional. Configurations of the ReasoningEngine */
@@ -27544,6 +28047,9 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableAttribution GTLR_DEPRECATED;
+
+/** Use data source powered by external API for grounding. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi *externalApi;
 
 /** Set to use data source powered by Vertex AI Search. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch *vertexAiSearch;
@@ -38850,10 +39356,28 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *datastore;
 
 /**
+ *  Specifications that define the specific DataStores to be searched, along
+ *  with configurations for those data stores. This is only considered for
+ *  Engines with multiple data stores. It should only be set if engine is used.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec *> *dataStoreSpecs;
+
+/**
  *  Optional. Fully-qualified Vertex AI Search engine resource ID. Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  */
 @property(nonatomic, copy, nullable) NSString *engine;
+
+/** Optional. Filter strings to be passed to the search API. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Number of search results to return per query. The default value is
+ *  10. The maximumm allowed value is 10.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 @end
 
@@ -38870,6 +39394,29 @@ GTLR_DEPRECATED
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config}`.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
+
+@end
+
+
+/**
+ *  Define data stores within engine to filter on in a search call and
+ *  configurations for those data stores. For more information, see
+ *  https://cloud.google.com/generative-ai-app-builder/docs/reference/rpc/google.cloud.discoveryengine.v1#datastorespec
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec : GTLRObject
+
+/**
+ *  Full resource name of DataStore, such as Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *dataStore;
+
+/**
+ *  Optional. Filter specification to filter documents in the data store
+ *  specified by data_store field. For more information on filtering, see
+ *  [Filtering](https://cloud.google.com/generative-ai-app-builder/docs/filter-search-metadata)
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 @end
 

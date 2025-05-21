@@ -43,8 +43,6 @@ NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdStandard = @"PD_ST
 // GTLRAIPlatformNotebooks_ConfidentialInstanceConfig.confidentialInstanceType
 NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified = @"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev = @"SEV";
-NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp = @"SEV_SNP";
-NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx = @"TDX";
 
 // GTLRAIPlatformNotebooks_DataDisk.diskEncryption
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncryption_Cmek = @"CMEK";
@@ -90,6 +88,12 @@ NSString * const kGTLRAIPlatformNotebooks_Instance_State_Upgrading = @"UPGRADING
 NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_Gvnic = @"GVNIC";
 NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_NicTypeUnspecified = @"NIC_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_VirtioNet = @"VIRTIO_NET";
+
+// GTLRAIPlatformNotebooks_ReservationAffinity.consumeReservationType
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationAny = @"RESERVATION_ANY";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationNone = @"RESERVATION_NONE";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationSpecific = @"RESERVATION_SPECIFIC";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationUnspecified = @"RESERVATION_UNSPECIFIED";
 
 // GTLRAIPlatformNotebooks_UpgradeHistoryEntry.action
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
@@ -175,7 +179,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_ConfidentialInstanceConfig
-@dynamic confidentialInstanceType, enableConfidentialCompute;
+@dynamic confidentialInstanceType;
 @end
 
 
@@ -306,8 +310,8 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 @dynamic acceleratorConfigs, bootDisk, confidentialInstanceConfig,
          containerImage, dataDisks, disablePublicIp, enableIpForwarding,
          gpuDriverConfig, machineType, metadata, minCpuPlatform,
-         networkInterfaces, serviceAccounts, shieldedInstanceConfig, tags,
-         vmImage;
+         networkInterfaces, reservationAffinity, serviceAccounts,
+         shieldedInstanceConfig, tags, vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -363,10 +367,10 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_Instance
-@dynamic createTime, creator, disableProxyAccess, enableThirdPartyIdentity,
-         gceSetup, healthInfo, healthState, identifier, instanceOwners, labels,
-         name, proxyUri, satisfiesPzi, satisfiesPzs, state, thirdPartyProxyUrl,
-         updateTime, upgradeHistory;
+@dynamic createTime, creator, disableProxyAccess, enableDeletionProtection,
+         enableThirdPartyIdentity, gceSetup, healthInfo, healthState,
+         identifier, instanceOwners, labels, name, proxyUri, satisfiesPzi,
+         satisfiesPzs, state, thirdPartyProxyUrl, updateTime, upgradeHistory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -612,6 +616,24 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_ReportInstanceInfoSystemRequest
 @dynamic event, vmId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_ReservationAffinity
+//
+
+@implementation GTLRAIPlatformNotebooks_ReservationAffinity
+@dynamic consumeReservationType, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

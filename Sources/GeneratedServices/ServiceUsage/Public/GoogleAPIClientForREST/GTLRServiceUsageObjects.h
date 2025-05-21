@@ -30,6 +30,9 @@
 @class GTLRServiceUsage_Backend;
 @class GTLRServiceUsage_BackendRule;
 @class GTLRServiceUsage_BackendRule_OverridesByRequestProtocol;
+@class GTLRServiceUsage_BatchingConfigProto;
+@class GTLRServiceUsage_BatchingDescriptorProto;
+@class GTLRServiceUsage_BatchingSettingsProto;
 @class GTLRServiceUsage_Billing;
 @class GTLRServiceUsage_BillingDestination;
 @class GTLRServiceUsage_ClientLibrarySettings;
@@ -215,6 +218,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress;
 /** Value: "PATH_TRANSLATION_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_BatchingSettingsProto.flowControlLimitExceededBehavior
+
+/**
+ *  Pause operation until limit clears.
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block;
+/**
+ *  Continue operation, disregard limit.
+ *
+ *  Value: "IGNORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore;
+/**
+ *  Stop operation, raise error.
+ *
+ *  Value: "THROW_EXCEPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException;
+/**
+ *  Default behavior, system-defined.
+ *
+ *  Value: "UNSET_BEHAVIOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_ClientLibrarySettings.launchStage
@@ -1359,7 +1390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Content of the configuration. The underlying schema should be defined by
- *  Aspect owners as protobuf message under `apiserving/configaspects/proto`.
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
  */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Aspect_Spec *spec;
 
@@ -1368,7 +1399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Content of the configuration. The underlying schema should be defined by
- *  Aspect owners as protobuf message under `apiserving/configaspects/proto`.
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1751,6 +1782,125 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** The requested Service states. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV1Service *> *services;
+
+@end
+
+
+/**
+ *  `BatchingConfigProto` defines the batching configuration for an API method.
+ */
+@interface GTLRServiceUsage_BatchingConfigProto : GTLRObject
+
+/** The request and response fields used in batching. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_BatchingDescriptorProto *batchDescriptor;
+
+/** The thresholds which trigger a batched request to be sent. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_BatchingSettingsProto *thresholds;
+
+@end
+
+
+/**
+ *  `BatchingDescriptorProto` specifies the fields of the request message to be
+ *  used for batching, and, optionally, the fields of the response message to be
+ *  used for demultiplexing.
+ */
+@interface GTLRServiceUsage_BatchingDescriptorProto : GTLRObject
+
+/** The repeated field in the request message to be aggregated by batching. */
+@property(nonatomic, copy, nullable) NSString *batchedField;
+
+/**
+ *  A list of the fields in the request message. Two requests will be batched
+ *  together only if the values of every field specified in
+ *  `request_discriminator_fields` is equal between the two requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *discriminatorFields;
+
+/**
+ *  Optional. When present, indicates the field in the response message to be
+ *  used to demultiplex the response into multiple response messages, in
+ *  correspondence with the multiple request messages originally batched
+ *  together.
+ */
+@property(nonatomic, copy, nullable) NSString *subresponseField;
+
+@end
+
+
+/**
+ *  `BatchingSettingsProto` specifies a set of batching thresholds, each of
+ *  which acts as a trigger to send a batch of messages as a request. At least
+ *  one threshold must be positive nonzero.
+ */
+@interface GTLRServiceUsage_BatchingSettingsProto : GTLRObject
+
+/**
+ *  The duration after which a batch should be sent, starting from the addition
+ *  of the first message to that batch.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *delayThreshold;
+
+/**
+ *  The maximum number of elements collected in a batch that could be accepted
+ *  by server.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementCountLimit;
+
+/**
+ *  The number of elements of a field collected into a batch which, if exceeded,
+ *  causes the batch to be sent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementCountThreshold;
+
+/**
+ *  The maximum size of data allowed by flow control.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowControlByteLimit;
+
+/**
+ *  The maximum number of elements allowed by flow control.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowControlElementLimit;
+
+/**
+ *  The behavior to take when the flow control limit is exceeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block
+ *        Pause operation until limit clears. (Value: "BLOCK")
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore
+ *        Continue operation, disregard limit. (Value: "IGNORE")
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException
+ *        Stop operation, raise error. (Value: "THROW_EXCEPTION")
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior
+ *        Default behavior, system-defined. (Value: "UNSET_BEHAVIOR")
+ */
+@property(nonatomic, copy, nullable) NSString *flowControlLimitExceededBehavior;
+
+/**
+ *  The maximum size of the request that could be accepted by server.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestByteLimit;
+
+/**
+ *  The aggregated size of the batched field which, if exceeded, causes the
+ *  batch to be sent. This size is computed by aggregating the sizes of the
+ *  request field to be batched, not of the entire request message.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestByteThreshold;
 
 @end
 
@@ -4158,6 +4308,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  request_id
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoPopulatedFields;
+
+/**
+ *  Batching configuration for an API method in client libraries. Example of a
+ *  YAML configuration: publishing: method_settings: - selector:
+ *  google.example.v1.ExampleService.BatchCreateExample batching:
+ *  element_count_threshold: 1000 request_byte_threshold: 100000000
+ *  delay_threshold_millis: 10
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_BatchingConfigProto *batching;
 
 /**
  *  Describes settings to use for long-running operations when generating API

@@ -681,7 +681,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketObject_State_Ex
  *  Value: "inactive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketObject_State_Inactive GTLR_DEPRECATED;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_EventTicketObject_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -947,7 +951,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightObject_State_Expired
  *  Value: "inactive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightObject_State_Inactive GTLR_DEPRECATED;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_FlightObject_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1120,7 +1128,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_State_Expire
  *  Value: "inactive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_State_Inactive GTLR_DEPRECATED;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1267,7 +1279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardObject_State_Expir
  *  Value: "inactive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardObject_State_Inactive GTLR_DEPRECATED;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GiftCardObject_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1432,7 +1448,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyObject_State_Expire
  *  Value: "inactive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyObject_State_Inactive GTLR_DEPRECATED;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_LoyaltyObject_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1775,7 +1795,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferObject_State_Expired 
  *  Value: "inactive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferObject_State_Inactive GTLR_DEPRECATED;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_OfferObject_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -2235,7 +2259,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_State_Expire
  *  Value: "inactive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_State_Inactive GTLR_DEPRECATED;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -4195,8 +4223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        for `EXPIRED`. Deprecated. (Value: "expired")
  *    @arg @c kGTLRWalletobjects_EventTicketObject_State_Inactive Legacy alias
  *        for `INACTIVE`. Deprecated. (Value: "inactive")
- *    @arg @c kGTLRWalletobjects_EventTicketObject_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRWalletobjects_EventTicketObject_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -5114,8 +5142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        `EXPIRED`. Deprecated. (Value: "expired")
  *    @arg @c kGTLRWalletobjects_FlightObject_State_Inactive Legacy alias for
  *        `INACTIVE`. Deprecated. (Value: "inactive")
- *    @arg @c kGTLRWalletobjects_FlightObject_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRWalletobjects_FlightObject_State_StateUnspecified Default
+ *        value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -5568,8 +5596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        `EXPIRED`. Deprecated. (Value: "expired")
  *    @arg @c kGTLRWalletobjects_GenericObject_State_Inactive Legacy alias for
  *        `INACTIVE`. Deprecated. (Value: "inactive")
- *    @arg @c kGTLRWalletobjects_GenericObject_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRWalletobjects_GenericObject_State_StateUnspecified Default
+ *        value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -6183,8 +6211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        `EXPIRED`. Deprecated. (Value: "expired")
  *    @arg @c kGTLRWalletobjects_GiftCardObject_State_Inactive Legacy alias for
  *        `INACTIVE`. Deprecated. (Value: "inactive")
- *    @arg @c kGTLRWalletobjects_GiftCardObject_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRWalletobjects_GiftCardObject_State_StateUnspecified Default
+ *        value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -7226,8 +7254,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        `EXPIRED`. Deprecated. (Value: "expired")
  *    @arg @c kGTLRWalletobjects_LoyaltyObject_State_Inactive Legacy alias for
  *        `INACTIVE`. Deprecated. (Value: "inactive")
- *    @arg @c kGTLRWalletobjects_LoyaltyObject_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRWalletobjects_LoyaltyObject_State_StateUnspecified Default
+ *        value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -8474,8 +8502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        `EXPIRED`. Deprecated. (Value: "expired")
  *    @arg @c kGTLRWalletobjects_OfferObject_State_Inactive Legacy alias for
  *        `INACTIVE`. Deprecated. (Value: "inactive")
- *    @arg @c kGTLRWalletobjects_OfferObject_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRWalletobjects_OfferObject_State_StateUnspecified Default
+ *        value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -10129,8 +10157,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        `EXPIRED`. Deprecated. (Value: "expired")
  *    @arg @c kGTLRWalletobjects_TransitObject_State_Inactive Legacy alias for
  *        `INACTIVE`. Deprecated. (Value: "inactive")
- *    @arg @c kGTLRWalletobjects_TransitObject_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRWalletobjects_TransitObject_State_StateUnspecified Default
+ *        value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

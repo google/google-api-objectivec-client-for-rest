@@ -776,11 +776,8 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @interface GTLRResellerQuery_SubscriptionsInsert : GTLRResellerQuery
 
 /**
- *  The intented insert action. The usage of this field is governed by certain
- *  policies which are being developed & tested currently. Hence, these might
- *  not work as intended. Once this is fully tested & available to consume, we
- *  will share more information about its usage, limitations and policy
- *  documentation.
+ *  The intented insert action. Advised to set this when the customer already
+ *  has a subscription for a different SKU in the same product.
  *
  *  Likely values:
  *    @arg @c kGTLRResellerActionActionUnspecified Auto determines whether to
@@ -812,11 +809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 
 /**
  *  The sku_id of the existing subscription to be upgraded or downgraded. This
- *  is required when action is SWITCH. The usage of this field is governed by
- *  certain policies which are being developed & tested currently. Hence, these
- *  might not work as intended. Once this is fully tested & available to
- *  consume, we will share more information about its usage, limitations and
- *  policy documentation.
+ *  is required when action is SWITCH.
  */
 @property(nonatomic, copy, nullable) NSString *sourceSkuId;
 

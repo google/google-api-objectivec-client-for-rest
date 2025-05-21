@@ -4721,7 +4721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *connectionPoolingEnabled;
 
-/** Optional. List of connection pool configuration flags */
+/** Optional. List of connection pool configuration flags. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ConnectionPoolFlags *> *flags;
 
 @end
@@ -6654,9 +6654,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Maximum query length stored in bytes. Default value: 1024 bytes. Range:
- *  256-4500 bytes. Query length more than this field value will be truncated to
- *  this value. When unset, query length will be the default value. Changing
- *  query length will restart the database.
+ *  256-4500 bytes. Query lengths greater than this field value will be
+ *  truncated to this value. When unset, query length will be the default value.
+ *  Changing query length will restart the database.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7941,10 +7941,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_PscAutoConnectionConfig : GTLRObject
 
 /**
- *  The consumer network of this consumer endpoint. This must be a resource path
- *  that includes both the host project and the network name. For example,
- *  `projects/project1/global/networks/network1`. The consumer host project of
- *  this network might be different from the consumer service project.
+ *  Optional. The consumer network of this consumer endpoint. This must be a
+ *  resource path that includes both the host project and the network name. For
+ *  example, `projects/project1/global/networks/network1`. The consumer host
+ *  project of this network might be different from the consumer service
+ *  project.
  */
 @property(nonatomic, copy, nullable) NSString *consumerNetwork;
 
@@ -7952,9 +7953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *consumerNetworkStatus;
 
 /**
- *  This is the project ID of consumer service project of this consumer
- *  endpoint. Optional. This is only applicable if consumer_network is a shared
- *  vpc network.
+ *  Optional. This is the project ID of consumer service project of this
+ *  consumer endpoint. Optional. This is only applicable if consumer_network is
+ *  a shared vpc network.
  */
 @property(nonatomic, copy, nullable) NSString *consumerProject;
 
@@ -7980,6 +7981,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  (alphanumeric).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjects;
+
+/**
+ *  Optional. The network attachment of the consumer network that the Private
+ *  Service Connect enabled Cloud SQL instance is authorized to connect via PSC
+ *  interface. format: projects/PROJECT/regions/REGION/networkAttachments/ID
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachmentUri;
 
 /**
  *  Optional. The list of settings for requested Private Service Connect

@@ -264,14 +264,25 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_BackupConfigDetails
+//
+
+@implementation GTLRBackupforGKE_BackupConfigDetails
+@dynamic allNamespaces, encryptionKey, includeSecrets, includeVolumeData,
+         selectedApplications, selectedNamespaces;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_BackupPlan
 //
 
 @implementation GTLRBackupforGKE_BackupPlan
-@dynamic backupConfig, backupSchedule, cluster, createTime, deactivated,
-         descriptionProperty, ETag, labels, lastSuccessfulBackupTime, name,
-         protectedPodCount, retentionPolicy, rpoRiskLevel, rpoRiskReason, state,
-         stateReason, uid, updateTime;
+@dynamic backupChannel, backupConfig, backupSchedule, cluster, createTime,
+         deactivated, descriptionProperty, ETag, labels,
+         lastSuccessfulBackupTime, name, protectedPodCount, retentionPolicy,
+         rpoRiskLevel, rpoRiskReason, state, stateReason, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -320,8 +331,9 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 //
 
 @implementation GTLRBackupforGKE_BackupPlanDetails
-@dynamic lastSuccessfulBackup, lastSuccessfulBackupTime,
-         nextScheduledBackupTime, protectedPodCount, rpoRiskLevel, state;
+@dynamic backupConfigDetails, lastSuccessfulBackup, lastSuccessfulBackupTime,
+         nextScheduledBackupTime, protectedPodCount, retentionPolicyDetails,
+         rpoRiskLevel, state;
 @end
 
 
@@ -1156,7 +1168,8 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_RestorePlan
 @dynamic backupPlan, cluster, createTime, descriptionProperty, ETag, labels,
-         name, restoreConfig, state, stateReason, uid, updateTime;
+         name, restoreChannel, restoreConfig, state, stateReason, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1205,6 +1218,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_RetentionPolicy
 @dynamic backupDeleteLockDays, backupRetainDays, locked;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_RetentionPolicyDetails
+//
+
+@implementation GTLRBackupforGKE_RetentionPolicyDetails
+@dynamic backupDeleteLockDays, backupRetainDays;
 @end
 
 

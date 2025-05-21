@@ -945,3 +945,965 @@
 }
 
 @end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCompatibilityCheckCompatibility
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_CheckCompatibilityRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCompatibilityCheckCompatibility *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_CheckCompatibilityResponse class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.compatibility.checkCompatibility";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaConfig class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.config.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigGet
+
+@dynamic defaultToGlobal, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaConfig class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.config.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaConfig class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.config.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsCompatibilityCheckCompatibility
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_CheckCompatibilityRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsCompatibilityCheckCompatibility *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_CheckCompatibilityResponse class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.compatibility.checkCompatibility";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaConfig class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.config.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigGet
+
+@dynamic defaultToGlobal, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaConfig class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.config.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaConfig class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.config.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_Context class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/contexts";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaMode class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.mode.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaModeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaMode class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.mode.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGet
+
+@dynamic name, subject;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_Schema class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.schemas.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGetSchema
+
+@dynamic name, subject;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/schema";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGetSchema *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.schemas.getSchema";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasSubjectsList
+
+@dynamic deleted, parent, subject;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subjects";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasSubjectsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.schemas.subjects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasTypesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas/types";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.schemas.types.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasVersionsList
+
+@dynamic deleted, parent, subject;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.schemas.versions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsDelete
+
+@dynamic name, permanent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsList
+
+@dynamic deleted, parent, subjectPrefix;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subjects";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsLookupVersion
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_LookupVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsLookupVersion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaVersion class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.lookupVersion";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_CreateVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_CreateVersionResponse class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsDelete
+
+@dynamic name, permanent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGet
+
+@dynamic deleted, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaVersion class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGetSchema
+
+@dynamic deleted, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/schema";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGetSchema *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.getSchema";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsList
+
+@dynamic deleted, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsReferencedbyList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/referencedby";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsReferencedbyList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.referencedby.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_CreateSchemaRegistryRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemaRegistries";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaRegistry class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_Empty class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaRegistry class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemaRegistries";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_ListSchemaRegistriesResponse class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaMode class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.mode.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaModeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaMode class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.mode.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGet
+
+@dynamic name, subject;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_Schema class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.schemas.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGetSchema
+
+@dynamic name, subject;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/schema";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGetSchema *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.schemas.getSchema";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasSubjectsList
+
+@dynamic deleted, parent, subject;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subjects";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasSubjectsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.schemas.subjects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasTypesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas/types";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.schemas.types.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasVersionsList
+
+@dynamic deleted, parent, subject;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.schemas.versions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsDelete
+
+@dynamic name, permanent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsList
+
+@dynamic deleted, parent, subjectPrefix;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subjects";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsLookupVersion
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_LookupVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsLookupVersion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaVersion class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.lookupVersion";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRManagedKafka_CreateVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_CreateVersionResponse class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.versions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsDelete
+
+@dynamic name, permanent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGet
+
+@dynamic deleted, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaVersion class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.versions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGetSchema
+
+@dynamic deleted, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/schema";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGetSchema *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.versions.getSchema";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsList
+
+@dynamic deleted, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.versions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsReferencedbyList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/referencedby";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsReferencedbyList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedKafka_HttpBody class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.subjects.versions.referencedby.list";
+  return query;
+}
+
+@end

@@ -173,6 +173,7 @@ NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Image = @"IMA
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Package = @"PACKAGE";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_SbomReference = @"SBOM_REFERENCE";
+NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Secret = @"SECRET";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Upgrade = @"UPGRADE";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -327,6 +328,7 @@ NSString * const kGTLRContainerAnalysis_Note_Kind_Image        = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Package      = @"PACKAGE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_SbomReference = @"SBOM_REFERENCE";
+NSString * const kGTLRContainerAnalysis_Note_Kind_Secret       = @"SECRET";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade      = @"UPGRADE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLRContainerAnalysis_Note_Kind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -342,6 +344,7 @@ NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Image  = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Package = @"PACKAGE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SbomReference = @"SBOM_REFERENCE";
+NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Secret = @"SECRET";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade = @"UPGRADE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -376,6 +379,17 @@ NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_Workaround =
 NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_Complete = @"COMPLETE";
 NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_Pending = @"PENDING";
 NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_SbomStateUnspecified = @"SBOM_STATE_UNSPECIFIED";
+
+// GTLRContainerAnalysis_SecretOccurrence.kind
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey = @"SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnknown = @"SECRET_KIND_UNKNOWN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnspecified = @"SECRET_KIND_UNSPECIFIED";
+
+// GTLRContainerAnalysis_SecretStatus.status
+NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Invalid = @"INVALID";
+NSString * const kGTLRContainerAnalysis_SecretStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Valid = @"VALID";
 
 // GTLRContainerAnalysis_Version.kind
 NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum   = @"MAXIMUM";
@@ -2184,7 +2198,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_LayerDetails
-@dynamic baseImages, command, diffId, index;
+@dynamic baseImages, chainId, command, diffId, index;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2335,8 +2349,9 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_Note
 @dynamic attestation, build, compliance, createTime, deployment, discovery,
          dsseAttestation, expirationTime, image, kind, longDescription, name,
-         package, relatedNoteNames, relatedUrl, sbomReference, shortDescription,
-         updateTime, upgrade, vulnerability, vulnerabilityAssessment;
+         package, relatedNoteNames, relatedUrl, sbomReference, secret,
+         shortDescription, updateTime, upgrade, vulnerability,
+         vulnerabilityAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2363,7 +2378,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_Occurrence
 @dynamic attestation, build, compliance, createTime, deployment, discovery,
          dsseAttestation, envelope, image, kind, name, noteName, package,
-         remediation, resourceUri, sbomReference, updateTime, upgrade,
+         remediation, resourceUri, sbomReference, secret, updateTime, upgrade,
          vulnerability;
 
 + (BOOL)isKindValidForClassRegistry {
@@ -2744,6 +2759,60 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_SBOMStatus
 @dynamic error, sbomState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SecretLocation
+//
+
+@implementation GTLRContainerAnalysis_SecretLocation
+@dynamic fileLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SecretNote
+//
+
+@implementation GTLRContainerAnalysis_SecretNote
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SecretOccurrence
+//
+
+@implementation GTLRContainerAnalysis_SecretOccurrence
+@dynamic kind, locations, statuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRContainerAnalysis_SecretLocation class],
+    @"statuses" : [GTLRContainerAnalysis_SecretStatus class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SecretStatus
+//
+
+@implementation GTLRContainerAnalysis_SecretStatus
+@dynamic message, status, updateTime;
 @end
 
 

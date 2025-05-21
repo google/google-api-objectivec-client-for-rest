@@ -2028,6 +2028,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
+ *  Gets the specified domain mapping.
+ *
+ *  Method: appengine.projects.locations.applications.domainMappings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsGet : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *domainMappingsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the resource requested. Example:
+ *  apps/myapp/domainMappings/example.com.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_DomainMapping.
+ *
+ *  Gets the specified domain mapping.
+ *
+ *  @param projectsId Part of `name`. Name of the resource requested. Example:
+ *    apps/myapp/domainMappings/example.com.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param domainMappingsId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsGet
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                   domainMappingsId:(NSString *)domainMappingsId;
+
+@end
+
+/**
  *  Updates the specified Application resource. You can update the following
  *  fields: auth_domain - Google authentication domain for controlling user
  *  access to the application. default_cookie_expiration - Cookie expiration
@@ -2126,6 +2173,77 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
                         locationsId:(NSString *)locationsId
                      applicationsId:(NSString *)applicationsId
                          servicesId:(NSString *)servicesId;
+
+@end
+
+/**
+ *  Updates the configuration of the specified service.
+ *
+ *  Method: appengine.projects.locations.applications.services.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsServicesPatch : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Set to true to gradually shift traffic to one or more versions that you
+ *  specify. By default, traffic is shifted immediately. For gradual traffic
+ *  migration, the target versions must be located within instances that are
+ *  configured for both warmup requests
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#InboundServiceType)
+ *  and automatic scaling
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#AutomaticScaling).
+ *  You must specify the shardBy
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services#ShardBy)
+ *  field in the Service resource. Gradual traffic migration is not supported in
+ *  the App Engine flexible environment. For examples, see Migrating and
+ *  Splitting Traffic
+ *  (https://cloud.google.com/appengine/docs/admin-api/migrating-splitting-traffic).
+ */
+@property(nonatomic, assign) BOOL migrateTraffic;
+
+/**
+ *  Part of `name`. Name of the resource to update. Example:
+ *  apps/myapp/services/default.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *servicesId;
+
+/**
+ *  Required. Standard field mask for the set of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Updates the configuration of the specified service.
+ *
+ *  @param object The @c GTLRAppengine_Service to include in the query.
+ *  @param projectsId Part of `name`. Name of the resource to update. Example:
+ *    apps/myapp/services/default.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param servicesId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_Service *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+                     servicesId:(NSString *)servicesId;
 
 @end
 

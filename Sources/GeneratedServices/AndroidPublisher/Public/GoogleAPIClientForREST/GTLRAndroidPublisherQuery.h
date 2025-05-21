@@ -3671,10 +3671,10 @@ GTLR_DEPRECATED
  *  specified according to the information published in [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. Using this field will ensure that creating and updating the
- *  resource with an older region's version and set of regional prices and
- *  currencies will succeed even though a new version is available. The latest
- *  version is 2022/02.
+ *  incremented. The latest supported version is available in this article.
+ *  Using this field will ensure that creating and updating the resource with an
+ *  older region's version and set of regional prices and currencies will
+ *  succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -3983,10 +3983,10 @@ GTLR_DEPRECATED
  *  specified according to the information published in [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. Using this field will ensure that creating and updating the
- *  resource with an older region's version and set of regional prices and
- *  currencies will succeed even though a new version is available. The latest
- *  version is 2022/02.
+ *  incremented. The latest supported version is available in this article.
+ *  Using this field will ensure that creating and updating the resource with an
+ *  older region's version and set of regional prices and currencies will
+ *  succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -4130,10 +4130,10 @@ GTLR_DEPRECATED
  *  specified according to the information published in [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. Using this field will ensure that creating and updating the
- *  resource with an older region's version and set of regional prices and
- *  currencies will succeed even though a new version is available. The latest
- *  version is 2022/02.
+ *  incremented. The latest supported version is available in this article.
+ *  Using this field will ensure that creating and updating the resource with an
+ *  older region's version and set of regional prices and currencies will
+ *  succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -4334,10 +4334,10 @@ GTLR_DEPRECATED
  *  specified according to the information published in [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. Using this field will ensure that creating and updating the
- *  resource with an older region's version and set of regional prices and
- *  currencies will succeed even though a new version is available. The latest
- *  version is 2022/02.
+ *  incremented. The latest supported version is available in this article.
+ *  Using this field will ensure that creating and updating the resource with an
+ *  older region's version and set of regional prices and currencies will
+ *  succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -4367,6 +4367,85 @@ GTLR_DEPRECATED
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_Subscription *)object
                     packageName:(NSString *)packageName
                       productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Get order details for a list of orders.
+ *
+ *  Method: androidpublisher.orders.batchget
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_OrdersBatchget : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The list of order IDs to retrieve order details for. There must be
+ *  between 1 and 1000 (inclusive) order IDs per request. If any order ID is not
+ *  found or does not match the provided package, the entire request will fail
+ *  with an error. The order IDs must be distinct.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *orderIds;
+
+/**
+ *  Required. The package name of the application for which this subscription or
+ *  in-app item was purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchGetOrdersResponse.
+ *
+ *  Get order details for a list of orders.
+ *
+ *  @param packageName Required. The package name of the application for which
+ *    this subscription or in-app item was purchased (for example,
+ *    'com.some.thing').
+ *
+ *  @return GTLRAndroidPublisherQuery_OrdersBatchget
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Get order details for a single order.
+ *
+ *  Method: androidpublisher.orders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_OrdersGet : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The order ID provided to the user when the subscription or in-app
+ *  order was purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Required. The package name of the application for which this subscription or
+ *  in-app item was purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Order.
+ *
+ *  Get order details for a single order.
+ *
+ *  @param packageName Required. The package name of the application for which
+ *    this subscription or in-app item was purchased (for example,
+ *    'com.some.thing').
+ *  @param orderId Required. The order ID provided to the user when the
+ *    subscription or in-app order was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_OrdersGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                             orderId:(NSString *)orderId;
 
 @end
 
@@ -4706,14 +4785,15 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Checks whether a user's subscription purchase is valid and returns its
- *  expiry time.
+ *  Deprecated: Use purchases.subscriptionsv2.get instead. Checks whether a
+ *  user's subscription purchase is valid and returns its expiry time.
  *
  *  Method: androidpublisher.purchases.subscriptions.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidPublisher
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet : GTLRAndroidPublisherQuery
 
 /**
@@ -4733,8 +4813,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRAndroidPublisher_SubscriptionPurchase.
  *
- *  Checks whether a user's subscription purchase is valid and returns its
- *  expiry time.
+ *  Deprecated: Use purchases.subscriptionsv2.get instead. Checks whether a
+ *  user's subscription purchase is valid and returns its expiry time.
  *
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').
@@ -4752,14 +4832,16 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Refunds a user's subscription purchase, but the subscription remains valid
- *  until its expiration time and it will continue to recur.
+ *  Deprecated: Use orders.refund instead. Refunds a user's subscription
+ *  purchase, but the subscription remains valid until its expiration time and
+ *  it will continue to recur.
  *
  *  Method: androidpublisher.purchases.subscriptions.refund
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidPublisher
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund : GTLRAndroidPublisherQuery
 
 /**
@@ -4780,8 +4862,9 @@ GTLR_DEPRECATED
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Refunds a user's subscription purchase, but the subscription remains valid
- *  until its expiration time and it will continue to recur.
+ *  Deprecated: Use orders.refund instead. Refunds a user's subscription
+ *  purchase, but the subscription remains valid until its expiration time and
+ *  it will continue to recur.
  *
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').
@@ -4799,14 +4882,16 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Refunds and immediately revokes a user's subscription purchase. Access to
- *  the subscription will be terminated immediately and it will stop recurring.
+ *  Deprecated: Use purchases.subscriptionsv2.revoke instead. Refunds and
+ *  immediately revokes a user's subscription purchase. Access to the
+ *  subscription will be terminated immediately and it will stop recurring.
  *
  *  Method: androidpublisher.purchases.subscriptions.revoke
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidPublisher
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke : GTLRAndroidPublisherQuery
 
 /**
@@ -4827,8 +4912,9 @@ GTLR_DEPRECATED
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Refunds and immediately revokes a user's subscription purchase. Access to
- *  the subscription will be terminated immediately and it will stop recurring.
+ *  Deprecated: Use purchases.subscriptionsv2.revoke instead. Refunds and
+ *  immediately revokes a user's subscription purchase. Access to the
+ *  subscription will be terminated immediately and it will stop recurring.
  *
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').

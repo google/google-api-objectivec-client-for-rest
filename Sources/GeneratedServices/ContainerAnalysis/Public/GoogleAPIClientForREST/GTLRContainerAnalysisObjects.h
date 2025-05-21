@@ -170,6 +170,10 @@
 @class GTLRContainerAnalysis_SBOMReferenceNote;
 @class GTLRContainerAnalysis_SBOMReferenceOccurrence;
 @class GTLRContainerAnalysis_SBOMStatus;
+@class GTLRContainerAnalysis_SecretLocation;
+@class GTLRContainerAnalysis_SecretNote;
+@class GTLRContainerAnalysis_SecretOccurrence;
+@class GTLRContainerAnalysis_SecretStatus;
 @class GTLRContainerAnalysis_Signature;
 @class GTLRContainerAnalysis_SlsaBuilder;
 @class GTLRContainerAnalysis_SlsaCompleteness;
@@ -689,6 +693,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_Analysis
  *  Value: "SBOM_REFERENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_SbomReference;
+/**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Secret;
 /**
  *  This represents an available package upgrade.
  *
@@ -1462,6 +1472,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Package;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_SbomReference;
 /**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Secret;
+/**
  *  This represents an available package upgrade.
  *
  *  Value: "UPGRADE"
@@ -1543,6 +1559,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Packag
  *  Value: "SBOM_REFERENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SbomReference;
+/**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Secret;
 /**
  *  This represents an available package upgrade.
  *
@@ -1707,6 +1729,57 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_P
  *  Value: "SBOM_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_SbomStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_SecretOccurrence.kind
+
+/**
+ *  A GCP service account key per:
+ *  https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *
+ *  Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey;
+/**
+ *  The secret kind is unknown.
+ *
+ *  Value: "SECRET_KIND_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnknown;
+/**
+ *  Unspecified
+ *
+ *  Value: "SECRET_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_SecretStatus.status
+
+/**
+ *  The secret is invalid.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Invalid;
+/**
+ *  Unspecified
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_StatusUnspecified;
+/**
+ *  The status of the secret is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Unknown;
+/**
+ *  The secret is valid.
+ *
+ *  Value: "VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Valid;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
@@ -3408,6 +3481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_SbomReference
  *        This represents an SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Secret This
+ *        represents a secret. (Value: "SECRET")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Upgrade This
  *        represents an available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability
@@ -6122,6 +6197,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_BaseImage *> *baseImages;
 
 /**
+ *  The layer chain ID (sha256 hash) of the layer in the container image.
+ *  https://github.com/opencontainers/image-spec/blob/main/config.md#layer-chainid
+ */
+@property(nonatomic, copy, nullable) NSString *chainId;
+
+/**
  *  The layer build command that was used to build the layer. This may not be
  *  found in all layers depending on how the container image is built.
  */
@@ -6400,6 +6481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_SbomReference This represents an
  *        SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_Secret This represents a secret.
+ *        (Value: "SECRET")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Upgrade This represents an
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Vulnerability The note and
@@ -6430,6 +6513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** A note describing an SBOM reference. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMReferenceNote *sbomReference;
+
+/** A note describing a secret. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SecretNote *secret;
 
 /** A one sentence description of this note. */
 @property(nonatomic, copy, nullable) NSString *shortDescription;
@@ -6512,6 +6598,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        package installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_SbomReference This
  *        represents an SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Secret This represents a
+ *        secret. (Value: "SECRET")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Upgrade This represents an
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability The note and
@@ -6550,6 +6638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Describes a specific SBOM reference occurrences. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMReferenceOccurrence *sbomReference;
+
+/** Describes a secret. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SecretOccurrence *secret;
 
 /** Output only. The time this occurrence was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -7264,6 +7355,82 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        Default unknown state. (Value: "SBOM_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sbomState;
+
+@end
+
+
+/**
+ *  The location of the secret.
+ */
+@interface GTLRContainerAnalysis_SecretLocation : GTLRObject
+
+/** The secret is found from a file. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1FileLocation *fileLocation;
+
+@end
+
+
+/**
+ *  The note representing a secret.
+ */
+@interface GTLRContainerAnalysis_SecretNote : GTLRObject
+@end
+
+
+/**
+ *  The occurrence provides details of a secret.
+ */
+@interface GTLRContainerAnalysis_SecretOccurrence : GTLRObject
+
+/**
+ *  Required. Type of secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey
+ *        A GCP service account key per:
+ *        https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *        (Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnknown The
+ *        secret kind is unknown. (Value: "SECRET_KIND_UNKNOWN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnspecified
+ *        Unspecified (Value: "SECRET_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Optional. Locations where the secret is detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_SecretLocation *> *locations;
+
+/** Optional. Status of the secret. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_SecretStatus *> *statuses;
+
+@end
+
+
+/**
+ *  The status of the secret with a timestamp.
+ */
+@interface GTLRContainerAnalysis_SecretStatus : GTLRObject
+
+/** Optional. Optional message about the status code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Optional. The status of the secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_Invalid The secret is
+ *        invalid. (Value: "INVALID")
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_StatusUnspecified
+ *        Unspecified (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_Unknown The status of
+ *        the secret is unknown. (Value: "UNKNOWN")
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_Valid The secret is
+ *        valid. (Value: "VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Optional. The time the secret status was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

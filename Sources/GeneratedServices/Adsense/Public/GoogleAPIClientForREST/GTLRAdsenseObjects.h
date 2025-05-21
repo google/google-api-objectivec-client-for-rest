@@ -1351,8 +1351,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @interface GTLRAdsense_PolicyTopic : GTLRObject
 
 /**
- *  Required. Deprecated. Policy topics no longer have a "must-fix"
- *  classification.
+ *  Required. Deprecated. Always set to false.
  *
  *  Uses NSNumber of boolValue.
  */

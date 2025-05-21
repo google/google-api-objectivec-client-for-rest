@@ -2108,6 +2108,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 
 /**
+ *  Restart Airflow web server.
+ */
+@interface GTLRCloudComposer_RestartWebServerRequest : GTLRObject
+@end
+
+
+/**
  *  Request to create a snapshot of a Cloud Composer environment.
  */
 @interface GTLRCloudComposer_SaveSnapshotRequest : GTLRObject

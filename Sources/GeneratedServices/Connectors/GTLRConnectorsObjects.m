@@ -335,7 +335,15 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_AuthCodeData
-@dynamic authCode, pkceVerifier, redirectUri;
+@dynamic authCode, pkceVerifier, redirectUri, scopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

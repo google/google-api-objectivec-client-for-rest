@@ -310,6 +310,7 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpFilters =
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpRoutes = @"QUOTA_EXCEEDED_TCP_ROUTES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTlsRoutes = @"QUOTA_EXCEEDED_TLS_ROUTES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies = @"QUOTA_EXCEEDED_TRAFFIC_POLICIES";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ThcPodUnschedulable = @"THC_POD_UNSCHEDULABLE";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedGatewayClass = @"UNSUPPORTED_GATEWAY_CLASS";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedMultipleControlPlanes = @"UNSUPPORTED_MULTIPLE_CONTROL_PLANES";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_VpcscGaSupported = @"VPCSC_GA_SUPPORTED";

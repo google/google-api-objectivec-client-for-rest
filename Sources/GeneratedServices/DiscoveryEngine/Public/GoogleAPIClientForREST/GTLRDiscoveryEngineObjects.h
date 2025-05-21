@@ -184,6 +184,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse_Metrics;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerCitation;
@@ -238,6 +239,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerStepActionSearchAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAdvancedSiteSearchConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCondition;
@@ -336,10 +338,12 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CheckGroundingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Chunk;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Chunk_DerivedStructData;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkAnnotationMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkChunkMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkDocumentMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkDocumentMetadata_StructData;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkPageSpan;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CloudSqlSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponseQuerySuggestion;
@@ -491,6 +495,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent_Attributes;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig;
 @class GTLRDiscoveryEngine_GoogleLongrunningOperation;
 @class GTLRDiscoveryEngine_GoogleLongrunningOperation_Metadata;
@@ -611,6 +616,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "POTENTIAL_POLICY_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_PotentialPolicyViolation;
+/**
+ *  The unhelpful answer case. Google skips the answer if the answer is not
+ *  helpful. This can be due to a variety of factors, including but not limited
+ *  to: the query is not answerable, the answer is not relevant to the query, or
+ *  the answer is not well-formatted.
+ *
+ *  Value: "UNHELPFUL_ANSWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_UnhelpfulAnswer;
 /**
  *  The user defined query classification ignored case. Google skips the answer
  *  if the query is classified as a user defined query classification.
@@ -764,6 +778,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "DATA_INGESTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig_SupportedConnectorModes_DataIngestion;
+/**
+ *  Connector utilized for End User Authentication.
+ *
+ *  Value: "END_USER_AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig_SupportedConnectorModes_EndUserAuthentication;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig.notebooklmState
@@ -1020,6 +1040,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "REALTIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_Realtime;
+/**
+ *  Scala sync.
+ *
+ *  Value: "SCALA_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_ScalaSync;
 /**
  *  Sync type unspecified.
  *
@@ -1369,6 +1395,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "PERIODIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Periodic;
+/**
+ *  The data will be synced with Scala Sync, a data ingestion solution.
+ *
+ *  Value: "SCALA_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_ScalaSync;
 /**
  *  The data will be synced in real time.
  *
@@ -2606,6 +2638,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense.licenseAssignmentState
+
+/**
+ *  License assigned to the user.
+ *
+ *  Value: "ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_Assigned;
+/**
+ *  Default value.
+ *
+ *  Value: "LICENSE_ASSIGNMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_LicenseAssignmentStateUnspecified;
+/**
+ *  No license assigned to the user.
+ *
+ *  Value: "NO_LICENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_NoLicense;
+/**
+ *  User attempted to login but no license assigned to the user. This state is
+ *  only used for no user first time login attempt but cannot get license
+ *  assigned. Users already logged in but cannot get license assigned will be
+ *  assigned NO_LICENSE state(License could be unassigned by admin).
+ *
+ *  Value: "NO_LICENSE_ATTEMPTED_LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_NoLicenseAttemptedLogin;
+/**
+ *  No license assigned to the user. Deprecated, translated to NO_LICENSE.
+ *
+ *  Value: "UNASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_Unassigned;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaWorkspaceConfig.type
 
 /**
@@ -2736,6 +2805,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "POTENTIAL_POLICY_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer_AnswerSkippedReasons_PotentialPolicyViolation;
+/**
+ *  The unhelpful answer case. Google skips the answer if the answer is not
+ *  helpful. This can be due to a variety of factors, including but not limited
+ *  to: the query is not answerable, the answer is not relevant to the query, or
+ *  the answer is not well-formatted.
+ *
+ *  Value: "UNHELPFUL_ANSWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer_AnswerSkippedReasons_UnhelpfulAnswer;
 /**
  *  The user defined query classification ignored case. Google skips the answer
  *  if the query is classified as a user defined query classification.
@@ -4226,6 +4304,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_VarInteger;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent.structureType
+
+/**
+ *  Checkbox structure.
+ *
+ *  Value: "CHECKBOX_STRUCTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_CheckboxStructure;
+/**
+ *  Shareholder structure.
+ *
+ *  Value: "SHAREHOLDER_STRUCTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_ShareholderStructure;
+/**
+ *  Signature structure.
+ *
+ *  Value: "SIGNATURE_STRUCTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_SignatureStructure;
+/**
+ *  Default value.
+ *
+ *  Value: "STRUCTURE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_StructureTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig.notebooklmState
 
 /**
@@ -5330,6 +5436,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense.licenseAssignmentState
+
+/**
+ *  License assigned to the user.
+ *
+ *  Value: "ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_Assigned;
+/**
+ *  Default value.
+ *
+ *  Value: "LICENSE_ASSIGNMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_LicenseAssignmentStateUnspecified;
+/**
+ *  No license assigned to the user.
+ *
+ *  Value: "NO_LICENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_NoLicense;
+/**
+ *  User attempted to login but no license assigned to the user. This state is
+ *  only used for no user first time login attempt but cannot get license
+ *  assigned. Users already logged in but cannot get license assigned will be
+ *  assigned NO_LICENSE state(License could be unassigned by admin).
+ *
+ *  Value: "NO_LICENSE_ATTEMPTED_LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_NoLicenseAttemptedLogin;
+/**
+ *  No license assigned to the user. Deprecated, translated to NO_LICENSE.
+ *
+ *  Value: "UNASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_Unassigned;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WorkspaceConfig.type
@@ -6995,6 +7138,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Metadata related to the progress of the
+ *  UserLicenseService.BatchUpdateUserLicenses operation. This will be returned
+ *  by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchUpdateUserLicensesMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of user licenses that failed to be updated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of user licenses successfully updated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for UserLicenseService.BatchUpdateUserLicenses method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchUpdateUserLicensesResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
+
+/** UserLicenses successfully updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense *> *userLicenses;
+
+@end
+
+
+/**
  *  Configurations used to enable CMEK data encryption with Cloud KMS keys.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig : GTLRObject
@@ -7376,6 +7566,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Incremental sync of updated documents. (Value: "INCREMENTAL")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_Realtime
  *        Realtime sync. (Value: "REALTIME")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_ScalaSync
+ *        Scala sync. (Value: "SCALA_SYNC")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun_SyncType_SyncTypeUnspecified
  *        Sync type unspecified. (Value: "SYNC_TYPE_UNSPECIFIED")
  */
@@ -7453,10 +7645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Promote certain links based on predefined trigger queries. This now only
- *  supports basic site search.
- */
+/** Promote certain links based on predefined trigger queries. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlPromoteAction *promoteAction;
 
 /** Defines a redirect-type control. */
@@ -7852,8 +8041,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfig *> *alertPolicyConfigs;
 
 /**
- *  Indicates whether the connector is disabled for auto run. It can be used to
- *  pause periodical and real time sync.
+ *  Optional. Indicates whether the connector is disabled for auto run. It can
+ *  be used to pause periodical and real time sync. Update: with the
+ *  introduction of incremental_sync_disabled, auto_run_disabled is used to
+ *  pause/disable only full syncs
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7877,7 +8068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Output only. The type of connector. Each source can only map to one type.
  *  For example, salesforce, confluence and jira have THIRD_PARTY connector
- *  type. It is notmutable once set by system.
+ *  type. It is not mutable once set by system.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_BigQuery
@@ -7910,6 +8101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        API. (Value: "THIRD_PARTY_FEDERATED")
  */
 @property(nonatomic, copy, nullable) NSString *connectorType;
+
+/**
+ *  Optional. Whether the END USER AUTHENTICATION connector is created in SaaS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createEuaSaas;
 
 /** Output only. Timestamp the DataConnector was created at. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -7953,6 +8151,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  documents ingested by this connector.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdentityScheduleConfig *identityScheduleConfig;
+
+/**
+ *  Optional. The refresh interval specifically for incremental data syncs. If
+ *  unset, incremental syncs will use the default from env, set to 3hrs. The
+ *  minimum is 30 minutes and maximum is 7 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *incrementalRefreshInterval;
+
+/**
+ *  Optional. Indicates whether incremental syncs are paused for this connector.
+ *  This is independent of auto_run_disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *incrementalSyncDisabled;
 
 /**
  *  Input only. The KMS key to be used to protect the DataStores managed by this
@@ -8116,6 +8329,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The connector will sync data periodically based on the
  *        refresh_interval. Use it with auto_run_disabled to pause the periodic
  *        sync, or indicate a one-time sync. (Value: "PERIODIC")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_ScalaSync
+ *        The data will be synced with Scala Sync, a data ingestion solution.
+ *        (Value: "SCALA_SYNC")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Streaming
  *        The data will be synced in real time. (Value: "STREAMING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_SyncMode_Unspecified
@@ -8424,7 +8640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLanguageInfo *languageInfo;
 
 /**
- *  Immutable. The full resource name of the data store. Format:
+ *  Immutable. Identifier. The full resource name of the data store. Format:
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *  This field must be a UTF-8 encoded string with a length limit of 1024
  *  characters.
@@ -8511,8 +8727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStoreServingConfigDataStore : GTLRObject
 
 /**
- *  If set true, the DataStore will not be available for serving search
- *  requests.
+ *  Optional. If set true, the DataStore will not be available for serving
+ *  search requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9023,12 +9239,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
- *  SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with
- *  at most one data store. If solution_type is SOLUTION_TYPE_CHAT, multiple
- *  DataStores in the same Collection can be associated here. Note that when
- *  used in CreateEngineRequest, one DataStore id must be provided as the system
- *  will use it for necessary initializations.
+ *  Optional. The data stores associated with this engine. For
+ *  SOLUTION_TYPE_SEARCH and SOLUTION_TYPE_RECOMMENDATION type of engines, they
+ *  can only associate with at most one data store. If solution_type is
+ *  SOLUTION_TYPE_CHAT, multiple DataStores in the same Collection can be
+ *  associated here. Note that when used in CreateEngineRequest, one DataStore
+ *  id must be provided as the system will use it for necessary initializations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataStoreIds;
 
@@ -9047,9 +9263,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The industry vertical that the engine registers. The restriction of the
- *  Engine industry vertical is based on DataStore: Vertical on Engine has to
- *  match vertical of the DataStore linked to the engine.
+ *  Optional. The industry vertical that the engine registers. The restriction
+ *  of the Engine industry vertical is based on DataStore: Vertical on Engine
+ *  has to match vertical of the DataStore linked to the engine.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_Generic
@@ -9072,8 +9288,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig *mediaRecommendationEngineConfig;
 
 /**
- *  Immutable. The fully qualified resource name of the engine. This field must
- *  be a UTF-8 encoded string with a length limit of 1024 characters. Format:
+ *  Immutable. Identifier. The fully qualified resource name of the engine. This
+ *  field must be a UTF-8 encoded string with a length limit of 1024 characters.
+ *  Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  *  engine should be 1-63 characters, and valid characters are /a-z0-9* /.
  *  Otherwise, an INVALID_ARGUMENT error is returned.
@@ -12169,6 +12386,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestBoostSpec *boostSpec;
 
 /**
+ *  Optional. Custom search operators which if specified will be used to filter
+ *  results from workspace data stores. For more information on custom search
+ *  operators, see
+ *  [SearchOperators](https://support.google.com/cloudsearch/answer/6172299).
+ */
+@property(nonatomic, copy, nullable) NSString *customSearchOperators;
+
+/**
  *  Required. Full resource name of DataStore, such as
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  */
@@ -13124,6 +13349,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  User License information assigned by the admin.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense : GTLRObject
+
+/** Output only. User created timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. User last logged in time. If the user has not logged in yet,
+ *  this field will be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
+
+/**
+ *  Output only. License assignment state of the user. If the user is assigned
+ *  with a license config, the user loggin will be assigned with the license; If
+ *  the user's license assignment state is unassigned or unspecified, no license
+ *  config will be associated to the user;
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_Assigned
+ *        License assigned to the user. (Value: "ASSIGNED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_LicenseAssignmentStateUnspecified
+ *        Default value. (Value: "LICENSE_ASSIGNMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_NoLicense
+ *        No license assigned to the user. (Value: "NO_LICENSE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_NoLicenseAttemptedLogin
+ *        User attempted to login but no license assigned to the user. This
+ *        state is only used for no user first time login attempt but cannot get
+ *        license assigned. Users already logged in but cannot get license
+ *        assigned will be assigned NO_LICENSE state(License could be unassigned
+ *        by admin). (Value: "NO_LICENSE_ATTEMPTED_LOGIN")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense_LicenseAssignmentState_Unassigned
+ *        No license assigned to the user. Deprecated, translated to NO_LICENSE.
+ *        (Value: "UNASSIGNED")
+ */
+@property(nonatomic, copy, nullable) NSString *licenseAssignmentState;
+
+/**
+ *  Optional. The full resource name of the Subscription(LicenseConfig) assigned
+ *  to the user.
+ */
+@property(nonatomic, copy, nullable) NSString *licenseConfig;
+
+/** Output only. User update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. The full resource name of the User, in the format of
+ *  `projects/{project}/locations/{location}/userStores/{user_store}/users/{user_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 2048
+ *  characters. If the user field is empty, it's indicating the user has not
+ *  logged in yet and no User entity is created.
+ */
+@property(nonatomic, copy, nullable) NSString *user;
+
+/**
+ *  Required. Immutable. The user principal of the User, could be email address
+ *  or other prinical identifier. This field is immutable. Admin assign licenses
+ *  based on the user principal.
+ */
+@property(nonatomic, copy, nullable) NSString *userPrincipal;
+
+/**
+ *  Optional. The user profile. We user user full name(First name + Last name)
+ *  as user profile.
+ */
+@property(nonatomic, copy, nullable) NSString *userProfile;
 
 @end
 
@@ -14608,6 +14906,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Request message for UserLicenseService.BatchUpdateUserLicenses method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequest : GTLRObject
+
+/**
+ *  Optional. If true, if user licenses removed associated license config, the
+ *  user license will be deleted. By default which is false, the user license
+ *  will be updated to unassigned state.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteUnassignedUserLicenses;
+
+/** Cloud Storage location for the input content. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GcsSource *gcsSource;
+
+/** The inline source for the input content for document embeddings. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequestInlineSource *inlineSource;
+
+@end
+
+
+/**
+ *  The inline source for the input config for BatchUpdateUserLicenses method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequestInlineSource : GTLRObject
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Required. A list of user licenses to update. Each user license must have a
+ *  valid UserLicense.user_principal.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense *> *userLicenses;
+
+@end
+
+
+/**
  *  Request message for SiteSearchEngineService.BatchVerifyTargetSites method.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest : GTLRObject
@@ -14855,10 +15197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Promote certain links based on predefined trigger queries. This now only
- *  supports basic site search.
- */
+/** Promote certain links based on predefined trigger queries. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlPromoteAction *promoteAction;
 
 /** Defines a redirect-type control. */
@@ -15329,7 +15668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLanguageInfo *languageInfo;
 
 /**
- *  Immutable. The full resource name of the data store. Format:
+ *  Immutable. Identifier. The full resource name of the data store. Format:
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *  This field must be a UTF-8 encoded string with a length limit of 1024
  *  characters.
@@ -15416,8 +15755,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStoreServingConfigDataStore : GTLRObject
 
 /**
- *  If set true, the DataStore will not be available for serving search
- *  requests.
+ *  Optional. If set true, the DataStore will not be available for serving
+ *  search requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -15827,12 +16166,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
- *  SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with
- *  at most one data store. If solution_type is SOLUTION_TYPE_CHAT, multiple
- *  DataStores in the same Collection can be associated here. Note that when
- *  used in CreateEngineRequest, one DataStore id must be provided as the system
- *  will use it for necessary initializations.
+ *  Optional. The data stores associated with this engine. For
+ *  SOLUTION_TYPE_SEARCH and SOLUTION_TYPE_RECOMMENDATION type of engines, they
+ *  can only associate with at most one data store. If solution_type is
+ *  SOLUTION_TYPE_CHAT, multiple DataStores in the same Collection can be
+ *  associated here. Note that when used in CreateEngineRequest, one DataStore
+ *  id must be provided as the system will use it for necessary initializations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataStoreIds;
 
@@ -15851,9 +16190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The industry vertical that the engine registers. The restriction of the
- *  Engine industry vertical is based on DataStore: Vertical on Engine has to
- *  match vertical of the DataStore linked to the engine.
+ *  Optional. The industry vertical that the engine registers. The restriction
+ *  of the Engine industry vertical is based on DataStore: Vertical on Engine
+ *  has to match vertical of the DataStore linked to the engine.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_IndustryVertical_Generic
@@ -15876,8 +16215,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig *mediaRecommendationEngineConfig;
 
 /**
- *  Immutable. The fully qualified resource name of the engine. This field must
- *  be a UTF-8 encoded string with a length limit of 1024 characters. Format:
+ *  Immutable. Identifier. The fully qualified resource name of the engine. This
+ *  field must be a UTF-8 encoded string with a length limit of 1024 characters.
+ *  Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  *  engine should be 1-63 characters, and valid characters are /a-z0-9* /.
  *  Otherwise, an INVALID_ARGUMENT error is returned.
@@ -18112,6 +18452,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpec *boostSpec;
 
 /**
+ *  Optional. Custom search operators which if specified will be used to filter
+ *  results from workspace data stores. For more information on custom search
+ *  operators, see
+ *  [SearchOperators](https://support.google.com/cloudsearch/answer/6172299).
+ */
+@property(nonatomic, copy, nullable) NSString *customSearchOperators;
+
+/**
  *  Required. Full resource name of DataStore, such as
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  */
@@ -19344,7 +19692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Confidence score for the claim in the answer candidate, in the range of [0,
- *  1]. This is set only when enable_claim_level_score is true.
+ *  1]. This is set only when
+ *  `CheckGroundingRequest.grounding_spec.enable_claim_level_score` is true.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -19402,6 +19751,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Output only. Annotation contents if the current chunk contains annotations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *annotationContents;
+
+/**
+ *  Output only. The annotation metadata includes structured content in the
+ *  current chunk.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkAnnotationMetadata *> *annotationMetadata;
 
 /** Output only. Metadata of the current chunk. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkChunkMetadata *chunkMetadata;
@@ -19466,6 +19821,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Chunk_DerivedStructData : GTLRObject
+@end
+
+
+/**
+ *  The annotation metadata includes structured content in the current chunk.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkAnnotationMetadata : GTLRObject
+
+/**
+ *  Output only. Image id is provided if the structured content is based on an
+ *  image.
+ */
+@property(nonatomic, copy, nullable) NSString *imageId;
+
+/** Output only. The structured content information. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent *structuredContent;
+
 @end
 
 
@@ -19544,6 +19916,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  The structured content information.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent : GTLRObject
+
+/** Output only. The content of the structured content. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Output only. The structure type of the structured content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_CheckboxStructure
+ *        Checkbox structure. (Value: "CHECKBOX_STRUCTURE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_ShareholderStructure
+ *        Shareholder structure. (Value: "SHAREHOLDER_STRUCTURE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_SignatureStructure
+ *        Signature structure. (Value: "SIGNATURE_STRUCTURE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkStructuredContent_StructureType_StructureTypeUnspecified
+ *        Default value. (Value: "STRUCTURE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *structureType;
 
 @end
 
@@ -19896,10 +20294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Promote certain links based on predefined trigger queries. This now only
- *  supports basic site search.
- */
+/** Promote certain links based on predefined trigger queries. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlPromoteAction *promoteAction;
 
 /** Defines a redirect-type control. */
@@ -20665,7 +21060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
- *  Immutable. The full resource name of the data store. Format:
+ *  Immutable. Identifier. The full resource name of the data store. Format:
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *  This field must be a UTF-8 encoded string with a length limit of 1024
  *  characters.
@@ -20749,8 +21144,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStoreServingConfigDataStore : GTLRObject
 
 /**
- *  If set true, the DataStore will not be available for serving search
- *  requests.
+ *  Optional. If set true, the DataStore will not be available for serving
+ *  search requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -21450,12 +21845,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
- *  SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with
- *  at most one data store. If solution_type is SOLUTION_TYPE_CHAT, multiple
- *  DataStores in the same Collection can be associated here. Note that when
- *  used in CreateEngineRequest, one DataStore id must be provided as the system
- *  will use it for necessary initializations.
+ *  Optional. The data stores associated with this engine. For
+ *  SOLUTION_TYPE_SEARCH and SOLUTION_TYPE_RECOMMENDATION type of engines, they
+ *  can only associate with at most one data store. If solution_type is
+ *  SOLUTION_TYPE_CHAT, multiple DataStores in the same Collection can be
+ *  associated here. Note that when used in CreateEngineRequest, one DataStore
+ *  id must be provided as the system will use it for necessary initializations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataStoreIds;
 
@@ -21474,9 +21869,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The industry vertical that the engine registers. The restriction of the
- *  Engine industry vertical is based on DataStore: Vertical on Engine has to
- *  match vertical of the DataStore linked to the engine.
+ *  Optional. The industry vertical that the engine registers. The restriction
+ *  of the Engine industry vertical is based on DataStore: Vertical on Engine
+ *  has to match vertical of the DataStore linked to the engine.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_IndustryVertical_Generic
@@ -21499,8 +21894,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig *mediaRecommendationEngineConfig;
 
 /**
- *  Immutable. The fully qualified resource name of the engine. This field must
- *  be a UTF-8 encoded string with a length limit of 1024 characters. Format:
+ *  Immutable. Identifier. The fully qualified resource name of the engine. This
+ *  field must be a UTF-8 encoded string with a length limit of 1024 characters.
+ *  Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  *  engine should be 1-63 characters, and valid characters are /a-z0-9* /.
  *  Otherwise, an INVALID_ARGUMENT error is returned.
@@ -22980,6 +23376,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response message for UserLicenseService.ListUserLicenses.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userLicenses" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListUserLicensesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All the customer's UserLicenses.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense *> *userLicenses;
 
 @end
 
@@ -24917,6 +25340,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestBoostSpec *boostSpec;
 
 /**
+ *  Optional. Custom search operators which if specified will be used to filter
+ *  results from workspace data stores. For more information on custom search
+ *  operators, see
+ *  [SearchOperators](https://support.google.com/cloudsearch/answer/6172299).
+ */
+@property(nonatomic, copy, nullable) NSString *customSearchOperators;
+
+/**
  *  Required. Full resource name of DataStore, such as
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  */
@@ -26699,6 +27130,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  User License information assigned by the admin.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense : GTLRObject
+
+/** Output only. User created timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. User last logged in time. If the user has not logged in yet,
+ *  this field will be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
+
+/**
+ *  Output only. License assignment state of the user. If the user is assigned
+ *  with a license config, the user loggin will be assigned with the license; If
+ *  the user's license assignment state is unassigned or unspecified, no license
+ *  config will be associated to the user;
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_Assigned
+ *        License assigned to the user. (Value: "ASSIGNED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_LicenseAssignmentStateUnspecified
+ *        Default value. (Value: "LICENSE_ASSIGNMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_NoLicense
+ *        No license assigned to the user. (Value: "NO_LICENSE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_NoLicenseAttemptedLogin
+ *        User attempted to login but no license assigned to the user. This
+ *        state is only used for no user first time login attempt but cannot get
+ *        license assigned. Users already logged in but cannot get license
+ *        assigned will be assigned NO_LICENSE state(License could be unassigned
+ *        by admin). (Value: "NO_LICENSE_ATTEMPTED_LOGIN")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense_LicenseAssignmentState_Unassigned
+ *        No license assigned to the user. Deprecated, translated to NO_LICENSE.
+ *        (Value: "UNASSIGNED")
+ */
+@property(nonatomic, copy, nullable) NSString *licenseAssignmentState;
+
+/**
+ *  Optional. The full resource name of the Subscription(LicenseConfig) assigned
+ *  to the user.
+ */
+@property(nonatomic, copy, nullable) NSString *licenseConfig;
+
+/** Output only. User update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. The full resource name of the User, in the format of
+ *  `projects/{project}/locations/{location}/userStores/{user_store}/users/{user_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 2048
+ *  characters. If the user field is empty, it's indicating the user has not
+ *  logged in yet and no User entity is created.
+ */
+@property(nonatomic, copy, nullable) NSString *user;
+
+/**
+ *  Required. Immutable. The user principal of the User, could be email address
+ *  or other prinical identifier. This field is immutable. Admin assign licenses
+ *  based on the user principal.
+ */
+@property(nonatomic, copy, nullable) NSString *userPrincipal;
+
+/**
+ *  Optional. The user profile. We user user full name(First name + Last name)
+ *  as user profile.
+ */
+@property(nonatomic, copy, nullable) NSString *userProfile;
 
 @end
 

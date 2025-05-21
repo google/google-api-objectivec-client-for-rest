@@ -1735,6 +1735,1847 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Check compatibility of a schema with all versions or a specific version of a
+ *  subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.compatibility.checkCompatibility
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCompatibilityCheckCompatibility : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the resource to check compatibility for. The format is
+ *  either of following: *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/
+ *  * /versions: Check compatibility with one or more versions of the specified
+ *  subject. *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/{subject}/versions/{version}:
+ *  Check compatibility with a specific version of the subject.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_CheckCompatibilityResponse.
+ *
+ *  Check compatibility of a schema with all versions or a specific version of a
+ *  subject.
+ *
+ *  @param object The @c GTLRManagedKafka_CheckCompatibilityRequest to include
+ *    in the query.
+ *  @param name Required. The name of the resource to check compatibility for.
+ *    The format is either of following: *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/
+ *    * /versions: Check compatibility with one or more versions of the
+ *    specified subject. *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/{subject}/versions/{version}:
+ *    Check compatibility with a specific version of the subject.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCompatibilityCheckCompatibility
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_CheckCompatibilityRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Delete schema config for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.config.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of subject to delete the config for. The format
+ *  is *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaConfig.
+ *
+ *  Delete schema config for a subject.
+ *
+ *  @param name Required. The resource name of subject to delete the config for.
+ *    The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get schema config at global level or for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.config.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigGet : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the config will fall back to the config at the global
+ *  level if no subject level config is found.
+ */
+@property(nonatomic, assign) BOOL defaultToGlobal;
+
+/**
+ *  Required. The resource name to get the config for. It can be either of
+ *  following: *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *  Get config at global level. *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *  Get config for a specific subject.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaConfig.
+ *
+ *  Get schema config at global level or for a subject.
+ *
+ *  @param name Required. The resource name to get the config for. It can be
+ *    either of following: *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *    Get config at global level. *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *    Get config for a specific subject.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update config at global level or for a subject. Creates a
+ *  SchemaSubject-level SchemaConfig if it does not exist.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.config.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigUpdate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name to update the config for. It can be either of
+ *  following: *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *  Update config at global level. *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *  Update config for a specific subject.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaConfig.
+ *
+ *  Update config at global level or for a subject. Creates a
+ *  SchemaSubject-level SchemaConfig if it does not exist.
+ *
+ *  @param object The @c GTLRManagedKafka_UpdateSchemaConfigRequest to include
+ *    in the query.
+ *  @param name Required. The resource name to update the config for. It can be
+ *    either of following: *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *    Update config at global level. *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *    Update config for a specific subject.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesConfigUpdate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaConfigRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Check compatibility of a schema with all versions or a specific version of a
+ *  subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.compatibility.checkCompatibility
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsCompatibilityCheckCompatibility : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the resource to check compatibility for. The format is
+ *  either of following: *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/
+ *  * /versions: Check compatibility with one or more versions of the specified
+ *  subject. *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/{subject}/versions/{version}:
+ *  Check compatibility with a specific version of the subject.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_CheckCompatibilityResponse.
+ *
+ *  Check compatibility of a schema with all versions or a specific version of a
+ *  subject.
+ *
+ *  @param object The @c GTLRManagedKafka_CheckCompatibilityRequest to include
+ *    in the query.
+ *  @param name Required. The name of the resource to check compatibility for.
+ *    The format is either of following: *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/
+ *    * /versions: Check compatibility with one or more versions of the
+ *    specified subject. *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/compatibility/subjects/{subject}/versions/{version}:
+ *    Check compatibility with a specific version of the subject.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsCompatibilityCheckCompatibility
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_CheckCompatibilityRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Delete schema config for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.config.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of subject to delete the config for. The format
+ *  is *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaConfig.
+ *
+ *  Delete schema config for a subject.
+ *
+ *  @param name Required. The resource name of subject to delete the config for.
+ *    The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get schema config at global level or for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.config.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigGet : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the config will fall back to the config at the global
+ *  level if no subject level config is found.
+ */
+@property(nonatomic, assign) BOOL defaultToGlobal;
+
+/**
+ *  Required. The resource name to get the config for. It can be either of
+ *  following: *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *  Get config at global level. *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *  Get config for a specific subject.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaConfig.
+ *
+ *  Get schema config at global level or for a subject.
+ *
+ *  @param name Required. The resource name to get the config for. It can be
+ *    either of following: *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *    Get config at global level. *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *    Get config for a specific subject.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update config at global level or for a subject. Creates a
+ *  SchemaSubject-level SchemaConfig if it does not exist.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.config.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigUpdate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name to update the config for. It can be either of
+ *  following: *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *  Update config at global level. *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *  Update config for a specific subject.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaConfig.
+ *
+ *  Update config at global level or for a subject. Creates a
+ *  SchemaSubject-level SchemaConfig if it does not exist.
+ *
+ *  @param object The @c GTLRManagedKafka_UpdateSchemaConfigRequest to include
+ *    in the query.
+ *  @param name Required. The resource name to update the config for. It can be
+ *    either of following: *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config:
+ *    Update config at global level. *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/config/{subject}:
+ *    Update config for a specific subject.
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsConfigUpdate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaConfigRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get the context.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the context to return. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Context.
+ *
+ *  Get the context.
+ *
+ *  @param name Required. The name of the context to return. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List contexts for a schema registry.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsList : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The parent of the contexts. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List contexts for a schema registry.
+ *
+ *  @param parent Required. The parent of the contexts. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get mode at global level or for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.mode.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of the mode. The format is *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *  mode for a schema registry, or *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *  mode for a specific subject in a specific context
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaMode.
+ *
+ *  Get mode at global level or for a subject.
+ *
+ *  @param name Required. The resource name of the mode. The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *    mode for a schema registry, or *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *    mode for a specific subject in a specific context
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update mode at global level or for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.mode.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeUpdate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of the mode. The format is *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *  mode for a schema registry, or *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *  mode for a specific subject in a specific context
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaMode.
+ *
+ *  Update mode at global level or for a subject.
+ *
+ *  @param object The @c GTLRManagedKafka_UpdateSchemaModeRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the mode. The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *    mode for a schema registry, or *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *    mode for a specific subject in a specific context
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeUpdate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaModeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get the schema for the given schema id.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.schemas.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the schema to return. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Used to limit the search for the schema ID to a specific subject,
+ *  otherwise the schema ID will be searched for in all subjects in the given
+ *  specified context.
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Schema.
+ *
+ *  Get the schema for the given schema id.
+ *
+ *  @param name Required. The name of the schema to return. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the schema string for the given schema id. The response will be the
+ *  schema string.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.schemas.getSchema
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGetSchema : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the schema to return. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Used to limit the search for the schema ID to a specific subject,
+ *  otherwise the schema ID will be searched for in all subjects in the given
+ *  specified context.
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get the schema string for the given schema id. The response will be the
+ *  schema string.
+ *
+ *  @param name Required. The name of the schema to return. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasGetSchema
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List subjects which reference a particular schema id. The response will be
+ *  an array of subject names.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.schemas.subjects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasSubjectsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted subjects. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The schema resource whose associated subjects are to be listed.
+ *  Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. The subject to filter the subjects by. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List subjects which reference a particular schema id. The response will be
+ *  an array of subject names.
+ *
+ *  @param parent Required. The schema resource whose associated subjects are to
+ *    be listed. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasSubjectsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List the supported schema types. The response will be an array of schema
+ *  types.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.schemas.types.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasTypesList : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The parent schema registry whose schema types are to be listed.
+ *  Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List the supported schema types. The response will be an array of schema
+ *  types.
+ *
+ *  @param parent Required. The parent schema registry whose schema types are to
+ *    be listed. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasTypesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List the schema versions for the given schema id. The response will be an
+ *  array of subject-version pairs as: [{"subject":"subject1", "version":1},
+ *  {"subject":"subject2", "version":2}].
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.schemas.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasVersionsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted versions of the
+ *  schema, even if the subject is soft-deleted. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The schema whose schema versions are to be listed. Structured
+ *  like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. The subject to filter the subjects by. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List the schema versions for the given schema id. The response will be an
+ *  array of subject-version pairs as: [{"subject":"subject1", "version":1},
+ *  {"subject":"subject2", "version":2}].
+ *
+ *  @param parent Required. The schema whose schema versions are to be listed.
+ *    Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSchemasVersionsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a subject. The response will be an array of versions of the deleted
+ *  subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the subject to delete. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If true, the subject and all associated metadata including the
+ *  schema ID will be deleted permanently. Otherwise, only the subject is
+ *  soft-deleted. The default is false. Soft-deleted subjects can still be
+ *  searched in ListSubjects API call with deleted=true query parameter. A
+ *  soft-delete of a subject must be performed before a hard-delete.
+ */
+@property(nonatomic, assign) BOOL permanent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Delete a subject. The response will be an array of versions of the deleted
+ *  subject.
+ *
+ *  @param name Required. The name of the subject to delete. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List subjects in the schema registry. The response will be an array of
+ *  subject names.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted subjects. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The parent schema registry/context whose subjects are to be
+ *  listed. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The context to filter the subjects by, in the format of
+ *  `:.{context}:`. If unset, all subjects in the registry are returned. Set to
+ *  empty string or add as '?subjectPrefix=' at the end of this request to list
+ *  subjects in the default context.
+ */
+@property(nonatomic, copy, nullable) NSString *subjectPrefix;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List subjects in the schema registry. The response will be an array of
+ *  subject names.
+ *
+ *  @param parent Required. The parent schema registry/context whose subjects
+ *    are to be listed. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lookup a schema under the specified subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.lookupVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsLookupVersion : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The subject to lookup the schema in. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaVersion.
+ *
+ *  Lookup a schema under the specified subject.
+ *
+ *  @param object The @c GTLRManagedKafka_LookupVersionRequest to include in the
+ *    query.
+ *  @param parent Required. The subject to lookup the schema in. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsLookupVersion
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_LookupVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Register a new version under a given subject with the given schema.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsCreate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The subject to create the version for. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_CreateVersionResponse.
+ *
+ *  Register a new version under a given subject with the given schema.
+ *
+ *  @param object The @c GTLRManagedKafka_CreateVersionRequest to include in the
+ *    query.
+ *  @param parent Required. The subject to create the version for. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_CreateVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a version of a subject. The response will be the deleted version id.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the subject version to delete. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If true, both the version and the referenced schema ID will be
+ *  permanently deleted. The default is false. If false, the version will be
+ *  deleted but the schema ID will be retained. Soft-deleted versions can still
+ *  be searched in ListVersions API call with deleted=true query parameter. A
+ *  soft-delete of a version must be performed before a hard-delete.
+ */
+@property(nonatomic, assign) BOOL permanent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Delete a version of a subject. The response will be the deleted version id.
+ *
+ *  @param name Required. The name of the subject version to delete. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a versioned schema (schema with subject/version) of a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGet : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, no matter if the subject/version is soft-deleted or not,
+ *  it returns the version details. If false, it returns NOT_FOUND error if the
+ *  subject/version is soft-deleted. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The name of the subject to return versions. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaVersion.
+ *
+ *  Get a versioned schema (schema with subject/version) of a subject.
+ *
+ *  @param name Required. The name of the subject to return versions. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the schema string only for a version of a subject. The response will be
+ *  the schema string.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.getSchema
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGetSchema : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, no matter if the subject/version is soft-deleted or not,
+ *  it returns the version details. If false, it returns NOT_FOUND error if the
+ *  subject/version is soft-deleted. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The name of the subject to return versions. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get the schema string only for a version of a subject. The response will be
+ *  the schema string.
+ *
+ *  @param name Required. The name of the subject to return versions. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsGetSchema
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get all versions of a subject. The response will be an array of versions of
+ *  the subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted versions of an
+ *  active or soft-deleted subject. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The subject whose versions are to be listed. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get all versions of a subject. The response will be an array of versions of
+ *  the subject.
+ *
+ *  @param parent Required. The subject whose versions are to be listed.
+ *    Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get a list of IDs of schemas that reference the schema with the given
+ *  subject and version.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.subjects.versions.referencedby.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsReferencedbyList : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The version to list referenced by. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get a list of IDs of schemas that reference the schema with the given
+ *  subject and version.
+ *
+ *  @param parent Required. The version to list referenced by. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsSubjectsVersionsReferencedbyList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Create a schema registry instance.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCreate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The parent whose schema registry instance is to be created.
+ *  Structured like: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaRegistry.
+ *
+ *  Create a schema registry instance.
+ *
+ *  @param object The @c GTLRManagedKafka_CreateSchemaRegistryRequest to include
+ *    in the query.
+ *  @param parent Required. The parent whose schema registry instance is to be
+ *    created. Structured like: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_CreateSchemaRegistryRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a schema registry instance.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the schema registry instance to delete. Structured
+ *  like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Empty.
+ *
+ *  Delete a schema registry instance.
+ *
+ *  @param name Required. The name of the schema registry instance to delete.
+ *    Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the schema registry instance.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the schema registry instance to return. Structured
+ *  like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaRegistry.
+ *
+ *  Get the schema registry instance.
+ *
+ *  @param name Required. The name of the schema registry instance to return.
+ *    Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List schema registries.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesList : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The parent whose schema registry instances are to be listed.
+ *  Structured like: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_ListSchemaRegistriesResponse.
+ *
+ *  List schema registries.
+ *
+ *  @param parent Required. The parent whose schema registry instances are to be
+ *    listed. Structured like: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get mode at global level or for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.mode.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of the mode. The format is *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *  mode for a schema registry, or *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *  mode for a specific subject in a specific context
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaMode.
+ *
+ *  Get mode at global level or for a subject.
+ *
+ *  @param name Required. The resource name of the mode. The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *    mode for a schema registry, or *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *    mode for a specific subject in a specific context
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update mode at global level or for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.mode.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeUpdate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of the mode. The format is *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *  mode for a schema registry, or *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *  mode for a specific subject in a specific context
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaMode.
+ *
+ *  Update mode at global level or for a subject.
+ *
+ *  @param object The @c GTLRManagedKafka_UpdateSchemaModeRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the mode. The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}:
+ *    mode for a schema registry, or *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}:
+ *    mode for a specific subject in a specific context
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeUpdate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_UpdateSchemaModeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get the schema for the given schema id.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.schemas.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGet : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the schema to return. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Used to limit the search for the schema ID to a specific subject,
+ *  otherwise the schema ID will be searched for in all subjects in the given
+ *  specified context.
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_Schema.
+ *
+ *  Get the schema for the given schema id.
+ *
+ *  @param name Required. The name of the schema to return. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the schema string for the given schema id. The response will be the
+ *  schema string.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.schemas.getSchema
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGetSchema : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the schema to return. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Used to limit the search for the schema ID to a specific subject,
+ *  otherwise the schema ID will be searched for in all subjects in the given
+ *  specified context.
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get the schema string for the given schema id. The response will be the
+ *  schema string.
+ *
+ *  @param name Required. The name of the schema to return. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasGetSchema
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List subjects which reference a particular schema id. The response will be
+ *  an array of subject names.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.schemas.subjects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasSubjectsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted subjects. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The schema resource whose associated subjects are to be listed.
+ *  Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. The subject to filter the subjects by. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List subjects which reference a particular schema id. The response will be
+ *  an array of subject names.
+ *
+ *  @param parent Required. The schema resource whose associated subjects are to
+ *    be listed. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasSubjectsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List the supported schema types. The response will be an array of schema
+ *  types.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.schemas.types.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasTypesList : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The parent schema registry whose schema types are to be listed.
+ *  Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List the supported schema types. The response will be an array of schema
+ *  types.
+ *
+ *  @param parent Required. The parent schema registry whose schema types are to
+ *    be listed. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasTypesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List the schema versions for the given schema id. The response will be an
+ *  array of subject-version pairs as: [{"subject":"subject1", "version":1},
+ *  {"subject":"subject2", "version":2}].
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.schemas.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasVersionsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted versions of the
+ *  schema, even if the subject is soft-deleted. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The schema whose schema versions are to be listed. Structured
+ *  like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. The subject to filter the subjects by. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List the schema versions for the given schema id. The response will be an
+ *  array of subject-version pairs as: [{"subject":"subject1", "version":1},
+ *  {"subject":"subject2", "version":2}].
+ *
+ *  @param parent Required. The schema whose schema versions are to be listed.
+ *    Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/schemas/ids/{schema}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/schemas/ids/{schema}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSchemasVersionsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a subject. The response will be an array of versions of the deleted
+ *  subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the subject to delete. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If true, the subject and all associated metadata including the
+ *  schema ID will be deleted permanently. Otherwise, only the subject is
+ *  soft-deleted. The default is false. Soft-deleted subjects can still be
+ *  searched in ListSubjects API call with deleted=true query parameter. A
+ *  soft-delete of a subject must be performed before a hard-delete.
+ */
+@property(nonatomic, assign) BOOL permanent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Delete a subject. The response will be an array of versions of the deleted
+ *  subject.
+ *
+ *  @param name Required. The name of the subject to delete. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List subjects in the schema registry. The response will be an array of
+ *  subject names.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted subjects. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The parent schema registry/context whose subjects are to be
+ *  listed. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The context to filter the subjects by, in the format of
+ *  `:.{context}:`. If unset, all subjects in the registry are returned. Set to
+ *  empty string or add as '?subjectPrefix=' at the end of this request to list
+ *  subjects in the default context.
+ */
+@property(nonatomic, copy, nullable) NSString *subjectPrefix;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  List subjects in the schema registry. The response will be an array of
+ *  subject names.
+ *
+ *  @param parent Required. The parent schema registry/context whose subjects
+ *    are to be listed. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lookup a schema under the specified subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.lookupVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsLookupVersion : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The subject to lookup the schema in. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaVersion.
+ *
+ *  Lookup a schema under the specified subject.
+ *
+ *  @param object The @c GTLRManagedKafka_LookupVersionRequest to include in the
+ *    query.
+ *  @param parent Required. The subject to lookup the schema in. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsLookupVersion
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_LookupVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Register a new version under a given subject with the given schema.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsCreate : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The subject to create the version for. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_CreateVersionResponse.
+ *
+ *  Register a new version under a given subject with the given schema.
+ *
+ *  @param object The @c GTLRManagedKafka_CreateVersionRequest to include in the
+ *    query.
+ *  @param parent Required. The subject to create the version for. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedKafka_CreateVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a version of a subject. The response will be the deleted version id.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The name of the subject version to delete. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If true, both the version and the referenced schema ID will be
+ *  permanently deleted. The default is false. If false, the version will be
+ *  deleted but the schema ID will be retained. Soft-deleted versions can still
+ *  be searched in ListVersions API call with deleted=true query parameter. A
+ *  soft-delete of a version must be performed before a hard-delete.
+ */
+@property(nonatomic, assign) BOOL permanent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Delete a version of a subject. The response will be the deleted version id.
+ *
+ *  @param name Required. The name of the subject version to delete. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a versioned schema (schema with subject/version) of a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGet : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, no matter if the subject/version is soft-deleted or not,
+ *  it returns the version details. If false, it returns NOT_FOUND error if the
+ *  subject/version is soft-deleted. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The name of the subject to return versions. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaVersion.
+ *
+ *  Get a versioned schema (schema with subject/version) of a subject.
+ *
+ *  @param name Required. The name of the subject to return versions. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the schema string only for a version of a subject. The response will be
+ *  the schema string.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.versions.getSchema
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGetSchema : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, no matter if the subject/version is soft-deleted or not,
+ *  it returns the version details. If false, it returns NOT_FOUND error if the
+ *  subject/version is soft-deleted. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The name of the subject to return versions. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get the schema string only for a version of a subject. The response will be
+ *  the schema string.
+ *
+ *  @param name Required. The name of the subject to return versions. Structured
+ *    like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsGetSchema
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get all versions of a subject. The response will be an array of versions of
+ *  the subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsList : GTLRManagedKafkaQuery
+
+/**
+ *  Optional. If true, the response will include soft-deleted versions of an
+ *  active or soft-deleted subject. The default is false.
+ */
+@property(nonatomic, assign) BOOL deleted;
+
+/**
+ *  Required. The subject whose versions are to be listed. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get all versions of a subject. The response will be an array of versions of
+ *  the subject.
+ *
+ *  @param parent Required. The subject whose versions are to be listed.
+ *    Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get a list of IDs of schemas that reference the schema with the given
+ *  subject and version.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.subjects.versions.referencedby.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsReferencedbyList : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The version to list referenced by. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_HttpBody.
+ *
+ *  Get a list of IDs of schemas that reference the schema with the given
+ *  subject and version.
+ *
+ *  @param parent Required. The version to list referenced by. Structured like:
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}/versions/{version}`
+ *    or
+ *    `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}/versions/{version}`
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesSubjectsVersionsReferencedbyList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

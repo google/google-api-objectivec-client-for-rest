@@ -20,6 +20,8 @@
 @class GTLRAndroidManagement_AdvancedSecurityOverrides;
 @class GTLRAndroidManagement_AlwaysOnVpnPackage;
 @class GTLRAndroidManagement_ApiLevelCondition;
+@class GTLRAndroidManagement_ApnPolicy;
+@class GTLRAndroidManagement_ApnSetting;
 @class GTLRAndroidManagement_ApplicationEvent;
 @class GTLRAndroidManagement_ApplicationPermission;
 @class GTLRAndroidManagement_ApplicationPolicy;
@@ -119,6 +121,8 @@
 @class GTLRAndroidManagement_PolicyEnforcementRule;
 @class GTLRAndroidManagement_PostureDetail;
 @class GTLRAndroidManagement_PowerManagementEvent;
+@class GTLRAndroidManagement_PreferentialNetworkServiceConfig;
+@class GTLRAndroidManagement_PreferentialNetworkServiceSettings;
 @class GTLRAndroidManagement_ProxyInfo;
 @class GTLRAndroidManagement_RemoteLockEvent;
 @class GTLRAndroidManagement_RequestDeviceInfoParams;
@@ -336,6 +340,448 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
  *  Value: "UNTRUSTED_APPS_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_UntrustedAppsPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnPolicy.overrideApns
+
+/**
+ *  Override APNs disabled. Any configured apnSettings are saved on the device,
+ *  but are disabled and have no effect. Any other APNs on the device remain in
+ *  use.
+ *
+ *  Value: "OVERRIDE_APNS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsDisabled;
+/**
+ *  Override APNs enabled. Only override APNs are in use, any other APNs are
+ *  ignored. This can only be set on fully managed devices on Android 10 and
+ *  above. For work profiles override APNs are enabled via
+ *  preferentialNetworkServiceSettings and this value cannot be set. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 10. A nonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "OVERRIDE_APNS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsEnabled;
+/**
+ *  Unspecified. Defaults to OVERRIDE_APNS_DISABLED.
+ *
+ *  Value: "OVERRIDE_APNS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.alwaysOnSetting
+
+/**
+ *  The PDU session brought up by this APN should always be on. Supported on
+ *  Android 15 and above. A nonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 15.
+ *
+ *  Value: "ALWAYS_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOn;
+/**
+ *  Unspecified. Defaults to NOT_ALWAYS_ON.
+ *
+ *  Value: "ALWAYS_ON_SETTING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOnSettingUnspecified;
+/**
+ *  The PDU session brought up by this APN should not be always on.
+ *
+ *  Value: "NOT_ALWAYS_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_NotAlwaysOn;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.apnTypes
+
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "APN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_ApnTypeUnspecified;
+/**
+ *  APN type for BIP (Bearer Independent Protocol). This can only be set on
+ *  fully managed devices on Android 12 and above. A nonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 12. A
+ *  nonComplianceDetail with MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "BIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Bip;
+/**
+ *  APN type for CBS (Carrier Branded Services). This can only be set on fully
+ *  managed devices. A nonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "CBS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Cbs;
+/**
+ *  APN type for default data traffic. This can only be set on fully managed
+ *  devices. A nonComplianceDetail with MANAGEMENT_MODE is reported for work
+ *  profiles.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Default;
+/**
+ *  APN type for DUN (Dial-up networking) traffic. This can only be set on fully
+ *  managed devices. A nonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "DUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Dun;
+/**
+ *  APN type for Emergency PDN. This is not an IA apn, but is used for access to
+ *  carrier services in an emergency call situation. This can only be set on
+ *  fully managed devices. A nonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for work profiles.
+ *
+ *  Value: "EMERGENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Emergency;
+/**
+ *  APN type for enterprise traffic. Supported on Android 13 and above. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Enterprise;
+/**
+ *  APN type for accessing the carrier's FOTA (Firmware Over-the-Air) portal,
+ *  used for over the air updates. This can only be set on fully managed
+ *  devices. A nonComplianceDetail with MANAGEMENT_MODE is reported for work
+ *  profiles.
+ *
+ *  Value: "FOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Fota;
+/**
+ *  APN type for HiPri (high-priority) traffic. This can only be set on fully
+ *  managed devices. A nonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "HIPRI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Hipri;
+/**
+ *  APN type for IA (Initial Attach) APN. This can only be set on fully managed
+ *  devices. A nonComplianceDetail with MANAGEMENT_MODE is reported for work
+ *  profiles.
+ *
+ *  Value: "IA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Ia;
+/**
+ *  APN type for IMS (IP Multimedia Subsystem) traffic. This can only be set on
+ *  fully managed devices. A nonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for work profiles.
+ *
+ *  Value: "IMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Ims;
+/**
+ *  APN type for MCX (Mission Critical Service) where X can be PTT/Video/Data.
+ *  This can only be set on fully managed devices. A nonComplianceDetail with
+ *  MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "MCX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Mcx;
+/**
+ *  APN type for MMS (Multimedia Messaging Service) traffic. This can only be
+ *  set on fully managed devices. A nonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for work profiles.
+ *
+ *  Value: "MMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Mms;
+/**
+ *  APN type for RCS (Rich Communication Services). This can only be set on
+ *  fully managed devices on Android 15 and above. A nonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 15. A
+ *  nonComplianceDetail with MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "RCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Rcs;
+/**
+ *  APN type for SUPL (Secure User Plane Location) assisted GPS. This can only
+ *  be set on fully managed devices. A nonComplianceDetail with MANAGEMENT_MODE
+ *  is reported for work profiles.
+ *
+ *  Value: "SUPL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Supl;
+/**
+ *  APN type for VSIM (Virtual SIM) service. This can only be set on fully
+ *  managed devices on Android 12 and above. A nonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 12. A
+ *  nonComplianceDetail with MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "VSIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Vsim;
+/**
+ *  APN type for XCAP (XML Configuration Access Protocol) traffic. This can only
+ *  be set on fully managed devices on Android 11 and above. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 11. A nonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "XCAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Xcap;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.authType
+
+/**
+ *  Unspecified. If username is empty, defaults to NONE. Otherwise, defaults to
+ *  PAP_OR_CHAP.
+ *
+ *  Value: "AUTH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_AuthTypeUnspecified;
+/**
+ *  Authentication type for CHAP.
+ *
+ *  Value: "CHAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_Chap;
+/**
+ *  Authentication is not required.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_None;
+/**
+ *  Authentication type for PAP.
+ *
+ *  Value: "PAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_Pap;
+/**
+ *  Authentication type for PAP or CHAP.
+ *
+ *  Value: "PAP_OR_CHAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_PapOrChap;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.mvnoType
+
+/**
+ *  MVNO type for group identifier level 1.
+ *
+ *  Value: "GID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Gid;
+/**
+ *  MVNO type for ICCID.
+ *
+ *  Value: "ICCID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Iccid;
+/**
+ *  MVNO type for IMSI.
+ *
+ *  Value: "IMSI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Imsi;
+/**
+ *  The MVNO type is not specified.
+ *
+ *  Value: "MVNO_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_MvnoTypeUnspecified;
+/**
+ *  MVNO type for SPN (service provider name).
+ *
+ *  Value: "SPN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Spn;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.networkTypes
+
+/**
+ *  Radio technology EDGE.
+ *
+ *  Value: "EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Edge;
+/**
+ *  Radio technology GPRS.
+ *
+ *  Value: "GPRS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Gprs;
+/**
+ *  Radio technology GSM.
+ *
+ *  Value: "GSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Gsm;
+/**
+ *  Radio technology HSDPA.
+ *
+ *  Value: "HSDPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hsdpa;
+/**
+ *  Radio technology HSPA.
+ *
+ *  Value: "HSPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hspa;
+/**
+ *  Radio technology HSPAP.
+ *
+ *  Value: "HSPAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hspap;
+/**
+ *  Radio technology HSUPA.
+ *
+ *  Value: "HSUPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hsupa;
+/**
+ *  Radio technology IWLAN.
+ *
+ *  Value: "IWLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Iwlan;
+/**
+ *  Radio technology LTE.
+ *
+ *  Value: "LTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Lte;
+/**
+ *  Unspecified. This value must not be used.
+ *
+ *  Value: "NETWORK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_NetworkTypeUnspecified;
+/**
+ *  Radio technology NR (New Radio) 5G.
+ *
+ *  Value: "NR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Nr;
+/**
+ *  Radio technology TD_SCDMA.
+ *
+ *  Value: "TD_SCDMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_TdScdma;
+/**
+ *  Radio technology UMTS.
+ *
+ *  Value: "UMTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Umts;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.protocol
+
+/**
+ *  Internet protocol.
+ *
+ *  Value: "IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ip;
+/**
+ *  Virtual PDP type introduced to handle dual IP stack UE capability.
+ *
+ *  Value: "IPV4V6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ipv4v6;
+/**
+ *  Internet protocol, version 6.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ipv6;
+/**
+ *  Transfer of Non-IP data to external packet data network.
+ *
+ *  Value: "NON_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_NonIp;
+/**
+ *  Point to point protocol.
+ *
+ *  Value: "PPP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ppp;
+/**
+ *  The protocol is not specified.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_ProtocolUnspecified;
+/**
+ *  Transfer of Unstructured data to the Data Network via N6.
+ *
+ *  Value: "UNSTRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Unstructured;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.roamingProtocol
+
+/**
+ *  Internet protocol.
+ *
+ *  Value: "IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ip;
+/**
+ *  Virtual PDP type introduced to handle dual IP stack UE capability.
+ *
+ *  Value: "IPV4V6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv4v6;
+/**
+ *  Internet protocol, version 6.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv6;
+/**
+ *  Transfer of Non-IP data to external packet data network.
+ *
+ *  Value: "NON_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_NonIp;
+/**
+ *  Point to point protocol.
+ *
+ *  Value: "PPP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ppp;
+/**
+ *  The protocol is not specified.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_ProtocolUnspecified;
+/**
+ *  Transfer of Unstructured data to the Data Network via N6.
+ *
+ *  Value: "UNSTRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Unstructured;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Application.appPricing
@@ -814,6 +1260,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.preferentialNetworkId
+
+/**
+ *  Application does not use any preferential network.
+ *
+ *  Value: "NO_PREFERENTIAL_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_NoPreferentialNetwork;
+/**
+ *  Preferential network identifier 5.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFive;
+/**
+ *  Preferential network identifier 4.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFour;
+/**
+ *  Preferential network identifier 1.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdOne;
+/**
+ *  Preferential network identifier 3.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdThree;
+/**
+ *  Preferential network identifier 2.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdTwo;
+/**
+ *  Whether this value is valid and what it means depends on where it is used,
+ *  and this is documented on the relevant fields.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.userControlSettings
 
 /**
@@ -1094,6 +1587,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Reboot;
  *  Value: "RELINQUISH_OWNERSHIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RelinquishOwnership;
+/**
+ *  Request information related to the device.
+ *
+ *  Value: "REQUEST_DEVICE_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RequestDeviceInfo;
 /**
  *  Reset the user's password.
  *
@@ -2578,6 +3077,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending;
 /**
+ *  The Google Cloud Platform project used to manage the device is not permitted
+ *  to use this policy.
+ *
+ *  Value: "PROJECT_NOT_PERMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ProjectNotPermitted;
+/**
  *  The policy is not supported by the version of Android Device Policy on the
  *  device.
  *
@@ -2657,6 +3163,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Sp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesUserCredentialsConfirmationRequired;
 /**
+ *  This policy setting is restricted and cannot be set for this Google Cloud
+ *  Platform project. More details (including how to enable usage of this policy
+ *  setting) are available in the Permissible Usage policy
+ *  (https://developers.google.com/android/management/permissible-usage).
+ *  nonComplianceReason is set to PROJECT_NOT_PERMITTED.
+ *
+ *  Value: "PERMISSIBLE_USAGE_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PermissibleUsageRestriction;
+/**
  *  Specific non-compliance reason is not specified. Fields in
  *  specific_non_compliance_context are not set.
  *
@@ -2732,6 +3248,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending;
+/**
+ *  The Google Cloud Platform project used to manage the device is not permitted
+ *  to use this policy.
+ *
+ *  Value: "PROJECT_NOT_PERMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ProjectNotPermitted;
 /**
  *  The policy is not supported by the version of Android Device Policy on the
  *  device.
@@ -3435,6 +3958,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolic
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.enterpriseDisplayNameVisibility
+
+/**
+ *  The enterprise display name is hidden on the device.
+ *
+ *  Value: "ENTERPRISE_DISPLAY_NAME_HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameHidden;
+/**
+ *  Unspecified. Defaults to displaying the enterprise name that's set at the
+ *  time of device setup. In future, this will default to
+ *  ENTERPRISE_DISPLAY_NAME_VISIBLE.
+ *
+ *  Value: "ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisibilityUnspecified;
+/**
+ *  The enterprise display name is visible on the device. Supported on work
+ *  profiles on Android 7 and above. Supported on fully managed devices on
+ *  Android 8 and above. A nonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 7. A nonComplianceDetail with MANAGEMENT_MODE
+ *  is reported on fully managed devices on Android 7.
+ *
+ *  Value: "ENTERPRISE_DISPLAY_NAME_VISIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisible;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.keyguardDisabledFeatures
 
 /**
@@ -3641,7 +4192,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled;
 /**
- *  Preferential network service is enabled on the work profile.
+ *  Preferential network service is enabled on the work profile. This setting is
+ *  only supported on work profiles on devices running Android 12 or above.
+ *  Starting with Android 13, fully managed devices are also supported.
  *
  *  Value: "PREFERENTIAL_NETWORK_SERVICE_ENABLED"
  */
@@ -3788,6 +4341,152 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_E
  *  Value: "SHUTDOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceConfig.fallbackToDefaultConnection
+
+/**
+ *  Fallback to default connection is allowed. If this is set,
+ *  nonMatchingNetworks must not be set to NON_MATCHING_NETWORKS_DISALLOWED, the
+ *  policy will be rejected otherwise.
+ *
+ *  Value: "FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionAllowed;
+/**
+ *  Fallback to default connection is not allowed.
+ *
+ *  Value: "FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionDisallowed;
+/**
+ *  Unspecified. Defaults to FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED.
+ *
+ *  Value: "FALLBACK_TO_DEFAULT_CONNECTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceConfig.nonMatchingNetworks
+
+/**
+ *  Apps this configuration applies to are allowed to use networks other than
+ *  the preferential service.
+ *
+ *  Value: "NON_MATCHING_NETWORKS_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksAllowed;
+/**
+ *  Apps this configuration applies to are disallowed from using other networks
+ *  than the preferential service. This can be set on Android 14 and above. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 14. If this is set, fallbackToDefaultConnection must be set to
+ *  FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED, the policy will be rejected
+ *  otherwise.
+ *
+ *  Value: "NON_MATCHING_NETWORKS_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksDisallowed;
+/**
+ *  Unspecified. Defaults to NON_MATCHING_NETWORKS_ALLOWED.
+ *
+ *  Value: "NON_MATCHING_NETWORKS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceConfig.preferentialNetworkId
+
+/**
+ *  Application does not use any preferential network.
+ *
+ *  Value: "NO_PREFERENTIAL_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_NoPreferentialNetwork;
+/**
+ *  Preferential network identifier 5.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFive;
+/**
+ *  Preferential network identifier 4.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFour;
+/**
+ *  Preferential network identifier 1.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdOne;
+/**
+ *  Preferential network identifier 3.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdThree;
+/**
+ *  Preferential network identifier 2.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdTwo;
+/**
+ *  Whether this value is valid and what it means depends on where it is used,
+ *  and this is documented on the relevant fields.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceSettings.defaultPreferentialNetworkId
+
+/**
+ *  Application does not use any preferential network.
+ *
+ *  Value: "NO_PREFERENTIAL_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_NoPreferentialNetwork;
+/**
+ *  Preferential network identifier 5.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFive;
+/**
+ *  Preferential network identifier 4.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFour;
+/**
+ *  Preferential network identifier 1.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdOne;
+/**
+ *  Preferential network identifier 3.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdThree;
+/**
+ *  Preferential network identifier 2.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdTwo;
+/**
+ *  Whether this value is valid and what it means depends on where it is used,
+ *  and this is documented on the relevant fields.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ProvisioningInfo.managementMode
@@ -4842,6 +5541,269 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Access Point Name (APN) policy. Configuration for Access Point Names (APNs)
+ *  which may override any other APNs on the device. See OVERRIDE_APNS_ENABLED
+ *  and overrideApns for details.
+ */
+@interface GTLRAndroidManagement_ApnPolicy : GTLRObject
+
+/**
+ *  Optional. APN settings for override APNs. There must not be any conflict
+ *  between any of APN settings provided, otherwise the policy will be rejected.
+ *  Two ApnSettings are considered to conflict when all of the following fields
+ *  match on both: numericOperatorId, apn, proxyAddress, proxyPort,
+ *  mmsProxyAddress, mmsProxyPort, mmsc, mvnoType, protocol, roamingProtocol. If
+ *  some of the APN settings result in non-compliance of INVALID_VALUE , they
+ *  will be ignored. This can be set on fully managed devices on Android 10 and
+ *  above. This can also be set on work profiles on Android 13 and above and
+ *  only with ApnSetting's with ENTERPRISE APN type. A nonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 10. A
+ *  nonComplianceDetail with MANAGEMENT_MODE is reported for work profiles on
+ *  Android versions less than 13.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApnSetting *> *apnSettings;
+
+/**
+ *  Optional. Whether override APNs are disabled or enabled. See
+ *  DevicePolicyManager.setOverrideApnsEnabled
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setOverrideApnsEnabled)
+ *  for more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsDisabled
+ *        Override APNs disabled. Any configured apnSettings are saved on the
+ *        device, but are disabled and have no effect. Any other APNs on the
+ *        device remain in use. (Value: "OVERRIDE_APNS_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsEnabled
+ *        Override APNs enabled. Only override APNs are in use, any other APNs
+ *        are ignored. This can only be set on fully managed devices on Android
+ *        10 and above. For work profiles override APNs are enabled via
+ *        preferentialNetworkServiceSettings and this value cannot be set. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 10. A nonComplianceDetail with MANAGEMENT_MODE is
+ *        reported for work profiles. (Value: "OVERRIDE_APNS_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsUnspecified
+ *        Unspecified. Defaults to OVERRIDE_APNS_DISABLED. (Value:
+ *        "OVERRIDE_APNS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *overrideApns;
+
+@end
+
+
+/**
+ *  An Access Point Name (APN) configuration for a carrier data connection. The
+ *  APN provides configuration to connect a cellular network device to an IP
+ *  data network. A carrier uses this setting to decide which IP address to
+ *  assign, any security methods to apply, and how the device might be connected
+ *  to private networks.
+ */
+@interface GTLRAndroidManagement_ApnSetting : GTLRObject
+
+/**
+ *  Optional. Whether User Plane resources have to be activated during every
+ *  transition from CM-IDLE mode to CM-CONNECTED state for this APN. See 3GPP TS
+ *  23.501 section 5.6.13.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOn The PDU
+ *        session brought up by this APN should always be on. Supported on
+ *        Android 15 and above. A nonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is less than 15. (Value: "ALWAYS_ON")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOnSettingUnspecified
+ *        Unspecified. Defaults to NOT_ALWAYS_ON. (Value:
+ *        "ALWAYS_ON_SETTING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_NotAlwaysOn The
+ *        PDU session brought up by this APN should not be always on. (Value:
+ *        "NOT_ALWAYS_ON")
+ */
+@property(nonatomic, copy, nullable) NSString *alwaysOnSetting;
+
+/**
+ *  Required. Name of the APN. Policy will be rejected if this field is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *apn;
+
+/**
+ *  Required. Usage categories for the APN. Policy will be rejected if this
+ *  field is empty or contains APN_TYPE_UNSPECIFIED or duplicates. Multiple APN
+ *  types can be set on fully managed devices. ENTERPRISE is the only allowed
+ *  APN type on work profiles. A nonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for any other value on work profiles. APN types that are not
+ *  supported on the device or management mode will be ignored. If this results
+ *  in the empty list, the APN setting will be ignored, because apnTypes is a
+ *  required field. A nonComplianceDetail with INVALID_VALUE is reported if none
+ *  of the APN types are supported on the device or management mode.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apnTypes;
+
+/**
+ *  Optional. Authentication type of the APN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_AuthTypeUnspecified
+ *        Unspecified. If username is empty, defaults to NONE. Otherwise,
+ *        defaults to PAP_OR_CHAP. (Value: "AUTH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_Chap Authentication
+ *        type for CHAP. (Value: "CHAP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_None Authentication is
+ *        not required. (Value: "NONE")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_Pap Authentication type
+ *        for PAP. (Value: "PAP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_PapOrChap
+ *        Authentication type for PAP or CHAP. (Value: "PAP_OR_CHAP")
+ */
+@property(nonatomic, copy, nullable) NSString *authType;
+
+/**
+ *  Optional. Carrier ID for the APN. A value of 0 (default) means not set and
+ *  negative values are rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *carrierId;
+
+/**
+ *  Required. Human-readable name that describes the APN. Policy will be
+ *  rejected if this field is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. MMSC (Multimedia Messaging Service Center) URI of the APN. */
+@property(nonatomic, copy, nullable) NSString *mmsc;
+
+/**
+ *  Optional. MMS (Multimedia Messaging Service) proxy address of the APN which
+ *  can be an IP address or hostname (not a URL).
+ */
+@property(nonatomic, copy, nullable) NSString *mmsProxyAddress;
+
+/**
+ *  Optional. MMS (Multimedia Messaging Service) proxy port of the APN. A value
+ *  of 0 (default) means not set and negative values are rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mmsProxyPort;
+
+/**
+ *  Optional. The default MTU (Maximum Transmission Unit) size in bytes of the
+ *  IPv4 routes brought up by this APN setting. A value of 0 (default) means not
+ *  set and negative values are rejected. Supported on Android 13 and above. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtuV4;
+
+/**
+ *  Optional. The MTU (Maximum Transmission Unit) size of the IPv6 mobile
+ *  interface to which the APN connected. A value of 0 (default) means not set
+ *  and negative values are rejected. Supported on Android 13 and above. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtuV6;
+
+/**
+ *  Optional. MVNO match type for the APN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Gid MVNO type for group
+ *        identifier level 1. (Value: "GID")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Iccid MVNO type for
+ *        ICCID. (Value: "ICCID")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Imsi MVNO type for
+ *        IMSI. (Value: "IMSI")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_MvnoTypeUnspecified The
+ *        MVNO type is not specified. (Value: "MVNO_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Spn MVNO type for SPN
+ *        (service provider name). (Value: "SPN")
+ */
+@property(nonatomic, copy, nullable) NSString *mvnoType;
+
+/**
+ *  Optional. Radio technologies (network types) the APN may use. Policy will be
+ *  rejected if this field contains NETWORK_TYPE_UNSPECIFIED or duplicates.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *networkTypes;
+
+/**
+ *  Optional. The numeric operator ID of the APN. Numeric operator ID is defined
+ *  as MCC (Mobile Country Code) + MNC (Mobile Network Code).
+ */
+@property(nonatomic, copy, nullable) NSString *numericOperatorId;
+
+/** Optional. APN password of the APN. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. The protocol to use to connect to this APN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ip Internet protocol.
+ *        (Value: "IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ipv4v6 Virtual PDP type
+ *        introduced to handle dual IP stack UE capability. (Value: "IPV4V6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ipv6 Internet protocol,
+ *        version 6. (Value: "IPV6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_NonIp Transfer of
+ *        Non-IP data to external packet data network. (Value: "NON_IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ppp Point to point
+ *        protocol. (Value: "PPP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_ProtocolUnspecified The
+ *        protocol is not specified. (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Unstructured Transfer
+ *        of Unstructured data to the Data Network via N6. (Value:
+ *        "UNSTRUCTURED")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/** Optional. The proxy address of the APN. */
+@property(nonatomic, copy, nullable) NSString *proxyAddress;
+
+/**
+ *  Optional. The proxy port of the APN. A value of 0 (default) means not set
+ *  and negative values are rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proxyPort;
+
+/**
+ *  Optional. The protocol to use to connect to this APN while the device is
+ *  roaming.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ip Internet
+ *        protocol. (Value: "IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv4v6 Virtual
+ *        PDP type introduced to handle dual IP stack UE capability. (Value:
+ *        "IPV4V6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv6 Internet
+ *        protocol, version 6. (Value: "IPV6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_NonIp Transfer
+ *        of Non-IP data to external packet data network. (Value: "NON_IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ppp Point to
+ *        point protocol. (Value: "PPP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_ProtocolUnspecified
+ *        The protocol is not specified. (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Unstructured
+ *        Transfer of Unstructured data to the Data Network via N6. (Value:
+ *        "UNSTRUCTURED")
+ */
+@property(nonatomic, copy, nullable) NSString *roamingProtocol;
+
+/** Optional. APN username of the APN. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
  *  Information about an app.
  */
 @interface GTLRAndroidManagement_Application : GTLRObject
@@ -5310,6 +6272,42 @@ GTLR_DEPRECATED
  *  default_permission_policy and permission_grants which apply to all apps.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
+
+/**
+ *  Optional. ID of the preferential network the application uses. There must be
+ *  a configuration for the specified network ID in
+ *  preferentialNetworkServiceConfigs. If set to
+ *  PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the application will use the default
+ *  network ID specified in defaultPreferentialNetworkId. See the documentation
+ *  of defaultPreferentialNetworkId for the list of apps excluded from this
+ *  defaulting. This applies on both work profiles and fully managed devices on
+ *  Android 13 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_NoPreferentialNetwork
+ *        Application does not use any preferential network. (Value:
+ *        "NO_PREFERENTIAL_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFive
+ *        Preferential network identifier 5. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FIVE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFour
+ *        Preferential network identifier 4. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FOUR")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdOne
+ *        Preferential network identifier 1. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_ONE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdThree
+ *        Preferential network identifier 3. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_THREE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdTwo
+ *        Preferential network identifier 2. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_TWO")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdUnspecified
+ *        Whether this value is valid and what it means depends on where it is
+ *        used, and this is documented on the relevant fields. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *preferentialNetworkId;
 
 /**
  *  Optional. Specifies whether user control is permitted for the app. User
@@ -5982,6 +6980,8 @@ GTLR_DEPRECATED
  *        associated with the personal profile(s) are preserved. The device will
  *        be deleted from the server after it acknowledges the command. (Value:
  *        "RELINQUISH_OWNERSHIP")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_RequestDeviceInfo Request
+ *        information related to the device. (Value: "REQUEST_DEVICE_INFO")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ResetPassword Reset the user's
  *        password. (Value: "RESET_PASSWORD")
  *    @arg @c kGTLRAndroidManagement_Command_Type_StartLostMode Puts the device
@@ -6697,6 +7697,13 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_DeviceConnectivityManagement : GTLRObject
 
 /**
+ *  Optional. Access Point Name (APN) policy. Configuration for Access Point
+ *  Names (APNs) which may override any other APNs on the device. See
+ *  OVERRIDE_APNS_ENABLED and overrideApns for details.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ApnPolicy *apnPolicy;
+
+/**
  *  Optional. Controls whether Bluetooth sharing is allowed.
  *
  *  Likely values:
@@ -6752,6 +7759,13 @@ GTLR_DEPRECATED
  *        "DISALLOW_CONFIGURING_WIFI")
  */
 @property(nonatomic, copy, nullable) NSString *configureWifi;
+
+/**
+ *  Optional. Preferential network service configuration. Setting this field
+ *  will override preferentialNetworkService. This can be set on both work
+ *  profiles and fully managed devices on Android 13 and above.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PreferentialNetworkServiceSettings *preferentialNetworkServiceSettings;
 
 /**
  *  Controls tethering settings. Based on the value set, the user is partially
@@ -8876,6 +9890,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ProjectNotPermitted
+ *        The Google Cloud Platform project used to manage the device is not
+ *        permitted to use this policy. (Value: "PROJECT_NOT_PERMITTED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Unsupported
  *        The policy is not supported by the version of Android Device Policy on
  *        the device. (Value: "UNSUPPORTED")
@@ -8942,6 +9959,13 @@ GTLR_DEPRECATED
  *        in specific_non_compliance_context are not set. nonComplianceReason is
  *        set to USER_ACTION. (Value:
  *        "PASSWORD_POLICIES_USER_CREDENTIALS_CONFIRMATION_REQUIRED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PermissibleUsageRestriction
+ *        This policy setting is restricted and cannot be set for this Google
+ *        Cloud Platform project. More details (including how to enable usage of
+ *        this policy setting) are available in the Permissible Usage policy
+ *        (https://developers.google.com/android/management/permissible-usage).
+ *        nonComplianceReason is set to PROJECT_NOT_PERMITTED. (Value:
+ *        "PERMISSIBLE_USAGE_RESTRICTION")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_SpecificNonComplianceReasonUnspecified
  *        Specific non-compliance reason is not specified. Fields in
  *        specific_non_compliance_context are not set. (Value:
@@ -8995,6 +10019,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ProjectNotPermitted
+ *        The Google Cloud Platform project used to manage the device is not
+ *        permitted to use this policy. (Value: "PROJECT_NOT_PERMITTED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Unsupported
  *        The policy is not supported by the version of Android Device Policy on
  *        the device. (Value: "UNSUPPORTED")
@@ -10007,6 +11034,29 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *ensureVerifyAppsEnabled GTLR_DEPRECATED;
 
 /**
+ *  Optional. Controls whether the enterpriseDisplayName is visible on the
+ *  device (e.g. lock screen message on company-owned devices).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameHidden
+ *        The enterprise display name is hidden on the device. (Value:
+ *        "ENTERPRISE_DISPLAY_NAME_HIDDEN")
+ *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisibilityUnspecified
+ *        Unspecified. Defaults to displaying the enterprise name that's set at
+ *        the time of device setup. In future, this will default to
+ *        ENTERPRISE_DISPLAY_NAME_VISIBLE. (Value:
+ *        "ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisible
+ *        The enterprise display name is visible on the device. Supported on
+ *        work profiles on Android 7 and above. Supported on fully managed
+ *        devices on Android 8 and above. A nonComplianceDetail with API_LEVEL
+ *        is reported if the Android version is less than 7. A
+ *        nonComplianceDetail with MANAGEMENT_MODE is reported on fully managed
+ *        devices on Android 7. (Value: "ENTERPRISE_DISPLAY_NAME_VISIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseDisplayNameVisibility;
+
+/**
  *  Whether factory resetting from settings is disabled.
  *
  *  Uses NSNumber of boolValue.
@@ -10300,20 +11350,25 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PolicyEnforcementRule *> *policyEnforcementRules;
 
 /**
- *  Controls whether preferential network service is enabled on the work
- *  profile. For example, an organization may have an agreement with a carrier
- *  that all of the work data from its employees' devices will be sent via a
- *  network service dedicated for enterprise use. An example of a supported
- *  preferential network service is the enterprise slice on 5G networks. This
- *  has no effect on fully managed devices.
+ *  Controls whether preferential network service is enabled on the work profile
+ *  or on fully managed devices. For example, an organization may have an
+ *  agreement with a carrier that all of the work data from its employees'
+ *  devices will be sent via a network service dedicated for enterprise use. An
+ *  example of a supported preferential network service is the enterprise slice
+ *  on 5G networks. This policy has no effect if
+ *  preferentialNetworkServiceSettings or
+ *  ApplicationPolicy.preferentialNetworkId is set on devices running Android 13
+ *  or above.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled
  *        Preferential network service is disabled on the work profile. (Value:
  *        "PREFERENTIAL_NETWORK_SERVICE_DISABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceEnabled
- *        Preferential network service is enabled on the work profile. (Value:
- *        "PREFERENTIAL_NETWORK_SERVICE_ENABLED")
+ *        Preferential network service is enabled on the work profile. This
+ *        setting is only supported on work profiles on devices running Android
+ *        12 or above. Starting with Android 13, fully managed devices are also
+ *        supported. (Value: "PREFERENTIAL_NETWORK_SERVICE_ENABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceUnspecified
  *        Unspecified. Defaults to PREFERENTIAL_NETWORK_SERVICES_DISABLED.
  *        (Value: "PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED")
@@ -10671,6 +11726,153 @@ GTLR_DEPRECATED
  *        device shut down. (Value: "SHUTDOWN")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
+ *  Individual preferential network service configuration.
+ */
+@interface GTLRAndroidManagement_PreferentialNetworkServiceConfig : GTLRObject
+
+/**
+ *  Optional. Whether fallback to the device-wide default network is allowed. If
+ *  this is set to FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED, then
+ *  nonMatchingNetworks must not be set to NON_MATCHING_NETWORKS_DISALLOWED, the
+ *  policy will be rejected otherwise. Note: If this is set to
+ *  FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED, applications are not able to
+ *  access the internet if the 5G slice is not available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionAllowed
+ *        Fallback to default connection is allowed. If this is set,
+ *        nonMatchingNetworks must not be set to
+ *        NON_MATCHING_NETWORKS_DISALLOWED, the policy will be rejected
+ *        otherwise. (Value: "FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionDisallowed
+ *        Fallback to default connection is not allowed. (Value:
+ *        "FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionUnspecified
+ *        Unspecified. Defaults to FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED.
+ *        (Value: "FALLBACK_TO_DEFAULT_CONNECTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fallbackToDefaultConnection;
+
+/**
+ *  Optional. Whether apps this configuration applies to are blocked from using
+ *  networks other than the preferential service. If this is set to
+ *  NON_MATCHING_NETWORKS_DISALLOWED, then fallbackToDefaultConnection must be
+ *  set to FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksAllowed
+ *        Apps this configuration applies to are allowed to use networks other
+ *        than the preferential service. (Value:
+ *        "NON_MATCHING_NETWORKS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksDisallowed
+ *        Apps this configuration applies to are disallowed from using other
+ *        networks than the preferential service. This can be set on Android 14
+ *        and above. A nonComplianceDetail with API_LEVEL is reported if the
+ *        Android version is less than 14. If this is set,
+ *        fallbackToDefaultConnection must be set to
+ *        FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED, the policy will be rejected
+ *        otherwise. (Value: "NON_MATCHING_NETWORKS_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksUnspecified
+ *        Unspecified. Defaults to NON_MATCHING_NETWORKS_ALLOWED. (Value:
+ *        "NON_MATCHING_NETWORKS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nonMatchingNetworks;
+
+/**
+ *  Required. Preferential network identifier. This must not be set to
+ *  NO_PREFERENTIAL_NETWORK or PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the policy
+ *  will be rejected otherwise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_NoPreferentialNetwork
+ *        Application does not use any preferential network. (Value:
+ *        "NO_PREFERENTIAL_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFive
+ *        Preferential network identifier 5. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FIVE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFour
+ *        Preferential network identifier 4. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FOUR")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdOne
+ *        Preferential network identifier 1. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_ONE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdThree
+ *        Preferential network identifier 3. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_THREE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdTwo
+ *        Preferential network identifier 2. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_TWO")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdUnspecified
+ *        Whether this value is valid and what it means depends on where it is
+ *        used, and this is documented on the relevant fields. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *preferentialNetworkId;
+
+@end
+
+
+/**
+ *  Preferential network service settings.
+ */
+@interface GTLRAndroidManagement_PreferentialNetworkServiceSettings : GTLRObject
+
+/**
+ *  Required. Default preferential network ID for the applications that are not
+ *  in applications or if ApplicationPolicy.preferentialNetworkId is set to
+ *  PREFERENTIAL_NETWORK_ID_UNSPECIFIED. There must be a configuration for the
+ *  specified network ID in preferentialNetworkServiceConfigs, unless this is
+ *  set to NO_PREFERENTIAL_NETWORK. If set to
+ *  PREFERENTIAL_NETWORK_ID_UNSPECIFIED or unset, this defaults to
+ *  NO_PREFERENTIAL_NETWORK. Note: If the default preferential network is
+ *  misconfigured, applications with no ApplicationPolicy.preferentialNetworkId
+ *  set are not able to access the internet. This setting does not apply to the
+ *  following critical apps: com.google.android.apps.work.clouddpc
+ *  com.google.android.gmsApplicationPolicy.preferentialNetworkId can still be
+ *  used to configure the preferential network for them.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_NoPreferentialNetwork
+ *        Application does not use any preferential network. (Value:
+ *        "NO_PREFERENTIAL_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFive
+ *        Preferential network identifier 5. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FIVE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFour
+ *        Preferential network identifier 4. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FOUR")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdOne
+ *        Preferential network identifier 1. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_ONE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdThree
+ *        Preferential network identifier 3. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_THREE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdTwo
+ *        Preferential network identifier 2. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_TWO")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdUnspecified
+ *        Whether this value is valid and what it means depends on where it is
+ *        used, and this is documented on the relevant fields. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultPreferentialNetworkId;
+
+/**
+ *  Required. Preferential network service configurations which enables having
+ *  multiple enterprise slices. There must not be multiple configurations with
+ *  the same preferentialNetworkId. If a configuration is not referenced by any
+ *  application by setting ApplicationPolicy.preferentialNetworkId or by setting
+ *  defaultPreferentialNetworkId, it will be ignored. For devices on 4G
+ *  networks, enterprise APN needs to be configured additionally to set up data
+ *  call for preferential network service. These APNs can be added using
+ *  apnPolicy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PreferentialNetworkServiceConfig *> *preferentialNetworkServiceConfigs;
 
 @end
 

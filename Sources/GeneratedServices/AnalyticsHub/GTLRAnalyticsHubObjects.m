@@ -244,18 +244,10 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_DestinationDataset
-@dynamic datasetReference, descriptionProperty, friendlyName, labels, location,
-         replicaLocations;
+@dynamic datasetReference, descriptionProperty, friendlyName, labels, location;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"replicaLocations" : [NSString class]
-  };
-  return map;
 }
 
 @end
@@ -920,8 +912,8 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_Subscription
-@dynamic commercialInfo, creationTime, dataExchange, lastModifyTime,
-         linkedDatasetMap, linkedResources, listing,
+@dynamic commercialInfo, creationTime, dataExchange, destinationDataset,
+         lastModifyTime, linkedDatasetMap, linkedResources, listing,
          logLinkedDatasetQueryUserEmail, name, organizationDisplayName,
          organizationId, resourceType, state, subscriberContact;
 

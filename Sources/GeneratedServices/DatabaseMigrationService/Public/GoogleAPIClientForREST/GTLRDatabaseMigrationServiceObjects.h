@@ -649,6 +649,86 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfi
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_ConversionWorkspace.destinationProvider
+
+/**
+ *  AlloyDB for PostgreSQL is the source instance provider.
+ *
+ *  Value: "ALLOYDB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Alloydb;
+/**
+ *  Amazon Aurora is the source instance provider.
+ *
+ *  Value: "AURORA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Aurora;
+/**
+ *  Microsoft Azure Database for MySQL/PostgreSQL.
+ *
+ *  Value: "AZURE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_AzureDatabase;
+/**
+ *  Cloud SQL is the source instance provider.
+ *
+ *  Value: "CLOUDSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Cloudsql;
+/**
+ *  Use this value for on-premise source database instances and ORACLE.
+ *
+ *  Value: "DATABASE_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_DatabaseProviderUnspecified;
+/**
+ *  Amazon RDS is the source instance provider.
+ *
+ *  Value: "RDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Rds;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_ConversionWorkspace.sourceProvider
+
+/**
+ *  AlloyDB for PostgreSQL is the source instance provider.
+ *
+ *  Value: "ALLOYDB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Alloydb;
+/**
+ *  Amazon Aurora is the source instance provider.
+ *
+ *  Value: "AURORA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Aurora;
+/**
+ *  Microsoft Azure Database for MySQL/PostgreSQL.
+ *
+ *  Value: "AZURE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_AzureDatabase;
+/**
+ *  Cloud SQL is the source instance provider.
+ *
+ *  Value: "CLOUDSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Cloudsql;
+/**
+ *  Use this value for on-premise source database instances and ORACLE.
+ *
+ *  Value: "DATABASE_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_DatabaseProviderUnspecified;
+/**
+ *  Amazon RDS is the source instance provider.
+ *
+ *  Value: "RDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Rds;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_DatabaseEngineInfo.engine
 
 /**
@@ -2563,6 +2643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_AlloyDbSettings_Labels *labels;
 
+/** Settings for the cluster's primary instance */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrimaryInstanceSettings *primaryInstanceSettings;
 
 /**
@@ -3651,6 +3732,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /** Required. The destination engine details. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_DatabaseEngineInfo *destination;
 
+/**
+ *  Optional. The provider for the destination database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Alloydb
+ *        AlloyDB for PostgreSQL is the source instance provider. (Value:
+ *        "ALLOYDB")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Aurora
+ *        Amazon Aurora is the source instance provider. (Value: "AURORA")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_AzureDatabase
+ *        Microsoft Azure Database for MySQL/PostgreSQL. (Value:
+ *        "AZURE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Cloudsql
+ *        Cloud SQL is the source instance provider. (Value: "CLOUDSQL")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_DatabaseProviderUnspecified
+ *        Use this value for on-premise source database instances and ORACLE.
+ *        (Value: "DATABASE_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Rds
+ *        Amazon RDS is the source instance provider. (Value: "RDS")
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProvider;
+
 /** Optional. The display name for the workspace. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3685,6 +3788,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Required. The source engine details. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_DatabaseEngineInfo *source;
+
+/**
+ *  Optional. The provider for the source database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Alloydb
+ *        AlloyDB for PostgreSQL is the source instance provider. (Value:
+ *        "ALLOYDB")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Aurora
+ *        Amazon Aurora is the source instance provider. (Value: "AURORA")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_AzureDatabase
+ *        Microsoft Azure Database for MySQL/PostgreSQL. (Value:
+ *        "AZURE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Cloudsql
+ *        Cloud SQL is the source instance provider. (Value: "CLOUDSQL")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_DatabaseProviderUnspecified
+ *        Use this value for on-premise source database instances and ORACLE.
+ *        (Value: "DATABASE_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Rds
+ *        Amazon RDS is the source instance provider. (Value: "RDS")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceProvider;
 
 /**
  *  Output only. The timestamp when the workspace resource was last updated.

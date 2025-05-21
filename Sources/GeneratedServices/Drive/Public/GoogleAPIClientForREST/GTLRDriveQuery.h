@@ -696,9 +696,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Deletes a comment. For more information, see [Manage comments and
  *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
- *  Required: The `fields` parameter must be set. To return the exact fields you
- *  need, see [Return specific
- *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.comments.delete
  *
@@ -720,9 +717,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Deletes a comment. For more information, see [Manage comments and
  *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
- *  Required: The `fields` parameter must be set. To return the exact fields you
- *  need, see [Return specific
- *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -2307,6 +2301,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /** A plain text custom message to include in the notification email. */
 @property(nonatomic, copy, nullable) NSString *emailMessage;
+
+/**
+ *  Whether the request should enforce expansive access rules.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceExpansiveAccess;
 
 /**
  *  Deprecated: See `moveToNewOwnersRoot` for details.

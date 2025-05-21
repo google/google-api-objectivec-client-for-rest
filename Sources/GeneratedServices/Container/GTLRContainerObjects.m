@@ -815,27 +815,27 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Cluster
-@dynamic addonsConfig, authenticatorGroupsConfig, autopilot, autoscaling,
-         binaryAuthorization, clusterIpv4Cidr, compliancePostureConfig,
-         conditions, confidentialNodes, controlPlaneEndpointsConfig,
-         costManagementConfig, createTime, currentMasterVersion,
-         currentNodeCount, currentNodeVersion, databaseEncryption,
-         defaultMaxPodsConstraint, descriptionProperty, enableK8sBetaApis,
-         enableKubernetesAlpha, enableTpu, endpoint, enterpriseConfig, ETag,
-         expireTime, fleet, identifier, identityServiceConfig,
-         initialClusterVersion, initialNodeCount, instanceGroupUrls,
-         ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
-         loggingConfig, loggingService, maintenancePolicy, masterAuth,
-         masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
-         monitoringService, name, network, networkConfig, networkPolicy,
-         nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
-         nodePools, notificationConfig, parentProductConfig, podAutoscaling,
-         privateClusterConfig, rbacBindingConfig, releaseChannel,
-         resourceLabels, resourceUsageExportConfig, satisfiesPzi, satisfiesPzs,
-         secretManagerConfig, securityPostureConfig, selfLink, servicesIpv4Cidr,
-         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
-         userManagedKeysConfig, verticalPodAutoscaling, workloadIdentityConfig,
-         zoneProperty;
+@dynamic addonsConfig, alphaClusterFeatureGates, authenticatorGroupsConfig,
+         autopilot, autoscaling, binaryAuthorization, clusterIpv4Cidr,
+         compliancePostureConfig, conditions, confidentialNodes,
+         controlPlaneEndpointsConfig, costManagementConfig, createTime,
+         currentMasterVersion, currentNodeCount, currentNodeVersion,
+         databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
+         enableK8sBetaApis, enableKubernetesAlpha, enableTpu, endpoint,
+         enterpriseConfig, ETag, expireTime, fleet, identifier,
+         identityServiceConfig, initialClusterVersion, initialNodeCount,
+         instanceGroupUrls, ipAllocationPolicy, labelFingerprint, legacyAbac,
+         location, locations, loggingConfig, loggingService, maintenancePolicy,
+         masterAuth, masterAuthorizedNetworksConfig, meshCertificates,
+         monitoringConfig, monitoringService, name, network, networkConfig,
+         networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig,
+         nodePoolDefaults, nodePools, notificationConfig, parentProductConfig,
+         podAutoscaling, privateClusterConfig, rbacBindingConfig,
+         releaseChannel, resourceLabels, resourceUsageExportConfig,
+         satisfiesPzi, satisfiesPzs, secretManagerConfig, securityPostureConfig,
+         selfLink, servicesIpv4Cidr, shieldedNodes, status, statusMessage,
+         subnetwork, tpuIpv4CidrBlock, userManagedKeysConfig,
+         verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -849,6 +849,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"alphaClusterFeatureGates" : [NSString class],
     @"conditions" : [GTLRContainer_StatusCondition class],
     @"instanceGroupUrls" : [NSString class],
     @"locations" : [NSString class],
@@ -1805,6 +1806,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_MemoryManager
+//
+
+@implementation GTLRContainer_MemoryManager
+@dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_MeshCertificates
 //
 
@@ -2034,7 +2045,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy,
          imageGcHighThresholdPercent, imageGcLowThresholdPercent,
          imageMaximumGcAge, imageMinimumGcAge,
-         insecureKubeletReadonlyPortEnabled, podPidsLimit;
+         insecureKubeletReadonlyPortEnabled, memoryManager, podPidsLimit,
+         topologyManager;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3028,6 +3040,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_TimeWindow
 @dynamic endTime, maintenanceExclusionOptions, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_TopologyManager
+//
+
+@implementation GTLRContainer_TopologyManager
+@dynamic policy, scope;
 @end
 
 

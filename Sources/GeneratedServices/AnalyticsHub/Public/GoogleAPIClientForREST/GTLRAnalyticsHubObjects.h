@@ -738,7 +738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Output only. The resource name of the data exchange. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123`.
+ *  `projects/myproject/locations/us/dataExchanges/123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -876,13 +876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  https://cloud.google.com/bigquery/docs/locations for supported locations.
  */
 @property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  Optional. The geographic locations where the dataset should be replicated.
- *  See https://cloud.google.com/bigquery/docs/locations for supported
- *  locations.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaLocations;
 
 @end
 
@@ -1460,7 +1453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Output only. The resource name of the listing. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123/listings/456`
+ *  `projects/myproject/locations/us/dataExchanges/123/listings/456`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2264,7 +2257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Required. The parent resource path of the Subscription. e.g.
- *  `projects/subscriberproject/locations/US`
+ *  `projects/subscriberproject/locations/us`
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
@@ -2336,16 +2329,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Output only. Resource name of the source Data Exchange. e.g.
- *  projects/123/locations/US/dataExchanges/456
+ *  projects/123/locations/us/dataExchanges/456
  */
 @property(nonatomic, copy, nullable) NSString *dataExchange;
+
+/** Optional. BigQuery destination dataset to create for the subscriber. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_DestinationDataset *destinationDataset;
 
 /** Output only. Timestamp when the subscription was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifyTime;
 
 /**
  *  Output only. Map of listing resource names to associated linked resource,
- *  e.g. projects/123/locations/US/dataExchanges/456/listings/789 ->
+ *  e.g. projects/123/locations/us/dataExchanges/456/listings/789 ->
  *  projects/123/datasets/my_dataset For listing-level subscriptions, this is a
  *  map of size 1. Only contains values if state == STATE_ACTIVE.
  */
@@ -2359,7 +2355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Output only. Resource name of the source Listing. e.g.
- *  projects/123/locations/US/dataExchanges/456/listings/789
+ *  projects/123/locations/us/dataExchanges/456/listings/789
  */
 @property(nonatomic, copy, nullable) NSString *listing;
 
@@ -2373,7 +2369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Output only. The resource name of the subscription. e.g.
- *  `projects/myproject/locations/US/subscriptions/123`.
+ *  `projects/myproject/locations/us/subscriptions/123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2422,7 +2418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Output only. Map of listing resource names to associated linked resource,
- *  e.g. projects/123/locations/US/dataExchanges/456/listings/789 ->
+ *  e.g. projects/123/locations/us/dataExchanges/456/listings/789 ->
  *  projects/123/datasets/my_dataset For listing-level subscriptions, this is a
  *  map of size 1. Only contains values if state == STATE_ACTIVE.
  *

@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRManagedKafka_CheckCompatibilityRequest.schemaType
+NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Avro = @"AVRO";
+NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Json = @"JSON";
+NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Protobuf = @"PROTOBUF";
+NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_SchemaTypeUnspecified = @"SCHEMA_TYPE_UNSPECIFIED";
+
 // GTLRManagedKafka_Cluster.state
 NSString * const kGTLRManagedKafka_Cluster_State_Active        = @"ACTIVE";
 NSString * const kGTLRManagedKafka_Cluster_State_Creating      = @"CREATING";
@@ -34,10 +40,64 @@ NSString * const kGTLRManagedKafka_Connector_State_StateUnspecified = @"STATE_UN
 NSString * const kGTLRManagedKafka_Connector_State_Stopped     = @"STOPPED";
 NSString * const kGTLRManagedKafka_Connector_State_Unassigned  = @"UNASSIGNED";
 
+// GTLRManagedKafka_CreateVersionRequest.schemaType
+NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_Avro = @"AVRO";
+NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_Json = @"JSON";
+NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_Protobuf = @"PROTOBUF";
+NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_SchemaTypeUnspecified = @"SCHEMA_TYPE_UNSPECIFIED";
+
+// GTLRManagedKafka_LookupVersionRequest.schemaType
+NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_Avro = @"AVRO";
+NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_Json = @"JSON";
+NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_Protobuf = @"PROTOBUF";
+NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_SchemaTypeUnspecified = @"SCHEMA_TYPE_UNSPECIFIED";
+
 // GTLRManagedKafka_RebalanceConfig.mode
 NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_AutoRebalanceOnScaleUp = @"AUTO_REBALANCE_ON_SCALE_UP";
 NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBALANCE";
+
+// GTLRManagedKafka_Schema.schemaType
+NSString * const kGTLRManagedKafka_Schema_SchemaType_Avro      = @"AVRO";
+NSString * const kGTLRManagedKafka_Schema_SchemaType_Json      = @"JSON";
+NSString * const kGTLRManagedKafka_Schema_SchemaType_Protobuf  = @"PROTOBUF";
+NSString * const kGTLRManagedKafka_Schema_SchemaType_SchemaTypeUnspecified = @"SCHEMA_TYPE_UNSPECIFIED";
+
+// GTLRManagedKafka_SchemaConfig.compatibility
+NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_Backward = @"BACKWARD";
+NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_BackwardTransitive = @"BACKWARD_TRANSITIVE";
+NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_Forward = @"FORWARD";
+NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_ForwardTransitive = @"FORWARD_TRANSITIVE";
+NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_Full = @"FULL";
+NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_FullTransitive = @"FULL_TRANSITIVE";
+NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_None = @"NONE";
+
+// GTLRManagedKafka_SchemaMode.mode
+NSString * const kGTLRManagedKafka_SchemaMode_Mode_Import    = @"IMPORT";
+NSString * const kGTLRManagedKafka_SchemaMode_Mode_None      = @"NONE";
+NSString * const kGTLRManagedKafka_SchemaMode_Mode_Readonly  = @"READONLY";
+NSString * const kGTLRManagedKafka_SchemaMode_Mode_Readwrite = @"READWRITE";
+
+// GTLRManagedKafka_SchemaVersion.schemaType
+NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_Avro = @"AVRO";
+NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_Json = @"JSON";
+NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_Protobuf = @"PROTOBUF";
+NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_SchemaTypeUnspecified = @"SCHEMA_TYPE_UNSPECIFIED";
+
+// GTLRManagedKafka_UpdateSchemaConfigRequest.compatibility
+NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Backward = @"BACKWARD";
+NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_BackwardTransitive = @"BACKWARD_TRANSITIVE";
+NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Forward = @"FORWARD";
+NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_ForwardTransitive = @"FORWARD_TRANSITIVE";
+NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Full = @"FULL";
+NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_FullTransitive = @"FULL_TRANSITIVE";
+NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_None = @"NONE";
+
+// GTLRManagedKafka_UpdateSchemaModeRequest.mode
+NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Import = @"IMPORT";
+NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_None = @"NONE";
+NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readonly = @"READONLY";
+NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"READWRITE";
 
 // ----------------------------------------------------------------------------
 //
@@ -115,6 +175,46 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 @implementation GTLRManagedKafka_CapacityConfig
 @dynamic memoryBytes, vcpuCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_CheckCompatibilityRequest
+//
+
+@implementation GTLRManagedKafka_CheckCompatibilityRequest
+@dynamic references, schema, schemaType, verbose;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRManagedKafka_SchemaReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_CheckCompatibilityResponse
+//
+
+@implementation GTLRManagedKafka_CheckCompatibilityResponse
+@dynamic isCompatible, messages;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"isCompatible" : @"is_compatible" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -321,6 +421,71 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_Context
+//
+
+@implementation GTLRManagedKafka_Context
+@dynamic name, subjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjects" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_CreateSchemaRegistryRequest
+//
+
+@implementation GTLRManagedKafka_CreateSchemaRegistryRequest
+@dynamic schemaRegistry, schemaRegistryId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_CreateVersionRequest
+//
+
+@implementation GTLRManagedKafka_CreateVersionRequest
+@dynamic identifier, normalize, references, schema, schemaType, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRManagedKafka_SchemaReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_CreateVersionResponse
+//
+
+@implementation GTLRManagedKafka_CreateVersionResponse
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_Empty
 //
 
@@ -335,6 +500,38 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 @implementation GTLRManagedKafka_GcpConfig
 @dynamic accessConfig, kmsKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_HttpBody
+//
+
+@implementation GTLRManagedKafka_HttpBody
+@dynamic contentType, data, extensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRManagedKafka_HttpBody_Extensions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_HttpBody_Extensions_Item
+//
+
+@implementation GTLRManagedKafka_HttpBody_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -496,6 +693,24 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_ListSchemaRegistriesResponse
+//
+
+@implementation GTLRManagedKafka_ListSchemaRegistriesResponse
+@dynamic schemaRegistries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemaRegistries" : [GTLRManagedKafka_SchemaRegistry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_ListTopicsResponse
 //
 
@@ -549,6 +764,24 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_LookupVersionRequest
+//
+
+@implementation GTLRManagedKafka_LookupVersionRequest
+@dynamic deleted, normalize, references, schema, schemaType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRManagedKafka_SchemaReference class]
+  };
+  return map;
 }
 
 @end
@@ -689,6 +922,94 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_Schema
+//
+
+@implementation GTLRManagedKafka_Schema
+@dynamic references, schema, schemaType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRManagedKafka_SchemaReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_SchemaConfig
+//
+
+@implementation GTLRManagedKafka_SchemaConfig
+@dynamic alias, compatibility, normalize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_SchemaMode
+//
+
+@implementation GTLRManagedKafka_SchemaMode
+@dynamic mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_SchemaReference
+//
+
+@implementation GTLRManagedKafka_SchemaReference
+@dynamic name, subject, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_SchemaRegistry
+//
+
+@implementation GTLRManagedKafka_SchemaRegistry
+@dynamic contexts, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contexts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_SchemaVersion
+//
+
+@implementation GTLRManagedKafka_SchemaVersion
+@dynamic identifier, references, schema, schemaType, subject, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRManagedKafka_SchemaReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_Status
 //
 
@@ -768,4 +1089,24 @@ NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance = @"NO_REBAL
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_UpdateSchemaConfigRequest
+//
+
+@implementation GTLRManagedKafka_UpdateSchemaConfigRequest
+@dynamic compatibility, normalize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_UpdateSchemaModeRequest
+//
+
+@implementation GTLRManagedKafka_UpdateSchemaModeRequest
+@dynamic mode;
 @end

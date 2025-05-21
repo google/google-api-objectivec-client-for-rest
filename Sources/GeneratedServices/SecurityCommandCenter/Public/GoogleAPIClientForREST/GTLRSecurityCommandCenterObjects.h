@@ -79,6 +79,7 @@
 @class GTLRSecurityCommandCenter_Exfiltration;
 @class GTLRSecurityCommandCenter_Expr;
 @class GTLRSecurityCommandCenter_File;
+@class GTLRSecurityCommandCenter_FileOperation;
 @class GTLRSecurityCommandCenter_Finding;
 @class GTLRSecurityCommandCenter_Finding_Contacts;
 @class GTLRSecurityCommandCenter_Finding_ExternalSystems;
@@ -153,6 +154,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Exfiltration;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalSystem;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_Contacts;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_ExternalSystems;
@@ -979,6 +981,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetecti
  *  Value: "INHERITED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Inherited;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_FileOperation.type
+
+/**
+ *  Represents an execute operation.
+ *
+ *  Value: "EXECUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_Execute;
+/**
+ *  Represents an open operation.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_Open;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_OperationTypeUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_Read;
+/**
+ *  Represents a rename operation.
+ *
+ *  Value: "RENAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_Rename;
+/**
+ *  Represents a write operation.
+ *
+ *  Value: "WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_Write;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.findingClass
@@ -2105,6 +2147,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation.type
+
+/**
+ *  Represents an execute operation.
+ *
+ *  Value: "EXECUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Execute;
+/**
+ *  Represents an open operation.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Open;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_OperationTypeUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Read;
+/**
+ *  Represents a rename operation.
+ *
+ *  Value: "RENAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Rename;
+/**
+ *  Represents a write operation.
+ *
+ *  Value: "WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Write;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding.findingClass
 
 /**
@@ -2477,6 +2559,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_IdentityAndAccess;
 /**
+ *  Issues in the threat domain.
+ *
+ *  Value: "THREAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Threat;
+/**
  *  Issues in the vulnerability domain.
  *
  *  Value: "VULNERABILITY"
@@ -2671,6 +2759,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.003
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSudoAndSudoCaching;
+/**
  *  T1134
  *
  *  Value: "ACCESS_TOKEN_MANIPULATION"
@@ -2682,6 +2776,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "ACCOUNT_ACCESS_REMOVAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AccountAccessRemoval;
+/**
+ *  T1087.001
+ *
+ *  Value: "ACCOUNT_DISCOVERY_LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AccountDiscoveryLocalAccount;
 /**
  *  T1098
  *
@@ -2719,11 +2819,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ApplicationLayerProtocol;
 /**
+ *  T1119
+ *
+ *  Value: "AUTOMATED_COLLECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AutomatedCollection;
+/**
  *  T1020
  *
  *  Value: "AUTOMATED_EXFILTRATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AutomatedExfiltration;
+/**
+ *  T1552.003
+ *
+ *  Value: "BASH_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_BashHistory;
 /**
  *  T1547
  *
@@ -2791,6 +2903,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CompromiseHostSoftwareBinary;
 /**
+ *  T1195.001
+ *
+ *  Value: "COMPROMISE_SOFTWARE_DEPENDENCIES_AND_DEVELOPMENT_TOOLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CompromiseSoftwareDependenciesAndDevelopmentTools;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -2827,6 +2945,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CreateSnapshot;
 /**
+ *  T1555
+ *
+ *  Value: "CREDENTIALS_FROM_PASSWORD_STORES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CredentialsFromPasswordStores;
+/**
+ *  T1552.001
+ *
+ *  Value: "CREDENTIALS_IN_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CredentialsInFiles;
+/**
  *  T1485
  *
  *  Value: "DATA_DESTRUCTION"
@@ -2838,6 +2968,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "DATA_ENCODING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DataEncoding;
+/**
+ *  T1486
+ *
+ *  Value: "DATA_ENCRYPTED_FOR_IMPACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DataEncryptedForImpact;
+/**
+ *  T1005
+ *
+ *  Value: "DATA_FROM_LOCAL_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DataFromLocalSystem;
 /**
  *  T1001
  *
@@ -2857,11 +2999,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DefaultAccounts;
 /**
+ *  T1140
+ *
+ *  Value: "DEOBFUSCATE_DECODE_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DeobfuscateDecodeFilesOrInfo;
+/**
  *  T1610
  *
  *  Value: "DEPLOY_CONTAINER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DeployContainer;
+/**
+ *  T1587
+ *
+ *  Value: "DEVELOP_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DevelopCapabilities;
+/**
+ *  T1587.001
+ *
+ *  Value: "DEVELOP_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DevelopCapabilitiesMalware;
+/**
+ *  T1562.012
+ *
+ *  Value: "DISABLE_OR_MODIFY_LINUX_AUDIT_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DisableOrModifyLinuxAuditSystem;
 /**
  *  T1562.001
  *
@@ -2929,6 +3095,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExternalProxy;
 /**
+ *  T1083
+ *
+ *  Value: "FILE_AND_DIRECTORY_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_FileAndDirectoryDiscovery;
+/**
+ *  T1657
+ *
+ *  Value: "FINANCIAL_THEFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_FinancialTheft;
+/**
  *  T1495
  *
  *  Value: "FIRMWARE_CORRUPTION"
@@ -2953,17 +3131,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_HideArtifacts;
 /**
+ *  T1574
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_HijackExecutionFlow;
+/**
+ *  T1574.006
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW_DYNAMIC_LINKER_HIJACKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_HijackExecutionFlowDynamicLinkerHijacking;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ImpairDefenses;
 /**
+ *  T1562.006
+ *
+ *  Value: "INDICATOR_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorBlocking;
+/**
+ *  T1070
+ *
+ *  Value: "INDICATOR_REMOVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorRemoval;
+/**
+ *  T1070.003
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_COMMAND_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorRemovalClearCommandHistory;
+/**
+ *  T1070.002
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_LINUX_OR_MAC_SYSTEM_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorRemovalClearLinuxOrMacSystemLogs;
+/**
+ *  T1070.008
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_MAILBOX_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorRemovalClearMailboxData;
+/**
  *  T1070.004
  *
  *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorRemovalFileDeletion;
+/**
+ *  T1070.006
+ *
+ *  Value: "INDICATOR_REMOVAL_TIMESTOMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorRemovalTimestomp;
 /**
  *  T1105
  *
@@ -2976,6 +3202,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "INHIBIT_SYSTEM_RECOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_InhibitSystemRecovery;
+/**
+ *  T1056
+ *
+ *  Value: "INPUT_CAPTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_InputCapture;
+/**
+ *  T1056.001
+ *
+ *  Value: "INPUT_CAPTURE_KEYLOGGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_InputCaptureKeylogging;
+/**
+ *  T1553.004
+ *
+ *  Value: "INSTALL_ROOT_CERTIFICATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_InstallRootCertificate;
 /**
  *  T1547.006
  *
@@ -3067,17 +3311,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ObtainCapabilities;
 /**
+ *  T1588.001
+ *
+ *  Value: "OBTAIN_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ObtainCapabilitiesMalware;
+/**
+ *  T1588.006
+ *
+ *  Value: "OBTAIN_CAPABILITIES_VULNERABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ObtainCapabilitiesVulnerabilities;
+/**
+ *  T1003
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_OsCredentialDumping;
+/**
+ *  T1003.008
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_ETC_PASSWORD_AND_ETC_SHADOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_OsCredentialDumpingEtcPasswordAndEtcShadow;
+/**
+ *  T1003.007
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_PROC_FILESYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_OsCredentialDumpingProcFilesystem;
+/**
  *  T1069
  *
  *  Value: "PERMISSION_GROUPS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_PermissionGroupsDiscovery;
 /**
+ *  T1556.003
+ *
+ *  Value: "PLUGGABLE_AUTHENTICATION_MODULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_PluggableAuthenticationModules;
+/**
+ *  T1552.004
+ *
+ *  Value: "PRIVATE_KEYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_PrivateKeys;
+/**
  *  T1057
  *
  *  Value: "PROCESS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ProcessDiscovery;
+/**
+ *  T1055
+ *
+ *  Value: "PROCESS_INJECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ProcessInjection;
 /**
  *  T1090
  *
@@ -3090,6 +3382,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "PYTHON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Python;
+/**
+ *  T1620
+ *
+ *  Value: "REFLECTIVE_CODE_LOADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ReflectiveCodeLoading;
 /**
  *  T1496
  *
@@ -3109,6 +3407,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ScheduledTaskJob;
 /**
+ *  T1053.003
+ *
+ *  Value: "SCHEDULED_TASK_JOB_CRON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ScheduledTaskJobCron;
+/**
+ *  T1029
+ *
+ *  Value: "SCHEDULED_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ScheduledTransfer;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -3120,6 +3430,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "SHARED_MODULES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_SharedModules;
+/**
+ *  T1547.009
+ *
+ *  Value: "SHORTCUT_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ShortcutModification;
 /**
  *  T1072
  *
@@ -3175,6 +3491,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Steganography;
 /**
+ *  T1553
+ *
+ *  Value: "SUBVERT_TRUST_CONTROL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_SubvertTrustControl;
+/**
+ *  T1195
+ *
+ *  Value: "SUPPLY_CHAIN_COMPROMISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_SupplyChainCompromise;
+/**
+ *  T1033
+ *
+ *  Value: "SYSTEM_OWNER_USER_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_SystemOwnerUserDiscovery;
+/**
  *  Unspecified value.
  *
  *  Value: "TECHNIQUE_UNSPECIFIED"
@@ -3204,6 +3538,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "UNSECURED_CREDENTIALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_UnsecuredCredentials;
+/**
+ *  T1608.001
+ *
+ *  Value: "UPLOAD_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_UploadMalware;
 /**
  *  T1204
  *
@@ -3321,6 +3661,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.003
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSudoAndSudoCaching;
+/**
  *  T1134
  *
  *  Value: "ACCESS_TOKEN_MANIPULATION"
@@ -3332,6 +3678,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "ACCOUNT_ACCESS_REMOVAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AccountAccessRemoval;
+/**
+ *  T1087.001
+ *
+ *  Value: "ACCOUNT_DISCOVERY_LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AccountDiscoveryLocalAccount;
 /**
  *  T1098
  *
@@ -3369,11 +3721,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ApplicationLayerProtocol;
 /**
+ *  T1119
+ *
+ *  Value: "AUTOMATED_COLLECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AutomatedCollection;
+/**
  *  T1020
  *
  *  Value: "AUTOMATED_EXFILTRATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AutomatedExfiltration;
+/**
+ *  T1552.003
+ *
+ *  Value: "BASH_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_BashHistory;
 /**
  *  T1547
  *
@@ -3441,6 +3805,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CompromiseHostSoftwareBinary;
 /**
+ *  T1195.001
+ *
+ *  Value: "COMPROMISE_SOFTWARE_DEPENDENCIES_AND_DEVELOPMENT_TOOLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CompromiseSoftwareDependenciesAndDevelopmentTools;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -3477,6 +3847,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CreateSnapshot;
 /**
+ *  T1555
+ *
+ *  Value: "CREDENTIALS_FROM_PASSWORD_STORES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CredentialsFromPasswordStores;
+/**
+ *  T1552.001
+ *
+ *  Value: "CREDENTIALS_IN_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CredentialsInFiles;
+/**
  *  T1485
  *
  *  Value: "DATA_DESTRUCTION"
@@ -3488,6 +3870,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "DATA_ENCODING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DataEncoding;
+/**
+ *  T1486
+ *
+ *  Value: "DATA_ENCRYPTED_FOR_IMPACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DataEncryptedForImpact;
+/**
+ *  T1005
+ *
+ *  Value: "DATA_FROM_LOCAL_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DataFromLocalSystem;
 /**
  *  T1001
  *
@@ -3507,11 +3901,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DefaultAccounts;
 /**
+ *  T1140
+ *
+ *  Value: "DEOBFUSCATE_DECODE_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DeobfuscateDecodeFilesOrInfo;
+/**
  *  T1610
  *
  *  Value: "DEPLOY_CONTAINER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DeployContainer;
+/**
+ *  T1587
+ *
+ *  Value: "DEVELOP_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DevelopCapabilities;
+/**
+ *  T1587.001
+ *
+ *  Value: "DEVELOP_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DevelopCapabilitiesMalware;
+/**
+ *  T1562.012
+ *
+ *  Value: "DISABLE_OR_MODIFY_LINUX_AUDIT_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DisableOrModifyLinuxAuditSystem;
 /**
  *  T1562.001
  *
@@ -3579,6 +3997,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExternalProxy;
 /**
+ *  T1083
+ *
+ *  Value: "FILE_AND_DIRECTORY_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_FileAndDirectoryDiscovery;
+/**
+ *  T1657
+ *
+ *  Value: "FINANCIAL_THEFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_FinancialTheft;
+/**
  *  T1495
  *
  *  Value: "FIRMWARE_CORRUPTION"
@@ -3603,17 +4033,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_HideArtifacts;
 /**
+ *  T1574
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_HijackExecutionFlow;
+/**
+ *  T1574.006
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW_DYNAMIC_LINKER_HIJACKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_HijackExecutionFlowDynamicLinkerHijacking;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ImpairDefenses;
 /**
+ *  T1562.006
+ *
+ *  Value: "INDICATOR_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorBlocking;
+/**
+ *  T1070
+ *
+ *  Value: "INDICATOR_REMOVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorRemoval;
+/**
+ *  T1070.003
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_COMMAND_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorRemovalClearCommandHistory;
+/**
+ *  T1070.002
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_LINUX_OR_MAC_SYSTEM_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorRemovalClearLinuxOrMacSystemLogs;
+/**
+ *  T1070.008
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_MAILBOX_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorRemovalClearMailboxData;
+/**
  *  T1070.004
  *
  *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorRemovalFileDeletion;
+/**
+ *  T1070.006
+ *
+ *  Value: "INDICATOR_REMOVAL_TIMESTOMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorRemovalTimestomp;
 /**
  *  T1105
  *
@@ -3626,6 +4104,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "INHIBIT_SYSTEM_RECOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_InhibitSystemRecovery;
+/**
+ *  T1056
+ *
+ *  Value: "INPUT_CAPTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_InputCapture;
+/**
+ *  T1056.001
+ *
+ *  Value: "INPUT_CAPTURE_KEYLOGGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_InputCaptureKeylogging;
+/**
+ *  T1553.004
+ *
+ *  Value: "INSTALL_ROOT_CERTIFICATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_InstallRootCertificate;
 /**
  *  T1547.006
  *
@@ -3717,17 +4213,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ObtainCapabilities;
 /**
+ *  T1588.001
+ *
+ *  Value: "OBTAIN_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ObtainCapabilitiesMalware;
+/**
+ *  T1588.006
+ *
+ *  Value: "OBTAIN_CAPABILITIES_VULNERABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ObtainCapabilitiesVulnerabilities;
+/**
+ *  T1003
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_OsCredentialDumping;
+/**
+ *  T1003.008
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_ETC_PASSWORD_AND_ETC_SHADOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_OsCredentialDumpingEtcPasswordAndEtcShadow;
+/**
+ *  T1003.007
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_PROC_FILESYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_OsCredentialDumpingProcFilesystem;
+/**
  *  T1069
  *
  *  Value: "PERMISSION_GROUPS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_PermissionGroupsDiscovery;
 /**
+ *  T1556.003
+ *
+ *  Value: "PLUGGABLE_AUTHENTICATION_MODULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_PluggableAuthenticationModules;
+/**
+ *  T1552.004
+ *
+ *  Value: "PRIVATE_KEYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_PrivateKeys;
+/**
  *  T1057
  *
  *  Value: "PROCESS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ProcessDiscovery;
+/**
+ *  T1055
+ *
+ *  Value: "PROCESS_INJECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ProcessInjection;
 /**
  *  T1090
  *
@@ -3740,6 +4284,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "PYTHON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Python;
+/**
+ *  T1620
+ *
+ *  Value: "REFLECTIVE_CODE_LOADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ReflectiveCodeLoading;
 /**
  *  T1496
  *
@@ -3759,6 +4309,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ScheduledTaskJob;
 /**
+ *  T1053.003
+ *
+ *  Value: "SCHEDULED_TASK_JOB_CRON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ScheduledTaskJobCron;
+/**
+ *  T1029
+ *
+ *  Value: "SCHEDULED_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ScheduledTransfer;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -3770,6 +4332,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "SHARED_MODULES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_SharedModules;
+/**
+ *  T1547.009
+ *
+ *  Value: "SHORTCUT_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ShortcutModification;
 /**
  *  T1072
  *
@@ -3825,6 +4393,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Steganography;
 /**
+ *  T1553
+ *
+ *  Value: "SUBVERT_TRUST_CONTROL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_SubvertTrustControl;
+/**
+ *  T1195
+ *
+ *  Value: "SUPPLY_CHAIN_COMPROMISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_SupplyChainCompromise;
+/**
+ *  T1033
+ *
+ *  Value: "SYSTEM_OWNER_USER_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_SystemOwnerUserDiscovery;
+/**
  *  Unspecified value.
  *
  *  Value: "TECHNIQUE_UNSPECIFIED"
@@ -3854,6 +4440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "UNSECURED_CREDENTIALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_UnsecuredCredentials;
+/**
+ *  T1608.001
+ *
+ *  Value: "UPLOAD_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_UploadMalware;
 /**
  *  T1204
  *
@@ -4487,6 +5079,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.003
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSudoAndSudoCaching;
+/**
  *  T1134
  *
  *  Value: "ACCESS_TOKEN_MANIPULATION"
@@ -4498,6 +5096,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "ACCOUNT_ACCESS_REMOVAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccountAccessRemoval;
+/**
+ *  T1087.001
+ *
+ *  Value: "ACCOUNT_DISCOVERY_LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccountDiscoveryLocalAccount;
 /**
  *  T1098
  *
@@ -4535,11 +5139,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ApplicationLayerProtocol;
 /**
+ *  T1119
+ *
+ *  Value: "AUTOMATED_COLLECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AutomatedCollection;
+/**
  *  T1020
  *
  *  Value: "AUTOMATED_EXFILTRATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AutomatedExfiltration;
+/**
+ *  T1552.003
+ *
+ *  Value: "BASH_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_BashHistory;
 /**
  *  T1547
  *
@@ -4607,6 +5223,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CompromiseHostSoftwareBinary;
 /**
+ *  T1195.001
+ *
+ *  Value: "COMPROMISE_SOFTWARE_DEPENDENCIES_AND_DEVELOPMENT_TOOLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CompromiseSoftwareDependenciesAndDevelopmentTools;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -4643,6 +5265,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateSnapshot;
 /**
+ *  T1555
+ *
+ *  Value: "CREDENTIALS_FROM_PASSWORD_STORES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CredentialsFromPasswordStores;
+/**
+ *  T1552.001
+ *
+ *  Value: "CREDENTIALS_IN_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CredentialsInFiles;
+/**
  *  T1485
  *
  *  Value: "DATA_DESTRUCTION"
@@ -4654,6 +5288,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "DATA_ENCODING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataEncoding;
+/**
+ *  T1486
+ *
+ *  Value: "DATA_ENCRYPTED_FOR_IMPACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataEncryptedForImpact;
+/**
+ *  T1005
+ *
+ *  Value: "DATA_FROM_LOCAL_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataFromLocalSystem;
 /**
  *  T1001
  *
@@ -4673,11 +5319,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DefaultAccounts;
 /**
+ *  T1140
+ *
+ *  Value: "DEOBFUSCATE_DECODE_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DeobfuscateDecodeFilesOrInfo;
+/**
  *  T1610
  *
  *  Value: "DEPLOY_CONTAINER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DeployContainer;
+/**
+ *  T1587
+ *
+ *  Value: "DEVELOP_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DevelopCapabilities;
+/**
+ *  T1587.001
+ *
+ *  Value: "DEVELOP_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DevelopCapabilitiesMalware;
+/**
+ *  T1562.012
+ *
+ *  Value: "DISABLE_OR_MODIFY_LINUX_AUDIT_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DisableOrModifyLinuxAuditSystem;
 /**
  *  T1562.001
  *
@@ -4745,6 +5415,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy;
 /**
+ *  T1083
+ *
+ *  Value: "FILE_AND_DIRECTORY_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_FileAndDirectoryDiscovery;
+/**
+ *  T1657
+ *
+ *  Value: "FINANCIAL_THEFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_FinancialTheft;
+/**
  *  T1495
  *
  *  Value: "FIRMWARE_CORRUPTION"
@@ -4769,17 +5451,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_HideArtifacts;
 /**
+ *  T1574
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_HijackExecutionFlow;
+/**
+ *  T1574.006
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW_DYNAMIC_LINKER_HIJACKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_HijackExecutionFlowDynamicLinkerHijacking;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ImpairDefenses;
 /**
+ *  T1562.006
+ *
+ *  Value: "INDICATOR_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorBlocking;
+/**
+ *  T1070
+ *
+ *  Value: "INDICATOR_REMOVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorRemoval;
+/**
+ *  T1070.003
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_COMMAND_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorRemovalClearCommandHistory;
+/**
+ *  T1070.002
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_LINUX_OR_MAC_SYSTEM_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorRemovalClearLinuxOrMacSystemLogs;
+/**
+ *  T1070.008
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_MAILBOX_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorRemovalClearMailboxData;
+/**
  *  T1070.004
  *
  *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorRemovalFileDeletion;
+/**
+ *  T1070.006
+ *
+ *  Value: "INDICATOR_REMOVAL_TIMESTOMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorRemovalTimestomp;
 /**
  *  T1105
  *
@@ -4792,6 +5522,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "INHIBIT_SYSTEM_RECOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InhibitSystemRecovery;
+/**
+ *  T1056
+ *
+ *  Value: "INPUT_CAPTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InputCapture;
+/**
+ *  T1056.001
+ *
+ *  Value: "INPUT_CAPTURE_KEYLOGGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InputCaptureKeylogging;
+/**
+ *  T1553.004
+ *
+ *  Value: "INSTALL_ROOT_CERTIFICATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InstallRootCertificate;
 /**
  *  T1547.006
  *
@@ -4883,17 +5631,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ObtainCapabilities;
 /**
+ *  T1588.001
+ *
+ *  Value: "OBTAIN_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ObtainCapabilitiesMalware;
+/**
+ *  T1588.006
+ *
+ *  Value: "OBTAIN_CAPABILITIES_VULNERABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ObtainCapabilitiesVulnerabilities;
+/**
+ *  T1003
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_OsCredentialDumping;
+/**
+ *  T1003.008
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_ETC_PASSWORD_AND_ETC_SHADOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_OsCredentialDumpingEtcPasswordAndEtcShadow;
+/**
+ *  T1003.007
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_PROC_FILESYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_OsCredentialDumpingProcFilesystem;
+/**
  *  T1069
  *
  *  Value: "PERMISSION_GROUPS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_PermissionGroupsDiscovery;
 /**
+ *  T1556.003
+ *
+ *  Value: "PLUGGABLE_AUTHENTICATION_MODULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_PluggableAuthenticationModules;
+/**
+ *  T1552.004
+ *
+ *  Value: "PRIVATE_KEYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_PrivateKeys;
+/**
  *  T1057
  *
  *  Value: "PROCESS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ProcessDiscovery;
+/**
+ *  T1055
+ *
+ *  Value: "PROCESS_INJECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ProcessInjection;
 /**
  *  T1090
  *
@@ -4906,6 +5702,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "PYTHON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Python;
+/**
+ *  T1620
+ *
+ *  Value: "REFLECTIVE_CODE_LOADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ReflectiveCodeLoading;
 /**
  *  T1496
  *
@@ -4925,6 +5727,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScheduledTaskJob;
 /**
+ *  T1053.003
+ *
+ *  Value: "SCHEDULED_TASK_JOB_CRON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScheduledTaskJobCron;
+/**
+ *  T1029
+ *
+ *  Value: "SCHEDULED_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScheduledTransfer;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -4936,6 +5750,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "SHARED_MODULES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SharedModules;
+/**
+ *  T1547.009
+ *
+ *  Value: "SHORTCUT_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ShortcutModification;
 /**
  *  T1072
  *
@@ -4991,6 +5811,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Steganography;
 /**
+ *  T1553
+ *
+ *  Value: "SUBVERT_TRUST_CONTROL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SubvertTrustControl;
+/**
+ *  T1195
+ *
+ *  Value: "SUPPLY_CHAIN_COMPROMISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SupplyChainCompromise;
+/**
+ *  T1033
+ *
+ *  Value: "SYSTEM_OWNER_USER_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SystemOwnerUserDiscovery;
+/**
  *  Unspecified value.
  *
  *  Value: "TECHNIQUE_UNSPECIFIED"
@@ -5020,6 +5858,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "UNSECURED_CREDENTIALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UnsecuredCredentials;
+/**
+ *  T1608.001
+ *
+ *  Value: "UPLOAD_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UploadMalware;
 /**
  *  T1204
  *
@@ -5137,6 +5981,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.003
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSudoAndSudoCaching;
+/**
  *  T1134
  *
  *  Value: "ACCESS_TOKEN_MANIPULATION"
@@ -5148,6 +5998,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "ACCOUNT_ACCESS_REMOVAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccountAccessRemoval;
+/**
+ *  T1087.001
+ *
+ *  Value: "ACCOUNT_DISCOVERY_LOCAL_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccountDiscoveryLocalAccount;
 /**
  *  T1098
  *
@@ -5185,11 +6041,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ApplicationLayerProtocol;
 /**
+ *  T1119
+ *
+ *  Value: "AUTOMATED_COLLECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AutomatedCollection;
+/**
  *  T1020
  *
  *  Value: "AUTOMATED_EXFILTRATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AutomatedExfiltration;
+/**
+ *  T1552.003
+ *
+ *  Value: "BASH_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_BashHistory;
 /**
  *  T1547
  *
@@ -5257,6 +6125,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CompromiseHostSoftwareBinary;
 /**
+ *  T1195.001
+ *
+ *  Value: "COMPROMISE_SOFTWARE_DEPENDENCIES_AND_DEVELOPMENT_TOOLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CompromiseSoftwareDependenciesAndDevelopmentTools;
+/**
  *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
@@ -5293,6 +6167,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateSnapshot;
 /**
+ *  T1555
+ *
+ *  Value: "CREDENTIALS_FROM_PASSWORD_STORES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CredentialsFromPasswordStores;
+/**
+ *  T1552.001
+ *
+ *  Value: "CREDENTIALS_IN_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CredentialsInFiles;
+/**
  *  T1485
  *
  *  Value: "DATA_DESTRUCTION"
@@ -5304,6 +6190,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "DATA_ENCODING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataEncoding;
+/**
+ *  T1486
+ *
+ *  Value: "DATA_ENCRYPTED_FOR_IMPACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataEncryptedForImpact;
+/**
+ *  T1005
+ *
+ *  Value: "DATA_FROM_LOCAL_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataFromLocalSystem;
 /**
  *  T1001
  *
@@ -5323,11 +6221,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DefaultAccounts;
 /**
+ *  T1140
+ *
+ *  Value: "DEOBFUSCATE_DECODE_FILES_OR_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DeobfuscateDecodeFilesOrInfo;
+/**
  *  T1610
  *
  *  Value: "DEPLOY_CONTAINER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DeployContainer;
+/**
+ *  T1587
+ *
+ *  Value: "DEVELOP_CAPABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DevelopCapabilities;
+/**
+ *  T1587.001
+ *
+ *  Value: "DEVELOP_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DevelopCapabilitiesMalware;
+/**
+ *  T1562.012
+ *
+ *  Value: "DISABLE_OR_MODIFY_LINUX_AUDIT_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DisableOrModifyLinuxAuditSystem;
 /**
  *  T1562.001
  *
@@ -5395,6 +6317,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy;
 /**
+ *  T1083
+ *
+ *  Value: "FILE_AND_DIRECTORY_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_FileAndDirectoryDiscovery;
+/**
+ *  T1657
+ *
+ *  Value: "FINANCIAL_THEFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_FinancialTheft;
+/**
  *  T1495
  *
  *  Value: "FIRMWARE_CORRUPTION"
@@ -5419,17 +6353,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_HideArtifacts;
 /**
+ *  T1574
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_HijackExecutionFlow;
+/**
+ *  T1574.006
+ *
+ *  Value: "HIJACK_EXECUTION_FLOW_DYNAMIC_LINKER_HIJACKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_HijackExecutionFlowDynamicLinkerHijacking;
+/**
  *  T1562
  *
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ImpairDefenses;
 /**
+ *  T1562.006
+ *
+ *  Value: "INDICATOR_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorBlocking;
+/**
+ *  T1070
+ *
+ *  Value: "INDICATOR_REMOVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorRemoval;
+/**
+ *  T1070.003
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_COMMAND_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorRemovalClearCommandHistory;
+/**
+ *  T1070.002
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_LINUX_OR_MAC_SYSTEM_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorRemovalClearLinuxOrMacSystemLogs;
+/**
+ *  T1070.008
+ *
+ *  Value: "INDICATOR_REMOVAL_CLEAR_MAILBOX_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorRemovalClearMailboxData;
+/**
  *  T1070.004
  *
  *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorRemovalFileDeletion;
+/**
+ *  T1070.006
+ *
+ *  Value: "INDICATOR_REMOVAL_TIMESTOMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorRemovalTimestomp;
 /**
  *  T1105
  *
@@ -5442,6 +6424,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "INHIBIT_SYSTEM_RECOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InhibitSystemRecovery;
+/**
+ *  T1056
+ *
+ *  Value: "INPUT_CAPTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InputCapture;
+/**
+ *  T1056.001
+ *
+ *  Value: "INPUT_CAPTURE_KEYLOGGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InputCaptureKeylogging;
+/**
+ *  T1553.004
+ *
+ *  Value: "INSTALL_ROOT_CERTIFICATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InstallRootCertificate;
 /**
  *  T1547.006
  *
@@ -5533,17 +6533,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ObtainCapabilities;
 /**
+ *  T1588.001
+ *
+ *  Value: "OBTAIN_CAPABILITIES_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ObtainCapabilitiesMalware;
+/**
+ *  T1588.006
+ *
+ *  Value: "OBTAIN_CAPABILITIES_VULNERABILITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ObtainCapabilitiesVulnerabilities;
+/**
+ *  T1003
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_OsCredentialDumping;
+/**
+ *  T1003.008
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_ETC_PASSWORD_AND_ETC_SHADOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_OsCredentialDumpingEtcPasswordAndEtcShadow;
+/**
+ *  T1003.007
+ *
+ *  Value: "OS_CREDENTIAL_DUMPING_PROC_FILESYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_OsCredentialDumpingProcFilesystem;
+/**
  *  T1069
  *
  *  Value: "PERMISSION_GROUPS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_PermissionGroupsDiscovery;
 /**
+ *  T1556.003
+ *
+ *  Value: "PLUGGABLE_AUTHENTICATION_MODULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_PluggableAuthenticationModules;
+/**
+ *  T1552.004
+ *
+ *  Value: "PRIVATE_KEYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_PrivateKeys;
+/**
  *  T1057
  *
  *  Value: "PROCESS_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ProcessDiscovery;
+/**
+ *  T1055
+ *
+ *  Value: "PROCESS_INJECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ProcessInjection;
 /**
  *  T1090
  *
@@ -5556,6 +6604,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "PYTHON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Python;
+/**
+ *  T1620
+ *
+ *  Value: "REFLECTIVE_CODE_LOADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ReflectiveCodeLoading;
 /**
  *  T1496
  *
@@ -5575,6 +6629,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScheduledTaskJob;
 /**
+ *  T1053.003
+ *
+ *  Value: "SCHEDULED_TASK_JOB_CRON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScheduledTaskJobCron;
+/**
+ *  T1029
+ *
+ *  Value: "SCHEDULED_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScheduledTransfer;
+/**
  *  T1489
  *
  *  Value: "SERVICE_STOP"
@@ -5586,6 +6652,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "SHARED_MODULES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SharedModules;
+/**
+ *  T1547.009
+ *
+ *  Value: "SHORTCUT_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ShortcutModification;
 /**
  *  T1072
  *
@@ -5641,6 +6713,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Steganography;
 /**
+ *  T1553
+ *
+ *  Value: "SUBVERT_TRUST_CONTROL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SubvertTrustControl;
+/**
+ *  T1195
+ *
+ *  Value: "SUPPLY_CHAIN_COMPROMISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SupplyChainCompromise;
+/**
+ *  T1033
+ *
+ *  Value: "SYSTEM_OWNER_USER_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SystemOwnerUserDiscovery;
+/**
  *  Unspecified value.
  *
  *  Value: "TECHNIQUE_UNSPECIFIED"
@@ -5670,6 +6760,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "UNSECURED_CREDENTIALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnsecuredCredentials;
+/**
+ *  T1608.001
+ *
+ *  Value: "UPLOAD_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UploadMalware;
 /**
  *  T1204
  *
@@ -7324,7 +8420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  The end position of the error in the uploaded text version of the module.
  *  This field may be omitted if no specific position applies, or if one could
- *  not be computed..
+ *  not be computed.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Position *end;
 
@@ -7350,6 +8446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_CustomModuleValidationErrors : GTLRObject
 
+/** The list of errors. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_CustomModuleValidationError *> *errors;
 
 @end
@@ -8239,6 +9336,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) NSNumber *hashedSize;
 
+/** Operation(s) performed on a file. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_FileOperation *> *operations;
+
 /**
  *  True when the hash covers only a prefix of the file.
  *
@@ -8262,6 +9362,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
+
+@end
+
+
+/**
+ *  Operation(s) performed on a file.
+ */
+@interface GTLRSecurityCommandCenter_FileOperation : GTLRObject
+
+/**
+ *  The type of the operation
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_FileOperation_Type_Execute Represents
+ *        an execute operation. (Value: "EXECUTE")
+ *    @arg @c kGTLRSecurityCommandCenter_FileOperation_Type_Open Represents an
+ *        open operation. (Value: "OPEN")
+ *    @arg @c kGTLRSecurityCommandCenter_FileOperation_Type_OperationTypeUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_FileOperation_Type_Read Represents a
+ *        read operation. (Value: "READ")
+ *    @arg @c kGTLRSecurityCommandCenter_FileOperation_Type_Rename Represents a
+ *        rename operation. (Value: "RENAME")
+ *    @arg @c kGTLRSecurityCommandCenter_FileOperation_Type_Write Represents a
+ *        write operation. (Value: "WRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -11606,6 +12733,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) NSNumber *hashedSize;
 
+/** Operation(s) performed on a file. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation *> *operations;
+
 /**
  *  True when the hash covers only a prefix of the file.
  *
@@ -11629,6 +12759,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
+
+@end
+
+
+/**
+ *  Operation(s) performed on a file.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation : GTLRObject
+
+/**
+ *  The type of the operation
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Execute
+ *        Represents an execute operation. (Value: "EXECUTE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Open
+ *        Represents an open operation. (Value: "OPEN")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_OperationTypeUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Read
+ *        Represents a read operation. (Value: "READ")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Rename
+ *        Represents a rename operation. (Value: "RENAME")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Write
+ *        Represents a write operation. (Value: "WRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -12425,6 +13582,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_IdentityAndAccess
  *        Issues in the identity and access domain. (Value:
  *        "IDENTITY_AND_ACCESS")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Threat
+ *        Issues in the threat domain. (Value: "THREAT")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain_DomainCategory_Vulnerability
  *        Issues in the vulnerability domain. (Value: "VULNERABILITY")
  */
@@ -15921,14 +17080,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @interface GTLRSecurityCommandCenter_Position : GTLRObject
 
 /**
- *  columnNumber
+ *  The column number.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *columnNumber;
 
 /**
- *  lineNumber
+ *  The line number.
  *
  *  Uses NSNumber of intValue.
  */

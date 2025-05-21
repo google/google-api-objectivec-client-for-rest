@@ -102,6 +102,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Decodes the PC integrity token and returns the PC token payload.
+ *
+ *  Method: playintegrity.decodePcIntegrityToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlayIntegrity
+ */
+@interface GTLRPlayIntegrityQuery_V1DecodePcIntegrityToken : GTLRPlayIntegrityQuery
+
+/** Package name of the app the attached integrity token belongs to. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRPlayIntegrity_DecodePcIntegrityTokenResponse.
+ *
+ *  Decodes the PC integrity token and returns the PC token payload.
+ *
+ *  @param object The @c GTLRPlayIntegrity_DecodePcIntegrityTokenRequest to
+ *    include in the query.
+ *  @param packageName Package name of the app the attached integrity token
+ *    belongs to.
+ *
+ *  @return GTLRPlayIntegrityQuery_V1DecodePcIntegrityToken
+ */
++ (instancetype)queryWithObject:(GTLRPlayIntegrity_DecodePcIntegrityTokenRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

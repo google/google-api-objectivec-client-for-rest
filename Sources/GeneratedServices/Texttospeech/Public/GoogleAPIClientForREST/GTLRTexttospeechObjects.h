@@ -106,6 +106,27 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingIpa;
 /**
+ *  For reading-to-pron conversion to work well, the `pronunciation` field
+ *  should only contain Kanji, Hiragana, and Katakana. The pronunciation can
+ *  also contain pitch accents. The start of a pitch phrase is specified with
+ *  `^` and the down-pitch position is specified with `!`, for example: phrase:端
+ *  pronunciation:^はし phrase:箸 pronunciation:^は!し phrase:橋 pronunciation:^はし! We
+ *  currently only support the Tokyo dialect, which allows at most one
+ *  down-pitch per phrase (i.e. at most one `!` between `^`).
+ *
+ *  Value: "PHONETIC_ENCODING_JAPANESE_YOMIGANA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingJapaneseYomigana;
+/**
+ *  Used to specify pronunciations for Mandarin words. See
+ *  https://en.wikipedia.org/wiki/Pinyin. For example: 朝阳, the pronunciation is
+ *  "chao2 yang2". The number represents the tone, and there is a space between
+ *  syllables. Neutral tones are represented by 5, for example 孩子 "hai2 zi5".
+ *
+ *  Value: "PHONETIC_ENCODING_PINYIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingPinyin;
+/**
  *  Not specified.
  *
  *  Value: "PHONETIC_ENCODING_UNSPECIFIED"
@@ -334,6 +355,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        IPA, such as apple -> ˈæpəl.
  *        https://en.wikipedia.org/wiki/International_Phonetic_Alphabet (Value:
  *        "PHONETIC_ENCODING_IPA")
+ *    @arg @c kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingJapaneseYomigana
+ *        For reading-to-pron conversion to work well, the `pronunciation` field
+ *        should only contain Kanji, Hiragana, and Katakana. The pronunciation
+ *        can also contain pitch accents. The start of a pitch phrase is
+ *        specified with `^` and the down-pitch position is specified with `!`,
+ *        for example: phrase:端 pronunciation:^はし phrase:箸 pronunciation:^は!し
+ *        phrase:橋 pronunciation:^はし! We currently only support the Tokyo
+ *        dialect, which allows at most one down-pitch per phrase (i.e. at most
+ *        one `!` between `^`). (Value: "PHONETIC_ENCODING_JAPANESE_YOMIGANA")
+ *    @arg @c kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingPinyin
+ *        Used to specify pronunciations for Mandarin words. See
+ *        https://en.wikipedia.org/wiki/Pinyin. For example: 朝阳, the
+ *        pronunciation is "chao2 yang2". The number represents the tone, and
+ *        there is a space between syllables. Neutral tones are represented by
+ *        5, for example 孩子 "hai2 zi5". (Value: "PHONETIC_ENCODING_PINYIN")
  *    @arg @c kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingUnspecified
  *        Not specified. (Value: "PHONETIC_ENCODING_UNSPECIFIED")
  *    @arg @c kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingXSampa
@@ -619,6 +655,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *  a phoneme tag.
  */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_CustomPronunciations *customPronunciations;
+
+/**
+ *  Markup for HD voices specifically. This field may not be used with any other
+ *  voices.
+ */
+@property(nonatomic, copy, nullable) NSString *markup;
 
 /**
  *  The multi-speaker input to be synthesized. Only applicable for multi-speaker

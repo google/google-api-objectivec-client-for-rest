@@ -199,6 +199,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/ApigeeRegistry/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/ApigeeRegistry/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'APIhub' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/APIhub/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/APIhub/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'ApiKeysService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/ApiKeysService/**/*.{h,m}'
@@ -823,6 +828,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/FirebaseAppDistribution/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/FirebaseAppDistribution/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'FirebaseAppHosting' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/FirebaseAppHosting/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/FirebaseAppHosting/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'FirebaseCloudMessaging' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

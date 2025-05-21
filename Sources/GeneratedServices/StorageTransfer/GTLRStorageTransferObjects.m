@@ -200,7 +200,8 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_AzureBlobStorageData
-@dynamic azureCredentials, container, credentialsSecret, path, storageAccount;
+@dynamic azureCredentials, container, credentialsSecret,
+         federatedIdentityConfig, path, storageAccount;
 @end
 
 
@@ -295,6 +296,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 @implementation GTLRStorageTransfer_EventStream
 @dynamic eventStreamExpirationTime, eventStreamStartTime, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_FederatedIdentityConfig
+//
+
+@implementation GTLRStorageTransfer_FederatedIdentityConfig
+@dynamic clientId, tenantId;
 @end
 
 
@@ -649,8 +660,8 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 @implementation GTLRStorageTransfer_TransferJob
 @dynamic creationTime, deletionTime, descriptionProperty, eventStream,
          lastModificationTime, latestOperationName, loggingConfig, name,
-         notificationConfig, projectId, replicationSpec, schedule, status,
-         transferSpec;
+         notificationConfig, projectId, replicationSpec, schedule,
+         serviceAccount, status, transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

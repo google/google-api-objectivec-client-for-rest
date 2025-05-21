@@ -40,6 +40,8 @@
 @class GTLROnDemandScanning_DSSEAttestationOccurrence;
 @class GTLROnDemandScanning_Envelope;
 @class GTLROnDemandScanning_EnvelopeSignature;
+@class GTLROnDemandScanning_File;
+@class GTLROnDemandScanning_File_Digest;
 @class GTLROnDemandScanning_FileHashes;
 @class GTLROnDemandScanning_FileLocation;
 @class GTLROnDemandScanning_Fingerprint;
@@ -102,6 +104,9 @@
 @class GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest;
 @class GTLROnDemandScanning_SBOMReferenceOccurrence;
 @class GTLROnDemandScanning_SBOMStatus;
+@class GTLROnDemandScanning_SecretLocation;
+@class GTLROnDemandScanning_SecretOccurrence;
+@class GTLROnDemandScanning_SecretStatus;
 @class GTLROnDemandScanning_Signature;
 @class GTLROnDemandScanning_SlsaBuilder;
 @class GTLROnDemandScanning_SlsaCompleteness;
@@ -493,6 +498,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Package
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_SbomReference;
 /**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Secret;
+/**
  *  This represents an available package upgrade.
  *
  *  Value: "UPGRADE"
@@ -571,7 +582,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Rubygems;
 /**
- *  Rust packages from Cargo (Github ecosystem is `RUST`).
+ *  Rust packages from Cargo (GitHub ecosystem is `RUST`).
  *
  *  Value: "RUST"
  */
@@ -706,6 +717,57 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Pe
  *  Value: "SBOM_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_SbomStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_SecretOccurrence.kind
+
+/**
+ *  A GCP service account key per:
+ *  https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *
+ *  Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey;
+/**
+ *  The secret kind is unknown.
+ *
+ *  Value: "SECRET_KIND_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnknown;
+/**
+ *  Unspecified
+ *
+ *  Value: "SECRET_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_SecretStatus.status
+
+/**
+ *  The secret is invalid.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_Invalid;
+/**
+ *  Unspecified
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_StatusUnspecified;
+/**
+ *  The status of the secret is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_Unknown;
+/**
+ *  The secret is valid.
+ *
+ *  Value: "VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_Valid;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Version.kind
@@ -1709,6 +1771,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The CPE of the resource being scanned. */
 @property(nonatomic, copy, nullable) NSString *cpe;
 
+/** Files that make up the resource described by the occurrence. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_File *> *files;
+
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
@@ -1781,6 +1846,29 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @property(nonatomic, copy, nullable) NSString *sig;
 
+@end
+
+
+/**
+ *  GTLROnDemandScanning_File
+ */
+@interface GTLROnDemandScanning_File : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_File_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_File_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_File_Digest : GTLRObject
 @end
 
 
@@ -1923,6 +2011,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** The base images the layer is found within. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_GrafeasV1BaseImage *> *baseImages;
+
+/**
+ *  The layer chain ID (sha256 hash) of the layer in the container image.
+ *  https://github.com/opencontainers/image-spec/blob/main/config.md#layer-chainid
+ */
+@property(nonatomic, copy, nullable) NSString *chainId;
 
 /**
  *  The layer build command that was used to build the layer. This may not be
@@ -2331,6 +2425,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_BaseImage *> *baseImages;
 
 /**
+ *  The layer chain ID (sha256 hash) of the layer in the container image.
+ *  https://github.com/opencontainers/image-spec/blob/main/config.md#layer-chainid
+ */
+@property(nonatomic, copy, nullable) NSString *chainId;
+
+/**
  *  The layer build command that was used to build the layer. This may not be
  *  found in all layers depending on how the container image is built.
  */
@@ -2592,6 +2692,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        package installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_SbomReference This
  *        represents an SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Secret This represents a
+ *        secret. (Value: "SECRET")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Upgrade This represents an
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Vulnerability The note and
@@ -2630,6 +2732,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** Describes a specific SBOM reference occurrences. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_SBOMReferenceOccurrence *sbomReference;
+
+/** Describes a secret. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SecretOccurrence *secret;
 
 /** Output only. The time this occurrence was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -2811,7 +2916,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Rubygems Ruby
  *        packges (from RubyGems package manager). (Value: "RUBYGEMS")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Rust Rust packages
- *        from Cargo (Github ecosystem is `RUST`). (Value: "RUST")
+ *        from Cargo (GitHub ecosystem is `RUST`). (Value: "RUST")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Swift Swift packages
  *        from Swift Package Manager (SwiftPM). (Value: "SWIFT")
  */
@@ -3328,6 +3433,75 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        Default unknown state. (Value: "SBOM_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sbomState;
+
+@end
+
+
+/**
+ *  The location of the secret.
+ */
+@interface GTLROnDemandScanning_SecretLocation : GTLRObject
+
+/** The secret is found from a file. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1FileLocation *fileLocation;
+
+@end
+
+
+/**
+ *  The occurrence provides details of a secret.
+ */
+@interface GTLROnDemandScanning_SecretOccurrence : GTLRObject
+
+/**
+ *  Required. Type of secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey
+ *        A GCP service account key per:
+ *        https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *        (Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY")
+ *    @arg @c kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnknown The
+ *        secret kind is unknown. (Value: "SECRET_KIND_UNKNOWN")
+ *    @arg @c kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnspecified
+ *        Unspecified (Value: "SECRET_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Optional. Locations where the secret is detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_SecretLocation *> *locations;
+
+/** Optional. Status of the secret. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_SecretStatus *> *statuses;
+
+@end
+
+
+/**
+ *  The status of the secret with a timestamp.
+ */
+@interface GTLROnDemandScanning_SecretStatus : GTLRObject
+
+/** Optional. Optional message about the status code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Optional. The status of the secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_Invalid The secret is
+ *        invalid. (Value: "INVALID")
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_StatusUnspecified
+ *        Unspecified (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_Unknown The status of
+ *        the secret is unknown. (Value: "UNKNOWN")
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_Valid The secret is
+ *        valid. (Value: "VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Optional. The time the secret status was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

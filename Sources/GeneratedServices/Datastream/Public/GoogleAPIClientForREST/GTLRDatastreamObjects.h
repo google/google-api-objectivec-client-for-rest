@@ -49,6 +49,7 @@
 @class GTLRDatastream_MongodbObjectIdentifier;
 @class GTLRDatastream_MongodbProfile;
 @class GTLRDatastream_MongodbSourceConfig;
+@class GTLRDatastream_MongodbSslConfig;
 @class GTLRDatastream_MostRecentStartPosition;
 @class GTLRDatastream_MysqlColumn;
 @class GTLRDatastream_MysqlDatabase;
@@ -1462,7 +1463,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MongodbProfile : GTLRObject
 
-/** Required. List of host addresses for a MongoDB cluster. */
+/**
+ *  Required. List of host addresses for a MongoDB cluster. For SRV connection
+ *  format, this list must contain exactly one DNS host without a port. For
+ *  Standard connection format, this list must contain all the required hosts in
+ *  the cluster with their respective ports.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_HostAddress *> *hostAddresses;
 
 /**
@@ -1473,7 +1479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /**
  *  Optional. Name of the replica set. Only needed for self hosted replica set
- *  type MongoDB cluster.
+ *  type MongoDB cluster. For SRV connection format, this field must be empty.
+ *  For Standard connection format, this field must be specified.
  */
 @property(nonatomic, copy, nullable) NSString *replicaSet;
 
@@ -1485,6 +1492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Srv connection format. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SrvConnectionFormat *srvConnectionFormat;
+
+/** Optional. SSL configuration for the MongoDB connection. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbSslConfig *sslConfig;
 
 /** Standard connection format. */
 @property(nonatomic, strong, nullable) GTLRDatastream_StandardConnectionFormat *standardConnectionFormat;
@@ -1505,6 +1515,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** MongoDB collections to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *includeObjects;
+
+/**
+ *  Optional. Maximum number of concurrent backfill tasks. The number should be
+ *  non-negative and less than or equal to 50. If not set (or set to 0), the
+ *  system's default value is used
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentBackfillTasks;
+
+@end
+
+
+/**
+ *  MongoDB SSL configuration information.
+ */
+@interface GTLRDatastream_MongodbSslConfig : GTLRObject
+
+/**
+ *  Optional. Input only. PEM-encoded certificate of the CA that signed the
+ *  source database server's certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *caCertificate;
+
+/**
+ *  Output only. Indicates whether the ca_certificate field is set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caCertificateSet;
+
+/**
+ *  Optional. Input only. PEM-encoded certificate that will be used by the
+ *  replica to authenticate against the source database server. If this field is
+ *  used then the 'client_key' and the 'ca_certificate' fields are mandatory.
+ */
+@property(nonatomic, copy, nullable) NSString *clientCertificate;
+
+/**
+ *  Output only. Indicates whether the client_certificate field is set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientCertificateSet;
+
+/**
+ *  Optional. Input only. PEM-encoded private key associated with the Client
+ *  Certificate. If this field is used then the 'client_certificate' and the
+ *  'ca_certificate' fields are mandatory.
+ */
+@property(nonatomic, copy, nullable) NSString *clientKey;
+
+/**
+ *  Output only. Indicates whether the client_key field is set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientKeySet;
+
+/**
+ *  Optional. Input only. A reference to a Secret Manager resource name storing
+ *  the PEM-encoded private key associated with the Client Certificate. If this
+ *  field is used then the 'client_certificate' and the 'ca_certificate' fields
+ *  are mandatory. Mutually exclusive with the `client_key` field.
+ */
+@property(nonatomic, copy, nullable) NSString *secretManagerStoredClientKey;
 
 @end
 
@@ -2569,7 +2645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /**
  *  Required. Fully qualified name of the Network Attachment that Datastream
  *  will connect to. Format:
- *  `projects/{{project}}/regions/{{region}}/networkAttachments/{{name}}`
+ *  `projects/{project}/regions/{region}/networkAttachments/{name}`
  */
 @property(nonatomic, copy, nullable) NSString *networkAttachment;
 
@@ -3107,6 +3183,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Standard connection format.
  */
 @interface GTLRDatastream_StandardConnectionFormat : GTLRObject
+
+/**
+ *  Optional. Specifies whether the client connects directly to the host[:port]
+ *  in the connection URI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *directConnection;
+
 @end
 
 

@@ -127,6 +127,7 @@ NSString * const kGTLRBackupdr_BackupVault_State_Creating      = @"CREATING";
 NSString * const kGTLRBackupdr_BackupVault_State_Deleting      = @"DELETING";
 NSString * const kGTLRBackupdr_BackupVault_State_Error         = @"ERROR";
 NSString * const kGTLRBackupdr_BackupVault_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_BackupVault_State_Updating      = @"UPDATING";
 
 // GTLRBackupdr_ComputeInstanceBackupProperties.keyRevocationActionType
 NSString * const kGTLRBackupdr_ComputeInstanceBackupProperties_KeyRevocationActionType_KeyRevocationActionTypeUnspecified = @"KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED";
@@ -155,6 +156,21 @@ NSString * const kGTLRBackupdr_DataSource_State_Creating       = @"CREATING";
 NSString * const kGTLRBackupdr_DataSource_State_Deleting       = @"DELETING";
 NSString * const kGTLRBackupdr_DataSource_State_Error          = @"ERROR";
 NSString * const kGTLRBackupdr_DataSource_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRBackupdr_DiskBackupProperties.architecture
+NSString * const kGTLRBackupdr_DiskBackupProperties_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_DiskBackupProperties_Architecture_Arm64 = @"ARM64";
+NSString * const kGTLRBackupdr_DiskBackupProperties_Architecture_X8664 = @"X86_64";
+
+// GTLRBackupdr_DiskRestoreProperties.accessMode
+NSString * const kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadOnlyMany = @"READ_ONLY_MANY";
+NSString * const kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadWriteMany = @"READ_WRITE_MANY";
+NSString * const kGTLRBackupdr_DiskRestoreProperties_AccessMode_ReadWriteSingle = @"READ_WRITE_SINGLE";
+
+// GTLRBackupdr_DiskRestoreProperties.architecture
+NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_Arm64 = @"ARM64";
+NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_X8664 = @"X86_64";
 
 // GTLRBackupdr_GuestOsFeature.type
 NSString * const kGTLRBackupdr_GuestOsFeature_Type_BareMetalLinuxCompatible = @"BARE_METAL_LINUX_COMPATIBLE";
@@ -440,9 +456,9 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 @implementation GTLRBackupdr_Backup
 @dynamic backupApplianceBackupProperties, backupApplianceLocks, backupType,
          computeInstanceBackupProperties, consistencyTime, createTime,
-         descriptionProperty, enforcedRetentionEndTime, ETag, expireTime,
-         gcpBackupPlanInfo, labels, name, resourceSizeBytes, satisfiesPzi,
-         satisfiesPzs, serviceLocks, state, updateTime;
+         descriptionProperty, diskBackupProperties, enforcedRetentionEndTime,
+         ETag, expireTime, gcpBackupPlanInfo, labels, name, resourceSizeBytes,
+         satisfiesPzi, satisfiesPzs, serviceLocks, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -570,7 +586,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 @implementation GTLRBackupdr_BackupPlan
 @dynamic backupRules, backupVault, backupVaultServiceAccount, createTime,
          descriptionProperty, ETag, labels, name, resourceType, state,
-         updateTime;
+         supportedResourceTypes, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -582,7 +598,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"backupRules" : [GTLRBackupdr_BackupRule class]
+    @"backupRules" : [GTLRBackupdr_BackupRule class],
+    @"supportedResourceTypes" : [NSString class]
   };
   return map;
 }
@@ -864,9 +881,10 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_DataSource
-@dynamic backupConfigInfo, backupCount, configState, createTime,
-         dataSourceBackupApplianceApplication, dataSourceGcpResource, ETag,
-         labels, name, state, totalStoredBytes, updateTime;
+@dynamic backupBlockedByVaultAccessRestriction, backupConfigInfo, backupCount,
+         configState, createTime, dataSourceBackupApplianceApplication,
+         dataSourceGcpResource, ETag, labels, name, state, totalStoredBytes,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -906,7 +924,122 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_DataSourceGcpResource
-@dynamic computeInstanceDatasourceProperties, gcpResourcename, location, type;
+@dynamic computeInstanceDatasourceProperties, diskDatasourceProperties,
+         gcpResourcename, location, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_DiskBackupProperties
+//
+
+@implementation GTLRBackupdr_DiskBackupProperties
+@dynamic architecture, descriptionProperty, guestOsFeature, licenses, region,
+         replicaZones, sizeGb, sourceDisk, type, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guestOsFeature" : [GTLRBackupdr_GuestOsFeature class],
+    @"licenses" : [NSString class],
+    @"replicaZones" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_DiskDataSourceProperties
+//
+
+@implementation GTLRBackupdr_DiskDataSourceProperties
+@dynamic descriptionProperty, name, sizeGb, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_DiskRestoreProperties
+//
+
+@implementation GTLRBackupdr_DiskRestoreProperties
+@dynamic accessMode, architecture, descriptionProperty, diskEncryptionKey,
+         enableConfidentialCompute, guestOsFeature, labels, licenses, name,
+         physicalBlockSizeBytes, provisionedIops, provisionedThroughput,
+         resourceManagerTags, resourcePolicy, sizeGb, storagePool, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guestOsFeature" : [GTLRBackupdr_GuestOsFeature class],
+    @"licenses" : [NSString class],
+    @"resourcePolicy" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_DiskRestoreProperties_Labels
+//
+
+@implementation GTLRBackupdr_DiskRestoreProperties_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_DiskRestoreProperties_ResourceManagerTags
+//
+
+@implementation GTLRBackupdr_DiskRestoreProperties_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_DiskTargetEnvironment
+//
+
+@implementation GTLRBackupdr_DiskTargetEnvironment
+@dynamic project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
 @end
 
 
@@ -1640,6 +1773,24 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_RegionDiskTargetEnvironment
+//
+
+@implementation GTLRBackupdr_RegionDiskTargetEnvironment
+@dynamic project, region, replicaZones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicaZones" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_RemoveDataSourceRequest
 //
 
@@ -1689,7 +1840,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_RestoreBackupRequest
 @dynamic computeInstanceRestoreProperties, computeInstanceTargetEnvironment,
-         requestId;
+         diskRestoreProperties, diskTargetEnvironment,
+         regionDiskTargetEnvironment, requestId;
 @end
 
 

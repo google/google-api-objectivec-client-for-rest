@@ -128,6 +128,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax;
 /**
+ *  Dynatrace provider.
+ *
+ *  Value: "DYNATRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace;
+/**
  *  GitHub provider. Scopes can be found at
  *  https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
  *
@@ -1483,6 +1489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *  Likely values:
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax
  *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
+ *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace
+ *        Dynatrace provider. (Value: "DYNATRACE")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Github
  *        GitHub provider. Scopes can be found at
  *        https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes

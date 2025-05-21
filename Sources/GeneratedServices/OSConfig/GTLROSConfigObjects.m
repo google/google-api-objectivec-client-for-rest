@@ -82,6 +82,10 @@ NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_A
 NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_Deb = @"DEB";
 NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_DebSrc = @"DEB_SRC";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLROSConfig_CancelOperationRequest
@@ -321,6 +325,15 @@ NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_A
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_MessageSet
+//
+
+@implementation GTLROSConfig_MessageSet
 @end
 
 
@@ -804,3 +817,15 @@ NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_A
 }
 
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_StatusProto
+//
+
+@implementation GTLROSConfig_StatusProto
+@dynamic canonicalCode, code, message, messageSet, space;
+@end
+
+#pragma clang diagnostic pop

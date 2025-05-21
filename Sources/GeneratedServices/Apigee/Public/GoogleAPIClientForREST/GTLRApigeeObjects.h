@@ -1383,8 +1383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_Billi
  *  1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call * 201-300
  *  calls cost $1 per call * Total price for 50 calls: 50 x $2 = $100 * Total
  *  price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total price for 250
- *  calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**: Not supported by
- *  Apigee at this time.
+ *  calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400.
  *
  *  Value: "BANDED"
  */
@@ -9207,11 +9206,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  API call volume ranges and the fees charged when the total number of API
  *  calls is within a given range. The method used to calculate the final fee
  *  depends on the selected pricing model. For example, if the pricing model is
- *  `STAIRSTEP` and the ranges are defined as follows: ``` { "start": 1, "end":
- *  100, "fee": 75 }, { "start": 101, "end": 200, "fee": 100 }, } ``` Then the
- *  following fees would be charged based on the total number of API calls
- *  (assuming the currency selected is `USD`): * 1 call costs $75 * 50 calls
- *  cost $75 * 150 calls cost $100 The number of API calls cannot exceed 200.
+ *  `BANDED` and the ranges are defined as follows: ``` { "start": 1, "end":
+ *  100, "fee": 2 }, { "start": 101, "end": 200, "fee": 1.50 }, { "start": 201,
+ *  "end": 0, "fee": 1 }, } ``` Then the following fees would be charged based
+ *  on the total number of API calls (assuming the currency selected is `USD`):
+ *  * 50 calls cost 50 x $2 = $100 * 150 calls cost 100 x $2 + 50 x $1.5 = $275
+ *  * 250 calls cost 100 x $2 + 100 x $1.5 + 50 x $1 = $400 * 500 calls cost 100
+ *  x $2 + 100 x $1.5 + 300 x $1 = $650
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RateRange *> *consumptionPricingRates;
 
@@ -9224,8 +9225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        * 1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call *
  *        201-300 calls cost $1 per call * Total price for 50 calls: 50 x $2 =
  *        $100 * Total price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total
- *        price for 250 calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**:
- *        Not supported by Apigee at this time. (Value: "BANDED")
+ *        price for 250 calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. (Value:
+ *        "BANDED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_ConsumptionPricingTypeUnspecified
  *        Pricing model not specified. This is the default. (Value:
  *        "CONSUMPTION_PRICING_TYPE_UNSPECIFIED")
@@ -11962,8 +11963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
 
 /**
- *  The new AppGroupKey to be amended. Note that the status can be updated only
- *  via action.
+ *  Note that only Scopes and Attributes of the AppGroupAppKey can be amended.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey *appGroupAppKey;
 

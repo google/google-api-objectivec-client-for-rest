@@ -486,6 +486,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Restart Airflow web server.
+ *
+ *  Method: composer.projects.locations.environments.restartWebServer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsRestartWebServer : GTLRCloudComposerQuery
+
+/**
+ *  Required. The resource name of the environment to restart the web server
+ *  for, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Operation.
+ *
+ *  Restart Airflow web server.
+ *
+ *  @param object The @c GTLRCloudComposer_RestartWebServerRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the environment to restart the
+ *    web server for, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsRestartWebServer
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_RestartWebServerRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a snapshots of a Cloud Composer environment. As a result of this
  *  operation, snapshot of environment's state is stored in a location specified
  *  in the SaveSnapshotRequest.

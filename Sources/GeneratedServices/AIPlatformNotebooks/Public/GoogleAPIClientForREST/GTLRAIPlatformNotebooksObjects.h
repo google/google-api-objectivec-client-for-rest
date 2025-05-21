@@ -41,6 +41,7 @@
 @class GTLRAIPlatformNotebooks_Operation_Metadata;
 @class GTLRAIPlatformNotebooks_Operation_Response;
 @class GTLRAIPlatformNotebooks_Policy;
+@class GTLRAIPlatformNotebooks_ReservationAffinity;
 @class GTLRAIPlatformNotebooks_ServiceAccount;
 @class GTLRAIPlatformNotebooks_ShieldedInstanceConfig;
 @class GTLRAIPlatformNotebooks_Snapshot;
@@ -213,18 +214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstance
  *  Value: "SEV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev;
-/**
- *  AMD Secure Encrypted Virtualization - Secure Nested Paging.
- *
- *  Value: "SEV_SNP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp;
-/**
- *  Intel Trust Domain eXtension.
- *
- *  Value: "TDX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_DataDisk.diskEncryption
@@ -457,6 +446,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_Nic
  *  Value: "VIRTIO_NET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_VirtioNet;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_ReservationAffinity.consumeReservationType
+
+/**
+ *  Consume any reservation available.
+ *
+ *  Value: "RESERVATION_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationAny;
+/**
+ *  Do not consume from any allocated capacity.
+ *
+ *  Value: "RESERVATION_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationNone;
+/**
+ *  Must consume from a specific reservation. Must specify key value fields for
+ *  specifying the reservations.
+ *
+ *  Value: "RESERVATION_SPECIFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationSpecific;
+/**
+ *  Default type.
+ *
+ *  Value: "RESERVATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_UpgradeHistoryEntry.action
@@ -780,21 +798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev
  *        AMD Secure Encrypted Virtualization. (Value: "SEV")
- *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp
- *        AMD Secure Encrypted Virtualization - Secure Nested Paging. (Value:
- *        "SEV_SNP")
- *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx
- *        Intel Trust Domain eXtension. (Value: "TDX")
  */
 @property(nonatomic, copy, nullable) NSString *confidentialInstanceType;
-
-/**
- *  Optional. Defines whether the instance should have confidential compute
- *  enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
 
 @end
 
@@ -1162,6 +1167,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_NetworkInterface *> *networkInterfaces;
 
 /**
+ *  Optional. Specifies the reservations that this instance can consume from.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ReservationAffinity *reservationAffinity;
+
+/**
  *  Optional. The service account that serves as an identity for the VM
  *  instance. Currently supports only one service account.
  */
@@ -1260,6 +1270,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) NSNumber *disableProxyAccess;
 
 /**
+ *  Optional. If true, deletion protection will be enabled for this Workbench
+ *  Instance. If false, deletion protection will be disabled for this Workbench
+ *  Instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableDeletionProtection;
+
+/**
  *  Optional. Flag that specifies that a notebook can be accessed with third
  *  party identity provider.
  *
@@ -1310,7 +1329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Optional. Input only. The owner of this instance after creation. Format:
+ *  Optional. The owner of this instance after creation. Format:
  *  `alias\@example.com` Currently supports one owner only. If not specified,
  *  all of the service account users of your VM instance's service account can
  *  use the instance.
@@ -1831,6 +1850,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  A reservation that an instance can consume from.
+ */
+@interface GTLRAIPlatformNotebooks_ReservationAffinity : GTLRObject
+
+/**
+ *  Required. Specifies the type of reservation from which this instance can
+ *  consume resources: RESERVATION_ANY (default), RESERVATION_SPECIFIC, or
+ *  RESERVATION_NONE. See Consuming reserved instances for examples.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationAny
+ *        Consume any reservation available. (Value: "RESERVATION_ANY")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationNone
+ *        Do not consume from any allocated capacity. (Value:
+ *        "RESERVATION_NONE")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationSpecific
+ *        Must consume from a specific reservation. Must specify key value
+ *        fields for specifying the reservations. (Value:
+ *        "RESERVATION_SPECIFIC")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationUnspecified
+ *        Default type. (Value: "RESERVATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *consumeReservationType;
+
+/**
+ *  Optional. Corresponds to the label key of a reservation resource. To target
+ *  a RESERVATION_SPECIFIC by name, use compute.googleapis.com/reservation-name
+ *  as the key and specify the name of your reservation as its value.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Optional. Corresponds to the label values of a reservation resource. This
+ *  can be either a name to a reservation in the same project or
+ *  "projects/different-project/reservations/some-reservation-name" to target a
+ *  shared reservation in the same zone but in a different project.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
  *  Request for resetting a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_ResetInstanceRequest : GTLRObject
@@ -1923,7 +1985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Enables monitoring and attestation of the boot integrity of the VM instance.
  *  The attestation is performed against the integrity policy baseline. This
  *  baseline is initially derived from the implicitly trusted boot image when
- *  the VM instance is created. Enabled by default.
+ *  the VM instance is created.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1940,8 +2002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
 
 /**
- *  Optional. Defines whether the VM instance has the vTPM enabled. Enabled by
- *  default.
+ *  Optional. Defines whether the VM instance has the vTPM enabled.
  *
  *  Uses NSNumber of boolValue.
  */

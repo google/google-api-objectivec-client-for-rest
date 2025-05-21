@@ -7600,8 +7600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary *> *fileStoreInfoTypeSummaries;
 
 /**
- *  The file store does not have any files. If the profiling failed, this will
- *  be false.
+ *  The file store does not have any files. If the profiling operation failed,
+ *  this is false.
  *
  *  Uses NSNumber of boolValue.
  */

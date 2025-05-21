@@ -445,7 +445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders;
 /**
  *  When restricted, this prevents actions like copy, download, and print that
- *  might result in uncontrolled duplicates of items.
+ *  might result in uncontrolled duplicates of items. Now deprecated in favor of
+ *  READERS_CAN_DOWNLOAD.
  *
  *  Value: "ITEM_DUPLICATION"
  */
@@ -1598,8 +1599,8 @@ GTLR_DEPRECATED
  *        (Value: "FILE_ORGANIZER_CAN_SHARE_FOLDERS")
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication When
  *        restricted, this prevents actions like copy, download, and print that
- *        might result in uncontrolled duplicates of items. (Value:
- *        "ITEM_DUPLICATION")
+ *        might result in uncontrolled duplicates of items. Now deprecated in
+ *        favor of READERS_CAN_DOWNLOAD. (Value: "ITEM_DUPLICATION")
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain
  *        When restricted, this prevents items from being shared outside the
  *        domain. (Value: "SHARING_OUTSIDE_DOMAIN")

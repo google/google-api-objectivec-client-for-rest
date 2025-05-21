@@ -1758,6 +1758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, copy, nullable) NSString *redirectUri;
 
+/**
+ *  Scopes the connection will request when the user performs the auth code
+ *  flow.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
+
 @end
 
 

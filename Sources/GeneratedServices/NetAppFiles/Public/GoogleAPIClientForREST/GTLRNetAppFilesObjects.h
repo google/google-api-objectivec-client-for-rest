@@ -23,6 +23,7 @@
 @class GTLRNetAppFiles_BackupConfig;
 @class GTLRNetAppFiles_BackupPolicy;
 @class GTLRNetAppFiles_BackupPolicy_Labels;
+@class GTLRNetAppFiles_BackupRetentionPolicy;
 @class GTLRNetAppFiles_BackupVault;
 @class GTLRNetAppFiles_BackupVault_Labels;
 @class GTLRNetAppFiles_DailySchedule;
@@ -1366,6 +1367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Output only. The time until which the backup is not deletable. */
+@property(nonatomic, strong, nullable) GTLRDateTime *enforcedRetentionEndTime;
+
 /** Resource labels to represent user provided metadata. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_Backup_Labels *labels;
 
@@ -1593,6 +1597,58 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  Retention policy for backups in the backup vault
+ */
+@interface GTLRNetAppFiles_BackupRetentionPolicy : GTLRObject
+
+/**
+ *  Required. Minimum retention duration in days for backups in the backup
+ *  vault.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupMinimumEnforcedRetentionDays;
+
+/**
+ *  Optional. Indicates if the daily backups are immutable. Atleast one of
+ *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
+ *  and manual_backup_immutable must be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dailyBackupImmutable;
+
+/**
+ *  Optional. Indicates if the manual backups are immutable. Atleast one of
+ *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
+ *  and manual_backup_immutable must be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manualBackupImmutable;
+
+/**
+ *  Optional. Indicates if the monthly backups are immutable. Atleast one of
+ *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
+ *  and manual_backup_immutable must be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *monthlyBackupImmutable;
+
+/**
+ *  Optional. Indicates if the weekly backups are immutable. Atleast one of
+ *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
+ *  and manual_backup_immutable must be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weeklyBackupImmutable;
+
+@end
+
+
+/**
  *  A NetApp BackupVault.
  */
 @interface GTLRNetAppFiles_BackupVault : GTLRObject
@@ -1602,6 +1658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  `projects/{project_id}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *backupRegion;
+
+/** Optional. Backup retention policy defining the retenton of backups. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupRetentionPolicy *backupRetentionPolicy;
 
 /**
  *  Optional. Type of backup vault to be created. Default is IN_REGION.
@@ -3241,6 +3300,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. True if using Independent Scaling of capacity and performance
+ *  (Hyperdisk) By default set to false
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customPerformanceEnabled;
+
+/**
  *  Optional. Description of the storage pool
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3358,6 +3425,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *stateDetails;
 
 /**
+ *  Optional. Custom Performance Total IOPS of the pool If not provided, it will
+ *  be calculated based on the total_throughput_mibps
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalIops;
+
+/**
+ *  Optional. Custom Performance Total Throughput of the pool (in MiB/s)
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalThroughputMibps;
+
+/**
  *  Output only. Allocated size of all volumes in GIB in the storage pool
  *
  *  Uses NSNumber of longLongValue.
@@ -3472,7 +3554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) GTLRDuration *totalTransferDuration;
 
 /**
- *  Cumulative bytes trasferred so far for the replication relatinonship.
+ *  Cumulative bytes transferred so far for the replication relationship.
  *
  *  Uses NSNumber of longLongValue.
  */

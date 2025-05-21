@@ -927,6 +927,29 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1Policy class];
+  query.loggingName = @"run.projects.locations.workerPools.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsList
 
 @dynamic pageSize, pageToken, parent, showDeleted;
@@ -1029,6 +1052,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse class];
   query.loggingName = @"run.projects.locations.workerPools.revisions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1Policy class];
+  query.loggingName = @"run.projects.locations.workerPools.setIamPolicy";
   return query;
 }
 

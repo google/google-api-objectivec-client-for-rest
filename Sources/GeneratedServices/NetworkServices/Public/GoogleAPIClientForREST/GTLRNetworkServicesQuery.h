@@ -2646,6 +2646,50 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @end
 
 /**
+ *  Updates the parameters of a single ServiceBinding.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Identifier. Name of the ServiceBinding resource. It matches pattern
+ *  `projects/ * /locations/ * /serviceBindings/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  ServiceBinding resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single ServiceBinding.
+ *
+ *  @param object The @c GTLRNetworkServices_ServiceBinding to include in the
+ *    query.
+ *  @param name Identifier. Name of the ServiceBinding resource. It matches
+ *    pattern `projects/ * /locations/ * /serviceBindings/`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_ServiceBinding *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new ServiceLbPolicy in a given project and location.
  *
  *  Method: networkservices.projects.locations.serviceLbPolicies.create

@@ -46,6 +46,23 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_Live = @"
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_Pending = @"PENDING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig.authType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_ApiKeyAuth = @"API_KEY_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_AuthTypeUnspecified = @"AUTH_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_GoogleServiceAccountAuth = @"GOOGLE_SERVICE_ACCOUNT_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_HttpBasicAuth = @"HTTP_BASIC_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_NoAuth = @"NO_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_Oauth = @"OAUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_OidcAuth = @"OIDC_AUTH";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig.httpElementLocation
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInBody = @"HTTP_IN_BODY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInCookie = @"HTTP_IN_COOKIE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInHeader = @"HTTP_IN_HEADER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInPath = @"HTTP_IN_PATH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInQuery = @"HTTP_IN_QUERY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInUnspecified = @"HTTP_IN_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob_State_JobStateCancelled = @"JOB_STATE_CANCELLED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob_State_JobStateCancelling = @"JOB_STATE_CANCELLING";
@@ -199,6 +216,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExplanationMetadataInput
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExportDataConfig_ExportUse_CustomCodeTraining = @"CUSTOM_CODE_TRAINING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExportDataConfig_ExportUse_ExportUseUnspecified = @"EXPORT_USE_UNSPECIFIED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi.apiSpec
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ApiSpecUnspecified = @"API_SPEC_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ElasticSearch = @"ELASTIC_SEARCH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_SimpleSearch = @"SIMPLE_SEARCH";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1Feature.valueType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_Bool = @"BOOL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_BoolArray = @"BOOL_ARRAY";
@@ -337,6 +359,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRes
 // GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec.acceleratorType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaB200 = @"NVIDIA_B200";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH10080gb = @"NVIDIA_H100_80GB";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH200141gb = @"NVIDIA_H200_141GB";
@@ -1341,7 +1364,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ApiAuthApiKeyConfig
-@dynamic apiKeySecretVersion;
+@dynamic apiKeySecretVersion, apiKeyString;
 @end
 
 
@@ -1476,6 +1499,67 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig
+@dynamic apiKeyConfig, authType, googleServiceAccountConfig,
+         httpBasicAuthConfig, oauthConfig, oidcConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig
+@dynamic apiKeySecret, apiKeyString, httpElementLocation, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigGoogleServiceAccountConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigGoogleServiceAccountConfig
+@dynamic serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigHttpBasicAuthConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigHttpBasicAuthConfig
+@dynamic credentialSecret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOauthConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOauthConfig
+@dynamic accessToken, serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOidcConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOidcConfig
+@dynamic idToken, serviceAccount;
 @end
 
 
@@ -2123,8 +2207,9 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CachedContent
-@dynamic contents, createTime, displayName, expireTime, model, name,
-         systemInstruction, toolConfig, tools, ttl, updateTime, usageMetadata;
+@dynamic contents, createTime, displayName, encryptionSpec, expireTime, model,
+         name, systemInstruction, toolConfig, tools, ttl, updateTime,
+         usageMetadata;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3475,7 +3560,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelRef
-@dynamic deployedModelId, endpoint;
+@dynamic checkpointId, deployedModelId, endpoint;
 @end
 
 
@@ -4591,6 +4676,36 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
   return @"timeSeriesDataPoints";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi
+@dynamic apiAuth, apiSpec, authConfig, elasticSearchParams, endpoint,
+         simpleSearchParams;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiElasticSearchParams
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiElasticSearchParams
+@dynamic index, numHits, searchTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiSimpleSearchParams
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiSimpleSearchParams
 @end
 
 
@@ -5787,7 +5902,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig
-@dynamic thinkingBudget;
+@dynamic includeThoughts, thinkingBudget;
 @end
 
 
@@ -6181,8 +6296,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 @dynamic gcsSource, googleDriveSource, importResultBigquerySink,
          importResultGcsSink, jiraSource, maxEmbeddingRequestsPerMin,
          partialFailureBigquerySink, partialFailureGcsSink,
-         ragFileParsingConfig, ragFileTransformationConfig, sharePointSources,
-         slackSource;
+         ragFileParsingConfig, ragFileTransformationConfig, rebuildAnnIndex,
+         sharePointSources, slackSource;
 @end
 
 
@@ -9363,7 +9478,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Part
 @dynamic codeExecutionResult, executableCode, fileData, functionCall,
-         functionResponse, inlineData, text, videoMetadata;
+         functionResponse, inlineData, text, thought, videoMetadata;
 @end
 
 
@@ -10665,7 +10780,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfig
-@dynamic layoutParser;
+@dynamic layoutParser, llmParser;
 @end
 
 
@@ -10676,6 +10791,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLayoutParser
 @dynamic maxParsingRequestsPerMin, processorName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLlmParser
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLlmParser
+@dynamic customParsingPrompt, maxParsingRequestsPerMin, modelName;
 @end
 
 
@@ -10776,6 +10901,26 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb
+@dynamic ann, knn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbANN
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbANN
+@dynamic leafCount, treeDepth;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbKNN
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbKNN
 @end
 
 
@@ -11357,7 +11502,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Retrieval
-@dynamic disableAttribution, vertexAiSearch, vertexRagStore;
+@dynamic disableAttribution, externalApi, vertexAiSearch, vertexRagStore;
 @end
 
 
@@ -16673,7 +16818,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch
-@dynamic datastore, engine;
+@dynamic datastore, dataStoreSpecs, engine, filter, maxResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataStoreSpecs" : [GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -16684,6 +16837,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexAiSearchConfig
 @dynamic servingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec
+@dynamic dataStore, filter;
 @end
 
 

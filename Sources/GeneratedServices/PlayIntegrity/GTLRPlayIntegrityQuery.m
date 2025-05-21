@@ -72,3 +72,30 @@
 }
 
 @end
+
+@implementation GTLRPlayIntegrityQuery_V1DecodePcIntegrityToken
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRPlayIntegrity_DecodePcIntegrityTokenRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"v1/{+packageName}:decodePcIntegrityToken";
+  GTLRPlayIntegrityQuery_V1DecodePcIntegrityToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRPlayIntegrity_DecodePcIntegrityTokenResponse class];
+  query.loggingName = @"playintegrity.decodePcIntegrityToken";
+  return query;
+}
+
+@end

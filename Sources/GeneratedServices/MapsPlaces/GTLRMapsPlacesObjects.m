@@ -767,7 +767,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceReviewSummary
-@dynamic disclosureText, flagContentUri, text;
+@dynamic disclosureText, flagContentUri, reviewsUri, text;
 @end
 
 

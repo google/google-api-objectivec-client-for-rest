@@ -389,9 +389,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 @end
 
 /**
- *  This API updates the following: 1- retention period and description of
- *  backup in case of final backups only. 2- gcbdr_soft_delete_status of backup
- *  in case of GCBDR managed backups only.
+ *  Updates the retention period and description of the backup. You can use this
+ *  API to update final backups only.
  *
  *  Method: sql.Backups.UpdateBackup
  *
@@ -408,9 +407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields that you can update. 1- You can update only the
- *  description and retention period for a final backup. 2- You can update only
- *  the gcbdr_soft_delete_status for GCBDR managed backup.
+ *  The list of fields that you can update. You can update only the description
+ *  and retention period of the final backup.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -419,9 +417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  This API updates the following: 1- retention period and description of
- *  backup in case of final backups only. 2- gcbdr_soft_delete_status of backup
- *  in case of GCBDR managed backups only.
+ *  Updates the retention period and description of the backup. You can use this
+ *  API to update final backups only.
  *
  *  @param object The @c GTLRSQLAdmin_Backup to include in the query.
  *  @param name Output only. The resource name of the backup. Format:

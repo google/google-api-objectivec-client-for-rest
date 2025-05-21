@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The organization resource path of the projects containing
- *  DataExchanges. e.g. `organizations/myorg/locations/US`.
+ *  DataExchanges. e.g. `organizations/myorg/locations/us`.
  */
 @property(nonatomic, copy, nullable) NSString *organization;
 
@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all data exchanges from projects in a given organization and location.
  *
  *  @param organization Required. The organization resource path of the projects
- *    containing DataExchanges. e.g. `organizations/myorg/locations/US`.
+ *    containing DataExchanges. e.g. `organizations/myorg/locations/us`.
  *
  *  @return GTLRAnalyticsHubQuery_OrganizationsLocationsDataExchangesList
  *
@@ -99,7 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource path of the data exchange. e.g.
- *  `projects/myproject/locations/US`.
+ *  `projects/myproject/locations/us`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAnalyticsHub_DataExchange to include in the query.
  *  @param parent Required. The parent resource path of the data exchange. e.g.
- *    `projects/myproject/locations/US`.
+ *    `projects/myproject/locations/us`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesCreate
  */
@@ -132,7 +132,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the data exchange resource that you want to
- *  delete. For example, `projects/myproject/locations/US/dataExchanges/123`.
+ *  delete. For example, `projects/myproject/locations/us/dataExchanges/123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The full name of the data exchange resource that you
  *    want to delete. For example,
- *    `projects/myproject/locations/US/dataExchanges/123`.
+ *    `projects/myproject/locations/us/dataExchanges/123`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesDelete
  */
@@ -164,7 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the data exchange. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123`.
+ *  `projects/myproject/locations/us/dataExchanges/123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -174,7 +174,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a data exchange.
  *
  *  @param name Required. The resource name of the data exchange. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123`.
+ *    `projects/myproject/locations/us/dataExchanges/123`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesGet
  */
@@ -244,7 +244,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource path of the data exchanges. e.g.
- *  `projects/myproject/locations/US`.
+ *  `projects/myproject/locations/us`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -254,7 +254,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all data exchanges in a given project and location.
  *
  *  @param parent Required. The parent resource path of the data exchanges. e.g.
- *    `projects/myproject/locations/US`.
+ *    `projects/myproject/locations/us`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesList
  *
@@ -285,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource path of the listing. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123`.
+ *  `projects/myproject/locations/us/dataExchanges/123`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -296,7 +296,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAnalyticsHub_Listing to include in the query.
  *  @param parent Required. The parent resource path of the listing. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123`.
+ *    `projects/myproject/locations/us/dataExchanges/123`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsCreate
  */
@@ -325,7 +325,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the listing to delete. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123/listings/456`.
+ *  `projects/myproject/locations/us/dataExchanges/123/listings/456`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -335,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a listing.
  *
  *  @param name Required. Resource name of the listing to delete. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123/listings/456`.
+ *    `projects/myproject/locations/us/dataExchanges/123/listings/456`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsDelete
  */
@@ -356,7 +356,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the listing. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123/listings/456`.
+ *  `projects/myproject/locations/us/dataExchanges/123/listings/456`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -366,7 +366,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a listing.
  *
  *  @param name Required. The resource name of the listing. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123/listings/456`.
+ *    `projects/myproject/locations/us/dataExchanges/123/listings/456`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsGet
  */
@@ -436,7 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource path of the listing. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123`.
+ *  `projects/myproject/locations/us/dataExchanges/123`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -446,7 +446,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all listings in a given project and location.
  *
  *  @param parent Required. The parent resource path of the listing. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123`.
+ *    `projects/myproject/locations/us/dataExchanges/123`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsList
  *
@@ -484,8 +484,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the requested target. This resource may be either
  *  a Listing or a DataExchange. e.g.
- *  projects/123/locations/US/dataExchanges/456 OR e.g.
- *  projects/123/locations/US/dataExchanges/456/listings/789
+ *  projects/123/locations/us/dataExchanges/456 OR e.g.
+ *  projects/123/locations/us/dataExchanges/456/listings/789
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -496,8 +496,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resource Required. Resource name of the requested target. This
  *    resource may be either a Listing or a DataExchange. e.g.
- *    projects/123/locations/US/dataExchanges/456 OR e.g.
- *    projects/123/locations/US/dataExchanges/456/listings/789
+ *    projects/123/locations/us/dataExchanges/456 OR e.g.
+ *    projects/123/locations/us/dataExchanges/456/listings/789
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsListSubscriptions
  *
@@ -522,7 +522,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The resource name of the listing. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123/listings/456`
+ *  `projects/myproject/locations/us/dataExchanges/123/listings/456`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -542,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAnalyticsHub_Listing to include in the query.
  *  @param name Output only. The resource name of the listing. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123/listings/456`
+ *    `projects/myproject/locations/us/dataExchanges/123/listings/456`
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsPatch
  */
@@ -604,7 +604,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the listing that you want to subscribe to. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123/listings/456`.
+ *  `projects/myproject/locations/us/dataExchanges/123/listings/456`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -620,7 +620,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name Required. Resource name of the listing that you want to
  *    subscribe to. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123/listings/456`.
+ *    `projects/myproject/locations/us/dataExchanges/123/listings/456`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsSubscribe
  */
@@ -692,8 +692,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the requested target. This resource may be either
  *  a Listing or a DataExchange. e.g.
- *  projects/123/locations/US/dataExchanges/456 OR e.g.
- *  projects/123/locations/US/dataExchanges/456/listings/789
+ *  projects/123/locations/us/dataExchanges/456 OR e.g.
+ *  projects/123/locations/us/dataExchanges/456/listings/789
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -704,8 +704,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resource Required. Resource name of the requested target. This
  *    resource may be either a Listing or a DataExchange. e.g.
- *    projects/123/locations/US/dataExchanges/456 OR e.g.
- *    projects/123/locations/US/dataExchanges/456/listings/789
+ *    projects/123/locations/us/dataExchanges/456 OR e.g.
+ *    projects/123/locations/us/dataExchanges/456/listings/789
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListSubscriptions
  *
@@ -730,7 +730,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The resource name of the data exchange. e.g.
- *  `projects/myproject/locations/US/dataExchanges/123`.
+ *  `projects/myproject/locations/us/dataExchanges/123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -750,7 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAnalyticsHub_DataExchange to include in the query.
  *  @param name Output only. The resource name of the data exchange. e.g.
- *    `projects/myproject/locations/US/dataExchanges/123`.
+ *    `projects/myproject/locations/us/dataExchanges/123`.
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesPatch
  */
@@ -798,7 +798,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a Subscription to a Data Clean Room. This is a long-running
- *  operation as it will create one or more linked datasets.
+ *  operation as it will create one or more linked datasets. Throws a Bad
+ *  Request error if the Data Exchange does not contain any listings.
  *
  *  Method: analyticshub.projects.locations.dataExchanges.subscribe
  *
@@ -810,7 +811,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the Data Exchange. e.g.
- *  `projects/publisherproject/locations/US/dataExchanges/123`
+ *  `projects/publisherproject/locations/us/dataExchanges/123`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -818,12 +819,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAnalyticsHub_Operation.
  *
  *  Creates a Subscription to a Data Clean Room. This is a long-running
- *  operation as it will create one or more linked datasets.
+ *  operation as it will create one or more linked datasets. Throws a Bad
+ *  Request error if the Data Exchange does not contain any listings.
  *
  *  @param object The @c GTLRAnalyticsHub_SubscribeDataExchangeRequest to
  *    include in the query.
  *  @param name Required. Resource name of the Data Exchange. e.g.
- *    `projects/publisherproject/locations/US/dataExchanges/123`
+ *    `projects/publisherproject/locations/us/dataExchanges/123`
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesSubscribe
  */
@@ -882,7 +884,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the subscription to delete. e.g.
- *  projects/123/locations/US/subscriptions/456
+ *  projects/123/locations/us/subscriptions/456
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -892,7 +894,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a subscription.
  *
  *  @param name Required. Resource name of the subscription to delete. e.g.
- *    projects/123/locations/US/subscriptions/456
+ *    projects/123/locations/us/subscriptions/456
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsDelete
  */
@@ -913,7 +915,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the subscription. e.g.
- *  projects/123/locations/US/subscriptions/456
+ *  projects/123/locations/us/subscriptions/456
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -923,7 +925,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a Subscription.
  *
  *  @param name Required. Resource name of the subscription. e.g.
- *    projects/123/locations/US/subscriptions/456
+ *    projects/123/locations/us/subscriptions/456
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGet
  */
@@ -999,7 +1001,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource path of the subscription. e.g.
- *  projects/myproject/locations/US
+ *  projects/myproject/locations/us
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1009,7 +1011,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all subscriptions in a given project and location.
  *
  *  @param parent Required. The parent resource path of the subscription. e.g.
- *    projects/myproject/locations/US
+ *    projects/myproject/locations/us
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsList
  *
@@ -1036,7 +1038,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the Subscription to refresh. e.g.
- *  `projects/subscriberproject/locations/US/subscriptions/123`
+ *  `projects/subscriberproject/locations/us/subscriptions/123`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1050,7 +1052,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAnalyticsHub_RefreshSubscriptionRequest to include
  *    in the query.
  *  @param name Required. Resource name of the Subscription to refresh. e.g.
- *    `projects/subscriberproject/locations/US/subscriptions/123`
+ *    `projects/subscriberproject/locations/us/subscriptions/123`
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRefresh
  */
@@ -1072,7 +1074,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the subscription to revoke. e.g.
- *  projects/123/locations/US/subscriptions/456
+ *  projects/123/locations/us/subscriptions/456
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1084,7 +1086,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAnalyticsHub_RevokeSubscriptionRequest to include
  *    in the query.
  *  @param name Required. Resource name of the subscription to revoke. e.g.
- *    projects/123/locations/US/subscriptions/456
+ *    projects/123/locations/us/subscriptions/456
  *
  *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRevoke
  */

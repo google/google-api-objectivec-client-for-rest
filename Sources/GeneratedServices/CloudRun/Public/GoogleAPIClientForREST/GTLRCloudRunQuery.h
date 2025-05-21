@@ -1708,6 +1708,55 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the IAM Access Control policy currently in effect for the given Cloud
+ *  Run WorkerPool. This result does not include any inherited policies.
+ *
+ *  Method: run.projects.locations.workerPools.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGetIamPolicy : GTLRCloudRunQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
+ *
+ *  Gets the IAM Access Control policy currently in effect for the given Cloud
+ *  Run WorkerPool. This result does not include any inherited policies.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists WorkerPools. Results are sorted by creation time, descending.
  *
  *  Method: run.projects.locations.workerPools.list
@@ -1947,6 +1996,44 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the IAM Access control policy for the specified WorkerPool. Overwrites
+ *  any existing policy.
+ *
+ *  Method: run.projects.locations.workerPools.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsSetIamPolicy : GTLRCloudRunQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
+ *
+ *  Sets the IAM Access control policy for the specified WorkerPool. Overwrites
+ *  any existing policy.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleIamV1SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

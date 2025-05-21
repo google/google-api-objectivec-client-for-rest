@@ -879,7 +879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Bid
  *
  *  Value: "GOOGLE_RTB"
  */
-FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_GoogleRtb;
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_GoogleRtb GTLR_DEPRECATED;
 /**
  *  OpenRTB / JSON encoding (unversioned/latest).
  *

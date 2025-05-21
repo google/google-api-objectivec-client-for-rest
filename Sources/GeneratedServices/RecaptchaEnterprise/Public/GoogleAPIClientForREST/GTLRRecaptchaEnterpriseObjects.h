@@ -37,6 +37,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignals;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals;
@@ -392,6 +393,51 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "FRAUD_PREVENTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_FraudPreventionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason.reason
+
+/**
+ *  This transaction is linked to a cluster of known fraudulent activity.
+ *
+ *  Value: "ASSOCIATED_WITH_FRAUD_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_AssociatedWithFraudCluster;
+/**
+ *  User is cycling through a suspiciously large number of identifiers,
+ *  suggesting enumeration or validation attacks within a potential fraud
+ *  network.
+ *
+ *  Value: "EXCESSIVE_ENUMERATION_PATTERN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ExcessiveEnumerationPattern;
+/**
+ *  Identifiers used in this transaction originate from an unusual or
+ *  conflicting set of geolocations.
+ *
+ *  Value: "GEOLOCATION_DISCREPANCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_GeolocationDiscrepancy;
+/**
+ *  A suspiciously high number of recent transactions have used identifiers
+ *  present in this transaction.
+ *
+ *  Value: "HIGH_TRANSACTION_VELOCITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_HighTransactionVelocity;
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ReasonUnspecified;
+/**
+ *  User has a short history or no history in the reCAPTCHA network, suggesting
+ *  the possibility of synthetic identity generation.
+ *
+ *  Value: "SHORT_IDENTITY_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ShortIdentityHistory;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals.cardLabels
@@ -779,12 +825,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage;
 /**
- *  Use reCAPTCHA WAF express protection to protect any content other than web
- *  pages, like APIs and IoT devices.
+ *  Deprecated: Use `express_settings` instead.
  *
  *  Value: "EXPRESS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express;
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express GTLR_DEPRECATED;
 /**
  *  Use reCAPTCHA session-tokens to protect the whole user session on the site's
  *  domain.
@@ -1636,6 +1681,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict *cardTestingVerdict;
 
 /**
+ *  Output only. Reasons why the transaction is probably fraudulent and received
+ *  a high transaction risk score.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason *> *riskReasons;
+
+/**
  *  Output only. Assessment of this transaction for risk of a stolen instrument.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict *stolenInstrumentVerdict;
@@ -1681,6 +1732,41 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *risk;
+
+@end
+
+
+/**
+ *  Risk reasons applicable to the Fraud Prevention assessment.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason : GTLRObject
+
+/**
+ *  Output only. Risk reasons applicable to the Fraud Prevention assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_AssociatedWithFraudCluster
+ *        This transaction is linked to a cluster of known fraudulent activity.
+ *        (Value: "ASSOCIATED_WITH_FRAUD_CLUSTER")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ExcessiveEnumerationPattern
+ *        User is cycling through a suspiciously large number of identifiers,
+ *        suggesting enumeration or validation attacks within a potential fraud
+ *        network. (Value: "EXCESSIVE_ENUMERATION_PATTERN")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_GeolocationDiscrepancy
+ *        Identifiers used in this transaction originate from an unusual or
+ *        conflicting set of geolocations. (Value: "GEOLOCATION_DISCREPANCY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_HighTransactionVelocity
+ *        A suspiciously high number of recent transactions have used
+ *        identifiers present in this transaction. (Value:
+ *        "HIGH_TRANSACTION_VELOCITY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ReasonUnspecified
+ *        Default unspecified type. (Value: "REASON_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ShortIdentityHistory
+ *        User has a short history or no history in the reCAPTCHA network,
+ *        suggesting the possibility of synthetic identity generation. (Value:
+ *        "SHORT_IDENTITY_HISTORY")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -2945,8 +3031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage
  *        Redirects suspicious traffic to reCAPTCHA. (Value: "CHALLENGE_PAGE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express
- *        Use reCAPTCHA WAF express protection to protect any content other than
- *        web pages, like APIs and IoT devices. (Value: "EXPRESS")
+ *        Deprecated: Use `express_settings` instead. (Value: "EXPRESS")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_SessionToken
  *        Use reCAPTCHA session-tokens to protect the whole user session on the
  *        site's domain. (Value: "SESSION_TOKEN")
