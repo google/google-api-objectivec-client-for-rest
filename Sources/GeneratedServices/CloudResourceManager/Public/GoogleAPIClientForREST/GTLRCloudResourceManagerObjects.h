@@ -747,7 +747,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 @property(nonatomic, copy, nullable) NSString *managementProject;
 
 /**
- *  Output only. The resource name of the folder. Its format is
+ *  Identifier. The resource name of the folder. Its format is
  *  `folders/{folder_id}`, for example: "folders/1234".
  */
 @property(nonatomic, copy, nullable) NSString *name;

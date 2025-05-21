@@ -23,6 +23,12 @@ NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_Appe
 NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceConsumerManagement_BatchingSettingsProto.flowControlLimitExceededBehavior
+NSString * const kGTLRServiceConsumerManagement_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block = @"BLOCK";
+NSString * const kGTLRServiceConsumerManagement_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore = @"IGNORE";
+NSString * const kGTLRServiceConsumerManagement_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException = @"THROW_EXCEPTION";
+NSString * const kGTLRServiceConsumerManagement_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior = @"UNSET_BEHAVIOR";
+
 // GTLRServiceConsumerManagement_ClientLibrarySettings.launchStage
 NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Beta = @"BETA";
@@ -352,6 +358,47 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
   return [GTLRServiceConsumerManagement_BackendRule class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_BatchingConfigProto
+//
+
+@implementation GTLRServiceConsumerManagement_BatchingConfigProto
+@dynamic batchDescriptor, thresholds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_BatchingDescriptorProto
+//
+
+@implementation GTLRServiceConsumerManagement_BatchingDescriptorProto
+@dynamic batchedField, discriminatorFields, subresponseField;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discriminatorFields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_BatchingSettingsProto
+//
+
+@implementation GTLRServiceConsumerManagement_BatchingSettingsProto
+@dynamic delayThreshold, elementCountLimit, elementCountThreshold,
+         flowControlByteLimit, flowControlElementLimit,
+         flowControlLimitExceededBehavior, requestByteLimit,
+         requestByteThreshold;
 @end
 
 
@@ -1040,7 +1087,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_MethodSettings
-@dynamic autoPopulatedFields, longRunning, selector;
+@dynamic autoPopulatedFields, batching, longRunning, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

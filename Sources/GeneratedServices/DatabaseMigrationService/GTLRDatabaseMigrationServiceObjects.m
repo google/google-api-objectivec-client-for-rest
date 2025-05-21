@@ -108,6 +108,22 @@ NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Ready = @
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Updating = @"UPDATING";
 
+// GTLRDatabaseMigrationService_ConversionWorkspace.destinationProvider
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Alloydb = @"ALLOYDB";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Aurora = @"AURORA";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_AzureDatabase = @"AZURE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Cloudsql = @"CLOUDSQL";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_DestinationProvider_Rds = @"RDS";
+
+// GTLRDatabaseMigrationService_ConversionWorkspace.sourceProvider
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Alloydb = @"ALLOYDB";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Aurora = @"AURORA";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_AzureDatabase = @"AZURE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Cloudsql = @"CLOUDSQL";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_ConversionWorkspace_SourceProvider_Rds = @"RDS";
+
 // GTLRDatabaseMigrationService_DatabaseEngineInfo.engine
 NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_DatabaseEngineUnspecified = @"DATABASE_ENGINE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Mysql = @"MYSQL";
@@ -833,9 +849,9 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_ConversionWorkspace
-@dynamic createTime, destination, displayName, globalSettings,
-         hasUncommittedChanges, latestCommitId, latestCommitTime, name, source,
-         updateTime;
+@dynamic createTime, destination, destinationProvider, displayName,
+         globalSettings, hasUncommittedChanges, latestCommitId,
+         latestCommitTime, name, source, sourceProvider, updateTime;
 @end
 
 

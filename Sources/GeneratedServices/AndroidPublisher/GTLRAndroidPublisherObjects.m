@@ -177,6 +177,20 @@ NSString * const kGTLRAndroidPublisher_ModuleMetadata_DeliveryType_UnknownDelive
 NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleType_FeatureModule = @"FEATURE_MODULE";
 NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleType_UnknownModuleType = @"UNKNOWN_MODULE_TYPE";
 
+// GTLRAndroidPublisher_Order.state
+NSString * const kGTLRAndroidPublisher_Order_State_Canceled    = @"CANCELED";
+NSString * const kGTLRAndroidPublisher_Order_State_PartiallyRefunded = @"PARTIALLY_REFUNDED";
+NSString * const kGTLRAndroidPublisher_Order_State_Pending     = @"PENDING";
+NSString * const kGTLRAndroidPublisher_Order_State_PendingRefund = @"PENDING_REFUND";
+NSString * const kGTLRAndroidPublisher_Order_State_Processed   = @"PROCESSED";
+NSString * const kGTLRAndroidPublisher_Order_State_Refunded    = @"REFUNDED";
+NSString * const kGTLRAndroidPublisher_Order_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_PartialRefundEvent.state
+NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_Pending = @"PENDING";
+NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_ProcessedSuccessfully = @"PROCESSED_SUCCESSFULLY";
+NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_PrepaidBasePlanType.timeExtension
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionActive = @"TIME_EXTENSION_ACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
@@ -186,6 +200,11 @@ NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExt
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AlternativeBillingOnly = @"ALTERNATIVE_BILLING_ONLY";
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified = @"EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_UserChoiceBilling = @"USER_CHOICE_BILLING";
+
+// GTLRAndroidPublisher_RefundEvent.refundReason
+NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_Chargeback = @"CHARGEBACK";
+NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_Other = @"OTHER";
+NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_RefundReasonUnspecified = @"REFUND_REASON_UNSPECIFIED";
 
 // GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
 NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn = @"PRICE_INCREASE_TYPE_OPT_IN";
@@ -219,6 +238,12 @@ NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Tvdpi = @"TVDP
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xhdpi = @"XHDPI";
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xxhdpi = @"XXHDPI";
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xxxhdpi = @"XXXHDPI";
+
+// GTLRAndroidPublisher_SubscriptionDetails.offerPhase
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Base = @"BASE";
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_FreeTrial = @"FREE_TRIAL";
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Introductory = @"INTRODUCTORY";
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_OfferPhaseUnspecified = @"OFFER_PHASE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeMode
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_OptOutPriceIncrease = @"OPT_OUT_PRICE_INCREASE";
@@ -689,6 +714,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_BatchGetOrdersResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchGetOrdersResponse
+@dynamic orders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orders" : [GTLRAndroidPublisher_Order class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_BatchGetSubscriptionOffersRequest
 //
 
@@ -957,6 +1000,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_BuyerAddress
+//
+
+@implementation GTLRAndroidPublisher_BuyerAddress
+@dynamic buyerCountry, buyerPostcode, buyerState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CancelAppRecoveryRequest
 //
 
@@ -981,6 +1034,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_CanceledStateContext
 @dynamic developerInitiatedCancellation, replacementCancellation,
          systemInitiatedCancellation, userInitiatedCancellation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CancellationEvent
+//
+
+@implementation GTLRAndroidPublisher_CancellationEvent
+@dynamic eventTime;
 @end
 
 
@@ -1871,6 +1934,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_LineItem
+//
+
+@implementation GTLRAndroidPublisher_LineItem
+@dynamic listingPrice, oneTimePurchaseDetails, paidAppDetails, productId,
+         productTitle, subscriptionDetails, tax, total;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ListAppRecoveriesResponse
 //
 
@@ -2204,6 +2278,64 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OneTimePurchaseDetails
+//
+
+@implementation GTLRAndroidPublisher_OneTimePurchaseDetails
+@dynamic offerId, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Order
+//
+
+@implementation GTLRAndroidPublisher_Order
+@dynamic buyerAddress, createTime, developerRevenueInBuyerCurrency,
+         lastEventTime, lineItems, orderDetails, orderHistory, orderId,
+         pointsDetails, purchaseToken, state, tax, total;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lineItems" : [GTLRAndroidPublisher_LineItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OrderDetails
+//
+
+@implementation GTLRAndroidPublisher_OrderDetails
+@dynamic taxInclusive;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OrderHistory
+//
+
+@implementation GTLRAndroidPublisher_OrderHistory
+@dynamic cancellationEvent, partialRefundEvents, processedEvent, refundEvent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialRefundEvents" : [GTLRAndroidPublisher_PartialRefundEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OtherRecurringProduct
 //
 
@@ -2272,11 +2404,30 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_PaidAppDetails
+//
+
+@implementation GTLRAndroidPublisher_PaidAppDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_PartialRefund
 //
 
 @implementation GTLRAndroidPublisher_PartialRefund
 @dynamic refundId, refundPreTaxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PartialRefundEvent
+//
+
+@implementation GTLRAndroidPublisher_PartialRefundEvent
+@dynamic createTime, processTime, refundDetails, state;
 @end
 
 
@@ -2296,6 +2447,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_PendingCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PointsDetails
+//
+
+@implementation GTLRAndroidPublisher_PointsDetails
+@dynamic pointsCouponValue, pointsDiscountRateMicros, pointsOfferId,
+         pointsSpent;
 @end
 
 
@@ -2326,6 +2488,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_Price
 @dynamic currency, priceMicros;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ProcessedEvent
+//
+
+@implementation GTLRAndroidPublisher_ProcessedEvent
+@dynamic eventTime;
 @end
 
 
@@ -2368,6 +2540,26 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic externalSubscription, externalTransactionToken,
          initialExternalTransactionId, migratedTransactionProgram,
          otherRecurringProduct;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RefundDetails
+//
+
+@implementation GTLRAndroidPublisher_RefundDetails
+@dynamic tax, total;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RefundEvent
+//
+
+@implementation GTLRAndroidPublisher_RefundEvent
+@dynamic eventTime, refundDetails, refundReason;
 @end
 
 
@@ -2605,7 +2797,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RevocationContext
-@dynamic fullRefund, proratedRefund;
+@dynamic fullRefund, itemBasedRefund, proratedRefund;
 @end
 
 
@@ -2615,6 +2807,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RevocationContextFullRefund
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevocationContextItemBasedRefund
+//
+
+@implementation GTLRAndroidPublisher_RevocationContextItemBasedRefund
+@dynamic productId;
 @end
 
 
@@ -2826,6 +3028,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionDeferralInfo
 @dynamic desiredExpiryTimeMillis, expectedExpiryTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionDetails
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionDetails
+@dynamic basePlanId, offerId, offerPhase, servicePeriodEndTime,
+         servicePeriodStartTime;
 @end
 
 

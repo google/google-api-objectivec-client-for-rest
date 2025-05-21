@@ -784,7 +784,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @dynamic clusterManagerApiService, dataset, debugOptions, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
          serviceAccountEmail, serviceKmsKeyName, serviceOptions, shuffleMode,
-         streamingMode, tempStoragePrefix, userAgent,
+         streamingMode, tempStoragePrefix, usePublicIps, userAgent,
          useStreamingEngineResourceBasedBilling, version, workerPools,
          workerRegion, workerZone;
 
@@ -1045,6 +1045,34 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_GetTemplateResponse
 @dynamic metadata, runtimeMetadata, status, templateType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_GetWorkerStacktracesRequest
+//
+
+@implementation GTLRDataflow_GetWorkerStacktracesRequest
+@dynamic workerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_GetWorkerStacktracesResponse
+//
+
+@implementation GTLRDataflow_GetWorkerStacktracesResponse
+@dynamic sdks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sdks" : [GTLRDataflow_Sdk class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2332,6 +2360,24 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_Sdk
+//
+
+@implementation GTLRDataflow_Sdk
+@dynamic sdkId, stacks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stacks" : [GTLRDataflow_Stack class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_SdkBug
 //
 
@@ -2810,6 +2856,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_SplitInt64
 @dynamic highBits, lowBits;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_Stack
+//
+
+@implementation GTLRDataflow_Stack
+@dynamic stackContent, threadCount, threadName, threadState, timestamp;
 @end
 
 

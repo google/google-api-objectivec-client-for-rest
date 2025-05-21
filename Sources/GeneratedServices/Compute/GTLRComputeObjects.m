@@ -817,6 +817,7 @@ NSString * const kGTLRCompute_Commitment_Type_GraphicsOptimized = @"GRAPHICS_OPT
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized  = @"MEMORY_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM3 = @"MEMORY_OPTIMIZED_M3";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM4 = @"MEMORY_OPTIMIZED_M4";
+NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM46tb = @"MEMORY_OPTIMIZED_M4_6TB";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX416tb = @"MEMORY_OPTIMIZED_X4_16TB";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX424tb = @"MEMORY_OPTIMIZED_X4_24TB";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX432tb = @"MEMORY_OPTIMIZED_X4_32TB";
@@ -11094,8 +11095,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_Firewall
 @dynamic allowed, creationTimestamp, denied, descriptionProperty,
          destinationRanges, direction, disabled, identifier, kind, logConfig,
-         name, network, priority, selfLink, sourceRanges, sourceServiceAccounts,
-         sourceTags, targetServiceAccounts, targetTags;
+         name, network, params, priority, selfLink, sourceRanges,
+         sourceServiceAccounts, sourceTags, targetServiceAccounts, targetTags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -11215,6 +11216,30 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_FirewallLogConfig
 @dynamic enable, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FirewallParams
+//
+
+@implementation GTLRCompute_FirewallParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FirewallParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_FirewallParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -22076,7 +22101,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          kind, name, network, nextHopGateway, nextHopHub, nextHopIlb,
          nextHopInstance, nextHopInterRegionCost, nextHopIp, nextHopMed,
          nextHopNetwork, nextHopOrigin, nextHopPeering, nextHopVpnTunnel,
-         priority, routeStatus, routeType, selfLink, tags, warnings;
+         params, priority, routeStatus, routeType, selfLink, tags, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -22191,6 +22216,30 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RouteList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouteParams
+//
+
+@implementation GTLRCompute_RouteParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouteParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_RouteParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

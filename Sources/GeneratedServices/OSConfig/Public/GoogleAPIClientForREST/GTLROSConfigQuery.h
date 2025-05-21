@@ -252,13 +252,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  replaced, * repeated fields are replaced, * map fields are merged key by
  *  key, * message fields are cleared if not set in the request, otherwise they
  *  are merged recursively (in particular - message fields set to an empty
- *  message has no side effects) If field mask is not specified, it is
- *  automatically inferred from the request using following rules: * primitive
- *  fields are listed, if set to a non-default value (as there is no way to
- *  distinguish between default and unset value), * map and repeated fields are
- *  listed, * `google.protobuf.Any` fields are listed, * other message fields
- *  are traversed recursively. Note: implicit mask does not allow clearing
- *  fields.
+ *  message has no side effects) If field mask (or its paths) is not specified,
+ *  it is automatically inferred from the request using following rules: *
+ *  primitive fields are listed, if set to a non-default value (as there is no
+ *  way to distinguish between default and unset value), * map and repeated
+ *  fields are listed, * `google.protobuf.Any` fields are listed, * other
+ *  message fields are traversed recursively. Note: implicit mask does not allow
+ *  clearing fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -653,13 +653,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  replaced, * repeated fields are replaced, * map fields are merged key by
  *  key, * message fields are cleared if not set in the request, otherwise they
  *  are merged recursively (in particular - message fields set to an empty
- *  message has no side effects) If field mask is not specified, it is
- *  automatically inferred from the request using following rules: * primitive
- *  fields are listed, if set to a non-default value (as there is no way to
- *  distinguish between default and unset value), * map and repeated fields are
- *  listed, * `google.protobuf.Any` fields are listed, * other message fields
- *  are traversed recursively. Note: implicit mask does not allow clearing
- *  fields.
+ *  message has no side effects) If field mask (or its paths) is not specified,
+ *  it is automatically inferred from the request using following rules: *
+ *  primitive fields are listed, if set to a non-default value (as there is no
+ *  way to distinguish between default and unset value), * map and repeated
+ *  fields are listed, * `google.protobuf.Any` fields are listed, * other
+ *  message fields are traversed recursively. Note: implicit mask does not allow
+ *  clearing fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1052,13 +1052,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  replaced, * repeated fields are replaced, * map fields are merged key by
  *  key, * message fields are cleared if not set in the request, otherwise they
  *  are merged recursively (in particular - message fields set to an empty
- *  message has no side effects) If field mask is not specified, it is
- *  automatically inferred from the request using following rules: * primitive
- *  fields are listed, if set to a non-default value (as there is no way to
- *  distinguish between default and unset value), * map and repeated fields are
- *  listed, * `google.protobuf.Any` fields are listed, * other message fields
- *  are traversed recursively. Note: implicit mask does not allow clearing
- *  fields.
+ *  message has no side effects) If field mask (or its paths) is not specified,
+ *  it is automatically inferred from the request using following rules: *
+ *  primitive fields are listed, if set to a non-default value (as there is no
+ *  way to distinguish between default and unset value), * map and repeated
+ *  fields are listed, * `google.protobuf.Any` fields are listed, * other
+ *  message fields are traversed recursively. Note: implicit mask does not allow
+ *  clearing fields.
  *
  *  String format is a comma-separated list of fields.
  */

@@ -410,6 +410,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
+ *  Get worker stacktraces from debug capture.
+ *
+ *  Method: dataflow.projects.jobs.debug.getWorkerStacktraces
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_ProjectsJobsDebugGetWorkerStacktraces : GTLRDataflowQuery
+
+/** The job for which to get stacktraces. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_GetWorkerStacktracesResponse.
+ *
+ *  Get worker stacktraces from debug capture.
+ *
+ *  @param object The @c GTLRDataflow_GetWorkerStacktracesRequest to include in
+ *    the query.
+ *  @param projectId The project id.
+ *  @param jobId The job for which to get stacktraces.
+ *
+ *  @return GTLRDataflowQuery_ProjectsJobsDebugGetWorkerStacktraces
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_GetWorkerStacktracesRequest *)object
+                      projectId:(NSString *)projectId
+                          jobId:(NSString *)jobId;
+
+@end
+
+/**
  *  Send encoded debug capture data for component.
  *
  *  Method: dataflow.projects.jobs.debug.sendCapture

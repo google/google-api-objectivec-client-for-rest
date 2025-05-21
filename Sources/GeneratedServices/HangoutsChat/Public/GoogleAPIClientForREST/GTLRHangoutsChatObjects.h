@@ -4688,8 +4688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *bottomText;
 
-@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1MaterialIcon *materialIcon;
-
 /**
  *  Whether the item is selected by default. If the selection input only accepts
  *  one value (such as for radio buttons or a dropdown menu), only set this

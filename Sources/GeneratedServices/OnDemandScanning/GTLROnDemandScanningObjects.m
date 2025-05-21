@@ -117,6 +117,7 @@ NSString * const kGTLROnDemandScanning_Occurrence_Kind_Image   = @"IMAGE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Package = @"PACKAGE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_SbomReference = @"SBOM_REFERENCE";
+NSString * const kGTLROnDemandScanning_Occurrence_Kind_Secret  = @"SECRET";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Upgrade = @"UPGRADE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -160,6 +161,17 @@ NSString * const kGTLROnDemandScanning_Remediation_RemediationType_Workaround = 
 NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Complete = @"COMPLETE";
 NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Pending = @"PENDING";
 NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_SbomStateUnspecified = @"SBOM_STATE_UNSPECIFIED";
+
+// GTLROnDemandScanning_SecretOccurrence.kind
+NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey = @"SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY";
+NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnknown = @"SECRET_KIND_UNKNOWN";
+NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnspecified = @"SECRET_KIND_UNSPECIFIED";
+
+// GTLROnDemandScanning_SecretStatus.status
+NSString * const kGTLROnDemandScanning_SecretStatus_Status_Invalid = @"INVALID";
+NSString * const kGTLROnDemandScanning_SecretStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_SecretStatus_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLROnDemandScanning_SecretStatus_Status_Valid = @"VALID";
 
 // GTLROnDemandScanning_Version.kind
 NSString * const kGTLROnDemandScanning_Version_Kind_Maximum    = @"MAXIMUM";
@@ -591,11 +603,12 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus;
+         archiveTime, continuousAnalysis, cpe, files, lastScanTime, sbomStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"analysisError" : [GTLROnDemandScanning_Status class]
+    @"analysisError" : [GTLROnDemandScanning_Status class],
+    @"files" : [GTLROnDemandScanning_File class]
   };
   return map;
 }
@@ -647,6 +660,30 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_EnvelopeSignature
 @dynamic keyid, sig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_File
+//
+
+@implementation GTLROnDemandScanning_File
+@dynamic digest, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_File_Digest
+//
+
+@implementation GTLROnDemandScanning_File_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -742,7 +779,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_GrafeasV1LayerDetails
-@dynamic baseImages, command, diffId, index;
+@dynamic baseImages, chainId, command, diffId, index;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1023,7 +1060,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_LayerDetails
-@dynamic baseImages, command, diffId, index;
+@dynamic baseImages, chainId, command, diffId, index;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1169,7 +1206,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 @implementation GTLROnDemandScanning_Occurrence
 @dynamic attestation, build, compliance, createTime, deployment, discovery,
          dsseAttestation, envelope, image, kind, name, noteName, package,
-         remediation, resourceUri, sbomReference, updateTime, upgrade,
+         remediation, resourceUri, sbomReference, secret, updateTime, upgrade,
          vulnerability;
 
 + (BOOL)isKindValidForClassRegistry {
@@ -1550,6 +1587,51 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_SBOMStatus
 @dynamic error, sbomState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SecretLocation
+//
+
+@implementation GTLROnDemandScanning_SecretLocation
+@dynamic fileLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SecretOccurrence
+//
+
+@implementation GTLROnDemandScanning_SecretOccurrence
+@dynamic kind, locations, statuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLROnDemandScanning_SecretLocation class],
+    @"statuses" : [GTLROnDemandScanning_SecretStatus class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SecretStatus
+//
+
+@implementation GTLROnDemandScanning_SecretStatus
+@dynamic message, status, updateTime;
 @end
 
 

@@ -25,6 +25,8 @@ NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Pcm = @"PCM";
 
 // GTLRTexttospeech_CustomPronunciationParams.phoneticEncoding
 NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingIpa = @"PHONETIC_ENCODING_IPA";
+NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingJapaneseYomigana = @"PHONETIC_ENCODING_JAPANESE_YOMIGANA";
+NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingPinyin = @"PHONETIC_ENCODING_PINYIN";
 NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingUnspecified = @"PHONETIC_ENCODING_UNSPECIFIED";
 NSString * const kGTLRTexttospeech_CustomPronunciationParams_PhoneticEncoding_PhoneticEncodingXSampa = @"PHONETIC_ENCODING_X_SAMPA";
 
@@ -274,7 +276,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_SynthesisInput
-@dynamic customPronunciations, multiSpeakerMarkup, ssml, text;
+@dynamic customPronunciations, markup, multiSpeakerMarkup, ssml, text;
 @end
 
 

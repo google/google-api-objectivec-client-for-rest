@@ -20109,7 +20109,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesPatch : GTLRAiplatformQuery
 
-/** Identifier. The resource name of the ReasoningEngine. */
+/**
+ *  Identifier. The resource name of the ReasoningEngine. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -20126,7 +20129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
  *    to include in the query.
- *  @param name Identifier. The resource name of the ReasoningEngine.
+ *  @param name Identifier. The resource name of the ReasoningEngine. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesPatch
  */

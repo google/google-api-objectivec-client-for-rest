@@ -2346,7 +2346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /** A link to show reviews of this place on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *reviewsUri;
 
-/** A link to show reviews of this place on Google Maps. */
+/** A link to write a review for this place on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *writeAReviewUri;
 
 @end
@@ -2674,6 +2674,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** A link where users can flag a problem with the summary. */
 @property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** A link to show reviews of this place on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *reviewsUri;
 
 /** The summary of user reviews. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;

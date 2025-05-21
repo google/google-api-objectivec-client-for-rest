@@ -1645,7 +1645,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** Optional. The password for the default ADMIN user. */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
 
-/** Optional. The subnet CIDR range for the Autonmous Database. */
+/** Optional. The subnet CIDR range for the Autonomous Database. */
 @property(nonatomic, copy, nullable) NSString *cidr;
 
 /**
@@ -4563,7 +4563,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
- *  The source configuration for the standby Autonomnous Database.
+ *  The source configuration for the standby Autonomous Database.
  */
 @interface GTLROracleDatabase_SourceConfig : GTLRObject
 

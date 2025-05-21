@@ -130,6 +130,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_ApigeeRegistry"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_APIhub",
+            targets: ["GoogleAPIClientForREST_APIhub"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_ApiKeysService",
             targets: ["GoogleAPIClientForREST_ApiKeysService"]
         ),
@@ -628,6 +632,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_FirebaseAppDistribution",
             targets: ["GoogleAPIClientForREST_FirebaseAppDistribution"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_FirebaseAppHosting",
+            targets: ["GoogleAPIClientForREST_FirebaseAppHosting"]
         ),
         .library(
             name: "GoogleAPIClientForREST_FirebaseCloudMessaging",
@@ -1408,6 +1416,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_APIhub",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/APIhub",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_ApiKeysService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/ApiKeysService",
@@ -2155,6 +2169,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_FirebaseAppDistribution",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/FirebaseAppDistribution",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_FirebaseAppHosting",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/FirebaseAppHosting",
             publicHeadersPath: "Public"
         ),
         .target(

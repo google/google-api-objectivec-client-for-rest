@@ -2537,6 +2537,55 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_OrdersBatchget
+
+@dynamic orderIds, packageName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orderIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/orders:batchGet";
+  GTLRAndroidPublisherQuery_OrdersBatchget *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchGetOrdersResponse class];
+  query.loggingName = @"androidpublisher.orders.batchget";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_OrdersGet
+
+@dynamic orderId, packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                             orderId:(NSString *)orderId {
+  NSArray *pathParams = @[
+    @"orderId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/orders/{orderId}";
+  GTLRAndroidPublisherQuery_OrdersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Order class];
+  query.loggingName = @"androidpublisher.orders.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_OrdersRefund
 
 @dynamic orderId, packageName, revoke;

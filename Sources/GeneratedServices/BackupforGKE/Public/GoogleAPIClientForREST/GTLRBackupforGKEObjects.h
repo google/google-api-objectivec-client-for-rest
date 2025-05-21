@@ -22,6 +22,7 @@
 @class GTLRBackupforGKE_BackupChannel;
 @class GTLRBackupforGKE_BackupChannel_Labels;
 @class GTLRBackupforGKE_BackupConfig;
+@class GTLRBackupforGKE_BackupConfigDetails;
 @class GTLRBackupforGKE_BackupPlan;
 @class GTLRBackupforGKE_BackupPlan_Labels;
 @class GTLRBackupforGKE_BackupPlanBinding;
@@ -63,6 +64,7 @@
 @class GTLRBackupforGKE_RestorePlan_Labels;
 @class GTLRBackupforGKE_RestorePlanBinding;
 @class GTLRBackupforGKE_RetentionPolicy;
+@class GTLRBackupforGKE_RetentionPolicyDetails;
 @class GTLRBackupforGKE_RpoConfig;
 @class GTLRBackupforGKE_Schedule;
 @class GTLRBackupforGKE_SubstitutionRule;
@@ -1117,8 +1119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Required. Immutable. The project where Backups are allowed to be stored. The
- *  format is `projects/{project}`. Currently, {project} can only be the project
- *  number. Support for project IDs will be added in the future.
+ *  format is `projects/{projectId}` or `projects/{projectNumber}`.
  */
 @property(nonatomic, copy, nullable) NSString *destinationProject;
 
@@ -1236,9 +1237,67 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  BackupConfigDetails defines the configuration of Backups created via this
+ *  BackupPlan.
+ */
+@interface GTLRBackupforGKE_BackupConfigDetails : GTLRObject
+
+/**
+ *  Output only. If True, include all namespaced resources
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allNamespaces;
+
+/**
+ *  Output only. This defines a customer managed encryption key that will be
+ *  used to encrypt the "config" portion (the Kubernetes resources) of Backups
+ *  created via this plan. Default (empty): Config backup artifacts will not be
+ *  encrypted.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_EncryptionKey *encryptionKey;
+
+/**
+ *  Output only. This flag specifies whether Kubernetes Secret resources should
+ *  be included when they fall into the scope of Backups. Default: False
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeSecrets;
+
+/**
+ *  Output only. This flag specifies whether volume data should be backed up
+ *  when PVCs are included in the scope of a Backup. Default: False
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeVolumeData;
+
+/**
+ *  Output only. If set, include just the resources referenced by the listed
+ *  ProtectedApplications.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_NamespacedNames *selectedApplications;
+
+/**
+ *  Output only. If set, include just the resources in the listed namespaces.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_Namespaces *selectedNamespaces;
+
+@end
+
+
+/**
  *  Defines the configuration and scheduling for a "line" of Backups.
  */
 @interface GTLRBackupforGKE_BackupPlan : GTLRObject
+
+/**
+ *  Output only. The fully qualified name of the BackupChannel to be used to
+ *  create a backup. This field is set only if the cluster being backed up is in
+ *  a different project. `projects/ * /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *backupChannel;
 
 /**
  *  Optional. Defines the configuration of Backups created via this BackupPlan.
@@ -1457,6 +1516,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @interface GTLRBackupforGKE_BackupPlanDetails : GTLRObject
 
 /**
+ *  Output only. Contains details about the BackupConfig of Backups created via
+ *  this BackupPlan.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupConfigDetails *backupConfigDetails;
+
+/**
  *  Output only. The fully qualified name of the last successful Backup created
  *  under this BackupPlan. `projects/ * /locations/ * /backupPlans/ * /backups/
  *  *`
@@ -1482,6 +1547,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *protectedPodCount;
+
+/**
+ *  Output only. Contains details about the RetentionPolicy of Backups created
+ *  via this BackupPlan.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_RetentionPolicyDetails *retentionPolicyDetails;
 
 /**
  *  Output only. A number that represents the current risk level of this
@@ -2937,8 +3008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Required. Immutable. The project into which the backups will be restored.
- *  The format is `projects/{project}`. Currently, {project} can only be the
- *  project number. Support for project IDs will be added in the future.
+ *  The format is `projects/{projectId}` or `projects/{projectNumber}`.
  */
 @property(nonatomic, copy, nullable) NSString *destinationProject;
 
@@ -3247,6 +3317,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The fully qualified name of the RestoreChannel to be used to
+ *  create a RestorePlan. This field is set only if the `backup_plan` is in a
+ *  different project than the RestorePlan. Format: `projects/ * /locations/ *
+ *  /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *restoreChannel;
+
 /** Required. Configuration of Restores created via this RestorePlan. */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RestoreConfig *restoreConfig;
 
@@ -3399,6 +3477,39 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *locked;
+
+@end
+
+
+/**
+ *  RetentionPolicyDetails defines a Backup retention policy for a BackupPlan.
+ */
+@interface GTLRBackupforGKE_RetentionPolicyDetails : GTLRObject
+
+/**
+ *  Optional. Minimum age for Backups created via this BackupPlan (in days).
+ *  This field MUST be an integer value between 0-90 (inclusive). A Backup
+ *  created under this BackupPlan will NOT be deletable until it reaches
+ *  Backup's (create_time + backup_delete_lock_days). Updating this field of a
+ *  BackupPlan does NOT affect existing Backups under it. Backups created AFTER
+ *  a successful update will inherit the new value. Default: 0 (no delete
+ *  blocking)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupDeleteLockDays;
+
+/**
+ *  Optional. The default maximum age of a Backup created via this BackupPlan.
+ *  This field MUST be an integer value >= 0 and <= 365. If specified, a Backup
+ *  created under this BackupPlan will be automatically deleted after its age
+ *  reaches (create_time + backup_retain_days). If not specified, Backups
+ *  created under this BackupPlan will NOT be subject to automatic deletion.
+ *  Default: 0 (no automatic deletion)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupRetainDays;
 
 @end
 

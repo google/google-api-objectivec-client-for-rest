@@ -13,6 +13,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRNetworkconnectivity_AllocationOptions.allocationStrategy
+NSString * const kGTLRNetworkconnectivity_AllocationOptions_AllocationStrategy_AllocationStrategyUnspecified = @"ALLOCATION_STRATEGY_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_AllocationOptions_AllocationStrategy_FirstAvailable = @"FIRST_AVAILABLE";
+NSString * const kGTLRNetworkconnectivity_AllocationOptions_AllocationStrategy_FirstSmallestFitting = @"FIRST_SMALLEST_FITTING";
+NSString * const kGTLRNetworkconnectivity_AllocationOptions_AllocationStrategy_Random = @"RANDOM";
+NSString * const kGTLRNetworkconnectivity_AllocationOptions_AllocationStrategy_RandomFirstNAvailable = @"RANDOM_FIRST_N_AVAILABLE";
+
 // GTLRNetworkconnectivity_AuditLogConfig.logType
 NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -53,6 +60,7 @@ NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_StateUnspe
 
 // GTLRNetworkconnectivity_Filter.protocolVersion
 NSString * const kGTLRNetworkconnectivity_Filter_ProtocolVersion_Ipv4 = @"IPV4";
+NSString * const kGTLRNetworkconnectivity_Filter_ProtocolVersion_Ipv6 = @"IPV6";
 NSString * const kGTLRNetworkconnectivity_Filter_ProtocolVersion_ProtocolVersionUnspecified = @"PROTOCOL_VERSION_UNSPECIFIED";
 
 // GTLRNetworkconnectivity_Group.state
@@ -282,6 +290,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_AcceptSpokeUpdateRequest
 @dynamic requestId, spokeEtag, spokeUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_AllocationOptions
+//
+
+@implementation GTLRNetworkconnectivity_AllocationOptions
+@dynamic allocationStrategy, firstAvailableRangesLookupSize;
 @end
 
 
@@ -678,9 +696,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_InternalRange
-@dynamic createTime, descriptionProperty, excludeCidrRanges, immutable,
-         ipCidrRange, labels, migration, name, network, overlaps, peering,
-         prefixLength, targetCidrRange, updateTime, usage, users;
+@dynamic allocationOptions, createTime, descriptionProperty, excludeCidrRanges,
+         immutable, ipCidrRange, labels, migration, name, network, overlaps,
+         peering, prefixLength, targetCidrRange, updateTime, usage, users;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1225,6 +1243,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_NextHopSpoke
+//
+
+@implementation GTLRNetworkconnectivity_NextHopSpoke
+@dynamic siteToSiteDataTransfer, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_NextHopVpcNetwork
 //
 
@@ -1480,8 +1508,8 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 @implementation GTLRNetworkconnectivity_Route
 @dynamic createTime, descriptionProperty, ipCidrRange, labels, location, name,
          nextHopInterconnectAttachment, nextHopRouterApplianceInstance,
-         nextHopVpcNetwork, nextHopVpnTunnel, priority, spoke, state, type, uid,
-         updateTime;
+         nextHopSpoke, nextHopVpcNetwork, nextHopVpnTunnel, priority, spoke,
+         state, type, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

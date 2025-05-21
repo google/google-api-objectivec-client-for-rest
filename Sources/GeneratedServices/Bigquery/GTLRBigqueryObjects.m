@@ -1404,7 +1404,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_DatasetList_Datasets_Item
-@dynamic datasetReference, friendlyName, identifier, kind, labels, location;
+@dynamic datasetReference, externalDatasetReference, friendlyName, identifier,
+         kind, labels, location;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

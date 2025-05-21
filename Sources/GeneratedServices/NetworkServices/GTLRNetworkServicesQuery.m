@@ -1434,6 +1434,33 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @end
 
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_ServiceBinding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.serviceBindings.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesCreate
 
 @dynamic parent, serviceLbPolicyId;

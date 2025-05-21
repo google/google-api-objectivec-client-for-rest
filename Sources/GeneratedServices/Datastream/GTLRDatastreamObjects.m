@@ -708,7 +708,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_MongodbProfile
 @dynamic hostAddresses, password, replicaSet, secretManagerStoredPassword,
-         srvConnectionFormat, standardConnectionFormat, username;
+         srvConnectionFormat, sslConfig, standardConnectionFormat, username;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -726,7 +726,19 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MongodbSourceConfig
-@dynamic excludeObjects, includeObjects;
+@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbSslConfig
+//
+
+@implementation GTLRDatastream_MongodbSslConfig
+@dynamic caCertificate, caCertificateSet, clientCertificate,
+         clientCertificateSet, clientKey, clientKeySet,
+         secretManagerStoredClientKey;
 @end
 
 
@@ -1578,6 +1590,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_StandardConnectionFormat
+@dynamic directConnection;
 @end
 
 

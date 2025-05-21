@@ -902,9 +902,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  The `parameters` query string is a comma-separated list of event parameters
  *  that refine a report's results. The parameter is associated with a specific
  *  application. The application values for the Customers usage report include
- *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`,
- *  `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A
- *  `parameters` query string is in the CSV form of `app_name1:param_name1,
+ *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `chat`, `classroom`,
+ *  `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`.
+ *  A `parameters` query string is in the CSV form of `app_name1:param_name1,
  *  app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a
  *  parameter. If a particular parameter is supplied more than once in the API
  *  request, the API only accepts the last value of that request parameter. In
@@ -1089,8 +1089,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  event parameters where the parameter's value is manipulated by a relational
  *  operator. The `filters` query string includes the name of the application
  *  whose usage is returned in the report. The application values for the Users
- *  Usage Report include `accounts`, `docs`, and `gmail`. Filters are in the
- *  form `[application name]:parameter name[parameter value],...`. In this
+ *  Usage Report include `accounts`, `chat`, `docs`, and `gmail`. Filters are in
+ *  the form `[application name]:parameter name[parameter value],...`. In this
  *  example, the `<>` 'not equal to' operator is URL-encoded in the request's
  *  query string (%3C%3E): GET
  *  https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
@@ -1143,9 +1143,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  The `parameters` query string is a comma-separated list of event parameters
  *  that refine a report's results. The parameter is associated with a specific
  *  application. The application values for the Customers Usage report include
- *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`,
- *  `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A
- *  `parameters` query string is in the CSV form of `app_name1:param_name1,
+ *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `chat`, `classroom`,
+ *  `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`.
+ *  A `parameters` query string is in the CSV form of `app_name1:param_name1,
  *  app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a
  *  parameter. If a particular parameter is supplied more than once in the API
  *  request, the API only accepts the last value of that request parameter. In

@@ -357,7 +357,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseTy
  *
  *  Value: "educationUpgrade"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade GTLR_DEPRECATED;
+/**
+ *  Indicates that the device is consuming a standalone, fixed-term Chrome
+ *  Education Upgrade(AKA Chrome EDU fixed-term license).
+ *
+ *  Value: "educationUpgradeFixedTerm"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradeFixedTerm;
+/**
+ *  Indicates that the device is consuming a standalone, perpetual Chrome
+ *  Education Upgrade(AKA Chrome EDU perpetual license).
+ *
+ *  Value: "educationUpgradePerpetual"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradePerpetual;
 /**
  *  The device is bundled with a perpetual Chrome Enterprise Upgrade.
  *
@@ -369,7 +383,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseTy
  *
  *  Value: "enterpriseUpgrade"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade GTLR_DEPRECATED;
+/**
+ *  Indicates that the device is consuming a standalone, fixed-term Chrome
+ *  Enterprise Upgrade, a Chrome Enterprise license.
+ *
+ *  Value: "enterpriseUpgradeFixedTerm"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradeFixedTerm;
+/**
+ *  Indicates that the device is consuming a standalone, perpetual Chrome
+ *  Enterprise Upgrade, a Chrome Enterprise license.
+ *
+ *  Value: "enterpriseUpgradePerpetual"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradePerpetual;
 /**
  *  The device has an annual Kiosk Upgrade.
  *
@@ -446,6 +474,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Co
  *  Value: "DEVICE_START_CRD_SESSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession;
+/**
+ *  Fetches available type(s) of Chrome Remote Desktop sessions (private or
+ *  shared) that can be used to remotely connect to the device.
+ *
+ *  Value: "FETCH_CRD_AVAILABILITY_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_FetchCrdAvailabilityInfo;
 /**
  *  Fetch support packet from a device remotely. Support packet is a zip archive
  *  that contains various system logs and debug data from a ChromeOS device. The
@@ -547,6 +582,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  Value: "DEVICE_START_CRD_SESSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession;
+/**
+ *  Fetches available type(s) of Chrome Remote Desktop sessions (private or
+ *  shared) that can be used to remotely connect to the device.
+ *
+ *  Value: "FETCH_CRD_AVAILABILITY_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchCrdAvailabilityInfo;
 /**
  *  Fetch support packet from a device remotely. Support packet is a zip archive
  *  that contains various system logs and debug data from a ChromeOS device. The
@@ -1894,12 +1936,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade
  *        The device has a perpetual standalone Chrome Education Upgrade.
  *        (Value: "educationUpgrade")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradeFixedTerm
+ *        Indicates that the device is consuming a standalone, fixed-term Chrome
+ *        Education Upgrade(AKA Chrome EDU fixed-term license). (Value:
+ *        "educationUpgradeFixedTerm")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradePerpetual
+ *        Indicates that the device is consuming a standalone, perpetual Chrome
+ *        Education Upgrade(AKA Chrome EDU perpetual license). (Value:
+ *        "educationUpgradePerpetual")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Enterprise The
  *        device is bundled with a perpetual Chrome Enterprise Upgrade. (Value:
  *        "enterprise")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade
  *        The device has an annual standalone Chrome Enterprise Upgrade. (Value:
  *        "enterpriseUpgrade")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradeFixedTerm
+ *        Indicates that the device is consuming a standalone, fixed-term Chrome
+ *        Enterprise Upgrade, a Chrome Enterprise license. (Value:
+ *        "enterpriseUpgradeFixedTerm")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradePerpetual
+ *        Indicates that the device is consuming a standalone, perpetual Chrome
+ *        Enterprise Upgrade, a Chrome Enterprise license. (Value:
+ *        "enterpriseUpgradePerpetual")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade The
  *        device has an annual Kiosk Upgrade. (Value: "kioskUpgrade")
  */
@@ -2511,6 +2569,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession
  *        Starts a Chrome Remote Desktop session. (Value:
  *        "DEVICE_START_CRD_SESSION")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_FetchCrdAvailabilityInfo
+ *        Fetches available type(s) of Chrome Remote Desktop sessions (private
+ *        or shared) that can be used to remotely connect to the device. (Value:
+ *        "FETCH_CRD_AVAILABILITY_INFO")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_FetchSupportPacket
  *        Fetch support packet from a device remotely. Support packet is a zip
  *        archive that contains various system logs and debug data from a
@@ -2554,7 +2616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  The payload for the command result. The following commands respond with a
  *  payload: * `DEVICE_START_CRD_SESSION`: Payload is a stringified JSON object
  *  in the form: { "url": url }. The URL provides a link to the Chrome Remote
- *  Desktop session.
+ *  Desktop session. * `FETCH_CRD_AVAILABILITY_INFO`: Payload is a stringified
+ *  JSON object in the form: { "deviceIdleTimeInSeconds": number,
+ *  "userSessionType": string, "remoteSupportAvailability": string,
+ *  "remoteAccessAvailability": string }. The "remoteSupportAvailability" field
+ *  is set to "AVAILABLE" if `shared` CRD session to the device is available.
+ *  The "remoteAccessAvailability" field is set to "AVAILABLE" if `private` CRD
+ *  session to the device is available.
  */
 @property(nonatomic, copy, nullable) NSString *commandResultPayload;
 
@@ -2605,6 +2673,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession
  *        Starts a Chrome Remote Desktop session. (Value:
  *        "DEVICE_START_CRD_SESSION")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchCrdAvailabilityInfo
+ *        Fetches available type(s) of Chrome Remote Desktop sessions (private
+ *        or shared) that can be used to remotely connect to the device. (Value:
+ *        "FETCH_CRD_AVAILABILITY_INFO")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchSupportPacket
  *        Fetch support packet from a device remotely. Support packet is a zip
  *        archive that contains various system logs and debug data from a

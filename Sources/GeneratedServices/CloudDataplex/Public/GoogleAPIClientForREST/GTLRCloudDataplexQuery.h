@@ -3013,7 +3013,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The resource name of the parent Entry Group:
- *  projects/{project}/locations/{location}/entryGroups/{entry_group}.
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3025,7 +3025,7 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink to
  *    include in the query.
  *  @param parent Required. The resource name of the parent Entry Group:
- *    projects/{project}/locations/{location}/entryGroups/{entry_group}.
+ *    projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksCreate
  */
@@ -3046,7 +3046,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The resource name of the Entry Link:
- *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3056,7 +3056,7 @@ GTLR_DEPRECATED
  *  Deletes an Entry Link.
  *
  *  @param name Required. The resource name of the Entry Link:
- *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ *    projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksDelete
  */
@@ -3065,7 +3065,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Gets an entry link.
+ *  Gets an Entry Link.
  *
  *  Method: dataplex.projects.locations.entryGroups.entryLinks.get
  *
@@ -3076,17 +3076,17 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The resource name of the Entry Link:
- *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink.
  *
- *  Gets an entry link.
+ *  Gets an Entry Link.
  *
  *  @param name Required. The resource name of the Entry Link:
- *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entryLinks/{entry_link}.
+ *    projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksGet
  */
@@ -8717,7 +8717,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The project to which the request should be attributed in the
- *  following form: projects/{project}/locations/{location}.
+ *  following form: projects/{project}/locations/global.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8763,7 +8763,7 @@ GTLR_DEPRECATED
  *  Searches for Entries matching the given query and scope.
  *
  *  @param name Required. The project to which the request should be attributed
- *    in the following form: projects/{project}/locations/{location}.
+ *    in the following form: projects/{project}/locations/global.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsSearchEntries
  *

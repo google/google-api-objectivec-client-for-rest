@@ -876,7 +876,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent value for database node in the following format:
- *  projects/{project}/locations/{location}/cloudVmClusters/{cloudVmCluster}.
+ *  projects/{project}/locations/{location}/cloudVmClusters/{cloudVmCluster}. .
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -888,6 +888,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The parent value for database node in the following
  *    format:
  *    projects/{project}/locations/{location}/cloudVmClusters/{cloudVmCluster}.
+ *    .
  *
  *  @return GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersDbNodesList
  *
@@ -1152,6 +1153,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
  */
 @interface GTLROracleDatabaseQuery_ProjectsLocationsGiVersionsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Only the
+ *  shape and gi_version fields are supported in this format: `shape="{shape}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of items to return. If unspecified, a maximum

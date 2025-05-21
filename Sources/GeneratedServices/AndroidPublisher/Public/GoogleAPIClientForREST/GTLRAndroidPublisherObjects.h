@@ -37,7 +37,9 @@
 @class GTLRAndroidPublisher_AutoRenewingPlan;
 @class GTLRAndroidPublisher_BasePlan;
 @class GTLRAndroidPublisher_Bundle;
+@class GTLRAndroidPublisher_BuyerAddress;
 @class GTLRAndroidPublisher_CanceledStateContext;
+@class GTLRAndroidPublisher_CancellationEvent;
 @class GTLRAndroidPublisher_CancelSurveyResult;
 @class GTLRAndroidPublisher_Comment;
 @class GTLRAndroidPublisher_ConvertedOtherRegionsPrice;
@@ -87,6 +89,7 @@
 @class GTLRAndroidPublisher_InstallmentsBasePlanType;
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_LanguageTargeting;
+@class GTLRAndroidPublisher_LineItem;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
 @class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings;
@@ -102,6 +105,10 @@
 @class GTLRAndroidPublisher_OfferTag;
 @class GTLRAndroidPublisher_OneTimeCode;
 @class GTLRAndroidPublisher_OneTimeExternalTransaction;
+@class GTLRAndroidPublisher_OneTimePurchaseDetails;
+@class GTLRAndroidPublisher_Order;
+@class GTLRAndroidPublisher_OrderDetails;
+@class GTLRAndroidPublisher_OrderHistory;
 @class GTLRAndroidPublisher_OtherRecurringProduct;
 @class GTLRAndroidPublisher_OtherRegionsBasePlanConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferConfig;
@@ -109,13 +116,19 @@
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices;
 @class GTLRAndroidPublisher_PageInfo;
+@class GTLRAndroidPublisher_PaidAppDetails;
 @class GTLRAndroidPublisher_PartialRefund;
+@class GTLRAndroidPublisher_PartialRefundEvent;
 @class GTLRAndroidPublisher_PausedStateContext;
 @class GTLRAndroidPublisher_PendingCancellation;
+@class GTLRAndroidPublisher_PointsDetails;
 @class GTLRAndroidPublisher_PrepaidBasePlanType;
 @class GTLRAndroidPublisher_PrepaidPlan;
 @class GTLRAndroidPublisher_Price;
+@class GTLRAndroidPublisher_ProcessedEvent;
 @class GTLRAndroidPublisher_RecurringExternalTransaction;
+@class GTLRAndroidPublisher_RefundDetails;
+@class GTLRAndroidPublisher_RefundEvent;
 @class GTLRAndroidPublisher_RegionalBasePlanConfig;
 @class GTLRAndroidPublisher_RegionalPriceMigrationConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferConfig;
@@ -133,6 +146,7 @@
 @class GTLRAndroidPublisher_ReviewReplyResult;
 @class GTLRAndroidPublisher_RevocationContext;
 @class GTLRAndroidPublisher_RevocationContextFullRefund;
+@class GTLRAndroidPublisher_RevocationContextItemBasedRefund;
 @class GTLRAndroidPublisher_RevocationContextProratedRefund;
 @class GTLRAndroidPublisher_ScreenDensity;
 @class GTLRAndroidPublisher_ScreenDensityTargeting;
@@ -146,6 +160,7 @@
 @class GTLRAndroidPublisher_Subscription;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
+@class GTLRAndroidPublisher_SubscriptionDetails;
 @class GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails;
 @class GTLRAndroidPublisher_SubscriptionListing;
 @class GTLRAndroidPublisher_SubscriptionOffer;
@@ -990,6 +1005,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleTy
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleType_UnknownModuleType;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_Order.state
+
+/**
+ *  Order was canceled before being processed.
+ *
+ *  Value: "CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_Canceled;
+/**
+ *  Part of the order amount was refunded.
+ *
+ *  Value: "PARTIALLY_REFUNDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_PartiallyRefunded;
+/**
+ *  Order has been created and is waiting to be processed.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_Pending;
+/**
+ *  Requested refund is waiting to be processed.
+ *
+ *  Value: "PENDING_REFUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_PendingRefund;
+/**
+ *  Order has been successfully processed.
+ *
+ *  Value: "PROCESSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_Processed;
+/**
+ *  The full order amount was refunded.
+ *
+ *  Value: "REFUNDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_Refunded;
+/**
+ *  State unspecified. This value is not used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_PartialRefundEvent.state
+
+/**
+ *  The partial refund has been created, but not yet processed.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_Pending;
+/**
+ *  The partial refund was processed successfully.
+ *
+ *  Value: "PROCESSED_SUCCESSFULLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_ProcessedSuccessfully;
+/**
+ *  State unspecified. This value is not used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_PrepaidBasePlanType.timeExtension
 
 /**
@@ -1036,6 +1119,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransa
  *  Value: "USER_CHOICE_BILLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_UserChoiceBilling;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RefundEvent.refundReason
+
+/**
+ *  The order was charged back.
+ *
+ *  Value: "CHARGEBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_Chargeback;
+/**
+ *  The order was refunded for a reason other than the listed reasons here.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_Other;
+/**
+ *  Refund reason unspecified. This value is not used.
+ *
+ *  Value: "REFUND_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_RefundReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
@@ -1188,6 +1293,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAl
  *  Value: "XXXHDPI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xxxhdpi;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_SubscriptionDetails.offerPhase
+
+/**
+ *  The order funds a base price period.
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Base;
+/**
+ *  The order funds a free trial period.
+ *
+ *  Value: "FREE_TRIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_FreeTrial;
+/**
+ *  The order funds an introductory pricing period.
+ *
+ *  Value: "INTRODUCTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Introductory;
+/**
+ *  Offer phase unspecified. This value is not used.
+ *
+ *  Value: "OFFER_PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_OfferPhaseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeMode
@@ -2457,6 +2590,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response for the orders.batchGet API.
+ */
+@interface GTLRAndroidPublisher_BatchGetOrdersResponse : GTLRObject
+
+/** Details for the requested order IDs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Order *> *orders;
+
+@end
+
+
+/**
  *  Request message for BatchGetSubscriptionOffers endpoint.
  */
 @interface GTLRAndroidPublisher_BatchGetSubscriptionOffersRequest : GTLRObject
@@ -2665,6 +2809,30 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Address information for the customer, for use in tax computation.
+ */
+@interface GTLRAndroidPublisher_BuyerAddress : GTLRObject
+
+/** Two letter country code based on ISO-3166-1 Alpha-2 (UN country codes). */
+@property(nonatomic, copy, nullable) NSString *buyerCountry;
+
+/**
+ *  Postal code of an address. When Google is the Merchant of Record for the
+ *  order, this information is not included.
+ */
+@property(nonatomic, copy, nullable) NSString *buyerPostcode;
+
+/**
+ *  Top-level administrative subdivision of the buyer address country. When
+ *  Google is the Merchant of Record for the order, this information is not
+ *  included.
+ */
+@property(nonatomic, copy, nullable) NSString *buyerState;
+
+@end
+
+
+/**
  *  Request message for CancelAppRecovery.
  */
 @interface GTLRAndroidPublisher_CancelAppRecoveryRequest : GTLRObject
@@ -2698,6 +2866,17 @@ GTLR_DEPRECATED
 
 /** Subscription was canceled by user. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_UserInitiatedCancellation *userInitiatedCancellation;
+
+@end
+
+
+/**
+ *  Details of when the order was canceled.
+ */
+@interface GTLRAndroidPublisher_CancellationEvent : GTLRObject
+
+/** The time when the order was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 @end
 
@@ -4446,6 +4625,50 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of a line item.
+ */
+@interface GTLRAndroidPublisher_LineItem : GTLRObject
+
+/**
+ *  Item's listed price on Play Store, this may or may not include tax. Excludes
+ *  any discounts or promotions.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *listingPrice;
+
+/** Details of a one-time purchase. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimePurchaseDetails *oneTimePurchaseDetails;
+
+/** Details of a paid app purchase. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PaidAppDetails *paidAppDetails;
+
+/**
+ *  The purchased product ID or in-app SKU (for example, 'monthly001' or
+ *  'com.some.thing.inapp1').
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Developer-specified name of the product. Displayed in buyer's locale.
+ *  Example: coins, monthly subscription, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *productTitle;
+
+/** Details of a subscription purchase. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionDetails *subscriptionDetails;
+
+/** The tax paid for this line item. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *tax;
+
+/**
+ *  The total amount paid by the user for this line item, taking into account
+ *  discounts and tax.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *total;
+
+@end
+
+
+/**
  *  Response message for ListAppRecoveries. -- api-linter:
  *  core::0158::response-next-page-token-field=disabled
  */
@@ -4920,6 +5143,158 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of a one-time purchase.
+ */
+@interface GTLRAndroidPublisher_OneTimePurchaseDetails : GTLRObject
+
+/** The offer ID of the one-time purchase offer. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  The number of items purchased (for multi-quantity item purchases).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+@end
+
+
+/**
+ *  The Order resource encapsulates comprehensive information about a
+ *  transaction made on Google Play. It includes a variety of attributes that
+ *  provide details about the order itself, the products purchased, and the
+ *  history of events related to the order. The Orders APIs provide real-time
+ *  access to your order data within the Google Play ecosystem. You can retrieve
+ *  detailed information and metadata for both one-time and recurring orders,
+ *  including transaction details like charges, taxes, and refunds, as well as
+ *  metadata such as pricing phases for subscriptions. The Orders APIs let you
+ *  automate tasks related to order management, reducing the need for manual
+ *  checks via the Play Developer Console. The following are some of the use
+ *  cases for this API: + Real-time order data retrieval - Get order details and
+ *  metadata immediately after a purchase using an order ID. + Order update
+ *  synchronization - Periodically sync order updates to maintain an up-to-date
+ *  record of order information. Note: + The Orders API calls count towards your
+ *  Play Developer API quota, which defaults to 200K daily, and may be
+ *  insufficient to sync extensive order histories. + A maximum of 1000 orders
+ *  can be retrieved per call. Using larger page sizes is recommended to
+ *  minimize quota usage. Check your quota in the Cloud Console and request more
+ *  if required.
+ */
+@interface GTLRAndroidPublisher_Order : GTLRObject
+
+/**
+ *  Address information for the customer, for use in tax computation. When
+ *  Google is the Merchant of Record for the order, only country is shown.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_BuyerAddress *buyerAddress;
+
+/** The time when the order was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Your revenue for this order in the buyer's currency, including deductions of
+ *  partial refunds, taxes and fees. Google deducts standard transaction and
+ *  third party fees from each sale, including VAT in some regions.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *developerRevenueInBuyerCurrency;
+
+/** The time of the last event that occurred on the order. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEventTime;
+
+/** The individual line items making up this order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_LineItem *> *lineItems;
+
+/** Detailed information about the order at creation time. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OrderDetails *orderDetails;
+
+/** Details about events which modified the order. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OrderHistory *orderHistory;
+
+/** The order ID. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Play points applied to the order, including offer information, discount rate
+ *  and point values.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PointsDetails *pointsDetails;
+
+/**
+ *  The token provided to the user's device when the subscription or item was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseToken;
+
+/**
+ *  The state of the order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_Order_State_Canceled Order was canceled
+ *        before being processed. (Value: "CANCELED")
+ *    @arg @c kGTLRAndroidPublisher_Order_State_PartiallyRefunded Part of the
+ *        order amount was refunded. (Value: "PARTIALLY_REFUNDED")
+ *    @arg @c kGTLRAndroidPublisher_Order_State_Pending Order has been created
+ *        and is waiting to be processed. (Value: "PENDING")
+ *    @arg @c kGTLRAndroidPublisher_Order_State_PendingRefund Requested refund
+ *        is waiting to be processed. (Value: "PENDING_REFUND")
+ *    @arg @c kGTLRAndroidPublisher_Order_State_Processed Order has been
+ *        successfully processed. (Value: "PROCESSED")
+ *    @arg @c kGTLRAndroidPublisher_Order_State_Refunded The full order amount
+ *        was refunded. (Value: "REFUNDED")
+ *    @arg @c kGTLRAndroidPublisher_Order_State_StateUnspecified State
+ *        unspecified. This value is not used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The total tax paid as a part of this order. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *tax;
+
+/**
+ *  The final amount paid by the customer, taking into account discounts and
+ *  taxes.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *total;
+
+@end
+
+
+/**
+ *  Detailed information about the order at creation time.
+ */
+@interface GTLRAndroidPublisher_OrderDetails : GTLRObject
+
+/**
+ *  Indicates whether the listed price was tax inclusive or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taxInclusive;
+
+@end
+
+
+/**
+ *  Details about events which modified the order.
+ */
+@interface GTLRAndroidPublisher_OrderHistory : GTLRObject
+
+/** Details of when the order was canceled. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CancellationEvent *cancellationEvent;
+
+/** Details of the partial refund events for this order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_PartialRefundEvent *> *partialRefundEvents;
+
+/** Details of when the order was processed. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ProcessedEvent *processedEvent;
+
+/** Details of when the order was fully refunded. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RefundEvent *refundEvent;
+
+@end
+
+
+/**
  *  Details of a recurring external transaction product which doesn't belong to
  *  any other more specific category.
  */
@@ -5066,6 +5441,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of a paid app purchase.
+ */
+@interface GTLRAndroidPublisher_PaidAppDetails : GTLRObject
+@end
+
+
+/**
  *  A partial refund of a transaction.
  */
 @interface GTLRAndroidPublisher_PartialRefund : GTLRObject
@@ -5087,6 +5469,38 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of the partial refund events for this order.
+ */
+@interface GTLRAndroidPublisher_PartialRefundEvent : GTLRObject
+
+/** The time when the partial refund was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time when the partial refund was processed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *processTime;
+
+/** Details for the partial refund. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RefundDetails *refundDetails;
+
+/**
+ *  The state of the partial refund.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_PartialRefundEvent_State_Pending The partial
+ *        refund has been created, but not yet processed. (Value: "PENDING")
+ *    @arg @c kGTLRAndroidPublisher_PartialRefundEvent_State_ProcessedSuccessfully
+ *        The partial refund was processed successfully. (Value:
+ *        "PROCESSED_SUCCESSFULLY")
+ *    @arg @c kGTLRAndroidPublisher_PartialRefundEvent_State_StateUnspecified
+ *        State unspecified. This value is not used. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Information specific to a subscription in paused state.
  */
 @interface GTLRAndroidPublisher_PausedStateContext : GTLRObject
@@ -5103,6 +5517,43 @@ GTLR_DEPRECATED
  *  finished all committed payments.
  */
 @interface GTLRAndroidPublisher_PendingCancellation : GTLRObject
+@end
+
+
+/**
+ *  Details relating to any Play Points applied to an order.
+ */
+@interface GTLRAndroidPublisher_PointsDetails : GTLRObject
+
+/**
+ *  The monetary value of a Play Points coupon. This is the discount the coupon
+ *  provides, which may not be the total amount. Only set when Play Points
+ *  coupons have been used. E.g. for a 100 points for $2 coupon, this is $2.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *pointsCouponValue;
+
+/**
+ *  The percentage rate which the Play Points promotion reduces the cost by.
+ *  E.g. for a 100 points for $2 coupon, this is 500,000. Since $2 has an
+ *  estimate of 200 points, but the actual Points required, 100, is 50% of this,
+ *  and 50% in micros is 500,000. Between 0 and 1,000,000.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pointsDiscountRateMicros;
+
+/** ID unique to the play points offer in use for this order. */
+@property(nonatomic, copy, nullable) NSString *pointsOfferId;
+
+/**
+ *  The number of Play Points applied in this order. E.g. for a 100 points for
+ *  $2 coupon, this is 100. For coupon stacked with base offer, this is the
+ *  total points spent across both.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pointsSpent;
+
 @end
 
 
@@ -5165,6 +5616,17 @@ GTLR_DEPRECATED
 
 /** Price in 1/million of the currency base unit, represented as a string. */
 @property(nonatomic, copy, nullable) NSString *priceMicros;
+
+@end
+
+
+/**
+ *  Details of when the order was processed.
+ */
+@interface GTLRAndroidPublisher_ProcessedEvent : GTLRObject
+
+/** The time when the order was processed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 @end
 
@@ -5341,6 +5803,49 @@ GTLR_DEPRECATED
  *  any other specific category.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_OtherRecurringProduct *otherRecurringProduct;
+
+@end
+
+
+/**
+ *  Details for a partial or full refund.
+ */
+@interface GTLRAndroidPublisher_RefundDetails : GTLRObject
+
+/** The amount of tax refunded. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *tax;
+
+/** The total amount refunded, including tax. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *total;
+
+@end
+
+
+/**
+ *  Details of when the order was fully refunded.
+ */
+@interface GTLRAndroidPublisher_RefundEvent : GTLRObject
+
+/** The time when the order was fully refunded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/** Details for the full refund. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RefundDetails *refundDetails;
+
+/**
+ *  The reason the order was refunded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RefundEvent_RefundReason_Chargeback The
+ *        order was charged back. (Value: "CHARGEBACK")
+ *    @arg @c kGTLRAndroidPublisher_RefundEvent_RefundReason_Other The order was
+ *        refunded for a reason other than the listed reasons here. (Value:
+ *        "OTHER")
+ *    @arg @c kGTLRAndroidPublisher_RefundEvent_RefundReason_RefundReasonUnspecified
+ *        Refund reason unspecified. This value is not used. (Value:
+ *        "REFUND_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *refundReason;
 
 @end
 
@@ -5610,10 +6115,10 @@ GTLR_DEPRECATED
  *  specified according to the information published in [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. Using this field will ensure that creating and updating the
- *  resource with an older region's version and set of regional prices and
- *  currencies will succeed even though a new version is available. The latest
- *  version is 2022/02.
+ *  incremented. The latest supported version is available in this article.
+ *  Using this field will ensure that creating and updating the resource with an
+ *  older region's version and set of regional prices and currencies will
+ *  succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -5785,6 +6290,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContextFullRefund *fullRefund;
 
 /**
+ *  Optional. Used when a specific item should be refunded in a subscription
+ *  with multiple items.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContextItemBasedRefund *itemBasedRefund;
+
+/**
  *  Optional. Used when users should be refunded a prorated amount they paid for
  *  their subscription based on the amount of time remaining in a subscription.
  */
@@ -5798,6 +6309,21 @@ GTLR_DEPRECATED
  *  refund.
  */
 @interface GTLRAndroidPublisher_RevocationContextFullRefund : GTLRObject
+@end
+
+
+/**
+ *  Used to determine what specific item to revoke in a subscription with
+ *  multiple items.
+ */
+@interface GTLRAndroidPublisher_RevocationContextItemBasedRefund : GTLRObject
+
+/**
+ *  Required. If the subscription is a subscription bundle, the product id of
+ *  the subscription to revoke.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
 @end
 
 
@@ -6125,6 +6651,52 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *expectedExpiryTimeMillis;
+
+@end
+
+
+/**
+ *  Details of a subscription purchase.
+ */
+@interface GTLRAndroidPublisher_SubscriptionDetails : GTLRObject
+
+/** The base plan ID of the subscription. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** The offer ID for the current subscription offer. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  The pricing phase for the billing period funded by this order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Base The
+ *        order funds a base price period. (Value: "BASE")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_FreeTrial The
+ *        order funds a free trial period. (Value: "FREE_TRIAL")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Introductory
+ *        The order funds an introductory pricing period. (Value:
+ *        "INTRODUCTORY")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_OfferPhaseUnspecified
+ *        Offer phase unspecified. This value is not used. (Value:
+ *        "OFFER_PHASE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *offerPhase;
+
+/**
+ *  The end of the billing period funded by this order. This is a snapshot of
+ *  the billing/service period end time at the moment the order was processed,
+ *  and should be used only for accounting. To get the current end time of the
+ *  subscription service period, use purchases.subscriptionsv2.get.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *servicePeriodEndTime;
+
+/**
+ *  The start of the billing period funded by this order. This is a snapshot of
+ *  the billing/service period start time at the moment the order was processed,
+ *  and should be used only for accounting.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *servicePeriodStartTime;
 
 @end
 
@@ -6720,13 +7292,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The order id of the latest order associated with the purchase of the
- *  subscription. For autoRenewing subscription, this is the order id of signup
- *  order if it is not renewed yet, or the last recurring order id (success,
- *  pending, or declined order). For prepaid subscription, this is the order id
- *  associated with the queried purchase token.
+ *  Deprecated: Use line_items.latest_successful_order_id instead. The order id
+ *  of the latest order associated with the purchase of the subscription. For
+ *  autoRenewing subscription, this is the order id of signup order if it is not
+ *  renewed yet, or the last recurring order id (success, pending, or declined
+ *  order). For prepaid subscription, this is the order id associated with the
+ *  queried purchase token.
  */
-@property(nonatomic, copy, nullable) NSString *latestOrderId;
+@property(nonatomic, copy, nullable) NSString *latestOrderId GTLR_DEPRECATED;
 
 /**
  *  Item-level info for a subscription purchase. The items in the same purchase

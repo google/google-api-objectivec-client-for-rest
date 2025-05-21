@@ -72,6 +72,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange;
 @class GTLRCloudRetail_GoogleCloudRetailV2Control;
 @class GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute;
+@class GTLRCloudRetail_GoogleCloudRetailV2DoubleList;
 @class GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfoServingConfigExperiment;
 @class GTLRCloudRetail_GoogleCloudRetailV2ExportErrorsConfig;
@@ -148,6 +149,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseQueryExpansionInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_ModelScores;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseTileNavigationResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2ServingConfig;
@@ -836,40 +838,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportPro
  *  Value: "RECONCILIATION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_ReconciliationModeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudRetail_GoogleCloudRetailV2LocalInventory.availability
-
-/**
- *  Default product availability. Default to Availability.IN_STOCK if unset.
- *
- *  Value: "AVAILABILITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_AvailabilityUnspecified;
-/**
- *  Product that is back-ordered (i.e. temporarily out of stock).
- *
- *  Value: "BACKORDER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Backorder;
-/**
- *  Product in stock.
- *
- *  Value: "IN_STOCK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_InStock;
-/**
- *  Product out of stock.
- *
- *  Value: "OUT_OF_STOCK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_OutOfStock;
-/**
- *  Product that is in pre-order state.
- *
- *  Value: "PREORDER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Preorder;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2Model.dataState
@@ -2093,11 +2061,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter : GTLRObject
 
 /**
- *  Merchant Center primary feed ID.
+ *  AFM data source ID.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *primaryFeedId;
+@property(nonatomic, strong, nullable) NSNumber *dataSourceId;
+
+/**
+ *  Merchant Center primary feed ID. Deprecated: use data_source_id instead.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primaryFeedId GTLR_DEPRECATED;
 
 /**
  *  Merchant Center primary feed name. The name is used for the display purposes
@@ -4478,6 +4453,21 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A message with a list of double values.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2DoubleList : GTLRObject
+
+/**
+ *  The list of double values.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *values;
+
+@end
+
+
+/**
  *  Metadata for active A/B testing experiment.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo : GTLRObject
@@ -5201,38 +5191,6 @@ GTLR_DEPRECATED
  *  is 5MiB.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes *attributes;
-
-/**
- *  Optional. The availability of the Product at this place_id. Default to
- *  Availability.IN_STOCK. For primary products with variants set the
- *  availability of the primary as Availability.OUT_OF_STOCK and set the true
- *  availability at the variant level. This way the primary product will be
- *  considered "in stock" as long as it has at least one variant in stock. For
- *  primary products with no variants set the true availability at the primary
- *  level. Corresponding properties: Google Merchant Center property
- *  [availability](https://support.google.com/merchants/answer/6324448).
- *  Schema.org property [Offer.availability](https://schema.org/availability).
- *  This field is currently only used by the Recommendations API. For Search,
- *  please make use of fulfillment_types or custom attributes for similar
- *  behaviour. See [here](
- *  https://cloud.google.com/retail/docs/local-inventory-updates#local-inventory-update-methods)
- *  for more details.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_AvailabilityUnspecified
- *        Default product availability. Default to Availability.IN_STOCK if
- *        unset. (Value: "AVAILABILITY_UNSPECIFIED")
- *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Backorder
- *        Product that is back-ordered (i.e. temporarily out of stock). (Value:
- *        "BACKORDER")
- *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_InStock
- *        Product in stock. (Value: "IN_STOCK")
- *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_OutOfStock
- *        Product out of stock. (Value: "OUT_OF_STOCK")
- *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Preorder
- *        Product that is in pre-order state. (Value: "PREORDER")
- */
-@property(nonatomic, copy, nullable) NSString *availability;
 
 /**
  *  Optional. Supported fulfillment types. Valid fulfillment type values include
@@ -8369,6 +8327,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields *matchingVariantFields;
 
+/** Google provided available scores. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_ModelScores *modelScores;
+
 /**
  *  Specifies previous events related to this product for this user based on
  *  UserEvent with same SearchRequest.visitor_id or UserInfo.user_id. This is
@@ -8425,6 +8386,19 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields : GTLRObject
+@end
+
+
+/**
+ *  Google provided available scores.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRetail_GoogleCloudRetailV2DoubleList. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_ModelScores : GTLRObject
 @end
 
 

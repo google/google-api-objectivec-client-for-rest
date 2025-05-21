@@ -140,6 +140,7 @@
 @class GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_RuntimeMetadata;
 @class GTLRDataflow_RuntimeUpdatableParams;
+@class GTLRDataflow_Sdk;
 @class GTLRDataflow_SdkBug;
 @class GTLRDataflow_SdkHarnessContainerImage;
 @class GTLRDataflow_SDKInfo;
@@ -171,6 +172,7 @@
 @class GTLRDataflow_SourceSplitShard;
 @class GTLRDataflow_SpannerIODetails;
 @class GTLRDataflow_SplitInt64;
+@class GTLRDataflow_Stack;
 @class GTLRDataflow_StageSource;
 @class GTLRDataflow_StageSummary;
 @class GTLRDataflow_StateFamilyConfig;
@@ -3209,6 +3211,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, copy, nullable) NSString *tempStoragePrefix;
 
+/**
+ *  Optional. True when any worker pool that uses public IPs is present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usePublicIps;
+
 /** A description of the process that generated the request. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_UserAgent *userAgent;
 
@@ -3852,6 +3861,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        Template Type. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *templateType;
+
+@end
+
+
+/**
+ *  Request to get worker stacktraces from debug capture.
+ */
+@interface GTLRDataflow_GetWorkerStacktracesRequest : GTLRObject
+
+/**
+ *  The worker for which to get stacktraces. The returned stacktraces will be
+ *  for the SDK harness running on this worker.
+ */
+@property(nonatomic, copy, nullable) NSString *workerId;
+
+@end
+
+
+/**
+ *  Response to get worker stacktraces from debug capture.
+ */
+@interface GTLRDataflow_GetWorkerStacktracesResponse : GTLRObject
+
+/** Repeated as unified worker may have multiple SDK processes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Sdk *> *sdks;
 
 @end
 
@@ -6491,6 +6525,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  A structured representation of an SDK.
+ */
+@interface GTLRDataflow_Sdk : GTLRObject
+
+/** The SDK harness id. */
+@property(nonatomic, copy, nullable) NSString *sdkId;
+
+/** The stacktraces for the processes running on the SDK harness. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Stack *> *stacks;
+
+@end
+
+
+/**
  *  A bug found in the Dataflow SDK.
  */
 @interface GTLRDataflow_SdkBug : GTLRObject
@@ -7330,6 +7378,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lowBits;
+
+@end
+
+
+/**
+ *  A structuredstacktrace for a process running on the worker.
+ */
+@interface GTLRDataflow_Stack : GTLRObject
+
+/** The raw stack trace. */
+@property(nonatomic, copy, nullable) NSString *stackContent;
+
+/**
+ *  With java thread dumps we may get collapsed stacks e.g., N threads in stack
+ *  "". Instead of having to copy over the same stack trace N times, this int
+ *  field captures this.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threadCount;
+
+/** Thread name. For example, "CommitThread-0,10,main" */
+@property(nonatomic, copy, nullable) NSString *threadName;
+
+/** The state of the thread. For example, "WAITING". */
+@property(nonatomic, copy, nullable) NSString *threadState;
+
+/** Timestamp at which the stack was captured. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 @end
 

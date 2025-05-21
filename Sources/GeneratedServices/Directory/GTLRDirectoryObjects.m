@@ -62,8 +62,12 @@ NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReas
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_DeviceLicenseTypeUnspecified = @"deviceLicenseTypeUnspecified";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Education = @"education";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade = @"educationUpgrade";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradeFixedTerm = @"educationUpgradeFixedTerm";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradePerpetual = @"educationUpgradePerpetual";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Enterprise = @"enterprise";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade = @"enterpriseUpgrade";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradeFixedTerm = @"enterpriseUpgradeFixedTerm";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradePerpetual = @"enterpriseUpgradePerpetual";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade = @"kioskUpgrade";
 
 // GTLRDirectory_ChromeosdevicesCommand.state
@@ -79,6 +83,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_StateUnspecified = 
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CaptureLogs = @"CAPTURE_LOGS";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_FetchCrdAvailabilityInfo = @"FETCH_CRD_AVAILABILITY_INFO";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_FetchSupportPacket = @"FETCH_SUPPORT_PACKET";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot = @"REBOOT";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash = @"REMOTE_POWERWASH";
@@ -96,6 +101,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Success = @"
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CaptureLogs = @"CAPTURE_LOGS";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchCrdAvailabilityInfo = @"FETCH_CRD_AVAILABILITY_INFO";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchSupportPacket = @"FETCH_SUPPORT_PACKET";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot = @"REBOOT";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash = @"REMOTE_POWERWASH";

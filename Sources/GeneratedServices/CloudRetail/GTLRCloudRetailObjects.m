@@ -148,13 +148,6 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_Recon
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_ReconciliationModeUnspecified = @"RECONCILIATION_MODE_UNSPECIFIED";
 
-// GTLRCloudRetail_GoogleCloudRetailV2LocalInventory.availability
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Backorder = @"BACKORDER";
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_InStock = @"IN_STOCK";
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_OutOfStock = @"OUT_OF_STOCK";
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Preorder = @"PREORDER";
-
 // GTLRCloudRetail_GoogleCloudRetailV2Model.dataState
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataError = @"DATA_ERROR";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataOk = @"DATA_OK";
@@ -730,7 +723,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter
-@dynamic primaryFeedId, primaryFeedName;
+@dynamic dataSourceId, primaryFeedId, primaryFeedName;
 @end
 
 
@@ -1905,6 +1898,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2DoubleList
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2DoubleList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo
 //
 
@@ -2316,7 +2327,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2LocalInventory
-@dynamic attributes, availability, fulfillmentTypes, placeId, priceInfo;
+@dynamic attributes, fulfillmentTypes, placeId, priceInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3516,7 +3527,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult
-@dynamic identifier, matchingVariantCount, matchingVariantFields,
+@dynamic identifier, matchingVariantCount, matchingVariantFields, modelScores,
          personalLabels, product, variantRollupValues;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -3542,6 +3553,20 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_ModelScores
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_ModelScores
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRetail_GoogleCloudRetailV2DoubleList class];
 }
 
 @end

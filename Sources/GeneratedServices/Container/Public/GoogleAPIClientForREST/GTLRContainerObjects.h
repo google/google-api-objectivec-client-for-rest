@@ -99,6 +99,7 @@
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_MaxPodsConstraint;
+@class GTLRContainer_MemoryManager;
 @class GTLRContainer_MeshCertificates;
 @class GTLRContainer_Metric;
 @class GTLRContainer_MonitoringComponentConfig;
@@ -172,6 +173,7 @@
 @class GTLRContainer_Status_Details_Item;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_TimeWindow;
+@class GTLRContainer_TopologyManager;
 @class GTLRContainer_UpdateInfo;
 @class GTLRContainer_UpgradeDetails;
 @class GTLRContainer_UpgradeSettings;
@@ -3361,6 +3363,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *addonsConfig;
 
+/**
+ *  The list of user specified Kubernetes feature gates. Each string represents
+ *  the activation status of a feature gate (e.g. "featureX=true" or
+ *  "featureX=false")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alphaClusterFeatureGates;
+
 /** Configuration controlling RBAC group membership information. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *authenticatorGroupsConfig;
 
@@ -6059,6 +6068,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  The option enables the Kubernetes NUMA-aware Memory Manager feature.
+ *  Detailed description about the feature can be found
+ *  [here](https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/).
+ */
+@interface GTLRContainer_MemoryManager : GTLRObject
+
+/**
+ *  Controls the memory management policy on the Node. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/#policies
+ *  The following values are allowed. * "none" * "static" The default value is
+ *  'none' if unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+@end
+
+
+/**
  *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
  */
 @interface GTLRContainer_MeshCertificates : GTLRObject
@@ -6910,6 +6937,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *insecureKubeletReadonlyPortEnabled;
 
 /**
+ *  Optional. Controls NUMA-aware Memory Manager configuration on the node. For
+ *  more information, see:
+ *  https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MemoryManager *memoryManager;
+
+/**
  *  Set the Pod PID limits. See
  *  https://kubernetes.io/docs/concepts/policy/pid-limiting/#pod-pid-limits
  *  Controls the maximum number of processes allowed to run in a pod. The value
@@ -6918,6 +6952,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *podPidsLimit;
+
+/**
+ *  Optional. Controls Topology Manager configuration on the node. For more
+ *  information, see:
+ *  https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_TopologyManager *topologyManager;
 
 @end
 
@@ -9508,6 +9549,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The time that the window first starts. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  TopologyManager defines the configuration options for Topology Manager
+ *  feature. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+ */
+@interface GTLRContainer_TopologyManager : GTLRObject
+
+/**
+ *  Configures the strategy for resource alignment. Allowed values are: * none:
+ *  the default policy, and does not perform any topology alignment. *
+ *  restricted: the topology manager stores the preferred NUMA node affinity for
+ *  the container, and will reject the pod if the affinity if not preferred. *
+ *  best-effort: the topology manager stores the preferred NUMA node affinity
+ *  for the container. If the affinity is not preferred, the topology manager
+ *  will admit the pod to the node anyway. * single-numa-node: the topology
+ *  manager determines if the single NUMA node affinity is possible. If it is,
+ *  Topology Manager will store this and the Hint Providers can then use this
+ *  information when making the resource allocation decision. If, however, this
+ *  is not possible then the Topology Manager will reject the pod from the node.
+ *  This will result in a pod in a Terminated state with a pod admission
+ *  failure. The default policy value is 'none' if unspecified. Details about
+ *  each strategy can be found
+ *  [here](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/#topology-manager-policies).
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  The Topology Manager aligns resources in following scopes: * container * pod
+ *  The default scope is 'container' if unspecified. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/#topology-manager-scopes
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
 
 @end
 

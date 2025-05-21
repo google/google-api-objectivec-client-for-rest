@@ -25,6 +25,9 @@
 @class GTLRPlayIntegrity_DeviceIntegrity;
 @class GTLRPlayIntegrity_DeviceRecall;
 @class GTLRPlayIntegrity_EnvironmentDetails;
+@class GTLRPlayIntegrity_PcDeviceIntegrity;
+@class GTLRPlayIntegrity_PcRequestDetails;
+@class GTLRPlayIntegrity_PcTokenPayloadExternal;
 @class GTLRPlayIntegrity_RecentDeviceActivity;
 @class GTLRPlayIntegrity_RequestDetails;
 @class GTLRPlayIntegrity_TestingDetails;
@@ -337,6 +340,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayPro
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_PcDeviceIntegrity.deviceRecognitionVerdict
+
+/**
+ *  Unspecified device integrity.
+ *
+ *  Value: "DEVICE_RECOGNITION_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_DeviceRecognitionVerdictUnspecified;
+/**
+ *  App is running on Windows Device with Google Desktop Services.
+ *
+ *  Value: "MEETS_PC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_MeetsPcIntegrity;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_RecentDeviceActivity.deviceActivityLevel
 
 /**
@@ -527,6 +546,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 
 
 /**
+ *  Request to decode the PC integrity token.
+ */
+@interface GTLRPlayIntegrity_DecodePcIntegrityTokenRequest : GTLRObject
+
+/** Encoded integrity token. */
+@property(nonatomic, copy, nullable) NSString *integrityToken;
+
+@end
+
+
+/**
+ *  Response containing the decoded PC integrity payload.
+ */
+@interface GTLRPlayIntegrity_DecodePcIntegrityTokenResponse : GTLRObject
+
+/** Plain token payload generated from the decoded integrity token. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcTokenPayloadExternal *tokenPayloadExternal;
+
+@end
+
+
+/**
  *  Contains information about the device for which the integrity token was
  *  generated, e.g. Android SDK version.
  */
@@ -622,6 +663,51 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *        (Value: "UNEVALUATED")
  */
 @property(nonatomic, copy, nullable) NSString *playProtectVerdict;
+
+@end
+
+
+/**
+ *  Contains the device attestation information.
+ */
+@interface GTLRPlayIntegrity_PcDeviceIntegrity : GTLRObject
+
+/** Details about the integrity of the device the app is running on. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deviceRecognitionVerdict;
+
+@end
+
+
+/**
+ *  Contains the integrity request information.
+ */
+@interface GTLRPlayIntegrity_PcRequestDetails : GTLRObject
+
+/** Request hash that was provided in the request. */
+@property(nonatomic, copy, nullable) NSString *requestHash;
+
+/**
+ *  Required. Application package name this attestation was requested for. Note:
+ *  This field makes no guarantees or promises on the caller integrity.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPackageName;
+
+/** Required. Timestamp, of the integrity application request. */
+@property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  Contains PC device attestation details.
+ */
+@interface GTLRPlayIntegrity_PcTokenPayloadExternal : GTLRObject
+
+/** Required. Details about the device integrity. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcDeviceIntegrity *deviceIntegrity;
+
+/** Required. Details about the integrity request. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcRequestDetails *requestDetails;
 
 @end
 

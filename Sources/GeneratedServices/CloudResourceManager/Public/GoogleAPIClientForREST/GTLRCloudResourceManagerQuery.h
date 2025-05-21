@@ -480,7 +480,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_FoldersPatch : GTLRCloudResourceManagerQuery
 
 /**
- *  Output only. The resource name of the folder. Its format is
+ *  Identifier. The resource name of the folder. Its format is
  *  `folders/{folder_id}`, for example: "folders/1234".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -508,7 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudResourceManager_Folder to include in the
  *    query.
- *  @param name Output only. The resource name of the folder. Its format is
+ *  @param name Identifier. The resource name of the folder. Its format is
  *    `folders/{folder_id}`, for example: "folders/1234".
  *
  *  @return GTLRCloudResourceManagerQuery_FoldersPatch

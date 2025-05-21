@@ -611,6 +611,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InjectFaultRequest_Fau
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InjectFaultRequest_FaultType_StopVm;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_Instance.activationPolicy
+
+/**
+ *  The policy is not specified.
+ *
+ *  Value: "ACTIVATION_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_ActivationPolicy_ActivationPolicyUnspecified;
+/**
+ *  The instance is running.
+ *
+ *  Value: "ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_ActivationPolicy_Always;
+/**
+ *  The instance is not running.
+ *
+ *  Value: "NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_ActivationPolicy_Never;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Instance.availabilityType
 
 /**
@@ -1420,6 +1442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeEncryptionKeyNotCustomerManaged;
 /**
+ *  Encryption org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied;
+/**
  *  Represents if the log_hostname database flag for a Cloud SQL for PostgreSQL
  *  instance is not set to off.
  *
@@ -1508,11 +1536,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfTables;
 /**
+ *  Heavy read pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_READ_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighReadPressure;
+/**
  *  Represents high number of unvacuumed transactions
  *
  *  Value: "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighTransactionIdUtilization;
+/**
+ *  Heavy write pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_WRITE_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighWritePressure;
 /**
  *  Detects if a database instance/cluster has a hot node.
  *
@@ -1532,6 +1572,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeInefficientQuery;
 /**
+ *  Indicates that the database has large rows beyond the recommended limit.
+ *
+ *  Value: "SIGNAL_TYPE_LARGE_ROWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLargeRows;
+/**
  *  Represents if the last backup of a resource failed.
  *
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_FAILED"
@@ -1544,6 +1590,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupOld;
+/**
+ *  Location org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied;
 /**
  *  Represents if the log_min_duration_statement database flag for a Cloud SQL
  *  for PostgreSQL instance is not set to -1.
@@ -1579,6 +1631,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
+/**
+ *  Indicates that the instance's max server memory is configured higher than
+ *  the recommended value.
+ *
+ *  Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMaxServerMemory;
 /**
  *  Indicates that the instance is nearing memory limit.
  *
@@ -2334,6 +2393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeEncryptionKeyNotCustomerManaged;
 /**
+ *  Encryption org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied;
+/**
  *  Represents if the log_hostname database flag for a Cloud SQL for PostgreSQL
  *  instance is not set to off.
  *
@@ -2422,11 +2487,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfTables;
 /**
+ *  Heavy read pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_READ_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighReadPressure;
+/**
  *  Represents high number of unvacuumed transactions
  *
  *  Value: "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighTransactionIdUtilization;
+/**
+ *  Heavy write pressure on the database rows.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_WRITE_PRESSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighWritePressure;
 /**
  *  Detects if a database instance/cluster has a hot node.
  *
@@ -2446,6 +2523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeInefficientQuery;
 /**
+ *  Indicates that the database has large rows beyond the recommended limit.
+ *
+ *  Value: "SIGNAL_TYPE_LARGE_ROWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLargeRows;
+/**
  *  Represents if the last backup of a resource failed.
  *
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_FAILED"
@@ -2458,6 +2541,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLastBackupOld;
+/**
+ *  Location org policy not satisfied.
+ *
+ *  Value: "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied;
 /**
  *  Represents if the log_min_duration_statement database flag for a Cloud SQL
  *  for PostgreSQL instance is not set to -1.
@@ -2493,6 +2582,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
+/**
+ *  Indicates that the instance's max server memory is configured higher than
+ *  the recommended value.
+ *
+ *  Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMaxServerMemory;
 /**
  *  Indicates that the instance is nearing memory limit.
  *
@@ -3223,6 +3319,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "PRODUCT_TYPE_CLOUD_SQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql;
+/**
+ *  Compute Engine self managed databases
+ *
+ *  Value: "PRODUCT_TYPE_COMPUTE_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeComputeEngine;
 /**
  *  Firestore product area in GCP.
  *
@@ -4472,8 +4574,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @interface GTLRCloudAlloyDBAdmin_ContinuousBackupInfo : GTLRObject
 
 /**
- *  Output only. The earliest restorable time that can be restored to. Output
- *  only field.
+ *  Output only. The earliest restorable time that can be restored to. If
+ *  continuous backups and recovery was recently enabled, the earliest
+ *  restorable time is the creation time of the earliest eligible backup within
+ *  this cluster's continuous backup recovery window. After a cluster has had
+ *  continuous backups enabled for the duration of its recovery window, the
+ *  earliest restorable time becomes "now minus the recovery window". For
+ *  example, assuming a point in time recovery is attempted at 04/16/2025
+ *  3:23:00PM with a 14d recovery window, the earliest restorable time would be
+ *  04/02/2025 3:23:00PM. This field is only visible if the
+ *  CLUSTER_VIEW_CONTINUOUS_BACKUP cluster view is provided.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *earliestRestorableTime;
 
@@ -4489,10 +4599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_EncryptionInfo *encryptionInfo;
 
-/**
- *  Output only. Days of the week on which a continuous backup is taken. Output
- *  only field. Ignored if passed into the request.
- */
+/** Output only. Days of the week on which a continuous backup is taken. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *schedule;
 
 @end
@@ -5029,6 +5136,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @interface GTLRCloudAlloyDBAdmin_Instance : GTLRObject
 
 /**
+ *  Optional. Specifies whether an instance needs to spin up. Once the instance
+ *  is active, the activation policy can be updated to the `NEVER` to stop the
+ *  instance. Likewise, the activation policy can be updated to `ALWAYS` to
+ *  start the instance. There are restrictions around when an instance
+ *  can/cannot be activated (for example, a read pool instance should be stopped
+ *  before stopping primary etc.). Please refer to the API documentation for
+ *  more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_ActivationPolicy_ActivationPolicyUnspecified
+ *        The policy is not specified. (Value: "ACTIVATION_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_ActivationPolicy_Always The
+ *        instance is running. (Value: "ALWAYS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_ActivationPolicy_Never The
+ *        instance is not running. (Value: "NEVER")
+ */
+@property(nonatomic, copy, nullable) NSString *activationPolicy;
+
+/**
  *  Annotations to allow client tools to store small amount of arbitrary data.
  *  This is distinct from labels. https://google.aip.dev/128
  */
@@ -5297,6 +5423,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Metadata related to instance-level network configuration.
  */
 @interface GTLRCloudAlloyDBAdmin_InstanceNetworkConfig : GTLRObject
+
+/**
+ *  Optional. Name of the allocated IP range for the private IP AlloyDB
+ *  instance, for example: "google-managed-services-default". If set, the
+ *  instance IPs will be created from this allocated range and will override the
+ *  IP range used by the parent cluster. The range name must comply with [RFC
+ *  1035](http://go/rfc/1035). Specifically, the name must be 1-63 characters
+ *  long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
+ */
+@property(nonatomic, copy, nullable) NSString *allocatedIpRangeOverride;
 
 /**
  *  Optional. A list of external network authorized to access this instance.
@@ -7023,6 +7159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if a SQL database instance is not encrypted with
  *        customer-managed encryption keys (CMEK). (Value:
  *        "SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied
+ *        Encryption org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExcessiveLoggingOfClientHostname
  *        Represents if the log_hostname database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to off. (Value:
@@ -7072,9 +7211,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfTables
  *        Represents high table count close to SLA limit. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighReadPressure
+ *        Heavy read pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_READ_PRESSURE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighTransactionIdUtilization
  *        Represents high number of unvacuumed transactions (Value:
  *        "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighWritePressure
+ *        Heavy write pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_WRITE_PRESSURE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHotNode
  *        Detects if a database instance/cluster has a hot node. (Value:
  *        "SIGNAL_TYPE_HOT_NODE")
@@ -7084,12 +7229,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeInefficientQuery
  *        Indicates that the instance has inefficient queries detected. (Value:
  *        "SIGNAL_TYPE_INEFFICIENT_QUERY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLargeRows
+ *        Indicates that the database has large rows beyond the recommended
+ *        limit. (Value: "SIGNAL_TYPE_LARGE_ROWS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupFailed
  *        Represents if the last backup of a resource failed. (Value:
  *        "SIGNAL_TYPE_LAST_BACKUP_FAILED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupOld
  *        Represents if the last backup of a resource is older than some
  *        threshold value. (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied
+ *        Location org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLoggingExcessiveStatementInfo
  *        Represents if the log_min_duration_statement database flag for a Cloud
  *        SQL for PostgreSQL instance is not set to -1. (Value:
@@ -7110,6 +7261,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMaxServerMemory
+ *        Indicates that the instance's max server memory is configured higher
+ *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit
  *        Indicates that the instance is nearing memory limit. (Value:
  *        "SIGNAL_TYPE_MEMORY_LIMIT")
@@ -7697,6 +7851,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if a SQL database instance is not encrypted with
  *        customer-managed encryption keys (CMEK). (Value:
  *        "SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeEncryptionOrgPolicyNotSatisfied
+ *        Encryption org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeExcessiveLoggingOfClientHostname
  *        Represents if the log_hostname database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to off. (Value:
@@ -7746,9 +7903,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfTables
  *        Represents high table count close to SLA limit. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighReadPressure
+ *        Heavy read pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_READ_PRESSURE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighTransactionIdUtilization
  *        Represents high number of unvacuumed transactions (Value:
  *        "SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighWritePressure
+ *        Heavy write pressure on the database rows. (Value:
+ *        "SIGNAL_TYPE_HIGH_WRITE_PRESSURE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHotNode
  *        Detects if a database instance/cluster has a hot node. (Value:
  *        "SIGNAL_TYPE_HOT_NODE")
@@ -7758,12 +7921,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeInefficientQuery
  *        Indicates that the instance has inefficient queries detected. (Value:
  *        "SIGNAL_TYPE_INEFFICIENT_QUERY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLargeRows
+ *        Indicates that the database has large rows beyond the recommended
+ *        limit. (Value: "SIGNAL_TYPE_LARGE_ROWS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLastBackupFailed
  *        Represents if the last backup of a resource failed. (Value:
  *        "SIGNAL_TYPE_LAST_BACKUP_FAILED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLastBackupOld
  *        Represents if the last backup of a resource is older than some
  *        threshold value. (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLocationOrgPolicyNotSatisfied
+ *        Location org policy not satisfied. (Value:
+ *        "SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLoggingExcessiveStatementInfo
  *        Represents if the log_min_duration_statement database flag for a Cloud
  *        SQL for PostgreSQL instance is not set to -1. (Value:
@@ -7784,6 +7953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMaxServerMemory
+ *        Indicates that the instance's max server memory is configured higher
+ *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit
  *        Indicates that the instance is nearing memory limit. (Value:
  *        "SIGNAL_TYPE_MEMORY_LIMIT")
@@ -8395,6 +8567,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Bigtable product area in GCP (Value: "PRODUCT_TYPE_BIGTABLE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql
  *        Cloud SQL product area in GCP (Value: "PRODUCT_TYPE_CLOUD_SQL")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeComputeEngine
+ *        Compute Engine self managed databases (Value:
+ *        "PRODUCT_TYPE_COMPUTE_ENGINE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeFirestore
  *        Firestore product area in GCP. (Value: "PRODUCT_TYPE_FIRESTORE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeMemorystore

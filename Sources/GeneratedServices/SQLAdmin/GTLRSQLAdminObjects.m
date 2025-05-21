@@ -2114,7 +2114,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_PscConfig
-@dynamic allowedConsumerProjects, pscAutoConnections, pscEnabled;
+@dynamic allowedConsumerProjects, networkAttachmentUri, pscAutoConnections,
+         pscEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

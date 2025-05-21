@@ -214,11 +214,6 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Encryp
 NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_PreventNew = @"PREVENT_NEW";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_Shutdown = @"SHUTDOWN";
 
-// GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling.scalingMode
-NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Automatic = @"AUTOMATIC";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Manual = @"MANUAL";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_ScalingModeUnspecified = @"SCALING_MODE_UNSPECIFIED";
-
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult.decision
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Approved = @"APPROVED";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_DecisionUnspecified = @"DECISION_UNSPECIFIED";
@@ -1651,7 +1646,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling
-@dynamic manualInstanceCount, maxInstanceCount, minInstanceCount, scalingMode;
+@dynamic manualInstanceCount;
 @end
 
 

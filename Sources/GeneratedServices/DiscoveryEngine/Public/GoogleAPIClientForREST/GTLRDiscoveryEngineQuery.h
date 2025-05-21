@@ -1767,7 +1767,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresPatch : GTLRDiscoveryEngineQuery
 
 /**
- *  Immutable. The full resource name of the data store. Format:
+ *  Immutable. Identifier. The full resource name of the data store. Format:
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *  This field must be a UTF-8 encoded string with a length limit of 1024
  *  characters.
@@ -1791,7 +1791,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore to include in
  *    the query.
- *  @param name Immutable. The full resource name of the data store. Format:
+ *  @param name Immutable. Identifier. The full resource name of the data store.
+ *    Format:
  *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *    This field must be a UTF-8 encoded string with a length limit of 1024
  *    characters.
@@ -4338,8 +4339,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesPatch : GTLRDiscoveryEngineQuery
 
 /**
- *  Immutable. The fully qualified resource name of the engine. This field must
- *  be a UTF-8 encoded string with a length limit of 1024 characters. Format:
+ *  Immutable. Identifier. The fully qualified resource name of the engine. This
+ *  field must be a UTF-8 encoded string with a length limit of 1024 characters.
+ *  Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  *  engine should be 1-63 characters, and valid characters are /a-z0-9* /.
  *  Otherwise, an INVALID_ARGUMENT error is returned.
@@ -4361,9 +4363,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine
  *    to include in the query.
- *  @param name Immutable. The fully qualified resource name of the engine. This
- *    field must be a UTF-8 encoded string with a length limit of 1024
- *    characters. Format:
+ *  @param name Immutable. Identifier. The fully qualified resource name of the
+ *    engine. This field must be a UTF-8 encoded string with a length limit of
+ *    1024 characters. Format:
  *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  *    engine should be 1-63 characters, and valid characters are /a-z0-9* /.
  *    Otherwise, an INVALID_ARGUMENT error is returned.
@@ -6454,7 +6456,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresPatch : GTLRDiscoveryEngineQuery
 
 /**
- *  Immutable. The full resource name of the data store. Format:
+ *  Immutable. Identifier. The full resource name of the data store. Format:
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *  This field must be a UTF-8 encoded string with a length limit of 1024
  *  characters.
@@ -6478,7 +6480,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore to include in
  *    the query.
- *  @param name Immutable. The full resource name of the data store. Format:
+ *  @param name Immutable. Identifier. The full resource name of the data store.
+ *    Format:
  *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *    This field must be a UTF-8 encoded string with a length limit of 1024
  *    characters.
@@ -8701,6 +8704,104 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the User License. This method is used for batch assign/unassign
+ *  licenses to users.
+ *
+ *  Method: discoveryengine.projects.locations.userStores.batchUpdateUserLicenses
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresBatchUpdateUserLicenses : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent UserStore resource name, format:
+ *  `projects/{project}/locations/{location}/userStores/{user_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Updates the User License. This method is used for batch assign/unassign
+ *  licenses to users.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent UserStore resource name, format:
+ *    `projects/{project}/locations/{location}/userStores/{user_store_id}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresBatchUpdateUserLicenses
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the User Licenses.
+ *
+ *  Method: discoveryengine.projects.locations.userStores.userLicenses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresUserLicensesList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Filter for the list request. Supported fields: *
+ *  `license_assignment_state` Examples: * `license_assignment_state = ASSIGNED`
+ *  to list assigned user licenses. * `license_assignment_state = NO_LICENSE` to
+ *  list not licensed users. * `license_assignment_state =
+ *  NO_LICENSE_ATTEMPTED_LOGIN` to list users who attempted login but no license
+ *  assigned. * `license_assignment_state != NO_LICENSE_ATTEMPTED_LOGIN` to
+ *  filter out users who attempted login but no license assigned.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, defaults to 10. The maximum value is 50; values above 50
+ *  will be coerced to 50. If this field is negative, an INVALID_ARGUMENT error
+ *  is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListUserLicenses` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListUserLicenses` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent UserStore resource name, format:
+ *  `projects/{project}/locations/{location}/userStores/{user_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListUserLicensesResponse.
+ *
+ *  Lists the User Licenses.
+ *
+ *  @param parent Required. The parent UserStore resource name, format:
+ *    `projects/{project}/locations/{location}/userStores/{user_store_id}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresUserLicensesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

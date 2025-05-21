@@ -113,6 +113,33 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupPlanAssociation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.backupPlanAssociations.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsTriggerBackup
 
 @dynamic name;
@@ -672,7 +699,8 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsPatch
 
-@dynamic force, name, requestId, updateMask, validateOnly;
+@dynamic force, forceUpdateAccessRestriction, name, requestId, updateMask,
+         validateOnly;
 
 + (instancetype)queryWithObject:(GTLRBackupdr_BackupVault *)object
                            name:(NSString *)name {

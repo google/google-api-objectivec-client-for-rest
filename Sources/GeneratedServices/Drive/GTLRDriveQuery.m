@@ -892,9 +892,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsCreate
 
-@dynamic emailMessage, enforceSingleParent, fileId, moveToNewOwnersRoot,
-         sendNotificationEmail, supportsAllDrives, supportsTeamDrives,
-         transferOwnership, useDomainAdminAccess;
+@dynamic emailMessage, enforceExpansiveAccess, enforceSingleParent, fileId,
+         moveToNewOwnersRoot, sendNotificationEmail, supportsAllDrives,
+         supportsTeamDrives, transferOwnership, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId {

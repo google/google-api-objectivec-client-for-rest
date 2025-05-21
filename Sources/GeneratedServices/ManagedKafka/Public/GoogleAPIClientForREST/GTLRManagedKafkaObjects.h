@@ -34,6 +34,7 @@
 @class GTLRManagedKafka_ConsumerTopicMetadata;
 @class GTLRManagedKafka_ConsumerTopicMetadata_Partitions;
 @class GTLRManagedKafka_GcpConfig;
+@class GTLRManagedKafka_HttpBody_Extensions_Item;
 @class GTLRManagedKafka_Location;
 @class GTLRManagedKafka_Location_Labels;
 @class GTLRManagedKafka_Location_Metadata;
@@ -42,6 +43,8 @@
 @class GTLRManagedKafka_Operation_Metadata;
 @class GTLRManagedKafka_Operation_Response;
 @class GTLRManagedKafka_RebalanceConfig;
+@class GTLRManagedKafka_SchemaReference;
+@class GTLRManagedKafka_SchemaRegistry;
 @class GTLRManagedKafka_Status;
 @class GTLRManagedKafka_Status_Details_Item;
 @class GTLRManagedKafka_TaskRetryPolicy;
@@ -57,6 +60,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_CheckCompatibilityRequest.schemaType
+
+/**
+ *  Avro schema type.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Avro;
+/**
+ *  JSON schema type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Json;
+/**
+ *  Protobuf schema type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Protobuf;
+/**
+ *  No schema type. The default will be AVRO.
+ *
+ *  Value: "SCHEMA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_SchemaTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedKafka_Cluster.state
@@ -161,6 +192,62 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Stopped;
 FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Connector_State_Unassigned;
 
 // ----------------------------------------------------------------------------
+// GTLRManagedKafka_CreateVersionRequest.schemaType
+
+/**
+ *  Avro schema type.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_Avro;
+/**
+ *  JSON schema type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_Json;
+/**
+ *  Protobuf schema type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_Protobuf;
+/**
+ *  No schema type. The default will be AVRO.
+ *
+ *  Value: "SCHEMA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_CreateVersionRequest_SchemaType_SchemaTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_LookupVersionRequest.schemaType
+
+/**
+ *  Avro schema type.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_Avro;
+/**
+ *  JSON schema type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_Json;
+/**
+ *  Protobuf schema type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_Protobuf;
+/**
+ *  No schema type. The default will be AVRO.
+ *
+ *  Value: "SCHEMA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_LookupVersionRequest_SchemaType_SchemaTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRManagedKafka_RebalanceConfig.mode
 
 /**
@@ -182,6 +269,210 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_ModeUn
  *  Value: "NO_REBALANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoRebalance;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_Schema.schemaType
+
+/**
+ *  Avro schema type.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Schema_SchemaType_Avro;
+/**
+ *  JSON schema type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Schema_SchemaType_Json;
+/**
+ *  Protobuf schema type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Schema_SchemaType_Protobuf;
+/**
+ *  No schema type. The default will be AVRO.
+ *
+ *  Value: "SCHEMA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Schema_SchemaType_SchemaTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_SchemaConfig.compatibility
+
+/**
+ *  Backwards compatible with the most recent version.
+ *
+ *  Value: "BACKWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_Backward;
+/**
+ *  Backwards compatible with all previous versions.
+ *
+ *  Value: "BACKWARD_TRANSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_BackwardTransitive;
+/**
+ *  Forwards compatible with the most recent version.
+ *
+ *  Value: "FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_Forward;
+/**
+ *  Forwards compatible with all previous versions.
+ *
+ *  Value: "FORWARD_TRANSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_ForwardTransitive;
+/**
+ *  Backwards and forwards compatible with the most recent version.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_Full;
+/**
+ *  Backwards and forwards compatible with all previous versions.
+ *
+ *  Value: "FULL_TRANSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_FullTransitive;
+/**
+ *  No compatibility check.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_None;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_SchemaMode.mode
+
+/**
+ *  IMPORT mode.
+ *
+ *  Value: "IMPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaMode_Mode_Import;
+/**
+ *  No mode.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaMode_Mode_None;
+/**
+ *  READONLY mode.
+ *
+ *  Value: "READONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaMode_Mode_Readonly;
+/**
+ *  READWRITE mode.
+ *
+ *  Value: "READWRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaMode_Mode_Readwrite;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_SchemaVersion.schemaType
+
+/**
+ *  Avro schema type.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_Avro;
+/**
+ *  JSON schema type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_Json;
+/**
+ *  Protobuf schema type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_Protobuf;
+/**
+ *  No schema type. The default will be AVRO.
+ *
+ *  Value: "SCHEMA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaVersion_SchemaType_SchemaTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_UpdateSchemaConfigRequest.compatibility
+
+/**
+ *  Backwards compatible with the most recent version.
+ *
+ *  Value: "BACKWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Backward;
+/**
+ *  Backwards compatible with all previous versions.
+ *
+ *  Value: "BACKWARD_TRANSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_BackwardTransitive;
+/**
+ *  Forwards compatible with the most recent version.
+ *
+ *  Value: "FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Forward;
+/**
+ *  Forwards compatible with all previous versions.
+ *
+ *  Value: "FORWARD_TRANSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_ForwardTransitive;
+/**
+ *  Backwards and forwards compatible with the most recent version.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Full;
+/**
+ *  Backwards and forwards compatible with all previous versions.
+ *
+ *  Value: "FULL_TRANSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_FullTransitive;
+/**
+ *  No compatibility check.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_None;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedKafka_UpdateSchemaModeRequest.mode
+
+/**
+ *  IMPORT mode.
+ *
+ *  Value: "IMPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Import;
+/**
+ *  No mode.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_None;
+/**
+ *  READONLY mode.
+ *
+ *  Value: "READONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readonly;
+/**
+ *  READWRITE mode.
+ *
+ *  Value: "READWRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite;
 
 /**
  *  The configuration of access to the Kafka cluster.
@@ -342,6 +633,63 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vcpuCount;
+
+@end
+
+
+/**
+ *  Request for CheckCompatibility.
+ */
+@interface GTLRManagedKafka_CheckCompatibilityRequest : GTLRObject
+
+/** Optional. The schema references used by the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_SchemaReference *> *references;
+
+/** Required. The schema payload */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
+ *  Optional. The schema type of the schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Avro Avro
+ *        schema type. (Value: "AVRO")
+ *    @arg @c kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Json JSON
+ *        schema type. (Value: "JSON")
+ *    @arg @c kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_Protobuf
+ *        Protobuf schema type. (Value: "PROTOBUF")
+ *    @arg @c kGTLRManagedKafka_CheckCompatibilityRequest_SchemaType_SchemaTypeUnspecified
+ *        No schema type. The default will be AVRO. (Value:
+ *        "SCHEMA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schemaType;
+
+/**
+ *  Optional. If true, the response will contain the compatibility check result
+ *  with reasons for failed checks. The default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verbose;
+
+@end
+
+
+/**
+ *  Response for CheckCompatibility.
+ */
+@interface GTLRManagedKafka_CheckCompatibilityResponse : GTLRObject
+
+/**
+ *  The compatibility check result. If true, the schema is compatible with the
+ *  resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isCompatible;
+
+/** Failure reasons if verbose = true. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *messages;
 
 @end
 
@@ -726,6 +1074,125 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
 
 
 /**
+ *  Context represents an independent schema grouping in a schema registry
+ *  instance.
+ */
+@interface GTLRManagedKafka_Context : GTLRObject
+
+/**
+ *  Identifier. The name of the context. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}`
+ *  The context name {context} can contain the following: * Up to 255
+ *  characters. * Allowed characters: letters (uppercase or lowercase), numbers,
+ *  and the following special characters: `.`, `-`, `_`, `+`, `%`, and `~`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The subjects of the context. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjects;
+
+@end
+
+
+/**
+ *  Request to create a schema registry instance.
+ */
+@interface GTLRManagedKafka_CreateSchemaRegistryRequest : GTLRObject
+
+/**
+ *  Required. The schema registry instance to create. The name field is ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_SchemaRegistry *schemaRegistry;
+
+/**
+ *  Required. The schema registry instance ID to use for this schema registry.
+ *  The ID must contain only letters (a-z, A-Z), numbers (0-9), and underscores
+ *  (-). The maximum length is 63 characters. The ID must not start with a
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *schemaRegistryId;
+
+@end
+
+
+/**
+ *  Request for CreateVersion.
+ */
+@interface GTLRManagedKafka_CreateVersionRequest : GTLRObject
+
+/**
+ *  Optional. The schema ID of the schema. If not specified, the schema ID will
+ *  be generated by the server. If the schema ID is specified, it must not be
+ *  used by an existing schema that is different from the schema to be created.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Optional. If true, the schema will be normalized before being stored. The
+ *  default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalize;
+
+/** Optional. The schema references used by the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_SchemaReference *> *references;
+
+/** Required. The schema payload */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
+ *  Optional. The type of the schema. It is optional. If not specified, the
+ *  schema type will be AVRO.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_CreateVersionRequest_SchemaType_Avro Avro schema
+ *        type. (Value: "AVRO")
+ *    @arg @c kGTLRManagedKafka_CreateVersionRequest_SchemaType_Json JSON schema
+ *        type. (Value: "JSON")
+ *    @arg @c kGTLRManagedKafka_CreateVersionRequest_SchemaType_Protobuf
+ *        Protobuf schema type. (Value: "PROTOBUF")
+ *    @arg @c kGTLRManagedKafka_CreateVersionRequest_SchemaType_SchemaTypeUnspecified
+ *        No schema type. The default will be AVRO. (Value:
+ *        "SCHEMA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schemaType;
+
+/**
+ *  Optional. The version to create. It is optional. If not specified, the
+ *  version will be created with the max version ID of the subject increased by
+ *  1. If the version ID is specified, it will be used as the new version ID and
+ *  must not be used by an existing version of the subject.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Response for CreateVersion.
+ */
+@interface GTLRManagedKafka_CreateVersionResponse : GTLRObject
+
+/**
+ *  The unique identifier of the schema created.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -752,6 +1219,61 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
+@end
+
+
+/**
+ *  Message that represents an arbitrary HTTP body. It should only be used for
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
+ */
+@interface GTLRManagedKafka_HttpBody : GTLRObject
+
+/**
+ *  The HTTP Content-Type header value specifying the content type of the body.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  The HTTP request/response body as raw binary.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Application specific response metadata. Must be set in the first response
+ *  for streaming APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_HttpBody_Extensions_Item *> *extensions;
+
+@end
+
+
+/**
+ *  GTLRManagedKafka_HttpBody_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRManagedKafka_HttpBody_Extensions_Item : GTLRObject
 @end
 
 
@@ -947,6 +1469,17 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
 
 
 /**
+ *  Request for ListSchemaRegistries.
+ */
+@interface GTLRManagedKafka_ListSchemaRegistriesResponse : GTLRObject
+
+/** The schema registry instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_SchemaRegistry *> *schemaRegistries;
+
+@end
+
+
+/**
  *  Response for ListTopics.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1032,6 +1565,53 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRManagedKafka_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Request for LookupVersion.
+ */
+@interface GTLRManagedKafka_LookupVersionRequest : GTLRObject
+
+/**
+ *  Optional. If true, soft-deleted versions will be included in lookup, no
+ *  matter if the subject is active or soft-deleted. If false, soft-deleted
+ *  versions will be excluded. The default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleted;
+
+/**
+ *  Optional. If true, the schema will be normalized before being looked up. The
+ *  default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalize;
+
+/** Optional. The schema references used by the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_SchemaReference *> *references;
+
+/** Required. The schema payload */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
+ *  Optional. The schema type of the schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_LookupVersionRequest_SchemaType_Avro Avro schema
+ *        type. (Value: "AVRO")
+ *    @arg @c kGTLRManagedKafka_LookupVersionRequest_SchemaType_Json JSON schema
+ *        type. (Value: "JSON")
+ *    @arg @c kGTLRManagedKafka_LookupVersionRequest_SchemaType_Protobuf
+ *        Protobuf schema type. (Value: "PROTOBUF")
+ *    @arg @c kGTLRManagedKafka_LookupVersionRequest_SchemaType_SchemaTypeUnspecified
+ *        No schema type. The default will be AVRO. (Value:
+ *        "SCHEMA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schemaType;
+
 @end
 
 
@@ -1259,6 +1839,208 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
 
 
 /**
+ *  Schema for a Kafka message.
+ */
+@interface GTLRManagedKafka_Schema : GTLRObject
+
+/** Optional. The schema references used by the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_SchemaReference *> *references;
+
+/** The schema payload. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
+ *  Optional. The schema type of the schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_Schema_SchemaType_Avro Avro schema type. (Value:
+ *        "AVRO")
+ *    @arg @c kGTLRManagedKafka_Schema_SchemaType_Json JSON schema type. (Value:
+ *        "JSON")
+ *    @arg @c kGTLRManagedKafka_Schema_SchemaType_Protobuf Protobuf schema type.
+ *        (Value: "PROTOBUF")
+ *    @arg @c kGTLRManagedKafka_Schema_SchemaType_SchemaTypeUnspecified No
+ *        schema type. The default will be AVRO. (Value:
+ *        "SCHEMA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schemaType;
+
+@end
+
+
+/**
+ *  SchemaConfig represents configuration for a schema registry or a specific
+ *  subject.
+ */
+@interface GTLRManagedKafka_SchemaConfig : GTLRObject
+
+/**
+ *  Optional. The subject to which this subject is an alias of. Only applicable
+ *  for subject config.
+ */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/**
+ *  Required. The compatibility type of the schema. The default value is
+ *  BACKWARD. If unset in a SchemaSubject-level SchemaConfig, defaults to the
+ *  global value. If unset in a SchemaRegistry-level SchemaConfig, reverts to
+ *  the default value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_SchemaConfig_Compatibility_Backward Backwards
+ *        compatible with the most recent version. (Value: "BACKWARD")
+ *    @arg @c kGTLRManagedKafka_SchemaConfig_Compatibility_BackwardTransitive
+ *        Backwards compatible with all previous versions. (Value:
+ *        "BACKWARD_TRANSITIVE")
+ *    @arg @c kGTLRManagedKafka_SchemaConfig_Compatibility_Forward Forwards
+ *        compatible with the most recent version. (Value: "FORWARD")
+ *    @arg @c kGTLRManagedKafka_SchemaConfig_Compatibility_ForwardTransitive
+ *        Forwards compatible with all previous versions. (Value:
+ *        "FORWARD_TRANSITIVE")
+ *    @arg @c kGTLRManagedKafka_SchemaConfig_Compatibility_Full Backwards and
+ *        forwards compatible with the most recent version. (Value: "FULL")
+ *    @arg @c kGTLRManagedKafka_SchemaConfig_Compatibility_FullTransitive
+ *        Backwards and forwards compatible with all previous versions. (Value:
+ *        "FULL_TRANSITIVE")
+ *    @arg @c kGTLRManagedKafka_SchemaConfig_Compatibility_None No compatibility
+ *        check. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *compatibility;
+
+/**
+ *  Optional. If true, the schema will be normalized before being stored or
+ *  looked up. The default is false. If unset in a SchemaSubject-level
+ *  SchemaConfig, the global value will be used. If unset in a
+ *  SchemaRegistry-level SchemaConfig, reverts to the default value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalize;
+
+@end
+
+
+/**
+ *  SchemaMode represents the mode of a schema registry or a specific subject.
+ *  Four modes are supported: * NONE: This is the default mode for a subject and
+ *  essentially means that the subject does not have any mode set. This means
+ *  the subject will follow the schema registry's mode. * READONLY: The schema
+ *  registry is in read-only mode. * READWRITE: The schema registry is in
+ *  read-write mode, which allows limited write operations on the schema. *
+ *  IMPORT: The schema registry is in import mode, which allows more editing
+ *  operations on the schema for data importing purposes.
+ */
+@interface GTLRManagedKafka_SchemaMode : GTLRObject
+
+/**
+ *  Required. The mode type of a schema registry (READWRITE by default) or of a
+ *  subject (NONE by default, which means use the global schema registry
+ *  setting).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_Import IMPORT mode. (Value:
+ *        "IMPORT")
+ *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_None No mode. (Value: "NONE")
+ *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_Readonly READONLY mode. (Value:
+ *        "READONLY")
+ *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_Readwrite READWRITE mode.
+ *        (Value: "READWRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  SchemaReference is a reference to a schema.
+ */
+@interface GTLRManagedKafka_SchemaReference : GTLRObject
+
+/** Required. The name of the reference. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The subject of the reference. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Required. The version of the reference.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  SchemaRegistry is a schema registry instance.
+ */
+@interface GTLRManagedKafka_SchemaRegistry : GTLRObject
+
+/** Output only. The contexts of the schema registry instance. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *contexts;
+
+/**
+ *  Identifier. The name of the schema registry instance. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}`
+ *  The instance name {schema_registry} can contain the following: * Up to 255
+ *  characters. * Letters (uppercase or lowercase), numbers, and underscores.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Version of a schema.
+ */
+@interface GTLRManagedKafka_SchemaVersion : GTLRObject
+
+/**
+ *  Required. The schema ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Optional. The schema references used by the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_SchemaReference *> *references;
+
+/** Required. The schema payload. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
+ *  Optional. The schema type of the schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_SchemaVersion_SchemaType_Avro Avro schema type.
+ *        (Value: "AVRO")
+ *    @arg @c kGTLRManagedKafka_SchemaVersion_SchemaType_Json JSON schema type.
+ *        (Value: "JSON")
+ *    @arg @c kGTLRManagedKafka_SchemaVersion_SchemaType_Protobuf Protobuf
+ *        schema type. (Value: "PROTOBUF")
+ *    @arg @c kGTLRManagedKafka_SchemaVersion_SchemaType_SchemaTypeUnspecified
+ *        No schema type. The default will be AVRO. (Value:
+ *        "SCHEMA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schemaType;
+
+/** Required. The subject of the version. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Required. The version ID
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -1395,6 +2177,75 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_RebalanceConfig_Mode_NoReba
  *        fetch them all at once.
  */
 @interface GTLRManagedKafka_Topic_Configs : GTLRObject
+@end
+
+
+/**
+ *  Request for updating schema config. On a SchemaSubject-level SchemaConfig,
+ *  an unset field will be removed from the SchemaConfig.
+ */
+@interface GTLRManagedKafka_UpdateSchemaConfigRequest : GTLRObject
+
+/**
+ *  Required. The compatibility type of the schemas. Cannot be unset for a
+ *  SchemaRegistry-level SchemaConfig. If unset on a SchemaSubject-level
+ *  SchemaConfig, removes the compatibility field for the SchemaConfig.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Backward
+ *        Backwards compatible with the most recent version. (Value: "BACKWARD")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_BackwardTransitive
+ *        Backwards compatible with all previous versions. (Value:
+ *        "BACKWARD_TRANSITIVE")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Forward
+ *        Forwards compatible with the most recent version. (Value: "FORWARD")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_ForwardTransitive
+ *        Forwards compatible with all previous versions. (Value:
+ *        "FORWARD_TRANSITIVE")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_Full
+ *        Backwards and forwards compatible with the most recent version.
+ *        (Value: "FULL")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_FullTransitive
+ *        Backwards and forwards compatible with all previous versions. (Value:
+ *        "FULL_TRANSITIVE")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaConfigRequest_Compatibility_None No
+ *        compatibility check. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *compatibility;
+
+/**
+ *  Optional. If true, the schema will be normalized before being stored or
+ *  looked up. The default is false. Cannot be unset for a SchemaRegistry-level
+ *  SchemaConfig. If unset on a SchemaSubject-level SchemaConfig, removes the
+ *  normalize field for the SchemaConfig.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *normalize;
+
+@end
+
+
+/**
+ *  Request for updating schema registry or subject mode.
+ */
+@interface GTLRManagedKafka_UpdateSchemaModeRequest : GTLRObject
+
+/**
+ *  Required. The mode type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Import IMPORT mode.
+ *        (Value: "IMPORT")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_None No mode.
+ *        (Value: "NONE")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readonly READONLY
+ *        mode. (Value: "READONLY")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite READWRITE
+ *        mode. (Value: "READWRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
 @end
 
 NS_ASSUME_NONNULL_END

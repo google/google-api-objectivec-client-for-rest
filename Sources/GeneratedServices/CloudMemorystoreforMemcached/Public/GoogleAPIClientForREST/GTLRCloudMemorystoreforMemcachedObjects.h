@@ -767,6 +767,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  */
 @property(nonatomic, copy, nullable) NSString *consumerDefinedName;
 
+/**
+ *  Optional. The consumer_project_number associated with this Apigee instance.
+ *  This field is added specifically to support Apigee integration with SLM
+ *  Rollout and UMM. It represents the numerical project ID of the GCP project
+ *  that consumes this Apigee instance. It is used for SLM rollout notifications
+ *  and UMM integration, enabling proper mapping to customer projects and log
+ *  delivery for Apigee instances. This field complements consumer_project_id
+ *  and may be used for specific Apigee scenarios where the numerical ID is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerProjectNumber;
+
 /** Output only. Timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 

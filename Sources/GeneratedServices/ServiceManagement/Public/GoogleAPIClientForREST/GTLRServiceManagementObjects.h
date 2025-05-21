@@ -1197,7 +1197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  Content of the configuration. The underlying schema should be defined by
- *  Aspect owners as protobuf message under `apiserving/configaspects/proto`.
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Aspect_Spec *spec;
 
@@ -1206,7 +1206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  Content of the configuration. The underlying schema should be defined by
- *  Aspect owners as protobuf message under `apiserving/configaspects/proto`.
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

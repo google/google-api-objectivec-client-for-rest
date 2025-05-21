@@ -31,6 +31,12 @@ NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddre
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceUsage_BatchingSettingsProto.flowControlLimitExceededBehavior
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block = @"BLOCK";
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore = @"IGNORE";
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException = @"THROW_EXCEPTION";
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior = @"UNSET_BEHAVIOR";
+
 // GTLRServiceUsage_ClientLibrarySettings.launchStage
 NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Beta = @"BETA";
@@ -551,6 +557,47 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_BatchingConfigProto
+//
+
+@implementation GTLRServiceUsage_BatchingConfigProto
+@dynamic batchDescriptor, thresholds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_BatchingDescriptorProto
+//
+
+@implementation GTLRServiceUsage_BatchingDescriptorProto
+@dynamic batchedField, discriminatorFields, subresponseField;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discriminatorFields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_BatchingSettingsProto
+//
+
+@implementation GTLRServiceUsage_BatchingSettingsProto
+@dynamic delayThreshold, elementCountLimit, elementCountThreshold,
+         flowControlByteLimit, flowControlElementLimit,
+         flowControlLimitExceededBehavior, requestByteLimit,
+         requestByteThreshold;
 @end
 
 
@@ -1737,7 +1784,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_MethodSettings
-@dynamic autoPopulatedFields, longRunning, selector;
+@dynamic autoPopulatedFields, batching, longRunning, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

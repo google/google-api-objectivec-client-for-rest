@@ -108,8 +108,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadataSampleConversationsStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SentimentData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SilenceData;
@@ -135,6 +135,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsRequest;
@@ -240,8 +242,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadataSampleConversationsStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SentimentData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings_PubsubNotificationSettings;
@@ -412,6 +414,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "ROLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset.type
+
+/**
+ *  For evals only.
+ *
+ *  Value: "EVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_Eval;
+/**
+ *  Dataset with new conversations coming in regularly (Insights legacy
+ *  conversations and AI trainer)
+ *
+ *  Value: "LIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_Live;
+/**
+ *  Default value for unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension.dimensionKey
@@ -1085,6 +1110,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "ROLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset.type
+
+/**
+ *  For evals only.
+ *
+ *  Value: "EVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_Eval;
+/**
+ *  Dataset with new conversations coming in regularly (Insights legacy
+ *  conversations and AI trainer)
+ *
+ *  Value: "LIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_Live;
+/**
+ *  Default value for unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension.dimensionKey
@@ -3016,11 +3064,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Display name for the dataaset */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /**
  *  Immutable. Identifier. Resource name of the dataset. Format:
  *  projects/{project}/locations/{location}/datasets/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Option TTL for the dataset. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/**
+ *  Dataset usage type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_Eval
+ *        For evals only. (Value: "EVAL")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_Live
+ *        Dataset with new conversations coming in regularly (Insights legacy
+ *        conversations and AI trainer) (Value: "LIVE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_TypeUnspecified
+ *        Default value for unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Dataset update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -5013,9 +5084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  The metadata for an SampleConversationsToDataset operation.
+ *  The metadata for an SampleConversations operation.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadata : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadata : GTLRObject
 
 /** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -5024,24 +5095,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Output only. Partial errors during sample conversations to dataset operation
- *  that might cause the operation output to be incomplete.
+ *  Output only. Partial errors during sample conversations operation that might
+ *  cause the operation output to be incomplete.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
 /** Output only. The original request for sample conversations to dataset. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest *request;
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsRequest *request;
 
-/** Output only. Statistics for SampleConversationsToDataset operation. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats *sampleConversationsToDatasetStats;
+/** Output only. Statistics for SampleConversations operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadataSampleConversationsStats *sampleConversationsStats;
 
 @end
 
 
 /**
- *  Statistics for SampleConversationsToDataset operation.
+ *  Statistics for SampleConversations operation.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadataSampleConversationsStats : GTLRObject
 
 /**
  *  Output only. The number of objects which were unable to be sampled due to
@@ -5065,9 +5136,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /**
  *  The request to sample conversations to a dataset.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetRequest : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsRequest : GTLRObject
 
-/** Required. The dataset resource to copy the conversations to. */
+/** The dataset resource to copy the sampled conversations to. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset *destinationDataset;
 
 /** Required. The parent resource of the dataset. */
@@ -5080,9 +5151,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  The response to an SampleConversationsToDataset operation.
+ *  The response to an SampleConversations operation.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsToDatasetResponse : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsResponse : GTLRObject
 @end
 
 
@@ -5804,6 +5875,67 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        fetch them all at once.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata : GTLRObject
+@end
+
+
+/**
+ *  An AuthorizedView represents a view of accessible Insights resources (for
+ *  example, Conversation and Scorecard). Who have read access to the
+ *  AuthorizedView resource will have access to these Insight resources as well.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView : GTLRObject
+
+/**
+ *  A filter to reduce conversation results to a specific subset. The
+ *  AuthorizedView's assigned permission (read/write) could be applied to the
+ *  subset of conversations. If conversation_filter is empty, there is no
+ *  restriction on the conversations that the AuthorizedView can access. Having
+ *  *authorizedViews.get* access to the AuthorizedView means having the same
+ *  read/write access to the Conversations (as well as metadata/annotations
+ *  liked to the conversation) that this AuthorizedView has.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationFilter;
+
+/** Output only. The time at which the authorized view was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Display Name. Limit 64 characters. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The resource name of the AuthorizedView. Format:
+ *  projects/{project}/locations/{location}/authorizedViewSets/{authorized_view_set}/authorizedViews/{authorized_view}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The most recent time at which the authorized view was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  An AuthorizedViewSet contains a set of AuthorizedView resources.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet : GTLRObject
+
+/** Output only. Create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Display Name. Limit 64 characters. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The resource name of the AuthorizedViewSet. Format:
+ *  projects/{project}/locations/{location}/authorizedViewSets/{authorized_view_set}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -7132,11 +7264,34 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Display name for the dataaset */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /**
  *  Immutable. Identifier. Resource name of the dataset. Format:
  *  projects/{project}/locations/{location}/datasets/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Option TTL for the dataset. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/**
+ *  Dataset usage type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_Eval
+ *        For evals only. (Value: "EVAL")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_Live
+ *        Dataset with new conversations coming in regularly (Insights legacy
+ *        conversations and AI trainer) (Value: "LIVE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_TypeUnspecified
+ *        Default value for unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Dataset update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -8582,6 +8737,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The response from a ListAuthorizedViewSet request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "authorizedViewSets" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewSetsResponse : GTLRCollectionObject
+
+/**
+ *  The AuthorizedViewSets under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet *> *authorizedViewSets;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response from a ListAuthorizedViews request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "authorizedViews" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewsResponse : GTLRCollectionObject
+
+/**
+ *  The AuthorizedViews under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView *> *authorizedViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response of listing conversations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9125,8 +9334,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *questionBody;
 
 /**
- *  User-defined list of arbitrary tags for the question. Used for
- *  grouping/organization and for weighting the score of each question.
+ *  Questions are tagged for categorization and scoring. Tags can either be: -
+ *  Default Tags: These are predefined categories. They are identified by their
+ *  string value (e.g., "BUSINESS", "COMPLIANCE", and "CUSTOMER"). - Custom
+ *  Tags: These are user-defined categories. They are identified by their full
+ *  resource name (e.g.,
+ *  projects/{project}/locations/{location}/qaQuestionTags/{qa_question_tag}).
+ *  Both default and custom tags are used to group questions and to influence
+ *  the scoring of each question.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -9851,9 +10066,9 @@ GTLR_DEPRECATED
 
 
 /**
- *  The metadata for an SampleConversationsToDataset operation.
+ *  The metadata for an SampleConversations operation.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadata : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadata : GTLRObject
 
 /** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -9862,24 +10077,24 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Output only. Partial errors during sample conversations to dataset operation
- *  that might cause the operation output to be incomplete.
+ *  Output only. Partial errors during sample conversations operation that might
+ *  cause the operation output to be incomplete.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
 /** Output only. The original request for sample conversations to dataset. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest *request;
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest *request;
 
-/** Output only. Statistics for SampleConversationsToDataset operation. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats *sampleConversationsToDatasetStats;
+/** Output only. Statistics for SampleConversations operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadataSampleConversationsStats *sampleConversationsStats;
 
 @end
 
 
 /**
- *  Statistics for SampleConversationsToDataset operation.
+ *  Statistics for SampleConversations operation.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetMetadataSampleConversationsToDatasetStats : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadataSampleConversationsStats : GTLRObject
 
 /**
  *  Output only. The number of objects which were unable to be sampled due to
@@ -9903,9 +10118,9 @@ GTLR_DEPRECATED
 /**
  *  The request to sample conversations to a dataset.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetRequest : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest : GTLRObject
 
-/** Required. The dataset resource to copy the conversations to. */
+/** The dataset resource to copy the sampled conversations to. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset *destinationDataset;
 
 /** Required. The parent resource of the dataset. */
@@ -9918,9 +10133,9 @@ GTLR_DEPRECATED
 
 
 /**
- *  The response to an SampleConversationsToDataset operation.
+ *  The response to an SampleConversations operation.
  */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsToDatasetResponse : GTLRObject
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsResponse : GTLRObject
 @end
 
 
@@ -9956,6 +10171,33 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sampleRow;
+
+@end
+
+
+/**
+ *  The response from a ListAuthorizedViews request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "authorizedViews" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchAuthorizedViewsResponse : GTLRCollectionObject
+
+/**
+ *  The AuthorizedViews under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView *> *authorizedViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

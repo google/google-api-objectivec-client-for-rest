@@ -288,8 +288,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 @implementation GTLRNetAppFiles_Backup
 @dynamic backupRegion, backupType, chainStorageBytes, createTime,
-         descriptionProperty, labels, name, satisfiesPzi, satisfiesPzs,
-         sourceSnapshot, sourceVolume, state, volumeRegion, volumeUsageBytes;
+         descriptionProperty, enforcedRetentionEndTime, labels, name,
+         satisfiesPzi, satisfiesPzs, sourceSnapshot, sourceVolume, state,
+         volumeRegion, volumeUsageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -362,13 +363,24 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_BackupRetentionPolicy
+//
+
+@implementation GTLRNetAppFiles_BackupRetentionPolicy
+@dynamic backupMinimumEnforcedRetentionDays, dailyBackupImmutable,
+         manualBackupImmutable, monthlyBackupImmutable, weeklyBackupImmutable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_BackupVault
 //
 
 @implementation GTLRNetAppFiles_BackupVault
-@dynamic backupRegion, backupVaultType, createTime, descriptionProperty,
-         destinationBackupVault, labels, name, sourceBackupVault, sourceRegion,
-         state;
+@dynamic backupRegion, backupRetentionPolicy, backupVaultType, createTime,
+         descriptionProperty, destinationBackupVault, labels, name,
+         sourceBackupVault, sourceRegion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1174,10 +1186,11 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 @implementation GTLRNetAppFiles_StoragePool
 @dynamic activeDirectory, allowAutoTiering, capacityGib, createTime,
-         descriptionProperty, encryptionType, globalAccessAllowed, kmsConfig,
-         labels, ldapEnabled, name, network, psaRange, replicaZone,
-         satisfiesPzi, satisfiesPzs, serviceLevel, state, stateDetails,
-         volumeCapacityGib, volumeCount, zoneProperty;
+         customPerformanceEnabled, descriptionProperty, encryptionType,
+         globalAccessAllowed, kmsConfig, labels, ldapEnabled, name, network,
+         psaRange, replicaZone, satisfiesPzi, satisfiesPzs, serviceLevel, state,
+         stateDetails, totalIops, totalThroughputMibps, volumeCapacityGib,
+         volumeCount, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

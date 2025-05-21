@@ -1236,28 +1236,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevis
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_Shutdown;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling.scalingMode
-
-/**
- *  Automatically scale between min and max instances.
- *
- *  Value: "AUTOMATIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Automatic;
-/**
- *  Scale to exactly min instances and ignore the max instances.
- *
- *  Value: "MANUAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Manual;
-/**
- *  Unspecified.
- *
- *  Value: "SCALING_MODE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_ScalingModeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult.decision
 
 /**
@@ -5914,37 +5892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *manualInstanceCount;
-
-/**
- *  Optional. The maximum count of instances distributed among revisions based
- *  on the specified instance split percentages.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
-
-/**
- *  Optional. The minimum count of instances distributed among revisions based
- *  on the specified instance split percentages.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minInstanceCount;
-
-/**
- *  Optional. The scaling mode for the worker pool.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Automatic
- *        Automatically scale between min and max instances. (Value:
- *        "AUTOMATIC")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_Manual
- *        Scale to exactly min instances and ignore the max instances. (Value:
- *        "MANUAL")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling_ScalingMode_ScalingModeUnspecified
- *        Unspecified. (Value: "SCALING_MODE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *scalingMode;
 
 @end
 

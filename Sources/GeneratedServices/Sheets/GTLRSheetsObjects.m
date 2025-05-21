@@ -862,6 +862,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_AddTableResponse
+//
+
+@implementation GTLRSheets_AddTableResponse
+@dynamic table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_AppendCellsRequest
 //
 
@@ -924,7 +934,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_BandedRange
-@dynamic bandedRangeId, columnProperties, range, rowProperties;
+@dynamic bandedRangeId, bandedRangeReference, columnProperties, range,
+         rowProperties;
 @end
 
 
@@ -3153,7 +3164,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_Response
 @dynamic addBanding, addChart, addDataSource, addDimensionGroup, addFilterView,
-         addNamedRange, addProtectedRange, addSheet, addSlicer,
+         addNamedRange, addProtectedRange, addSheet, addSlicer, addTable,
          cancelDataSourceRefresh, createDeveloperMetadata,
          deleteConditionalFormatRule, deleteDeveloperMetadata,
          deleteDimensionGroup, deleteDuplicates, duplicateFilterView,

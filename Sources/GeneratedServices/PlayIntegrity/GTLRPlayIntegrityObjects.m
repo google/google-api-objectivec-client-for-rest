@@ -70,6 +70,10 @@ NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PlayPr
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PossibleRisk = @"POSSIBLE_RISK";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated = @"UNEVALUATED";
 
+// GTLRPlayIntegrity_PcDeviceIntegrity.deviceRecognitionVerdict
+NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_DeviceRecognitionVerdictUnspecified = @"DEVICE_RECOGNITION_VERDICT_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_MeetsPcIntegrity = @"MEETS_PC_INTEGRITY";
+
 // GTLRPlayIntegrity_RecentDeviceActivity.deviceActivityLevel
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_DeviceActivityLevelUnspecified = @"DEVICE_ACTIVITY_LEVEL_UNSPECIFIED";
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level1 = @"LEVEL_1";
@@ -157,6 +161,26 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlayIntegrity_DecodePcIntegrityTokenRequest
+//
+
+@implementation GTLRPlayIntegrity_DecodePcIntegrityTokenRequest
+@dynamic integrityToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DecodePcIntegrityTokenResponse
+//
+
+@implementation GTLRPlayIntegrity_DecodePcIntegrityTokenResponse
+@dynamic tokenPayloadExternal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlayIntegrity_DeviceAttributes
 //
 
@@ -202,6 +226,44 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 @implementation GTLRPlayIntegrity_EnvironmentDetails
 @dynamic appAccessRiskVerdict, playProtectVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_PcDeviceIntegrity
+//
+
+@implementation GTLRPlayIntegrity_PcDeviceIntegrity
+@dynamic deviceRecognitionVerdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceRecognitionVerdict" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_PcRequestDetails
+//
+
+@implementation GTLRPlayIntegrity_PcRequestDetails
+@dynamic requestHash, requestPackageName, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_PcTokenPayloadExternal
+//
+
+@implementation GTLRPlayIntegrity_PcTokenPayloadExternal
+@dynamic deviceIntegrity, requestDetails;
 @end
 
 
