@@ -504,6 +504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 /** List of 'sort_by' columns to use when returning the results. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sortBy;
 
+/** List of 'sort_order' columns to use when returning the results. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sortOrder;
+
 /**
  *  Fetches a @c GTLRConnectors_ListEntitiesResponse.
  *

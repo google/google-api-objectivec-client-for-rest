@@ -71,6 +71,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAPIManagementQuery_ProjectsLocationsList : GTLRAPIManagementQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -775,7 +781,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: apim.projects.locations.operations.cancel
@@ -798,7 +804,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRAPIManagement_CancelOperationRequest to include in

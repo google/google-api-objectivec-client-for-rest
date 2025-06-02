@@ -1673,6 +1673,35 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @end
 
 /**
+ *  Extend the migrating VM time to live.
+ *
+ *  Method: vmmigration.projects.locations.sources.migratingVms.extendMigration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsExtendMigration : GTLRVMMigrationServiceQuery
+
+/** Required. The name of the MigratingVm. */
+@property(nonatomic, copy, nullable) NSString *migratingVm;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Extend the migrating VM time to live.
+ *
+ *  @param object The @c GTLRVMMigrationService_ExtendMigrationRequest to
+ *    include in the query.
+ *  @param migratingVm Required. The name of the MigratingVm.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsExtendMigration
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_ExtendMigrationRequest *)object
+                    migratingVm:(NSString *)migratingVm;
+
+@end
+
+/**
  *  Marks a migration as completed, deleting migration resources that are no
  *  longer being used. Only applicable after cutover is done.
  *

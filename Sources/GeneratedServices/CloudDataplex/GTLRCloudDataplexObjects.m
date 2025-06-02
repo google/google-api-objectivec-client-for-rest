@@ -147,6 +147,11 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfi
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality = @"DATA_QUALITY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified = @"DATA_SCAN_TYPE_UNSPECIFIED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus.state
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.scope
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Full = @"FULL";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Incremental = @"INCREMENTAL";
@@ -1140,7 +1145,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig
-@dynamic connection, location, tableType;
+@dynamic connection, location, project, tableType;
 @end
 
 
@@ -1371,7 +1376,15 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult
-@dynamic column, score;
+@dynamic column, dimensions, passed, score;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1401,8 +1414,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult
-@dynamic columns, dimensions, passed, postScanActionsResult, rowCount, rules,
-         scannedData, score;
+@dynamic catalogPublishingStatus, columns, dimensions, passed,
+         postScanActionsResult, rowCount, rules, scannedData, score;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1580,7 +1593,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec
-@dynamic postScanActions, rowFilter, rules, samplingPercent;
+@dynamic catalogPublishingEnabled, postScanActions, rowFilter, rules,
+         samplingPercent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1702,12 +1716,22 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent
-@dynamic createTime, dataProfile, dataProfileConfigs, dataQuality,
-         dataQualityConfigs, dataSource, endTime, jobId, message,
+@dynamic catalogPublishingStatus, createTime, dataProfile, dataProfileConfigs,
+         dataQuality, dataQualityConfigs, dataSource, endTime, jobId, message,
          postScanActionsResult, scope, specVersion, startTime, state, trigger,
          type;
 @end
@@ -2510,7 +2534,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1ImportItem
-@dynamic aspectKeys, entry, updateMask;
+@dynamic aspectKeys, entry, entryLink, updateMask;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3245,7 +3269,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobResult
-@dynamic createdEntries, deletedEntries, recreatedEntries, unchangedEntries,
+@dynamic createdEntries, createdEntryLinks, deletedEntries, deletedEntryLinks,
+         recreatedEntries, unchangedEntries, unchangedEntryLinks,
          updatedEntries, updateTime;
 @end
 
@@ -3267,13 +3292,17 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpecImportJobScope
-@dynamic aspectTypes, entryGroups, entryTypes;
+@dynamic aspectTypes, entryGroups, entryLinkTypes, entryTypes, glossaries,
+         referencedEntryScopes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"aspectTypes" : [NSString class],
     @"entryGroups" : [NSString class],
-    @"entryTypes" : [NSString class]
+    @"entryLinkTypes" : [NSString class],
+    @"entryTypes" : [NSString class],
+    @"glossaries" : [NSString class],
+    @"referencedEntryScopes" : [NSString class]
   };
   return map;
 }

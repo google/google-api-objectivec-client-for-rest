@@ -1274,8 +1274,22 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
+@dynamic apiVersion, createTime, endTime, metadata, requestedCancellation,
+         statusMessage, target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata_Metadata
+//
+
+@implementation GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2515,7 +2529,21 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SslConfig
-@dynamic caCertificate, clientCertificate, clientKey, type;
+@dynamic caCertificate, clientCertificate, clientKey, sslFlags, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SslConfig_SslFlags
+//
+
+@implementation GTLRDatabaseMigrationService_SslConfig_SslFlags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

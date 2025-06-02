@@ -156,11 +156,10 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Re
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace = @"REPLACE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Update = @"UPDATE";
 
-// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.groundingConfig
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_GroundingConfigUnspecified = @"GROUNDING_CONFIG_UNSPECIFIED";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_NoGrounding = @"NO_GROUNDING";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Relaxed = @"RELAXED";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Strict = @"STRICT";
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.method
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Derive = @"DERIVE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Extract = @"EXTRACT";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
 
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified = @"OCCURRENCE_TYPE_UNSPECIFIED";
@@ -2341,7 +2340,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty
-@dynamic displayName, groundingConfig, name, occurrenceType, valueType;
+@dynamic displayName, method, name, occurrenceType, valueType;
 @end
 
 

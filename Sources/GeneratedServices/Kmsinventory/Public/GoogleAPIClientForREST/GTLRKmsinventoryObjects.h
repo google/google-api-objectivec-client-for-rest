@@ -198,6 +198,13 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512;
 /**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
@@ -559,6 +566,13 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
@@ -1240,6 +1254,10 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
@@ -1534,6 +1552,10 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")

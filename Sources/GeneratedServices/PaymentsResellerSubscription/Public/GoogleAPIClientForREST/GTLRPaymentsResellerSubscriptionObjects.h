@@ -526,12 +526,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails.billingCycleSpec
 
 /**
- *  The billing cycle of the new subscription aligns with the previous
- *  subscription it upgrades or downgrades from.
+ *  The billing cycle of the new subscription starts immediately but aligns with
+ *  the previous subscription it upgrades or downgrades from. First cycle of the
+ *  new subscription will be prorated.
  *
  *  Value: "BILLING_CYCLE_SPEC_ALIGN_WITH_PREVIOUS_SUBSCRIPTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecAlignWithPreviousSubscription;
+/**
+ *  The billing cycle starts at the end of the previous subscription's billing
+ *  cycle and aligns with the previous subscription's billing cycle.
+ *
+ *  Value: "BILLING_CYCLE_SPEC_DEFERRED_TO_NEXT_RECURRENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecDeferredToNextRecurrence;
 /**
  *  The billing cycle of the new subscription starts immediately.
  *
@@ -1838,9 +1846,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *
  *  Likely values:
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecAlignWithPreviousSubscription
- *        The billing cycle of the new subscription aligns with the previous
- *        subscription it upgrades or downgrades from. (Value:
+ *        The billing cycle of the new subscription starts immediately but
+ *        aligns with the previous subscription it upgrades or downgrades from.
+ *        First cycle of the new subscription will be prorated. (Value:
  *        "BILLING_CYCLE_SPEC_ALIGN_WITH_PREVIOUS_SUBSCRIPTION")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecDeferredToNextRecurrence
+ *        The billing cycle starts at the end of the previous subscription's
+ *        billing cycle and aligns with the previous subscription's billing
+ *        cycle. (Value: "BILLING_CYCLE_SPEC_DEFERRED_TO_NEXT_RECURRENCE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecStartImmediately
  *        The billing cycle of the new subscription starts immediately. (Value:
  *        "BILLING_CYCLE_SPEC_START_IMMEDIATELY")

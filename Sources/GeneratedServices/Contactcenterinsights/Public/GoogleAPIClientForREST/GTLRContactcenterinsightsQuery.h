@@ -242,6 +242,194 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Creates an assessment rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.assessmentRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesCreate : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A unique ID for the new AssessmentRule. This ID will become the
+ *  final component of the AssessmentRule's resource name. If no ID is
+ *  specified, a server-generated ID will be used. This value should be 4-64
+ *  characters and must match the regular expression
+ *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *assessmentRuleId;
+
+/**
+ *  Required. The parent resource of the assessment rule. Required. The location
+ *  to create a assessment rule for. Format: `projects//locations/` or
+ *  `projects//locations/`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule.
+ *
+ *  Creates an assessment rule.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the assessment rule.
+ *    Required. The location to create a assessment rule for. Format:
+ *    `projects//locations/` or `projects//locations/`
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an assessment rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.assessmentRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment rule to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes an assessment rule.
+ *
+ *  @param name Required. The name of the assessment rule to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get an assessment rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.assessmentRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment rule to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule.
+ *
+ *  Get an assessment rule.
+ *
+ *  @param name Required. The name of the assessment rule to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists assessment rules.
+ *
+ *  Method: contactcenterinsights.projects.locations.assessmentRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The maximum number of assessment rule to return in the response.
+ *  If this value is zero, the service will select a default size. A call may
+ *  return fewer objects than requested. A non-empty `next_page_token` in the
+ *  response indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListAssessmentRulesResponse`;
+ *  indicates that this is a continuation of a prior `ListAssessmentRules` call
+ *  and the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the assessment rules. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentRulesResponse.
+ *
+ *  Lists assessment rules.
+ *
+ *  @param parent Required. The parent resource of the assessment rules.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an assessment rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.assessmentRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. The resource name of the assessment rule. Format:
+ *  projects/{project}/locations/{location}/assessmentRules/{assessment_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated. If the update_mask is not
+ *  provided, the update will be applied to all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule.
+ *
+ *  Updates an assessment rule.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule
+ *    to include in the query.
+ *  @param name Identifier. The resource name of the assessment rule. Format:
+ *    projects/{project}/locations/{location}/assessmentRules/{assessment_rule}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAssessmentRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an analysis. The long running operation is done when the analysis
  *  has completed.
  *
@@ -375,6 +563,392 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Appeal an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.appeal
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsAppeal : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to appeal. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Appeal an Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AppealAssessmentRequest
+ *    to include in the query.
+ *  @param name Required. The name of the assessment to appeal.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsAppeal
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AppealAssessmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the assessment. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Create Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the assessment.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsDelete : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. If set to true, all of this assessment's notes will also be
+ *  deleted. Otherwise, the request will only succeed if it has no notes.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. The name of the assessment to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Delete an Assessment.
+ *
+ *  @param name Required. The name of the assessment to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Finalize an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.finalize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsFinalize : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to finalize. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Finalize an Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FinalizeAssessmentRequest
+ *    to include in the query.
+ *  @param name Required. The name of the assessment to finalize.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsFinalize
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FinalizeAssessmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Get Assessment.
+ *
+ *  @param name Required. The name of the assessment to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Assessments.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Supported filters
+ *  include: * `state` - The state of the assessment * `agent_info.agent_id` -
+ *  The ID of the agent the assessment is for
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of assessments to list. If zero, the service will select
+ *  a default size. A call may return fewer objects than requested. A non-empty
+ *  `next_page_token` in the response indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListAssessmentRulesResponse`;
+ *  indicates that this is a continuation of a prior `ListAssessmentRules` call
+ *  and the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the assessments. To list all assessments in
+ *  a location, substitute the conversation ID with a '-' character.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentsResponse.
+ *
+ *  List Assessments.
+ *
+ *  @param parent Required. The parent resource of the assessments. To list all
+ *    assessments in a location, substitute the conversation ID with a '-'
+ *    character.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Create Note.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.notes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the note. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note.
+ *
+ *  Create Note.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the note.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Note.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.notes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the note to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a Note.
+ *
+ *  @param name Required. The name of the note to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Notes.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.notes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The maximum number of notes to return in the response. If zero the
+ *  service will select a default size. A call might return fewer objects than
+ *  requested. A non-empty `next_page_token` in the response indicates that more
+ *  data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListNotesResponse`. This value
+ *  indicates that this is a continuation of a prior `ListNotes` call and that
+ *  the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the notes. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListNotesResponse.
+ *
+ *  List Notes.
+ *
+ *  @param parent Required. The parent resource of the notes.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update Note.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.notes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. The resource name of the note. Format:
+ *  projects/{project}/locations/{location}/conversations/{conversation}/assessments/{assessment}/notes/{note}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated. If the update_mask is empty, all
+ *  updateable fields will be updated. Acceptable fields include: * `content`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note.
+ *
+ *  Update Note.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the note. Format:
+ *    projects/{project}/locations/{location}/conversations/{conversation}/assessments/{assessment}/notes/{note}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsNotesPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Publish an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.publish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsPublish : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to publish. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Publish an Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest
+ *    to include in the query.
+ *  @param name Required. The name of the assessment to publish.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsPublish
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1624,6 +2198,392 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Appeal an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.appeal
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsAppeal : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to appeal. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Appeal an Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AppealAssessmentRequest
+ *    to include in the query.
+ *  @param name Required. The name of the assessment to appeal.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsAppeal
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AppealAssessmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the assessment. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Create Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the assessment.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsDelete : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. If set to true, all of this assessment's notes will also be
+ *  deleted. Otherwise, the request will only succeed if it has no notes.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. The name of the assessment to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Delete an Assessment.
+ *
+ *  @param name Required. The name of the assessment to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Finalize an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.finalize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsFinalize : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to finalize. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Finalize an Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FinalizeAssessmentRequest
+ *    to include in the query.
+ *  @param name Required. The name of the assessment to finalize.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsFinalize
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FinalizeAssessmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Get Assessment.
+ *
+ *  @param name Required. The name of the assessment to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Assessments.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Supported filters
+ *  include: * `state` - The state of the assessment * `agent_info.agent_id` -
+ *  The ID of the agent the assessment is for
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of assessments to list. If zero, the service will select
+ *  a default size. A call may return fewer objects than requested. A non-empty
+ *  `next_page_token` in the response indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListAssessmentRulesResponse`;
+ *  indicates that this is a continuation of a prior `ListAssessmentRules` call
+ *  and the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the assessments. To list all assessments in
+ *  a location, substitute the conversation ID with a '-' character.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentsResponse.
+ *
+ *  List Assessments.
+ *
+ *  @param parent Required. The parent resource of the assessments. To list all
+ *    assessments in a location, substitute the conversation ID with a '-'
+ *    character.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Create Note.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.notes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the note. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note.
+ *
+ *  Create Note.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the note.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Note.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.notes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the note to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a Note.
+ *
+ *  @param name Required. The name of the note to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Notes.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.notes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The maximum number of notes to return in the response. If zero the
+ *  service will select a default size. A call might return fewer objects than
+ *  requested. A non-empty `next_page_token` in the response indicates that more
+ *  data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListNotesResponse`. This value
+ *  indicates that this is a continuation of a prior `ListNotes` call and that
+ *  the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the notes. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListNotesResponse.
+ *
+ *  List Notes.
+ *
+ *  @param parent Required. The parent resource of the notes.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update Note.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.notes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. The resource name of the note. Format:
+ *  projects/{project}/locations/{location}/conversations/{conversation}/assessments/{assessment}/notes/{note}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated. If the update_mask is empty, all
+ *  updateable fields will be updated. Acceptable fields include: * `content`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note.
+ *
+ *  Update Note.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the note. Format:
+ *    projects/{project}/locations/{location}/conversations/{conversation}/assessments/{assessment}/notes/{note}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsNotesPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Publish an Assessment.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.assessments.publish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsPublish : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the assessment to publish. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.
+ *
+ *  Publish an Assessment.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest
+ *    to include in the query.
+ *  @param name Required. The name of the assessment to publish.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsAssessmentsPublish
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest *)object
+                           name:(NSString *)name;
 
 @end
 

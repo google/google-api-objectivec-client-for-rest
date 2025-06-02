@@ -50,10 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Required. The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The project ID of the Google Cloud Platform project. */
+/** Required. The project ID of the Google Cloud Platform project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** A system ID for filtering the results of the request. */
+/** Optional. A system ID for filtering the results of the request. */
 @property(nonatomic, copy, nullable) NSString *systemId;
 
 /**
@@ -262,7 +262,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Mask to control which fields get updated. Updates all if not present.
+ *  Optional. Mask to control which fields get updated. Updates all if not
+ *  present.
  *
  *  String format is a comma-separated list of fields.
  */

@@ -59,6 +59,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified;
 /**
+ *  For company-owned devices, this removes all eSIMs from the device when the
+ *  device is wiped. In personally-owned devices, this will remove managed eSIMs
+ *  (eSIMs which are added via the ADD_ESIM command) on the devices and no
+ *  personally owned eSIMs will be removed.
+ *
+ *  Value: "WIPE_ESIMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeEsims;
+/**
  *  Additionally wipe the device's external storage (such as SD cards).
  *
  *  Value: "WIPE_EXTERNAL_STORAGE"
@@ -239,6 +248,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage
  *        Additionally wipe the device's external storage (such as SD cards).
  *        (Value: "WIPE_EXTERNAL_STORAGE")
+ *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeEsims For company-owned
+ *        devices, this removes all eSIMs from the device when the device is
+ *        wiped. In personally-owned devices, this will remove managed eSIMs
+ *        (eSIMs which are added via the ADD_ESIM command) on the devices and no
+ *        personally owned eSIMs will be removed. (Value: "WIPE_ESIMS")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
 

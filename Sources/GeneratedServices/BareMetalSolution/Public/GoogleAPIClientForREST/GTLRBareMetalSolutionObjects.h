@@ -1303,7 +1303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, strong, nullable) NSNumber *hyperthreading;
 
 /**
- *  A transient unique identifier to idenfity an instance within an
+ *  A transient unique identifier to identify an instance within an
  *  ProvisioningConfig request.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').

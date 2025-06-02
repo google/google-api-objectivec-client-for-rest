@@ -3667,14 +3667,14 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A string representing the version of available regions being used
- *  for the specified resource. Regional prices for the resource have to be
- *  specified according to the information published in [this
+ *  for the specified resource. Regional prices and latest supported version for
+ *  the resource have to be specified according to the information published in
+ *  [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. The latest supported version is available in this article.
- *  Using this field will ensure that creating and updating the resource with an
- *  older region's version and set of regional prices and currencies will
- *  succeed even though a new version is available.
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -3979,14 +3979,14 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A string representing the version of available regions being used
- *  for the specified resource. Regional prices for the resource have to be
- *  specified according to the information published in [this
+ *  for the specified resource. Regional prices and latest supported version for
+ *  the resource have to be specified according to the information published in
+ *  [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. The latest supported version is available in this article.
- *  Using this field will ensure that creating and updating the resource with an
- *  older region's version and set of regional prices and currencies will
- *  succeed even though a new version is available.
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -4126,14 +4126,14 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A string representing the version of available regions being used
- *  for the specified resource. Regional prices for the resource have to be
- *  specified according to the information published in [this
+ *  for the specified resource. Regional prices and latest supported version for
+ *  the resource have to be specified according to the information published in
+ *  [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. The latest supported version is available in this article.
- *  Using this field will ensure that creating and updating the resource with an
- *  older region's version and set of regional prices and currencies will
- *  succeed even though a new version is available.
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -4330,14 +4330,14 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A string representing the version of available regions being used
- *  for the specified resource. Regional prices for the resource have to be
- *  specified according to the information published in [this
+ *  for the specified resource. Regional prices and latest supported version for
+ *  the resource have to be specified according to the information published in
+ *  [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. The latest supported version is available in this article.
- *  Using this field will ensure that creating and updating the resource with an
- *  older region's version and set of regional prices and currencies will
- *  succeed even though a new version is available.
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -4655,7 +4655,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The purchased subscription ID (for example, 'monthly001'). */
+/**
+ *  Note: Since May 21, 2025, subscription_id is not required, and not
+ *  recommended for subscription with add-ons. The purchased subscription ID
+ *  (for example, 'monthly001').
+ */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
@@ -4674,8 +4678,9 @@ GTLR_DEPRECATED
  *    the query.
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').
- *  @param subscriptionId The purchased subscription ID (for example,
- *    'monthly001').
+ *  @param subscriptionId Note: Since May 21, 2025, subscription_id is not
+ *    required, and not recommended for subscription with add-ons. The purchased
+ *    subscription ID (for example, 'monthly001').
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
  *
@@ -4705,7 +4710,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The purchased subscription ID (for example, 'monthly001'). */
+/**
+ *  Note: Since May 21, 2025, subscription_id is not required, and not
+ *  recommended for subscription with add-ons. The purchased subscription ID
+ *  (for example, 'monthly001').
+ */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
@@ -4722,8 +4731,9 @@ GTLR_DEPRECATED
  *
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').
- *  @param subscriptionId The purchased subscription ID (for example,
- *    'monthly001').
+ *  @param subscriptionId Note: Since May 21, 2025, subscription_id is not
+ *    required, and not recommended for subscription with add-ons. The purchased
+ *    subscription ID (for example, 'monthly001').
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
  *

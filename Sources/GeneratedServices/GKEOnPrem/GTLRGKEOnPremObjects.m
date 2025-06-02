@@ -1092,7 +1092,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_EnrollBareMetalClusterRequest
-@dynamic adminClusterMembership, bareMetalClusterId, localName;
+@dynamic adminClusterMembership, bareMetalClusterId, localName, localNamespace;
 @end
 
 
@@ -1815,8 +1815,8 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
          autoRepairConfig, bootstrapClusterMembership, controlPlaneNode,
          createTime, descriptionProperty, enableAdvancedCluster, endpoint, ETag,
          fleet, imageType, loadBalancer, localName, name, networkConfig,
-         onPremVersion, platformConfig, preparedSecrets, reconciling, state,
-         status, uid, updateTime, validationCheck, vcenter;
+         onPremVersion, platformConfig, preparedSecrets, privateRegistryConfig,
+         reconciling, state, status, uid, updateTime, validationCheck, vcenter;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1931,6 +1931,16 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 @implementation GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig
+//
+
+@implementation GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig
+@dynamic address, caCert;
 @end
 
 

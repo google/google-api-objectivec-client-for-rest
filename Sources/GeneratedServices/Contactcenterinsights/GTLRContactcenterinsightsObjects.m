@@ -147,6 +147,13 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1An
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback_CorrectnessLevel_NotCorrect = @"NOT_CORRECT";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback_CorrectnessLevel_PartiallyCorrect = @"PARTIALLY_CORRECT";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.state
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Appealed = @"APPEALED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Draft = @"DRAFT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Finalized = @"FINALIZED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Published = @"PUBLISHED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest.feedbackLabelType
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_AgentAssistSummary = @"AGENT_ASSIST_SUMMARY";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest_FeedbackLabelType_FeedbackLabelTypeUnspecified = @"FEEDBACK_LABEL_TYPE_UNSPECIFIED";
@@ -701,7 +708,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource
-@dynamic dialogflowSource, gcsSource;
+@dynamic dialogflowSource, gcsSource, metadataUri;
 @end
 
 
@@ -2223,6 +2230,15 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AppealAssessmentRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AppealAssessmentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData
 //
 
@@ -2242,6 +2258,27 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment
+@dynamic agentInfo, createTime, name, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule
+@dynamic active, createTime, displayName, name, sampleRule, scheduleInfo,
+         updateTime;
 @end
 
 
@@ -2688,7 +2725,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource
-@dynamic dialogflowSource, gcsSource;
+@dynamic dialogflowSource, gcsSource, metadataUri;
 @end
 
 
@@ -3239,6 +3276,15 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FinalizeAssessmentRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FinalizeAssessmentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource
 //
 
@@ -3634,6 +3680,50 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentRulesResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentRulesResponse
+@dynamic assessmentRules, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assessmentRules" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assessmentRules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentsResponse
+@dynamic assessments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assessments" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assessments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewSetsResponse
 //
 
@@ -3758,6 +3848,28 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListNotesResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListNotesResponse
+@dynamic nextPageToken, notes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notes" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"notes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListPhraseMatchersResponse
 //
 
@@ -3868,6 +3980,46 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note
+@dynamic assessmentNote, content, conversationTurnNote, createTime, name,
+         noteCreator, qaQuestionNote, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteAssessmentNote
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteAssessmentNote
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteConversationTurnNote
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteConversationTurnNote
+@dynamic turnIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteQaQuestionNote
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteQaQuestionNote
+@dynamic qaQuestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchData
 //
 
@@ -3931,6 +4083,15 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest
 @end
 
 
@@ -4351,6 +4512,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ScheduleInfo
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ScheduleInfo
+@dynamic endTime, schedule, startTime, timeZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchAuthorizedViewsResponse
 //
 
@@ -4550,6 +4721,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest
 @dynamic conversation, conversationId, parent, redactionConfig, speechConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UserInfo
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UserInfo
+@dynamic username;
 @end
 
 

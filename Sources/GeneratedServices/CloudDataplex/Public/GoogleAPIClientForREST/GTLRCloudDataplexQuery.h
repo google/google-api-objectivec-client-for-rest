@@ -3881,8 +3881,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  GlossaryCategory APIs are CCFE passthrough APIs. Creates a new
- *  GlossaryCategory resource.
+ *  Creates a new GlossaryCategory resource.
  *
  *  Method: dataplex.projects.locations.glossaries.categories.create
  *
@@ -3891,12 +3890,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesCreate : GTLRCloudDataplexQuery
 
-/** Required. Category ID: GlossaryCategory identifier. */
+/** Required. GlossaryCategory identifier. */
 @property(nonatomic, copy, nullable) NSString *categoryId;
 
 /**
  *  Required. The parent resource where this GlossaryCategory will be created.
- *  Format: projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ *  Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  *  where locationId refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3904,15 +3904,14 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory.
  *
- *  GlossaryCategory APIs are CCFE passthrough APIs. Creates a new
- *  GlossaryCategory resource.
+ *  Creates a new GlossaryCategory resource.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory
  *    to include in the query.
  *  @param parent Required. The parent resource where this GlossaryCategory will
  *    be created. Format:
- *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} where
- *    locationId refers to a GCP region.
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *    where locationId refers to a GCP region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesCreate
  */
@@ -3922,9 +3921,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Deletes a GlossaryCategory resource. All the categories and terms nested
- *  directly under the category will be moved one level up to the parent in the
- *  hierarchy.
+ *  Deletes a GlossaryCategory resource. All the GlossaryCategories and
+ *  GlossaryTerms nested directly under the specified GlossaryCategory will be
+ *  moved one level up to the parent in the hierarchy.
  *
  *  Method: dataplex.projects.locations.glossaries.categories.delete
  *
@@ -3935,19 +3934,19 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the GlossaryCategory to delete. Format:
- *  projects/{project}/locations/{location}/glossary/{glossary}/categories/{glossary_category}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_Empty.
  *
- *  Deletes a GlossaryCategory resource. All the categories and terms nested
- *  directly under the category will be moved one level up to the parent in the
- *  hierarchy.
+ *  Deletes a GlossaryCategory resource. All the GlossaryCategories and
+ *  GlossaryTerms nested directly under the specified GlossaryCategory will be
+ *  moved one level up to the parent in the hierarchy.
  *
  *  @param name Required. The name of the GlossaryCategory to delete. Format:
- *    projects/{project}/locations/{location}/glossary/{glossary}/categories/{glossary_category}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesDelete
  */
@@ -3956,7 +3955,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves a specified GlossaryCategory resource.
+ *  Gets a GlossaryCategory resource.
  *
  *  Method: dataplex.projects.locations.glossaries.categories.get
  *
@@ -3967,17 +3966,17 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the GlossaryCategory to retrieve. Format:
- *  projects/{project}/locations/{location}/glossaries/{glossary}/categories/{glossary_category}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory.
  *
- *  Retrieves a specified GlossaryCategory resource.
+ *  Gets a GlossaryCategory resource.
  *
  *  @param name Required. The name of the GlossaryCategory to retrieve. Format:
- *    projects/{project}/locations/{location}/glossaries/{glossary}/categories/{glossary_category}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGet
  */
@@ -4036,7 +4035,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists GlossaryCategory resources in a glossary.
+ *  Lists GlossaryCategory resources in a Glossary.
  *
  *  Method: dataplex.projects.locations.glossaries.categories.list
  *
@@ -4046,26 +4045,29 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Filter expression that filters categories listed in the response.
- *  Filters supported: List GlossaryCategories based on immediate parent in the
- *  resource hierarchy. This will only return the GlossaryCategories nested
- *  directly under the parent and no other subsequent nested categories will be
- *  returned.
+ *  Optional. Filter expression that filters GlossaryCategories listed in the
+ *  response. Filters are supported on the following fields: -
+ *  immediate_parentExamples of using a filter are: -
+ *  immediate_parent="projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}"
+ *  -
+ *  immediate_parent="projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}"This
+ *  will only return the GlossaryCategories that are directly nested under the
+ *  specified parent.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Order by expression that orders categories listed in the response.
- *  Order by fields are: name or create_time for the result. If not specified,
- *  the ordering is undefined.
+ *  Optional. Order by expression that orders GlossaryCategories listed in the
+ *  response. Order by fields are: name or create_time for the result. If not
+ *  specified, the ordering is undefined.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of categories to return. The service may return
- *  fewer than this value. If unspecified, at most 50 categories will be
- *  returned. The maximum value is 1000; values above 1000 will be coerced to
- *  1000.
+ *  Optional. The maximum number of GlossaryCategories to return. The service
+ *  may return fewer than this value. If unspecified, at most 50
+ *  GlossaryCategories will be returned. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -4078,9 +4080,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which has this collection of categories. Format:
- *  projects/{project}/locations/{location}/glossaries/{glossary} Location is
- *  the GCP region.
+ *  Required. The parent, which has this collection of GlossaryCategories.
+ *  Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *  Location is the GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4088,10 +4091,11 @@ GTLR_DEPRECATED
  *  Fetches a @c
  *  GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossaryCategoriesResponse.
  *
- *  Lists GlossaryCategory resources in a glossary.
+ *  Lists GlossaryCategory resources in a Glossary.
  *
- *  @param parent Required. The parent, which has this collection of categories.
- *    Format: projects/{project}/locations/{location}/glossaries/{glossary}
+ *  @param parent Required. The parent, which has this collection of
+ *    GlossaryCategories. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  *    Location is the GCP region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesList
@@ -4116,7 +4120,7 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. Identifier. The resource name of the GlossaryCategory. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4136,7 +4140,7 @@ GTLR_DEPRECATED
  *    to include in the query.
  *  @param name Output only. Identifier. The resource name of the
  *    GlossaryCategory. Format:
- *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesPatch
  */
@@ -4244,13 +4248,13 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent resource where this Glossary will be created. Format:
- *  projects/{projectId}/locations/{locationId} where locationId refers to a GCP
- *  region.
+ *  projects/{project_id_or_number}/locations/{location_id} where location_id
+ *  refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Validates the request without actually creating the glossary.
+ *  Optional. Validates the request without actually creating the Glossary.
  *  Default: false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -4263,8 +4267,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Glossary to
  *    include in the query.
  *  @param parent Required. The parent resource where this Glossary will be
- *    created. Format: projects/{projectId}/locations/{locationId} where
- *    locationId refers to a GCP region.
+ *    created. Format: projects/{project_id_or_number}/locations/{location_id}
+ *    where location_id refers to a GCP region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCreate
  */
@@ -4275,7 +4279,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deletes a Glossary resource. All the categories and terms within the
- *  glossary must be deleted before a glossary can be deleted.
+ *  Glossary must be deleted before the Glossary can be deleted.
  *
  *  Method: dataplex.projects.locations.glossaries.delete
  *
@@ -4293,7 +4297,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the Glossary to delete. Format:
- *  projects/{project}/locations/{location}/glossary/{glossary}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4301,10 +4305,10 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
  *  Deletes a Glossary resource. All the categories and terms within the
- *  glossary must be deleted before a glossary can be deleted.
+ *  Glossary must be deleted before the Glossary can be deleted.
  *
  *  @param name Required. The name of the Glossary to delete. Format:
- *    projects/{project}/locations/{location}/glossary/{glossary}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesDelete
  */
@@ -4313,7 +4317,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves a specified Glossary resource.
+ *  Gets a Glossary resource.
  *
  *  Method: dataplex.projects.locations.glossaries.get
  *
@@ -4324,17 +4328,17 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the Glossary to retrieve. Format:
- *  projects/{project}/locations/{location}/glossaries/{glossary}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Glossary.
  *
- *  Retrieves a specified Glossary resource.
+ *  Gets a Glossary resource.
  *
  *  @param name Required. The name of the Glossary to retrieve. Format:
- *    projects/{project}/locations/{location}/glossaries/{glossary}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesGet
  */
@@ -4403,21 +4407,22 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Filter expression that filters glossaries listed in the response.
- *  Initially, no filter is supported.
+ *  Optional. Filter expression that filters Glossaries listed in the response.
+ *  Filters on proto fields of Glossary are supported. Examples of using a
+ *  filter are: - display_name="my-glossary" - categoryCount=1 - termCount=0
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Order by expression that orders glossaries listed in the response.
+ *  Optional. Order by expression that orders Glossaries listed in the response.
  *  Order by fields are: name or create_time for the result. If not specified,
  *  the ordering is undefined.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of glossaries to return. The service may return
- *  fewer than this value. If unspecified, at most 50 glossaries will be
+ *  Optional. The maximum number of Glossaries to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 Glossaries will be
  *  returned. The maximum value is 1000; values above 1000 will be coerced to
  *  1000.
  */
@@ -4432,8 +4437,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which has this collection of glossaries. Format:
- *  projects/{project}/locations/{location} Location is the GCP region.
+ *  Required. The parent, which has this collection of Glossaries. Format:
+ *  projects/{project_id_or_number}/locations/{location_id} where location_id
+ *  refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4442,9 +4448,9 @@ GTLR_DEPRECATED
  *
  *  Lists Glossary resources in a project and location.
  *
- *  @param parent Required. The parent, which has this collection of glossaries.
- *    Format: projects/{project}/locations/{location} Location is the GCP
- *    region.
+ *  @param parent Required. The parent, which has this collection of Glossaries.
+ *    Format: projects/{project_id_or_number}/locations/{location_id} where
+ *    location_id refers to a GCP region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesList
  *
@@ -4468,7 +4474,7 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. Identifier. The resource name of the Glossary. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4480,7 +4486,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. Validates the request without actually updating the glossary.
+ *  Optional. Validates the request without actually updating the Glossary.
  *  Default: false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -4494,7 +4500,7 @@ GTLR_DEPRECATED
  *    include in the query.
  *  @param name Output only. Identifier. The resource name of the Glossary.
  *    Format:
- *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesPatch
  */
@@ -4544,8 +4550,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  GlossaryTerm APIs are CCFE passthrough APIs. Creates a new GlossaryTerm
- *  resource.
+ *  Creates a new GlossaryTerm resource.
  *
  *  Method: dataplex.projects.locations.glossaries.terms.create
  *
@@ -4555,27 +4560,27 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsCreate : GTLRCloudDataplexQuery
 
 /**
- *  Required. The parent resource where this GlossaryTerm will be created.
- *  Format: projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
- *  where locationId refers to a GCP region.
+ *  Required. The parent resource where the GlossaryTerm will be created.
+ *  Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *  where location_id refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. Term ID: GlossaryTerm identifier. */
+/** Required. GlossaryTerm identifier. */
 @property(nonatomic, copy, nullable) NSString *termId;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm.
  *
- *  GlossaryTerm APIs are CCFE passthrough APIs. Creates a new GlossaryTerm
- *  resource.
+ *  Creates a new GlossaryTerm resource.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm to
  *    include in the query.
- *  @param parent Required. The parent resource where this GlossaryTerm will be
+ *  @param parent Required. The parent resource where the GlossaryTerm will be
  *    created. Format:
- *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} where
- *    locationId refers to a GCP region.
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *    where location_id refers to a GCP region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsCreate
  */
@@ -4596,7 +4601,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the GlossaryTerm to delete. Format:
- *  projects/{project}/locations/{location}/glossary/{glossary}/terms/{glossary_term}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4606,7 +4611,7 @@ GTLR_DEPRECATED
  *  Deletes a GlossaryTerm resource.
  *
  *  @param name Required. The name of the GlossaryTerm to delete. Format:
- *    projects/{project}/locations/{location}/glossary/{glossary}/terms/{glossary_term}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsDelete
  */
@@ -4615,7 +4620,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves a specified GlossaryTerm resource.
+ *  Gets a GlossaryTerm resource.
  *
  *  Method: dataplex.projects.locations.glossaries.terms.get
  *
@@ -4626,17 +4631,17 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the GlossaryTerm to retrieve. Format:
- *  projects/{project}/locations/{location}/glossaries/{glossary}/terms/{glossary_term}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm.
  *
- *  Retrieves a specified GlossaryTerm resource.
+ *  Gets a GlossaryTerm resource.
  *
  *  @param name Required. The name of the GlossaryTerm to retrieve. Format:
- *    projects/{project}/locations/{location}/glossaries/{glossary}/terms/{glossary_term}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGet
  */
@@ -4695,7 +4700,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists GlossaryTerm resources in a glossary.
+ *  Lists GlossaryTerm resources in a Glossary.
  *
  *  Method: dataplex.projects.locations.glossaries.terms.list
  *
@@ -4705,24 +4710,29 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Filter expression that filters terms listed in the response.
- *  Filters supported: List GlossaryTerms based on immediate parent in the
- *  resource hierarchy. This will only return the terms nested directly under
- *  the parent and no other subsequent nested terms will be returned.
+ *  Optional. Filter expression that filters GlossaryTerms listed in the
+ *  response. Filters are supported on the following fields: -
+ *  immediate_parentExamples of using a filter are: -
+ *  immediate_parent="projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}"
+ *  -
+ *  immediate_parent="projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}"This
+ *  will only return the GlossaryTerms that are directly nested under the
+ *  specified parent.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Order by expression that orders terms listed in the response.
- *  Order by fields are: name or create_time for the result. If not specified,
- *  the ordering is undefined.
+ *  Optional. Order by expression that orders GlossaryTerms listed in the
+ *  response. Order by fields are: name or create_time for the result. If not
+ *  specified, the ordering is undefined.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of terms to return. The service may return
- *  fewer than this value. If unspecified, at most 50 terms will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  Optional. The maximum number of GlossaryTerms to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 GlossaryTerms will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -4735,9 +4745,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which has this collection of terms. Format:
- *  projects/{project}/locations/{location}/glossaries/{glossary} Location is
- *  the GCP region.
+ *  Required. The parent, which has this collection of GlossaryTerms. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *  where location_id refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4745,11 +4755,12 @@ GTLR_DEPRECATED
  *  Fetches a @c
  *  GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossaryTermsResponse.
  *
- *  Lists GlossaryTerm resources in a glossary.
+ *  Lists GlossaryTerm resources in a Glossary.
  *
- *  @param parent Required. The parent, which has this collection of terms.
- *    Format: projects/{project}/locations/{location}/glossaries/{glossary}
- *    Location is the GCP region.
+ *  @param parent Required. The parent, which has this collection of
+ *    GlossaryTerms. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *    where location_id refers to a GCP region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsList
  *
@@ -4773,7 +4784,7 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. Identifier. The resource name of the GlossaryTerm. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/terms/{termId}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4793,7 +4804,7 @@ GTLR_DEPRECATED
  *    include in the query.
  *  @param name Output only. Identifier. The resource name of the GlossaryTerm.
  *    Format:
- *    projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/terms/{termId}
+ *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsPatch
  */

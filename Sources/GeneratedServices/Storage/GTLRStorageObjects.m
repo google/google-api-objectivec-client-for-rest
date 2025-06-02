@@ -188,7 +188,7 @@
 //
 
 @implementation GTLRStorage_Bucket_IpFilter
-@dynamic mode, publicNetworkSource, vpcNetworkSources;
+@dynamic allowCrossOrgVpcs, mode, publicNetworkSource, vpcNetworkSources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

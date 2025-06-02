@@ -374,6 +374,54 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_DeliverInfo.googleServiceType
+
+/**
+ *  Connectivity from Cloud DNS to forwarding targets or alternate name servers
+ *  that use private routing.
+ *  https://cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules
+ *  https://cloud.google.com/dns/docs/policies#firewall-rules
+ *
+ *  Value: "CLOUD_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_CloudDns;
+/**
+ *  One of two services sharing IP ranges: * Load Balancer proxy * Centralized
+ *  Health Check prober
+ *  https://cloud.google.com/load-balancing/docs/firewall-rules
+ *
+ *  Value: "GFE_PROXY_OR_HEALTH_CHECK_PROBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_GfeProxyOrHealthCheckProber;
+/**
+ *  Unspecified Google Service.
+ *
+ *  Value: "GOOGLE_SERVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_GoogleServiceTypeUnspecified;
+/**
+ *  Identity aware proxy. https://cloud.google.com/iap/docs/using-tcp-forwarding
+ *
+ *  Value: "IAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_Iap;
+/**
+ *  private.googleapis.com and restricted.googleapis.com
+ *
+ *  Value: "PRIVATE_GOOGLE_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_PrivateGoogleAccess;
+/**
+ *  Google API via Private Service Connect.
+ *  https://cloud.google.com/vpc/docs/configure-private-service-connect-apis
+ *  Google API via Serverless VPC Access.
+ *  https://cloud.google.com/vpc/docs/serverless-vpc-access
+ *
+ *  Value: "SERVERLESS_VPC_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_ServerlessVpcAccess;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_DeliverInfo.target
 
 /**
@@ -779,6 +827,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdver
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress;
 /**
+ *  Packet from the unknown NCC network is dropped due to no known route from
+ *  the source network to the destination IP address.
+ *
+ *  Value: "NO_KNOWN_ROUTE_FROM_NCC_NETWORK_TO_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromNccNetworkToDestination;
+/**
  *  Packet from the unknown peered network is dropped due to no known route from
  *  the source network to the destination IP address.
  *
@@ -805,7 +860,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSu
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute;
 /**
- *  Packet is sent from the Internet to the private IPv6 address.
+ *  Packet is sent from the external IPv6 source address of an instance to the
+ *  private IPv6 address of an instance.
+ *
+ *  Value: "NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromExternalIpv6SourceToPrivateIpv6Address;
+/**
+ *  Packet is sent from the Internet or Google service to the private IPv6
+ *  address.
  *
  *  Value: "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS"
  */
@@ -2892,6 +2955,39 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_DeliverInfo : GTLRObject
 
+/**
+ *  Recognized type of a Google Service the packet is delivered to (if
+ *  applicable).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_CloudDns
+ *        Connectivity from Cloud DNS to forwarding targets or alternate name
+ *        servers that use private routing.
+ *        https://cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules
+ *        https://cloud.google.com/dns/docs/policies#firewall-rules (Value:
+ *        "CLOUD_DNS")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_GfeProxyOrHealthCheckProber
+ *        One of two services sharing IP ranges: * Load Balancer proxy *
+ *        Centralized Health Check prober
+ *        https://cloud.google.com/load-balancing/docs/firewall-rules (Value:
+ *        "GFE_PROXY_OR_HEALTH_CHECK_PROBER")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_GoogleServiceTypeUnspecified
+ *        Unspecified Google Service. (Value: "GOOGLE_SERVICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_Iap Identity
+ *        aware proxy. https://cloud.google.com/iap/docs/using-tcp-forwarding
+ *        (Value: "IAP")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_PrivateGoogleAccess
+ *        private.googleapis.com and restricted.googleapis.com (Value:
+ *        "PRIVATE_GOOGLE_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_ServerlessVpcAccess
+ *        Google API via Private Service Connect.
+ *        https://cloud.google.com/vpc/docs/configure-private-service-connect-apis
+ *        Google API via Serverless VPC Access.
+ *        https://cloud.google.com/vpc/docs/serverless-vpc-access (Value:
+ *        "SERVERLESS_VPC_ACCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *googleServiceType;
+
 /** IP address of the target (if applicable). */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
@@ -3150,6 +3246,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        with only an internal IP address tries to access external hosts, but
  *        there is no matching Cloud NAT gateway in the subnet. (Value:
  *        "NO_EXTERNAL_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromNccNetworkToDestination
+ *        Packet from the unknown NCC network is dropped due to no known route
+ *        from the source network to the destination IP address. (Value:
+ *        "NO_KNOWN_ROUTE_FROM_NCC_NETWORK_TO_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromPeeredNetworkToDestination
  *        Packet from the unknown peered network is dropped due to no known
  *        route from the source network to the destination IP address. (Value:
@@ -3163,9 +3263,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        "NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRoute Dropped due to no
  *        matching routes. (Value: "NO_ROUTE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromExternalIpv6SourceToPrivateIpv6Address
+ *        Packet is sent from the external IPv6 source address of an instance to
+ *        the private IPv6 address of an instance. (Value:
+ *        "NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address
- *        Packet is sent from the Internet to the private IPv6 address. (Value:
- *        "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS")
+ *        Packet is sent from the Internet or Google service to the private IPv6
+ *        address. (Value: "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination
  *        Packet from the non-GCP (on-prem) or unknown GCP network is dropped
  *        due to the destination IP address not belonging to any IP prefix
@@ -3723,6 +3827,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  rules.
  */
 @property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  The priority of the firewall policy that this rule is associated with. This
+ *  field is not applicable to VPC firewall rules and implied VPC firewall
+ *  rules.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyPriority;
 
 /**
  *  The URI of the firewall policy that this rule is associated with. This field
@@ -4430,8 +4543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  For display only. Metadata associated with a Compute Engine network. Next
- *  ID: 7
+ *  For display only. Metadata associated with a Compute Engine network.
  */
 @interface GTLRNetworkManagement_NetworkInfo : GTLRObject
 
@@ -5726,8 +5838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metadataFields;
 
 /**
- *  Identifier. Unique name of the configuration using the form:
+ *  Identifier. Unique name of the configuration using one of the forms:
  *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  `organizations/{organization_number}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

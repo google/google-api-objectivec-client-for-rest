@@ -339,7 +339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  The email address of the actor. If not provided, it is inferred from the
  *  credentials supplied during case creation. When a name is provided, an email
  *  must also be provided. If the user is a Google Support agent, this is
- *  obfuscated. This field is deprecated. Use **username** field instead.
+ *  obfuscated. This field is deprecated. Use `username` instead.
  */
 @property(nonatomic, copy, nullable) NSString *email GTLR_DEPRECATED;
 
@@ -385,7 +385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 /** Output only. The MIME type of the attachment (e.g. text/plain). */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
-/** Output only. The resource name of the attachment. */
+/** Output only. Identifier. The resource name of the attachment. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -496,7 +496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/** The resource name for the case. */
+/** Identifier. The resource name for the case. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

@@ -253,6 +253,7 @@ NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceC
 
 // GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeState
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Applied = @"APPLIED";
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Canceled = @"CANCELED";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Confirmed = @"CONFIRMED";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Outstanding = @"OUTSTANDING";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_PriceChangeStateUnspecified = @"PRICE_CHANGE_STATE_UNSPECIFIED";
@@ -3164,8 +3165,9 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
-@dynamic autoRenewingPlan, deferredItemReplacement, expiryTime, offerDetails,
-         prepaidPlan, productId, signupPromotion;
+@dynamic autoRenewingPlan, deferredItemReplacement, expiryTime,
+         latestSuccessfulOrderId, offerDetails, prepaidPlan, productId,
+         signupPromotion;
 @end
 
 

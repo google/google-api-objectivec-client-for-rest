@@ -66,6 +66,7 @@
 @class GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Metadata;
 @class GTLRVMMigrationService_DisksMigrationVmTargetDetails;
 @class GTLRVMMigrationService_Encryption;
+@class GTLRVMMigrationService_Expiration;
 @class GTLRVMMigrationService_Group;
 @class GTLRVMMigrationService_ImageImport;
 @class GTLRVMMigrationService_ImageImportJob;
@@ -1085,12 +1086,27 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigratingVm_State_Cut
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigratingVm_State_Error;
 /**
+ *  The migrating VM has passed its expiration date. It might be possible to
+ *  bring it back to "Active" state by updating the TTL field. For more
+ *  information, see the documentation.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigratingVm_State_Expired;
+/**
  *  The replication process is done. The migrating VM is finalized and no longer
  *  consumes billable resources.
  *
  *  Value: "FINALIZED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigratingVm_State_Finalized;
+/**
+ *  The migrating VM's has been finalized and migration resources have been
+ *  removed.
+ *
+ *  Value: "FINALIZED_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigratingVm_State_FinalizedExpired;
 /**
  *  The migrating VM is being finalized and migration resources are being
  *  removed.
@@ -3453,6 +3469,38 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Expiration holds information about the expiration of a MigratingVm.
+ */
+@interface GTLRVMMigrationService_Expiration : GTLRObject
+
+/** Output only. Timestamp of when this resource is considered expired. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. Describes whether the expiration can be extended.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extendable;
+
+/**
+ *  Output only. The number of times expiration was extended.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extensionCount;
+
+@end
+
+
+/**
+ *  Request message for 'ExtendMigrationRequest' request.
+ */
+@interface GTLRVMMigrationService_ExtendMigrationRequest : GTLRObject
+@end
+
+
+/**
  *  Response message for fetchInventory.
  */
 @interface GTLRVMMigrationService_FetchInventoryResponse : GTLRObject
@@ -4395,6 +4443,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_Status *error;
 
 /**
+ *  Output only. Provides details about the expiration state of the migrating
+ *  VM.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Expiration *expiration;
+
+/**
  *  Output only. The group this migrating vm is included in, if any. The group
  *  is represented by the full path of the appropriate Group resource.
  */
@@ -4460,9 +4514,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_MigratingVm_State_Error The replication
  *        process encountered an unrecoverable error and was aborted. (Value:
  *        "ERROR")
+ *    @arg @c kGTLRVMMigrationService_MigratingVm_State_Expired The migrating VM
+ *        has passed its expiration date. It might be possible to bring it back
+ *        to "Active" state by updating the TTL field. For more information, see
+ *        the documentation. (Value: "EXPIRED")
  *    @arg @c kGTLRVMMigrationService_MigratingVm_State_Finalized The
  *        replication process is done. The migrating VM is finalized and no
  *        longer consumes billable resources. (Value: "FINALIZED")
+ *    @arg @c kGTLRVMMigrationService_MigratingVm_State_FinalizedExpired The
+ *        migrating VM's has been finalized and migration resources have been
+ *        removed. (Value: "FINALIZED_EXPIRED")
  *    @arg @c kGTLRVMMigrationService_MigratingVm_State_Finalizing The migrating
  *        VM is being finalized and migration resources are being removed.
  *        (Value: "FINALIZING")

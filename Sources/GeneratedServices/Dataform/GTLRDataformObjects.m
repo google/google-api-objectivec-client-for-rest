@@ -975,7 +975,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_NotebookRuntimeOptions
-@dynamic gcsOutputBucket;
+@dynamic aiPlatformNotebookRuntimeTemplate, gcsOutputBucket;
 @end
 
 

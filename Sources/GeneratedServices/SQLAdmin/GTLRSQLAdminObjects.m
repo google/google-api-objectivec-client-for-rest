@@ -601,6 +601,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlr
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSubscriptionCount = @"PG_SUBSCRIPTION_COUNT";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSyncParallelLevel = @"PG_SYNC_PARALLEL_LEVEL";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup = @"PRIMARY_ALREADY_SETUP";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PscOnlyInstanceWithNoNetworkAttachmentUri = @"PSC_ONLY_INSTANCE_WITH_NO_NETWORK_ATTACHMENT_URI";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege = @"RISKY_BACKUP_ADMIN_PRIVILEGE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsNotExistOnSource = @"SELECTED_OBJECTS_NOT_EXIST_ON_SOURCE";
@@ -1031,14 +1032,14 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_DatabaseInstance
-@dynamic availableMaintenanceVersions, backendType, connectionName, createTime,
-         currentDiskSize, databaseInstalledVersion, databaseVersion,
-         diskEncryptionConfiguration, diskEncryptionStatus, dnsName, dnsNames,
-         ETag, failoverReplica, gceZone, geminiConfig,
+@dynamic availableMaintenanceVersions, backendType, clearNetwork,
+         connectionName, createTime, currentDiskSize, databaseInstalledVersion,
+         databaseVersion, diskEncryptionConfiguration, diskEncryptionStatus,
+         dnsName, dnsNames, ETag, failoverReplica, gceZone, geminiConfig,
          includeReplicasForMajorVersionUpgrade, instanceType, ipAddresses,
          ipv6Address, kind, maintenanceVersion, masterInstanceName, maxDiskSize,
          name, nodeCount, nodes, onPremisesConfiguration, outOfDiskReport,
-         primaryDnsName, project, pscServiceAttachmentLink, region,
+         pitrFields, primaryDnsName, project, pscServiceAttachmentLink, region,
          replicaConfiguration, replicaNames, replicationCluster, rootPassword,
          satisfiesPzi, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
          selfLink, serverCaCert, serviceAccountEmailAddress, settings,
@@ -2064,6 +2065,17 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_PerformDiskShrinkContext
 @dynamic targetSizeGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_PITRFields
+//
+
+@implementation GTLRSQLAdmin_PITRFields
+@dynamic enableBinLog, replicationLogArchivingEnabled, sqlserverPitrEnabled,
+         transactionLogRetentionDays;
 @end
 
 

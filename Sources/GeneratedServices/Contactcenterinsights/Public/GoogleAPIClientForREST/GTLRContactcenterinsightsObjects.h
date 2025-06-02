@@ -135,6 +135,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
@@ -217,6 +219,10 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStats_IssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteAssessmentNote;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteConversationTurnNote;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteQaQuestionNote;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRule;
@@ -245,6 +251,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsMetadataSampleConversationsStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ScheduleInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SentimentData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings_PubsubNotificationSettings;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig;
@@ -256,6 +263,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UserInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View;
 @class GTLRContactcenterinsights_GoogleLongrunningOperation;
 @class GTLRContactcenterinsights_GoogleLongrunningOperation_Metadata;
@@ -279,17 +287,19 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig.summarizationModel
 
 /**
- *  The CCAI baseline model.
+ *  The CCAI baseline model. This model is deprecated and will be removed in the
+ *  future. We recommend using `generator` instead.
  *
  *  Value: "BASELINE_MODEL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel;
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel GTLR_DEPRECATED;
 /**
- *  The CCAI baseline model, V2.0.
+ *  The CCAI baseline model, V2.0. This model is deprecated and will be removed
+ *  in the future. We recommend using `generator` instead.
  *
  *  Value: "BASELINE_MODEL_V2_0"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20;
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20 GTLR_DEPRECATED;
 /**
  *  Unspecified summarization model.
  *
@@ -902,17 +912,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig.summarizationModel
 
 /**
- *  The CCAI baseline model.
+ *  The CCAI baseline model. This model is deprecated and will be removed in the
+ *  future. We recommend using `generator` instead.
  *
  *  Value: "BASELINE_MODEL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel;
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel GTLR_DEPRECATED;
 /**
- *  The CCAI baseline model, V2.0.
+ *  The CCAI baseline model, V2.0. This model is deprecated and will be removed
+ *  in the future. We recommend using `generator` instead.
  *
  *  Value: "BASELINE_MODEL_V2_0"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20;
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20 GTLR_DEPRECATED;
 /**
  *  Unspecified summarization model.
  *
@@ -947,6 +959,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PARTIALLY_CORRECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback_CorrectnessLevel_PartiallyCorrect;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment.state
+
+/**
+ *  The assessment has been appealed.
+ *
+ *  Value: "APPEALED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Appealed;
+/**
+ *  The default state of all new assessments.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Draft;
+/**
+ *  The assessment has been finalized.
+ *
+ *  Value: "FINALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Finalized;
+/**
+ *  The assessment has been published.
+ *
+ *  Value: "PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Published;
+/**
+ *  The state is unspecified. This value should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest.feedbackLabelType
@@ -2090,9 +2136,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
- *        The CCAI baseline model. (Value: "BASELINE_MODEL")
+ *        The CCAI baseline model. This model is deprecated and will be removed
+ *        in the future. We recommend using `generator` instead. (Value:
+ *        "BASELINE_MODEL")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20
- *        The CCAI baseline model, V2.0. (Value: "BASELINE_MODEL_V2_0")
+ *        The CCAI baseline model, V2.0. This model is deprecated and will be
+ *        removed in the future. We recommend using `generator` instead. (Value:
+ *        "BASELINE_MODEL_V2_0")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
  *        Unspecified summarization model. (Value:
  *        "SUMMARIZATION_MODEL_UNSPECIFIED")
@@ -2625,6 +2675,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** A Cloud Storage location specification for the audio and transcript. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource *gcsSource;
+
+/**
+ *  Cloud Storage URI that points to a file that contains the conversation
+ *  metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataUri;
 
 @end
 
@@ -5772,9 +5828,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
- *        The CCAI baseline model. (Value: "BASELINE_MODEL")
+ *        The CCAI baseline model. This model is deprecated and will be removed
+ *        in the future. We recommend using `generator` instead. (Value:
+ *        "BASELINE_MODEL")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20
- *        The CCAI baseline model, V2.0. (Value: "BASELINE_MODEL_V2_0")
+ *        The CCAI baseline model, V2.0. This model is deprecated and will be
+ *        removed in the future. We recommend using `generator` instead. (Value:
+ *        "BASELINE_MODEL_V2_0")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
  *        Unspecified summarization model. (Value:
  *        "SUMMARIZATION_MODEL_UNSPECIFIED")
@@ -5821,6 +5881,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *displayed;
 
+@end
+
+
+/**
+ *  The message to appeal an assessment.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AppealAssessmentRequest : GTLRObject
 @end
 
 
@@ -5875,6 +5942,88 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        fetch them all at once.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The assessment resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment : GTLRObject
+
+/** Information about the agent the assessment is for. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo *agentInfo;
+
+/** Output only. The time at which the assessment was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The resource name of the assessment. Format:
+ *  projects/{project}/locations/{location}/conversations/{conversation}/assessments/{assessment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Appealed
+ *        The assessment has been appealed. (Value: "APPEALED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Draft
+ *        The default state of all new assessments. (Value: "DRAFT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Finalized
+ *        The assessment has been finalized. (Value: "FINALIZED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Published
+ *        The assessment has been published. (Value: "PUBLISHED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified
+ *        The state is unspecified. This value should not be used. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time at which the assessment was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The CCAI Insights project wide assessment rule. This assessment rule will be
+ *  applied to all conversations from the previous sampling cycle that match the
+ *  sample rule defined in the assessment rule. One project can have multiple
+ *  assessment rules.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule : GTLRObject
+
+/**
+ *  If true, apply this rule to conversations. Otherwise, this rule is inactive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/** Output only. The time at which this assessment rule was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Display Name of the assessment rule. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The resource name of the assessment rule. Format:
+ *  projects/{project}/locations/{location}/assessmentRules/{assessment_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The sample rule for the assessment rule. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule *sampleRule;
+
+/** Schedule info for the assessment rule. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ScheduleInfo *scheduleInfo;
+
+/**
+ *  Output only. The most recent time at which this assessment rule was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -6825,6 +6974,12 @@ GTLR_DEPRECATED
 
 /** A Cloud Storage location specification for the audio and transcript. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource *gcsSource;
+
+/**
+ *  Cloud Storage URI that points to a file that contains the conversation
+ *  metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataUri;
 
 @end
 
@@ -8000,6 +8155,14 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The message to finalize an assessment. Finalizing makes an assessment and
+ *  its notes immutable.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FinalizeAssessmentRequest : GTLRObject
+@end
+
+
+/**
  *  A Cloud Storage source of conversation data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource : GTLRObject
@@ -8737,6 +8900,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The response of listing assessment rules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assessmentRules" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentRulesResponse : GTLRCollectionObject
+
+/**
+ *  The assessment rules that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule *> *assessmentRules;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response of listing assessments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assessments" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssessmentsResponse : GTLRCollectionObject
+
+/**
+ *  The assessments that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment *> *assessments;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response from a ListAuthorizedViewSet request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -8860,6 +9077,33 @@ GTLR_DEPRECATED
 
 /** The issues that match the request. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Issue *> *issues;
+
+@end
+
+
+/**
+ *  The response of listing notes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "notes" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListNotesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The notes that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note *> *notes;
 
 @end
 
@@ -8995,6 +9239,77 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View *> *views;
+
+@end
+
+
+/**
+ *  The conversation assessment note resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note : GTLRObject
+
+/** The note is associated to the entire parent assessment. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteAssessmentNote *assessmentNote;
+
+/** The note content. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** The note is associated with a conversation turn. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteConversationTurnNote *conversationTurnNote;
+
+/** Output only. The time at which the note was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The resource name of the note. Format:
+ *  projects/{project}/locations/{location}/conversations/{conversation}/assessments/{assessment}/notes/{note}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The user that created the note. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UserInfo *noteCreator;
+
+/**
+ *  The note is associated with a QA question in one of the conversation's
+ *  scorecard results.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteQaQuestionNote *qaQuestionNote;
+
+/** Output only. The time at which the note was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A note about the entire parent assessment.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteAssessmentNote : GTLRObject
+@end
+
+
+/**
+ *  A note about a conversation turn.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteConversationTurnNote : GTLRObject
+
+/**
+ *  The conversation turn index that the note is associated with.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *turnIndex;
+
+@end
+
+
+/**
+ *  A note about a QA question.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteQaQuestionNote : GTLRObject
+
+/** The question resource that the note is associated with. */
+@property(nonatomic, copy, nullable) NSString *qaQuestion;
 
 @end
 
@@ -9166,6 +9481,15 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  The message to publish an assessment. Draft and appealed assessments can be
+ *  published. Publishing simply changes the state of the assessment to
+ *  published, allowing the console and authorized views to filter on the state.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest : GTLRObject
 @end
 
 
@@ -10176,6 +10500,42 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Message for schedule info.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ScheduleInfo : GTLRObject
+
+/**
+ *  End time of the schedule. If not specified, will keep scheduling new
+ *  pipelines for execution util the schedule is no longer active or deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The groc expression. Format: `every number [synchronized]` Time units can
+ *  be: minutes, hours Synchronized is optional and indicates that the schedule
+ *  should be synchronized to the start of the interval: every 5 minutes
+ *  synchronized means 00:00, 00:05 ... Otherwise the start time is random
+ *  within the interval. Example: `every 5 minutes` could be 00:02, 00:07,
+ *  00:12, ...
+ */
+@property(nonatomic, copy, nullable) NSString *schedule;
+
+/**
+ *  Start time of the schedule. If not specified, will start as soon as the
+ *  schedule is created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The timezone to use for the groc expression. If not specified, defaults to
+ *  UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
  *  The response from a ListAuthorizedViews request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -10593,6 +10953,17 @@ GTLR_DEPRECATED
  *  in Settings.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig *speechConfig;
+
+@end
+
+
+/**
+ *  Information about a user.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UserInfo : GTLRObject
+
+/** The user's username. */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 

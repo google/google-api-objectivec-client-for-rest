@@ -213,7 +213,9 @@ NSString * const kGTLRVMMigrationService_MigratingVm_State_Active = @"ACTIVE";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Cutover = @"CUTOVER";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_CuttingOver = @"CUTTING_OVER";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Error = @"ERROR";
+NSString * const kGTLRVMMigrationService_MigratingVm_State_Expired = @"EXPIRED";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Finalized = @"FINALIZED";
+NSString * const kGTLRVMMigrationService_MigratingVm_State_FinalizedExpired = @"FINALIZED_EXPIRED";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Finalizing = @"FINALIZING";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_FinalSync = @"FINAL_SYNC";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_FirstSync = @"FIRST_SYNC";
@@ -1115,6 +1117,25 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_Expiration
+//
+
+@implementation GTLRVMMigrationService_Expiration
+@dynamic expireTime, extendable, extensionCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ExtendMigrationRequest
+//
+
+@implementation GTLRVMMigrationService_ExtendMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_FetchInventoryResponse
 //
 
@@ -1667,9 +1688,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 @dynamic awsSourceVmDetails, azureSourceVmDetails,
          computeEngineDisksTargetDefaults, computeEngineTargetDefaults,
          createTime, currentSyncInfo, cutoverForecast, descriptionProperty,
-         displayName, error, group, labels, lastReplicationCycle, lastSync,
-         name, policy, recentCloneJobs, recentCutoverJobs, sourceVmId, state,
-         stateTime, updateTime, vmwareSourceVmDetails;
+         displayName, error, expiration, group, labels, lastReplicationCycle,
+         lastSync, name, policy, recentCloneJobs, recentCutoverJobs, sourceVmId,
+         state, stateTime, updateTime, vmwareSourceVmDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

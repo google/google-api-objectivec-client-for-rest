@@ -80,6 +80,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkSignalStrengthEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice;
@@ -1990,6 +1991,62 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "PORTAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Portal;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent.crashType
+
+/**
+ *  Embedded controller crash.
+ *
+ *  Value: "CRASH_TYPE_EMBEDDED_CONTROLLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeEmbeddedController;
+/**
+ *  Kernel crash.
+ *
+ *  Value: "CRASH_TYPE_KERNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeKernel;
+/**
+ *  Crash type unknown.
+ *
+ *  Value: "CRASH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent.sessionType
+
+/**
+ *  Active directory session.
+ *
+ *  Value: "SESSION_TYPE_ACTIVE_DIRECTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeActiveDirectory;
+/**
+ *  Kiosk.
+ *
+ *  Value: "SESSION_TYPE_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeKiosk;
+/**
+ *  Managed guest session.
+ *
+ *  Value: "SESSION_TYPE_MANAGED_GUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeManagedGuest;
+/**
+ *  Signed in user.
+ *
+ *  Value: "SESSION_TYPE_SIGNED_IN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeSignedInUser;
+/**
+ *  Session type unknown.
+ *
+ *  Value: "SESSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
@@ -5804,6 +5861,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent *networkStateChangeEvent;
 
+/**
+ *  Output only. Payload for OS crash event. Present only when `event_type` is
+ *  `OS_CRASH`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent *osCrashEvent;
+
 /** Timestamp that represents when the event was reported. */
 @property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
 
@@ -5978,6 +6041,47 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  owned by users in this org unit.
  */
 @property(nonatomic, copy, nullable) NSString *userOrgUnitId;
+
+@end
+
+
+/**
+ *  OS crash data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent : GTLRObject
+
+/** Crash id. */
+@property(nonatomic, copy, nullable) NSString *crashId;
+
+/**
+ *  Crash type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeEmbeddedController
+ *        Embedded controller crash. (Value: "CRASH_TYPE_EMBEDDED_CONTROLLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeKernel
+ *        Kernel crash. (Value: "CRASH_TYPE_KERNEL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeUnspecified
+ *        Crash type unknown. (Value: "CRASH_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crashType;
+
+/**
+ *  Session type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeActiveDirectory
+ *        Active directory session. (Value: "SESSION_TYPE_ACTIVE_DIRECTORY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeKiosk
+ *        Kiosk. (Value: "SESSION_TYPE_KIOSK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeManagedGuest
+ *        Managed guest session. (Value: "SESSION_TYPE_MANAGED_GUEST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeSignedInUser
+ *        Signed in user. (Value: "SESSION_TYPE_SIGNED_IN_USER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeUnspecified
+ *        Session type unknown. (Value: "SESSION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sessionType;
 
 @end
 

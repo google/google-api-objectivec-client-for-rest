@@ -360,6 +360,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigQueryReservation_FailoverReservationRequest.failoverMode
+
+/**
+ *  Invalid value.
+ *
+ *  Value: "FAILOVER_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_FailoverModeUnspecified;
+/**
+ *  When customers initiate a hard failover, BigQuery will not wait until all
+ *  committed writes are replicated to the secondary. There can be data loss for
+ *  hard failover.
+ *
+ *  Value: "HARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Hard;
+/**
+ *  When customers initiate a soft failover, BigQuery will wait until all
+ *  committed writes are replicated to the secondary.
+ *
+ *  Value: "SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Soft;
+
+// ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_Reservation.edition
 
 /**
@@ -999,6 +1024,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  The request for ReservationService.FailoverReservation.
  */
 @interface GTLRBigQueryReservation_FailoverReservationRequest : GTLRObject
+
+/**
+ *  Optional. failover mode for the failover operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_FailoverModeUnspecified
+ *        Invalid value. (Value: "FAILOVER_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Hard
+ *        When customers initiate a hard failover, BigQuery will not wait until
+ *        all committed writes are replicated to the secondary. There can be
+ *        data loss for hard failover. (Value: "HARD")
+ *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Soft
+ *        When customers initiate a soft failover, BigQuery will wait until all
+ *        committed writes are replicated to the secondary. (Value: "SOFT")
+ */
+@property(nonatomic, copy, nullable) NSString *failoverMode;
+
 @end
 
 
@@ -1247,6 +1289,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  that was successfully replicated to the secondary.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastReplicationTime;
+
+/**
+ *  Output only. The time at which a soft failover for the reservation and its
+ *  associated datasets was initiated. After this field is set, all subsequent
+ *  changes to the reservation will be rejected unless a hard failover overrides
+ *  this operation. This field will be cleared once the failover is complete.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *softFailoverStartTime;
 
 @end
 

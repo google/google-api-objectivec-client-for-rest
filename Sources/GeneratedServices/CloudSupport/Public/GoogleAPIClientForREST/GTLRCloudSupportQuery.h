@@ -607,7 +607,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudSupportQuery_CasesPatch : GTLRCloudSupportQuery
 
-/** The resource name for the case. */
+/** Identifier. The resource name for the case. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -640,7 +640,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Now a New Title", "priority": "P2", }, ) print(request.execute()) ```
  *
  *  @param object The @c GTLRCloudSupport_Case to include in the query.
- *  @param name The resource name for the case.
+ *  @param name Identifier. The resource name for the case.
  *
  *  @return GTLRCloudSupportQuery_CasesPatch
  */

@@ -415,7 +415,16 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_Resource
-@dynamic expectedNextState, labels, name, nextStateOfTags, service, type;
+@dynamic expectedNextState, labels, locations, name, nextStateOfTags, service,
+         type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

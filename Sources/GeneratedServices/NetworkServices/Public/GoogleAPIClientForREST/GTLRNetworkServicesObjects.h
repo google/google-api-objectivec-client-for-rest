@@ -2545,7 +2545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Specifies the policy on how requests are shadowed to a separate mirrored
  *  destination service. The proxy does not wait for responses from the shadow
  *  service. Prior to sending traffic to the shadow service, the host/authority
- *  header is suffixed with -shadow.
+ *  header is suffixed with -shadow. Mirroring is currently not supported for
+ *  Cloud Run destinations.
  */
 @interface GTLRNetworkServices_HttpRouteRequestMirrorPolicy : GTLRObject
 

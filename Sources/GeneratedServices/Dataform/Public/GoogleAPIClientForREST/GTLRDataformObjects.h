@@ -1842,6 +1842,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @interface GTLRDataform_NotebookRuntimeOptions : GTLRObject
 
 /**
+ *  Optional. The resource name of the [Colab runtime template]
+ *  (https://cloud.google.com/colab/docs/runtimes), from which a runtime is
+ *  created for notebook executions. If not specified, a runtime is created with
+ *  Colab's default specifications.
+ */
+@property(nonatomic, copy, nullable) NSString *aiPlatformNotebookRuntimeTemplate;
+
+/**
  *  Optional. The Google Cloud Storage location to upload the result to. Format:
  *  `gs://bucket-name`.
  */

@@ -1135,7 +1135,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Submit a provisiong configuration for a given project.
+ *  Submit a provisioning configuration for a given project.
  *
  *  Method: baremetalsolution.projects.locations.provisioningConfigs.submit
  *
@@ -1152,7 +1152,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBareMetalSolution_SubmitProvisioningConfigResponse.
  *
- *  Submit a provisiong configuration for a given project.
+ *  Submit a provisioning configuration for a given project.
  *
  *  @param object The @c GTLRBareMetalSolution_SubmitProvisioningConfigRequest
  *    to include in the query.

@@ -77,6 +77,7 @@
 @class GTLRSQLAdmin_OperationErrors;
 @class GTLRSQLAdmin_PasswordStatus;
 @class GTLRSQLAdmin_PasswordValidationPolicy;
+@class GTLRSQLAdmin_PITRFields;
 @class GTLRSQLAdmin_PoolNodeConfig;
 @class GTLRSQLAdmin_PscAutoConnectionConfig;
 @class GTLRSQLAdmin_PscConfig;
@@ -3299,6 +3300,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "PRIMARY_ALREADY_SETUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup;
+/**
+ *  PSC only destination instance does not have a network attachment URI.
+ *
+ *  Value: "PSC_ONLY_INSTANCE_WITH_NO_NETWORK_ATTACHMENT_URI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PscOnlyInstanceWithNoNetworkAttachmentUri;
 /** Value: "REPLICA_ALREADY_SETUP" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup;
 /**
@@ -5086,6 +5093,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *backendType;
 
+/**
+ *  Clears private network settings when the instance is restored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clearNetwork;
+
 /** Connection name of the Cloud SQL instance used in connection strings. */
 @property(nonatomic, copy, nullable) NSString *connectionName;
 
@@ -5355,6 +5369,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  wellness job for OOD. * Readers: * the proactive database wellness job
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlOutOfDiskReport *outOfDiskReport;
+
+/** Input only. PITR related fields added for Instance Independent PITR. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_PITRFields *pitrFields;
 
 /** Output only. DEPRECATED: please use write_endpoint instead. */
 @property(nonatomic, copy, nullable) NSString *primaryDnsName GTLR_DEPRECATED;
@@ -7823,6 +7840,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  PITR related fields include enablement settings, archiving settings, and the
+ *  bucket name.
+ */
+@interface GTLRSQLAdmin_PITRFields : GTLRObject
+
+/**
+ *  The enablement setting for PITR for MySQL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableBinLog;
+
+/**
+ *  The enablement setting for PITR for PostgreSQL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicationLogArchivingEnabled;
+
+/**
+ *  The enablement setting for PITR for SQL Server.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sqlserverPitrEnabled;
+
+/**
+ *  The number of transaction log days to retain for PITR
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transactionLogRetentionDays;
+
+@end
+
+
+/**
  *  The context to perform a point-in-time recovery of an instance managed by
  *  Google Cloud Backup and Disaster Recovery.
  */
@@ -8661,6 +8715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup
  *        The primary instance has been setup and will fail the setup. (Value:
  *        "PRIMARY_ALREADY_SETUP")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PscOnlyInstanceWithNoNetworkAttachmentUri
+ *        PSC only destination instance does not have a network attachment URI.
+ *        (Value: "PSC_ONLY_INSTANCE_WITH_NO_NETWORK_ATTACHMENT_URI")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup
  *        Value "REPLICA_ALREADY_SETUP"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege

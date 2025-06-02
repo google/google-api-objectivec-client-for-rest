@@ -1621,7 +1621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesPatch : GTLRNetworkconnectivityQuery
 
 /**
- *  Immutable. The name of an internal range. Format:
+ *  Identifier. The name of an internal range. Format:
  *  projects/{project}/locations/{location}/internalRanges/{internal_range} See:
  *  https://google.aip.dev/122#fields-representing-resource-names
  */
@@ -1660,7 +1660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  @param object The @c GTLRNetworkconnectivity_InternalRange to include in the
  *    query.
- *  @param name Immutable. The name of an internal range. Format:
+ *  @param name Identifier. The name of an internal range. Format:
  *    projects/{project}/locations/{location}/internalRanges/{internal_range}
  *    See: https://google.aip.dev/122#fields-representing-resource-names
  *

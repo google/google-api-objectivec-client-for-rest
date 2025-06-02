@@ -820,6 +820,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_DatabaseMoveConfig
+//
+
+@implementation GTLRSpanner_DatabaseMoveConfig
+@dynamic databaseId, encryptionConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_DatabaseRole
 //
 
@@ -1272,6 +1282,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_InstanceEncryptionConfig
+//
+
+@implementation GTLRSpanner_InstanceEncryptionConfig
+@dynamic kmsKeyName, kmsKeyNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"kmsKeyNames" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -1833,7 +1861,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_MoveInstanceRequest
-@dynamic targetConfig;
+@dynamic targetConfig, targetDatabaseMoveConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetDatabaseMoveConfigs" : [GTLRSpanner_DatabaseMoveConfig class]
+  };
+  return map;
+}
+
 @end
 
 

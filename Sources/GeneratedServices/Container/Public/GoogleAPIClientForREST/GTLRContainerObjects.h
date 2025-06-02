@@ -22,6 +22,7 @@
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AdvancedDatapathObservabilityConfig;
 @class GTLRContainer_AdvancedMachineFeatures;
+@class GTLRContainer_AnonymousAuthenticationConfig;
 @class GTLRContainer_AuthenticatorGroupsConfig;
 @class GTLRContainer_AutoMonitoringConfig;
 @class GTLRContainer_Autopilot;
@@ -72,6 +73,7 @@
 @class GTLRContainer_GkeBackupAgentConfig;
 @class GTLRContainer_GPUDriverInstallationConfig;
 @class GTLRContainer_GPUSharingConfig;
+@class GTLRContainer_HighScaleCheckpointingConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
@@ -224,6 +226,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityC
  *  Value: "RELAY_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_RelayModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AdvancedMachineFeatures.performanceMonitoringUnit
+
+/**
+ *  Architecturally defined non-LLC events.
+ *
+ *  Value: "ARCHITECTURAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Architectural;
+/**
+ *  Most documented core/L2 and LLC events.
+ *
+ *  Value: "ENHANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Enhanced;
+/**
+ *  PMU not enabled.
+ *
+ *  Value: "PERFORMANCE_MONITORING_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_PerformanceMonitoringUnitUnspecified;
+/**
+ *  Most documented core/L2 events.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_AutoMonitoringConfig.scope
@@ -2756,6 +2786,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for the Backup for GKE agent addon. */
 @property(nonatomic, strong, nullable) GTLRContainer_GkeBackupAgentConfig *gkeBackupAgentConfig;
 
+/** Configuration for the High Scale Checkpointing add-on. */
+@property(nonatomic, strong, nullable) GTLRContainer_HighScaleCheckpointingConfig *highScaleCheckpointingConfig;
+
 /**
  *  Configuration for the horizontal pod autoscaling feature, which increases or
  *  decreases the number of replica pods a replication controller has based on
@@ -2849,6 +2882,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
 /**
+ *  Type of Performance Monitoring Unit (PMU) requested on node pool instances.
+ *  If unset, PMU will not be available to the node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Architectural
+ *        Architecturally defined non-LLC events. (Value: "ARCHITECTURAL")
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Enhanced
+ *        Most documented core/L2 and LLC events. (Value: "ENHANCED")
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_PerformanceMonitoringUnitUnspecified
+ *        PMU not enabled. (Value: "PERFORMANCE_MONITORING_UNIT_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Standard
+ *        Most documented core/L2 events. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *performanceMonitoringUnit;
+
+/**
  *  The number of threads per physical core. To disable simultaneous
  *  multithreading (SMT) set this to 1. If unset, the maximum number of threads
  *  supported per core by the underlying processor is assumed.
@@ -2857,6 +2906,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *threadsPerCore;
 
+@end
+
+
+/**
+ *  AnonymousAuthenticationConfig defines the settings needed to limit endpoints
+ *  that allow anonymous authentication.
+ */
+@interface GTLRContainer_AnonymousAuthenticationConfig : GTLRObject
 @end
 
 
@@ -3369,6 +3426,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  "featureX=false")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *alphaClusterFeatureGates;
+
+/**
+ *  Configuration for limiting anonymous access to all endpoints except the
+ *  health checks.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AnonymousAuthenticationConfig *anonymousAuthenticationConfig;
 
 /** Configuration controlling RBAC group membership information. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *authenticatorGroupsConfig;
@@ -3932,6 +3995,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
+
+/**
+ *  Configuration for limiting anonymous access to all endpoints except the
+ *  health checks.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AnonymousAuthenticationConfig *desiredAnonymousAuthenticationConfig;
 
 /** The desired authenticator groups config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *desiredAuthenticatorGroupsConfig;
@@ -5185,6 +5254,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxSharedClientsPerGpu;
+
+@end
+
+
+/**
+ *  Configuration for the High Scale Checkpointing.
+ */
+@interface GTLRContainer_HighScaleCheckpointingConfig : GTLRObject
+
+/**
+ *  Whether the High Scale Checkpointing is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 

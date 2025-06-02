@@ -35,6 +35,11 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus.state
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress.feature
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection = @"EXPLICIT_CONTENT_DETECTION";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FaceDetection = @"FACE_DETECTION";
@@ -55,6 +60,11 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Expli
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus.state
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig.labelDetectionMode
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_FrameMode = @"FRAME_MODE";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_LabelDetectionModeUnspecified = @"LABEL_DETECTION_MODE_UNSPECIFIED";
@@ -68,6 +78,11 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1bet
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_Unlikely = @"UNLIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus.state
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress.feature
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection = @"EXPLICIT_CONTENT_DETECTION";
@@ -89,6 +104,11 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2bet
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus.state
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress.feature
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection = @"EXPLICIT_CONTENT_DETECTION";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FaceDetection = @"FACE_DETECTION";
@@ -108,6 +128,11 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3bet
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Unlikely = @"UNLIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus.state
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress.feature
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_CelebrityRecognition = @"CELEBRITY_RECOGNITION";
@@ -288,6 +313,16 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame
 @dynamic pornographyLikelihood, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus
+@dynamic state, status;
 @end
 
 
@@ -625,7 +660,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress
-@dynamic feature, inputUri, progressPercent, segment, startTime, updateTime;
+@dynamic exportStatus, feature, inputUri, progressPercent, segment, startTime,
+         updateTime;
 @end
 
 
@@ -754,6 +790,16 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame
 @dynamic pornographyLikelihood, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus
+@dynamic state, status;
 @end
 
 
@@ -1074,6 +1120,16 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame
 @dynamic pornographyLikelihood, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus
+@dynamic state, status;
 @end
 
 
@@ -1411,7 +1467,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress
-@dynamic feature, inputUri, progressPercent, segment, startTime, updateTime;
+@dynamic exportStatus, feature, inputUri, progressPercent, segment, startTime,
+         updateTime;
 @end
 
 
@@ -1566,6 +1623,16 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame
 @dynamic pornographyLikelihood, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus
+@dynamic state, status;
 @end
 
 
@@ -1903,7 +1970,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress
-@dynamic feature, inputUri, progressPercent, segment, startTime, updateTime;
+@dynamic exportStatus, feature, inputUri, progressPercent, segment, startTime,
+         updateTime;
 @end
 
 
@@ -2109,6 +2177,16 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame
 @dynamic pornographyLikelihood, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus
+@dynamic state, status;
 @end
 
 
@@ -2487,7 +2565,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress
-@dynamic feature, inputUri, progressPercent, segment, startTime, updateTime;
+@dynamic exportStatus, feature, inputUri, progressPercent, segment, startTime,
+         updateTime;
 @end
 
 
@@ -2767,7 +2846,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress
-@dynamic feature, inputUri, progressPercent, segment, startTime, updateTime;
+@dynamic exportStatus, feature, inputUri, progressPercent, segment, startTime,
+         updateTime;
 @end
 
 

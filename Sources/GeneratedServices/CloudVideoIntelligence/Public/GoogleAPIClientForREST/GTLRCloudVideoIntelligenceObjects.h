@@ -21,6 +21,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceFrame;
@@ -52,6 +53,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentDetectionConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionConfig;
@@ -73,6 +75,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceFrame;
@@ -103,6 +106,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceFrame;
@@ -136,6 +140,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceFrame;
@@ -303,6 +308,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus.state
+
+/**
+ *  Export failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_Failed;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_StateUnspecified;
+/**
+ *  Export succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress.feature
 
 /**
@@ -407,6 +434,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus.state
+
+/**
+ *  Export failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_Failed;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_StateUnspecified;
+/**
+ *  Export succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig.labelDetectionMode
 
 /**
@@ -473,6 +522,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Value: "VERY_UNLIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus.state
+
+/**
+ *  Export failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_Failed;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_StateUnspecified;
+/**
+ *  Export succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress.feature
@@ -579,6 +650,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus.state
+
+/**
+ *  Export failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_Failed;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_StateUnspecified;
+/**
+ *  Export succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress.feature
 
 /**
@@ -681,6 +774,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Value: "VERY_UNLIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus.state
+
+/**
+ *  Export failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_Failed;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_StateUnspecified;
+/**
+ *  Export succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress.feature
@@ -1043,6 +1158,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  video frame for this location.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Status of exporting annotation response to user specified `output_uri`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus : GTLRObject
+
+/**
+ *  Output only. State of the `output_uri` export.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_Failed
+ *        Export failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus_State_Succeeded
+ *        Export succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Only set if state is FAILED. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleRpcStatus *status;
 
 @end
 
@@ -1535,6 +1674,12 @@ GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress : GTLRObject
 
 /**
+ *  Status of exporting annotation response to user specified `output_uri`. Only
+ *  set if `output_uri` is set in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExportToOutputUriStatus *exportStatus;
+
+/**
  *  Specifies which feature is being tracked if the request contains more than
  *  one feature.
  *
@@ -1888,6 +2033,30 @@ GTLR_DEPRECATED
  *  video frame for this location.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Status of exporting annotation response to user specified `output_uri`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus : GTLRObject
+
+/**
+ *  Output only. State of the `output_uri` export.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_Failed
+ *        Export failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus_State_Succeeded
+ *        Export succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Only set if state is FAILED. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleRpcStatus *status;
 
 @end
 
@@ -2460,6 +2629,30 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Status of exporting annotation response to user specified `output_uri`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus : GTLRObject
+
+/**
+ *  Output only. State of the `output_uri` export.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_Failed
+ *        Export failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus_State_Succeeded
+ *        Export succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Only set if state is FAILED. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleRpcStatus *status;
+
+@end
+
+
+/**
  *  Deprecated. No effect.
  */
 GTLR_DEPRECATED
@@ -2947,6 +3140,12 @@ GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress : GTLRObject
 
 /**
+ *  Status of exporting annotation response to user specified `output_uri`. Only
+ *  set if `output_uri` is set in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExportToOutputUriStatus *exportStatus;
+
+/**
  *  Specifies which feature is being tracked if the request contains more than
  *  one feature.
  *
@@ -3312,6 +3511,30 @@ GTLR_DEPRECATED
  *  video frame for this location.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Status of exporting annotation response to user specified `output_uri`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus : GTLRObject
+
+/**
+ *  Output only. State of the `output_uri` export.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_Failed
+ *        Export failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus_State_Succeeded
+ *        Export succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Only set if state is FAILED. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleRpcStatus *status;
 
 @end
 
@@ -3804,6 +4027,12 @@ GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress : GTLRObject
 
 /**
+ *  Status of exporting annotation response to user specified `output_uri`. Only
+ *  set if `output_uri` is set in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExportToOutputUriStatus *exportStatus;
+
+/**
  *  Specifies which feature is being tracked if the request contains more than
  *  one feature.
  *
@@ -4228,6 +4457,30 @@ GTLR_DEPRECATED
  *  video frame for this location.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Status of exporting annotation response to user specified `output_uri`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus : GTLRObject
+
+/**
+ *  Output only. State of the `output_uri` export.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_Failed
+ *        Export failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus_State_Succeeded
+ *        Export succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Only set if state is FAILED. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleRpcStatus *status;
 
 @end
 
@@ -4787,6 +5040,12 @@ GTLR_DEPRECATED
  *  Annotation progress for a single video.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress : GTLRObject
+
+/**
+ *  Status of exporting annotation response to user specified `output_uri`. Only
+ *  set if `output_uri` is set in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExportToOutputUriStatus *exportStatus;
 
 /**
  *  Specifies which feature is being tracked if the request contains more than
@@ -5367,6 +5626,12 @@ GTLR_DEPRECATED
  *  Annotation progress for a single video.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress : GTLRObject
+
+/**
+ *  Status of exporting annotation response to user specified `output_uri`. Only
+ *  set if `output_uri` is set in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExportToOutputUriStatus *exportStatus;
 
 /**
  *  Specifies which feature is being tracked if the request contains more than
