@@ -35,7 +35,7 @@ def Main(args):
   with open(index_path, 'r') as fp:
     services = json.load(fp).get('items')
 
-  file_names = []
+  cached_paths = []
   for x in services:
     if not x.get("preferred"):
       continue
@@ -43,13 +43,14 @@ def Main(args):
     if name in opts.skip:
       continue
     version = x.get('version')
-    file_names.append(f'{name}.{version}.json')
+    file_name = f'{name}.{version}.json'
+    cached_path = os.path.join(opts.cache_dir, file_name)
+    if os.path.isfile(cached_path):
+      cached_paths.append(cached_path)
+    else:
+      print(f'WARNING: {file_name} not found, skipping', file=sys.stderr)
 
-  perferred_paths = [
-    os.path.join(opts.cache_dir, x)
-    for x in file_names
-  ]
-  print(" ".join(perferred_paths))
+  print(" ".join(cached_paths))
 
 if __name__ == '__main__':
   sys.exit(Main(sys.argv[1:]))
