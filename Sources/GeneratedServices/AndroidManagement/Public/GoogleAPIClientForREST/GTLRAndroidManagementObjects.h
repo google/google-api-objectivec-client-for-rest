@@ -17,6 +17,7 @@
 
 @class GTLRAndroidManagement_AdbShellCommandEvent;
 @class GTLRAndroidManagement_AdbShellInteractiveEvent;
+@class GTLRAndroidManagement_AddEsimParams;
 @class GTLRAndroidManagement_AdvancedSecurityOverrides;
 @class GTLRAndroidManagement_AlwaysOnVpnPackage;
 @class GTLRAndroidManagement_ApiLevelCondition;
@@ -63,6 +64,8 @@
 @class GTLRAndroidManagement_EnrollmentCompleteEvent;
 @class GTLRAndroidManagement_EnrollmentToken;
 @class GTLRAndroidManagement_Enterprise;
+@class GTLRAndroidManagement_EsimCommandStatus;
+@class GTLRAndroidManagement_EsimInfo;
 @class GTLRAndroidManagement_EuiccChipInfo;
 @class GTLRAndroidManagement_ExtensionConfig;
 @class GTLRAndroidManagement_ExternalData;
@@ -73,6 +76,7 @@
 @class GTLRAndroidManagement_HardwareInfo;
 @class GTLRAndroidManagement_HardwareStatus;
 @class GTLRAndroidManagement_InstallConstraint;
+@class GTLRAndroidManagement_InternalErrorDetails;
 @class GTLRAndroidManagement_KeyDestructionEvent;
 @class GTLRAndroidManagement_KeyedAppState;
 @class GTLRAndroidManagement_KeyGeneratedEvent;
@@ -125,6 +129,7 @@
 @class GTLRAndroidManagement_PreferentialNetworkServiceSettings;
 @class GTLRAndroidManagement_ProxyInfo;
 @class GTLRAndroidManagement_RemoteLockEvent;
+@class GTLRAndroidManagement_RemoveEsimParams;
 @class GTLRAndroidManagement_RequestDeviceInfoParams;
 @class GTLRAndroidManagement_RequestDeviceInfoStatus;
 @class GTLRAndroidManagement_ScreenBrightnessSettings;
@@ -159,6 +164,7 @@
 @class GTLRAndroidManagement_WifiSsidPolicy;
 @class GTLRAndroidManagement_WipeAction;
 @class GTLRAndroidManagement_WipeFailureEvent;
+@class GTLRAndroidManagement_WorkAccountSetupConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -170,6 +176,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AddEsimParams.activationState
+
+/**
+ *  The eSIM is automatically activated after downloading. Setting this as the
+ *  activation state for personally-owned devices will result in the command
+ *  being rejected.
+ *
+ *  Value: "ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AddEsimParams_ActivationState_Activated;
+/**
+ *  eSIM activation state is not specified. This defaults to the eSIM profile
+ *  being NOT_ACTIVATED on personally-owned devices and ACTIVATED on
+ *  company-owned devices.
+ *
+ *  Value: "ACTIVATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AddEsimParams_ActivationState_ActivationStateUnspecified;
+/**
+ *  The eSIM profile is downloaded but not activated. In this case, the user
+ *  will need to activate the eSIM manually on the device.
+ *
+ *  Value: "NOT_ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AddEsimParams_ActivationState_NotActivated;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.commonCriteriaMode
@@ -1551,6 +1584,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordF
 // GTLRAndroidManagement_Command.type
 
 /**
+ *  Adds an eSIM profile to the device. This is supported on Android 15 and
+ *  above. See also addEsimParams.
+ *
+ *  Value: "ADD_ESIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_AddEsim;
+/**
  *  Clears the application data of specified apps. This is supported on Android
  *  9 and above. Note that an application can store data outside of its
  *  application data, for example in external storage or in a user dictionary.
@@ -1587,6 +1627,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Reboot;
  *  Value: "RELINQUISH_OWNERSHIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RelinquishOwnership;
+/**
+ *  Removes an eSIM profile from the device. This is supported on Android 15 and
+ *  above. See also removeEsimParams.
+ *
+ *  Value: "REMOVE_ESIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RemoveEsim;
 /**
  *  Request information related to the device.
  *
@@ -2542,6 +2589,73 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_EsimCommandStatus.status
+
+/**
+ *  For a REMOVE_ESIM command, the iccId of the eSIM to be removed was not found
+ *  on the device. This could either mean the eSIM does not belong to the
+ *  enterprise or the eSIM corresponding to the iccId is not present on the
+ *  device.
+ *
+ *  Value: "ERROR_ICC_ID_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorIccIdNotFound;
+/**
+ *  The ADD_ESIM command failed when attempting to add a new eSIM with its
+ *  activation state set to ACTIVATED since multiple eSIM slots on the device
+ *  contain active eSIM profiles and there is no free eSIM slot available. To
+ *  resolve this, the new eSIM can be added with its activation state as
+ *  NOT_ACTIVATED for later manual activation, or the user must first deactivate
+ *  an existing active eSIM for the operation to proceed.
+ *
+ *  Value: "ERROR_MULTIPLE_ACTIVE_ESIMS_NO_AVAILABLE_SLOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorMultipleActiveEsimsNoAvailableSlot;
+/**
+ *  The eSIM operation cannot be executed when setup is in progress.
+ *
+ *  Value: "ERROR_SETUP_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorSetupInProgress;
+/**
+ *  The user has denied the eSIM operation.
+ *
+ *  Value: "ERROR_USER_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorUserDenied;
+/**
+ *  The eSIM operation is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_InProgress;
+/**
+ *  An error has occurred while trying to add or remove the eSIM on the device,
+ *  see internal_error_details.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_InternalError;
+/**
+ *  The user needs to take an action for the eSIM operation to proceed.
+ *
+ *  Value: "PENDING_USER_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_PendingUserAction;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_StatusUnspecified;
+/**
+ *  The eSIM operation was successfully performed on the device.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_Success;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
 
 /**
@@ -2629,6 +2743,268 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_Netw
  *  Value: "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_InternalErrorDetails.errorCodeDetail
+
+/**
+ *  See EuiccManager.ERROR_ADDRESS_MISSING
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_ADDRESS_MISSING)
+ *  for details.
+ *
+ *  Value: "ERROR_ADDRESS_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorAddressMissing;
+/**
+ *  See EuiccManager.ERROR_CARRIER_LOCKED
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CARRIER_LOCKED)
+ *  for details.
+ *
+ *  Value: "ERROR_CARRIER_LOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCarrierLocked;
+/**
+ *  See EuiccManager.ERROR_CERTIFICATE_ERROR
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CERTIFICATE_ERROR)
+ *  for details.
+ *
+ *  Value: "ERROR_CERTIFICATE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCertificateError;
+/**
+ *  Error code detail is unspecified. The error_code is not recognized by
+ *  Android Management API. However, see error_code
+ *
+ *  Value: "ERROR_CODE_DETAIL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCodeDetailUnspecified;
+/**
+ *  See EuiccManager.ERROR_CONNECTION_ERROR
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CONNECTION_ERROR)
+ *  for details.
+ *
+ *  Value: "ERROR_CONNECTION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorConnectionError;
+/**
+ *  See EuiccManager.ERROR_DISALLOWED_BY_PPR
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_DISALLOWED_BY_PPR)
+ *  for details.
+ *
+ *  Value: "ERROR_DISALLOWED_BY_PPR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorDisallowedByPpr;
+/**
+ *  See EuiccManager.ERROR_EUICC_INSUFFICIENT_MEMORY
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_INSUFFICIENT_MEMORY)
+ *  for details.
+ *
+ *  Value: "ERROR_EUICC_INSUFFICIENT_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccInsufficientMemory;
+/**
+ *  See EuiccManager.ERROR_EUICC_MISSING
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_MISSING)
+ *  for details.
+ *
+ *  Value: "ERROR_EUICC_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccMissing;
+/**
+ *  See EuiccManager.ERROR_INCOMPATIBLE_CARRIER
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INCOMPATIBLE_CARRIER)
+ *  for details.
+ *
+ *  Value: "ERROR_INCOMPATIBLE_CARRIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorIncompatibleCarrier;
+/**
+ *  See EuiccManager.ERROR_INSTALL_PROFILE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INSTALL_PROFILE)
+ *  for details.
+ *
+ *  Value: "ERROR_INSTALL_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInstallProfile;
+/**
+ *  See EuiccManager.ERROR_INVALID_ACTIVATION_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_ACTIVATION_CODE)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_ACTIVATION_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidActivationCode;
+/**
+ *  See EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_CONFIRMATION_CODE)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_CONFIRMATION_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidConfirmationCode;
+/**
+ *  See EuiccManager.ERROR_INVALID_PORT
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_PORT)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_PORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidPort;
+/**
+ *  See EuiccManager.ERROR_INVALID_RESPONSE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_RESPONSE)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidResponse;
+/**
+ *  See EuiccManager.ERROR_NO_PROFILES_AVAILABLE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_NO_PROFILES_AVAILABLE)
+ *  for details.
+ *
+ *  Value: "ERROR_NO_PROFILES_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorNoProfilesAvailable;
+/**
+ *  See EuiccManager.ERROR_OPERATION_BUSY
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_OPERATION_BUSY)
+ *  for details.
+ *
+ *  Value: "ERROR_OPERATION_BUSY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorOperationBusy;
+/**
+ *  See EuiccManager.ERROR_SIM_MISSING
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_SIM_MISSING)
+ *  for details.
+ *
+ *  Value: "ERROR_SIM_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorSimMissing;
+/**
+ *  See EuiccManager.ERROR_TIME_OUT
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_TIME_OUT)
+ *  for details.
+ *
+ *  Value: "ERROR_TIME_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorTimeOut;
+/**
+ *  See EuiccManager.ERROR_UNSUPPORTED_VERSION
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_UNSUPPORTED_VERSION)
+ *  for details.
+ *
+ *  Value: "ERROR_UNSUPPORTED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorUnsupportedVersion;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_InternalErrorDetails.operationCodeDetail
+
+/**
+ *  See EuiccManager.OPERATION_APDU
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_APDU)
+ *  for details.
+ *
+ *  Value: "OPERATION_APDU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationApdu;
+/**
+ *  Operation code detail is unspecified. The operation_code is not recognized
+ *  by Android Management API. However, see operation_code.
+ *
+ *  Value: "OPERATION_CODE_DETAIL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationCodeDetailUnspecified;
+/**
+ *  See EuiccManager.OPERATION_DOWNLOAD
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_DOWNLOAD)
+ *  for details.
+ *
+ *  Value: "OPERATION_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationDownload;
+/**
+ *  See EuiccManager.OPERATION_EUICC_CARD
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_CARD)
+ *  for details.
+ *
+ *  Value: "OPERATION_EUICC_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccCard;
+/**
+ *  See EuiccManager.OPERATION_EUICC_GSMA
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_GSMA)
+ *  for details.
+ *
+ *  Value: "OPERATION_EUICC_GSMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccGsma;
+/**
+ *  See EuiccManager.OPERATION_HTTP
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_HTTP)
+ *  for details.
+ *
+ *  Value: "OPERATION_HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationHttp;
+/**
+ *  See EuiccManager.OPERATION_METADATA
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_METADATA)
+ *  for details.
+ *
+ *  Value: "OPERATION_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationMetadata;
+/**
+ *  See EuiccManager.OPERATION_SIM_SLOT
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SIM_SLOT)
+ *  for details.
+ *
+ *  Value: "OPERATION_SIM_SLOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSimSlot;
+/**
+ *  See EuiccManager.OPERATION_SMDX
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX)
+ *  for details.
+ *
+ *  Value: "OPERATION_SMDX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdx;
+/**
+ *  See EuiccManager.OPERATION_SMDX_SUBJECT_REASON_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE)
+ *  for details. Note that, in this case, error_code is the least significant 3
+ *  bytes of the EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE)
+ *  specifying the subject code and the reason code as indicated here
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE).
+ *  The most significant byte of the integer is zeroed out. For example, a
+ *  Subject Code of 8.11.1 and a Reason Code of 5.1 is represented in error_code
+ *  as 0000 0000 1000 1011 0001 0000 0101 0001 in binary, which is 9113681 in
+ *  decimal.
+ *
+ *  Value: "OPERATION_SMDX_SUBJECT_REASON_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdxSubjectReasonCode;
+/**
+ *  See EuiccManager.OPERATION_SWITCH
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SWITCH)
+ *  for details.
+ *
+ *  Value: "OPERATION_SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSwitch;
+/**
+ *  See EuiccManager.OPERATION_SYSTEM
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SYSTEM)
+ *  for details.
+ *
+ *  Value: "OPERATION_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSystem;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KeyedAppState.severity
@@ -3101,6 +3477,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
 // GTLRAndroidManagement_NonComplianceDetail.specificNonComplianceReason
 
 /**
+ *  Work account added by the user is not part of the enterprise.
+ *  nonComplianceReason is set to USER_ACTION.
+ *
+ *  Value: "NEW_ACCOUNT_NOT_IN_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_NewAccountNotInEnterprise;
+/**
  *  The ONC Wi-Fi setting is not supported in the API level of the Android
  *  version running on the device. fieldPath specifies which field value is not
  *  supported. oncWifiContext is set. nonComplianceReason is set to API_LEVEL.
@@ -3172,6 +3555,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Sp
  *  Value: "PERMISSIBLE_USAGE_RESTRICTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PermissibleUsageRestriction;
+/**
+ *  Work account required by the workAccountSetupConfig policy setting is not
+ *  part of the enterprise anymore. nonComplianceReason is set to USER_ACTION.
+ *
+ *  Value: "REQUIRED_ACCOUNT_NOT_IN_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_RequiredAccountNotInEnterprise;
 /**
  *  Specific non-compliance reason is not specified. Fields in
  *  specific_non_compliance_context are not set.
@@ -4258,6 +4648,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedMo
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.wipeDataFlags
+
+/**
+ *  This value must not be used.
+ *
+ *  Value: "WIPE_DATA_FLAG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_WipeDataFlags_WipeDataFlagUnspecified;
+/**
+ *  For company-owned devices, setting this in wipeDataFlags will remove all
+ *  eSIMs on the device when wipe is triggered due to any reason. On
+ *  personally-owned devices, this will remove only managed eSIMs on the device.
+ *  (eSIMs which are added via the ADD_ESIM command). This is supported on
+ *  devices running Android 15 and above. A nonComplianceDetail with API_LEVEL
+ *  is reported if the Android version is less than 15.
+ *
+ *  Value: "WIPE_ESIMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_WipeDataFlags_WipeEsims;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PostureDetail.securityRisk
 
 /**
@@ -4893,6 +5304,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_Updat
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_TelephonyInfo.activationState
+
+/**
+ *  The SIM card is activated.
+ *
+ *  Value: "ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ActivationState_Activated;
+/**
+ *  Activation state is not specified.
+ *
+ *  Value: "ACTIVATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ActivationState_ActivationStateUnspecified;
+/**
+ *  The SIM card is not activated.
+ *
+ *  Value: "NOT_ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ActivationState_NotActivated;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_TelephonyInfo.configMode
+
+/**
+ *  The admin has configured this SIM.
+ *
+ *  Value: "ADMIN_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ConfigMode_AdminConfigured;
+/**
+ *  The configuration mode is unspecified.
+ *
+ *  Value: "CONFIG_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ConfigMode_ConfigModeUnspecified;
+/**
+ *  The user has configured this SIM.
+ *
+ *  Value: "USER_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ConfigMode_UserConfigured;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_UsageLog.enabledLogTypes
 
 /**
@@ -5325,6 +5780,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsi
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidPolicyTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_WorkAccountSetupConfig.authenticationType
+
+/**
+ *  Authentication status of user on device is not enforced.
+ *
+ *  Value: "AUTHENTICATION_TYPE_NOT_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeNotEnforced;
+/**
+ *  Unspecified. Defaults to AUTHENTICATION_TYPE_NOT_ENFORCED.
+ *
+ *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeUnspecified;
+/**
+ *  Requires device to be managed with a Google authenticated account.
+ *
+ *  Value: "GOOGLE_AUTHENTICATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_GoogleAuthenticated;
+
 /**
  *  A shell command was issued over ADB via “adb shell command”.
  */
@@ -5343,6 +5820,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsi
  *  An ADB interactive shell was opened via “adb shell”. Intentionally empty.
  */
 @interface GTLRAndroidManagement_AdbShellInteractiveEvent : GTLRObject
+@end
+
+
+/**
+ *  Parameters associated with the ADD_ESIM command to add an eSIM profile to
+ *  the device.
+ */
+@interface GTLRAndroidManagement_AddEsimParams : GTLRObject
+
+/** Required. The activation code for the eSIM profile. */
+@property(nonatomic, copy, nullable) NSString *activationCode;
+
+/**
+ *  Required. The activation state of the eSIM profile once it is downloaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AddEsimParams_ActivationState_Activated The
+ *        eSIM is automatically activated after downloading. Setting this as the
+ *        activation state for personally-owned devices will result in the
+ *        command being rejected. (Value: "ACTIVATED")
+ *    @arg @c kGTLRAndroidManagement_AddEsimParams_ActivationState_ActivationStateUnspecified
+ *        eSIM activation state is not specified. This defaults to the eSIM
+ *        profile being NOT_ACTIVATED on personally-owned devices and ACTIVATED
+ *        on company-owned devices. (Value: "ACTIVATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_AddEsimParams_ActivationState_NotActivated
+ *        The eSIM profile is downloaded but not activated. In this case, the
+ *        user will need to activate the eSIM manually on the device. (Value:
+ *        "NOT_ACTIVATED")
+ */
+@property(nonatomic, copy, nullable) NSString *activationState;
+
 @end
 
 
@@ -6852,6 +7360,14 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_Command : GTLRObject
 
 /**
+ *  Optional. Parameters for the ADD_ESIM command to add an eSIM profile to the
+ *  device. If this is set, then it is suggested that type should not be set. In
+ *  this case, the server automatically sets it to ADD_ESIM. It is also
+ *  acceptable to explicitly set type to ADD_ESIM.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_AddEsimParams *addEsimParams;
+
+/**
  *  Parameters for the CLEAR_APP_DATA command to clear the data of specified
  *  apps from the device. See ClearAppsDataParams. If this is set, then it is
  *  suggested that type should not be set. In this case, the server
@@ -6905,6 +7421,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
+/** Output only. Status of an ADD_ESIM or REMOVE_ESIM command. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_EsimCommandStatus *esimStatus;
+
 /**
  *  For commands of type RESET_PASSWORD, optionally specifies the new password.
  *  Note: The new password must be at least 6 characters long if it is numeric
@@ -6912,6 +7431,14 @@ GTLR_DEPRECATED
  *  INVALID_VALUE.
  */
 @property(nonatomic, copy, nullable) NSString *newPassword NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Optional. Parameters for the REMOVE_ESIM command to remove an eSIM profile
+ *  from the device. If this is set, then it is suggested that type should not
+ *  be set. In this case, the server automatically sets it to REMOVE_ESIM. It is
+ *  also acceptable to explicitly set type to REMOVE_ESIM.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_RemoveEsimParams *removeEsimParams;
 
 /**
  *  Optional. Parameters for the REQUEST_DEVICE_INFO command to get device
@@ -6962,6 +7489,9 @@ GTLR_DEPRECATED
  *  The type of the command.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Command_Type_AddEsim Adds an eSIM profile
+ *        to the device. This is supported on Android 15 and above. See also
+ *        addEsimParams. (Value: "ADD_ESIM")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ClearAppData Clears the
  *        application data of specified apps. This is supported on Android 9 and
  *        above. Note that an application can store data outside of its
@@ -6980,6 +7510,9 @@ GTLR_DEPRECATED
  *        associated with the personal profile(s) are preserved. The device will
  *        be deleted from the server after it acknowledges the command. (Value:
  *        "RELINQUISH_OWNERSHIP")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_RemoveEsim Removes an eSIM
+ *        profile from the device. This is supported on Android 15 and above.
+ *        See also removeEsimParams. (Value: "REMOVE_ESIM")
  *    @arg @c kGTLRAndroidManagement_Command_Type_RequestDeviceInfo Request
  *        information related to the device. (Value: "REQUEST_DEVICE_INFO")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ResetPassword Reset the user's
@@ -8465,6 +8998,73 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Status and error details (if present) of an ADD_ESIM or REMOVE_ESIM command.
+ */
+@interface GTLRAndroidManagement_EsimCommandStatus : GTLRObject
+
+/**
+ *  Output only. Information about the eSIM added or removed. This is populated
+ *  only when the eSIM operation status is SUCCESS.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_EsimInfo *esimInfo;
+
+/**
+ *  Output only. Details of the error if the status is set to INTERNAL_ERROR.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_InternalErrorDetails *internalErrorDetails;
+
+/**
+ *  Output only. Status of an ADD_ESIM or REMOVE_ESIM command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorIccIdNotFound
+ *        For a REMOVE_ESIM command, the iccId of the eSIM to be removed was not
+ *        found on the device. This could either mean the eSIM does not belong
+ *        to the enterprise or the eSIM corresponding to the iccId is not
+ *        present on the device. (Value: "ERROR_ICC_ID_NOT_FOUND")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorMultipleActiveEsimsNoAvailableSlot
+ *        The ADD_ESIM command failed when attempting to add a new eSIM with its
+ *        activation state set to ACTIVATED since multiple eSIM slots on the
+ *        device contain active eSIM profiles and there is no free eSIM slot
+ *        available. To resolve this, the new eSIM can be added with its
+ *        activation state as NOT_ACTIVATED for later manual activation, or the
+ *        user must first deactivate an existing active eSIM for the operation
+ *        to proceed. (Value: "ERROR_MULTIPLE_ACTIVE_ESIMS_NO_AVAILABLE_SLOT")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorSetupInProgress
+ *        The eSIM operation cannot be executed when setup is in progress.
+ *        (Value: "ERROR_SETUP_IN_PROGRESS")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorUserDenied
+ *        The user has denied the eSIM operation. (Value: "ERROR_USER_DENIED")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_InProgress The
+ *        eSIM operation is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_InternalError An
+ *        error has occurred while trying to add or remove the eSIM on the
+ *        device, see internal_error_details. (Value: "INTERNAL_ERROR")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_PendingUserAction
+ *        The user needs to take an action for the eSIM operation to proceed.
+ *        (Value: "PENDING_USER_ACTION")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_StatusUnspecified
+ *        Unspecified. This value is not used. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_Success The eSIM
+ *        operation was successfully performed on the device. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Details of the eSIM added or removed.
+ */
+@interface GTLRAndroidManagement_EsimInfo : GTLRObject
+
+/** Output only. ICC ID of the eSIM. */
+@property(nonatomic, copy, nullable) NSString *iccId;
+
+@end
+
+
+/**
  *  Information related to the eUICC chip.
  */
 @interface GTLRAndroidManagement_EuiccChipInfo : GTLRObject
@@ -8877,6 +9477,179 @@ GTLR_DEPRECATED
  *        "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *networkTypeConstraint;
+
+@end
+
+
+/**
+ *  Internal error details if present for the ADD_ESIM or REMOVE_ESIM command.
+ */
+@interface GTLRAndroidManagement_InternalErrorDetails : GTLRObject
+
+/**
+ *  Output only. Integer representation of the error code as specified here
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE).
+ *  See also, OPERATION_SMDX_SUBJECT_REASON_CODE. See error_code_detail for more
+ *  details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCode;
+
+/**
+ *  Output only. The error code detail corresponding to the error_code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorAddressMissing
+ *        See EuiccManager.ERROR_ADDRESS_MISSING
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_ADDRESS_MISSING)
+ *        for details. (Value: "ERROR_ADDRESS_MISSING")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCarrierLocked
+ *        See EuiccManager.ERROR_CARRIER_LOCKED
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CARRIER_LOCKED)
+ *        for details. (Value: "ERROR_CARRIER_LOCKED")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCertificateError
+ *        See EuiccManager.ERROR_CERTIFICATE_ERROR
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CERTIFICATE_ERROR)
+ *        for details. (Value: "ERROR_CERTIFICATE_ERROR")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCodeDetailUnspecified
+ *        Error code detail is unspecified. The error_code is not recognized by
+ *        Android Management API. However, see error_code (Value:
+ *        "ERROR_CODE_DETAIL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorConnectionError
+ *        See EuiccManager.ERROR_CONNECTION_ERROR
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CONNECTION_ERROR)
+ *        for details. (Value: "ERROR_CONNECTION_ERROR")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorDisallowedByPpr
+ *        See EuiccManager.ERROR_DISALLOWED_BY_PPR
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_DISALLOWED_BY_PPR)
+ *        for details. (Value: "ERROR_DISALLOWED_BY_PPR")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccInsufficientMemory
+ *        See EuiccManager.ERROR_EUICC_INSUFFICIENT_MEMORY
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_INSUFFICIENT_MEMORY)
+ *        for details. (Value: "ERROR_EUICC_INSUFFICIENT_MEMORY")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccMissing
+ *        See EuiccManager.ERROR_EUICC_MISSING
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_MISSING)
+ *        for details. (Value: "ERROR_EUICC_MISSING")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorIncompatibleCarrier
+ *        See EuiccManager.ERROR_INCOMPATIBLE_CARRIER
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INCOMPATIBLE_CARRIER)
+ *        for details. (Value: "ERROR_INCOMPATIBLE_CARRIER")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInstallProfile
+ *        See EuiccManager.ERROR_INSTALL_PROFILE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INSTALL_PROFILE)
+ *        for details. (Value: "ERROR_INSTALL_PROFILE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidActivationCode
+ *        See EuiccManager.ERROR_INVALID_ACTIVATION_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_ACTIVATION_CODE)
+ *        for details. (Value: "ERROR_INVALID_ACTIVATION_CODE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidConfirmationCode
+ *        See EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_CONFIRMATION_CODE)
+ *        for details. (Value: "ERROR_INVALID_CONFIRMATION_CODE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidPort
+ *        See EuiccManager.ERROR_INVALID_PORT
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_PORT)
+ *        for details. (Value: "ERROR_INVALID_PORT")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidResponse
+ *        See EuiccManager.ERROR_INVALID_RESPONSE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_RESPONSE)
+ *        for details. (Value: "ERROR_INVALID_RESPONSE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorNoProfilesAvailable
+ *        See EuiccManager.ERROR_NO_PROFILES_AVAILABLE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_NO_PROFILES_AVAILABLE)
+ *        for details. (Value: "ERROR_NO_PROFILES_AVAILABLE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorOperationBusy
+ *        See EuiccManager.ERROR_OPERATION_BUSY
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_OPERATION_BUSY)
+ *        for details. (Value: "ERROR_OPERATION_BUSY")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorSimMissing
+ *        See EuiccManager.ERROR_SIM_MISSING
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_SIM_MISSING)
+ *        for details. (Value: "ERROR_SIM_MISSING")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorTimeOut
+ *        See EuiccManager.ERROR_TIME_OUT
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_TIME_OUT)
+ *        for details. (Value: "ERROR_TIME_OUT")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorUnsupportedVersion
+ *        See EuiccManager.ERROR_UNSUPPORTED_VERSION
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_UNSUPPORTED_VERSION)
+ *        for details. (Value: "ERROR_UNSUPPORTED_VERSION")
+ */
+@property(nonatomic, copy, nullable) NSString *errorCodeDetail;
+
+/**
+ *  Output only. Integer representation of the operation code as specified here
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE).
+ *  See operation_code_detail for more details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *operationCode;
+
+/**
+ *  Output only. The operation code detail corresponding to the operation_code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationApdu
+ *        See EuiccManager.OPERATION_APDU
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_APDU)
+ *        for details. (Value: "OPERATION_APDU")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationCodeDetailUnspecified
+ *        Operation code detail is unspecified. The operation_code is not
+ *        recognized by Android Management API. However, see operation_code.
+ *        (Value: "OPERATION_CODE_DETAIL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationDownload
+ *        See EuiccManager.OPERATION_DOWNLOAD
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_DOWNLOAD)
+ *        for details. (Value: "OPERATION_DOWNLOAD")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccCard
+ *        See EuiccManager.OPERATION_EUICC_CARD
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_CARD)
+ *        for details. (Value: "OPERATION_EUICC_CARD")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccGsma
+ *        See EuiccManager.OPERATION_EUICC_GSMA
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_GSMA)
+ *        for details. (Value: "OPERATION_EUICC_GSMA")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationHttp
+ *        See EuiccManager.OPERATION_HTTP
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_HTTP)
+ *        for details. (Value: "OPERATION_HTTP")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationMetadata
+ *        See EuiccManager.OPERATION_METADATA
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_METADATA)
+ *        for details. (Value: "OPERATION_METADATA")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSimSlot
+ *        See EuiccManager.OPERATION_SIM_SLOT
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SIM_SLOT)
+ *        for details. (Value: "OPERATION_SIM_SLOT")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdx
+ *        See EuiccManager.OPERATION_SMDX
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX)
+ *        for details. (Value: "OPERATION_SMDX")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdxSubjectReasonCode
+ *        See EuiccManager.OPERATION_SMDX_SUBJECT_REASON_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE)
+ *        for details. Note that, in this case, error_code is the least
+ *        significant 3 bytes of the EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE)
+ *        specifying the subject code and the reason code as indicated here
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE).
+ *        The most significant byte of the integer is zeroed out. For example, a
+ *        Subject Code of 8.11.1 and a Reason Code of 5.1 is represented in
+ *        error_code as 0000 0000 1000 1011 0001 0000 0101 0001 in binary, which
+ *        is 9113681 in decimal. (Value: "OPERATION_SMDX_SUBJECT_REASON_CODE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSwitch
+ *        See EuiccManager.OPERATION_SWITCH
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SWITCH)
+ *        for details. (Value: "OPERATION_SWITCH")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSystem
+ *        See EuiccManager.OPERATION_SYSTEM
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SYSTEM)
+ *        for details. (Value: "OPERATION_SYSTEM")
+ */
+@property(nonatomic, copy, nullable) NSString *operationCodeDetail;
 
 @end
 
@@ -9920,6 +10693,10 @@ GTLR_DEPRECATED
  *  The policy-specific reason the device is not in compliance with the setting.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_NewAccountNotInEnterprise
+ *        Work account added by the user is not part of the enterprise.
+ *        nonComplianceReason is set to USER_ACTION. (Value:
+ *        "NEW_ACCOUNT_NOT_IN_ENTERPRISE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel
  *        The ONC Wi-Fi setting is not supported in the API level of the Android
  *        version running on the device. fieldPath specifies which field value
@@ -9966,6 +10743,10 @@ GTLR_DEPRECATED
  *        (https://developers.google.com/android/management/permissible-usage).
  *        nonComplianceReason is set to PROJECT_NOT_PERMITTED. (Value:
  *        "PERMISSIBLE_USAGE_RESTRICTION")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_RequiredAccountNotInEnterprise
+ *        Work account required by the workAccountSetupConfig policy setting is
+ *        not part of the enterprise anymore. nonComplianceReason is set to
+ *        USER_ACTION. (Value: "REQUIRED_ACCOUNT_NOT_IN_ENTERPRISE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_SpecificNonComplianceReasonUnspecified
  *        Specific non-compliance reason is not specified. Fields in
  *        specific_non_compliance_context are not set. (Value:
@@ -11601,6 +12382,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *wifiConfigsLockdownEnabled GTLR_DEPRECATED;
 
+/**
+ *  Optional. Wipe flags to indicate what data is wiped when a device or profile
+ *  wipe is triggered due to any reason (for example, non-compliance). This does
+ *  not apply to the enterprises.devices.delete method. . This list must not
+ *  have duplicates.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
+
+/**
+ *  Optional. Controls the work account setup configuration, such as details of
+ *  whether a Google authenticated account is required.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WorkAccountSetupConfig *workAccountSetupConfig;
+
 @end
 
 
@@ -12005,6 +12800,18 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetUserId;
+
+@end
+
+
+/**
+ *  Parameters associated with the REMOVE_ESIM command to remove an eSIM profile
+ *  from the device.
+ */
+@interface GTLRAndroidManagement_RemoveEsimParams : GTLRObject
+
+/** Required. ICC ID of the eSIM profile to be deleted. */
+@property(nonatomic, copy, nullable) NSString *iccId;
 
 @end
 
@@ -12777,8 +13584,42 @@ GTLR_DEPRECATED
  */
 @interface GTLRAndroidManagement_TelephonyInfo : GTLRObject
 
+/**
+ *  Output only. Activation state of the SIM card on the device. This is
+ *  applicable for eSIMs only. This is supported on all devices for API level 35
+ *  and above. This is always ACTIVATION_STATE_UNSPECIFIED for physical SIMs and
+ *  for devices below API level 35.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ActivationState_Activated The
+ *        SIM card is activated. (Value: "ACTIVATED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ActivationState_ActivationStateUnspecified
+ *        Activation state is not specified. (Value:
+ *        "ACTIVATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ActivationState_NotActivated
+ *        The SIM card is not activated. (Value: "NOT_ACTIVATED")
+ */
+@property(nonatomic, copy, nullable) NSString *activationState;
+
 /** The carrier name associated with this SIM card. */
 @property(nonatomic, copy, nullable) NSString *carrierName;
+
+/**
+ *  Output only. The configuration mode of the SIM card on the device. This is
+ *  applicable for eSIMs only. This is supported on all devices for API level 35
+ *  and above. This is always CONFIG_MODE_UNSPECIFIED for physical SIMs and for
+ *  devices below API level 35.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ConfigMode_AdminConfigured
+ *        The admin has configured this SIM. (Value: "ADMIN_CONFIGURED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ConfigMode_ConfigModeUnspecified
+ *        The configuration mode is unspecified. (Value:
+ *        "CONFIG_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ConfigMode_UserConfigured The
+ *        user has configured this SIM. (Value: "USER_CONFIGURED")
+ */
+@property(nonatomic, copy, nullable) NSString *configMode;
 
 /** Output only. The ICCID associated with this SIM card. */
 @property(nonatomic, copy, nullable) NSString *iccId;
@@ -13394,6 +14235,40 @@ GTLR_DEPRECATED
  *  Intentionally empty.
  */
 @interface GTLRAndroidManagement_WipeFailureEvent : GTLRObject
+@end
+
+
+/**
+ *  Controls the work account setup configuration, such as details of whether a
+ *  Google authenticated account is required.
+ */
+@interface GTLRAndroidManagement_WorkAccountSetupConfig : GTLRObject
+
+/**
+ *  Optional. The authentication type of the user on the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeNotEnforced
+ *        Authentication status of user on device is not enforced. (Value:
+ *        "AUTHENTICATION_TYPE_NOT_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeUnspecified
+ *        Unspecified. Defaults to AUTHENTICATION_TYPE_NOT_ENFORCED. (Value:
+ *        "AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_GoogleAuthenticated
+ *        Requires device to be managed with a Google authenticated account.
+ *        (Value: "GOOGLE_AUTHENTICATED")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/**
+ *  Optional. The specific google work account email address to be added. This
+ *  field is only relevant if authenticationType is GOOGLE_AUTHENTICATED. This
+ *  must be an enterprise account and not a consumer account. Once set and a
+ *  Google authenticated account is added to the device, changing this field
+ *  will have no effect, and thus recommended to be set only once.
+ */
+@property(nonatomic, copy, nullable) NSString *requiredAccountEmail;
+
 @end
 
 NS_ASSUME_NONNULL_END

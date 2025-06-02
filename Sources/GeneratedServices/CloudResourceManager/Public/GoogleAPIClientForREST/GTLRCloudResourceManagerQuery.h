@@ -859,6 +859,130 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns effective tag bindings on a GCP resource.
+ *
+ *  Method: cloudresourcemanager.locations.effectiveTagBindingCollections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_LocationsEffectiveTagBindingCollectionsGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The full name of the EffectiveTagBindingCollection in format:
+ *  `locations/{location}/effectiveTagBindingCollections/{encoded-full-resource-name}`
+ *  where the encoded-full-resource-name is the UTF-8 encoded name of the
+ *  resource the TagBindings are bound to. E.g.
+ *  "locations/global/effectiveTagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_EffectiveTagBindingCollection.
+ *
+ *  Returns effective tag bindings on a GCP resource.
+ *
+ *  @param name Required. The full name of the EffectiveTagBindingCollection in
+ *    format:
+ *    `locations/{location}/effectiveTagBindingCollections/{encoded-full-resource-name}`
+ *    where the encoded-full-resource-name is the UTF-8 encoded name of the
+ *    resource the TagBindings are bound to. E.g.
+ *    "locations/global/effectiveTagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ *
+ *  @return GTLRCloudResourceManagerQuery_LocationsEffectiveTagBindingCollectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns tag bindings directly attached to a GCP resource.
+ *
+ *  Method: cloudresourcemanager.locations.tagBindingCollections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The full name of the TagBindingCollection in format:
+ *  `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *  where the enoded-full-resource-name is the UTF-8 encoded name of the
+ *  resource the TagBindings are bound to. E.g.
+ *  "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_TagBindingCollection.
+ *
+ *  Returns tag bindings directly attached to a GCP resource.
+ *
+ *  @param name Required. The full name of the TagBindingCollection in format:
+ *    `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *    where the enoded-full-resource-name is the UTF-8 encoded name of the
+ *    resource the TagBindings are bound to. E.g.
+ *    "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ *
+ *  @return GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates tag bindings directly attached to a GCP resource. Update_mask can be
+ *  kept empty or "*".
+ *
+ *  Method: cloudresourcemanager.locations.tagBindingCollections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The name of the TagBindingCollection, following the convention:
+ *  `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *  where the encoded-full-resource-name is the UTF-8 encoded name of the GCP
+ *  resource the TagBindings are bound to.
+ *  "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An update mask to selectively update fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates tag bindings directly attached to a GCP resource. Update_mask can be
+ *  kept empty or "*".
+ *
+ *  @param object The @c GTLRCloudResourceManager_TagBindingCollection to
+ *    include in the query.
+ *  @param name Identifier. The name of the TagBindingCollection, following the
+ *    convention:
+ *    `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *    where the encoded-full-resource-name is the UTF-8 encoded name of the GCP
+ *    resource the TagBindings are bound to.
+ *    "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ *
+ *  @return GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagBindingCollection *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.

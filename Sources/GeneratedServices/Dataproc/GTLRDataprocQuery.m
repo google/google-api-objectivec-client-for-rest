@@ -426,44 +426,6 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @end
 
-@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeBuildInfo
-
-@dynamic name, parent;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:accessNativeBuildInfo";
-  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeBuildInfo *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse class];
-  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessNativeBuildInfo";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeSqlQuery
-
-@dynamic executionId, name, parent;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:accessNativeSqlQuery";
-  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessNativeSqlQuery *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse class];
-  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessNativeSqlQuery";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlPlan
 
 @dynamic executionId, name, parent;
@@ -612,25 +574,6 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
   query.name = name;
   query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationJobsResponse class];
   query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchJobs";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchNativeSqlQueries
-
-@dynamic name, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:searchNativeSqlQueries";
-  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchNativeSqlQueries *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse class];
-  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchNativeSqlQueries";
   return query;
 }
 
@@ -1033,44 +976,6 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @end
 
-@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeBuildInfo
-
-@dynamic name, parent;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:accessNativeBuildInfo";
-  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeBuildInfo *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse class];
-  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessNativeBuildInfo";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeSqlQuery
-
-@dynamic executionId, name, parent;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:accessNativeSqlQuery";
-  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessNativeSqlQuery *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse class];
-  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessNativeSqlQuery";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlPlan
 
 @dynamic executionId, name, parent;
@@ -1207,7 +1112,14 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchJobs
 
-@dynamic jobStatus, name, pageSize, pageToken, parent;
+@dynamic jobIds, jobStatus, name, pageSize, pageToken, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobIds" : [NSNumber class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1224,28 +1136,17 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @end
 
-@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchNativeSqlQueries
-
-@dynamic name, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:searchNativeSqlQueries";
-  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchNativeSqlQueries *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse class];
-  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchNativeSqlQueries";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchSqlQueries
 
-@dynamic details, name, pageSize, pageToken, parent, planDescription;
+@dynamic details, name, operationIds, pageSize, pageToken, parent,
+         planDescription;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationIds" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1303,7 +1204,15 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStages
 
-@dynamic name, pageSize, pageToken, parent, stageStatus, summaryMetricsMask;
+@dynamic name, pageSize, pageToken, parent, stageIds, stageStatus,
+         summaryMetricsMask;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stageIds" : [NSNumber class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

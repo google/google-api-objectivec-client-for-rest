@@ -97,6 +97,90 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: bigtableadmin.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_OperationsCancel : GTLRBigtableAdminQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRBigtableAdminQuery_OperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: bigtableadmin.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_OperationsDelete : GTLRBigtableAdminQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRBigtableAdminQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -3310,6 +3394,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_Instance *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: bigtableadmin.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
+ */
+@interface GTLRBigtableAdminQuery_ProjectsLocationsGet : GTLRBigtableAdminQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

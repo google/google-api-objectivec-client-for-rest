@@ -557,6 +557,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRStorage_Bucket_IpFilter : GTLRObject
 
+/**
+ *  Whether to allow cross-org VPCs in the bucket's IP filter configuration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossOrgVpcs;
+
 /** The mode of the IP filter. Valid values are 'Enabled' and 'Disabled'. */
 @property(nonatomic, copy, nullable) NSString *mode;
 

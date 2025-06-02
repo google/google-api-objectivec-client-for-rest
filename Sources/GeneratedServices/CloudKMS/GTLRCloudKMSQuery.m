@@ -56,6 +56,25 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_FoldersGetKajPolicyConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_FoldersGetKajPolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_KeyAccessJustificationsPolicyConfig class];
+  query.loggingName = @"cloudkms.folders.getKajPolicyConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
 
 @dynamic name, updateMask;
@@ -78,6 +97,98 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudKMS_AutokeyConfig class];
   query.loggingName = @"cloudkms.folders.updateAutokeyConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_FoldersUpdateKajPolicyConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_FoldersUpdateKajPolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_KeyAccessJustificationsPolicyConfig class];
+  query.loggingName = @"cloudkms.folders.updateKajPolicyConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_KeyAccessJustificationsPolicyConfig class];
+  query.loggingName = @"cloudkms.organizations.getKajPolicyConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_OrganizationsUpdateKajPolicyConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_OrganizationsUpdateKajPolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_KeyAccessJustificationsPolicyConfig class];
+  query.loggingName = @"cloudkms.organizations.updateKajPolicyConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_KeyAccessJustificationsPolicyConfig class];
+  query.loggingName = @"cloudkms.projects.getKajPolicyConfig";
   return query;
 }
 
@@ -1452,6 +1563,71 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse class];
   query.loggingName = @"cloudkms.projects.showEffectiveAutokeyConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig
+
+@dynamic project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"v1/{+project}:showEffectiveKeyAccessJustificationsEnrollmentConfig";
+  GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse class];
+  query.loggingName = @"cloudkms.projects.showEffectiveKeyAccessJustificationsEnrollmentConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig
+
+@dynamic project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"v1/{+project}:showEffectiveKeyAccessJustificationsPolicyConfig";
+  GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse class];
+  query.loggingName = @"cloudkms.projects.showEffectiveKeyAccessJustificationsPolicyConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsUpdateKajPolicyConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsUpdateKajPolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_KeyAccessJustificationsPolicyConfig class];
+  query.loggingName = @"cloudkms.projects.updateKajPolicyConfig";
   return query;
 }
 

@@ -103,6 +103,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsScoreThresholdTrigger;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs;
@@ -133,6 +134,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource_Labels;
@@ -874,6 +876,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus.state
+
+/**
+ *  Publish to catalog failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Failed;
+/**
+ *  The publishing state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_StateUnspecified;
+/**
+ *  Publish to catalog completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.scope
@@ -4128,6 +4152,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
+ *  Optional. The project of the BigQuery dataset to publish BigLake external or
+ *  non-BigLake external tables to. If not specified, the project of the Cloud
+ *  Storage bucket will be used. The format is
+ *  "projects/{project_id_or_number}".
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
  *  Optional. Determines whether to publish discovered tables as BigLake
  *  external tables or non-BigLake external tables.
  *
@@ -4643,6 +4675,16 @@ GTLR_DEPRECATED
 /** Output only. The column specified in the DataQualityRule. */
 @property(nonatomic, copy, nullable) NSString *column;
 
+/** Output only. The dimension-level results for this column. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult *> *dimensions;
+
+/**
+ *  Output only. Whether the column passed or failed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passed;
+
 /**
  *  Output only. The column-level data quality score for this data scan job if
  *  and only if the 'column' field is set.The score ranges between between 0,
@@ -4704,6 +4746,9 @@ GTLR_DEPRECATED
  *  The output of a DataQualityScan.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult : GTLRObject
+
+/** Output only. The status of publishing the data scan to Catalog. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus *catalogPublishingStatus;
 
 /**
  *  Output only. A list of results at the column level.A column will have a
@@ -5269,6 +5314,14 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec : GTLRObject
 
+/**
+ *  Optional. If set, the latest DataScan job result will be published to
+ *  Dataplex Catalog.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *catalogPublishingEnabled;
+
 /** Optional. Actions to take upon job completion. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActions *postScanActions;
 
@@ -5529,10 +5582,34 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The status of publishing the data scan result to Catalog.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus : GTLRObject
+
+/**
+ *  Output only. Execution state for catalog publishing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Failed
+ *        Publish to catalog failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_StateUnspecified
+ *        The publishing state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Succeeded
+ *        Publish to catalog completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  These messages contain information about the execution of a datascan. The
  *  monitored resource is 'DataScan'
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent : GTLRObject
+
+/** The status of publishing the data scan to Catalog. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus *catalogPublishingStatus;
 
 /** The time when the data scan job was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -7238,32 +7315,32 @@ GTLR_DEPRECATED
 
 
 /**
- *  A Glossary represents a collection of categories and terms defined by the
- *  user. Glossary is a top level resource and is the GCP parent resource of all
- *  the categories and terms within it.
+ *  A Glossary represents a collection of GlossaryCategories and GlossaryTerms
+ *  defined by the user. Glossary is a top level resource and is the GCP parent
+ *  resource of all the GlossaryCategories and GlossaryTerms within it.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Glossary : GTLRObject
 
 /**
- *  Output only. The number of categories in the glossary.
+ *  Output only. The number of GlossaryCategories in the Glossary.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *categoryCount;
 
-/** Output only. The time at which the glossary was created. */
+/** Output only. The time at which the Glossary was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. The user-mutable description of the glossary.
+ *  Optional. The user-mutable description of the Glossary.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. User friendly display name of the glossary. This is user-mutable.
- *  This will be same as the glossaryId, if not specified.
+ *  Optional. User friendly display name of the Glossary. This is user-mutable.
+ *  This will be same as the GlossaryId, if not specified.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -7280,12 +7357,12 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. Identifier. The resource name of the Glossary. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The number of terms in the glossary.
+ *  Output only. The number of GlossaryTerms in the Glossary.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7297,7 +7374,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. The time at which the glossary was last updated. */
+/** Output only. The time at which the Glossary was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -7316,8 +7393,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  A GlossaryCategory represents a collection of categories and terms within a
- *  Glossary that are related to each other.
+ *  A GlossaryCategory represents a collection of GlossaryCategories and
+ *  GlossaryTerms within a Glossary that are related to each other.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory : GTLRObject
 
@@ -7333,7 +7410,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. User friendly display name of the GlossaryCategory. This is
- *  user-mutable. This will be same as the categoryId, if not specified.
+ *  user-mutable. This will be same as the GlossaryCategoryId, if not specified.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -7342,15 +7419,17 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. Identifier. The resource name of the GlossaryCategory. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The immediate parent of the GlossaryCategory in the
- *  resource-hierarchy. It can either be a Glossary or a Category. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} OR
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ *  resource-hierarchy. It can either be a Glossary or a GlossaryCategory.
+ *  Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *  OR
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7380,8 +7459,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  GlossaryTerms are the core of glossary. A GlossaryTerm holds a rich text
- *  description that can be attached to entries or specific columns to enrich
+ *  GlossaryTerms are the core of Glossary. A GlossaryTerm holds a rich text
+ *  description that can be attached to Entries or specific columns to enrich
  *  them.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm : GTLRObject
@@ -7398,7 +7477,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. User friendly display name of the GlossaryTerm. This is
- *  user-mutable. This will be same as the termId, if not specified.
+ *  user-mutable. This will be same as the GlossaryTermId, if not specified.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -7407,15 +7486,17 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. Identifier. The resource name of the GlossaryTerm. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/terms/{termId}
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The immediate parent of the GlossaryTerm in the
- *  resource-hierarchy. It can either be a Glossary or a Category. Format:
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId} OR
- *  projects/{projectId}/locations/{locationId}/glossaries/{glossaryId}/categories/{categoryId}
+ *  resource-hierarchy. It can either be a Glossary or a GlossaryCategory.
+ *  Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *  OR
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7565,6 +7646,13 @@ GTLR_DEPRECATED
 
 /** Information about an entry and its attached aspects. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *entry;
+
+/**
+ *  Information about the entry link. User should provide either one of the
+ *  entry or entry_link. While providing entry_link, user should not provide
+ *  update_mask and aspect_keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink *entryLink;
 
 /**
  *  The fields to update, in paths that are relative to the Entry resource.
@@ -8368,7 +8456,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossariesResponse : GTLRCollectionObject
 
 /**
- *  Lists the glossaries in the specified parent.
+ *  Lists the Glossaries in the specified parent.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -8398,7 +8486,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1ListGlossaryCategoriesResponse : GTLRCollectionObject
 
 /**
- *  Lists the glossaryCategories in the specified parent.
+ *  Lists the GlossaryCategories in the specified parent.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -8434,7 +8522,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Lists the terms in the specified parent.
+ *  Lists the GlossaryTerms in the specified parent.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -8831,11 +8919,25 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *createdEntries;
 
 /**
+ *  Output only. The total number of entry links that were successfully created.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdEntryLinks;
+
+/**
  *  Output only. The total number of entries that were deleted.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deletedEntries;
+
+/**
+ *  Output only. The total number of entry links that were successfully deleted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedEntryLinks;
 
 /**
  *  Output only. The total number of entries that were recreated.
@@ -8850,6 +8952,13 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unchangedEntries;
+
+/**
+ *  Output only. The total number of entry links that were left unchanged.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unchangedEntryLinks;
 
 /**
  *  Output only. The total number of entries that were updated.
@@ -9011,6 +9120,17 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryGroups;
 
 /**
+ *  Optional. The entry link types that are in scope for the import job,
+ *  specified as relative resource names in the format
+ *  projects/{project_number_or_id}/locations/{location_id}/entryLinkTypes/{entry_link_type_id}.
+ *  The job modifies only the entryLinks that belong to these entry link
+ *  types.If the metadata import file attempts to create or delete an entry link
+ *  whose entry link type isn't included in this list, the import job will skip
+ *  those entry links.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entryLinkTypes;
+
+/**
  *  Required. The entry types that are in scope for the import job, specified as
  *  relative resource names in the format
  *  projects/{project_number_or_id}/locations/{location_id}/entryTypes/{entry_type_id}.
@@ -9021,6 +9141,28 @@ GTLR_DEPRECATED
  *  location of the job, or the entry type must be global.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryTypes;
+
+/**
+ *  Optional. The glossaries that are in scope for the import job, specified as
+ *  relative resource names in the format
+ *  projects/{project_number_or_id}/locations/{location_id}/glossaries/{glossary_id}.While
+ *  importing Business Glossary entries, the user must provide glossaries. While
+ *  importing entries, the user does not have to provide glossaries. If the
+ *  metadata import file attempts to modify Business Glossary entries whose
+ *  glossary isn't included in this list, the import job will skip those
+ *  entries.The location of a glossary must either match the location of the
+ *  job, or the glossary must be global.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *glossaries;
+
+/**
+ *  Optional. Defines the scope of entries that can be referenced in the entry
+ *  links.Currently, projects are supported as valid scopes. Format:
+ *  projects/{project_number_or_id}If the metadata import file attempts to
+ *  create an entry link which references an entry that is not in the scope, the
+ *  import job will skip that entry link.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referencedEntryScopes;
 
 @end
 

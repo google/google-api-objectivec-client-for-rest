@@ -413,6 +413,71 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_LocationsEffectiveTagBindingCollectionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_LocationsEffectiveTagBindingCollectionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_EffectiveTagBindingCollection class];
+  query.loggingName = @"cloudresourcemanager.locations.effectiveTagBindingCollections.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_TagBindingCollection class];
+  query.loggingName = @"cloudresourcemanager.locations.tagBindingCollections.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagBindingCollection *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.locations.tagBindingCollections.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_OperationsGet
 
 @dynamic name;

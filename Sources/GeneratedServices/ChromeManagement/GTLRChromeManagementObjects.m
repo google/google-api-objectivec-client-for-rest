@@ -372,6 +372,18 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkC
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Online = @"ONLINE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Portal = @"PORTAL";
 
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent.crashType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeEmbeddedController = @"CRASH_TYPE_EMBEDDED_CONTROLLER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeKernel = @"CRASH_TYPE_KERNEL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeUnspecified = @"CRASH_TYPE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent.sessionType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeActiveDirectory = @"SESSION_TYPE_ACTIVE_DIRECTORY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeKiosk = @"SESSION_TYPE_KIOSK";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeManagedGuest = @"SESSION_TYPE_MANAGED_GUEST";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeSignedInUser = @"SESSION_TYPE_SIGNED_IN_USER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeUnspecified = @"SESSION_TYPE_UNSPECIFIED";
+
 // GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityDpOnlyLevel = @"THUNDERBOLT_SECURITY_DP_ONLY_LEVEL";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityLevelUnspecified = @"THUNDERBOLT_SECURITY_LEVEL_UNSPECIFIED";
@@ -1594,8 +1606,9 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent
 @dynamic appInstallEvent, appLaunchEvent, appUninstallEvent,
          audioSevereUnderrunEvent, device, eventType, httpsLatencyChangeEvent,
-         name, networkStateChangeEvent, reportTime, usbPeripheralsEvent, user,
-         vpnConnectionStateChangeEvent, wifiSignalStrengthEvent;
+         name, networkStateChangeEvent, osCrashEvent, reportTime,
+         usbPeripheralsEvent, user, vpnConnectionStateChangeEvent,
+         wifiSignalStrengthEvent;
 @end
 
 
@@ -1665,6 +1678,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter
 @dynamic deviceId, deviceOrgUnitId, telemetryEventNotificationFilter, userEmail,
          userOrgUnitId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent
+@dynamic crashId, crashType, sessionType;
 @end
 
 

@@ -1459,8 +1459,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DataProfileAction
-@dynamic exportData, publishToChronicle, publishToScc, pubSubNotification,
-         tagResources;
+@dynamic exportData, publishToChronicle, publishToDataplexCatalog, publishToScc,
+         pubSubNotification, tagResources;
 @end
 
 
@@ -1491,8 +1491,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DataProfileFinding
-@dynamic dataProfileResourceName, findingId, infotype, location, quote,
-         quoteInfo, resourceVisibility, timestamp;
+@dynamic dataProfileResourceName, dataSourceType, findingId, fullResourceName,
+         infotype, location, quote, quoteInfo, resourceVisibility, timestamp;
 @end
 
 
@@ -3800,6 +3800,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog
+@dynamic lowerDataRiskToLow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2PublishToPubSub
 //
 
@@ -4524,7 +4534,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2TableReference
-@dynamic datasetId, tableId;
+@dynamic datasetId, projectId, tableId;
 @end
 
 

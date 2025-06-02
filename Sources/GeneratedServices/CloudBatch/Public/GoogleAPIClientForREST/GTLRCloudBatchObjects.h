@@ -190,7 +190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_AgentTask_TaskSource_User;
  *
  *  Value: "PREEMPTIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible GTLR_DEPRECATED;
 /**
  *  Unspecified.
  *
@@ -221,7 +221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningMo
  *
  *  Value: "PREEMPTIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Preemptible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Preemptible GTLR_DEPRECATED;
 /**
  *  Unspecified.
  *

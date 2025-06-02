@@ -31,9 +31,16 @@ NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationTy
 NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_EndUserCredentials = @"END_USER_CREDENTIALS";
 NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_ServiceAccount = @"SERVICE_ACCOUNT";
 
+// GTLRDataproc_AutoscalingPolicy.clusterType
+NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_ClusterTypeUnspecified = @"CLUSTER_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_Standard = @"STANDARD";
+NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_ZeroScale = @"ZERO_SCALE";
+
 // GTLRDataproc_AutotuningConfig.scenarios
+NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Auto = @"AUTO";
 NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_BroadcastHashJoin = @"BROADCAST_HASH_JOIN";
 NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Memory = @"MEMORY";
+NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_None = @"NONE";
 NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Scaling = @"SCALING";
 NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_ScenarioUnspecified = @"SCENARIO_UNSPECIFIED";
 
@@ -49,6 +56,12 @@ NSString * const kGTLRDataproc_Batch_State_Succeeded        = @"SUCCEEDED";
 // GTLRDataproc_BatchOperationMetadata.operationType
 NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_Batch = @"BATCH";
 NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified = @"BATCH_OPERATION_TYPE_UNSPECIFIED";
+
+// GTLRDataproc_ClusterConfig.clusterType
+NSString * const kGTLRDataproc_ClusterConfig_ClusterType_ClusterTypeUnspecified = @"CLUSTER_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_ClusterConfig_ClusterType_SingleNode = @"SINGLE_NODE";
+NSString * const kGTLRDataproc_ClusterConfig_ClusterType_Standard = @"STANDARD";
+NSString * const kGTLRDataproc_ClusterConfig_ClusterType_ZeroScale = @"ZERO_SCALE";
 
 // GTLRDataproc_ClusterOperationStatus.state
 NSString * const kGTLRDataproc_ClusterOperationStatus_State_Done = @"DONE";
@@ -318,26 +331,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse
-//
-
-@implementation GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse
-@dynamic executionData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse
-//
-
-@implementation GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse
-@dynamic executionData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataproc_AccessSessionSparkApplicationResponse
 //
 
@@ -403,26 +396,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_AccessSparkApplicationJobResponse
 @dynamic jobData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse
-//
-
-@implementation GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse
-@dynamic buildInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse
-//
-
-@implementation GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse
-@dynamic executionData;
 @end
 
 
@@ -689,8 +662,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_AutoscalingPolicy
-@dynamic basicAlgorithm, identifier, labels, name, secondaryWorkerConfig,
-         workerConfig;
+@dynamic basicAlgorithm, clusterType, identifier, labels, name,
+         secondaryWorkerConfig, workerConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -919,7 +892,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterConfig
-@dynamic autoscalingConfig, auxiliaryNodeGroups, configBucket,
+@dynamic autoscalingConfig, auxiliaryNodeGroups, clusterType, configBucket,
          dataprocMetricConfig, encryptionConfig, endpointConfig,
          gceClusterConfig, gkeClusterConfig, initializationActions,
          lifecycleConfig, masterConfig, metastoreConfig, secondaryWorkerConfig,
@@ -2849,6 +2822,30 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_PropertiesInfo
+//
+
+@implementation GTLRDataproc_PropertiesInfo
+@dynamic autotuningProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_PropertiesInfo_AutotuningProperties
+//
+
+@implementation GTLRDataproc_PropertiesInfo_AutotuningProperties
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataproc_ValueInfo class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ProvisioningModelMix
 //
 
@@ -3244,7 +3241,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_RuntimeInfo
 @dynamic approximateUsage, currentUsage, diagnosticOutputUri, endpoints,
-         outputUri;
+         outputUri, propertiesInfo;
 @end
 
 
@@ -3323,28 +3320,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (NSString *)collectionItemsKey {
   return @"sparkApplicationJobs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse
-//
-
-@implementation GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse
-@dynamic nextPageToken, sparkApplicationNativeSqlQueries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"sparkApplicationNativeSqlQueries" : [GTLRDataproc_NativeSqlExecutionUiData class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"sparkApplicationNativeSqlQueries";
 }
 
 @end
@@ -3521,28 +3496,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (NSString *)collectionItemsKey {
   return @"sparkApplicationJobs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse
-//
-
-@implementation GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse
-@dynamic nextPageToken, sparkApplicationNativeSqlQueries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"sparkApplicationNativeSqlQueries" : [GTLRDataproc_NativeSqlExecutionUiData class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"sparkApplicationNativeSqlQueries";
 }
 
 @end
@@ -5037,6 +4990,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_UsageSnapshot
 @dynamic acceleratorType, milliAccelerator, milliDcu, milliDcuPremium,
          milliSlot, shuffleStorageGb, shuffleStorageGbPremium, snapshotTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ValueInfo
+//
+
+@implementation GTLRDataproc_ValueInfo
+@dynamic annotation, overriddenValue, value;
 @end
 
 

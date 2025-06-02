@@ -986,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *
  *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoPromotableReplica;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
 /**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
@@ -1937,7 +1937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *
  *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPromotableReplica;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
 /**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
@@ -3854,7 +3854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *ondemandMaintenance;
+@property(nonatomic, strong, nullable) NSNumber *ondemandMaintenance GTLR_DEPRECATED;
 
 /** Optional. Persistence config (RDB, AOF) for the cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ClusterPersistenceConfig *persistenceConfig;
@@ -4804,7 +4804,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  spanner.googleapis.com/Instance, spanner.googleapis.com/Database,
  *  firestore.googleapis.com/Database, sqladmin.googleapis.com/Instance,
  *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
- *  REQUIRED Please refer go/condor-common-datamodel
+ *  oracledatabase.googleapis.com/cloudExadataInfrastructures
+ *  oracledatabase.googleapis.com/cloudVmClusters
+ *  oracledatabase.googleapis.com/autonomousDatabases REQUIRED Please refer
+ *  go/condor-common-datamodel
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 

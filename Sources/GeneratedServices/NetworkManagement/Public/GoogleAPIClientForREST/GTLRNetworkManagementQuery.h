@@ -699,6 +699,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The parent resource of the VPC Flow Logs configuration to create:
  *  `projects/{project_id}/locations/global`
+ *  `organizations/{organization_id}/locations/global`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -720,6 +721,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param parent Required. The parent resource of the VPC Flow Logs
  *    configuration to create: `projects/{project_id}/locations/global`
+ *    `organizations/{organization_id}/locations/global`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsCreate
  */
@@ -739,8 +741,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete : GTLRNetworkManagementQuery
 
 /**
- *  Required. `VpcFlowLogsConfig` resource name using the form:
- *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *  Required. `VpcFlowLogsConfig` resource name using one of the form:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -749,8 +752,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a specific `VpcFlowLogsConfig`.
  *
- *  @param name Required. `VpcFlowLogsConfig` resource name using the form:
- *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *  @param name Required. `VpcFlowLogsConfig` resource name using one of the
+ *    form:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete
  */
@@ -771,6 +776,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. `VpcFlowLogsConfig` resource name using the form:
  *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -781,6 +787,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. `VpcFlowLogsConfig` resource name using the form:
  *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsGet
  */
@@ -820,6 +827,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The parent resource of the VpcFlowLogsConfig:
  *  `projects/{project_id}/locations/global`
+ *  `organizations/{organization_id}/locations/global`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -830,6 +838,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The parent resource of the VpcFlowLogsConfig:
  *    `projects/{project_id}/locations/global`
+ *    `organizations/{organization_id}/locations/global`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsList
  *
@@ -858,8 +867,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch : GTLRNetworkManagementQuery
 
 /**
- *  Identifier. Unique name of the configuration using the form:
+ *  Identifier. Unique name of the configuration using one of the forms:
  *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  `organizations/{organization_number}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -884,8 +894,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
  *    the query.
- *  @param name Identifier. Unique name of the configuration using the form:
+ *  @param name Identifier. Unique name of the configuration using one of the
+ *    forms:
  *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    `organizations/{organization_number}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch
  */

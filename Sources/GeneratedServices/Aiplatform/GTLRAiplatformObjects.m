@@ -88,6 +88,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_R
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Safety = @"SAFETY";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Spii = @"SPII";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Stop = @"STOP";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_UnexpectedToolCall = @"UNEXPECTED_TOOL_CALL";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult.outcome
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult_Outcome_OutcomeDeadlineExceeded = @"OUTCOME_DEADLINE_EXCEEDED";
@@ -2466,6 +2467,21 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CoherenceSpec
 @dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ColabImage
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ColabImage
+@dynamic descriptionProperty, releaseName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -5849,11 +5865,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig
-@dynamic audioTimestamp, candidateCount, frequencyPenalty, logprobs,
-         maxOutputTokens, mediaResolution, presencePenalty, responseLogprobs,
-         responseMimeType, responseModalities, responseSchema, routingConfig,
-         seed, speechConfig, stopSequences, temperature, thinkingConfig, topK,
-         topP;
+@dynamic audioTimestamp, candidateCount, enableAffectiveDialog,
+         frequencyPenalty, logprobs, maxOutputTokens, mediaResolution,
+         presencePenalty, responseLogprobs, responseMimeType,
+         responseModalities, responseSchema, routingConfig, seed, speechConfig,
+         stopSequences, temperature, thinkingConfig, topK, topP;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -9328,7 +9344,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookSoftwareConfig
-@dynamic env, postStartupScriptConfig;
+@dynamic colabImage, env, postStartupScriptConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -10093,7 +10109,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig
-@dynamic network, projectId;
+@dynamic forwardingRule, ipAddress, network, projectId;
 @end
 
 

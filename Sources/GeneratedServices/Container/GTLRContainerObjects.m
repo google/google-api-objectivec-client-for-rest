@@ -20,6 +20,12 @@ NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_Ex
 NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_InternalVpcLb = @"INTERNAL_VPC_LB";
 NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_RelayModeUnspecified = @"RELAY_MODE_UNSPECIFIED";
 
+// GTLRContainer_AdvancedMachineFeatures.performanceMonitoringUnit
+NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Architectural = @"ARCHITECTURAL";
+NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Enhanced = @"ENHANCED";
+NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_PerformanceMonitoringUnitUnspecified = @"PERFORMANCE_MONITORING_UNIT_UNSPECIFIED";
+NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Standard = @"STANDARD";
+
 // GTLRContainer_AutoMonitoringConfig.scope
 NSString * const kGTLRContainer_AutoMonitoringConfig_Scope_All = @"ALL";
 NSString * const kGTLRContainer_AutoMonitoringConfig_Scope_None = @"NONE";
@@ -544,7 +550,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_AddonsConfig
 @dynamic cloudRunConfig, configConnectorConfig, dnsCacheConfig,
          gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
-         gcsFuseCsiDriverConfig, gkeBackupAgentConfig, horizontalPodAutoscaling,
+         gcsFuseCsiDriverConfig, gkeBackupAgentConfig,
+         highScaleCheckpointingConfig, horizontalPodAutoscaling,
          httpLoadBalancing, kubernetesDashboard, networkPolicyConfig,
          parallelstoreCsiDriverConfig, rayOperatorConfig, statefulHaConfig;
 @end
@@ -566,7 +573,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AdvancedMachineFeatures
-@dynamic enableNestedVirtualization, threadsPerCore;
+@dynamic enableNestedVirtualization, performanceMonitoringUnit, threadsPerCore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_AnonymousAuthenticationConfig
+//
+
+@implementation GTLRContainer_AnonymousAuthenticationConfig
 @end
 
 
@@ -815,11 +831,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Cluster
-@dynamic addonsConfig, alphaClusterFeatureGates, authenticatorGroupsConfig,
-         autopilot, autoscaling, binaryAuthorization, clusterIpv4Cidr,
-         compliancePostureConfig, conditions, confidentialNodes,
-         controlPlaneEndpointsConfig, costManagementConfig, createTime,
-         currentMasterVersion, currentNodeCount, currentNodeVersion,
+@dynamic addonsConfig, alphaClusterFeatureGates, anonymousAuthenticationConfig,
+         authenticatorGroupsConfig, autopilot, autoscaling, binaryAuthorization,
+         clusterIpv4Cidr, compliancePostureConfig, conditions,
+         confidentialNodes, controlPlaneEndpointsConfig, costManagementConfig,
+         createTime, currentMasterVersion, currentNodeCount, currentNodeVersion,
          databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
          enableK8sBetaApis, enableKubernetesAlpha, enableTpu, endpoint,
          enterpriseConfig, ETag, expireTime, fleet, identifier,
@@ -912,14 +928,14 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_ClusterUpdate
 @dynamic additionalPodRangesConfig, desiredAddonsConfig,
-         desiredAuthenticatorGroupsConfig, desiredAutopilotWorkloadPolicyConfig,
-         desiredBinaryAuthorization, desiredClusterAutoscaling,
-         desiredCompliancePostureConfig, desiredContainerdConfig,
-         desiredControlPlaneEndpointsConfig, desiredCostManagementConfig,
-         desiredDatabaseEncryption, desiredDatapathProvider,
-         desiredDefaultEnablePrivateNodes, desiredDefaultSnatStatus,
-         desiredDisableL4LbFirewallReconciliation, desiredDnsConfig,
-         desiredEnableCiliumClusterwideNetworkPolicy,
+         desiredAnonymousAuthenticationConfig, desiredAuthenticatorGroupsConfig,
+         desiredAutopilotWorkloadPolicyConfig, desiredBinaryAuthorization,
+         desiredClusterAutoscaling, desiredCompliancePostureConfig,
+         desiredContainerdConfig, desiredControlPlaneEndpointsConfig,
+         desiredCostManagementConfig, desiredDatabaseEncryption,
+         desiredDatapathProvider, desiredDefaultEnablePrivateNodes,
+         desiredDefaultSnatStatus, desiredDisableL4LbFirewallReconciliation,
+         desiredDnsConfig, desiredEnableCiliumClusterwideNetworkPolicy,
          desiredEnableFqdnNetworkPolicy, desiredEnableMultiNetworking,
          desiredEnablePrivateEndpoint, desiredEnterpriseConfig, desiredFleet,
          desiredGatewayApiConfig, desiredGcfsConfig,
@@ -1412,6 +1428,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_GPUSharingConfig
 @dynamic gpuSharingStrategy, maxSharedClientsPerGpu;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_HighScaleCheckpointingConfig
+//
+
+@implementation GTLRContainer_HighScaleCheckpointingConfig
+@dynamic enabled;
 @end
 
 

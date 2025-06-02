@@ -30,7 +30,9 @@
 @class GTLRCloudKMS_Expr;
 @class GTLRCloudKMS_ExternalProtectionLevelOptions;
 @class GTLRCloudKMS_ImportJob;
+@class GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig;
 @class GTLRCloudKMS_KeyAccessJustificationsPolicy;
+@class GTLRCloudKMS_KeyAccessJustificationsPolicyConfig;
 @class GTLRCloudKMS_KeyHandle;
 @class GTLRCloudKMS_KeyOperationAttestation;
 @class GTLRCloudKMS_KeyRing;
@@ -509,7 +511,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLeve
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This key material of this version is destroyed and no longer stored. This
+ *  The key material of this version is destroyed and no longer stored. This
  *  version may only become ENABLED again if this version is reimport_eligible
  *  and the original key material is reimported with a call to
  *  KeyManagementService.ImportCryptoKeyVersion.
@@ -2245,6 +2247,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @interface GTLRCloudKMS_AutokeyConfig : GTLRObject
 
 /**
+ *  Optional. A checksum computed by the server based on the value of other
+ *  fields. This may be sent on update requests to ensure that the client has an
+ *  up-to-date value before proceeding. The request will be rejected with an
+ *  ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Optional. Name of the key project, e.g. `projects/{PROJECT_ID}` or
  *  `projects/{PROJECT_NUMBER}`, where Cloud KMS Autokey will provision a new
  *  CryptoKey when a KeyHandle is created. On UpdateAutokeyConfig, the caller
@@ -2856,9 +2866,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed This key material
- *        of this version is destroyed and no longer stored. This version may
- *        only become ENABLED again if this version is reimport_eligible and the
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed The key material of
+ *        this version is destroyed and no longer stored. This version may only
+ *        become ENABLED again if this version is reimport_eligible and the
  *        original key material is reimported with a call to
  *        KeyManagementService.ImportCryptoKeyVersion. (Value: "DESTROYED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled This version
@@ -3928,6 +3938,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  The configuration of a protection level for a project's Key Access
+ *  Justifications enrollment.
+ */
+@interface GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig : GTLRObject
+
+/**
+ *  Whether the project has KAJ logging enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *auditLogging;
+
+/**
+ *  Whether the project is enrolled in KAJ policy enforcement.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyEnforcement;
+
+@end
+
+
+/**
  *  A KeyAccessJustificationsPolicy specifies zero or more allowed AccessReason
  *  values for encrypt, decrypt, and sign operations on a CryptoKey.
  */
@@ -3939,6 +3972,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  associated with this policy will fail.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedAccessReasons;
+
+@end
+
+
+/**
+ *  A singleton configuration for Key Access Justifications policies.
+ */
+@interface GTLRCloudKMS_KeyAccessJustificationsPolicyConfig : GTLRObject
+
+/**
+ *  Optional. The default key access justification policy used when a CryptoKey
+ *  is created in this folder. This is only used when a Key Access
+ *  Justifications policy is not provided in the CreateCryptoKeyRequest. This
+ *  overrides any default policies in its ancestry.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicy *defaultKeyAccessJustificationPolicy;
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5454,6 +5509,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  ancestry.
  */
 @property(nonatomic, copy, nullable) NSString *keyProject;
+
+@end
+
+
+/**
+ *  Response message for
+ *  KeyAccessJustificationsConfig.ShowEffectiveKeyAccessJustificationsEnrollmentConfig
+ */
+@interface GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse : GTLRObject
+
+/**
+ *  The effective KeyAccessJustificationsEnrollmentConfig for external keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *externalConfig;
+
+/**
+ *  The effective KeyAccessJustificationsEnrollmentConfig for hardware keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *hardwareConfig;
+
+/**
+ *  The effective KeyAccessJustificationsEnrollmentConfig for software keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *softwareConfig;
+
+@end
+
+
+/**
+ *  Response message for
+ *  KeyAccessJustificationsConfig.ShowEffectiveKeyAccessJustificationsPolicyConfig.
+ */
+@interface GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse : GTLRObject
+
+/** The effective KeyAccessJustificationsPolicyConfig. */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *effectiveKajPolicy;
 
 @end
 

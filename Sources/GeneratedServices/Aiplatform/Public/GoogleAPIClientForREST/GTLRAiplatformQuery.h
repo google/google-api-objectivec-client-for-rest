@@ -749,6 +749,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  Method: aiplatform.endpoints.fetchPredictOperation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsFetchPredictOperation : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsFetchPredictOperation
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Generate content with multimodal inputs.
  *
  *  Method: aiplatform.endpoints.generateContent
@@ -820,6 +858,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_EndpointsPredict
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  GTLRAiplatformQuery_EndpointsPredictLongRunning
+ *
+ *  Method: aiplatform.endpoints.predictLongRunning
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsPredictLongRunning : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsPredictLongRunning
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest *)object
                        endpoint:(NSString *)endpoint;
 
 @end
@@ -24920,6 +24994,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  Method: aiplatform.publishers.models.fetchPredictOperation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsFetchPredictOperation : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsFetchPredictOperation
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Generate content with multimodal inputs.
  *
  *  Method: aiplatform.publishers.models.generateContent
@@ -25059,6 +25171,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  GTLRAiplatformQuery_PublishersModelsPredictLongRunning
+ *
+ *  Method: aiplatform.publishers.models.predictLongRunning
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsPredictLongRunning : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsPredictLongRunning
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Generate content with multimodal inputs with streaming support.
  *
  *  Method: aiplatform.publishers.models.streamGenerateContent
@@ -25096,6 +25244,259 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
                           model:(NSString *)model;
+
+@end
+
+/**
+ *  Creates a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the ReasoningEngine
+ *  in. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a reasoning engine.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+ *    to include in the query.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine *)object;
+
+@end
+
+/**
+ *  Deletes a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesDelete : GTLRAiplatformQuery
+
+/**
+ *  Optional. If set to true, child resources of this reasoning engine will also
+ *  be deleted. Otherwise, the request will fail with FAILED_PRECONDITION error
+ *  when the reasoning engine has undeleted child resources.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the ReasoningEngine resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a reasoning engine.
+ *
+ *  @param name Required. The name of the ReasoningEngine resource to be
+ *    deleted. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine.
+ *
+ *  Gets a reasoning engine.
+ *
+ *  @param name Required. The name of the ReasoningEngine resource. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists reasoning engines in a location.
+ *
+ *  Method: aiplatform.reasoningEngines.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The standard list filter. More detail in
+ *  [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list the ReasoningEngines
+ *  from. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListReasoningEnginesResponse.
+ *
+ *  Lists reasoning engines in a location.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesPatch : GTLRAiplatformQuery
+
+/**
+ *  Identifier. The resource name of the ReasoningEngine. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Mask specifying which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a reasoning engine.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+ *    to include in the query.
+ *  @param name Identifier. The resource name of the ReasoningEngine. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Queries using a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesQuery : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource to use. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineResponse.
+ *
+ *  Queries using a reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ReasoningEngine resource to use.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesQuery
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Streams queries using a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.streamQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesStreamQuery : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource to use. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Streams queries using a reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ReasoningEngine resource to use.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesStreamQuery
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
 
 @end
 

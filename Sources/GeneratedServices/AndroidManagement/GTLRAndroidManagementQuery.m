@@ -21,6 +21,7 @@ NSString * const kGTLRAndroidManagementViewEnterpriseViewUnspecified = @"ENTERPR
 // wipeDataFlags
 NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData = @"PRESERVE_RESET_PROTECTION_DATA";
 NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified = @"WIPE_DATA_FLAG_UNSPECIFIED";
+NSString * const kGTLRAndroidManagementWipeDataFlagsWipeEsims  = @"WIPE_ESIMS";
 NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE_EXTERNAL_STORAGE";
 
 // ----------------------------------------------------------------------------

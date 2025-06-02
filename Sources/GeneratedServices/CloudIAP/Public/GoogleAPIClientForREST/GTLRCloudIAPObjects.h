@@ -433,14 +433,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  Allows customers to configure HTTP request paths that'll allow HTTP OPTIONS
- *  call to bypass authentication and authorization.
+ *  Allows customers to configure HTTP request paths that'll allow HTTP
+ *  `OPTIONS` call to bypass authentication and authorization.
  */
 @interface GTLRCloudIAP_CorsSettings : GTLRObject
 
 /**
- *  Configuration to allow HTTP OPTIONS calls to skip authorization. If
- *  undefined, IAP will not apply any special logic to OPTIONS requests.
+ *  Configuration to allow HTTP `OPTIONS` calls to skip authentication and
+ *  authorization. If undefined, IAP will not apply any special logic to
+ *  `OPTIONS` requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -526,7 +527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  Allows customers to configure tenant_id for GCIP instance per-app.
+ *  Allows customers to configure tenant IDs for a Cloud Identity Platform
+ *  (GCIP) instance for each application.
  */
 @interface GTLRCloudIAP_GcipSettings : GTLRObject
 
@@ -538,11 +540,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *loginPageUri;
 
 /**
- *  Optional. GCIP tenant ids that are linked to the IAP resource. tenant_ids
+ *  Optional. GCIP tenant IDs that are linked to the IAP resource. `tenant_ids`
  *  could be a string beginning with a number character to indicate
- *  authenticating with GCIP tenant flow, or in the format of _ to indicate
- *  authenticating with GCIP agent flow. If agent flow is used, tenant_ids
- *  should only contain one single element, while for tenant flow, tenant_ids
+ *  authenticating with GCIP tenant flow, or in the format of `_` to indicate
+ *  authenticating with GCIP agent flow. If agent flow is used, `tenant_ids`
+ *  should only contain one single element, while for tenant flow, `tenant_ids`
  *  can contain multiple elements.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tenantIds;
@@ -989,6 +991,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  Talk to iam-conditions-eng\@ about your use case.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_Labels *labels;
+
+/**
+ *  The locations of the resource. This field is used to determine whether the
+ *  request is compliant with Trust Boundaries. Usage: - If unset or empty, the
+ *  location of authorization is used as the target location. - For global
+ *  resources: use a single value of "global". - For regional/multi-regional
+ *  resources: use name of the GCP region(s) where the resource exists (e.g.,
+ *  ["us-east1", "us-west1"]). For multi-regional resources specify the name of
+ *  each GCP region in the resource's multi-region. NOTE: Only GCP cloud region
+ *  names are supported - go/cloud-region-names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
 /**
  *  The **relative** name of the resource, which is the URI path of the resource

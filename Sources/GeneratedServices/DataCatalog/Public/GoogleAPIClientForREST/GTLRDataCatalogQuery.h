@@ -976,7 +976,8 @@ GTLR_DEPRECATED
  *  deletes tags not included in the input tag list. `ReconcileTags` returns a
  *  long-running operation resource that can be queried with
  *  Operations.GetOperation to return ReconcileTagsMetadata and a
- *  ReconcileTagsResponse message.
+ *  ReconcileTagsResponse message. Note: SearchCatalog might return stale search
+ *  results for up to 24 hours after the `ReconcileTags` operation completes.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.tags.reconcile
  *
@@ -997,7 +998,8 @@ GTLR_DEPRECATED
  *  deletes tags not included in the input tag list. `ReconcileTags` returns a
  *  long-running operation resource that can be queried with
  *  Operations.GetOperation to return ReconcileTagsMetadata and a
- *  ReconcileTagsResponse message.
+ *  ReconcileTagsResponse message. Note: SearchCatalog might return stale search
+ *  results for up to 24 hours after the `ReconcileTags` operation completes.
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest to include in

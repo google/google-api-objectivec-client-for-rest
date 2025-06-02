@@ -119,6 +119,7 @@
 @class GTLRGKEOnPrem_VmwareAdminMetalLbConfig;
 @class GTLRGKEOnPrem_VmwareAdminNetworkConfig;
 @class GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig;
+@class GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig;
 @class GTLRGKEOnPrem_VmwareAdminSeesawConfig;
 @class GTLRGKEOnPrem_VmwareAdminVCenterConfig;
 @class GTLRGKEOnPrem_VmwareAdminVipConfig;
@@ -2731,6 +2732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *localName;
 
+/** Optional. The namespace of the cluster. */
+@property(nonatomic, copy, nullable) NSString *localNamespace;
+
 @end
 
 
@@ -4111,6 +4115,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig *preparedSecrets;
 
+/** Configuration for registry. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig *privateRegistryConfig;
+
 /**
  *  Output only. If set, there are currently changes in flight to the VMware
  *  admin cluster.
@@ -4388,6 +4395,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  VmwareAdminPrivateRegistryConfig represents configuration for admin cluster
+ *  registry.
+ */
+@interface GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig : GTLRObject
+
+/** The registry address. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  When the container runtime pulls an image from private registry, the
+ *  registry must prove its identity by presenting a certificate. The registry's
+ *  certificate is signed by a certificate authority (CA). The container runtime
+ *  uses the CA's certificate to validate the registry's certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *caCert;
 
 @end
 

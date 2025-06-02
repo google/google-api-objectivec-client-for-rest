@@ -68,6 +68,11 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Failed = @"FA
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Pending = @"PENDING";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBigQueryReservation_FailoverReservationRequest.failoverMode
+NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_FailoverModeUnspecified = @"FAILOVER_MODE_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Hard = @"HARD";
+NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Soft = @"SOFT";
+
 // GTLRBigQueryReservation_Reservation.edition
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise = @"ENTERPRISE";
@@ -214,6 +219,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_FailoverReservationRequest
+@dynamic failoverMode;
 @end
 
 
@@ -340,7 +346,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_ReplicationStatus
-@dynamic error, lastErrorTime, lastReplicationTime;
+@dynamic error, lastErrorTime, lastReplicationTime, softFailoverStartTime;
 @end
 
 

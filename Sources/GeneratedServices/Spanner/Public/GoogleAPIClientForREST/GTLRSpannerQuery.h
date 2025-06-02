@@ -1671,7 +1671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Adds split points to specified tables, indexes of a database.
+ *  Adds split points to specified tables and indexes of a database.
  *
  *  Method: spanner.projects.instances.databases.addSplitPoints
  *
@@ -1682,20 +1682,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints : GTLRSpannerQuery
 
 /**
- *  Required. The database on whose tables/indexes split points are to be added.
- *  Values are of the form `projects//instances//databases/`.
+ *  Required. The database on whose tables or indexes the split points are to be
+ *  added. Values are of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
  *  Fetches a @c GTLRSpanner_AddSplitPointsResponse.
  *
- *  Adds split points to specified tables, indexes of a database.
+ *  Adds split points to specified tables and indexes of a database.
  *
  *  @param object The @c GTLRSpanner_AddSplitPointsRequest to include in the
  *    query.
- *  @param database Required. The database on whose tables/indexes split points
- *    are to be added. Values are of the form `projects//instances//databases/`.
+ *  @param database Required. The database on whose tables or indexes the split
+ *    points are to be added. Values are of the form
+ *    `projects//instances//databases/`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints
  */

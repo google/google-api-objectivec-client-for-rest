@@ -245,6 +245,30 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_EffectiveTagBindingCollection
+//
+
+@implementation GTLRCloudResourceManager_EffectiveTagBindingCollection
+@dynamic effectiveTags, fullResourceName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags
+//
+
+@implementation GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Empty
 //
 
@@ -843,6 +867,35 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 @implementation GTLRCloudResourceManager_TagBinding
 @dynamic name, parent, tagValue, tagValueNamespacedName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagBindingCollection
+//
+
+@implementation GTLRCloudResourceManager_TagBindingCollection
+@dynamic ETag, fullResourceName, name, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagBindingCollection_Tags
+//
+
+@implementation GTLRCloudResourceManager_TagBindingCollection_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

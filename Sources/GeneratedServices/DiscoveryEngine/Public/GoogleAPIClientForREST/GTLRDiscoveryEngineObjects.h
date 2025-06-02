@@ -109,6 +109,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigDigitalParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigLayoutParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigOcrParsingConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfigAgentCreationConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineMetadata;
@@ -264,6 +265,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigDigitalParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigLayoutParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigOcrParsingConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineConfigAgentCreationConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineMetadata;
@@ -389,6 +391,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigOcrParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DoubleList;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineConfigAgentCreationConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineChatEngineMetadata;
@@ -1578,6 +1581,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SOLUTION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features.feature
+
+/**
+ *  The feature is turned off to be inaccessible.
+ *
+ *  Value: "FEATURE_STATE_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features_Feature_FeatureStateOff;
+/**
+ *  The feature is turned on to be accessible.
+ *
+ *  Value: "FEATURE_STATE_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features_Feature_FeatureStateOn;
+/**
+ *  The feature state is unspecified.
+ *
+ *  Value: "FEATURE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features_Feature_FeatureStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig.trainingState
@@ -3488,6 +3513,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_SolutionType_SolutionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features.feature
+
+/**
+ *  The feature is turned off to be inaccessible.
+ *
+ *  Value: "FEATURE_STATE_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features_Feature_FeatureStateOff;
+/**
+ *  The feature is turned on to be accessible.
+ *
+ *  Value: "FEATURE_STATE_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features_Feature_FeatureStateOn;
+/**
+ *  The feature state is unspecified.
+ *
+ *  Value: "FEATURE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features_Feature_FeatureStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig.trainingState
 
 /**
@@ -4752,6 +4799,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SOLUTION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_SolutionType_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features.feature
+
+/**
+ *  The feature is turned off to be inaccessible.
+ *
+ *  Value: "FEATURE_STATE_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features_Feature_FeatureStateOff;
+/**
+ *  The feature is turned on to be accessible.
+ *
+ *  Value: "FEATURE_STATE_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features_Feature_FeatureStateOn;
+/**
+ *  The feature state is unspecified.
+ *
+ *  Value: "FEATURE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features_Feature_FeatureStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig.trainingState
@@ -7497,7 +7566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  The number of documents extracted from connector source, ready to be
- *  ingested to UCS.
+ *  ingested to VAIS.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7512,6 +7581,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Metadata to generate the progress bar. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress *progress;
+
+/**
+ *  The number of documents scheduled to be crawled/extracted from connector
+ *  source. This only applies to third party connectors.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scheduledRecordCount;
 
 /**
  *  The number of requests sent to 3p API.
@@ -9163,6 +9240,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Optional. List of HTML ids to exclude from the parsed content. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlIds;
 
+/**
+ *  Optional. Contains the required structure types to extract from the
+ *  document. Supported values: * `shareholder-structure`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *structuredContentTypes;
+
 @end
 
 
@@ -9263,6 +9346,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Feature config for the engine to opt in or opt out of features.
+ *  Supported keys: * `*`: all features, if it's present, all other feature
+ *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
+ *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features *features;
+
+/**
  *  Optional. The industry vertical that the engine registers. The restriction
  *  of the Engine industry vertical is based on DataStore: Vertical on Engine
  *  has to match vertical of the DataStore linked to the engine.
@@ -9336,6 +9428,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Output only. Timestamp the Recommendation Engine was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Feature config for the engine to opt in or opt out of features.
+ *  Supported keys: * `*`: all features, if it's present, all other feature
+ *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
+ *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features : GTLRObject
 @end
 
 
@@ -9601,6 +9709,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        "DATA_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *dataState;
+
+/**
+ *  Output only. The timestamp when the latest successful training finished.
+ *  Only applicable on Media Recommendation engines.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastTrainTime;
 
 /**
  *  Output only. The timestamp when the latest successful tune finished. Only
@@ -13402,15 +13516,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Optional. The full resource name of the User, in the format of
- *  `projects/{project}/locations/{location}/userStores/{user_store}/users/{user_id}`.
- *  This field must be a UTF-8 encoded string with a length limit of 2048
- *  characters. If the user field is empty, it's indicating the user has not
- *  logged in yet and no User entity is created.
- */
-@property(nonatomic, copy, nullable) NSString *user;
-
-/**
  *  Required. Immutable. The user principal of the User, could be email address
  *  or other prinical identifier. This field is immutable. Admin assign licenses
  *  based on the user principal.
@@ -16090,6 +16195,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Optional. List of HTML ids to exclude from the parsed content. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlIds;
 
+/**
+ *  Optional. Contains the required structure types to extract from the
+ *  document. Supported values: * `shareholder-structure`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *structuredContentTypes;
+
 @end
 
 
@@ -16190,6 +16301,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Feature config for the engine to opt in or opt out of features.
+ *  Supported keys: * `*`: all features, if it's present, all other feature
+ *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
+ *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features *features;
+
+/**
  *  Optional. The industry vertical that the engine registers. The restriction
  *  of the Engine industry vertical is based on DataStore: Vertical on Engine
  *  has to match vertical of the DataStore linked to the engine.
@@ -16254,6 +16374,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Output only. Timestamp the Recommendation Engine was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Feature config for the engine to opt in or opt out of features.
+ *  Supported keys: * `*`: all features, if it's present, all other feature
+ *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
+ *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features : GTLRObject
 @end
 
 
@@ -21747,6 +21883,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Optional. List of HTML ids to exclude from the parsed content. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludeHtmlIds;
 
+/**
+ *  Optional. Contains the required structure types to extract from the
+ *  document. Supported values: * `shareholder-structure`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *structuredContentTypes;
+
 @end
 
 
@@ -21869,6 +22011,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Feature config for the engine to opt in or opt out of features.
+ *  Supported keys: * `*`: all features, if it's present, all other feature
+ *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
+ *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features *features;
+
+/**
  *  Optional. The industry vertical that the engine registers. The restriction
  *  of the Engine industry vertical is based on DataStore: Vertical on Engine
  *  has to match vertical of the DataStore linked to the engine.
@@ -21933,6 +22084,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Output only. Timestamp the Recommendation Engine was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Feature config for the engine to opt in or opt out of features.
+ *  Supported keys: * `*`: all features, if it's present, all other feature
+ *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
+ *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features : GTLRObject
 @end
 
 
@@ -27181,15 +27348,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Output only. User update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/**
- *  Optional. The full resource name of the User, in the format of
- *  `projects/{project}/locations/{location}/userStores/{user_store}/users/{user_id}`.
- *  This field must be a UTF-8 encoded string with a length limit of 2048
- *  characters. If the user field is empty, it's indicating the user has not
- *  logged in yet and no User entity is created.
- */
-@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  Required. Immutable. The user principal of the User, could be email address

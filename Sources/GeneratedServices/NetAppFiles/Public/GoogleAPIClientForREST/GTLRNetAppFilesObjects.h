@@ -1906,41 +1906,42 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @interface GTLRNetAppFiles_HybridPeeringDetails : GTLRObject
 
 /**
- *  Optional. Copy-paste-able commands to be used on user's ONTAP to accept
+ *  Output only. Copy-paste-able commands to be used on user's ONTAP to accept
  *  peering requests.
  */
 @property(nonatomic, copy, nullable) NSString *command;
 
 /**
- *  Optional. Expiration time for the peering command to be executed on user's
- *  ONTAP.
+ *  Output only. Expiration time for the peering command to be executed on
+ *  user's ONTAP.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commandExpiryTime;
 
 /**
- *  Optional. Temporary passphrase generated to accept cluster peering command.
+ *  Output only. Temporary passphrase generated to accept cluster peering
+ *  command.
  */
 @property(nonatomic, copy, nullable) NSString *passphrase;
 
 /**
- *  Optional. Name of the user's local source cluster to be peered with the
+ *  Output only. Name of the user's local source cluster to be peered with the
  *  destination cluster.
  */
 @property(nonatomic, copy, nullable) NSString *peerClusterName;
 
 /**
- *  Optional. Name of the user's local source vserver svm to be peered with the
- *  destination vserver svm.
+ *  Output only. Name of the user's local source vserver svm to be peered with
+ *  the destination vserver svm.
  */
 @property(nonatomic, copy, nullable) NSString *peerSvmName;
 
 /**
- *  Optional. Name of the user's local source volume to be peered with the
+ *  Output only. Name of the user's local source volume to be peered with the
  *  destination volume.
  */
 @property(nonatomic, copy, nullable) NSString *peerVolumeName;
 
-/** Optional. IP address of the subnet. */
+/** Output only. IP address of the subnet. */
 @property(nonatomic, copy, nullable) NSString *subnetIp;
 
 @end

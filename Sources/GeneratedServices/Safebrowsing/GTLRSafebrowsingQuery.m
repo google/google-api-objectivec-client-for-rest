@@ -45,3 +45,82 @@
 }
 
 @end
+
+@implementation GTLRSafebrowsingQuery_HashListGet
+
+@dynamic name, sizeConstraintsMaxDatabaseEntries,
+         sizeConstraintsMaxUpdateEntries, version;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"sizeConstraintsMaxDatabaseEntries" : @"sizeConstraints.maxDatabaseEntries",
+    @"sizeConstraintsMaxUpdateEntries" : @"sizeConstraints.maxUpdateEntries"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v5/hashList/{name}";
+  GTLRSafebrowsingQuery_HashListGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList class];
+  query.loggingName = @"safebrowsing.hashList.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSafebrowsingQuery_HashListsBatchGet
+
+@dynamic names, sizeConstraintsMaxDatabaseEntries,
+         sizeConstraintsMaxUpdateEntries, version;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"sizeConstraintsMaxDatabaseEntries" : @"sizeConstraints.maxDatabaseEntries",
+    @"sizeConstraintsMaxUpdateEntries" : @"sizeConstraints.maxUpdateEntries"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class],
+    @"version" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v5/hashLists:batchGet";
+  GTLRSafebrowsingQuery_HashListsBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5BatchGetHashListsResponse class];
+  query.loggingName = @"safebrowsing.hashLists.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRSafebrowsingQuery_HashListsList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v5/hashLists";
+  GTLRSafebrowsingQuery_HashListsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ListHashListsResponse class];
+  query.loggingName = @"safebrowsing.hashLists.list";
+  return query;
+}
+
+@end

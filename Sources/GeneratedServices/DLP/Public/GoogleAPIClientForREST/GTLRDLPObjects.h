@@ -226,6 +226,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog;
 @class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToChronicle;
+@class GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToPubSub;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver;
@@ -5478,6 +5479,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToChronicle *publishToChronicle;
 
+/**
+ *  Publishes a portion of each profile to Dataplex Catalog with the aspect type
+ *  Sensitive Data Protection Profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog *publishToDataplexCatalog;
+
 /** Publishes findings to Security Command Center for each data profile. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter *publishToScc;
 
@@ -5549,8 +5556,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Resource name of the data profile associated with the finding. */
 @property(nonatomic, copy, nullable) NSString *dataProfileResourceName;
 
+/** The type of the resource that was profiled. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataSourceType *dataSourceType;
+
 /** A unique identifier for the finding. */
 @property(nonatomic, copy, nullable) NSString *findingId;
+
+/**
+ *  The [full resource
+ *  name](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  of the resource profiled for this finding.
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
 
 /**
  *  The [type of
@@ -10445,6 +10462,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Create Dataplex Catalog aspects for profiled resources with the aspect type
+ *  Sensitive Data Protection Profile. To learn more about aspects, see
+ *  https://cloud.google.com/sensitive-data-protection/docs/add-aspects.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog : GTLRObject
+
+/**
+ *  Whether creating a Dataplex Catalog aspect for a profiled resource should
+ *  lower the risk of the profile for that resource. This also lowers the data
+ *  risk of resources at the lower levels of the resource hierarchy. For
+ *  example, reducing the data risk of a table data profile also reduces the
+ *  data risk of the constituent column data profiles.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lowerDataRiskToLow;
+
+@end
+
+
+/**
  *  Publish a message into a given Pub/Sub topic when DlpJob has completed. The
  *  message contains a single field, `DlpJobName`, which is equal to the
  *  finished job's
@@ -11773,6 +11811,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Dataset ID of the table. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  The Google Cloud project ID of the project containing the table. If omitted,
+ *  the project ID is inferred from the parent project. This field is required
+ *  if the parent resource is an organization.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Name of the table. */
 @property(nonatomic, copy, nullable) NSString *tableId;

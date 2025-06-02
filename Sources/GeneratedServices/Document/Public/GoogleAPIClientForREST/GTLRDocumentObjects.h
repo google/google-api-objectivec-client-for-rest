@@ -872,32 +872,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Update;
 
 // ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.groundingConfig
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.method
 
 /**
- *  Unspecified grounding config. It defaults to `STRICT` grounding.
+ *  The entity's value is derived through inference and is not necessarily an
+ *  exact text extraction from the document.
  *
- *  Value: "GROUNDING_CONFIG_UNSPECIFIED"
+ *  Value: "DERIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_GroundingConfigUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Derive;
 /**
- *  Allow no grounding.
+ *  The entity's value is directly extracted as-is from the document text.
  *
- *  Value: "NO_GROUNDING"
+ *  Value: "EXTRACT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_NoGrounding;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Extract;
 /**
- *  Relaxed grounding.
+ *  Unspecified method. It defaults to `EXTRACT`.
  *
- *  Value: "RELAXED"
+ *  Value: "METHOD_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Relaxed;
-/**
- *  Strict grounding.
- *
- *  Value: "STRICT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Strict;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_MethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
@@ -4805,20 +4800,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Grounding config of the entity type.
+ *  Specifies how the entity's value is obtained.
  *
  *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_GroundingConfigUnspecified
- *        Unspecified grounding config. It defaults to `STRICT` grounding.
- *        (Value: "GROUNDING_CONFIG_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_NoGrounding
- *        Allow no grounding. (Value: "NO_GROUNDING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Relaxed
- *        Relaxed grounding. (Value: "RELAXED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_GroundingConfig_Strict
- *        Strict grounding. (Value: "STRICT")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Derive
+ *        The entity's value is derived through inference and is not necessarily
+ *        an exact text extraction from the document. (Value: "DERIVE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Extract
+ *        The entity's value is directly extracted as-is from the document text.
+ *        (Value: "EXTRACT")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_MethodUnspecified
+ *        Unspecified method. It defaults to `EXTRACT`. (Value:
+ *        "METHOD_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *groundingConfig;
+@property(nonatomic, copy, nullable) NSString *method;
 
 /**
  *  The name of the property. Follows the same guidelines as the EntityType

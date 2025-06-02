@@ -137,6 +137,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.folders.getKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersGetKajPolicyConfig : GTLRCloudKMSQuery
+
+/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
+ *    get.
+ *
+ *  @return GTLRCloudKMSQuery_FoldersGetKajPolicyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates the AutokeyConfig for a folder. The caller must have both
  *  `cloudkms.autokeyConfigs.update` permission on the parent folder and
  *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A
@@ -182,6 +212,154 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_AutokeyConfig *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.folders.updateKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersUpdateKajPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
+ *    include in the query.
+ *  @param name Identifier. The resource name for this
+ *    KeyAccessJustificationsPolicyConfig in the format of
+ *    "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *
+ *  @return GTLRCloudKMSQuery_FoldersUpdateKajPolicyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.organizations.getKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig : GTLRCloudKMSQuery
+
+/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
+ *    get.
+ *
+ *  @return GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.organizations.updateKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_OrganizationsUpdateKajPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
+ *    include in the query.
+ *  @param name Identifier. The resource name for this
+ *    KeyAccessJustificationsPolicyConfig in the format of
+ *    "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *
+ *  @return GTLRCloudKMSQuery_OrganizationsUpdateKajPolicyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.projects.getKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig : GTLRCloudKMSQuery
+
+/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
+ *    get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2569,6 +2747,119 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the KeyAccessJustificationsEnrollmentConfig of the resource closest
+ *  to the given project in hierarchy.
+ *
+ *  Method: cloudkms.projects.showEffectiveKeyAccessJustificationsEnrollmentConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. The number or id of the project to get the effective
+ *  KeyAccessJustificationsEnrollmentConfig for.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse.
+ *
+ *  Returns the KeyAccessJustificationsEnrollmentConfig of the resource closest
+ *  to the given project in hierarchy.
+ *
+ *  @param project Required. The number or id of the project to get the
+ *    effective KeyAccessJustificationsEnrollmentConfig for.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Returns the KeyAccessJustificationsPolicyConfig of the resource closest to
+ *  the given project in hierarchy.
+ *
+ *  Method: cloudkms.projects.showEffectiveKeyAccessJustificationsPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. The number or id of the project to get the effective
+ *  KeyAccessJustificationsPolicyConfig. In the format of "projects/{|}"
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse.
+ *
+ *  Returns the KeyAccessJustificationsPolicyConfig of the resource closest to
+ *  the given project in hierarchy.
+ *
+ *  @param project Required. The number or id of the project to get the
+ *    effective KeyAccessJustificationsPolicyConfig. In the format of
+ *    "projects/{|}"
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.projects.updateKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsUpdateKajPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
+ *    include in the query.
+ *  @param name Identifier. The resource name for this
+ *    KeyAccessJustificationsPolicyConfig in the format of
+ *    "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsUpdateKajPolicyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name;
 
 @end
 

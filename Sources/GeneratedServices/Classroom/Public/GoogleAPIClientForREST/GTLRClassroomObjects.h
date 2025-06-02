@@ -36,6 +36,7 @@
 @class GTLRClassroom_EmbedUri;
 @class GTLRClassroom_Feed;
 @class GTLRClassroom_Form;
+@class GTLRClassroom_GeminiGem;
 @class GTLRClassroom_GlobalPermission;
 @class GTLRClassroom_GradebookSettings;
 @class GTLRClassroom_GradeCategory;
@@ -52,6 +53,7 @@
 @class GTLRClassroom_MultipleChoiceQuestion;
 @class GTLRClassroom_MultipleChoiceSubmission;
 @class GTLRClassroom_Name;
+@class GTLRClassroom_NotebookLmNotebook;
 @class GTLRClassroom_Rubric;
 @class GTLRClassroom_RubricGrade;
 @class GTLRClassroom_SharedDriveFile;
@@ -1886,6 +1888,27 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  Gemini Gem link.
+ */
+@interface GTLRClassroom_GeminiGem : GTLRObject
+
+/**
+ *  Gems resource id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Title of the Gem. Read-only. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** URL that can be used to access the Gem. Read-only. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  Global user permission description.
  */
 @interface GTLRClassroom_GlobalPermission : GTLRObject
@@ -2650,7 +2673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 /**
  *  Material attached to course work. When creating attachments, setting the
- *  `form` field is not supported.
+ *  `form`, `gem`, or `notebook` field is not supported.
  */
 @interface GTLRClassroom_Material : GTLRObject
 
@@ -2660,11 +2683,17 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 /** Google Forms material. Read-only. */
 @property(nonatomic, strong, nullable) GTLRClassroom_Form *form;
 
+/** Gemini Gem material. Read-only. */
+@property(nonatomic, strong, nullable) GTLRClassroom_GeminiGem *gem;
+
 /**
  *  Link material. On creation, this is upgraded to a more appropriate type if
  *  possible, and this is reflected in the response.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_Link *link;
+
+/** NotebookLM Notebook material. Read-only. */
+@property(nonatomic, strong, nullable) GTLRClassroom_NotebookLmNotebook *notebook;
 
 /** YouTube video material. */
 @property(nonatomic, strong, nullable) GTLRClassroom_YouTubeVideo *youtubeVideo;
@@ -2807,6 +2836,27 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 /** The user's first name. Read-only. */
 @property(nonatomic, copy, nullable) NSString *givenName;
+
+@end
+
+
+/**
+ *  NotebookLM Notebook link.
+ */
+@interface GTLRClassroom_NotebookLmNotebook : GTLRObject
+
+/**
+ *  Notebook resource id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Title of the Notebook. Read-only. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** URL that can be used to access the Notebook. Read-only. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 

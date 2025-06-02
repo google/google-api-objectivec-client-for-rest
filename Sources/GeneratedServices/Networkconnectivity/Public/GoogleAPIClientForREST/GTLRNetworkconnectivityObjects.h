@@ -104,8 +104,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRNetworkconnectivity_AllocationOptions.allocationStrategy
 
 /**
- *  Unspecified strategy must be used when the range is specified explicitly
- *  using ip_cidr_range field. Othherwise unspefified means using the default
+ *  Unspecified is the only valid option when the range is specified explicitly
+ *  by ip_cidr_range field. Otherwise unspefified means using the default
  *  strategy.
  *
  *  Value: "ALLOCATION_STRATEGY_UNSPECIFIED"
@@ -636,6 +636,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_LocationMetadata.locationFeatures
 
+/**
+ *  Gateway spokes are supported in this location.
+ *
+ *  Value: "GATEWAY_SPOKES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_GatewaySpokes;
 /**
  *  No publicly supported feature in this location
  *
@@ -1493,9 +1499,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_AllocationOptions_AllocationStrategy_AllocationStrategyUnspecified
- *        Unspecified strategy must be used when the range is specified
- *        explicitly using ip_cidr_range field. Othherwise unspefified means
- *        using the default strategy. (Value: "ALLOCATION_STRATEGY_UNSPECIFIED")
+ *        Unspecified is the only valid option when the range is specified
+ *        explicitly by ip_cidr_range field. Otherwise unspefified means using
+ *        the default strategy. (Value: "ALLOCATION_STRATEGY_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_AllocationOptions_AllocationStrategy_FirstAvailable
  *        Pick the first available address range. This strategy is deterministic
  *        and the result is easy to predict. (Value: "FIRST_AVAILABLE")
@@ -2471,9 +2477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *routeTables;
 
 /**
- *  The VPC networks associated with this hub's spokes. This field is read-only.
- *  Network Connectivity Center automatically populates it based on the set of
- *  spokes attached to the hub.
+ *  Output only. The VPC networks associated with this hub's spokes. This field
+ *  is read-only. Network Connectivity Center automatically populates it based
+ *  on the set of spokes attached to the hub.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RoutingVPC *> *routingVpcs;
 
@@ -2602,7 +2608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  A description of this resource.
+ *  Optional. A description of this resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2624,9 +2630,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSNumber *immutable;
 
 /**
- *  The IP range that this internal range defines. NOTE: IPv6 ranges are limited
- *  to usage=EXTERNAL_TO_VPC and peering=FOR_SELF. NOTE: For IPv6 Ranges this
- *  field is compulsory, i.e. the address range must be specified explicitly.
+ *  Optional. The IP range that this internal range defines. NOTE: IPv6 ranges
+ *  are limited to usage=EXTERNAL_TO_VPC and peering=FOR_SELF. NOTE: For IPv6
+ *  Ranges this field is compulsory, i.e. the address range must be specified
+ *  explicitly.
  */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
@@ -2637,16 +2644,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Migration *migration;
 
 /**
- *  Immutable. The name of an internal range. Format:
+ *  Identifier. The name of an internal range. Format:
  *  projects/{project}/locations/{location}/internalRanges/{internal_range} See:
  *  https://google.aip.dev/122#fields-representing-resource-names
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The URL or resource ID of the network in which to reserve the internal
- *  range. The network cannot be deleted if there are any reserved internal
- *  ranges referring to it. Legacy networks are not supported. For example:
+ *  Immutable. The URL or resource ID of the network in which to reserve the
+ *  internal range. The network cannot be deleted if there are any reserved
+ *  internal ranges referring to it. Legacy networks are not supported. For
+ *  example:
  *  https://www.googleapis.com/compute/v1/projects/{project}/locations/global/networks/{network}
  *  projects/{project}/locations/global/networks/{network} {network}
  */
@@ -2659,7 +2667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *overlaps;
 
 /**
- *  The type of peering set for this internal range.
+ *  Optional. The type of peering set for this internal range.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_InternalRange_Peering_ForPeer This
@@ -2690,9 +2698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *peering;
 
 /**
- *  An alternate to ip_cidr_range. Can be set when trying to create an IPv4
- *  reservation that automatically finds a free range of the given size. If both
- *  ip_cidr_range and prefix_length are set, there is an error if the range
+ *  Optional. An alternate to ip_cidr_range. Can be set when trying to create an
+ *  IPv4 reservation that automatically finds a free range of the given size. If
+ *  both ip_cidr_range and prefix_length are set, there is an error if the range
  *  sizes do not match. Can also be used during updates to change the range
  *  size. NOTE: For IPv6 this field only works if ip_cidr_range is set as well,
  *  and both fields must match. In other words, with IPv6 this field only works
@@ -2715,7 +2723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  The type of usage set for this InternalRange.
+ *  Optional. The type of usage set for this InternalRange.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc Ranges
@@ -2834,7 +2842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
 
 /**
- *  Optional. The proposed include export IP ranges waiting for hub
+ *  Output only. The proposed include export IP ranges waiting for hub
  *  administration's approval.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
@@ -2912,7 +2920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
 
 /**
- *  Optional. The proposed include export IP ranges waiting for hub
+ *  Output only. The proposed include export IP ranges waiting for hub
  *  administration's approval.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;

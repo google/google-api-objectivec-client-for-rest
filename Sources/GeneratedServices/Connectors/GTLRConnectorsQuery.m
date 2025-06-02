@@ -227,11 +227,12 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesList
 
-@dynamic conditions, pageSize, pageToken, parent, sortBy;
+@dynamic conditions, pageSize, pageToken, parent, sortBy, sortOrder;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"sortBy" : [NSString class]
+    @"sortBy" : [NSString class],
+    @"sortOrder" : [NSString class]
   };
   return map;
 }

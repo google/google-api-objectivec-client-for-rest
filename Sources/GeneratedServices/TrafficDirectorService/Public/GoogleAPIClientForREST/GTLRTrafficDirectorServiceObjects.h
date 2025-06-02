@@ -1997,9 +1997,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 @interface GTLRTrafficDirectorService_StringMatcher : GTLRObject
 
 /**
- *  The input string must have the substring specified here. Note: empty
- *  contains match is not allowed, please use regex instead. Examples: * ``abc``
- *  matches the value ``xyz.abc.def``
+ *  The input string must have the substring specified here. .. note:: Empty
+ *  contains match is not allowed, please use ``safe_regex`` instead. Examples:
+ *  * ``abc`` matches the value ``xyz.abc.def``
  */
 @property(nonatomic, copy, nullable) NSString *contains;
 
@@ -2016,19 +2016,19 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 @property(nonatomic, copy, nullable) NSString *exact;
 
 /**
- *  If true, indicates the exact/prefix/suffix/contains matching should be case
- *  insensitive. This has no effect for the safe_regex match. For example, the
- *  matcher ``data`` will match both input string ``Data`` and ``data`` if set
- *  to true.
+ *  If ``true``, indicates the exact/prefix/suffix/contains matching should be
+ *  case insensitive. This has no effect for the ``safe_regex`` match. For
+ *  example, the matcher ``data`` will match both input string ``Data`` and
+ *  ``data`` if this option is set to ``true``.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreCase;
 
 /**
- *  The input string must have the prefix specified here. Note: empty prefix is
- *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
- *  ``abc.xyz``
+ *  The input string must have the prefix specified here. .. note:: Empty prefix
+ *  match is not allowed, please use ``safe_regex`` instead. Examples: * ``abc``
+ *  matches the value ``abc.xyz``
  */
 @property(nonatomic, copy, nullable) NSString *prefix;
 
@@ -2036,9 +2036,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_RegexMatcher *safeRegex;
 
 /**
- *  The input string must have the suffix specified here. Note: empty prefix is
- *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
- *  ``xyz.abc``
+ *  The input string must have the suffix specified here. .. note:: Empty suffix
+ *  match is not allowed, please use ``safe_regex`` instead. Examples: * ``abc``
+ *  matches the value ``xyz.abc``
  */
 @property(nonatomic, copy, nullable) NSString *suffix;
 

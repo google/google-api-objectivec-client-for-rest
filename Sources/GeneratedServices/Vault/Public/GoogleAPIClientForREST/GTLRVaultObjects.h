@@ -249,6 +249,35 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOp
 FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_DriveOptions.sharedDrivesOption
+
+/**
+ *  Resources in shared drives are included in the search. (Previously
+ *  "include_shared_drives" on)
+ *
+ *  Value: "INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_SharedDrivesOption_Included;
+/**
+ *  (Previously "include_shared_drives" off)
+ *
+ *  Value: "INCLUDED_IF_ACCOUNT_IS_NOT_A_MEMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_SharedDrivesOption_IncludedIfAccountIsNotAMember;
+/**
+ *  If a resource is in a shared drive, it isn't included in the search.
+ *
+ *  Value: "NOT_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_SharedDrivesOption_NotIncluded;
+/**
+ *  No shared drive option specified.
+ *
+ *  Value: "SHARED_DRIVES_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_SharedDrivesOption_SharedDrivesOptionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_Export.status
 
 /**
@@ -1368,7 +1397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeSharedDrives;
+@property(nonatomic, strong, nullable) NSNumber *includeSharedDrives GTLR_DEPRECATED;
 
 /**
  *  Set to true to include Team Drive.
@@ -1376,6 +1405,27 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeTeamDrives GTLR_DEPRECATED;
+
+/**
+ *  Optional. Options to include or exclude documents in shared drives. We
+ *  recommend using this field over include_shared_drives. This field overrides
+ *  include_shared_drives and include_team_drives when set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_DriveOptions_SharedDrivesOption_Included Resources in
+ *        shared drives are included in the search. (Previously
+ *        "include_shared_drives" on) (Value: "INCLUDED")
+ *    @arg @c kGTLRVault_DriveOptions_SharedDrivesOption_IncludedIfAccountIsNotAMember
+ *        (Previously "include_shared_drives" off) (Value:
+ *        "INCLUDED_IF_ACCOUNT_IS_NOT_A_MEMBER")
+ *    @arg @c kGTLRVault_DriveOptions_SharedDrivesOption_NotIncluded If a
+ *        resource is in a shared drive, it isn't included in the search.
+ *        (Value: "NOT_INCLUDED")
+ *    @arg @c kGTLRVault_DriveOptions_SharedDrivesOption_SharedDrivesOptionUnspecified
+ *        No shared drive option specified. (Value:
+ *        "SHARED_DRIVES_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sharedDrivesOption;
 
 /**
  *  Search the current version of the Drive file, but export the contents of the

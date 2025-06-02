@@ -1361,6 +1361,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceCh
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Applied;
 /**
+ *  The price change was canceled.
+ *
+ *  Value: "CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Canceled;
+/**
  *  The price change is confirmed to happen for the user.
  *
  *  Value: "CONFIRMED"
@@ -2515,7 +2521,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails *priceChangeDetails;
 
-/** The current recurring price of the auto renewing plan. */
+/**
+ *  The current recurring price of the auto renewing plan. Note that the price
+ *  does not take into account discounts and taxes, call orders.get API instead
+ *  if transaction details are needed.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *recurringPrice;
 
 @end
@@ -6111,14 +6121,14 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A string representing the version of available regions being used
- *  for the specified resource. Regional prices for the resource have to be
- *  specified according to the information published in [this
+ *  for the specified resource. Regional prices and latest supported version for
+ *  the resource have to be specified according to the information published in
+ *  [this
  *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  *  Each time the supported locations substantially change, the version will be
- *  incremented. The latest supported version is available in this article.
- *  Using this field will ensure that creating and updating the resource with an
- *  older region's version and set of regional prices and currencies will
- *  succeed even though a new version is available.
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -6291,7 +6301,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Used when a specific item should be refunded in a subscription
- *  with multiple items.
+ *  with add-on items.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContextItemBasedRefund *itemBasedRefund;
 
@@ -6319,8 +6329,8 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_RevocationContextItemBasedRefund : GTLRObject
 
 /**
- *  Required. If the subscription is a subscription bundle, the product id of
- *  the subscription to revoke.
+ *  Required. If the subscription is a subscription with add-ons, the product id
+ *  of the subscription item to revoke.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
@@ -6742,6 +6752,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Applied
  *        The price change is applied, i.e. the user has started being charged
  *        the new price. (Value: "APPLIED")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Canceled
+ *        The price change was canceled. (Value: "CANCELED")
  *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Confirmed
  *        The price change is confirmed to happen for the user. (Value:
  *        "CONFIRMED")
@@ -7199,6 +7211,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expiryTime;
 
+/**
+ *  The order id of the latest successful order associated with this item. Not
+ *  present if the item is not owned by the user yet (e.g. the item being
+ *  deferred replaced to).
+ */
+@property(nonatomic, copy, nullable) NSString *latestSuccessfulOrderId;
+
 /** The offer details for this item. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_OfferDetails *offerDetails;
 
@@ -7390,7 +7409,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Details about taxation, Google Play policy and legal compliance for
+ *  Details about taxation, Google Play policy, and legal compliance for
  *  subscription products.
  */
 @interface GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings : GTLRObject

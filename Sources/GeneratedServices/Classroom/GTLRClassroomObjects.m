@@ -528,6 +528,21 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_GeminiGem
+//
+
+@implementation GTLRClassroom_GeminiGem
+@dynamic identifier, title, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_GlobalPermission
 //
 
@@ -1008,7 +1023,7 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_Material
-@dynamic driveFile, form, link, youtubeVideo;
+@dynamic driveFile, form, gem, link, notebook, youtubeVideo;
 @end
 
 
@@ -1104,6 +1119,21 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_Name
 @dynamic familyName, fullName, givenName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_NotebookLmNotebook
+//
+
+@implementation GTLRClassroom_NotebookLmNotebook
+@dynamic identifier, title, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

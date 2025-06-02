@@ -60,6 +60,14 @@ NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_DataRead = @"DATA
 NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRNetworkManagement_DeliverInfo.googleServiceType
+NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_CloudDns = @"CLOUD_DNS";
+NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_GfeProxyOrHealthCheckProber = @"GFE_PROXY_OR_HEALTH_CHECK_PROBER";
+NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_GoogleServiceTypeUnspecified = @"GOOGLE_SERVICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_Iap = @"IAP";
+NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_PrivateGoogleAccess = @"PRIVATE_GOOGLE_ACCESS";
+NSString * const kGTLRNetworkManagement_DeliverInfo_GoogleServiceType_ServerlessVpcAccess = @"SERVERLESS_VPC_ACCESS";
+
 // GTLRNetworkManagement_DeliverInfo.target
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_AppEngineVersion = @"APP_ENGINE_VERSION";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudFunction = @"CLOUD_FUNCTION";
@@ -122,10 +130,12 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendIpVers
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination = @"NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromNccNetworkToDestination = @"NO_KNOWN_ROUTE_FROM_NCC_NETWORK_TO_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromPeeredNetworkToDestination = @"NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoMatchingNat64Gateway = @"NO_MATCHING_NAT64_GATEWAY";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment = @"NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute = @"NO_ROUTE";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromExternalIpv6SourceToPrivateIpv6Address = @"NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address = @"NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination = @"NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
@@ -587,7 +597,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_DeliverInfo
-@dynamic ipAddress, pscGoogleApiTarget, resourceUri, storageBucket, target;
+@dynamic googleServiceType, ipAddress, pscGoogleApiTarget, resourceUri,
+         storageBucket, target;
 @end
 
 
@@ -676,7 +687,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_FirewallInfo
 @dynamic action, direction, displayName, firewallRuleType, networkUri, policy,
-         policyUri, priority, targetServiceAccounts, targetTags, uri;
+         policyPriority, policyUri, priority, targetServiceAccounts, targetTags,
+         uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

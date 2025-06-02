@@ -429,11 +429,10 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource
-@dynamic principals, resources;
+@dynamic resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"principals" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class],
     @"resources" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource class]
   };
   return map;

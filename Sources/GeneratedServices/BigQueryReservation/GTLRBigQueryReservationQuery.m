@@ -249,6 +249,29 @@
 
 @end
 
+@implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigQueryReservation_Policy class];
+  query.loggingName = @"bigqueryreservation.projects.locations.reservations.assignments.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsList
 
 @dynamic pageSize, pageToken, parent;
@@ -317,6 +340,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBigQueryReservation_Assignment class];
   query.loggingName = @"bigqueryreservation.projects.locations.reservations.assignments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigQueryReservation_Policy class];
+  query.loggingName = @"bigqueryreservation.projects.locations.reservations.assignments.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigQueryReservation_TestIamPermissionsResponse class];
+  query.loggingName = @"bigqueryreservation.projects.locations.reservations.assignments.testIamPermissions";
   return query;
 }
 

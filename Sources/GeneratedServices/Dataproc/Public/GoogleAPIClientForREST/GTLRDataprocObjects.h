@@ -157,6 +157,8 @@
 @class GTLRDataproc_PrestoJob_Properties;
 @class GTLRDataproc_ProcessSummary;
 @class GTLRDataproc_ProcessSummary_ProcessLogs;
+@class GTLRDataproc_PropertiesInfo;
+@class GTLRDataproc_PropertiesInfo_AutotuningProperties;
 @class GTLRDataproc_ProvisioningModelMix;
 @class GTLRDataproc_PyPiRepositoryConfig;
 @class GTLRDataproc_PySparkBatch;
@@ -265,6 +267,7 @@
 @class GTLRDataproc_TrinoJob_Properties;
 @class GTLRDataproc_UsageMetrics;
 @class GTLRDataproc_UsageSnapshot;
+@class GTLRDataproc_ValueInfo;
 @class GTLRDataproc_ValueValidation;
 @class GTLRDataproc_VirtualClusterConfig;
 @class GTLRDataproc_WorkflowGraph;
@@ -345,8 +348,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_UserWorklo
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_ServiceAccount;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_AutoscalingPolicy.clusterType
+
+/**
+ *  Not set.
+ *
+ *  Value: "CLUSTER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_ClusterTypeUnspecified;
+/**
+ *  Standard dataproc cluster with minimum 2 primary workers.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_Standard;
+/**
+ *  Clusters that can be scaled down to zero worker nodes.
+ *
+ *  Value: "ZERO_SCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_ZeroScale;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_AutotuningConfig.scenarios
 
+/**
+ *  Automatic selection of scenarios.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Auto;
 /**
  *  Adding hints for potential relation broadcasts.
  *
@@ -359,6 +390,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Broa
  *  Value: "MEMORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Memory;
+/**
+ *  No autotuning.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_None;
 /**
  *  Scaling recommendations such as initialExecutors.
  *
@@ -433,6 +470,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_Operatio
  *  Value: "BATCH_OPERATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_ClusterConfig.clusterType
+
+/**
+ *  Not set.
+ *
+ *  Value: "CLUSTER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_ClusterTypeUnspecified;
+/**
+ *  https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/single-node-clusters
+ *
+ *  Value: "SINGLE_NODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_SingleNode;
+/**
+ *  Standard dataproc cluster with a minimum of two primary workers.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_Standard;
+/**
+ *  Clusters that can be scaled down to zero worker nodes.
+ *
+ *  Value: "ZERO_SCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_ZeroScale;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ClusterOperationStatus.state
@@ -1605,28 +1670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Details of a native build info for a Spark Application
- */
-@interface GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse : GTLRObject
-
-/** Native SQL Execution Data */
-@property(nonatomic, strong, nullable) GTLRDataproc_NativeBuildInfoUiData *executionData;
-
-@end
-
-
-/**
- *  Details of a native query for a Spark Application
- */
-@interface GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse : GTLRObject
-
-/** Native SQL Execution Data */
-@property(nonatomic, strong, nullable) GTLRDataproc_NativeSqlExecutionUiData *executionData;
-
-@end
-
-
-/**
  *  A summary of Spark Application
  */
 @interface GTLRDataproc_AccessSessionSparkApplicationResponse : GTLRObject
@@ -1701,28 +1744,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. Data corresponding to a spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobData *jobData;
-
-@end
-
-
-/**
- *  Details of Native Build Info for a Spark Application
- */
-@interface GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse : GTLRObject
-
-/** Native Build Info Data */
-@property(nonatomic, strong, nullable) GTLRDataproc_NativeBuildInfoUiData *buildInfo;
-
-@end
-
-
-/**
- *  Details of a query for a Spark Application
- */
-@interface GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse : GTLRObject
-
-/** Native SQL Execution Data */
-@property(nonatomic, strong, nullable) GTLRDataproc_NativeSqlExecutionUiData *executionData;
 
 @end
 
@@ -2127,6 +2148,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_AutoscalingPolicy : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDataproc_BasicAutoscalingAlgorithm *basicAlgorithm;
+
+/**
+ *  Optional. The type of the clusters for which this autoscaling policy is to
+ *  be configured.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_AutoscalingPolicy_ClusterType_ClusterTypeUnspecified
+ *        Not set. (Value: "CLUSTER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_AutoscalingPolicy_ClusterType_Standard Standard
+ *        dataproc cluster with minimum 2 primary workers. (Value: "STANDARD")
+ *    @arg @c kGTLRDataproc_AutoscalingPolicy_ClusterType_ZeroScale Clusters
+ *        that can be scaled down to zero worker nodes. (Value: "ZERO_SCALE")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterType;
 
 /**
  *  Required. The policy id.The id must contain only letters (a-z, A-Z), numbers
@@ -2691,6 +2726,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Optional. The node group settings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AuxiliaryNodeGroup *> *auxiliaryNodeGroups;
+
+/**
+ *  Optional. The type of the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterType_ClusterTypeUnspecified Not
+ *        set. (Value: "CLUSTER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterType_SingleNode
+ *        https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/single-node-clusters
+ *        (Value: "SINGLE_NODE")
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterType_Standard Standard dataproc
+ *        cluster with a minimum of two primary workers. (Value: "STANDARD")
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterType_ZeroScale Clusters that
+ *        can be scaled down to zero worker nodes. (Value: "ZERO_SCALE")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterType;
 
 /**
  *  Optional. A Cloud Storage bucket used to stage job dependencies, config
@@ -3276,7 +3327,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Specifies the config of disk options for a group of VM instances.
+ *  Specifies the config of boot disk and attached disk options for a group of
+ *  VM instances.
  */
 @interface GTLRDataproc_DiskConfig : GTLRObject
 
@@ -7166,6 +7218,29 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Properties of the workload organized by origin.
+ */
+@interface GTLRDataproc_PropertiesInfo : GTLRObject
+
+/** Output only. Properties set by autotuning engine. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PropertiesInfo_AutotuningProperties *autotuningProperties;
+
+@end
+
+
+/**
+ *  Output only. Properties set by autotuning engine.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataproc_ValueInfo. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_PropertiesInfo_AutotuningProperties : GTLRObject
+@end
+
+
+/**
  *  Defines how Dataproc should create VMs with a mixture of provisioning
  *  models.
  */
@@ -7978,6 +8053,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *outputUri;
 
+/** Optional. Properties of the workload organized by origin. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PropertiesInfo *propertiesInfo;
+
 @end
 
 
@@ -8074,34 +8152,6 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_JobData *> *sparkApplicationJobs;
-
-@end
-
-
-/**
- *  List of all Native queries for a Spark Application.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "sparkApplicationNativeSqlQueries" property. If returned as the
- *        result of a query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse : GTLRCollectionObject
-
-/**
- *  This token is included in the response if there are more results to fetch.
- *  To fetch additional results, provide this value as the page_token in a
- *  subsequent SearchSessionSparkApplicationSqlQueriesRequest.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Output only. Native SQL Execution Data
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NativeSqlExecutionUiData *> *sparkApplicationNativeSqlQueries;
 
 @end
 
@@ -8326,34 +8376,6 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_JobData *> *sparkApplicationJobs;
-
-@end
-
-
-/**
- *  List of all Native SQL queries details for a Spark Application.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "sparkApplicationNativeSqlQueries" property. If returned as the
- *        result of a query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse : GTLRCollectionObject
-
-/**
- *  This token is included in the response if there are more results to fetch.
- *  To fetch additional results, provide this value as the page_token in a
- *  subsequent SearchSparkApplicationNativeSqlQueriesRequest.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Output only. Native SQL Execution Data
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NativeSqlExecutionUiData *> *sparkApplicationNativeSqlQueries;
 
 @end
 
@@ -11586,6 +11608,23 @@ GTLR_DEPRECATED
 
 /** Optional. The timestamp of the usage snapshot. */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
+
+@end
+
+
+/**
+ *  Annotatated property value.
+ */
+@interface GTLRDataproc_ValueInfo : GTLRObject
+
+/** Annotation, comment or explanation why the property was set. */
+@property(nonatomic, copy, nullable) NSString *annotation;
+
+/** Optional. Value which was replaced by the corresponding component. */
+@property(nonatomic, copy, nullable) NSString *overriddenValue;
+
+/** Property value. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

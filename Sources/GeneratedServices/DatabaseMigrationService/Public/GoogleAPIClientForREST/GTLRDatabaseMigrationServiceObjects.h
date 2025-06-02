@@ -64,6 +64,7 @@
 @class GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity;
 @class GTLRDatabaseMigrationService_FunctionEntity;
 @class GTLRDatabaseMigrationService_FunctionEntity_CustomFeatures;
+@class GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata_Metadata;
 @class GTLRDatabaseMigrationService_ImportRulesJobDetails;
 @class GTLRDatabaseMigrationService_IndexEntity;
 @class GTLRDatabaseMigrationService_IndexEntity_CustomFeatures;
@@ -138,6 +139,7 @@
 @class GTLRDatabaseMigrationService_SqlServerSourceConfig;
 @class GTLRDatabaseMigrationService_SqlServerToPostgresConfig;
 @class GTLRDatabaseMigrationService_SslConfig;
+@class GTLRDatabaseMigrationService_SslConfig_SslFlags;
 @class GTLRDatabaseMigrationService_StaticIpConnectivity;
 @class GTLRDatabaseMigrationService_StaticServiceIpConnectivity;
 @class GTLRDatabaseMigrationService_Status;
@@ -4827,6 +4829,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
+ *  Output only. Additional metadata that is returned by the backend for the
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata_Metadata *metadata;
+
+/**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
  *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
@@ -4847,6 +4855,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
+@end
+
+
+/**
+ *  Output only. Additional metadata that is returned by the backend for the
+ *  operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata_Metadata : GTLRObject
 @end
 
 
@@ -7917,6 +7938,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
 /**
+ *  Optional. SSL flags used for establishing SSL connection to the source
+ *  database. Only source specific flags are supported. An object containing a
+ *  list of "key": "value" pairs. Example: { "server_certificate_hostname":
+ *  "server.com"}.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SslConfig_SslFlags *sslFlags;
+
+/**
  *  Optional. The ssl config type according to 'client_key',
  *  'client_certificate' and 'ca_certificate'.
  *
@@ -7936,6 +7965,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  Optional. SSL flags used for establishing SSL connection to the source
+ *  database. Only source specific flags are supported. An object containing a
+ *  list of "key": "value" pairs. Example: { "server_certificate_hostname":
+ *  "server.com"}.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatabaseMigrationService_SslConfig_SslFlags : GTLRObject
 @end
 
 

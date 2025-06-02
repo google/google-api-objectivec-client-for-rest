@@ -919,6 +919,33 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
 
 @end
 
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsExtendMigration
+
+@dynamic migratingVm;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_ExtendMigrationRequest *)object
+                    migratingVm:(NSString *)migratingVm {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"migratingVm" ];
+  NSString *pathURITemplate = @"v1/{+migratingVm}:extendMigration";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsExtendMigration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.migratingVm = migratingVm;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.extendMigration";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsFinalizeMigration
 
 @dynamic migratingVm;

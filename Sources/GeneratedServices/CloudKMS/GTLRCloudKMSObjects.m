@@ -425,7 +425,12 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 //
 
 @implementation GTLRCloudKMS_AutokeyConfig
-@dynamic keyProject, name, state;
+@dynamic ETag, keyProject, name, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -708,6 +713,16 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig
+//
+
+@implementation GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig
+@dynamic auditLogging, policyEnforcement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_KeyAccessJustificationsPolicy
 //
 
@@ -721,6 +736,16 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_KeyAccessJustificationsPolicyConfig
+//
+
+@implementation GTLRCloudKMS_KeyAccessJustificationsPolicyConfig
+@dynamic defaultKeyAccessJustificationPolicy, name;
 @end
 
 
@@ -1162,6 +1187,26 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 @implementation GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse
 @dynamic keyProject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse
+//
+
+@implementation GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse
+@dynamic externalConfig, hardwareConfig, softwareConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse
+//
+
+@implementation GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse
+@dynamic effectiveKajPolicy;
 @end
 
 

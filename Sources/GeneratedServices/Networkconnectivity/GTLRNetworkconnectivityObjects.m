@@ -114,6 +114,7 @@ NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc = @"FOR_VPC
 NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_UsageUnspecified = @"USAGE_UNSPECIFIED";
 
 // GTLRNetworkconnectivity_LocationMetadata.locationFeatures
+NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_GatewaySpokes = @"GATEWAY_SPOKES";
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_LocationFeatureUnspecified = @"LOCATION_FEATURE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToCloudSpokes = @"SITE_TO_CLOUD_SPOKES";
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToSiteSpokes = @"SITE_TO_SITE_SPOKES";
