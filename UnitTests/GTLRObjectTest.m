@@ -288,23 +288,18 @@ static Class gAdditionalPropsClass = Nil;
 }
 
 - (GTLRTestingObject *)objectFromRoundTripArchiveDearchiveWithObject:(GTLRTestingObject *)obj {
-  if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, *)) {
-    NSError *err;
-    NSData *data =
-        [NSKeyedArchiver archivedDataWithRootObject:obj
-                              requiringSecureCoding:YES
-                                              error:&err];
-    XCTAssertNil(err);
-    GTLRTestingObject *obj2 =
-        [NSKeyedUnarchiver unarchivedObjectOfClass:[obj class]
-                                          fromData:data
-                                             error:&err];
-    XCTAssertNil(err);
-    return obj2;
-  } else {
-    XCTFail("use a newer test device");
-    return nil;
-  }
+  NSError *err;
+  NSData *data =
+      [NSKeyedArchiver archivedDataWithRootObject:obj
+                            requiringSecureCoding:YES
+                                            error:&err];
+  XCTAssertNil(err);
+  GTLRTestingObject *obj2 =
+      [NSKeyedUnarchiver unarchivedObjectOfClass:[obj class]
+                                        fromData:data
+                                           error:&err];
+  XCTAssertNil(err);
+  return obj2;
 }
 
 - (void)testSecureCodingEmptyObject {
@@ -1671,88 +1666,80 @@ static Class gAdditionalPropsClass = Nil;
   XCTAssertTrue([GTLRObject supportsSecureCoding]);
   XCTAssertTrue([GTLRTestingObject supportsSecureCoding]);
 
-  if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, *)) {
-    GTLRTestingObject *obj = [GTLRTestingObject object];
-    obj.aStr = @"a string";
-    obj.aNum = @123;
-    obj.aBool = @YES;
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  obj.aStr = @"a string";
+  obj.aNum = @123;
+  obj.aBool = @YES;
 
-    NSError *err = nil;
-    NSData *data =
-        [NSKeyedArchiver archivedDataWithRootObject:obj
-                              requiringSecureCoding:YES
-                                              error:&err];
-    XCTAssertNil(err);
-    XCTAssertTrue(data.length > 0);
+  NSError *err = nil;
+  NSData *data =
+      [NSKeyedArchiver archivedDataWithRootObject:obj
+                            requiringSecureCoding:YES
+                                            error:&err];
+  XCTAssertNil(err);
+  XCTAssertTrue(data.length > 0);
 
-    GTLRTestingObject *obj2 =
-        [NSKeyedUnarchiver unarchivedObjectOfClass:[GTLRTestingObject class]
-                                          fromData:data
-                                             error:&err];
-    XCTAssertNil(err);
-    XCTAssertNotNil(obj2);
-    XCTAssertNotEqual(obj, obj2);  // Pointer compare
-    XCTAssertEqualObjects(obj, obj2);
-  } else {
-    XCTFail("use a newer test device");
-  }
+  GTLRTestingObject *obj2 =
+      [NSKeyedUnarchiver unarchivedObjectOfClass:[GTLRTestingObject class]
+                                        fromData:data
+                                           error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(obj2);
+  XCTAssertNotEqual(obj, obj2);  // Pointer compare
+  XCTAssertEqualObjects(obj, obj2);
 }
 
 - (void)testBatchResultCoding {
   XCTAssertTrue([GTLRBatchResult supportsSecureCoding]);
 
-  if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, *)) {
-    GTLRTestingObject *obj = [GTLRTestingObject object];
-    obj.aStr = @"a string";
-    obj.aNum = @123;
-    obj.aBool = @YES;
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  obj.aStr = @"a string";
+  obj.aNum = @123;
+  obj.aBool = @YES;
 
-    GTLRErrorObject *err = [GTLRErrorObject object];
-    err.code = @101;
-    err.message = @"My Error";
+  GTLRErrorObject *err = [GTLRErrorObject object];
+  err.code = @101;
+  err.message = @"My Error";
 
-    NSDictionary *responseHeaders = @{
-        @"key1" : @{
-            @"X-Header1" : @"Value1",
-            @"X-Header2" : @"Value2",
-        },
-        @"key2" : @{
-            @"X-Header3" : @"Value4",
-            @"X-Header4" : @"Value3",
-        },
-    };
+  NSDictionary *responseHeaders = @{
+      @"key1" : @{
+          @"X-Header1" : @"Value1",
+          @"X-Header2" : @"Value2",
+      },
+      @"key2" : @{
+          @"X-Header3" : @"Value4",
+          @"X-Header4" : @"Value3",
+      },
+  };
 
-    GTLRBatchResult *result = [GTLRBatchResult object];
-    result.successes = @{ @"key2" : obj };
-    result.failures = @{ @"key1" : err };
-    result.responseHeaders = responseHeaders;
+  GTLRBatchResult *result = [GTLRBatchResult object];
+  result.successes = @{ @"key2" : obj };
+  result.failures = @{ @"key1" : err };
+  result.responseHeaders = responseHeaders;
 
-    NSError *error = nil;
-    NSData *data =
-        [NSKeyedArchiver archivedDataWithRootObject:result
-                              requiringSecureCoding:YES
-                                              error:&error];
-    XCTAssertNil(error);
-    XCTAssertTrue(data.length > 0);
+  NSError *error = nil;
+  NSData *data =
+      [NSKeyedArchiver archivedDataWithRootObject:result
+                            requiringSecureCoding:YES
+                                            error:&error];
+  XCTAssertNil(error);
+  XCTAssertTrue(data.length > 0);
 
-    GTLRBatchResult *result2 =
-        [NSKeyedUnarchiver unarchivedObjectOfClass:[GTLRBatchResult class]
-                                          fromData:data
-                                             error:&error];
-    XCTAssertNil(error);
-    XCTAssertNotNil(result2);
-    XCTAssertNotEqual(result, result2);  // Pointer compare.
-    XCTAssertNotEqual(result.successes, result2.successes);  // Pointer compare.
-    XCTAssertNotEqual(result.failures, result2.failures);  // Pointer compare.
-    XCTAssertNotEqual(result.responseHeaders, result2.responseHeaders);  // Pointer compare.
-    XCTAssertNotEqual(result, result2);  // Pointer compare.
-    XCTAssertEqualObjects(result, result2);
-    XCTAssertEqualObjects(result.successes, result2.successes);
-    XCTAssertEqualObjects(result.failures, result2.failures);
-    XCTAssertEqualObjects(result.responseHeaders, result2.responseHeaders);
-  } else {
-    XCTFail("use a newer test device");
-  }
+  GTLRBatchResult *result2 =
+      [NSKeyedUnarchiver unarchivedObjectOfClass:[GTLRBatchResult class]
+                                        fromData:data
+                                           error:&error];
+  XCTAssertNil(error);
+  XCTAssertNotNil(result2);
+  XCTAssertNotEqual(result, result2);  // Pointer compare.
+  XCTAssertNotEqual(result.successes, result2.successes);  // Pointer compare.
+  XCTAssertNotEqual(result.failures, result2.failures);  // Pointer compare.
+  XCTAssertNotEqual(result.responseHeaders, result2.responseHeaders);  // Pointer compare.
+  XCTAssertNotEqual(result, result2);  // Pointer compare.
+  XCTAssertEqualObjects(result, result2);
+  XCTAssertEqualObjects(result.successes, result2.successes);
+  XCTAssertEqualObjects(result.failures, result2.failures);
+  XCTAssertEqualObjects(result.responseHeaders, result2.responseHeaders);
 }
 
 #pragma mark NSObject description
