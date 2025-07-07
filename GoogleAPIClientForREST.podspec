@@ -12,16 +12,17 @@ Pod::Spec.new do |s|
       framework for accessing JSON REST APIs.  This is the recommended library
       for accessing JSON-based Google APIs for iOS, OS X, and tvOS applications.
 
-      This version can be used with iOS ≥ 10.0, OS X ≥ 10.12, tvOS ≥ 10.0, watchOS ≥ 6.0.
+      This version can be used with iOS ≥ 15.0, OS X ≥ 10.15, tvOS ≥ 15.0, visionOS ≥ 1.0,
+      watchOS ≥ 7.0.
                    DESC
 
   # Ensure developers won't hit CocoaPods/CocoaPods#11402 with the resource
   # bundle for the privacy manifest.
   s.cocoapods_version = '>= 1.12.0'
 
-  ios_deployment_target = '12.0'
+  ios_deployment_target = '15.0'
   osx_deployment_target = '10.15'
-  tvos_deployment_target = '13.0'
+  tvos_deployment_target = '15.0'
   visionos_deployment_target = '1.0'
   watchos_deployment_target = '7.0'
 
@@ -31,7 +32,7 @@ Pod::Spec.new do |s|
   s.visionos.deployment_target = visionos_deployment_target
   s.watchos.deployment_target = watchos_deployment_target
 
-  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 5.0'
+  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 6.0'
 
   s.prefix_header_file = false
 

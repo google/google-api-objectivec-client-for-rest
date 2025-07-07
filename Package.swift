@@ -1,13 +1,13 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
 let package = Package(
     name: "GoogleAPIClientForREST",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v15),
         .macOS(.v10_15),
-        .tvOS(.v13),
+        .tvOS(.v15),
         .watchOS(.v7)
     ],
     products: [
@@ -1216,7 +1216,7 @@ let package = Package(
         // End of products.
     ],
     dependencies: [
-        .package(url: "https://github.com/google/gtm-session-fetcher.git", "1.6.1" ..< "5.0.0"),
+        .package(url: "https://github.com/google/gtm-session-fetcher.git", "1.6.1" ..< "6.0.0"),
     ],
     targets: [
         .target(
