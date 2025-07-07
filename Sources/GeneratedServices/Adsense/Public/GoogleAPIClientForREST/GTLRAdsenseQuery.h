@@ -461,8 +461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsAdRequestsCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsAdRequestsRpm;
 /**
- *  Fraction of ad requests considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of ad requests considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "AD_REQUESTS_SPAM_RATIO"
  */
@@ -480,8 +480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsAdsPerImpression;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsClicks;
 /**
- *  Fraction of clicks considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of clicks considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "CLICKS_SPAM_RATIO"
  */
@@ -558,8 +558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsImpressionsCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsImpressionsRpm;
 /**
- *  Fraction of impressions considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of impressions considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "IMPRESSIONS_SPAM_RATIO"
  */
@@ -588,8 +588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsIndividualAdImpressionsCtr
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsIndividualAdImpressionsRpm;
 /**
- *  Fraction of ad impressions considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of ad impressions considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO"
  */
@@ -615,7 +615,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsMatchedAdRequestsCtr;
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsMatchedAdRequestsRpm;
 /**
  *  Fraction of ad requests that returned ads considered to be spam. Only
- *  available to premium accounts.
+ *  available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "MATCHED_AD_REQUESTS_SPAM_RATIO"
  */
@@ -646,8 +647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsRpm;
 /**
- *  Fraction of page views considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of page views considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "PAGE_VIEWS_SPAM_RATIO"
  */
@@ -2003,23 +2004,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseMetricsClicks Number of times a user clicked on a
  *        standard content ad. (Value: "CLICKS")
  *    @arg @c kGTLRAdsenseMetricsPageViewsSpamRatio Fraction of page views
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "PAGE_VIEWS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "PAGE_VIEWS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsSpamRatio Fraction of ad requests
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "AD_REQUESTS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsMatchedAdRequestsSpamRatio Fraction of ad
  *        requests that returned ads considered to be spam. Only available to
- *        premium accounts. (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
+ *        [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsImpressionsSpamRatio Fraction of impressions
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "IMPRESSIONS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressionsSpamRatio Fraction of ad
- *        impressions considered to be spam. Only available to premium accounts.
+ *        impressions considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *        (Value: "INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsClicksSpamRatio Fraction of clicks considered
- *        to be spam. Only available to premium accounts. (Value:
- *        "CLICKS_SPAM_RATIO")
+ *        to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "CLICKS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsCoverage Ratio of requested ad units
  *        or queries to the number returned to the site. (Value:
  *        "AD_REQUESTS_COVERAGE")
@@ -2428,23 +2436,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseMetricsClicks Number of times a user clicked on a
  *        standard content ad. (Value: "CLICKS")
  *    @arg @c kGTLRAdsenseMetricsPageViewsSpamRatio Fraction of page views
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "PAGE_VIEWS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "PAGE_VIEWS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsSpamRatio Fraction of ad requests
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "AD_REQUESTS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsMatchedAdRequestsSpamRatio Fraction of ad
  *        requests that returned ads considered to be spam. Only available to
- *        premium accounts. (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
+ *        [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsImpressionsSpamRatio Fraction of impressions
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "IMPRESSIONS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressionsSpamRatio Fraction of ad
- *        impressions considered to be spam. Only available to premium accounts.
+ *        impressions considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *        (Value: "INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsClicksSpamRatio Fraction of clicks considered
- *        to be spam. Only available to premium accounts. (Value:
- *        "CLICKS_SPAM_RATIO")
+ *        to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "CLICKS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsCoverage Ratio of requested ad units
  *        or queries to the number returned to the site. (Value:
  *        "AD_REQUESTS_COVERAGE")

@@ -18,6 +18,7 @@
 @class GTLRManagedKafka_Acl;
 @class GTLRManagedKafka_AclEntry;
 @class GTLRManagedKafka_CapacityConfig;
+@class GTLRManagedKafka_CertificateAuthorityServiceConfig;
 @class GTLRManagedKafka_Cluster;
 @class GTLRManagedKafka_Cluster_Labels;
 @class GTLRManagedKafka_ConnectAccessConfig;
@@ -48,8 +49,10 @@
 @class GTLRManagedKafka_Status;
 @class GTLRManagedKafka_Status_Details_Item;
 @class GTLRManagedKafka_TaskRetryPolicy;
+@class GTLRManagedKafka_TlsConfig;
 @class GTLRManagedKafka_Topic;
 @class GTLRManagedKafka_Topic_Configs;
+@class GTLRManagedKafka_TrustConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -354,7 +357,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaConfig_Compatibility_
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_SchemaMode_Mode_Import;
 /**
- *  No mode.
+ *  The default / unset value. The subject mode is NONE/unset by default, which
+ *  means use the global schema registry mode. This should not be used for
+ *  setting the mode.
  *
  *  Value: "NONE"
  */
@@ -456,7 +461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaConfigRequest_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Import;
 /**
- *  No mode.
+ *  The default / unset value. The subject mode is NONE/unset by default, which
+ *  means use the global schema registry mode. This should not be used for
+ *  setting the mode.
  *
  *  Value: "NONE"
  */
@@ -638,6 +645,21 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 
 
 /**
+ *  A configuration for the Google Certificate Authority Service.
+ */
+@interface GTLRManagedKafka_CertificateAuthorityServiceConfig : GTLRObject
+
+/**
+ *  Required. The name of the CA pool to pull CA certificates from. Structured
+ *  like: projects/{project}/locations/{location}/caPools/{ca_pool}. The CA pool
+ *  does not need to be in the same project or location as the Kafka cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *caPool;
+
+@end
+
+
+/**
  *  Request for CheckCompatibility.
  */
 @interface GTLRManagedKafka_CheckCompatibilityRequest : GTLRObject
@@ -751,6 +773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *        specified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. TLS configuration for the Kafka cluster. */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_TlsConfig *tlsConfig;
 
 /** Output only. The time when the cluster was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1922,25 +1947,28 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 
 /**
  *  SchemaMode represents the mode of a schema registry or a specific subject.
- *  Four modes are supported: * NONE: This is the default mode for a subject and
- *  essentially means that the subject does not have any mode set. This means
- *  the subject will follow the schema registry's mode. * READONLY: The schema
- *  registry is in read-only mode. * READWRITE: The schema registry is in
- *  read-write mode, which allows limited write operations on the schema. *
- *  IMPORT: The schema registry is in import mode, which allows more editing
- *  operations on the schema for data importing purposes.
+ *  Four modes are supported: * NONE: deprecated. This was the default mode for
+ *  a subject, but now the default is unset (which means use the global schema
+ *  registry setting) * READONLY: The schema registry is in read-only mode. *
+ *  READWRITE: The schema registry is in read-write mode, which allows limited
+ *  write operations on the schema. * IMPORT: The schema registry is in import
+ *  mode, which allows more editing operations on the schema for data importing
+ *  purposes.
  */
 @interface GTLRManagedKafka_SchemaMode : GTLRObject
 
 /**
  *  Required. The mode type of a schema registry (READWRITE by default) or of a
- *  subject (NONE by default, which means use the global schema registry
+ *  subject (unset by default, which means use the global schema registry
  *  setting).
  *
  *  Likely values:
  *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_Import IMPORT mode. (Value:
  *        "IMPORT")
- *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_None No mode. (Value: "NONE")
+ *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_None The default / unset value.
+ *        The subject mode is NONE/unset by default, which means use the global
+ *        schema registry mode. This should not be used for setting the mode.
+ *        (Value: "NONE")
  *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_Readonly READONLY mode. (Value:
  *        "READONLY")
  *    @arg @c kGTLRManagedKafka_SchemaMode_Mode_Readwrite READWRITE mode.
@@ -2127,6 +2155,32 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 
 
 /**
+ *  The TLS configuration for the Kafka cluster.
+ */
+@interface GTLRManagedKafka_TlsConfig : GTLRObject
+
+/**
+ *  Optional. A list of rules for mapping from SSL principal names to short
+ *  names. These are applied in order by Kafka. Refer to the Apache Kafka
+ *  documentation for `ssl.principal.mapping.rules` for the precise formatting
+ *  details and syntax. Example:
+ *  "RULE:^CN=(.*?),OU=ServiceUsers.*$/$1\@example.com/,DEFAULT" This is a
+ *  static Kafka broker configuration. Setting or modifying this field will
+ *  trigger a rolling restart of the Kafka brokers to apply the change. An empty
+ *  string means no rules are applied (Kafka default).
+ */
+@property(nonatomic, copy, nullable) NSString *sslPrincipalMappingRules;
+
+/**
+ *  Optional. The configuration of the broker truststore. If specified, clients
+ *  can use mTLS for authentication.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_TrustConfig *trustConfig;
+
+@end
+
+
+/**
  *  A Kafka topic in a given cluster.
  */
 @interface GTLRManagedKafka_Topic : GTLRObject
@@ -2177,6 +2231,20 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *        fetch them all at once.
  */
 @interface GTLRManagedKafka_Topic_Configs : GTLRObject
+@end
+
+
+/**
+ *  Sources of CA certificates to install in the broker's truststore.
+ */
+@interface GTLRManagedKafka_TrustConfig : GTLRObject
+
+/**
+ *  Optional. Configuration for the Google Certificate Authority Service.
+ *  Maximum 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_CertificateAuthorityServiceConfig *> *casConfigs;
+
 @end
 
 
@@ -2237,8 +2305,10 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *  Likely values:
  *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Import IMPORT mode.
  *        (Value: "IMPORT")
- *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_None No mode.
- *        (Value: "NONE")
+ *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_None The default /
+ *        unset value. The subject mode is NONE/unset by default, which means
+ *        use the global schema registry mode. This should not be used for
+ *        setting the mode. (Value: "NONE")
  *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readonly READONLY
  *        mode. (Value: "READONLY")
  *    @arg @c kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite READWRITE

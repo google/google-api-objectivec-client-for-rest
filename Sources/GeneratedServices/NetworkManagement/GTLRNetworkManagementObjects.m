@@ -229,6 +229,7 @@ NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Interconnect = @"INTE
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_NccHub = @"NCC_HUB";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_PeeringVpc = @"PEERING_VPC";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_RouterAppliance = @"ROUTER_APPLIANCE";
+NSString * const kGTLRNetworkManagement_ForwardInfo_Target_SecureWebProxyGateway = @"SECURE_WEB_PROXY_GATEWAY";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway = @"VPN_GATEWAY";
 
@@ -241,6 +242,11 @@ NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_Goog
 NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_GoogleServiceTypeUnspecified = @"GOOGLE_SERVICE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_Iap = @"IAP";
 NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_ServerlessVpcAccess = @"SERVERLESS_VPC_ACCESS";
+
+// GTLRNetworkManagement_InstanceInfo.status
+NSString * const kGTLRNetworkManagement_InstanceInfo_Status_NotRunning = @"NOT_RUNNING";
+NSString * const kGTLRNetworkManagement_InstanceInfo_Status_Running = @"RUNNING";
+NSString * const kGTLRNetworkManagement_InstanceInfo_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRNetworkManagement_LoadBalancerBackend.healthCheckFirewallState
 NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_Configured = @"CONFIGURED";
@@ -308,6 +314,7 @@ NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppli
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified = @"NEXT_HOP_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnGateway = @"NEXT_HOP_VPN_GATEWAY";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel = @"NEXT_HOP_VPN_TUNNEL";
+NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_SecureWebProxyGateway = @"SECURE_WEB_PROXY_GATEWAY";
 
 // GTLRNetworkManagement_RouteInfo.routeScope
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_NccHub = @"NCC_HUB";
@@ -528,7 +535,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_CloudRunRevisionEndpoint
-@dynamic uri;
+@dynamic serviceUri, uri;
 @end
 
 
@@ -750,7 +757,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_InstanceInfo
 @dynamic displayName, externalIp, interface, internalIp, networkTags,
-         networkUri, pscNetworkAttachmentUri, running, serviceAccount, uri;
+         networkUri, pscNetworkAttachmentUri, running, serviceAccount, status,
+         uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -48,6 +48,10 @@ NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8043 = @"MYSQL_8_0_43";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8044 = @"MYSQL_8_0_44";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84  = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres11 = @"POSTGRES_11";
@@ -137,6 +141,10 @@ NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8039 = @"MYSQL_8_0
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8043 = @"MYSQL_8_0_43";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8044 = @"MYSQL_8_0_44";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres11 = @"POSTGRES_11";
@@ -207,6 +215,10 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8043 = @"MYSQL_8_0_43";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8044 = @"MYSQL_8_0_44";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
@@ -266,6 +278,10 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8043 = @"MYSQL_8_0_43";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8044 = @"MYSQL_8_0_44";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
@@ -366,6 +382,10 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039        = @"MYSQL_8_0_39"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040        = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8041        = @"MYSQL_8_0_41";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8042        = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8043        = @"MYSQL_8_0_43";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8044        = @"MYSQL_8_0_44";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8045        = @"MYSQL_8_0_45";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8046        = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84          = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
@@ -480,7 +500,6 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_LogCleanup = @"LOG_CLEANU
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance = @"MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade = @"MAJOR_VERSION_UPGRADE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ManageBackup = @"MANAGE_BACKUP";
-NSString * const kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade = @"PRE_CHECK_MAJOR_VERSION_UPGRADE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica = @"PROMOTE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary = @"RECONFIGURE_OLD_PRIMARY";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
@@ -1039,7 +1058,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          includeReplicasForMajorVersionUpgrade, instanceType, ipAddresses,
          ipv6Address, kind, maintenanceVersion, masterInstanceName, maxDiskSize,
          name, nodeCount, nodes, onPremisesConfiguration, outOfDiskReport,
-         pitrFields, primaryDnsName, project, pscServiceAttachmentLink, region,
+         primaryDnsName, project, pscServiceAttachmentLink, region,
          replicaConfiguration, replicaNames, replicationCluster, rootPassword,
          satisfiesPzi, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
          selfLink, serverCaCert, serviceAccountEmailAddress, settings,
@@ -2065,17 +2084,6 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_PerformDiskShrinkContext
 @dynamic targetSizeGb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSQLAdmin_PITRFields
-//
-
-@implementation GTLRSQLAdmin_PITRFields
-@dynamic enableBinLog, replicationLogArchivingEnabled, sqlserverPitrEnabled,
-         transactionLogRetentionDays;
 @end
 
 

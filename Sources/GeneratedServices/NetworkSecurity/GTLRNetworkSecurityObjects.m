@@ -55,6 +55,11 @@ NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_Inte
 NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalSelfManaged = @"INTERNAL_SELF_MANAGED";
 NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
 
+// GTLRNetworkSecurity_BackendAuthenticationConfig.wellKnownRoots
+NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_None = @"NONE";
+NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_PublicRoots = @"PUBLIC_ROOTS";
+NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_WellKnownRootsUnspecified = @"WELL_KNOWN_ROOTS_UNSPECIFIED";
+
 // GTLRNetworkSecurity_FirewallEndpoint.state
 NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Active = @"ACTIVE";
 NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Creating = @"CREATING";
@@ -429,10 +434,11 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource
-@dynamic resources;
+@dynamic ipBlocks, resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"ipBlocks" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock class],
     @"resources" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource class]
   };
   return map;
@@ -448,6 +454,16 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch
 @dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock
+@dynamic length, prefix;
 @end
 
 
@@ -596,6 +612,40 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
     @"resources" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_BackendAuthenticationConfig
+//
+
+@implementation GTLRNetworkSecurity_BackendAuthenticationConfig
+@dynamic clientCertificate, createTime, descriptionProperty, ETag, labels, name,
+         trustConfig, updateTime, wellKnownRoots;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_BackendAuthenticationConfig_Labels
+//
+
+@implementation GTLRNetworkSecurity_BackendAuthenticationConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1295,6 +1345,29 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 + (NSString *)collectionItemsKey {
   return @"authzPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListBackendAuthenticationConfigsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListBackendAuthenticationConfigsResponse
+@dynamic backendAuthenticationConfigs, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backendAuthenticationConfigs" : [GTLRNetworkSecurity_BackendAuthenticationConfig class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backendAuthenticationConfigs";
 }
 
 @end

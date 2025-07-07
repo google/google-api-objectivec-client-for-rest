@@ -1103,6 +1103,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
+ *  Updates a Label's EabledAppSettings. Enabling a Label in a Workspace
+ *  Application allows it to be used in that application. This change is not
+ *  revisioned, does not require publishing, and takes effect immediately.
+ *
+ *  Method: drivelabels.labels.updateLabelEnabledAppSettings
+ */
+@interface GTLRDriveLabelsQuery_LabelsUpdateLabelEnabledAppSettings : GTLRDriveLabelsQuery
+
+/**
+ *  Required. The resource name of the Label to update. The resource name of the
+ *  Label to update.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
+ *
+ *  Updates a Label's EabledAppSettings. Enabling a Label in a Workspace
+ *  Application allows it to be used in that application. This change is not
+ *  revisioned, does not require publishing, and takes effect immediately.
+ *
+ *  @param object The @c
+ *    GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the Label to update. The resource
+ *    name of the Label to update.
+ *
+ *  @return GTLRDriveLabelsQuery_LabelsUpdateLabelEnabledAppSettings
+ */
++ (instancetype)queryWithObject:(GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates a Label's permissions. If a permission for the indicated principal
  *  doesn't exist, a new Label Permission is created, otherwise the existing
  *  permission is updated. Permissions affect the Label resource as a whole, are

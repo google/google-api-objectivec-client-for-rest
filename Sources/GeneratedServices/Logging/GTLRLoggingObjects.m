@@ -925,10 +925,10 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogEntry
-@dynamic apphub, errorGroups, httpRequest, insertId, jsonPayload, labels,
-         logName, metadata, operation, protoPayload, receiveTimestamp, resource,
-         severity, sourceLocation, spanId, split, textPayload, timestamp, trace,
-         traceSampled;
+@dynamic apphub, apphubDestination, errorGroups, httpRequest, insertId,
+         jsonPayload, labels, logName, metadata, operation, protoPayload,
+         receiveTimestamp, resource, severity, sourceLocation, spanId, split,
+         textPayload, timestamp, trace, traceSampled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

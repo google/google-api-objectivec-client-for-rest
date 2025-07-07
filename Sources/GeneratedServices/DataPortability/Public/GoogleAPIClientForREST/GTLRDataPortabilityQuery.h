@@ -64,6 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsVehicleProfile
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
  *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
@@ -153,6 +154,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsVehicleProfile
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
  *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
@@ -255,6 +257,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsVehicleProfile
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
  *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
@@ -354,6 +357,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsVehicleProfile
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
  *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
@@ -458,6 +462,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsVehicleProfile
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
  *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
@@ -551,6 +556,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMapsVehicleProfile
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
  *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay

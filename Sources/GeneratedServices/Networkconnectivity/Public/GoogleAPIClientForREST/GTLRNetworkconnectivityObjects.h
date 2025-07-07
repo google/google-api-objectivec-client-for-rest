@@ -3869,7 +3869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
- *  Required. ProducerInstanceLocation is used to specify which authorization
+ *  Optional. ProducerInstanceLocation is used to specify which authorization
  *  mechanism to use to determine which projects the Producer instance can be
  *  within.
  *

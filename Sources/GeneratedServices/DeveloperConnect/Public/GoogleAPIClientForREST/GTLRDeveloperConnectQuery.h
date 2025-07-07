@@ -1321,6 +1321,230 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  Creates a new InsightsConfig in a given project and location.
+ *
+ *  Method: developerconnect.projects.locations.insightsConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsCreate : GTLRDeveloperConnectQuery
+
+/** Required. ID of the requesting InsightsConfig. */
+@property(nonatomic, copy, nullable) NSString *insightsConfigId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Creates a new InsightsConfig in a given project and location.
+ *
+ *  @param object The @c GTLRDeveloperConnect_InsightsConfig to include in the
+ *    query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_InsightsConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single Insight.
+ *
+ *  Method: developerconnect.projects.locations.insightsConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDelete : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Optional. If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Delete a single Insight.
+ *
+ *  @param name Required. Value for parent.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Insight.
+ *
+ *  Method: developerconnect.projects.locations.insightsConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsGet : GTLRDeveloperConnectQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_InsightsConfig.
+ *
+ *  Gets details of a single Insight.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists InsightsConfigs in a given project and location.
+ *
+ *  Method: developerconnect.projects.locations.insightsConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsList : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. Filtering results. See https://google.aip.dev/160 for more
+ *  details. Filter string, adhering to the rules in https://google.aip.dev/160.
+ *  List only InsightsConfigs matching the filter. If filter is empty, all
+ *  InsightsConfigs are listed.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListInsightsConfigsRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_ListInsightsConfigsResponse.
+ *
+ *  Lists InsightsConfigs in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListInsightsConfigsRequest.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single InsightsConfig.
+ *
+ *  Method: developerconnect.projects.locations.insightsConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsPatch : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. If set to true, and the insightsConfig is not found a new
+ *  insightsConfig will be created. In this situation `update_mask` is ignored.
+ *  The creation will succeed only if the input insightsConfig has all the
+ *  necessary information (e.g a github_config with both user_oauth_token and
+ *  installation_id properties).
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. The name of the InsightsConfig. Format:
+ *  projects/{project}/locations/{location}/insightsConfigs/{insightsConfig}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Optional. If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Operation.
+ *
+ *  Updates the parameters of a single InsightsConfig.
+ *
+ *  @param object The @c GTLRDeveloperConnect_InsightsConfig to include in the
+ *    query.
+ *  @param name Identifier. The name of the InsightsConfig. Format:
+ *    projects/{project}/locations/{location}/insightsConfigs/{insightsConfig}
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_InsightsConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: developerconnect.projects.locations.list

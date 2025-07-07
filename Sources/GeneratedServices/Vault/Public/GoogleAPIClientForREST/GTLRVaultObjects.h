@@ -259,7 +259,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_SharedDrivesOption_Included;
 /**
- *  (Previously "include_shared_drives" off)
+ *  Shared drive resources are only included in instances where the account is a
+ *  collaborator on a resource but they are not a member of the shared drive.
+ *  This maps to the *"Included only if documents shared directly (not due to
+ *  shared drive membership)"* option in the Vault UI. (Previously
+ *  "include_shared_drives" off)
  *
  *  Value: "INCLUDED_IF_ACCOUNT_IS_NOT_A_MEMBER"
  */
@@ -1416,7 +1420,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        shared drives are included in the search. (Previously
  *        "include_shared_drives" on) (Value: "INCLUDED")
  *    @arg @c kGTLRVault_DriveOptions_SharedDrivesOption_IncludedIfAccountIsNotAMember
- *        (Previously "include_shared_drives" off) (Value:
+ *        Shared drive resources are only included in instances where the
+ *        account is a collaborator on a resource but they are not a member of
+ *        the shared drive. This maps to the *"Included only if documents shared
+ *        directly (not due to shared drive membership)"* option in the Vault
+ *        UI. (Previously "include_shared_drives" off) (Value:
  *        "INCLUDED_IF_ACCOUNT_IS_NOT_A_MEMBER")
  *    @arg @c kGTLRVault_DriveOptions_SharedDrivesOption_NotIncluded If a
  *        resource is in a shared drive, it isn't included in the search.

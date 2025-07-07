@@ -119,6 +119,14 @@ NSString * const kGTLRConfig_Resource_State_Planned          = @"PLANNED";
 NSString * const kGTLRConfig_Resource_State_Reconciled       = @"RECONCILED";
 NSString * const kGTLRConfig_Resource_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRConfig_ResourceChange.intent
+NSString * const kGTLRConfig_ResourceChange_Intent_Create      = @"CREATE";
+NSString * const kGTLRConfig_ResourceChange_Intent_Delete      = @"DELETE";
+NSString * const kGTLRConfig_ResourceChange_Intent_IntentUnspecified = @"INTENT_UNSPECIFIED";
+NSString * const kGTLRConfig_ResourceChange_Intent_Recreate    = @"RECREATE";
+NSString * const kGTLRConfig_ResourceChange_Intent_Unchanged   = @"UNCHANGED";
+NSString * const kGTLRConfig_ResourceChange_Intent_Update      = @"UPDATE";
+
 // GTLRConfig_Revision.action
 NSString * const kGTLRConfig_Revision_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRConfig_Revision_Action_Create            = @"CREATE";
@@ -480,6 +488,52 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConfig_ListResourceChangesResponse
+//
+
+@implementation GTLRConfig_ListResourceChangesResponse
+@dynamic nextPageToken, resourceChanges, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceChanges" : [GTLRConfig_ResourceChange class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resourceChanges";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ListResourceDriftsResponse
+//
+
+@implementation GTLRConfig_ListResourceDriftsResponse
+@dynamic nextPageToken, resourceDrifts, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceDrifts" : [GTLRConfig_ResourceDrift class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resourceDrifts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConfig_ListResourcesResponse
 //
 
@@ -758,6 +812,44 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConfig_PropertyChange
+//
+
+@implementation GTLRConfig_PropertyChange
+@dynamic after, afterSensitivePaths, before, beforeSensitivePaths, path;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"afterSensitivePaths" : [NSString class],
+    @"beforeSensitivePaths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_PropertyDrift
+//
+
+@implementation GTLRConfig_PropertyDrift
+@dynamic after, afterSensitivePaths, before, beforeSensitivePaths, path;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"afterSensitivePaths" : [NSString class],
+    @"beforeSensitivePaths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConfig_Resource
 //
 
@@ -787,6 +879,70 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 @implementation GTLRConfig_ResourceCAIInfo
 @dynamic fullResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ResourceChange
+//
+
+@implementation GTLRConfig_ResourceChange
+@dynamic intent, name, propertyChanges, terraformInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"propertyChanges" : [GTLRConfig_PropertyChange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ResourceChangeTerraformInfo
+//
+
+@implementation GTLRConfig_ResourceChangeTerraformInfo
+@dynamic actions, address, provider, resourceName, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ResourceDrift
+//
+
+@implementation GTLRConfig_ResourceDrift
+@dynamic name, propertyDrifts, terraformInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"propertyDrifts" : [GTLRConfig_PropertyDrift class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ResourceDriftTerraformInfo
+//
+
+@implementation GTLRConfig_ResourceDriftTerraformInfo
+@dynamic address, provider, resourceName, type;
 @end
 
 

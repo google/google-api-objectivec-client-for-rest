@@ -96,8 +96,10 @@
 @class GTLRBigtableAdmin_PartialUpdateClusterRequest;
 @class GTLRBigtableAdmin_PartialUpdateInstanceRequest;
 @class GTLRBigtableAdmin_Policy;
+@class GTLRBigtableAdmin_ProtoSchema;
 @class GTLRBigtableAdmin_RestoreInfo;
 @class GTLRBigtableAdmin_RowAffinity;
+@class GTLRBigtableAdmin_SchemaBundle;
 @class GTLRBigtableAdmin_SingleClusterRouting;
 @class GTLRBigtableAdmin_Split;
 @class GTLRBigtableAdmin_StandardIsolation;
@@ -109,6 +111,8 @@
 @class GTLRBigtableAdmin_Table_ColumnFamilies;
 @class GTLRBigtableAdmin_TableProgress;
 @class GTLRBigtableAdmin_TableStats;
+@class GTLRBigtableAdmin_TieredStorageConfig;
+@class GTLRBigtableAdmin_TieredStorageRule;
 @class GTLRBigtableAdmin_Type;
 @class GTLRBigtableAdmin_Union;
 @class GTLRBigtableAdmin_UpdateAuthorizedViewRequest;
@@ -1667,6 +1671,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  The metadata for the Operation returned by CreateSchemaBundle.
+ */
+@interface GTLRBigtableAdmin_CreateSchemaBundleMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The unique name identifying this schema bundle. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Request message for google.bigtable.admin.v2.BigtableTableAdmin.CreateTable
  */
 @interface GTLRBigtableAdmin_CreateTableRequest : GTLRObject
@@ -2891,6 +2915,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The response for ListSchemaBundles.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "schemaBundles" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigtableAdmin_ListSchemaBundlesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The schema bundles from the specified table.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_SchemaBundle *> *schemaBundles;
+
+@end
+
+
+/**
  *  Response message for google.bigtable.admin.v2.BigtableTableAdmin.ListTables
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3405,6 +3456,31 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents a protobuf schema.
+ */
+@interface GTLRBigtableAdmin_ProtoSchema : GTLRObject
+
+/**
+ *  Required. Contains a protobuf-serialized
+ *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto),
+ *  which could include multiple proto files. To generate it,
+ *  [install](https://grpc.io/docs/protoc-installation/) and run `protoc` with
+ *  `--include_imports` and `--descriptor_set_out`. For example, to generate for
+ *  moon/shot/app.proto, run ``` $protoc --proto_path=/app_path
+ *  --proto_path=/lib_path \\ --include_imports \\
+ *  --descriptor_set_out=descriptors.pb \\ moon/shot/app.proto ``` For more
+ *  details, see protobuffer [self
+ *  description](https://developers.google.com/protocol-buffers/docs/techniques#self-description).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *protoDescriptors;
+
+@end
+
+
+/**
  *  Information about a table restore.
  */
 @interface GTLRBigtableAdmin_RestoreInfo : GTLRObject
@@ -3501,6 +3577,31 @@ GTLR_DEPRECATED
  *  from the cluster group.
  */
 @interface GTLRBigtableAdmin_RowAffinity : GTLRObject
+@end
+
+
+/**
+ *  A named collection of related schemas.
+ */
+@interface GTLRBigtableAdmin_SchemaBundle : GTLRObject
+
+/**
+ *  Optional. The etag for this schema bundle. This may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique name identifying this schema bundle. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Schema for Protobufs. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_ProtoSchema *protoSchema;
+
 @end
 
 
@@ -3761,6 +3862,16 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_TableStats *stats;
 
+/**
+ *  Rules to specify what data is stored in each storage tier. Different tiers
+ *  store data differently, providing different trade-offs between cost and
+ *  performance. Different parts of a table can be stored separately on
+ *  different tiers. If a config is specified, tiered storage is enabled for
+ *  this table. Otherwise, tiered storage is disabled. Only SSD instances can
+ *  configure tiered storage.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_TieredStorageConfig *tieredStorageConfig;
+
 @end
 
 
@@ -3910,6 +4021,37 @@ GTLR_DEPRECATED
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Config for tiered storage. A valid config must have a valid
+ *  TieredStorageRule. Otherwise the whole TieredStorageConfig must be unset. By
+ *  default all data is stored in the SSD tier (only SSD instances can configure
+ *  tiered storage).
+ */
+@interface GTLRBigtableAdmin_TieredStorageConfig : GTLRObject
+
+/**
+ *  Rule to specify what data is stored in the infrequent access(IA) tier. The
+ *  IA tier allows storing more data per node with reduced performance.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_TieredStorageRule *infrequentAccess;
+
+@end
+
+
+/**
+ *  Rule to specify what data is stored in a storage tier.
+ */
+@interface GTLRBigtableAdmin_TieredStorageRule : GTLRObject
+
+/**
+ *  Include cells older than the given age. For the infrequent access tier, this
+ *  value must be at least 30 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *includeIfOlderThan;
 
 @end
 
@@ -4150,6 +4292,26 @@ GTLR_DEPRECATED
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by UpdateSchemaBundle.
+ */
+@interface GTLRBigtableAdmin_UpdateSchemaBundleMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The unique name identifying this schema bundle. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

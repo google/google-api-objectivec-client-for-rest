@@ -169,6 +169,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_Categories_Category
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryGaming;
 /** Value: "CATEGORY_GEOSPATIAL" */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryGeospatial;
+/** Value: "CATEGORY_GOOGLE_EARTH_ENGINE" */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryGoogleEarthEngine;
 /** Value: "CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryHealthcareAndLifeScience;
 /** Value: "CATEGORY_MEDIA" */
@@ -1382,7 +1384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /** Shared dataset i.e. BigQuery dataset source. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_BigQueryDatasetSource *bigqueryDataset;
 
-/** Optional. Categories of the listing. Up to two categories are allowed. */
+/** Optional. Categories of the listing. Up to five categories are allowed. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
 
 /**

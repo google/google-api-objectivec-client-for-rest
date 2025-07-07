@@ -158,6 +158,7 @@ NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooLarge = @"BASE
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooSmall = @"BASE_TABLE_TOO_SMALL";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTruncated = @"BASE_TABLE_TRUNCATED";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_ColumnMetadataIndexNotUsed = @"COLUMN_METADATA_INDEX_NOT_USED";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_EstimatedPerformanceGainTooLow = @"ESTIMATED_PERFORMANCE_GAIN_TOO_LOW";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexConfigModified = @"INDEX_CONFIG_MODIFIED";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexConfigNotAvailable = @"INDEX_CONFIG_NOT_AVAILABLE";
@@ -408,7 +409,7 @@ NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfEven = @"ROUND
 NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundingModeUnspecified = @"ROUNDING_MODE_UNSPECIFIED";
 
 // GTLRBigquery_Table.managedTableType
-NSString * const kGTLRBigquery_Table_ManagedTableType_Iceberg  = @"ICEBERG";
+NSString * const kGTLRBigquery_Table_ManagedTableType_Biglake  = @"BIGLAKE";
 NSString * const kGTLRBigquery_Table_ManagedTableType_ManagedTableTypeUnspecified = @"MANAGED_TABLE_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Table_ManagedTableType_Native   = @"NATIVE";
 
@@ -1768,6 +1769,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ExternalRuntimeOptions
+//
+
+@implementation GTLRBigquery_ExternalRuntimeOptions
+@dynamic containerCpu, containerMemory, maxBatchingRows, runtimeConnection,
+         runtimeVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ExternalServiceCost
 //
 
@@ -3015,6 +3027,24 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_PythonOptions
+//
+
+@implementation GTLRBigquery_PythonOptions
+@dynamic entryPoint, packages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"packages" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_QueryInfo
 //
 
@@ -3287,10 +3317,10 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_Routine
 @dynamic arguments, creationTime, dataGovernanceType, definitionBody,
-         descriptionProperty, determinismLevel, ETag, importedLibraries,
-         language, lastModifiedTime, remoteFunctionOptions, returnTableType,
-         returnType, routineReference, routineType, securityMode, sparkOptions,
-         strictMode;
+         descriptionProperty, determinismLevel, ETag, externalRuntimeOptions,
+         importedLibraries, language, lastModifiedTime, pythonOptions,
+         remoteFunctionOptions, returnTableType, returnType, routineReference,
+         routineType, securityMode, sparkOptions, strictMode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -519,6 +519,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Network_Type_TypeUnspecifie
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale;
 /**
+ *  Peering connection used for connecting to Google Cloud Filestore Instances.
+ *
+ *  Value: "GOOGLE_CLOUD_FILESTORE_INSTANCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudFilestoreInstances;
+/**
  *  Peering connection used for connecting to Google Cloud NetApp Volumes.
  *
  *  Value: "GOOGLE_CLOUD_NETAPP_VOLUMES"
@@ -3567,6 +3573,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale
  *        Peering connection used for connecting to Dell PowerScale Filers
  *        (Value: "DELL_POWERSCALE")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudFilestoreInstances
+ *        Peering connection used for connecting to Google Cloud Filestore
+ *        Instances. (Value: "GOOGLE_CLOUD_FILESTORE_INSTANCES")
  *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudNetappVolumes
  *        Peering connection used for connecting to Google Cloud NetApp Volumes.
  *        (Value: "GOOGLE_CLOUD_NETAPP_VOLUMES")

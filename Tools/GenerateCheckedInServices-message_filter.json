@@ -36,5 +36,6 @@
     "Won't add the kind 'compute#interconnectAttachmentGroup' to the kind registry: it is used on multiple schema: InterconnectAttachmentGroup, InterconnectAttachmentGroupsListResponse",
     "Won't add the kind 'compute#metadata' to the kind registry: it is used on multiple schema: InstanceSettingsMetadata, Metadata",
     "Won't add the kind 'compute#reservationBlock' to the kind registry: it is used on multiple schema: ReservationBlock, ReservationBlocksListResponse",
+    "Won't add the kind 'compute#reservationSubBlock' to the kind registry: it is used on multiple schema: ReservationSubBlock, ReservationSubBlocksListResponse",
   ]
 }

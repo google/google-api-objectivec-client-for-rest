@@ -196,7 +196,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCssQuery_AccountsCssProductsGet : GTLRCssQuery
 
-/** Required. The name of the CSS product to retrieve. */
+/**
+ *  Required. The name of the CSS product to retrieve. Format:
+ *  `accounts/{account}/cssProducts/{css_product}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -206,7 +209,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  inserting, updating, or deleting a product input, it may take several
  *  minutes before the updated final product can be retrieved.
  *
- *  @param name Required. The name of the CSS product to retrieve.
+ *  @param name Required. The name of the CSS product to retrieve. Format:
+ *    `accounts/{account}/cssProducts/{css_product}`
  *
  *  @return GTLRCssQuery_AccountsCssProductsGet
  */

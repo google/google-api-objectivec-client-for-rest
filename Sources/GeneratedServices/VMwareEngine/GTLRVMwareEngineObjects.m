@@ -105,6 +105,7 @@ NSString * const kGTLRVMwareEngine_Network_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // GTLRVMwareEngine_NetworkPeering.peerNetworkType
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale = @"DELL_POWERSCALE";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudFilestoreInstances = @"GOOGLE_CLOUD_FILESTORE_INSTANCES";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudNetappVolumes = @"GOOGLE_CLOUD_NETAPP_VOLUMES";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_NetappCloudVolumes = @"NETAPP_CLOUD_VOLUMES";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PeerNetworkTypeUnspecified = @"PEER_NETWORK_TYPE_UNSPECIFIED";

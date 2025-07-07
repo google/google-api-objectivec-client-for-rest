@@ -56,7 +56,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceRe
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Beta = @"BETA";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Canary = @"CANARY";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Dev = @"DEV";
-NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Lts = @"LTS";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_ReleaseChannelUnspecified = @"RELEASE_CHANNEL_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Stable = @"STABLE";
 
@@ -101,6 +100,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountRep
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_September = @"SEPTEMBER";
 
 // GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport.state
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_DeviceOutdated = @"DEVICE_OUTDATED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Offline = @"OFFLINE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Online = @"ONLINE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -188,6 +188,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentDat
 
 // GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry.provider
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator = @"RISK_ASSESSMENT_PROVIDER_CRXCAVATOR";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx = @"RISK_ASSESSMENT_PROVIDER_LAYERX";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi = @"RISK_ASSESSMENT_PROVIDER_SPIN_AI";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderUnspecified = @"RISK_ASSESSMENT_PROVIDER_UNSPECIFIED";
 

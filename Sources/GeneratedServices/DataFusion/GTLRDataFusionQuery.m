@@ -70,7 +70,7 @@
 
 @implementation GTLRDataFusionQuery_ProjectsLocationsInstancesDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

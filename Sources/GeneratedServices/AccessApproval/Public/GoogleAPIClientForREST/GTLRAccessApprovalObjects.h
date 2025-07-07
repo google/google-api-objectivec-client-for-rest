@@ -292,6 +292,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512;
 /**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
@@ -998,6 +1005,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa65
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")

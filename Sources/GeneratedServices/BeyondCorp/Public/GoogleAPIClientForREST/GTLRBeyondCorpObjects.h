@@ -1868,7 +1868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
- *  Information about a BeyoncCorp SecurityGateway resource.
+ *  Information about a BeyondCorp SecurityGateway resource.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway : GTLRObject
 

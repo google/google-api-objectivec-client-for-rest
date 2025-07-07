@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
@@ -363,6 +363,151 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsGetBiReservation
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new reservation group.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsCreate : GTLRBigQueryReservationQuery
+
+/** Required. Project, location. E.g., `projects/myproject/locations/US` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The reservation group ID. It must only contain lower case
+ *  alphanumeric characters or dashes. It must start with a letter and must not
+ *  end with a dash. Its maximum length is 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationGroupId;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_ReservationGroup.
+ *
+ *  Creates a new reservation group.
+ *
+ *  @param object The @c GTLRBigQueryReservation_ReservationGroup to include in
+ *    the query.
+ *  @param parent Required. Project, location. E.g.,
+ *    `projects/myproject/locations/US`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_ReservationGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when
+ *  reservation has assignments.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsDelete : GTLRBigQueryReservationQuery
+
+/**
+ *  Required. Resource name of the reservation group to retrieve. E.g.,
+ *  `projects/myproject/locations/US/reservationGroups/team1-prod`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Empty.
+ *
+ *  Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when
+ *  reservation has assignments.
+ *
+ *  @param name Required. Resource name of the reservation group to retrieve.
+ *    E.g., `projects/myproject/locations/US/reservationGroups/team1-prod`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns information about the reservation group.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsGet : GTLRBigQueryReservationQuery
+
+/**
+ *  Required. Resource name of the reservation group to retrieve. E.g.,
+ *  `projects/myproject/locations/US/reservationGroups/team1-prod`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_ReservationGroup.
+ *
+ *  Returns information about the reservation group.
+ *
+ *  @param name Required. Resource name of the reservation group to retrieve.
+ *    E.g., `projects/myproject/locations/US/reservationGroups/team1-prod`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the reservation groups for the project in the specified location.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsList : GTLRBigQueryReservationQuery
+
+/** The maximum number of items to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name containing project and location, e.g.:
+ *  `projects/myproject/locations/US`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_ListReservationGroupsResponse.
+ *
+ *  Lists all the reservation groups for the project in the specified location.
+ *
+ *  @param parent Required. The parent resource name containing project and
+ *    location, e.g.: `projects/myproject/locations/US`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

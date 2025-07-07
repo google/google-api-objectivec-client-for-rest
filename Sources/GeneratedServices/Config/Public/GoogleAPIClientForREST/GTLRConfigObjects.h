@@ -38,9 +38,15 @@
 @class GTLRConfig_PreviewArtifacts;
 @class GTLRConfig_PreviewOperationMetadata;
 @class GTLRConfig_PreviewResult;
+@class GTLRConfig_PropertyChange;
+@class GTLRConfig_PropertyDrift;
 @class GTLRConfig_Resource;
 @class GTLRConfig_Resource_CaiAssets;
 @class GTLRConfig_ResourceCAIInfo;
+@class GTLRConfig_ResourceChange;
+@class GTLRConfig_ResourceChangeTerraformInfo;
+@class GTLRConfig_ResourceDrift;
+@class GTLRConfig_ResourceDriftTerraformInfo;
 @class GTLRConfig_ResourceTerraformInfo;
 @class GTLRConfig_Revision;
 @class GTLRConfig_Status;
@@ -613,6 +619,46 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_Resource_State_Reconciled;
 FOUNDATION_EXTERN NSString * const kGTLRConfig_Resource_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRConfig_ResourceChange.intent
+
+/**
+ *  The resource will be created.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ResourceChange_Intent_Create;
+/**
+ *  The resource will be deleted.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ResourceChange_Intent_Delete;
+/**
+ *  The default value.
+ *
+ *  Value: "INTENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ResourceChange_Intent_IntentUnspecified;
+/**
+ *  The resource will be recreated.
+ *
+ *  Value: "RECREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ResourceChange_Intent_Recreate;
+/**
+ *  The resource will be untouched.
+ *
+ *  Value: "UNCHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ResourceChange_Intent_Unchanged;
+/**
+ *  The resource will be updated.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ResourceChange_Intent_Update;
+
+// ----------------------------------------------------------------------------
 // GTLRConfig_Revision.action
 
 /**
@@ -1054,7 +1100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  */
 @property(nonatomic, strong, nullable) NSNumber *importExistingResources;
 
-/** User-defined metadata for the deployment. */
+/** Optional. User-defined metadata for the deployment. */
 @property(nonatomic, strong, nullable) GTLRConfig_Deployment_Labels *labels;
 
 /**
@@ -1087,7 +1133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @property(nonatomic, copy, nullable) NSString *lockState;
 
 /**
- *  Resource name of the deployment. Format:
+ *  Identifier. Resource name of the deployment. Format:
  *  `projects/{project}/locations/{location}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1201,7 +1247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 
 /**
- *  User-defined metadata for the deployment.
+ *  Optional. User-defined metadata for the deployment.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1515,6 +1561,70 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @property(nonatomic, strong, nullable) NSArray<GTLRConfig_Preview *> *previews;
 
 /** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  A response to a 'ListResourceChanges' call. Contains a list of
+ *  ResourceChanges.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resourceChanges" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRConfig_ListResourceChangesResponse : GTLRCollectionObject
+
+/**
+ *  A token to request the next page of resources from the 'ListResourceChanges'
+ *  method. The value of an empty string means that there are no more resources
+ *  to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of ResourceChanges.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_ResourceChange *> *resourceChanges;
+
+/** Unreachable resources, if any. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  A response to a 'ListResourceDrifts' call. Contains a list of
+ *  ResourceDrifts.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resourceDrifts" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRConfig_ListResourceDriftsResponse : GTLRCollectionObject
+
+/**
+ *  A token to request the next page of resources from the 'ListResourceDrifts'
+ *  method. The value of an empty string means that there are no more resources
+ *  to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of ResourceDrifts.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_ResourceDrift *> *resourceDrifts;
+
+/** Unreachable resources, if any. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -2212,6 +2322,80 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 
 /**
+ *  A property change represents a change to a property in the state file.
+ */
+@interface GTLRConfig_PropertyChange : GTLRObject
+
+/**
+ *  Output only. Representations of the object value after the actions.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id after;
+
+/**
+ *  Output only. The paths of sensitive fields in `after`. Paths are relative to
+ *  `path`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *afterSensitivePaths;
+
+/**
+ *  Output only. Representations of the object value before the actions.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id before;
+
+/**
+ *  Output only. The paths of sensitive fields in `before`. Paths are relative
+ *  to `path`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *beforeSensitivePaths;
+
+/** Output only. The path of the property change. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  A property drift represents a drift to a property in the state file.
+ */
+@interface GTLRConfig_PropertyDrift : GTLRObject
+
+/**
+ *  Output only. Representations of the object value after the actions.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id after;
+
+/**
+ *  Output only. The paths of sensitive fields in `after`. Paths are relative to
+ *  `path`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *afterSensitivePaths;
+
+/**
+ *  Output only. Representations of the object value before the actions.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id before;
+
+/**
+ *  Output only. The paths of sensitive fields in `before`. Paths are relative
+ *  to `path`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *beforeSensitivePaths;
+
+/** Output only. The path of the property drift. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
  *  Resource represents a Google Cloud Platform resource actuated by IM.
  *  Resources are child resources of Revisions.
  */
@@ -2301,6 +2485,108 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+@end
+
+
+/**
+ *  A resource change represents a change to a resource in the state file.
+ */
+@interface GTLRConfig_ResourceChange : GTLRObject
+
+/**
+ *  Output only. The intent of the resource change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_ResourceChange_Intent_Create The resource will be
+ *        created. (Value: "CREATE")
+ *    @arg @c kGTLRConfig_ResourceChange_Intent_Delete The resource will be
+ *        deleted. (Value: "DELETE")
+ *    @arg @c kGTLRConfig_ResourceChange_Intent_IntentUnspecified The default
+ *        value. (Value: "INTENT_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_ResourceChange_Intent_Recreate The resource will be
+ *        recreated. (Value: "RECREATE")
+ *    @arg @c kGTLRConfig_ResourceChange_Intent_Unchanged The resource will be
+ *        untouched. (Value: "UNCHANGED")
+ *    @arg @c kGTLRConfig_ResourceChange_Intent_Update The resource will be
+ *        updated. (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *intent;
+
+/**
+ *  Identifier. The name of the resource change. Format:
+ *  'projects/{project_id}/locations/{location}/previews/{preview}/resourceChanges/{resource_change}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The property changes of the resource change. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_PropertyChange *> *propertyChanges;
+
+/** Output only. Terraform info of the resource change. */
+@property(nonatomic, strong, nullable) GTLRConfig_ResourceChangeTerraformInfo *terraformInfo;
+
+@end
+
+
+/**
+ *  Terraform info of a ResourceChange.
+ */
+@interface GTLRConfig_ResourceChangeTerraformInfo : GTLRObject
+
+/** Output only. TF resource actions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+/** Output only. TF resource address that uniquely identifies the resource. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/** Output only. TF resource provider. */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+/** Output only. TF resource name. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Output only. TF resource type. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A resource drift represents a drift to a resource in the state file.
+ */
+@interface GTLRConfig_ResourceDrift : GTLRObject
+
+/**
+ *  Identifier. The name of the resource drift. Format:
+ *  'projects/{project_id}/locations/{location}/previews/{preview}/resourceDrifts/{resource_drift}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The property drifts of the resource drift. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_PropertyDrift *> *propertyDrifts;
+
+/** Output only. Terraform info of the resource drift. */
+@property(nonatomic, strong, nullable) GTLRConfig_ResourceDriftTerraformInfo *terraformInfo;
+
+@end
+
+
+/**
+ *  Terraform info of a ResourceChange.
+ */
+@interface GTLRConfig_ResourceDriftTerraformInfo : GTLRObject
+
+/** Output only. The address of the drifted resource. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/** Output only. The provider of the drifted resource. */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+/** Output only. TF resource name. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Output only. The type of the drifted resource. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

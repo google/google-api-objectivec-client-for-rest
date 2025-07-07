@@ -37,3 +37,25 @@
 }
 
 @end
+
+@implementation GTLRTravelImpactModelQuery_FlightsComputeTypicalFlightEmissions
+
++ (instancetype)queryWithObject:(GTLRTravelImpactModel_ComputeTypicalFlightEmissionsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/flights:computeTypicalFlightEmissions";
+  GTLRTravelImpactModelQuery_FlightsComputeTypicalFlightEmissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRTravelImpactModel_ComputeTypicalFlightEmissionsResponse class];
+  query.loggingName = @"travelimpactmodel.flights.computeTypicalFlightEmissions";
+  return query;
+}
+
+@end

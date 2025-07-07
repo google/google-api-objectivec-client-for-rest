@@ -88,6 +88,7 @@
 @class GTLRNetworkServices_ServiceLbPolicy_Labels;
 @class GTLRNetworkServices_ServiceLbPolicyAutoCapacityDrain;
 @class GTLRNetworkServices_ServiceLbPolicyFailoverConfig;
+@class GTLRNetworkServices_ServiceLbPolicyIsolationConfig;
 @class GTLRNetworkServices_Status;
 @class GTLRNetworkServices_Status_Details_Item;
 @class GTLRNetworkServices_TcpRoute;
@@ -641,6 +642,46 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Value: "WATERFALL_BY_ZONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByZone;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationGranularity
+
+/**
+ *  No isolation is configured for the backend service. Traffic can overflow
+ *  based on the load balancing algorithm.
+ *
+ *  Value: "ISOLATION_GRANULARITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_IsolationGranularityUnspecified;
+/**
+ *  Traffic for this service will be isolated at the cloud region level.
+ *
+ *  Value: "REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_Region;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationMode
+
+/**
+ *  No isolation mode is configured for the backend service.
+ *
+ *  Value: "ISOLATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_IsolationModeUnspecified;
+/**
+ *  Traffic will be sent to the nearest region.
+ *
+ *  Value: "NEAREST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Nearest;
+/**
+ *  Traffic will fail if no serving backends are available in the same region as
+ *  the load balancer.
+ *
+ *  Value: "STRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Strict;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_WasmPluginLogConfig.minLogLevel
@@ -1251,8 +1292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Required. A set of extensions to execute for the matching request. At least
  *  one extension is required. Up to 3 extensions can be defined for each
- *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension` chains
- *  are limited to 1 extension per extension chain.
+ *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension` and
+ *  `LbEdgeExtension` chains are limited to 1 extension per extension chain.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChainExtension *> *extensions;
 
@@ -1349,16 +1390,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  in the format:
  *  `projects/{project}/locations/{location}/wasmPlugins/{plugin}` or
  *  `//networkservices.googleapis.com/projects/{project}/locations/{location}/wasmPlugins/{wasmPlugin}`.
- *  Plugin extensions are currently supported for the `LbTrafficExtension` and
- *  the `LbRouteExtension` resources.
+ *  Plugin extensions are currently supported for the `LbTrafficExtension`, the
+ *  `LbRouteExtension`, and the `LbEdgeExtension` resources.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
  *  Optional. A set of events during request or response processing for which
- *  this extension is called. This field is required for the
- *  `LbTrafficExtension` resource. It is optional for the `LbRouteExtension`
- *  resource. If unspecified `REQUEST_HEADERS` event is assumed as supported.
+ *  this extension is called. For the `LbTrafficExtension` resource, this field
+ *  is required. For the `LbRouteExtension` resource, this field is optional. If
+ *  unspecified, `REQUEST_HEADERS` event is assumed as supported. For the
+ *  `LbEdgeExtension` resource, this field is required and must only contain
+ *  `REQUEST_HEADERS` event.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
 
@@ -1605,7 +1648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Output only. Identifier. Full path name of the GatewayRouteView resource.
  *  Format:
- *  projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+ *  projects/{project_number}/locations/{location}/gateways/{gateway}/routeViews/{route_view}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3831,7 +3874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Output only. Identifier. Full path name of the MeshRouteView resource.
  *  Format:
- *  projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+ *  projects/{project_number}/locations/{location}/meshes/{mesh}/routeViews/{route_view}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4168,6 +4211,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicyFailoverConfig *failoverConfig;
 
 /**
+ *  Optional. Configuration to provide isolation support for the associated
+ *  Backend Service.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicyIsolationConfig *isolationConfig;
+
+/**
  *  Optional. Set of label tags associated with the ServiceLbPolicy resource.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicy_Labels *labels;
@@ -4258,6 +4307,44 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failoverHealthThreshold;
+
+@end
+
+
+/**
+ *  Configuration to provide isolation support for the associated Backend
+ *  Service.
+ */
+@interface GTLRNetworkServices_ServiceLbPolicyIsolationConfig : GTLRObject
+
+/**
+ *  Optional. The isolation granularity of the load balancer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_IsolationGranularityUnspecified
+ *        No isolation is configured for the backend service. Traffic can
+ *        overflow based on the load balancing algorithm. (Value:
+ *        "ISOLATION_GRANULARITY_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_Region
+ *        Traffic for this service will be isolated at the cloud region level.
+ *        (Value: "REGION")
+ */
+@property(nonatomic, copy, nullable) NSString *isolationGranularity;
+
+/**
+ *  Optional. The isolation mode of the load balancer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_IsolationModeUnspecified
+ *        No isolation mode is configured for the backend service. (Value:
+ *        "ISOLATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Nearest
+ *        Traffic will be sent to the nearest region. (Value: "NEAREST")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Strict
+ *        Traffic will fail if no serving backends are available in the same
+ *        region as the load balancer. (Value: "STRICT")
+ */
+@property(nonatomic, copy, nullable) NSString *isolationMode;
 
 @end
 

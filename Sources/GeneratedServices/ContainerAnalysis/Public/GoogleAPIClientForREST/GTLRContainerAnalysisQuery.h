@@ -240,6 +240,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  If set, the request will return all reachable Notes and report all
+ *  unreachable regions in the `unreachable` field in the response. Only
+ *  applicable for requests in the global region.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRContainerAnalysis_ListNotesResponse.
  *
  *  Lists notes for the specified project.
@@ -661,6 +668,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  If set, the request will return all reachable occurrence summaries and
+ *  report all unreachable regions in the `unreachable` field in the response.
+ *  Only applicable for requests in the global region.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRContainerAnalysis_VulnerabilityOccurrencesSummary.
  *
  *  Gets a summary of the number and severity of occurrences.
@@ -701,6 +715,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/[PROJECT_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If set, the request will return all reachable Occurrences and report all
+ *  unreachable regions in the `unreachable` field in the response. Only
+ *  applicable for requests in the global region.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRContainerAnalysis_ListOccurrencesResponse.
@@ -1084,6 +1105,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/[PROJECT_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If set, the request will return all reachable Notes and report all
+ *  unreachable regions in the `unreachable` field in the response. Only
+ *  applicable for requests in the global region.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRContainerAnalysis_ListNotesResponse.
@@ -1507,6 +1535,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  If set, the request will return all reachable occurrence summaries and
+ *  report all unreachable regions in the `unreachable` field in the response.
+ *  Only applicable for requests in the global region.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRContainerAnalysis_VulnerabilityOccurrencesSummary.
  *
  *  Gets a summary of the number and severity of occurrences.
@@ -1547,6 +1582,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/[PROJECT_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If set, the request will return all reachable Occurrences and report all
+ *  unreachable regions in the `unreachable` field in the response. Only
+ *  applicable for requests in the global region.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRContainerAnalysis_ListOccurrencesResponse.

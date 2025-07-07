@@ -3197,6 +3197,358 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Creates a new schema bundle in the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The parent resource where this schema bundle will be created.
+ *  Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The unique ID to use for the schema bundle, which will become the
+ *  final component of the schema bundle's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *schemaBundleId;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Creates a new schema bundle in the specified table.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SchemaBundle to include in the query.
+ *  @param parent Required. The parent resource where this schema bundle will be
+ *    created. Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SchemaBundle *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a schema bundle in the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesDelete : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The etag of the schema bundle. If this is provided, it must match
+ *  the server's etag. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The unique name of the schema bundle to delete. Values are of the
+ *  form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a schema bundle in the specified table.
+ *
+ *  @param name Required. The unique name of the schema bundle to delete. Values
+ *    are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets metadata information about the specified schema bundle.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGet : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the schema bundle to retrieve. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_SchemaBundle.
+ *
+ *  Gets metadata information about the specified schema bundle.
+ *
+ *  @param name Required. The unique name of the schema bundle to retrieve.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
+ *
+ *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists all schema bundles associated with the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesList : GTLRBigtableAdminQuery
+
+/**
+ *  The maximum number of schema bundles to return. If the value is positive,
+ *  the server may return at most this value. If unspecified, the server will
+ *  return the maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSchemaBundles` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListSchemaBundles` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of schema bundles. Values
+ *  are of the form `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListSchemaBundlesResponse.
+ *
+ *  Lists all schema bundles associated with the specified table.
+ *
+ *  @param parent Required. The parent, which owns this collection of schema
+ *    bundles. Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a schema bundle in the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesPatch : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. If set, ignore the safety checks when updating the Schema Bundle.
+ *  The safety checks are: - The new Schema Bundle is backwards compatible with
+ *  the existing Schema Bundle.
+ */
+@property(nonatomic, assign) BOOL ignoreWarnings;
+
+/**
+ *  Identifier. The unique name identifying this schema bundle. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates a schema bundle in the specified table.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SchemaBundle to include in the query.
+ *  @param name Identifier. The unique name identifying this schema bundle.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SchemaBundle *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesSetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified Bigtable resource.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesTestIamPermissions : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified Bigtable resource.
+ *
+ *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Sets the access control policy on a Bigtable resource. Replaces any existing
  *  policy.
  *

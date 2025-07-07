@@ -82,6 +82,10 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Lev
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level4 = @"LEVEL_4";
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Unevaluated = @"UNEVALUATED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRPlayIntegrity_AccountActivity
@@ -345,3 +349,5 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 @implementation GTLRPlayIntegrity_WriteDeviceRecallResponse
 @end
+
+#pragma clang diagnostic pop

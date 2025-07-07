@@ -125,6 +125,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DlpJob;
 @class GTLRDLP_GooglePrivacyDlpV2DocumentLocation;
+@class GTLRDLP_GooglePrivacyDlpV2Domain;
 @class GTLRDLP_GooglePrivacyDlpV2EntityId;
 @class GTLRDLP_GooglePrivacyDlpV2Error;
 @class GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword;
@@ -1905,6 +1906,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_Inspec
  *  Value: "RISK_ANALYSIS_JOB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2Domain.category
+
+/**
+ *  Indicates that the data profile is related to artificial intelligence. When
+ *  set, all findings stored to Security Command Center will set the
+ *  corresponding AI domain field of `Finding` objects.
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Category_Ai;
+/**
+ *  Category unspecified.
+ *
+ *  Value: "CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Category_CategoryUnspecified;
+/**
+ *  Indicates that the data profile is related to code.
+ *
+ *  Value: "CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Category_Code;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2Domain.signals
+
+/**
+ *  One or more machine learning models are present.
+ *
+ *  Value: "MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Model;
+/**
+ *  If the service determines the category type. For example, Vertex AI assets
+ *  would always have a `Category` of `AI`.
+ *
+ *  Value: "SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Service;
+/**
+ *  Unused.
+ *
+ *  Value: "SIGNAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_SignalUnspecified;
+/**
+ *  Source code is present.
+ *
+ *  Value: "SOURCE_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_SourceCode;
+/**
+ *  A table appears to be a text embedding.
+ *
+ *  Value: "TEXT_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_TextEmbedding;
+/**
+ *  Support for [Cloud SQL vector
+ *  embeddings](https://cloud.google.com/sql/docs/mysql/enable-vector-search) is
+ *  enabled on the database.
+ *
+ *  Value: "VECTOR_PLUGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_VectorPlugin;
+/**
+ *  The [Cloud SQL Vertex
+ *  AI](https://cloud.google.com/sql/docs/postgres/integrate-cloud-sql-with-vertex-ai)
+ *  plugin is installed on the database.
+ *
+ *  Value: "VERTEX_PLUGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_VertexPlugin;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Error.extraInfo
@@ -7192,6 +7268,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  A domain represents a thematic category that a data profile can fall under.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Domain : GTLRObject
+
+/**
+ *  A domain category that this profile is related to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Domain_Category_Ai Indicates that the
+ *        data profile is related to artificial intelligence. When set, all
+ *        findings stored to Security Command Center will set the corresponding
+ *        AI domain field of `Finding` objects. (Value: "AI")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Domain_Category_CategoryUnspecified
+ *        Category unspecified. (Value: "CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Domain_Category_Code Indicates that the
+ *        data profile is related to code. (Value: "CODE")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** The collection of signals that influenced selection of the category. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signals;
+
+@end
+
+
+/**
  *  An entity in a dataset is a field or set of fields that correspond to a
  *  single person. For example, in medical records the `EntityId` might be a
  *  patient identifier, or for financial records it might be an account
@@ -7571,7 +7673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Match file stores (e.g. buckets) using regex filters.
+ *  Match file stores (e.g. buckets) using filters.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FileStoreCollection : GTLRObject
 
@@ -7609,6 +7711,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  always picked as the processing and storage location for the data profile.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataStorageLocations;
+
+/** Domains associated with the profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Domain *> *domains;
 
 /** FileClusterSummary per each cluster. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileClusterSummary *> *fileClusterSummaries;
@@ -11170,6 +11275,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Collection of findings saved to a Cloud Storage bucket. This is used as the
+ *  proto schema for textproto files created when specifying a cloud storage
+ *  path to save Inspect findings.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2SaveToGcsFindingsOutput : GTLRObject
+
+/** List of findings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Finding *> *findings;
+
+@end
+
+
+/**
  *  Schedule for inspect job triggers.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Schedule : GTLRObject
@@ -11617,6 +11735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The resource type that was profiled. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataSourceType *dataSourceType;
 
+/** Domains associated with the profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Domain *> *domains;
+
 /**
  *  How the table is encrypted.
  *
@@ -11721,7 +11842,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
 
 /**
- *  State of a profile.
+ *  State of a profile. This will always be set to DONE when the table data
+ *  profile is written to another service like BigQuery or Pub/Sub.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_Done The profile

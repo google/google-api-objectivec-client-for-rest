@@ -189,6 +189,24 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial;
 /**
+ *  Trial Embed.
+ *
+ *  Value: "LOOKER_CORE_TRIAL_EMBED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEmbed;
+/**
+ *  Trial Enterprise.
+ *
+ *  Value: "LOOKER_CORE_TRIAL_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEnterprise;
+/**
+ *  Trial Standard.
+ *
+ *  Value: "LOOKER_CORE_TRIAL_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard;
+/**
  *  Platform edition is unspecified.
  *
  *  Value: "PLATFORM_EDITION_UNSPECIFIED"
@@ -754,6 +772,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *        Subscription Standard. (Value: "LOOKER_CORE_STANDARD_ANNUAL")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial Trial.
  *        (Value: "LOOKER_CORE_TRIAL")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEmbed Trial
+ *        Embed. (Value: "LOOKER_CORE_TRIAL_EMBED")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEnterprise
+ *        Trial Enterprise. (Value: "LOOKER_CORE_TRIAL_ENTERPRISE")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard Trial
+ *        Standard. (Value: "LOOKER_CORE_TRIAL_STANDARD")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_PlatformEditionUnspecified
  *        Platform edition is unspecified. (Value:
  *        "PLATFORM_EDITION_UNSPECIFIED")
@@ -1309,10 +1333,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, copy, nullable) NSString *connectionStatus;
 
 /**
- *  Required. Fully qualified domain name that will be used in the private DNS
+ *  Optional. Fully qualified domain name that will be used in the private DNS
  *  record created for the service attachment.
  */
 @property(nonatomic, copy, nullable) NSString *localFqdn;
+
+/**
+ *  Optional. List of fully qualified domain names that will be used in the
+ *  private DNS record created for the service attachment.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *localFqdns;
 
 /**
  *  Required. URI of the service attachment to connect to. Format:

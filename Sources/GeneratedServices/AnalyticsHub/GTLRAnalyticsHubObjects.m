@@ -40,6 +40,7 @@ NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryEnergy = @"CATEGOR
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryFinancial = @"CATEGORY_FINANCIAL";
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryGaming = @"CATEGORY_GAMING";
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryGeospatial = @"CATEGORY_GEOSPATIAL";
+NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryGoogleEarthEngine = @"CATEGORY_GOOGLE_EARTH_ENGINE";
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryHealthcareAndLifeScience = @"CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE";
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryMedia = @"CATEGORY_MEDIA";
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryOthers = @"CATEGORY_OTHERS";

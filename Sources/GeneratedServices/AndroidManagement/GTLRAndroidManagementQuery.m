@@ -567,6 +567,33 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
+@implementation GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_ModifyPolicyApplicationsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:modifyPolicyApplications";
+  GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_ModifyPolicyApplicationsResponse class];
+  query.loggingName = @"androidmanagement.enterprises.policies.modifyPolicyApplications";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
 
 @dynamic name, updateMask;
@@ -589,6 +616,33 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
   query.name = name;
   query.expectedObjectClass = [GTLRAndroidManagement_Policy class];
   query.loggingName = @"androidmanagement.enterprises.policies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_RemovePolicyApplicationsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:removePolicyApplications";
+  GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_RemovePolicyApplicationsResponse class];
+  query.loggingName = @"androidmanagement.enterprises.policies.removePolicyApplications";
   return query;
 }
 

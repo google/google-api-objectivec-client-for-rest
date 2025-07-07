@@ -2570,6 +2570,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Optional. If set to true, the unenrollment of a vmware admin cluster
+ *  resource will succeed even if errors occur during unenrollment. This
+ *  parameter can be used when you want to unenroll admin cluster resource and
+ *  the on-prem admin cluster is disconnected / unreachable. WARNING: Using this
+ *  parameter when your admin cluster still exists may result in a deleted GCP
+ *  admin cluster but existing resourcelink in on-prem admin cluster and
+ *  membership.
+ */
+@property(nonatomic, assign) BOOL ignoreErrors;
+
+/**
  *  Required. Name of the VMware admin cluster to be unenrolled. Format:
  *  "projects/{project}/locations/{location}/vmwareAdminClusters/{cluster}"
  */

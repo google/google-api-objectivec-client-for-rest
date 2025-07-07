@@ -263,9 +263,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesConnectionsCreate : GTLRServiceNetworkingQuery
 
 /**
- *  The service that is managing peering connectivity for a service producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -282,9 +282,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_Connection to include in the
  *    query.
- *  @param parent The service that is managing peering connectivity for a
- *    service producer's organization. For Google services that support this
- *    functionality, this value is `services/servicenetworking.googleapis.com`.
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesConnectionsCreate
  */
@@ -402,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  The private service connection that connects to a service producer
+ *  Required. The private service connection that connects to a service producer
  *  organization. The name includes both the private service name and the VPC
  *  network peering name in the format of
  *  `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google
@@ -426,9 +427,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_Connection to include in the
  *    query.
- *  @param name The private service connection that connects to a service
- *    producer organization. The name includes both the private service name and
- *    the VPC network peering name in the format of
+ *  @param name Required. The private service connection that connects to a
+ *    service producer organization. The name includes both the private service
+ *    name and the VPC network peering name in the format of
  *    `services/{peering_service_name}/connections/{vpc_peering_name}`. For
  *    Google services that support this functionality, this is
  *    `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
@@ -452,9 +453,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls : GTLRServiceNetworkingQuery
 
 /**
- *  The service that is managing peering connectivity for a service producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -465,9 +466,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_DisableVpcServiceControlsRequest
  *    to include in the query.
- *  @param parent The service that is managing peering connectivity for a
- *    service producer's organization. For Google services that support this
- *    functionality, this value is `services/servicenetworking.googleapis.com`.
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls
  */
@@ -796,9 +798,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls : GTLRServiceNetworkingQuery
 
 /**
- *  The service that is managing peering connectivity for a service producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -809,9 +811,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_EnableVpcServiceControlsRequest
  *    to include in the query.
- *  @param parent The service that is managing peering connectivity for a
- *    service producer's organization. For Google services that support this
- *    functionality, this value is `services/servicenetworking.googleapis.com`.
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls
  */

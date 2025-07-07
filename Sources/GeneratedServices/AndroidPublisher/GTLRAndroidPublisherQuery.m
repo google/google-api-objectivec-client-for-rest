@@ -2689,6 +2689,29 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_PurchasesProductsv2Getproductpurchasev2
+
+@dynamic packageName, token;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                               token:(NSString *)token {
+  NSArray *pathParams = @[
+    @"packageName", @"token"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/productsv2/tokens/{token}";
+  GTLRAndroidPublisherQuery_PurchasesProductsv2Getproductpurchasev2 *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.token = token;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ProductPurchaseV2 class];
+  query.loggingName = @"androidpublisher.purchases.productsv2.getproductpurchasev2";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsAcknowledge
 
 @dynamic packageName, subscriptionId, token;

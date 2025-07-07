@@ -1424,7 +1424,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SourceHierarchyDatasets
-@dynamic datasetTemplate;
+@dynamic datasetTemplate, projectId;
 @end
 
 

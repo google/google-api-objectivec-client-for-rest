@@ -422,7 +422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_
 
 
 /**
- *  Request to create a script project. Request to create a script project.
+ *  Request to create a script project.
  */
 @interface GTLRScript_CreateProjectRequest : GTLRObject
 

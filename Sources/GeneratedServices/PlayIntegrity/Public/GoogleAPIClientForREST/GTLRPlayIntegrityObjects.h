@@ -39,6 +39,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -399,6 +400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *  (Restricted Access) Contains a signal helping apps differentiating between
  *  likely genuine and likely non-genuine user traffic.
  */
+GTLR_DEPRECATED
 @interface GTLRPlayIntegrity_AccountActivity : GTLRObject
 
 /**
@@ -437,7 +439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *  (Restricted Access) Details about the account activity for the user in the
  *  scope.
  */
-@property(nonatomic, strong, nullable) GTLRPlayIntegrity_AccountActivity *accountActivity;
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_AccountActivity *accountActivity GTLR_DEPRECATED;
 
 /**
  *  Required. Details about the licensing status of the user for the app in the

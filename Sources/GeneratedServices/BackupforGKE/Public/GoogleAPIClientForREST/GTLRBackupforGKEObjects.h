@@ -44,6 +44,7 @@
 @class GTLRBackupforGKE_GoogleRpcStatus_Details_Item;
 @class GTLRBackupforGKE_GroupKind;
 @class GTLRBackupforGKE_GroupKindDependency;
+@class GTLRBackupforGKE_Label;
 @class GTLRBackupforGKE_Location;
 @class GTLRBackupforGKE_Location_Labels;
 @class GTLRBackupforGKE_Location_Metadata;
@@ -52,6 +53,7 @@
 @class GTLRBackupforGKE_Namespaces;
 @class GTLRBackupforGKE_Policy;
 @class GTLRBackupforGKE_ResourceFilter;
+@class GTLRBackupforGKE_ResourceLabels;
 @class GTLRBackupforGKE_ResourceSelector;
 @class GTLRBackupforGKE_ResourceSelector_Labels;
 @class GTLRBackupforGKE_Restore;
@@ -1024,6 +1026,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_NamespacedNames *selectedApplications;
 
 /**
+ *  Output only. If set, the list of labels whose constituent namespaces were
+ *  included in the Backup.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_ResourceLabels *selectedNamespaceLabels;
+
+/**
  *  Output only. If set, the list of namespaces that were included in the
  *  Backup.
  */
@@ -1229,6 +1237,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  ProtectedApplications.
  */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_NamespacedNames *selectedApplications;
+
+/**
+ *  If set, the list of labels whose constituent namespaces were included in the
+ *  Backup.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_ResourceLabels *selectedNamespaceLabels;
 
 /** If set, include just the resources in the listed namespaces. */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_Namespaces *selectedNamespaces;
@@ -2171,6 +2185,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  A single Kubernetes label-value pair.
+ */
+@interface GTLRBackupforGKE_Label : GTLRObject
+
+/** Optional. The key/name of the label. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Optional. The value of the label. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Response message for ListBackupChannels.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2760,6 +2788,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  candidates for transformation).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaces;
+
+@end
+
+
+/**
+ *  A list of Kubernetes labels.
+ */
+@interface GTLRBackupforGKE_ResourceLabels : GTLRObject
+
+/** Optional. A list of Kubernetes label-value pairs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_Label *> *resourceLabels;
 
 @end
 

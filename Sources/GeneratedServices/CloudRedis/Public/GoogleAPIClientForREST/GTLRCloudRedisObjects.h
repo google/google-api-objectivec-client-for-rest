@@ -54,6 +54,7 @@
 @class GTLRCloudRedis_Instance;
 @class GTLRCloudRedis_Instance_Labels;
 @class GTLRCloudRedis_Instance_RedisConfigs;
+@class GTLRCloudRedis_Instance_Tags;
 @class GTLRCloudRedis_InternalResourceMetadata;
 @class GTLRCloudRedis_Location;
 @class GTLRCloudRedis_Location_Labels;
@@ -2778,6 +2779,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshot
 // GTLRCloudRedis_Product.engine
 
 /**
+ *  Oracle Autonomous DB Serverless engine.
+ *
+ *  Value: "ENGINE_ADB_SERVERLESS_ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineAdbServerlessOracle;
+/**
  *  Cloud Spanner with Google SQL dialect.
  *
  *  Value: "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT"
@@ -2789,6 +2796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpa
  *  Value: "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithPostgresDialect;
+/**
+ *  Oracle Exadata engine.
+ *
+ *  Value: "ENGINE_EXADATA_ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineExadataOracle;
 /**
  *  Firestore with datastore mode.
  *
@@ -2938,6 +2951,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeMemor
  *  Value: "PRODUCT_TYPE_ON_PREM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOnPrem;
+/**
+ *  Oracle product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_ORACLE_ON_GCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOracleOnGcp;
 /**
  *  Other refers to rest of other product type. This is to be when product type
  *  is known, but it is not present in this enum.
@@ -3740,6 +3759,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_Cluster : GTLRObject
 
 /**
+ *  Optional. Immutable. Allows customers to specify if they are okay with
+ *  deploying a multi-zone cluster in less than 3 zones. Once set, if there is a
+ *  zonal outage during the cluster creation, the cluster will only be deployed
+ *  in 2 zones, and stay within the 2 zones for its lifecycle.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowFewerZonesDeployment;
+
+/**
  *  Optional. If true, cluster endpoints that are created and registered by
  *  customers can be deleted asynchronously. That is, such a cluster endpoint
  *  can be de-registered before the forwarding rules in the cluster endpoint are
@@ -3901,6 +3930,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shardCount;
+
+/**
+ *  Optional. Input only. Simulate a maintenance event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *simulateMaintenanceEvent;
 
 /**
  *  Output only. Redis memory size in GB for the entire cluster rounded up to
@@ -4219,7 +4255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform.
+ *  database resource level events into Condor platform. Next ID: 8
  */
 @interface GTLRCloudRedis_DatabaseResourceFeed : GTLRObject
 
@@ -4298,6 +4334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  details about signals.
  */
 @property(nonatomic, copy, nullable) NSString *externalUri;
+
+/**
+ *  This is used to identify the location of the resource. Example:
+ *  "us-central1"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Required. The name of the signal, ex: PUBLIC_SQL_INSTANCE,
@@ -4798,15 +4840,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, copy, nullable) NSString *providerDescription;
 
 /**
- *  Required. The type of resource this ID is identifying. Ex
- *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
- *  alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
- *  spanner.googleapis.com/Instance, spanner.googleapis.com/Database,
- *  firestore.googleapis.com/Database, sqladmin.googleapis.com/Instance,
+ *  Required. The type of resource this ID is identifying. Ex go/keep-sorted
+ *  start alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
  *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
- *  oracledatabase.googleapis.com/cloudExadataInfrastructures
- *  oracledatabase.googleapis.com/cloudVmClusters
- *  oracledatabase.googleapis.com/autonomousDatabases REQUIRED Please refer
+ *  compute.googleapis.com/Instance firestore.googleapis.com/Database,
+ *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
+ *  oracledatabase.googleapis.com/CloudExadataInfrastructure
+ *  oracledatabase.googleapis.com/CloudVmCluster
+ *  oracledatabase.googleapis.com/AutonomousDatabase
+ *  spanner.googleapis.com/Instance, spanner.googleapis.com/Database,
+ *  sqladmin.googleapis.com/Instance, go/keep-sorted end REQUIRED Please refer
  *  go/condor-common-datamodel
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
@@ -6087,6 +6130,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Instance_Tags *tags;
+
+/**
  *  Required. The service tier of the instance.
  *
  *  Likely values:
@@ -6143,6 +6193,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        fetch them all at once.
  */
 @interface GTLRCloudRedis_Instance_RedisConfigs : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRedis_Instance_Tags : GTLRObject
 @end
 
 
@@ -6936,12 +7000,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  The specific engine that the underlying database is running.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudRedis_Product_Engine_EngineAdbServerlessOracle Oracle
+ *        Autonomous DB Serverless engine. (Value:
+ *        "ENGINE_ADB_SERVERLESS_ORACLE")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithGooglesqlDialect
  *        Cloud Spanner with Google SQL dialect. (Value:
  *        "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithPostgresDialect
  *        Cloud Spanner with PostgreSQL dialect. (Value:
  *        "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT")
+ *    @arg @c kGTLRCloudRedis_Product_Engine_EngineExadataOracle Oracle Exadata
+ *        engine. (Value: "ENGINE_EXADATA_ORACLE")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode
  *        Firestore with datastore mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_DATASTORE_MODE")
@@ -7002,6 +7071,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        product area in GCP (Value: "PRODUCT_TYPE_MEMORYSTORE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeOnPrem On premises
  *        database product. (Value: "PRODUCT_TYPE_ON_PREM")
+ *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeOracleOnGcp Oracle product
+ *        area in GCP (Value: "PRODUCT_TYPE_ORACLE_ON_GCP")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeOther Other refers to rest
  *        of other product type. This is to be when product type is known, but
  *        it is not present in this enum. (Value: "PRODUCT_TYPE_OTHER")
@@ -7160,7 +7231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Output only. The port number of the exposed discovery endpoint.
+ *  Output only. port will only be set for Primary/Reader or Discovery endpoint.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7423,7 +7494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *retentionUnit GTLR_DEPRECATED;
 
-@property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention;
+@property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention GTLR_DEPRECATED;
 
 /** Timestamp based retention period i.e. 2024-05-01T00:00:00Z */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampBasedRetentionTime;

@@ -357,13 +357,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_UserWorklo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_ClusterTypeUnspecified;
 /**
- *  Standard dataproc cluster with minimum 2 primary workers.
+ *  Standard dataproc cluster with a minimum of two primary workers.
  *
  *  Value: "STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutoscalingPolicy_ClusterType_Standard;
 /**
- *  Clusters that can be scaled down to zero worker nodes.
+ *  Clusters that can use only secondary workers and be scaled down to zero
+ *  secondary worker nodes.
  *
  *  Value: "ZERO_SCALE"
  */
@@ -472,6 +473,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_Operatio
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_ClusterConfig.clusterTier
+
+/**
+ *  Premium dataproc cluster.
+ *
+ *  Value: "CLUSTER_TIER_PREMIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierPremium;
+/**
+ *  Standard dataproc cluster.
+ *
+ *  Value: "CLUSTER_TIER_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierStandard;
+/**
+ *  Not set. Works the same as CLUSTER_TIER_STANDARD.
+ *
+ *  Value: "CLUSTER_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_ClusterConfig.clusterType
 
 /**
@@ -493,7 +516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_Singl
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_Standard;
 /**
- *  Clusters that can be scaled down to zero worker nodes.
+ *  Clusters that can use only secondary workers and be scaled down to zero
+ *  secondary worker nodes.
  *
  *  Value: "ZERO_SCALE"
  */
@@ -2157,9 +2181,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *    @arg @c kGTLRDataproc_AutoscalingPolicy_ClusterType_ClusterTypeUnspecified
  *        Not set. (Value: "CLUSTER_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataproc_AutoscalingPolicy_ClusterType_Standard Standard
- *        dataproc cluster with minimum 2 primary workers. (Value: "STANDARD")
+ *        dataproc cluster with a minimum of two primary workers. (Value:
+ *        "STANDARD")
  *    @arg @c kGTLRDataproc_AutoscalingPolicy_ClusterType_ZeroScale Clusters
- *        that can be scaled down to zero worker nodes. (Value: "ZERO_SCALE")
+ *        that can use only secondary workers and be scaled down to zero
+ *        secondary worker nodes. (Value: "ZERO_SCALE")
  */
 @property(nonatomic, copy, nullable) NSString *clusterType;
 
@@ -2728,6 +2754,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AuxiliaryNodeGroup *> *auxiliaryNodeGroups;
 
 /**
+ *  Optional. The tier of the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierPremium Premium
+ *        dataproc cluster. (Value: "CLUSTER_TIER_PREMIUM")
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierStandard
+ *        Standard dataproc cluster. (Value: "CLUSTER_TIER_STANDARD")
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierUnspecified Not
+ *        set. Works the same as CLUSTER_TIER_STANDARD. (Value:
+ *        "CLUSTER_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterTier;
+
+/**
  *  Optional. The type of the cluster.
  *
  *  Likely values:
@@ -2739,7 +2779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *    @arg @c kGTLRDataproc_ClusterConfig_ClusterType_Standard Standard dataproc
  *        cluster with a minimum of two primary workers. (Value: "STANDARD")
  *    @arg @c kGTLRDataproc_ClusterConfig_ClusterType_ZeroScale Clusters that
- *        can be scaled down to zero worker nodes. (Value: "ZERO_SCALE")
+ *        can use only secondary workers and be scaled down to zero secondary
+ *        worker nodes. (Value: "ZERO_SCALE")
  */
 @property(nonatomic, copy, nullable) NSString *clusterType;
 
@@ -5965,6 +6006,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDuration *autoDeleteTtl;
 
 /**
+ *  Optional. The time when cluster will be auto-stopped (see JSON
+ *  representation of Timestamp
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *autoStopTime;
+
+/**
+ *  Optional. The lifetime duration of the cluster. The cluster will be
+ *  auto-stopped at the end of this period, calculated from the time of
+ *  submission of the create or update cluster request. Minimum value is 10
+ *  minutes; maximum value is 14 days (see JSON representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *autoStopTtl;
+
+/**
  *  Optional. The duration to keep the cluster alive while idling (when no jobs
  *  are running). Passing this threshold will cause the cluster to be deleted.
  *  Minimum value is 5 minutes; maximum value is 14 days (see JSON
@@ -5980,6 +6037,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *idleStartTime;
+
+/**
+ *  Optional. The duration to keep the cluster started while idling (when no
+ *  jobs are running). Passing this threshold will cause the cluster to be
+ *  stopped. Minimum value is 5 minutes; maximum value is 14 days (see JSON
+ *  representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleStopTtl;
 
 @end
 

@@ -8426,6 +8426,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Flag that specifies if internet egress is restricted for VPC
+ *  Service Controls. Valid only when runtime_type is `CLOUD` and
+ *  disable_vpc_peering is `true`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *networkEgressRestricted;
+
+/**
  *  Optional. Configuration for the Portals settings.
  *
  *  Uses NSNumber of boolValue.
@@ -11964,6 +11973,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Note that only Scopes and Attributes of the AppGroupAppKey can be amended.
+ *  Scopes and Attributes mentioned in the request will be inserted and the
+ *  existing scopes and attributes will be removed.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey *appGroupAppKey;
 

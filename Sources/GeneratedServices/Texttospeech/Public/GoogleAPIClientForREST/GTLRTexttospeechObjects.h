@@ -66,6 +66,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16;
 /**
+ *  M4A audio.
+ *
+ *  Value: "M4A"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_M4a;
+/**
  *  MP3 audio at 32kbps.
  *
  *  Value: "MP3"
@@ -260,6 +266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16 Uncompressed
  *        16-bit signed little-endian samples (Linear PCM). Audio content
  *        returned as LINEAR16 also contains a WAV header. (Value: "LINEAR16")
+ *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_M4a M4A audio. (Value:
+ *        "M4A")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 MP3 audio at
  *        32kbps. (Value: "MP3")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw 8-bit samples

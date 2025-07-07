@@ -2634,6 +2634,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, assign) BOOL skipValidation;
 
 /**
+ *  Optional. For PSC Interface only - get the tenant project before creating
+ *  the resource.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRDatabaseMigrationService_Operation.
  *
  *  Creates a new private connection in a given project and location.

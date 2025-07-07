@@ -969,7 +969,7 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 @implementation GTLREventarc_Pipeline
 @dynamic annotations, createTime, cryptoKeyName, destinations, displayName,
          ETag, inputPayloadFormat, labels, loggingConfig, mediations, name,
-         retryPolicy, uid, updateTime;
+         retryPolicy, satisfiesPzs, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

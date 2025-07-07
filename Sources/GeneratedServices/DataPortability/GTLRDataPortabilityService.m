@@ -38,6 +38,7 @@ NSString * const kGTLRAuthScopeDataPortabilityMapsPhotosVideos = @"https://www.g
 NSString * const kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers = @"https://www.googleapis.com/auth/dataportability.maps.questions_answers";
 NSString * const kGTLRAuthScopeDataPortabilityMapsReviews      = @"https://www.googleapis.com/auth/dataportability.maps.reviews";
 NSString * const kGTLRAuthScopeDataPortabilityMapsStarredPlaces = @"https://www.googleapis.com/auth/dataportability.maps.starred_places";
+NSString * const kGTLRAuthScopeDataPortabilityMapsVehicleProfile = @"https://www.googleapis.com/auth/dataportability.maps.vehicle_profile";
 NSString * const kGTLRAuthScopeDataPortabilityMyactivityMaps   = @"https://www.googleapis.com/auth/dataportability.myactivity.maps";
 NSString * const kGTLRAuthScopeDataPortabilityMyactivityMyadcenter = @"https://www.googleapis.com/auth/dataportability.myactivity.myadcenter";
 NSString * const kGTLRAuthScopeDataPortabilityMyactivityPlay   = @"https://www.googleapis.com/auth/dataportability.myactivity.play";

@@ -208,6 +208,16 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_GatewayConfig
+//
+
+@implementation GTLRCloudWorkstations_GatewayConfig
+@dynamic http2Enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_GceConfidentialInstanceConfig
 //
 
@@ -844,8 +854,9 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_WorkstationCluster
 @dynamic annotations, conditions, controlPlaneIp, createTime, degraded,
-         deleteTime, displayName, domainConfig, ETag, labels, name, network,
-         privateClusterConfig, reconciling, subnetwork, tags, uid, updateTime;
+         deleteTime, displayName, domainConfig, ETag, gatewayConfig, labels,
+         name, network, privateClusterConfig, reconciling, subnetwork, tags,
+         uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

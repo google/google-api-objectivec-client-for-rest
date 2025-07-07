@@ -83,6 +83,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The SwG publication id that the reader's subscription linking
+ *  was originating from.
+ */
+@property(nonatomic, copy, nullable) NSString *originatingPublicationId;
+
+/** Output only. The publisher provided id of the reader. */
+@property(nonatomic, copy, nullable) NSString *ppid;
+
+/**
+ *  Output only. The SwG publication id that the reader has linked their
+ *  subscription to.
+ */
+@property(nonatomic, copy, nullable) NSString *publicationId;
+
 @end
 
 

@@ -2950,6 +2950,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeJobs : GTLRDataprocQuery
 
 /**
+ *  Optional. List of Job IDs to filter by if provided.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *jobIds;
+
+/**
  *  Required. The fully qualified name of the session to retrieve in the format
  *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
  */
@@ -3032,6 +3039,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
 
 /** Required. Parent (Session) resource reference. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. List of Stage IDs to filter by if provided.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *stageIds;
 
 /**
  *  Fetches a @c GTLRDataproc_SummarizeSessionSparkApplicationStagesResponse.

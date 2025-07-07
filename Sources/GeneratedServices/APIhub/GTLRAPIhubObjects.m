@@ -166,6 +166,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenAp
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec30 = @"OPEN_API_SPEC_3_0";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec31 = @"OPEN_API_SPEC_3_1";
 
+// GTLRAPIhub_GoogleCloudApihubV1Plugin.gatewayType
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApiDiscovery = @"API_DISCOVERY";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePrivateCloud = @"APIGEE_EDGE_PRIVATE_CLOUD";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePublicCloud = @"APIGEE_EDGE_PUBLIC_CLOUD";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeXAndHybrid = @"APIGEE_X_AND_HYBRID";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudApiGateway = @"CLOUD_API_GATEWAY";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudEndpoints = @"CLOUD_ENDPOINTS";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_GatewayTypeUnspecified = @"GATEWAY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_Others = @"OTHERS";
+
 // GTLRAPIhub_GoogleCloudApihubV1Plugin.ownershipType
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_OwnershipType_OwnershipTypeUnspecified = @"OWNERSHIP_TYPE_UNSPECIFIED";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_OwnershipType_SystemOwned = @"SYSTEM_OWNED";
@@ -203,6 +213,11 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_Enabl
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_Enabling = @"ENABLING";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_Error = @"ERROR";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAPIhub_GoogleCloudApihubV1ResourceConfig.actionType
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_SyncMetadata = @"SYNC_METADATA";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_SyncRuntimeData = @"SYNC_RUNTIME_DATA";
 
 // GTLRAPIhub_GoogleCloudApihubV1SourceMetadata.sourceType
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1SourceMetadata_SourceType_Plugin = @"PLUGIN";
@@ -727,7 +742,8 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 @implementation GTLRAPIhub_GoogleCloudApihubV1Deployment
 @dynamic apiVersions, attributes, createTime, deploymentType,
          descriptionProperty, displayName, documentation, endpoints,
-         environment, name, resourceUri, slo, sourceMetadata, updateTime;
+         environment, managementUrl, name, resourceUri, slo, sourceEnvironment,
+         sourceMetadata, sourceProject, sourceUri, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1437,8 +1453,8 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1Plugin
 @dynamic actionsConfig, configTemplate, createTime, descriptionProperty,
-         displayName, documentation, hostingService, name, ownershipType,
-         pluginCategory, state, type, updateTime;
+         displayName, documentation, gatewayType, hostingService, name,
+         ownershipType, pluginCategory, state, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1480,7 +1496,7 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1PluginInstance
 @dynamic actions, additionalConfig, authConfig, createTime, displayName,
-         errorMessage, name, state, updateTime;
+         errorMessage, name, sourceProjectId, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1512,8 +1528,8 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction
-@dynamic actionId, curationConfig, hubInstanceAction, scheduleCronExpression,
-         scheduleTimeZone, state;
+@dynamic actionId, curationConfig, hubInstanceAction, resourceConfig,
+         scheduleCronExpression, scheduleTimeZone, serviceAccount, state;
 @end
 
 
@@ -1554,6 +1570,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1Range
 @dynamic end, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1ResourceConfig
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ResourceConfig
+@dynamic actionType, pubsubTopic;
 @end
 
 

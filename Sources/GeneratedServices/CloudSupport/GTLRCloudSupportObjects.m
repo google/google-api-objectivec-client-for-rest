@@ -58,17 +58,6 @@ NSString * const kGTLRCloudSupport_Media_ReferenceType_GetMedia = @"GET_MEDIA";
 NSString * const kGTLRCloudSupport_Media_ReferenceType_Inline  = @"INLINE";
 NSString * const kGTLRCloudSupport_Media_ReferenceType_Path    = @"PATH";
 
-// GTLRCloudSupport_WorkflowOperationMetadata.operationAction
-NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_CreateSupportAccount = @"CREATE_SUPPORT_ACCOUNT";
-NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_OperationActionUnspecified = @"OPERATION_ACTION_UNSPECIFIED";
-NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_PurchaseSupportAccount = @"PURCHASE_SUPPORT_ACCOUNT";
-NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_UpdateSupportAccount = @"UPDATE_SUPPORT_ACCOUNT";
-
-// GTLRCloudSupport_WorkflowOperationMetadata.workflowOperationType
-NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_UnknownOperationType = @"UNKNOWN_OPERATION_TYPE";
-NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV1 = @"WORKFLOWS_V1";
-NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV2 = @"WORKFLOWS_V2";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudSupport_Actor
@@ -423,21 +412,6 @@ NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationTy
 
 + (NSString *)collectionItemsKey {
   return @"cases";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSupport_WorkflowOperationMetadata
-//
-
-@implementation GTLRCloudSupport_WorkflowOperationMetadata
-@dynamic namespaceProperty, operationAction, workflowOperationType;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"namespaceProperty" : @"namespace" };
 }
 
 @end

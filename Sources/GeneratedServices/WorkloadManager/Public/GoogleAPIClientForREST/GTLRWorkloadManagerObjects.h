@@ -18,6 +18,11 @@
 
 @class GTLRWorkloadManager_AgentCommand;
 @class GTLRWorkloadManager_AgentCommand_Parameters;
+@class GTLRWorkloadManager_AgentStatus;
+@class GTLRWorkloadManager_AgentStatusConfigValue;
+@class GTLRWorkloadManager_AgentStatusIAMPermission;
+@class GTLRWorkloadManager_AgentStatusReference;
+@class GTLRWorkloadManager_AgentStatusServiceStatus;
 @class GTLRWorkloadManager_BackupProperties;
 @class GTLRWorkloadManager_BigQueryDestination;
 @class GTLRWorkloadManager_CloudResource;
@@ -33,9 +38,7 @@
 @class GTLRWorkloadManager_GceInstanceFilter;
 @class GTLRWorkloadManager_HealthCheck;
 @class GTLRWorkloadManager_Insight;
-@class GTLRWorkloadManager_Instance;
 @class GTLRWorkloadManager_InstanceProperties;
-@class GTLRWorkloadManager_Layer;
 @class GTLRWorkloadManager_Location;
 @class GTLRWorkloadManager_Location_Labels;
 @class GTLRWorkloadManager_Location_Metadata;
@@ -61,6 +64,8 @@
 @class GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties;
 @class GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesAppInstance;
 @class GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesDiskMount;
+@class GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersion;
+@class GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersionVersion;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadProperties;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadPropertiesProductVersion;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadPropertiesSoftwareComponentProperties;
@@ -96,6 +101,202 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_AgentStatus.cloudApiAccessFullScopesGranted
+
+/**
+ *  There was an internal error while checking the state, state is unknown.
+ *
+ *  Value: "ERROR_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_ErrorState;
+/**
+ *  The state is failed (disabled, denied, not fully functional).
+ *
+ *  Value: "FAILURE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_FailureState;
+/**
+ *  The state is successful (enabled, granted, fully functional).
+ *
+ *  Value: "SUCCESS_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_SuccessState;
+/**
+ *  The state is unspecified and has not been checked yet.
+ *
+ *  Value: "UNSPECIFIED_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_UnspecifiedState;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_AgentStatus.configurationValid
+
+/**
+ *  There was an internal error while checking the state, state is unknown.
+ *
+ *  Value: "ERROR_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_ErrorState;
+/**
+ *  The state is failed (disabled, denied, not fully functional).
+ *
+ *  Value: "FAILURE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_FailureState;
+/**
+ *  The state is successful (enabled, granted, fully functional).
+ *
+ *  Value: "SUCCESS_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_SuccessState;
+/**
+ *  The state is unspecified and has not been checked yet.
+ *
+ *  Value: "UNSPECIFIED_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_UnspecifiedState;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_AgentStatus.systemdServiceEnabled
+
+/**
+ *  There was an internal error while checking the state, state is unknown.
+ *
+ *  Value: "ERROR_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_ErrorState;
+/**
+ *  The state is failed (disabled, denied, not fully functional).
+ *
+ *  Value: "FAILURE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_FailureState;
+/**
+ *  The state is successful (enabled, granted, fully functional).
+ *
+ *  Value: "SUCCESS_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_SuccessState;
+/**
+ *  The state is unspecified and has not been checked yet.
+ *
+ *  Value: "UNSPECIFIED_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_UnspecifiedState;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_AgentStatus.systemdServiceRunning
+
+/**
+ *  There was an internal error while checking the state, state is unknown.
+ *
+ *  Value: "ERROR_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_ErrorState;
+/**
+ *  The state is failed (disabled, denied, not fully functional).
+ *
+ *  Value: "FAILURE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_FailureState;
+/**
+ *  The state is successful (enabled, granted, fully functional).
+ *
+ *  Value: "SUCCESS_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_SuccessState;
+/**
+ *  The state is unspecified and has not been checked yet.
+ *
+ *  Value: "UNSPECIFIED_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_UnspecifiedState;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_AgentStatusIAMPermission.granted
+
+/**
+ *  There was an internal error while checking the state, state is unknown.
+ *
+ *  Value: "ERROR_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_ErrorState;
+/**
+ *  The state is failed (disabled, denied, not fully functional).
+ *
+ *  Value: "FAILURE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_FailureState;
+/**
+ *  The state is successful (enabled, granted, fully functional).
+ *
+ *  Value: "SUCCESS_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_SuccessState;
+/**
+ *  The state is unspecified and has not been checked yet.
+ *
+ *  Value: "UNSPECIFIED_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_UnspecifiedState;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_AgentStatusServiceStatus.fullyFunctional
+
+/**
+ *  There was an internal error while checking the state, state is unknown.
+ *
+ *  Value: "ERROR_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_ErrorState;
+/**
+ *  The state is failed (disabled, denied, not fully functional).
+ *
+ *  Value: "FAILURE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_FailureState;
+/**
+ *  The state is successful (enabled, granted, fully functional).
+ *
+ *  Value: "SUCCESS_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_SuccessState;
+/**
+ *  The state is unspecified and has not been checked yet.
+ *
+ *  Value: "UNSPECIFIED_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_UnspecifiedState;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_AgentStatusServiceStatus.state
+
+/**
+ *  There was an internal error while checking the state, state is unknown.
+ *
+ *  Value: "ERROR_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_ErrorState;
+/**
+ *  The state is failed (disabled, denied, not fully functional).
+ *
+ *  Value: "FAILURE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_FailureState;
+/**
+ *  The state is successful (enabled, granted, fully functional).
+ *
+ *  Value: "SUCCESS_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_SuccessState;
+/**
+ *  The state is unspecified and has not been checked yet.
+ *
+ *  Value: "UNSPECIFIED_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_UnspecifiedState;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_BackupProperties.latestBackupStatus
@@ -464,118 +665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_StateU
  *  Value: "UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Unsupported;
-
-// ----------------------------------------------------------------------------
-// GTLRWorkloadManager_Instance.status
-
-/**
- *  The instance is in de-provisioning state.
- *
- *  Value: "DEPROVISIONING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Deprovisioning;
-/**
- *  The Status of the VM is unspecified
- *
- *  Value: "INSTANCESTATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_InstancestateUnspecified;
-/**
- *  Resources are being allocated for the instance.
- *
- *  Value: "PROVISIONING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Provisioning;
-/**
- *  The instance is in repair.
- *
- *  Value: "REPAIRING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Repairing;
-/**
- *  The instance is running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Running;
-/**
- *  All required resources have been allocated and the instance is being
- *  started.
- *
- *  Value: "STAGING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Staging;
-/**
- *  The instance has stopped due to various reasons (user request, VM
- *  preemption, project freezing, etc.).
- *
- *  Value: "STOPPED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Stopped;
-/**
- *  The instance is currently stopping (either being deleted or killed).
- *
- *  Value: "STOPPING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Stopping;
-/**
- *  The instance is suspended.
- *
- *  Value: "SUSPENDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Suspended;
-/**
- *  The instance is suspending.
- *
- *  Value: "SUSPENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Suspending;
-/**
- *  The instance has failed in some way.
- *
- *  Value: "TERMINATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Instance_Status_Terminated;
-
-// ----------------------------------------------------------------------------
-// GTLRWorkloadManager_InstanceProperties.role
-
-/**
- *  APP server.
- *
- *  Value: "INSTANCE_ROLE_APP_SERVER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAppServer;
-/**
- *  ASCS role.
- *
- *  Value: "INSTANCE_ROLE_ASCS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAscs;
-/**
- *  ERS role.
- *
- *  Value: "INSTANCE_ROLE_ERS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleErs;
-/**
- *  HANA primary role.
- *
- *  Value: "INSTANCE_ROLE_HANA_PRIMARY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaPrimary;
-/**
- *  HANA secondary role.
- *
- *  Value: "INSTANCE_ROLE_HANA_SECONDARY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaSecondary;
-/**
- *  Unspecified role.
- *
- *  Value: "INSTANCE_ROLE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_InstanceProperties.roles
@@ -1214,40 +1303,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_Workload
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRWorkloadManager_WorkloadProfile.state
-
-/**
- *  ACTIVE state
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Active;
-/**
- *  workload is in Deploying state
- *
- *  Value: "DEPLOYING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Deploying;
-/**
- *  The workload is in Destroying state
- *
- *  Value: "DESTROYING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Destroying;
-/**
- *  The Workload is undermaintance
- *
- *  Value: "MAINTENANCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Maintenance;
-/**
- *  unspecified
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_WorkloadProfile.workloadType
 
 /**
@@ -1256,18 +1311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_State_St
  *  Value: "S4_HANA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_S4Hana;
-/**
- *  running sqlserver workload
- *
- *  Value: "SQL_SERVER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_SqlServer;
-/**
- *  running 3 tier web app workload
- *
- *  Value: "THREE_TIER_WEB_APP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_ThreeTierWebApp;
 /**
  *  unspecified workload type
  *
@@ -1339,6 +1382,247 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  *        fetch them all at once.
  */
 @interface GTLRWorkloadManager_AgentCommand_Parameters : GTLRObject
+@end
+
+
+/**
+ *  The schema of agent status data.
+ */
+@interface GTLRWorkloadManager_AgentStatus : GTLRObject
+
+/** Output only. The name of the agent. */
+@property(nonatomic, copy, nullable) NSString *agentName;
+
+/** Output only. The available version of the agent in artifact registry. */
+@property(nonatomic, copy, nullable) NSString *availableVersion;
+
+/**
+ *  Output only. Whether the agent has full access to Cloud APIs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_ErrorState
+ *        There was an internal error while checking the state, state is
+ *        unknown. (Value: "ERROR_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_FailureState
+ *        The state is failed (disabled, denied, not fully functional). (Value:
+ *        "FAILURE_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_SuccessState
+ *        The state is successful (enabled, granted, fully functional). (Value:
+ *        "SUCCESS_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_UnspecifiedState
+ *        The state is unspecified and has not been checked yet. (Value:
+ *        "UNSPECIFIED_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudApiAccessFullScopesGranted;
+
+/** Output only. The error message for the agent configuration if invalid. */
+@property(nonatomic, copy, nullable) NSString *configurationErrorMessage;
+
+/** Output only. The path to the agent configuration file. */
+@property(nonatomic, copy, nullable) NSString *configurationFilePath;
+
+/**
+ *  Output only. Whether the agent configuration is valid.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_ConfigurationValid_ErrorState
+ *        There was an internal error while checking the state, state is
+ *        unknown. (Value: "ERROR_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_ConfigurationValid_FailureState
+ *        The state is failed (disabled, denied, not fully functional). (Value:
+ *        "FAILURE_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_ConfigurationValid_SuccessState
+ *        The state is successful (enabled, granted, fully functional). (Value:
+ *        "SUCCESS_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_ConfigurationValid_UnspecifiedState
+ *        The state is unspecified and has not been checked yet. (Value:
+ *        "UNSPECIFIED_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *configurationValid;
+
+/** Output only. The installed version of the agent on the host. */
+@property(nonatomic, copy, nullable) NSString *installedVersion;
+
+/** Output only. The kernel version of the system. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersion *kernelVersion;
+
+/** Output only. Optional references to public documentation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_AgentStatusReference *> *references;
+
+/** Output only. The services (process metrics, host metrics, etc.). */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_AgentStatusServiceStatus *> *services;
+
+/**
+ *  Output only. Whether the agent service is enabled in systemd.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_ErrorState
+ *        There was an internal error while checking the state, state is
+ *        unknown. (Value: "ERROR_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_FailureState
+ *        The state is failed (disabled, denied, not fully functional). (Value:
+ *        "FAILURE_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_SuccessState
+ *        The state is successful (enabled, granted, fully functional). (Value:
+ *        "SUCCESS_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_UnspecifiedState
+ *        The state is unspecified and has not been checked yet. (Value:
+ *        "UNSPECIFIED_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *systemdServiceEnabled;
+
+/**
+ *  Output only. Whether the agent service is running in systemd.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_ErrorState
+ *        There was an internal error while checking the state, state is
+ *        unknown. (Value: "ERROR_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_FailureState
+ *        The state is failed (disabled, denied, not fully functional). (Value:
+ *        "FAILURE_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_SuccessState
+ *        The state is successful (enabled, granted, fully functional). (Value:
+ *        "SUCCESS_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_UnspecifiedState
+ *        The state is unspecified and has not been checked yet. (Value:
+ *        "UNSPECIFIED_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *systemdServiceRunning;
+
+@end
+
+
+/**
+ *  The configuration value.
+ */
+@interface GTLRWorkloadManager_AgentStatusConfigValue : GTLRObject
+
+/**
+ *  Output only. Whether the configuration value is the default value or
+ *  overridden.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
+
+/** Output only. The name of the configuration value. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The value of the configuration value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The IAM permission status.
+ */
+@interface GTLRWorkloadManager_AgentStatusIAMPermission : GTLRObject
+
+/**
+ *  Output only. Whether the permission is granted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_ErrorState
+ *        There was an internal error while checking the state, state is
+ *        unknown. (Value: "ERROR_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_FailureState
+ *        The state is failed (disabled, denied, not fully functional). (Value:
+ *        "FAILURE_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_SuccessState
+ *        The state is successful (enabled, granted, fully functional). (Value:
+ *        "SUCCESS_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_UnspecifiedState
+ *        The state is unspecified and has not been checked yet. (Value:
+ *        "UNSPECIFIED_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *granted;
+
+/** Output only. The name of the permission. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The reference to public documentation.
+ */
+@interface GTLRWorkloadManager_AgentStatusReference : GTLRObject
+
+/** Output only. The name of the reference. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The URL of the reference. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  The status of a service (process metrics, host metrics, etc.).
+ */
+@interface GTLRWorkloadManager_AgentStatusServiceStatus : GTLRObject
+
+/** Output only. The configuration values for the service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_AgentStatusConfigValue *> *configValues;
+
+/**
+ *  Output only. The error message for the service if it is not fully
+ *  functional.
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Output only. Whether the service is fully functional (all checks passed).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_ErrorState
+ *        There was an internal error while checking the state, state is
+ *        unknown. (Value: "ERROR_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_FailureState
+ *        The state is failed (disabled, denied, not fully functional). (Value:
+ *        "FAILURE_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_SuccessState
+ *        The state is successful (enabled, granted, fully functional). (Value:
+ *        "SUCCESS_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_UnspecifiedState
+ *        The state is unspecified and has not been checked yet. (Value:
+ *        "UNSPECIFIED_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *fullyFunctional;
+
+/** Output only. The permissions required for the service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_AgentStatusIAMPermission *> *iamPermissions;
+
+/** Output only. The name of the service. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the service (enabled or disabled in the
+ *  configuration).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_State_ErrorState
+ *        There was an internal error while checking the state, state is
+ *        unknown. (Value: "ERROR_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_State_FailureState
+ *        The state is failed (disabled, denied, not fully functional). (Value:
+ *        "FAILURE_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_State_SuccessState
+ *        The state is successful (enabled, granted, fully functional). (Value:
+ *        "SUCCESS_STATE")
+ *    @arg @c kGTLRWorkloadManager_AgentStatusServiceStatus_State_UnspecifiedState
+ *        The state is unspecified and has not been checked yet. (Value:
+ *        "UNSPECIFIED_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The message to display when the service state is unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *unspecifiedStateMessage;
+
 @end
 
 
@@ -1506,8 +1790,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *subComponentHealthes GTLR_DEPRECATED;
+
 /** Sub component health. */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *subComponentHealthes;
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *subComponentsHealth;
 
 @end
 
@@ -1856,6 +2142,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @interface GTLRWorkloadManager_Insight : GTLRObject
 
+/** The insights data for the agent status. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_AgentStatus *agentStatus;
+
 /** Required. The instance id where the insight is generated from */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
@@ -1881,52 +2170,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  a vm instance
- */
-@interface GTLRWorkloadManager_Instance : GTLRObject
-
-/** Output only. name of the VM */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The location of the VM */
-@property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Output only. The state of the VM
- *
- *  Likely values:
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Deprovisioning The instance
- *        is in de-provisioning state. (Value: "DEPROVISIONING")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_InstancestateUnspecified The
- *        Status of the VM is unspecified (Value: "INSTANCESTATE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Provisioning Resources are
- *        being allocated for the instance. (Value: "PROVISIONING")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Repairing The instance is in
- *        repair. (Value: "REPAIRING")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Running The instance is
- *        running. (Value: "RUNNING")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Staging All required
- *        resources have been allocated and the instance is being started.
- *        (Value: "STAGING")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Stopped The instance has
- *        stopped due to various reasons (user request, VM preemption, project
- *        freezing, etc.). (Value: "STOPPED")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Stopping The instance is
- *        currently stopping (either being deleted or killed). (Value:
- *        "STOPPING")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Suspended The instance is
- *        suspended. (Value: "SUSPENDED")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Suspending The instance is
- *        suspending. (Value: "SUSPENDING")
- *    @arg @c kGTLRWorkloadManager_Instance_Status_Terminated The instance has
- *        failed in some way. (Value: "TERMINATED")
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
  *  Instance Properties.
  */
 @interface GTLRWorkloadManager_InstanceProperties : GTLRObject
@@ -1936,25 +2179,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 /** Optional. Instance machine type. */
 @property(nonatomic, copy, nullable) NSString *machineType;
-
-/**
- *  Optional. Instance role.
- *
- *  Likely values:
- *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAppServer
- *        APP server. (Value: "INSTANCE_ROLE_APP_SERVER")
- *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAscs ASCS
- *        role. (Value: "INSTANCE_ROLE_ASCS")
- *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleErs ERS
- *        role. (Value: "INSTANCE_ROLE_ERS")
- *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaPrimary
- *        HANA primary role. (Value: "INSTANCE_ROLE_HANA_PRIMARY")
- *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaSecondary
- *        HANA secondary role. (Value: "INSTANCE_ROLE_HANA_SECONDARY")
- *    @arg @c kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleUnspecified
- *        Unspecified role. (Value: "INSTANCE_ROLE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *role GTLR_DEPRECATED;
 
 /** Optional. Instance roles. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
@@ -1967,26 +2191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 /** Optional. the next maintenance event on VM */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_UpcomingMaintenanceEvent *upcomingMaintenanceEvent;
-
-@end
-
-
-/**
- *  The database layer
- */
-@interface GTLRWorkloadManager_Layer : GTLRObject
-
-/** the application layer */
-@property(nonatomic, copy, nullable) NSString *applicationType;
-
-/** Optional. the database layer */
-@property(nonatomic, copy, nullable) NSString *databaseType;
-
-/** Optional. instances in a layer */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Instance *> *instances;
-
-/** Output only. system identification of a layer */
-@property(nonatomic, copy, nullable) NSString *sid;
 
 @end
 
@@ -3026,6 +3230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @property(nonatomic, strong, nullable) NSNumber *isDrSite;
 
+/** Optional. The kernel version of the instance. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersion *osKernelVersion;
+
 /** Optional. A virtual hostname of the instance if it has one. */
 @property(nonatomic, copy, nullable) NSString *virtualHostname;
 
@@ -3059,6 +3266,71 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 /** Optional. Name of the disk. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  KernelVersion encapsulates the kernel version data for the system.
+ */
+@interface GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersion : GTLRObject
+
+/**
+ *  Optional. Captures the distro-specific kernel version, the portion of the
+ *  string following the first dash.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersionVersion *distroKernel;
+
+/**
+ *  Optional. Captures the OS-specific kernel version, the portion of the string
+ *  up to the first dash.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersionVersion *osKernel;
+
+/** Optional. Raw string of the kernel version. */
+@property(nonatomic, copy, nullable) NSString *rawString;
+
+@end
+
+
+/**
+ *  Version is reported as Major.Minor.Build.Patch.
+ */
+@interface GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersionVersion : GTLRObject
+
+/**
+ *  Optional. The build version number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *build;
+
+/**
+ *  Optional. The major version number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *major;
+
+/**
+ *  Optional. The minor version number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minor;
+
+/**
+ *  Optional. The patch version number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *patch;
+
+/**
+ *  Optional. A catch-all for any unparsed version components. This is in case
+ *  the number of points in the version string exceeds the expected count of 4.
+ */
+@property(nonatomic, copy, nullable) NSString *remainder;
 
 @end
 
@@ -3599,15 +3871,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @interface GTLRWorkloadManager_WorkloadProfile : GTLRObject
 
-/** Optional. The application layer */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_Layer *application GTLR_DEPRECATED;
-
-/** Optional. The ascs layer */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_Layer *ascs GTLR_DEPRECATED;
-
-/** Optional. The database layer */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_Layer *database GTLR_DEPRECATED;
-
 /**
  *  Optional. such as name, description, version. More example can be found in
  *  deployment
@@ -3616,7 +3879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 /**
  *  Identifier. name of resource names have the form
- *  'projects/{project_id}/workloads/{workload_id}'
+ *  'projects/{project_id}/locations/{location}/workloadProfiles/{workload_id}'
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3627,32 +3890,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapWorkload *sapWorkload;
 
 /**
- *  Output only. [output only] the current state if a a workload
- *
- *  Likely values:
- *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Active ACTIVE state
- *        (Value: "ACTIVE")
- *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Deploying workload is
- *        in Deploying state (Value: "DEPLOYING")
- *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Destroying The workload
- *        is in Destroying state (Value: "DESTROYING")
- *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_Maintenance The
- *        Workload is undermaintance (Value: "MAINTENANCE")
- *    @arg @c kGTLRWorkloadManager_WorkloadProfile_State_StateUnspecified
- *        unspecified (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state GTLR_DEPRECATED;
-
-/**
  *  Required. The type of the workload
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_S4Hana running
  *        sap workload s4/hana (Value: "S4_HANA")
- *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_SqlServer
- *        running sqlserver workload (Value: "SQL_SERVER")
- *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_ThreeTierWebApp
- *        running 3 tier web app workload (Value: "THREE_TIER_WEB_APP")
  *    @arg @c kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeUnspecified
  *        unspecified workload type (Value: "WORKLOAD_TYPE_UNSPECIFIED")
  */
@@ -3682,8 +3924,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 /** The time when the health check was performed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *checkTime;
 
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *componentHealthes GTLR_DEPRECATED;
+
 /** The detailed condition reports of each component. */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *componentHealthes;
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *componentsHealth;
 
 /**
  *  Output only. The health state of the workload.

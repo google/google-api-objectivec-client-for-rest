@@ -2588,8 +2588,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
          dclid, encryptedUserId, encryptedUserIdCandidates,
          floodlightActivityId, floodlightConfigurationId, gclid, impressionId,
          kind, limitAdTracking, matchId, mobileDeviceId, nonPersonalizedAd,
-         ordinal, quantity, timestampMicros, treatmentForUnderage,
-         userIdentifiers, value;
+         ordinal, quantity, sessionAttributesEncoded, timestampMicros,
+         treatmentForUnderage, userIdentifiers, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

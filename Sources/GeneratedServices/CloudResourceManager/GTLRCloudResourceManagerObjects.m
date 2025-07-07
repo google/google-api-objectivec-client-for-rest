@@ -704,11 +704,18 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_Project
-@dynamic createTime, deleteTime, displayName, ETag, labels, name, parent,
-         projectId, state, tags, updateTime;
+@dynamic configuredCapabilities, createTime, deleteTime, displayName, ETag,
+         labels, name, parent, projectId, state, tags, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configuredCapabilities" : [NSString class]
+  };
+  return map;
 }
 
 @end

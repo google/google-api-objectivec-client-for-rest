@@ -19,6 +19,7 @@
 
 @class GTLRCertificateAuthorityService_AccessUrls;
 @class GTLRCertificateAuthorityService_AllowedKeyType;
+@class GTLRCertificateAuthorityService_AttributeTypeAndValue;
 @class GTLRCertificateAuthorityService_AuditConfig;
 @class GTLRCertificateAuthorityService_AuditLogConfig;
 @class GTLRCertificateAuthorityService_Binding;
@@ -60,6 +61,7 @@
 @class GTLRCertificateAuthorityService_Policy;
 @class GTLRCertificateAuthorityService_PublicKey;
 @class GTLRCertificateAuthorityService_PublishingOptions;
+@class GTLRCertificateAuthorityService_RelativeDistinguishedName;
 @class GTLRCertificateAuthorityService_RevocationDetails;
 @class GTLRCertificateAuthorityService_RevokedCertificate;
 @class GTLRCertificateAuthorityService_RsaKeyType;
@@ -84,6 +86,64 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCertificateAuthorityService_AttributeTypeAndValue.type
+
+/**
+ *  Attribute type is unspecified.
+ *
+ *  Value: "ATTRIBUTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_AttributeTypeUnspecified;
+/**
+ *  The "common name" of the subject.
+ *
+ *  Value: "COMMON_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CommonName;
+/**
+ *  The country code of the subject.
+ *
+ *  Value: "COUNTRY_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CountryCode;
+/**
+ *  The locality or city of the subject.
+ *
+ *  Value: "LOCALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Locality;
+/**
+ *  The organization of the subject.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Organization;
+/**
+ *  The organizational unit of the subject.
+ *
+ *  Value: "ORGANIZATIONAL_UNIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_OrganizationalUnit;
+/**
+ *  The postal code of the subject.
+ *
+ *  Value: "POSTAL_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_PostalCode;
+/**
+ *  The province, territory, or regional state of the subject.
+ *
+ *  Value: "PROVINCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Province;
+/**
+ *  The street address of the subject.
+ *
+ *  Value: "STREET_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_StreetAddress;
 
 // ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_AuditLogConfig.logType
@@ -147,6 +207,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_
  *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_Default;
+/**
+ *  A mode used to get an accurate representation of the Subject field's
+ *  distinguished name. Indicates that the certificate's Subject and/or
+ *  SubjectAltNames are specified in the certificate request. When parsing a PEM
+ *  CSR this mode will maintain the sequence of RDNs found in the CSR's subject
+ *  field in the issued Certificate. This mode requires the caller to have the
+ *  `privateca.certificates.create` permission.
+ *
+ *  Value: "RDN_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_RdnSequence;
 /**
  *  A mode reserved for special cases. Indicates that the certificate should
  *  have one SPIFFE SubjectAltNames set by the service based on the caller's
@@ -768,6 +839,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  AttributeTypeAndValue specifies an attribute type and value. It can use
+ *  either a OID or enum value to specify the attribute type.
+ */
+@interface GTLRCertificateAuthorityService_AttributeTypeAndValue : GTLRObject
+
+/** Object ID for an attribute type of an attribute and value pair. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ObjectId *objectId;
+
+/**
+ *  The attribute type of the attribute and value pair.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_AttributeTypeUnspecified
+ *        Attribute type is unspecified. (Value: "ATTRIBUTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CommonName
+ *        The "common name" of the subject. (Value: "COMMON_NAME")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CountryCode
+ *        The country code of the subject. (Value: "COUNTRY_CODE")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Locality
+ *        The locality or city of the subject. (Value: "LOCALITY")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Organization
+ *        The organization of the subject. (Value: "ORGANIZATION")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_OrganizationalUnit
+ *        The organizational unit of the subject. (Value: "ORGANIZATIONAL_UNIT")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_PostalCode
+ *        The postal code of the subject. (Value: "POSTAL_CODE")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Province
+ *        The province, territory, or regional state of the subject. (Value:
+ *        "PROVINCE")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_StreetAddress
+ *        The street address of the subject. (Value: "STREET_ADDRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** The value for the attribute type. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -1101,6 +1213,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        Subject and/or SubjectAltNames are specified in the certificate
  *        request. This mode requires the caller to have the
  *        `privateca.certificates.create` permission. (Value: "DEFAULT")
+ *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_RdnSequence
+ *        A mode used to get an accurate representation of the Subject field's
+ *        distinguished name. Indicates that the certificate's Subject and/or
+ *        SubjectAltNames are specified in the certificate request. When parsing
+ *        a PEM CSR this mode will maintain the sequence of RDNs found in the
+ *        CSR's subject field in the issued Certificate. This mode requires the
+ *        caller to have the `privateca.certificates.create` permission. (Value:
+ *        "RDN_SEQUENCE")
  *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_ReflectedSpiffe
  *        A mode reserved for special cases. Indicates that the certificate
  *        should have one SPIFFE SubjectAltNames set by the service based on the
@@ -2852,6 +2972,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  RelativeDistinguishedName specifies a relative distinguished name which will
+ *  be used to build a distinguished name.
+ */
+@interface GTLRCertificateAuthorityService_RelativeDistinguishedName : GTLRObject
+
+/** Attributes describes the attribute value assertions in the RDN. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_AttributeTypeAndValue *> *attributes;
+
+@end
+
+
+/**
  *  Describes fields that are relavent to the revocation of a Certificate.
  */
 @interface GTLRCertificateAuthorityService_RevocationDetails : GTLRObject
@@ -3127,6 +3259,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /** The province, territory, or regional state of the subject. */
 @property(nonatomic, copy, nullable) NSString *province;
+
+/** This field can be used in place of the named subject fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_RelativeDistinguishedName *> *rdnSequence;
 
 /** The street address of the subject. */
 @property(nonatomic, copy, nullable) NSString *streetAddress;

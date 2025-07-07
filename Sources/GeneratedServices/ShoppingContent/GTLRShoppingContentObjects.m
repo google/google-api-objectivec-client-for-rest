@@ -261,6 +261,15 @@ NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_InStore = @"IN
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_Online = @"ONLINE";
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChannelUnspecified = @"REDEMPTION_CHANNEL_UNSPECIFIED";
 
+// GTLRShoppingContent_Promotion.redemptionRestriction
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_Custom = @"CUSTOM";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_FirstOrder = @"FIRST_ORDER";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_FormsOfPayment = @"FORMS_OF_PAYMENT";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_RedemptionRestrictionUnspecified = @"REDEMPTION_RESTRICTION_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForEmail = @"SIGN_UP_FOR_EMAIL";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForText = @"SIGN_UP_FOR_TEXT";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SubscribeAndSave = @"SUBSCRIBE_AND_SAVE";
+
 // GTLRShoppingContent_Promotion.storeApplicability
 NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_AllStores = @"ALL_STORES";
 NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_SpecificStores = @"SPECIFIC_STORES";
@@ -1244,7 +1253,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountUser
 @dynamic admin, emailAddress, orderManager, paymentsAnalyst, paymentsManager,
-         reportingManager;
+         readOnly, reportingManager;
 @end
 
 
@@ -3660,13 +3669,13 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          identifierExists, imageLink, includedDestinations, installment,
          isBundle, itemGroupId, kind, lifestyleImageLinks, link, linkTemplate,
          loyaltyProgram, loyaltyPrograms, material, maxEnergyEfficiencyClass,
-         maxHandlingTime, minEnergyEfficiencyClass, minHandlingTime, mobileLink,
-         mobileLinkTemplate, mpn, multipack, offerId, pattern, pause,
-         pickupMethod, pickupSla, price, productDetails, productHeight,
-         productHighlights, productLength, productTypes, productWeight,
-         productWidth, promotionIds, salePrice, salePriceEffectiveDate,
-         sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
-         shippingLength, shippingWeight, shippingWidth,
+         maxHandlingTime, maximumRetailPrice, minEnergyEfficiencyClass,
+         minHandlingTime, mobileLink, mobileLinkTemplate, mpn, multipack,
+         offerId, pattern, pause, pickupMethod, pickupSla, price,
+         productDetails, productHeight, productHighlights, productLength,
+         productTypes, productWeight, productWidth, promotionIds, salePrice,
+         salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
+         shippingLabel, shippingLength, shippingWeight, shippingWidth,
          shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
          structuredDescription, structuredTitle, subscriptionCost,
          sustainabilityIncentives, targetCountry, taxCategory, taxes, title,
@@ -4330,17 +4339,19 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Promotion
 @dynamic brand, brandExclusion, contentLanguage, couponValueType,
-         freeGiftDescription, freeGiftItemId, freeGiftValue,
-         genericRedemptionCode, getThisQuantityDiscounted, identifier,
-         itemGroupId, itemGroupIdExclusion, itemId, itemIdExclusion,
-         limitQuantity, limitValue, longTitle, minimumPurchaseAmount,
-         minimumPurchaseQuantity, moneyBudget, moneyOffAmount, offerType,
-         orderLimit, percentOff, productApplicability, productType,
-         productTypeExclusion, promotionDestinationIds, promotionDisplayDates,
+         customRedemptionRestriction, freeGiftDescription, freeGiftItemId,
+         freeGiftValue, genericRedemptionCode, getThisQuantityDiscounted,
+         identifier, itemGroupId, itemGroupIdExclusion, itemId, itemIdExclusion,
+         limitQuantity, limitValue, longTitle, maxDiscountAmount,
+         minimumPurchaseAmount, minimumPurchaseQuantity, moneyBudget,
+         moneyOffAmount, offerType, orderLimit, percentOff,
+         productApplicability, productType, productTypeExclusion,
+         promotionDestinationIds, promotionDisplayDates,
          promotionDisplayTimePeriod, promotionEffectiveDates,
          promotionEffectiveTimePeriod, promotionId, promotionStatus,
-         promotionUrl, redemptionChannel, shippingServiceNames,
-         storeApplicability, storeCode, storeCodeExclusion, targetCountry;
+         promotionUrl, redemptionChannel, redemptionRestriction,
+         shippingServiceNames, storeApplicability, storeCode,
+         storeCodeExclusion, targetCountry;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

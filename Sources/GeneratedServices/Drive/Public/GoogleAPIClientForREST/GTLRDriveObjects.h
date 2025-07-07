@@ -30,6 +30,7 @@
 @class GTLRDrive_Comment_QuotedFileContent;
 @class GTLRDrive_ContentRestriction;
 @class GTLRDrive_DownloadRestriction;
+@class GTLRDrive_DownloadRestrictionsMetadata;
 @class GTLRDrive_Drive;
 @class GTLRDrive_Drive_BackgroundImageFile;
 @class GTLRDrive_Drive_Capabilities;
@@ -938,6 +939,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 
 /**
+ *  Download restrictions applied to the file.
+ */
+@interface GTLRDrive_DownloadRestrictionsMetadata : GTLRObject
+
+/**
+ *  The effective download restriction applied to this file. This considers all
+ *  restriction settings and DLP rules.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *effectiveDownloadRestrictionWithContext;
+
+/**
+ *  The download restriction of the file applied directly by the owner or
+ *  organizer. This does not take into account shared drive settings or DLP
+ *  rules.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *itemDownloadRestriction;
+
+@end
+
+
+/**
  *  Representation of a shared drive. Some resource methods (such as
  *  `drives.update`) require a `driveId`. Use the `drives.list` method to
  *  retrieve the ID for a shared drive.
@@ -1098,6 +1120,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeDomainUsersOnlyRestriction;
+
+/**
+ *  Output only. Whether the current user can change organizer-applied download
+ *  restrictions of this shared drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeDownloadRestriction;
 
 /**
  *  Output only. Whether the current user can change the background of this
@@ -1386,6 +1416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Download restrictions applied on the file. */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestrictionsMetadata *downloadRestrictions;
 
 /**
  *  Output only. ID of the shared drive the file resides in. Only populated for
@@ -1822,6 +1855,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeCopyRequiresWriterPermission;
+
+/**
+ *  Output only. Whether the current user can change the owner-applied download
+ *  restrictions of the file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeItemDownloadRestriction;
 
 /**
  *  Output only. Whether the current user can change the securityUpdateEnabled
@@ -3582,6 +3623,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeDomainUsersOnlyRestriction;
+
+/**
+ *  Whether the current user can change organizer-applied download restrictions
+ *  of this shared drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeDownloadRestriction;
 
 /**
  *  Whether the current user can change the

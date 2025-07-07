@@ -2417,6 +2417,214 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new BackendAuthenticationConfig in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Short name of the BackendAuthenticationConfig resource to be
+ *  created. This value should be 1-63 characters long, containing only letters,
+ *  numbers, hyphens, and underscores, and should not start with a number. E.g.
+ *  "backend-auth-config".
+ */
+@property(nonatomic, copy, nullable) NSString *backendAuthenticationConfigId;
+
+/**
+ *  Required. The parent resource of the BackendAuthenticationConfig. Must be in
+ *  the format `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new BackendAuthenticationConfig in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_BackendAuthenticationConfig to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the
+ *    BackendAuthenticationConfig. Must be in the format `projects/ *
+ *    /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_BackendAuthenticationConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single BackendAuthenticationConfig to BackendAuthenticationConfig.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Etag of the resource. If this is provided, it must match the
+ *  server's etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the BackendAuthenticationConfig to delete. Must be in
+ *  the format `projects/ * /locations/{location}/backendAuthenticationConfigs/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single BackendAuthenticationConfig to BackendAuthenticationConfig.
+ *
+ *  @param name Required. A name of the BackendAuthenticationConfig to delete.
+ *    Must be in the format `projects/ *
+ *    /locations/{location}/backendAuthenticationConfigs/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the BackendAuthenticationConfig to get. Must be in the
+ *  format `projects/ * /locations/{location}/backendAuthenticationConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_BackendAuthenticationConfig.
+ *
+ *  Gets details of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  @param name Required. A name of the BackendAuthenticationConfig to get. Must
+ *    be in the format `projects/ *
+ *    /locations/{location}/backendAuthenticationConfigs/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackendAuthenticationConfigs in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsList : GTLRNetworkSecurityQuery
+
+/** Maximum number of BackendAuthenticationConfigs to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListBackendAuthenticationConfigsResponse`
+ *  Indicates that this is a continuation of a prior
+ *  `ListBackendAuthenticationConfigs` call, and that the system should return
+ *  the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the
+ *  BackendAuthenticationConfigs should be listed, specified in the format
+ *  `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListBackendAuthenticationConfigsResponse.
+ *
+ *  Lists BackendAuthenticationConfigs in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    BackendAuthenticationConfigs should be listed, specified in the format
+ *    `projects/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the BackendAuthenticationConfig resource. It matches the
+ *  pattern `projects/ *
+ *  /locations/{location}/backendAuthenticationConfigs/{backend_authentication_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  BackendAuthenticationConfig resource by the update. The fields specified in
+ *  the update_mask are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  @param object The @c GTLRNetworkSecurity_BackendAuthenticationConfig to
+ *    include in the query.
+ *  @param name Required. Name of the BackendAuthenticationConfig resource. It
+ *    matches the pattern `projects/ *
+ *    /locations/{location}/backendAuthenticationConfigs/{backend_authentication_config}`
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_BackendAuthenticationConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new ClientTlsPolicy in a given project and location.
  *
  *  Method: networksecurity.projects.locations.clientTlsPolicies.create

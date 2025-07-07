@@ -1261,7 +1261,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersUnenroll
 
-@dynamic allowMissing, ETag, name, validateOnly;
+@dynamic allowMissing, ETag, ignoreErrors, name, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"ETag" : @"etag" };

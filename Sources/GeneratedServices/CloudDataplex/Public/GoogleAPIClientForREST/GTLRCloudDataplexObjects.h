@@ -3108,8 +3108,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Required. The datatype of this field. The following values are
- *  supported:Primitive types: string integer boolean double datetime. Must be
- *  of the format RFC3339 UTC "Zulu" (Examples: "2014-10-02T15:01:23Z" and
+ *  supported:Primitive types: string int bool double datetime. Must be of the
+ *  format RFC3339 UTC "Zulu" (Examples: "2014-10-02T15:01:23Z" and
  *  "2014-10-02T15:01:23.045123456Z").Complex types: enum array map record
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -4853,8 +4853,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The dimension a rule belongs to. Results are also aggregated at
- *  the dimension level. Supported dimensions are "COMPLETENESS", "ACCURACY",
- *  "CONSISTENCY", "VALIDITY", "UNIQUENESS", "FRESHNESS", "VOLUME"
+ *  the dimension level. Custom dimension name is supported with all uppercase
+ *  letters and maximum length of 30 characters.
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -5465,7 +5465,7 @@ GTLR_DEPRECATED
  *  (https://cloud.google.com/dataplex/docs/data-profiling-overview). Data
  *  discovery: scans data in Cloud Storage buckets to extract and then catalog
  *  metadata. For more information, see Discover and catalog Cloud Storage data
- *  (https://cloud.google.com/bigquery/docs/automatic-discovery).
+ *  (https://cloud.google.com/bigquery/docs/automatic-discovery). LINT.IfChange
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScan : GTLRObject
 
@@ -6053,8 +6053,10 @@ GTLR_DEPRECATED
 
 /**
  *  Immutable. The service-qualified full resource name of the cloud resource
- *  for a DataScan job to scan against. The field could be: BigQuery table of
- *  type "TABLE" for DataProfileScan/DataQualityScan Format:
+ *  for a DataScan job to scan against. The field could eitherbe: Cloud Storage
+ *  bucket for DataDiscoveryScan Format:
+ *  //storage.googleapis.com/projects/PROJECT_ID/buckets/BUCKET_ID or BigQuery
+ *  table of type "TABLE" for DataProfileScan/DataQualityScan Format:
  *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
  */
 @property(nonatomic, copy, nullable) NSString *resource;

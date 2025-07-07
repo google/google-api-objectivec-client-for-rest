@@ -183,6 +183,77 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
+ *  List BackupPlanAssociations for a given resource type.
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.fetchForResourceType
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsFetchForResourceType : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters the results fetched in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. Supported fields: *
+ *  resource * backup_plan * state * data_source *
+ *  cloud_sql_instance_backup_plan_association_properties.instance_create_time
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  name
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of BackupPlanAssociations to return. The
+ *  service may return fewer than this value. If unspecified, at most 50
+ *  BackupPlanAssociations will be returned. The maximum value is 100; values
+ *  above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call of
+ *  `FetchBackupPlanAssociationsForResourceType`. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `FetchBackupPlanAssociationsForResourceType` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The type of the GCP resource. Ex: sql.googleapis.com/Instance */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Fetches a @c
+ *  GTLRBackupdr_FetchBackupPlanAssociationsForResourceTypeResponse.
+ *
+ *  List BackupPlanAssociations for a given resource type.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsFetchForResourceType
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets details of a single BackupPlanAssociation.
  *
  *  Method: backupdr.projects.locations.backupPlanAssociations.get
@@ -550,6 +621,153 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *    all locations, use "-" for the `{location}` value.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a BackupPlan
+ *
+ *  Method: backupdr.projects.locations.backupPlans.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansPatch : GTLRBackupdrQuery
+
+/**
+ *  Output only. Identifier. The resource name of the `BackupPlan`. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The list of fields to update. Field mask is used to specify the
+ *  fields to be overwritten in the BackupPlan resource by the update. The
+ *  fields specified in the update_mask are relative to the resource, not the
+ *  full request. A field will be overwritten if it is in the mask. If the user
+ *  does not provide a mask then the request will fail. Currently, these fields
+ *  are supported in update: description, schedules, retention period, adding
+ *  and removing Backup Rules.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Update a BackupPlan
+ *
+ *  @param object The @c GTLRBackupdr_BackupPlan to include in the query.
+ *  @param name Output only. Identifier. The resource name of the `BackupPlan`.
+ *    Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupPlan *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single BackupPlanRevision.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.revisions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the `BackupPlanRevision` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_BackupPlanRevision.
+ *
+ *  Gets details of a single BackupPlanRevision.
+ *
+ *  @param name Required. The resource name of the `BackupPlanRevision` to
+ *    retrieve. Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackupPlanRevisions in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.revisions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsList : GTLRBackupdrQuery
+
+/**
+ *  Optional. The maximum number of `BackupPlans` to return in a single
+ *  response. If not specified, a default value will be chosen by the service.
+ *  Note that the response may include a partial list and a caller should only
+ *  rely on the response's next_page_token to determine if there are more
+ *  instances left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBackupPlans` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListBackupPlans` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve
+ *  `BackupPlanRevisions` information. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`. In
+ *  Cloud BackupDR, locations map to GCP regions, for e.g. **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListBackupPlanRevisionsResponse.
+ *
+ *  Lists BackupPlanRevisions in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    `BackupPlanRevisions` information. Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}`. In
+ *    Cloud BackupDR, locations map to GCP regions, for e.g. **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1600,6 +1818,112 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBackupdr_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Fetch DataSourceReferences for a given project, location and resource type.
+ *
+ *  Method: backupdr.projects.locations.dataSourceReferences.fetchForResourceType
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesFetchForResourceType : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters the results fetched in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. Supported fields: *
+ *  data_source * data_source_gcp_resource_info.gcp_resourcename *
+ *  data_source_backup_config_state * data_source_backup_count *
+ *  data_source_backup_config_info.last_backup_state *
+ *  data_source_gcp_resource_info.gcp_resourcename *
+ *  data_source_gcp_resource_info.type * data_source_gcp_resource_info.location
+ *  *
+ *  data_source_gcp_resource_info.cloud_sql_instance_properties.instance_create_time
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  name
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of DataSourceReferences to return. The service
+ *  may return fewer than this value. If unspecified, at most 50
+ *  DataSourceReferences will be returned. The maximum value is 100; values
+ *  above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call of
+ *  `FetchDataSourceReferencesForResourceType`. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `FetchDataSourceReferencesForResourceType` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The type of the GCP resource. Ex: sql.googleapis.com/Instance */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchDataSourceReferencesForResourceTypeResponse.
+ *
+ *  Fetch DataSourceReferences for a given project, location and resource type.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesFetchForResourceType
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single DataSourceReference.
+ *
+ *  Method: backupdr.projects.locations.dataSourceReferences.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the DataSourceReference to retrieve. Format:
+ *  projects/{project}/locations/{location}/dataSourceReferences/{data_source_reference}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_DataSourceReference.
+ *
+ *  Gets details of a single DataSourceReference.
+ *
+ *  @param name Required. The name of the DataSourceReference to retrieve.
+ *    Format:
+ *    projects/{project}/locations/{location}/dataSourceReferences/{data_source_reference}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

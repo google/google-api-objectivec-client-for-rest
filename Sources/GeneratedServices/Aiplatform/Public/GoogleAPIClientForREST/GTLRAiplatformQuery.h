@@ -4104,6 +4104,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Deploys a model to a new endpoint.
+ *
+ *  Method: aiplatform.projects.locations.deploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploy : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to deploy the model in. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deploys a model to a new endpoint.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DeployRequest to
+ *    include in the query.
+ *  @param destination Required. The resource name of the Location to deploy the
+ *    model in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DeployRequest *)object
+                    destination:(NSString *)destination;
+
+@end
+
+/**
  *  Create a DeploymentResourcePool.
  *
  *  Method: aiplatform.projects.locations.deploymentResourcePools.create
@@ -9966,6 +9999,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param name Resource name for the location.
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a RagEngineConfig.
+ *
+ *  Method: aiplatform.projects.locations.getRagEngineConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsGetRagEngineConfig : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the RagEngineConfig resource. Format:
+ *  `projects/{project}/locations/{location}/ragEngineConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig.
+ *
+ *  Gets a RagEngineConfig.
+ *
+ *  @param name Required. The name of the RagEngineConfig resource. Format:
+ *    `projects/{project}/locations/{location}/ragEngineConfig`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsGetRagEngineConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -24888,6 +24951,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a RagEngineConfig.
+ *
+ *  Method: aiplatform.projects.locations.updateRagEngineConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsUpdateRagEngineConfig : GTLRAiplatformQuery
+
+/**
+ *  Identifier. The name of the RagEngineConfig. Format:
+ *  `projects/{project}/locations/{location}/ragEngineConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a RagEngineConfig.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig
+ *    to include in the query.
+ *  @param name Identifier. The name of the RagEngineConfig. Format:
+ *    `projects/{project}/locations/{location}/ragEngineConfig`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsUpdateRagEngineConfig
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig *)object
+                           name:(NSString *)name;
 
 @end
 

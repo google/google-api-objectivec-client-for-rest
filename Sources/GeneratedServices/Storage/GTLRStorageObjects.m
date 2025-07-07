@@ -188,7 +188,8 @@
 //
 
 @implementation GTLRStorage_Bucket_IpFilter
-@dynamic allowCrossOrgVpcs, mode, publicNetworkSource, vpcNetworkSources;
+@dynamic allowAllServiceAgentAccess, allowCrossOrgVpcs, mode,
+         publicNetworkSource, vpcNetworkSources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -896,7 +897,7 @@
 
 @implementation GTLRStorage_Object
 @dynamic acl, bucket, cacheControl, componentCount, contentDisposition,
-         contentEncoding, contentLanguage, contentType, crc32c,
+         contentEncoding, contentLanguage, contentType, contexts, crc32c,
          customerEncryption, customTime, ETag, eventBasedHold, generation,
          hardDeleteTime, identifier, kind, kmsKeyName, md5Hash, mediaLink,
          metadata, metageneration, name, owner, restoreToken, retention,
@@ -919,6 +920,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Object_Contexts
+//
+
+@implementation GTLRStorage_Object_Contexts
+@dynamic custom;
 @end
 
 
@@ -968,6 +979,20 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_Object_Contexts_Custom
+//
+
+@implementation GTLRStorage_Object_Contexts_Custom
+
++ (Class)classForAdditionalProperties {
+  return [GTLRStorage_ObjectCustomContextPayload class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_ObjectAccessControl
 //
 
@@ -1011,6 +1036,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_ObjectCustomContextPayload
+//
+
+@implementation GTLRStorage_ObjectCustomContextPayload
+@dynamic createTime, updateTime, value;
 @end
 
 

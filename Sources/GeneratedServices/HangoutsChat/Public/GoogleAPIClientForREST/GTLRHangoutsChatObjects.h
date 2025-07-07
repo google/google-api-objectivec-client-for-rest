@@ -641,7 +641,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionTy
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_DeprecatedEvent.dialogEventType
 
-/** Value: "CANCEL_DIALOG" */
+/**
+ *  A user closes a dialog without submitting information. The Chat app only
+ *  receives this interaction event when users click the close icon in the top
+ *  right corner of the dialog. When the user closes the dialog by other means
+ *  (such as refreshing the browser, clicking outside the dialog box, or
+ *  pressing the escape key), no event is sent.
+ *
+ *  Value: "CANCEL_DIALOG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog;
 /**
  *  A user opens a dialog.
@@ -2871,8 +2879,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  interaction event received.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog
- *        Value "CANCEL_DIALOG"
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog A
+ *        user closes a dialog without submitting information. The Chat app only
+ *        receives this interaction event when users click the close icon in the
+ *        top right corner of the dialog. When the user closes the dialog by
+ *        other means (such as refreshing the browser, clicking outside the
+ *        dialog box, or pressing the escape key), no event is sent. (Value:
+ *        "CANCEL_DIALOG")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog A
  *        user opens a dialog. (Value: "REQUEST_DIALOG")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog A
@@ -5049,7 +5062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  example, the following JSON creates a date time picker to schedule an
  *  appointment: ``` "dateTimePicker": { "name": "appointment_time", "label":
  *  "Book your appointment at:", "type": "DATE_AND_TIME", "valueMsEpoch":
- *  "796435200000" } ```
+ *  796435200000 } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker *dateTimePicker;
 

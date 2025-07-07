@@ -1443,6 +1443,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Pee
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_RouterAppliance;
 /**
+ *  Forwarded to a Secure Web Proxy Gateway.
+ *
+ *  Value: "SECURE_WEB_PROXY_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_SecureWebProxyGateway;
+/**
  *  Target not specified.
  *
  *  Value: "TARGET_UNSPECIFIED"
@@ -1514,6 +1520,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_Goog
  *  Value: "SERVERLESS_VPC_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_ServerlessVpcAccess;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_InstanceInfo.status
+
+/**
+ *  The instance has any status other than "RUNNING".
+ *
+ *  Value: "NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InstanceInfo_Status_NotRunning;
+/**
+ *  The instance is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InstanceInfo_Status_Running;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InstanceInfo_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerBackend.healthCheckFirewallState
@@ -1881,6 +1909,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
  *  Value: "NEXT_HOP_VPN_TUNNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel;
+/**
+ *  Next hop is Secure Web Proxy Gateway.
+ *
+ *  Value: "SECURE_WEB_PROXY_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_SecureWebProxyGateway;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_RouteInfo.routeScope
@@ -2778,6 +2812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Wrapper for Cloud Run revision attributes.
  */
 @interface GTLRNetworkManagement_CloudRunRevisionEndpoint : GTLRObject
+
+/**
+ *  Output only. The URI of the Cloud Run service that the revision belongs to.
+ *  The format is: projects/{project}/locations/{location}/services/{service}
+ */
+@property(nonatomic, copy, nullable) NSString *serviceUri;
 
 /**
  *  A [Cloud Run](https://cloud.google.com/run)
@@ -3901,6 +3941,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        a VPC peering network. (Value: "PEERING_VPC")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_RouterAppliance
  *        Forwarded to a router appliance. (Value: "ROUTER_APPLIANCE")
+ *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_SecureWebProxyGateway
+ *        Forwarded to a Secure Web Proxy Gateway. (Value:
+ *        "SECURE_WEB_PROXY_GATEWAY")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified Target
  *        not specified. (Value: "TARGET_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway Forwarded to
@@ -4062,14 +4105,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *pscNetworkAttachmentUri;
 
 /**
- *  Indicates whether the Compute Engine instance is running.
+ *  Indicates whether the Compute Engine instance is running. Deprecated: use
+ *  the `status` field instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *running;
+@property(nonatomic, strong, nullable) NSNumber *running GTLR_DEPRECATED;
 
 /** Service account authorized for the instance. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
+
+/**
+ *  The status of the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_InstanceInfo_Status_NotRunning The instance
+ *        has any status other than "RUNNING". (Value: "NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_InstanceInfo_Status_Running The instance is
+ *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRNetworkManagement_InstanceInfo_Status_StatusUnspecified
+ *        Default unspecified value. (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** URI of a Compute Engine instance. */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -5157,6 +5214,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        (Value: "NEXT_HOP_VPN_GATEWAY")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel Next
  *        hop is a VPN tunnel. (Value: "NEXT_HOP_VPN_TUNNEL")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_SecureWebProxyGateway
+ *        Next hop is Secure Web Proxy Gateway. (Value:
+ *        "SECURE_WEB_PROXY_GATEWAY")
  */
 @property(nonatomic, copy, nullable) NSString *nextHopType;
 
@@ -5838,9 +5898,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metadataFields;
 
 /**
- *  Identifier. Unique name of the configuration using one of the forms:
+ *  Identifier. Unique name of the configuration. The name can have one of the
+ *  following forms: - For project-level configurations:
  *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
- *  `organizations/{organization_number}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level configurations:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5861,8 +5923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. A diagnostic bit - describes the state of the configured target
- *  resource for diagnostic purposes.
+ *  Output only. Describes the state of the configured target resource for
+ *  diagnostic purposes.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_TargetResourceState_TargetResourceDoesNotExist

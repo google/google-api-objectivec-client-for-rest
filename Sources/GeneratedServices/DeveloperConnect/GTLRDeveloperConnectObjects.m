@@ -18,6 +18,12 @@ NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_DeveloperConnect =
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_Firebase = @"FIREBASE";
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_GitHubAppUnspecified = @"GIT_HUB_APP_UNSPECIFIED";
 
+// GTLRDeveloperConnect_InsightsConfig.state
+NSString * const kGTLRDeveloperConnect_InsightsConfig_State_Complete = @"COMPLETE";
+NSString * const kGTLRDeveloperConnect_InsightsConfig_State_Error = @"ERROR";
+NSString * const kGTLRDeveloperConnect_InsightsConfig_State_Pending = @"PENDING";
+NSString * const kGTLRDeveloperConnect_InsightsConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDeveloperConnect_InstallationState.stage
 NSString * const kGTLRDeveloperConnect_InstallationState_Stage_Complete = @"COMPLETE";
 NSString * const kGTLRDeveloperConnect_InstallationState_Stage_PendingCreateApp = @"PENDING_CREATE_APP";
@@ -35,6 +41,11 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewR
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo = @"ROVO";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry = @"SENTRY";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified = @"SYSTEM_PROVIDER_UNSPECIFIED";
+
+// GTLRDeveloperConnect_RuntimeConfig.state
+NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Linked = @"LINKED";
+NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED";
 
 // ----------------------------------------------------------------------------
 //
@@ -77,6 +88,26 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Syst
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_AppHubWorkload
+//
+
+@implementation GTLRDeveloperConnect_AppHubWorkload
+@dynamic criticality, environment, workload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ArtifactConfig
+//
+
+@implementation GTLRDeveloperConnect_ArtifactConfig
+@dynamic googleArtifactAnalysis, googleArtifactRegistry, uri;
 @end
 
 
@@ -415,6 +446,36 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Syst
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_GKEWorkload
+//
+
+@implementation GTLRDeveloperConnect_GKEWorkload
+@dynamic cluster, deployment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_GoogleArtifactAnalysis
+//
+
+@implementation GTLRDeveloperConnect_GoogleArtifactAnalysis
+@dynamic projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_GoogleArtifactRegistry
+//
+
+@implementation GTLRDeveloperConnect_GoogleArtifactRegistry
+@dynamic artifactRegistryPackage, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_HttpBody
 //
 
@@ -440,6 +501,55 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Syst
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_InsightsConfig
+//
+
+@implementation GTLRDeveloperConnect_InsightsConfig
+@dynamic annotations, appHubApplication, artifactConfigs, createTime, errors,
+         labels, name, reconciling, runtimeConfigs, state, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"artifactConfigs" : [GTLRDeveloperConnect_ArtifactConfig class],
+    @"errors" : [GTLRDeveloperConnect_Status class],
+    @"runtimeConfigs" : [GTLRDeveloperConnect_RuntimeConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_InsightsConfig_Annotations
+//
+
+@implementation GTLRDeveloperConnect_InsightsConfig_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_InsightsConfig_Labels
+//
+
+@implementation GTLRDeveloperConnect_InsightsConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -544,6 +654,29 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Syst
 
 + (NSString *)collectionItemsKey {
   return @"gitRepositoryLinks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ListInsightsConfigsResponse
+//
+
+@implementation GTLRDeveloperConnect_ListInsightsConfigsResponse
+@dynamic insightsConfigs, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"insightsConfigs" : [GTLRDeveloperConnect_InsightsConfig class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"insightsConfigs";
 }
 
 @end
@@ -778,6 +911,16 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Syst
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_RuntimeConfig
+//
+
+@implementation GTLRDeveloperConnect_RuntimeConfig
+@dynamic appHubWorkload, gkeWorkload, state, uri;
 @end
 
 

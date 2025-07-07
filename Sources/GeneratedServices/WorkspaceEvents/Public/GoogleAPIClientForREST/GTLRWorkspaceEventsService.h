@@ -26,6 +26,21 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see, add,
+ *  update, and remove members from conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMemberships;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can create
+ *  conversations and spaces and see or update their metadata (including history
+ *  settings and access settings)
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppSpaces;
+/**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/chat.bot
  *

@@ -711,6 +711,33 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
+@implementation GTLRBigqueryQuery_RoutinesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:testIamPermissions";
+  GTLRBigqueryQuery_RoutinesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_TestIamPermissionsResponse class];
+  query.loggingName = @"bigquery.routines.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_RoutinesUpdate
 
 @dynamic datasetId, projectId, routineId;

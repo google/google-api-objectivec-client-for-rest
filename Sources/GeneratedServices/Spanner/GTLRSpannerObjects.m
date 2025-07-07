@@ -64,6 +64,19 @@ NSString * const kGTLRSpanner_Database_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Database_State_ReadyOptimizing  = @"READY_OPTIMIZING";
 NSString * const kGTLRSpanner_Database_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRSpanner_DataChangeRecord.modType
+NSString * const kGTLRSpanner_DataChangeRecord_ModType_Delete  = @"DELETE";
+NSString * const kGTLRSpanner_DataChangeRecord_ModType_Insert  = @"INSERT";
+NSString * const kGTLRSpanner_DataChangeRecord_ModType_ModTypeUnspecified = @"MOD_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_DataChangeRecord_ModType_Update  = @"UPDATE";
+
+// GTLRSpanner_DataChangeRecord.valueCaptureType
+NSString * const kGTLRSpanner_DataChangeRecord_ValueCaptureType_NewRow = @"NEW_ROW";
+NSString * const kGTLRSpanner_DataChangeRecord_ValueCaptureType_NewRowAndOldValues = @"NEW_ROW_AND_OLD_VALUES";
+NSString * const kGTLRSpanner_DataChangeRecord_ValueCaptureType_NewValues = @"NEW_VALUES";
+NSString * const kGTLRSpanner_DataChangeRecord_ValueCaptureType_OldAndNewValues = @"OLD_AND_NEW_VALUES";
+NSString * const kGTLRSpanner_DataChangeRecord_ValueCaptureType_ValueCaptureTypeUnspecified = @"VALUE_CAPTURE_TYPE_UNSPECIFIED";
+
 // GTLRSpanner_DiagnosticMessage.severity
 NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Error = @"ERROR";
 NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Fatal = @"FATAL";
@@ -566,11 +579,32 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ChangeStreamRecord
+//
+
+@implementation GTLRSpanner_ChangeStreamRecord
+@dynamic dataChangeRecord, heartbeatRecord, partitionEndRecord,
+         partitionEventRecord, partitionStartRecord;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ChildLink
 //
 
 @implementation GTLRSpanner_ChildLink
 @dynamic childIndex, type, variable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ColumnMetadata
+//
+
+@implementation GTLRSpanner_ColumnMetadata
+@dynamic isPrimaryKey, name, ordinalPosition, type;
 @end
 
 
@@ -835,6 +869,28 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_DatabaseRole
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_DataChangeRecord
+//
+
+@implementation GTLRSpanner_DataChangeRecord
+@dynamic columnMetadata, commitTimestamp, isLastRecordInTransactionInPartition,
+         isSystemTransaction, mods, modType, numberOfPartitionsInTransaction,
+         numberOfRecordsInTransaction, recordSequence, serverTransactionId,
+         table, transactionTag, valueCaptureType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnMetadata" : [GTLRSpanner_ColumnMetadata class],
+    @"mods" : [GTLRSpanner_Mod class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1115,6 +1171,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_GetPolicyOptions
 @dynamic requestedPolicyVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_HeartbeatRecord
+//
+
+@implementation GTLRSpanner_HeartbeatRecord
+@dynamic timestamp;
 @end
 
 
@@ -1857,6 +1923,46 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_Mod
+//
+
+@implementation GTLRSpanner_Mod
+@dynamic keys, newValues, oldValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keys" : [GTLRSpanner_ModValue class],
+    @"newValues" : [GTLRSpanner_ModValue class],
+    @"oldValues" : [GTLRSpanner_ModValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ModValue
+//
+
+@implementation GTLRSpanner_ModValue
+@dynamic columnMetadataIndex, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_MoveInEvent
+//
+
+@implementation GTLRSpanner_MoveInEvent
+@dynamic sourcePartitionToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_MoveInstanceRequest
 //
 
@@ -1870,6 +1976,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_MoveOutEvent
+//
+
+@implementation GTLRSpanner_MoveOutEvent
+@dynamic destinationPartitionToken;
 @end
 
 
@@ -2014,6 +2130,36 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_PartitionEndRecord
+//
+
+@implementation GTLRSpanner_PartitionEndRecord
+@dynamic endTimestamp, partitionToken, recordSequence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionEventRecord
+//
+
+@implementation GTLRSpanner_PartitionEventRecord
+@dynamic commitTimestamp, moveInEvents, moveOutEvents, partitionToken,
+         recordSequence;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"moveInEvents" : [GTLRSpanner_MoveInEvent class],
+    @"moveOutEvents" : [GTLRSpanner_MoveOutEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_PartitionOptions
 //
 
@@ -2089,6 +2235,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"partitions" : [GTLRSpanner_Partition class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionStartRecord
+//
+
+@implementation GTLRSpanner_PartitionStartRecord
+@dynamic partitionTokens, recordSequence, startTimestamp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partitionTokens" : [NSString class]
   };
   return map;
 }

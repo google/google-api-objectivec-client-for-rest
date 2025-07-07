@@ -578,8 +578,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRet
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Time = @"TIME";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct.engine
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineAdbServerlessOracle = @"ENGINE_ADB_SERVERLESS_ORACLE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithGooglesqlDialect = @"ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithPostgresDialect = @"ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineExadataOracle = @"ENGINE_EXADATA_ORACLE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithNativeMode = @"ENGINE_FIRESTORE_WITH_NATIVE_MODE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForRedis = @"ENGINE_MEMORYSTORE_FOR_REDIS";
@@ -606,6 +608,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeFirestore = @"PRODUCT_TYPE_FIRESTORE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeMemorystore = @"PRODUCT_TYPE_MEMORYSTORE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOracleOnGcp = @"PRODUCT_TYPE_ORACLE_ON_GCP";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOther = @"PRODUCT_TYPE_OTHER";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeSpanner = @"PRODUCT_TYPE_SPANNER";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeUnspecified = @"PRODUCT_TYPE_UNSPECIFIED";
@@ -1946,7 +1949,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData
 @dynamic additionalMetadata, compliance, descriptionProperty, eventTime,
-         externalUri, name, provider, resourceContainer, resourceName,
+         externalUri, location, name, provider, resourceContainer, resourceName,
          signalClass, signalId, signalSeverity, signalType, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

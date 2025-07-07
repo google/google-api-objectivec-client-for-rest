@@ -1870,7 +1870,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Required. Source dataset resource name. For example,
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`. R5
+ *  FHIR stores are not supported and will be skipped.
  */
 @property(nonatomic, copy, nullable) NSString *sourceDataset;
 
@@ -1890,7 +1891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param object The @c GTLRCloudHealthcare_DeidentifyDatasetRequest to include
  *    in the query.
  *  @param sourceDataset Required. Source dataset resource name. For example,
- *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`. R5
+ *    FHIR stores are not supported and will be skipped.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify
  */
@@ -3778,7 +3780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  instead of an Operation. No resources will be reindexed and the
  *  `consent_config.enforced_admin_consents` field will be unchanged. To enforce
  *  a consent check for data access, `consent_config.access_enforced` must be
- *  set to true for the FhirStore.
+ *  set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or R5.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.applyAdminConsents
  *
@@ -3811,7 +3813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  instead of an Operation. No resources will be reindexed and the
  *  `consent_config.enforced_admin_consents` field will be unchanged. To enforce
  *  a consent check for data access, `consent_config.access_enforced` must be
- *  set to true for the FhirStore.
+ *  set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or R5.
  *
  *  @param object The @c GTLRCloudHealthcare_ApplyAdminConsentsRequest to
  *    include in the query.
@@ -3838,7 +3840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Cloud Logging (see [Viewing error logs in Cloud
  *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). To
  *  enforce consent check for data access, `consent_config.access_enforced` must
- *  be set to true for the FhirStore.
+ *  be set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or
+ *  R5.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.applyConsents
  *
@@ -3869,7 +3872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Cloud Logging (see [Viewing error logs in Cloud
  *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). To
  *  enforce consent check for data access, `consent_config.access_enforced` must
- *  be set to true for the FhirStore.
+ *  be set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or
+ *  R5.
  *
  *  @param object The @c GTLRCloudHealthcare_ApplyConsentsRequest to include in
  *    the query.
@@ -4065,6 +4069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Required. Source FHIR store resource name. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *  R5 stores are not supported.
  */
 @property(nonatomic, copy, nullable) NSString *sourceStore;
 
@@ -4082,6 +4087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    include in the query.
  *  @param sourceStore Required. Source FHIR store resource name. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *    R5 stores are not supported.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify
  */
@@ -4119,7 +4125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Explains all the permitted/denied actor, purpose and environment for a given
- *  resource.
+ *  resource. FHIR Consent is not supported in DSTU2 or R5.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.explainDataAccess
  *
@@ -4145,7 +4151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_ExplainDataAccessResponse.
  *
  *  Explains all the permitted/denied actor, purpose and environment for a given
- *  resource.
+ *  resource. FHIR Consent is not supported in DSTU2 or R5.
  *
  *  @param name Required. The name of the FHIR store to enforce, in the format
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
@@ -4216,8 +4222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the same way as non-FHIR data (e.g., images, zip archives, pdf files,
  *  documents). When a non-FHIR content type is used in the request, a Binary
  *  resource will be generated, and the uploaded data will be stored in the
- *  `content` field (`DSTU2` and `STU3`), or the `data` field (`R4`). The Binary
- *  resource's `contentType` will be filled in using the value of the
+ *  `content` field (`DSTU2` and `STU3`), or the `data` field (`R4` and `R5`).
+ *  The Binary resource's `contentType` will be filled in using the value of the
  *  `Content-Type` header, and the `securityContext` field (not present in
  *  `DSTU2`) will be populated from the `X-Security-Context` header if it
  *  exists. At this time `securityContext` has no special behavior in the Cloud
@@ -4261,8 +4267,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the same way as non-FHIR data (e.g., images, zip archives, pdf files,
  *  documents). When a non-FHIR content type is used in the request, a Binary
  *  resource will be generated, and the uploaded data will be stored in the
- *  `content` field (`DSTU2` and `STU3`), or the `data` field (`R4`). The Binary
- *  resource's `contentType` will be filled in using the value of the
+ *  `content` field (`DSTU2` and `STU3`), or the `data` field (`R4` and `R5`).
+ *  The Binary resource's `contentType` will be filled in using the value of the
  *  `Content-Type` header, and the `securityContext` field (not present in
  *  `DSTU2`) will be populated from the `X-Security-Context` header if it
  *  exists. At this time `securityContext` has no special behavior in the Cloud
@@ -4351,14 +4357,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the same way as non-FHIR data. When a non-FHIR content type is used in the
  *  request, a Binary resource will be generated using the ID from the resource
  *  path, and the uploaded data will be stored in the `content` field (`DSTU2`
- *  and `STU3`), or the `data` field (`R4`). The Binary resource's `contentType`
- *  will be filled in using the value of the `Content-Type` header, and the
- *  `securityContext` field (not present in `DSTU2`) will be populated from the
- *  `X-Security-Context` header if it exists. At this time `securityContext` has
- *  no special behavior in the Cloud Healthcare API. Note: the limit on data
- *  ingested through this method is 2 GB. For best performance, use a non-FHIR
- *  data type instead of wrapping the data in a Binary resource. Some of the
- *  Healthcare API features, such as [exporting to
+ *  and `STU3`), or the `data` field (`R4` and `R5`). The Binary resource's
+ *  `contentType` will be filled in using the value of the `Content-Type`
+ *  header, and the `securityContext` field (not present in `DSTU2`) will be
+ *  populated from the `X-Security-Context` header if it exists. At this time
+ *  `securityContext` has no special behavior in the Cloud Healthcare API. Note:
+ *  the limit on data ingested through this method is 2 GB. For best
+ *  performance, use a non-FHIR data type instead of wrapping the data in a
+ *  Binary resource. Some of the Healthcare API features, such as [exporting to
  *  BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery)
  *  or [Pub/Sub
  *  notifications](https://cloud.google.com/healthcare-api/docs/fhir-pubsub#behavior_when_a_fhir_resource_is_too_large_or_traffic_is_high)
@@ -4400,14 +4406,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the same way as non-FHIR data. When a non-FHIR content type is used in the
  *  request, a Binary resource will be generated using the ID from the resource
  *  path, and the uploaded data will be stored in the `content` field (`DSTU2`
- *  and `STU3`), or the `data` field (`R4`). The Binary resource's `contentType`
- *  will be filled in using the value of the `Content-Type` header, and the
- *  `securityContext` field (not present in `DSTU2`) will be populated from the
- *  `X-Security-Context` header if it exists. At this time `securityContext` has
- *  no special behavior in the Cloud Healthcare API. Note: the limit on data
- *  ingested through this method is 2 GB. For best performance, use a non-FHIR
- *  data type instead of wrapping the data in a Binary resource. Some of the
- *  Healthcare API features, such as [exporting to
+ *  and `STU3`), or the `data` field (`R4` and `R5`). The Binary resource's
+ *  `contentType` will be filled in using the value of the `Content-Type`
+ *  header, and the `securityContext` field (not present in `DSTU2`) will be
+ *  populated from the `X-Security-Context` header if it exists. At this time
+ *  `securityContext` has no special behavior in the Cloud Healthcare API. Note:
+ *  the limit on data ingested through this method is 2 GB. For best
+ *  performance, use a non-FHIR data type instead of wrapping the data in a
+ *  Binary resource. Some of the Healthcare API features, such as [exporting to
  *  BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery)
  *  or [Pub/Sub
  *  notifications](https://cloud.google.com/healthcare-api/docs/fhir-pubsub#behavior_when_a_fhir_resource_is_too_large_or_traffic_is_high)
@@ -4579,12 +4585,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Gets the FHIR capability statement
  *  ([STU3](https://hl7.org/fhir/STU3/capabilitystatement.html),
- *  [R4](https://hl7.org/fhir/R4/capabilitystatement.html)), or the [conformance
+ *  [R4](https://hl7.org/fhir/R4/capabilitystatement.html),
+ *  [R5](https://hl7.org/fhir/R5/capabilitystatement.html)), or the [conformance
  *  statement](https://hl7.org/fhir/DSTU2/conformance.html) in the DSTU2 case
  *  for the store, which contains a description of functionality supported by
  *  the server. Implements the FHIR standard capabilities interaction
  *  ([STU3](https://hl7.org/fhir/STU3/http.html#capabilities),
- *  [R4](https://hl7.org/fhir/R4/http.html#capabilities)), or the [conformance
+ *  [R4](https://hl7.org/fhir/R4/http.html#capabilities),
+ *  [R5](https://hl7.org/fhir/R5/http.html#capabilities)), or the [conformance
  *  interaction](https://hl7.org/fhir/DSTU2/http.html#conformance) in the DSTU2
  *  case. On success, the response body contains a JSON-encoded representation
  *  of a `CapabilityStatement` resource.
@@ -4605,12 +4613,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets the FHIR capability statement
  *  ([STU3](https://hl7.org/fhir/STU3/capabilitystatement.html),
- *  [R4](https://hl7.org/fhir/R4/capabilitystatement.html)), or the [conformance
+ *  [R4](https://hl7.org/fhir/R4/capabilitystatement.html),
+ *  [R5](https://hl7.org/fhir/R5/capabilitystatement.html)), or the [conformance
  *  statement](https://hl7.org/fhir/DSTU2/conformance.html) in the DSTU2 case
  *  for the store, which contains a description of functionality supported by
  *  the server. Implements the FHIR standard capabilities interaction
  *  ([STU3](https://hl7.org/fhir/STU3/http.html#capabilities),
- *  [R4](https://hl7.org/fhir/R4/http.html#capabilities)), or the [conformance
+ *  [R4](https://hl7.org/fhir/R4/http.html#capabilities),
+ *  [R5](https://hl7.org/fhir/R5/http.html#capabilities)), or the [conformance
  *  interaction](https://hl7.org/fhir/DSTU2/http.html#conformance) in the DSTU2
  *  case. On success, the response body contains a JSON-encoded representation
  *  of a `CapabilityStatement` resource.
@@ -4654,7 +4664,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)).
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4679,7 +4690,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/fhir/R4/resourcelist.html)).
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete
  */
@@ -4725,7 +4737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)).
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4758,7 +4771,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/fhir/R4/resourcelist.html)).
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch
  */
@@ -4812,7 +4826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)). Must match the resource
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
  *  type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -4853,7 +4868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/fhir/R4/resourcelist.html)). Must match the resource
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
  *    type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate
@@ -4907,12 +4923,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Creates a FHIR resource. Implements the FHIR standard create interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#create),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#create),
- *  [R4](https://hl7.org/fhir/R4/http.html#create)), which creates a new
+ *  [R4](https://hl7.org/fhir/R4/http.html#create),
+ *  [R5](https://hl7.org/fhir/R5/http.html#create)), which creates a new
  *  resource with a server-assigned resource ID. Also supports the FHIR standard
  *  conditional create interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#ccreate),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#ccreate),
- *  [R4](https://hl7.org/fhir/R4/http.html#ccreate)), specified by supplying an
+ *  [R4](https://hl7.org/fhir/R4/http.html#ccreate),
+ *  [R5](https://hl7.org/fhir/R5/http.html#ccreate)), specified by supplying an
  *  `If-None-Exist` header containing a FHIR search query, limited to searching
  *  by resource identifier. If no resources match this search query, the server
  *  processes the create operation as normal. When using conditional create, the
@@ -4946,7 +4964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)). Must match the resource
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
  *  type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -4957,12 +4976,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Creates a FHIR resource. Implements the FHIR standard create interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#create),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#create),
- *  [R4](https://hl7.org/fhir/R4/http.html#create)), which creates a new
+ *  [R4](https://hl7.org/fhir/R4/http.html#create),
+ *  [R5](https://hl7.org/fhir/R5/http.html#create)), which creates a new
  *  resource with a server-assigned resource ID. Also supports the FHIR standard
  *  conditional create interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#ccreate),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#ccreate),
- *  [R4](https://hl7.org/fhir/R4/http.html#ccreate)), specified by supplying an
+ *  [R4](https://hl7.org/fhir/R4/http.html#ccreate),
+ *  [R5](https://hl7.org/fhir/R5/http.html#ccreate)), specified by supplying an
  *  `If-None-Exist` header containing a FHIR search query, limited to searching
  *  by resource identifier. If no resources match this search query, the server
  *  processes the create operation as normal. When using conditional create, the
@@ -4986,7 +5007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/fhir/R4/resourcelist.html)). Must match the resource
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
  *    type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate
@@ -5001,7 +5023,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Deletes a FHIR resource. Implements the FHIR standard delete interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#delete),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#delete),
- *  [R4](https://hl7.org/fhir/R4/http.html#delete)). Note: Unless resource
+ *  [R4](https://hl7.org/fhir/R4/http.html#delete),
+ *  [R5](https://hl7.org/fhir/R5/http.html#delete)). Note: Unless resource
  *  versioning is disabled by setting the disable_resource_versioning flag on
  *  the FHIR store, the deleted resources will be moved to a history repository
  *  that can still be retrieved through vread and related methods, unless they
@@ -5026,7 +5049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Deletes a FHIR resource. Implements the FHIR standard delete interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#delete),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#delete),
- *  [R4](https://hl7.org/fhir/R4/http.html#delete)). Note: Unless resource
+ *  [R4](https://hl7.org/fhir/R4/http.html#delete),
+ *  [R5](https://hl7.org/fhir/R5/http.html#delete)). Note: Unless resource
  *  versioning is disabled by setting the disable_resource_versioning flag on
  *  the FHIR store, the deleted resources will be moved to a history repository
  *  that can still be retrieved through vread and related methods, unless they
@@ -5047,15 +5071,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  batch/transaction interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#transaction),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#transaction),
- *  [R4](https://hl7.org/fhir/R4/http.html#transaction)). Supports all
+ *  [R4](https://hl7.org/fhir/R4/http.html#transaction),
+ *  [R5](https://hl7.org/fhir/R5/http.html#transaction)). Supports all
  *  interactions within a bundle, except search. This method accepts Bundles of
  *  type `batch` and `transaction`, processing them according to the batch
  *  processing rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.1),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.1),
- *  [R4](https://hl7.org/fhir/R4/http.html#brules)) and transaction processing
+ *  [R4](https://hl7.org/fhir/R4/http.html#brules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#brules)) and transaction processing
  *  rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.2),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.2),
- *  [R4](https://hl7.org/fhir/R4/http.html#trules)). The request body must
+ *  [R4](https://hl7.org/fhir/R4/http.html#trules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#trules)). The request body must
  *  contain a JSON-encoded FHIR `Bundle` resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. For a batch bundle or a
  *  successful transaction, the response body contains a JSON-encoded
@@ -5096,15 +5123,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  batch/transaction interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#transaction),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#transaction),
- *  [R4](https://hl7.org/fhir/R4/http.html#transaction)). Supports all
+ *  [R4](https://hl7.org/fhir/R4/http.html#transaction),
+ *  [R5](https://hl7.org/fhir/R5/http.html#transaction)). Supports all
  *  interactions within a bundle, except search. This method accepts Bundles of
  *  type `batch` and `transaction`, processing them according to the batch
  *  processing rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.1),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.1),
- *  [R4](https://hl7.org/fhir/R4/http.html#brules)) and transaction processing
+ *  [R4](https://hl7.org/fhir/R4/http.html#brules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#brules)) and transaction processing
  *  rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.2),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.2),
- *  [R4](https://hl7.org/fhir/R4/http.html#trules)). The request body must
+ *  [R4](https://hl7.org/fhir/R4/http.html#trules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#trules)). The request body must
  *  contain a JSON-encoded FHIR `Bundle` resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. For a batch bundle or a
  *  successful transaction, the response body contains a JSON-encoded
@@ -5144,7 +5174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the FHIR standard history interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#history),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#history),
- *  [R4](https://hl7.org/fhir/R4/http.html#history)). On success, the response
+ *  [R4](https://hl7.org/fhir/R4/http.html#history),
+ *  [R5](https://hl7.org/fhir/R5/http.html#history)). On success, the response
  *  body contains a JSON-encoded representation of a `Bundle` resource of type
  *  `history`, containing the version history sorted from most recent to oldest
  *  versions. Errors generated by the FHIR store contain a JSON-encoded
@@ -5207,7 +5238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the FHIR standard history interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#history),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#history),
- *  [R4](https://hl7.org/fhir/R4/http.html#history)). On success, the response
+ *  [R4](https://hl7.org/fhir/R4/http.html#history),
+ *  [R5](https://hl7.org/fhir/R5/http.html#history)). On success, the response
  *  body contains a JSON-encoded representation of a `Bundle` resource of type
  *  `history`, containing the version history sorted from most recent to oldest
  *  versions. Errors generated by the FHIR store contain a JSON-encoded
@@ -5229,7 +5261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates part of an existing resource by applying the operations specified in
  *  a [JSON Patch](http://jsonpatch.com/) document. Implements the FHIR standard
  *  patch interaction ([STU3](https://hl7.org/fhir/STU3/http.html#patch),
- *  [R4](https://hl7.org/fhir/R4/http.html#patch)). DSTU2 doesn't define a patch
+ *  [R4](https://hl7.org/fhir/R4/http.html#patch),
+ *  [R5](https://hl7.org/fhir/R5/http.html#patch)). DSTU2 doesn't define a patch
  *  method, but the server supports it in the same way it supports STU3. The
  *  request body must contain a JSON Patch document, and the request headers
  *  must contain `Content-Type: application/json-patch+json`. On success, the
@@ -5258,7 +5291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates part of an existing resource by applying the operations specified in
  *  a [JSON Patch](http://jsonpatch.com/) document. Implements the FHIR standard
  *  patch interaction ([STU3](https://hl7.org/fhir/STU3/http.html#patch),
- *  [R4](https://hl7.org/fhir/R4/http.html#patch)). DSTU2 doesn't define a patch
+ *  [R4](https://hl7.org/fhir/R4/http.html#patch),
+ *  [R5](https://hl7.org/fhir/R5/http.html#patch)). DSTU2 doesn't define a patch
  *  method, but the server supports it in the same way it supports STU3. The
  *  request body must contain a JSON Patch document, and the request headers
  *  must contain `Content-Type: application/json-patch+json`. On success, the
@@ -5344,7 +5378,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Implements the FHIR extended operation Patient-everything
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/patient-operations.html#everything),
  *  [STU3](https://hl7.org/fhir/STU3/patient-operations.html#everything),
- *  [R4](https://hl7.org/fhir/R4/patient-operation-everything.html)). On
+ *  [R4](https://hl7.org/fhir/R4/patient-operation-everything.html),
+ *  [R5](https://hl7.org/fhir/R5/patient-operation-everything.html)). On
  *  success, the response body contains a JSON-encoded representation of a
  *  `Bundle` resource of type `searchset`, containing the results of the
  *  operation. Errors generated by the FHIR store contain a JSON-encoded
@@ -5357,7 +5392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  on the membership rules in the patient compartment definition
  *  ([DSTU2](http://hl7.org/fhir/DSTU2/compartment-patient.html),
  *  [STU3](http://www.hl7.org/fhir/stu3/compartmentdefinition-patient.html),
- *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html)), which
+ *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html),
+ *  [R5](http://hl7.org/fhir/R5/compartmentdefinition-patient.html)), which
  *  details the eligible resource types and referencing search parameters. For
  *  samples that show how to call `Patient-everything`, see [Getting all patient
  *  compartment
@@ -5430,7 +5466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Implements the FHIR extended operation Patient-everything
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/patient-operations.html#everything),
  *  [STU3](https://hl7.org/fhir/STU3/patient-operations.html#everything),
- *  [R4](https://hl7.org/fhir/R4/patient-operation-everything.html)). On
+ *  [R4](https://hl7.org/fhir/R4/patient-operation-everything.html),
+ *  [R5](https://hl7.org/fhir/R5/patient-operation-everything.html)). On
  *  success, the response body contains a JSON-encoded representation of a
  *  `Bundle` resource of type `searchset`, containing the results of the
  *  operation. Errors generated by the FHIR store contain a JSON-encoded
@@ -5443,7 +5480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  on the membership rules in the patient compartment definition
  *  ([DSTU2](http://hl7.org/fhir/DSTU2/compartment-patient.html),
  *  [STU3](http://www.hl7.org/fhir/stu3/compartmentdefinition-patient.html),
- *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html)), which
+ *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html),
+ *  [R5](http://hl7.org/fhir/R5/compartmentdefinition-patient.html)), which
  *  details the eligible resource types and referencing search parameters. For
  *  samples that show how to call `Patient-everything`, see [Getting all patient
  *  compartment
@@ -5462,11 +5500,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Gets the contents of a FHIR resource. Implements the FHIR standard read
  *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#read),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#read),
- *  [R4](https://hl7.org/fhir/R4/http.html#read)). Also supports the FHIR
+ *  [R4](https://hl7.org/fhir/R4/http.html#read),
+ *  [R5](https://hl7.org/fhir/R5/http.html#read)). Also supports the FHIR
  *  standard conditional read interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#cread),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#cread),
- *  [R4](https://hl7.org/fhir/R4/http.html#cread)) specified by supplying an
+ *  [R4](https://hl7.org/fhir/R4/http.html#cread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#cread)) specified by supplying an
  *  `If-Modified-Since` header with a date/time value or an `If-None-Match`
  *  header with an ETag value. On success, the response body contains a
  *  JSON-encoded representation of the resource. Errors generated by the FHIR
@@ -5493,11 +5533,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Gets the contents of a FHIR resource. Implements the FHIR standard read
  *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#read),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#read),
- *  [R4](https://hl7.org/fhir/R4/http.html#read)). Also supports the FHIR
+ *  [R4](https://hl7.org/fhir/R4/http.html#read),
+ *  [R5](https://hl7.org/fhir/R5/http.html#read)). Also supports the FHIR
  *  standard conditional read interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#cread),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#cread),
- *  [R4](https://hl7.org/fhir/R4/http.html#cread)) specified by supplying an
+ *  [R4](https://hl7.org/fhir/R4/http.html#cread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#cread)) specified by supplying an
  *  `If-Modified-Since` header with a date/time value or an `If-None-Match`
  *  header with an ETag value. On success, the response body contains a
  *  JSON-encoded representation of the resource. Errors generated by the FHIR
@@ -5557,8 +5599,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  profiles configured on the FHIR store. Implements the FHIR extended
  *  operation $validate
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resource-operations.html#validate),
- *  [STU3](https://hl7.org/fhir/STU3/resource-operations.html#validate), or
- *  [R4](https://hl7.org/fhir/R4/resource-operation-validate.html)). The request
+ *  [STU3](https://hl7.org/fhir/STU3/resource-operations.html#validate),
+ *  [R4](https://hl7.org/fhir/R4/resource-operation-validate.html). or
+ *  [R5](https://hl7.org/fhir/R5/resource-operation-validate.html)). The request
  *  body must contain a JSON-encoded FHIR resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. The `Parameters` input syntax
  *  is not supported. The `profile` query parameter can be used to request that
@@ -5596,8 +5639,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Required. The FHIR resource type of the resource being validated. For a
  *  complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
- *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html), or
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)). Must match the resource
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html), or
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
  *  type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -5609,8 +5653,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  profiles configured on the FHIR store. Implements the FHIR extended
  *  operation $validate
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resource-operations.html#validate),
- *  [STU3](https://hl7.org/fhir/STU3/resource-operations.html#validate), or
- *  [R4](https://hl7.org/fhir/R4/resource-operation-validate.html)). The request
+ *  [STU3](https://hl7.org/fhir/STU3/resource-operations.html#validate),
+ *  [R4](https://hl7.org/fhir/R4/resource-operation-validate.html). or
+ *  [R5](https://hl7.org/fhir/R5/resource-operation-validate.html)). The request
  *  body must contain a JSON-encoded FHIR resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. The `Parameters` input syntax
  *  is not supported. The `profile` query parameter can be used to request that
@@ -5627,8 +5672,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param type Required. The FHIR resource type of the resource being
  *    validated. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
- *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html), or
- *    [R4](https://hl7.org/fhir/R4/resourcelist.html)). Must match the resource
+ *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html), or
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
  *    type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourceValidate
@@ -5644,11 +5690,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  specified as query parameters. Implements the FHIR standard search
  *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
- *  [R4](https://hl7.org/fhir/R4/http.html#search)) using the search semantics
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
  *  described in the FHIR Search specification
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
  *  [STU3](https://hl7.org/fhir/STU3/search.html),
- *  [R4](https://hl7.org/fhir/R4/search.html)). Supports four methods of search
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
  *  defined by the specification: * `GET [base]?[parameters]` to search across
  *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
  *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
@@ -5667,12 +5715,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource. A list of all search parameters defined by the specification can
  *  be found in the FHIR Search Parameter Registry
  *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
- *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html)). FHIR search
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
  *  parameters for DSTU2 can be found on each resource's definition page.
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
- *  (DSTU2 and STU3) or `:iterate` (R4). Supported search result parameters:
- *  `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
+ *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
  *  up to a maximum limit of 1000. The server might return fewer resources than
@@ -5724,11 +5773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  specified as query parameters. Implements the FHIR standard search
  *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
- *  [R4](https://hl7.org/fhir/R4/http.html#search)) using the search semantics
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
  *  described in the FHIR Search specification
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
  *  [STU3](https://hl7.org/fhir/STU3/search.html),
- *  [R4](https://hl7.org/fhir/R4/search.html)). Supports four methods of search
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
  *  defined by the specification: * `GET [base]?[parameters]` to search across
  *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
  *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
@@ -5747,12 +5798,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource. A list of all search parameters defined by the specification can
  *  be found in the FHIR Search Parameter Registry
  *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
- *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html)). FHIR search
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
  *  parameters for DSTU2 can be found on each resource's definition page.
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
- *  (DSTU2 and STU3) or `:iterate` (R4). Supported search result parameters:
- *  `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
+ *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
  *  up to a maximum limit of 1000. The server might return fewer resources than
@@ -5802,11 +5854,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  specified as query parameters. Implements the FHIR standard search
  *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
- *  [R4](https://hl7.org/fhir/R4/http.html#search)) using the search semantics
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
  *  described in the FHIR Search specification
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
  *  [STU3](https://hl7.org/fhir/STU3/search.html),
- *  [R4](https://hl7.org/fhir/R4/search.html)). Supports four methods of search
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
  *  defined by the specification: * `GET [base]?[parameters]` to search across
  *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
  *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
@@ -5825,12 +5879,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource. A list of all search parameters defined by the specification can
  *  be found in the FHIR Search Parameter Registry
  *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
- *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html)). FHIR search
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
  *  parameters for DSTU2 can be found on each resource's definition page.
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
- *  (DSTU2 and STU3) or `:iterate` (R4). Supported search result parameters:
- *  `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
+ *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
  *  up to a maximum limit of 1000. The server might return fewer resources than
@@ -5880,7 +5935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)).
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html)),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -5891,11 +5947,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  specified as query parameters. Implements the FHIR standard search
  *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
- *  [R4](https://hl7.org/fhir/R4/http.html#search)) using the search semantics
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
  *  described in the FHIR Search specification
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
  *  [STU3](https://hl7.org/fhir/STU3/search.html),
- *  [R4](https://hl7.org/fhir/R4/search.html)). Supports four methods of search
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
  *  defined by the specification: * `GET [base]?[parameters]` to search across
  *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
  *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
@@ -5914,12 +5972,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource. A list of all search parameters defined by the specification can
  *  be found in the FHIR Search Parameter Registry
  *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
- *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html)). FHIR search
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
  *  parameters for DSTU2 can be found on each resource's definition page.
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
- *  (DSTU2 and STU3) or `:iterate` (R4). Supported search result parameters:
- *  `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
+ *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
  *  up to a maximum limit of 1000. The server might return fewer resources than
@@ -5960,7 +6019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    Patient or Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/fhir/R4/resourcelist.html)).
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html)),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType
  */
@@ -5974,7 +6034,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates the entire contents of a resource. Implements the FHIR standard
  *  update interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#update),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#update),
- *  [R4](https://hl7.org/fhir/R4/http.html#update)). If the specified resource
+ *  [R4](https://hl7.org/fhir/R4/http.html#update),
+ *  [R5](https://hl7.org/fhir/R5/http.html#update)). If the specified resource
  *  does not exist and the FHIR store has enable_update_create set, creates the
  *  resource with the client-specified ID. It is strongly advised not to include
  *  or encode any sensitive data such as patient identifiers in client-specified
@@ -5989,7 +6050,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. For samples that show how to call `update`, see [Updating a FHIR
+ *  instead. In R5, the conditional update interaction If-None-Match is
+ *  supported, including the wildcard behaviour. For samples that show how to
+ *  call `update`, see [Updating a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
@@ -6009,7 +6072,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates the entire contents of a resource. Implements the FHIR standard
  *  update interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#update),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#update),
- *  [R4](https://hl7.org/fhir/R4/http.html#update)). If the specified resource
+ *  [R4](https://hl7.org/fhir/R4/http.html#update),
+ *  [R5](https://hl7.org/fhir/R5/http.html#update)). If the specified resource
  *  does not exist and the FHIR store has enable_update_create set, creates the
  *  resource with the client-specified ID. It is strongly advised not to include
  *  or encode any sensitive data such as patient identifiers in client-specified
@@ -6024,7 +6088,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. For samples that show how to call `update`, see [Updating a FHIR
+ *  instead. In R5, the conditional update interaction If-None-Match is
+ *  supported, including the wildcard behaviour. For samples that show how to
+ *  call `update`, see [Updating a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
@@ -6042,7 +6108,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  version ID. Implements the FHIR standard vread interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#vread),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#vread),
- *  [R4](https://hl7.org/fhir/R4/http.html#vread)). On success, the response
+ *  [R4](https://hl7.org/fhir/R4/http.html#vread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#vread)). On success, the response
  *  body contains a JSON-encoded representation of the resource. Errors
  *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
  *  resource describing the reason for the error. If the request cannot be
@@ -6069,7 +6136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  version ID. Implements the FHIR standard vread interaction
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#vread),
  *  [STU3](https://hl7.org/fhir/STU3/http.html#vread),
- *  [R4](https://hl7.org/fhir/R4/http.html#vread)). On success, the response
+ *  [R4](https://hl7.org/fhir/R4/http.html#vread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#vread)). On success, the response
  *  body contains a JSON-encoded representation of the resource. Errors
  *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
  *  resource describing the reason for the error. If the request cannot be

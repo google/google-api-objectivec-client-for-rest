@@ -23,6 +23,7 @@
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleFrom;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResourceTagValueIdSet;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch;
@@ -33,6 +34,8 @@
 @class GTLRNetworkSecurity_AuthzPolicyCustomProviderAuthzExtension;
 @class GTLRNetworkSecurity_AuthzPolicyCustomProviderCloudIap;
 @class GTLRNetworkSecurity_AuthzPolicyTarget;
+@class GTLRNetworkSecurity_BackendAuthenticationConfig;
+@class GTLRNetworkSecurity_BackendAuthenticationConfig_Labels;
 @class GTLRNetworkSecurity_CertificateProviderInstance;
 @class GTLRNetworkSecurity_ClientTlsPolicy;
 @class GTLRNetworkSecurity_ClientTlsPolicy_Labels;
@@ -331,6 +334,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBa
  *  Value: "LOAD_BALANCING_SCHEME_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_BackendAuthenticationConfig.wellKnownRoots
+
+/**
+ *  The BackendService will only validate server certificates against roots
+ *  specified in TrustConfig.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_None;
+/**
+ *  The BackendService uses a set of well-known public roots, in addition to any
+ *  roots specified in the trustConfig field, when validating the server
+ *  certificates presented by the backend. Validation with these roots is only
+ *  considered when the TlsSettings.sni field in the BackendService is set. The
+ *  well-known roots are a set of root CAs managed by Google. CAs in this set
+ *  can be added or removed without notice.
+ *
+ *  Value: "PUBLIC_ROOTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_PublicRoots;
+/**
+ *  Equivalent to NONE.
+ *
+ *  Value: "WELL_KNOWN_ROOTS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_WellKnownRootsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_FirewallEndpoint.state
@@ -1774,6 +1805,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource : GTLRObject
 
 /**
+ *  Optional. A list of IPs or CIDRs to match against the source IP of a
+ *  request. Limited to 5 ip_blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock *> *ipBlocks;
+
+/**
  *  Optional. A list of resources to match against the resource of the source VM
  *  of a request. Limited to 5 resources.
  */
@@ -1792,6 +1829,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /** Optional. Specifies how the header match will be performed. */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *value;
+
+@end
+
+
+/**
+ *  Represents a range of IP Addresses.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock : GTLRObject
+
+/**
+ *  Required. The length of the address range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *length;
+
+/** Required. The address prefix. */
+@property(nonatomic, copy, nullable) NSString *prefix;
 
 @end
 
@@ -2039,6 +2094,102 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
+@end
+
+
+/**
+ *  BackendAuthenticationConfig message groups the TrustConfig together with
+ *  other settings that control how the load balancer authenticates, and
+ *  expresses its identity to, the backend: * `trustConfig` is the attached
+ *  TrustConfig. * `wellKnownRoots` indicates whether the load balance should
+ *  trust backend server certificates that are issued by public certificate
+ *  authorities, in addition to certificates trusted by the TrustConfig. *
+ *  `clientCertificate` is a client certificate that the load balancer uses to
+ *  express its identity to the backend, if the connection to the backend uses
+ *  mTLS. You can attach the BackendAuthenticationConfig to the load balancer’s
+ *  BackendService directly determining how that BackendService negotiates TLS.
+ */
+@interface GTLRNetworkSecurity_BackendAuthenticationConfig : GTLRObject
+
+/**
+ *  Optional. A reference to a certificatemanager.googleapis.com.Certificate
+ *  resource. This is a relative resource path following the form
+ *  "projects/{project}/locations/{location}/certificates/{certificate}". Used
+ *  by a BackendService to negotiate mTLS when the backend connection uses TLS
+ *  and the backend requests a client certificate. Must have a CLIENT_AUTH
+ *  scope.
+ */
+@property(nonatomic, copy, nullable) NSString *clientCertificate;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Free-text description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Etag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Set of label tags associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_BackendAuthenticationConfig_Labels *labels;
+
+/**
+ *  Required. Name of the BackendAuthenticationConfig resource. It matches the
+ *  pattern `projects/ *
+ *  /locations/{location}/backendAuthenticationConfigs/{backend_authentication_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A reference to a TrustConfig resource from the
+ *  certificatemanager.googleapis.com namespace. This is a relative resource
+ *  path following the form
+ *  "projects/{project}/locations/{location}/trustConfigs/{trust_config}". A
+ *  BackendService uses the chain of trust represented by this TrustConfig, if
+ *  specified, to validate the server certificates presented by the backend.
+ *  Required unless wellKnownRoots is set to PUBLIC_ROOTS.
+ */
+@property(nonatomic, copy, nullable) NSString *trustConfig;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Well known roots to use for server certificate validation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_None
+ *        The BackendService will only validate server certificates against
+ *        roots specified in TrustConfig. (Value: "NONE")
+ *    @arg @c kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_PublicRoots
+ *        The BackendService uses a set of well-known public roots, in addition
+ *        to any roots specified in the trustConfig field, when validating the
+ *        server certificates presented by the backend. Validation with these
+ *        roots is only considered when the TlsSettings.sni field in the
+ *        BackendService is set. The well-known roots are a set of root CAs
+ *        managed by Google. CAs in this set can be added or removed without
+ *        notice. (Value: "PUBLIC_ROOTS")
+ *    @arg @c kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_WellKnownRootsUnspecified
+ *        Equivalent to NONE. (Value: "WELL_KNOWN_ROOTS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wellKnownRoots;
+
+@end
+
+
+/**
+ *  Set of label tags associated with the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_BackendAuthenticationConfig_Labels : GTLRObject
 @end
 
 
@@ -3719,6 +3870,37 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicy *> *authzPolicies;
 
 /** A token identifying a page of results that the server returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response returned by the ListBackendAuthenticationConfigs method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backendAuthenticationConfigs" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListBackendAuthenticationConfigsResponse : GTLRCollectionObject
+
+/**
+ *  List of BackendAuthenticationConfig resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_BackendAuthenticationConfig *> *backendAuthenticationConfigs;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Locations that could not be reached. */

@@ -30,8 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 // datasetView
 
 /**
- *  Updates ACL information for the dataset, which defines dataset access for
- *  one or more entities.
+ *  View ACL information for the dataset, which defines dataset access for one
+ *  or more entities.
  *
  *  Value: "ACL"
  */
@@ -43,13 +43,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewAcl;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewDatasetViewUnspecified;
 /**
- *  Updates both dataset metadata and ACL information.
+ *  View both dataset metadata and ACL information.
  *
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewFull;
 /**
- *  Updates metadata information for the dataset, such as friendlyName,
+ *  View metadata information for the dataset, such as friendlyName,
  *  description, labels, etc.
  *
  *  Value: "METADATA"
@@ -256,13 +256,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Likely values:
  *    @arg @c kGTLRBigqueryDatasetViewDatasetViewUnspecified The default value.
  *        Default to the FULL view. (Value: "DATASET_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRBigqueryDatasetViewMetadata Updates metadata information for
- *        the dataset, such as friendlyName, description, labels, etc. (Value:
+ *    @arg @c kGTLRBigqueryDatasetViewMetadata View metadata information for the
+ *        dataset, such as friendlyName, description, labels, etc. (Value:
  *        "METADATA")
- *    @arg @c kGTLRBigqueryDatasetViewAcl Updates ACL information for the
- *        dataset, which defines dataset access for one or more entities.
- *        (Value: "ACL")
- *    @arg @c kGTLRBigqueryDatasetViewFull Updates both dataset metadata and ACL
+ *    @arg @c kGTLRBigqueryDatasetViewAcl View ACL information for the dataset,
+ *        which defines dataset access for one or more entities. (Value: "ACL")
+ *    @arg @c kGTLRBigqueryDatasetViewFull View both dataset metadata and ACL
  *        information. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *datasetView;
@@ -1472,6 +1471,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  @return GTLRBigqueryQuery_RoutinesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: bigquery.routines.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RoutinesTestIamPermissions : GTLRBigqueryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigquery_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRBigquery_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigqueryQuery_RoutinesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
 
 @end

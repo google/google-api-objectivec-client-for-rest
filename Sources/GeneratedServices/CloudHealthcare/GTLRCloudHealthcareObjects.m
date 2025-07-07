@@ -117,6 +117,7 @@ NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_
 // GTLRCloudHealthcare_FhirStore.version
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2  = @"DSTU2";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4     = @"R4";
+NSString * const kGTLRCloudHealthcare_FhirStore_Version_R5     = @"R5";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3   = @"STU3";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified = @"VERSION_UNSPECIFIED";
 

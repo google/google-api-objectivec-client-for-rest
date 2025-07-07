@@ -17,6 +17,8 @@
 @class GTLRDeveloperConnect_AccountConnector;
 @class GTLRDeveloperConnect_AccountConnector_Annotations;
 @class GTLRDeveloperConnect_AccountConnector_Labels;
+@class GTLRDeveloperConnect_AppHubWorkload;
+@class GTLRDeveloperConnect_ArtifactConfig;
 @class GTLRDeveloperConnect_BitbucketCloudConfig;
 @class GTLRDeveloperConnect_BitbucketDataCenterConfig;
 @class GTLRDeveloperConnect_Connection;
@@ -32,8 +34,14 @@
 @class GTLRDeveloperConnect_GitRepositoryLink;
 @class GTLRDeveloperConnect_GitRepositoryLink_Annotations;
 @class GTLRDeveloperConnect_GitRepositoryLink_Labels;
+@class GTLRDeveloperConnect_GKEWorkload;
+@class GTLRDeveloperConnect_GoogleArtifactAnalysis;
+@class GTLRDeveloperConnect_GoogleArtifactRegistry;
 @class GTLRDeveloperConnect_HttpBody;
 @class GTLRDeveloperConnect_HttpBody_Extensions_Item;
+@class GTLRDeveloperConnect_InsightsConfig;
+@class GTLRDeveloperConnect_InsightsConfig_Annotations;
+@class GTLRDeveloperConnect_InsightsConfig_Labels;
 @class GTLRDeveloperConnect_Installation;
 @class GTLRDeveloperConnect_InstallationState;
 @class GTLRDeveloperConnect_LinkableGitRepository;
@@ -45,6 +53,7 @@
 @class GTLRDeveloperConnect_Operation_Metadata;
 @class GTLRDeveloperConnect_Operation_Response;
 @class GTLRDeveloperConnect_ProviderOAuthConfig;
+@class GTLRDeveloperConnect_RuntimeConfig;
 @class GTLRDeveloperConnect_ServiceDirectoryConfig;
 @class GTLRDeveloperConnect_Status;
 @class GTLRDeveloperConnect_Status_Details_Item;
@@ -82,6 +91,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_
  *  Value: "GIT_HUB_APP_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_GitHubAppUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_InsightsConfig.state
+
+/**
+ *  The initial discovery process is complete.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InsightsConfig_State_Complete;
+/**
+ *  The InsightsConfig is in an error state.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InsightsConfig_State_Error;
+/**
+ *  The InsightsConfig is pending application discovery/runtime discovery.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InsightsConfig_State_Pending;
+/**
+ *  No state specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InsightsConfig_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDeveloperConnect_InstallationState.stage
@@ -181,6 +218,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_RuntimeConfig.state
+
+/**
+ *  The runtime configuration has been linked to the InsightsConfig.
+ *
+ *  Value: "LINKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Linked;
+/**
+ *  No state specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_StateUnspecified;
+/**
+ *  The runtime configuration has been unlinked to the InsightsConfig.
+ *
+ *  Value: "UNLINKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked;
+
 /**
  *  AccountConnector encapsulates what a platform administrator needs to
  *  configure for users to connect to the service providers, which includes,
@@ -244,6 +303,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *        fetch them all at once.
  */
 @interface GTLRDeveloperConnect_AccountConnector_Labels : GTLRObject
+@end
+
+
+/**
+ *  AppHubWorkload represents the App Hub Workload.
+ */
+@interface GTLRDeveloperConnect_AppHubWorkload : GTLRObject
+
+/** Output only. The criticality of the App Hub Workload. */
+@property(nonatomic, copy, nullable) NSString *criticality;
+
+/** Output only. The environment of the App Hub Workload. */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Required. Output only. Immutable. The name of the App Hub Workload. Format:
+ *  `projects/{project}/locations/{location}/applications/{application}/workloads/{workload}`.
+ */
+@property(nonatomic, copy, nullable) NSString *workload;
+
+@end
+
+
+/**
+ *  The artifact config of the artifact that is deployed.
+ */
+@interface GTLRDeveloperConnect_ArtifactConfig : GTLRObject
+
+/** Optional. Set if the artifact metadata is stored in Artifact analysis. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GoogleArtifactAnalysis *googleArtifactAnalysis;
+
+/** Optional. Set if the artifact is stored in Artifact regsitry. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GoogleArtifactRegistry *googleArtifactRegistry;
+
+/**
+ *  Required. Immutable. The URI of the artifact that is deployed. e.g.
+ *  `us-docker.pkg.dev/my-project/my-repo/image`. The URI does not include the
+ *  tag / digest because it captures a lineage of artifacts.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 
@@ -929,6 +1029,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
 
 
 /**
+ *  GKEWorkload represents the Google Kubernetes Engine runtime.
+ */
+@interface GTLRDeveloperConnect_GKEWorkload : GTLRObject
+
+/**
+ *  Required. Immutable. The name of the GKE cluster. Format:
+ *  `projects/{project}/locations/{location}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  Output only. The name of the GKE deployment. Format:
+ *  `projects/{project}/locations/{location}/clusters/{cluster}/namespaces/{namespace}/deployments/{deployment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+@end
+
+
+/**
+ *  Google Artifact Analysis configurations.
+ */
+@interface GTLRDeveloperConnect_GoogleArtifactAnalysis : GTLRObject
+
+/** Required. The project id of the project where the provenance is stored. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  Google Artifact Registry configurations.
+ */
+@interface GTLRDeveloperConnect_GoogleArtifactRegistry : GTLRObject
+
+/** Required. Immutable. The name of the artifact registry package. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
+/** Required. The host project of Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
  *  Message that represents an arbitrary HTTP body. It should only be used for
  *  payload formats that can't be represented as JSON, such as raw binary or an
  *  HTML page. This message can be used both in streaming and non-streaming API
@@ -980,6 +1125,116 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDeveloperConnect_HttpBody_Extensions_Item : GTLRObject
+@end
+
+
+/**
+ *  The InsightsConfig resource is the core configuration object to capture
+ *  events from your Software Development Lifecycle. It acts as the central hub
+ *  for managing how Developer connect understands your application, its runtime
+ *  environments, and the artifacts deployed within them.
+ */
+@interface GTLRDeveloperConnect_InsightsConfig : GTLRObject
+
+/**
+ *  Optional. User specified annotations. See
+ *  https://google.aip.dev/148#annotations for more details such as format and
+ *  size limitations.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_InsightsConfig_Annotations *annotations;
+
+/**
+ *  Optional. The name of the App Hub Application. Format:
+ *  projects/{project}/locations/{location}/applications/{application}
+ */
+@property(nonatomic, copy, nullable) NSString *appHubApplication;
+
+/**
+ *  Optional. The artifact configurations of the artifacts that are deployed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_ArtifactConfig *> *artifactConfigs;
+
+/** Output only. [Output only] Create timestamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Any errors that occurred while setting up the InsightsConfig.
+ *  Each error will be in the format: `field_name: error_message`, e.g.
+ *  GetAppHubApplication: Permission denied while getting App Hub application.
+ *  Please grant permissions to the P4SA.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_Status *> *errors;
+
+/** Optional. Set of labels associated with an InsightsConfig. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_InsightsConfig_Labels *labels;
+
+/**
+ *  Identifier. The name of the InsightsConfig. Format:
+ *  projects/{project}/locations/{location}/insightsConfigs/{insightsConfig}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reconciling (https://google.aip.dev/128#reconciliation). Set to
+ *  true if the current state of InsightsConfig does not match the user's
+ *  intended state, and the service is actively updating the resource to
+ *  reconcile them. This can happen due to user-triggered updates or system
+ *  actions like failover or maintenance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The runtime configurations where the application is deployed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_RuntimeConfig *> *runtimeConfigs;
+
+/**
+ *  Optional. Output only. The state of the InsightsConfig.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_InsightsConfig_State_Complete The initial
+ *        discovery process is complete. (Value: "COMPLETE")
+ *    @arg @c kGTLRDeveloperConnect_InsightsConfig_State_Error The
+ *        InsightsConfig is in an error state. (Value: "ERROR")
+ *    @arg @c kGTLRDeveloperConnect_InsightsConfig_State_Pending The
+ *        InsightsConfig is pending application discovery/runtime discovery.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRDeveloperConnect_InsightsConfig_State_StateUnspecified No
+ *        state specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. [Output only] Update timestamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User specified annotations. See
+ *  https://google.aip.dev/148#annotations for more details such as format and
+ *  size limitations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDeveloperConnect_InsightsConfig_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. Set of labels associated with an InsightsConfig.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDeveloperConnect_InsightsConfig_Labels : GTLRObject
 @end
 
 
@@ -1131,6 +1386,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_GitRepositoryLink *> *gitRepositoryLinks;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Request for response to listing InsightsConfigs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "insightsConfigs" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDeveloperConnect_ListInsightsConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The list of InsightsConfigs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_InsightsConfig *> *insightsConfigs;
 
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -1514,6 +1796,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *        No system provider specified. (Value: "SYSTEM_PROVIDER_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *systemProviderId;
+
+@end
+
+
+/**
+ *  RuntimeConfig represents the runtimes where the application is deployed.
+ */
+@interface GTLRDeveloperConnect_RuntimeConfig : GTLRObject
+
+/** Output only. App Hub Workload. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_AppHubWorkload *appHubWorkload;
+
+/** Output only. Google Kubernetes Engine runtime. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GKEWorkload *gkeWorkload;
+
+/**
+ *  Output only. The state of the Runtime.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_RuntimeConfig_State_Linked The runtime
+ *        configuration has been linked to the InsightsConfig. (Value: "LINKED")
+ *    @arg @c kGTLRDeveloperConnect_RuntimeConfig_State_StateUnspecified No
+ *        state specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked The runtime
+ *        configuration has been unlinked to the InsightsConfig. (Value:
+ *        "UNLINKED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. Immutable. The URI of the runtime configuration. For GKE, this is
+ *  the cluster name. For Cloud Run, this is the service name.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

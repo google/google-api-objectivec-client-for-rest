@@ -8765,7 +8765,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
-/** Optional. Internal only. */
+/**
+ *  Optional. Specifies whether the search should understand the meaning and
+ *  intent behind the query, rather than just matching keywords.
+ */
 @property(nonatomic, assign) BOOL semanticSearch;
 
 /**

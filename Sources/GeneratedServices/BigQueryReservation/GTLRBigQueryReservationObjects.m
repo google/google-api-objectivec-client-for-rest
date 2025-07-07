@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
@@ -269,6 +269,28 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryReservation_ListReservationGroupsResponse
+//
+
+@implementation GTLRBigQueryReservation_ListReservationGroupsResponse
+@dynamic nextPageToken, reservationGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservationGroups" : [GTLRBigQueryReservation_ReservationGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reservationGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryReservation_ListReservationsResponse
 //
 
@@ -358,8 +380,8 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 @implementation GTLRBigQueryReservation_Reservation
 @dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots, labels,
          maxSlots, multiRegionAuxiliary, name, originalPrimaryLocation,
-         primaryLocation, replicationStatus, scalingMode, secondaryLocation,
-         slotCapacity, updateTime;
+         primaryLocation, replicationStatus, reservationGroup, scalingMode,
+         secondaryLocation, slotCapacity, updateTime;
 @end
 
 
@@ -374,6 +396,16 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_ReservationGroup
+//
+
+@implementation GTLRBigQueryReservation_ReservationGroup
+@dynamic name;
 @end
 
 

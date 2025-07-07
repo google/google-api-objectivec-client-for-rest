@@ -115,6 +115,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesDelete : GTLRDataFusionQuery
 
 /**
+ *  Optional. If set to true, any nested resources from this instance will also
+ *  be deleted.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
  *  Required. The instance resource name in the format
  *  projects/{project}/locations/{location}/instances/{instance}
  */

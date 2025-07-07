@@ -411,7 +411,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pendingTasks;
 
 /**
- *  Output only. Whether this account is premium.
+ *  Output only. Whether this account is premium. Premium accounts have access
+ *  to additional spam-related metrics.
  *
  *  Uses NSNumber of boolValue.
  */

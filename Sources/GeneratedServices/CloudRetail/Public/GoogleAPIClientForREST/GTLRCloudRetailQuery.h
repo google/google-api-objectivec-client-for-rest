@@ -1380,6 +1380,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the conversational search customization config for a given catalog.
+ *
+ *  Method: retail.projects.locations.catalogs.getConversationalSearchCustomizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetConversationalSearchCustomizationConfig : GTLRCloudRetailQuery
+
+/**
+ *  Required. Resource name of the parent catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig.
+ *
+ *  Returns the conversational search customization config for a given catalog.
+ *
+ *  @param name Required. Resource name of the parent catalog. Format:
+ *    projects/{project}/locations/{location}/catalogs/{catalog}
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetConversationalSearchCustomizationConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Get which branch is currently default branch set by
  *  CatalogService.SetDefaultBranch method under a specified parent catalog.
  *
@@ -2545,6 +2576,50 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the conversational search customization config for a given catalog.
+ *
+ *  Method: retail.projects.locations.catalogs.updateConversationalSearchCustomizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateConversationalSearchCustomizationConfig : GTLRCloudRetailQuery
+
+/**
+ *  Required. Resource name of the catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Optional. Indicates which fields in the provided
+ *  ConversationalSearchCustomizationConfig to update. If not set or empty, all
+ *  supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig.
+ *
+ *  Updates the conversational search customization config for a given catalog.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig
+ *    to include in the query.
+ *  @param catalog Required. Resource name of the catalog. Format:
+ *    projects/{project}/locations/{location}/catalogs/{catalog}
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateConversationalSearchCustomizationConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig *)object
+                        catalog:(NSString *)catalog;
 
 @end
 

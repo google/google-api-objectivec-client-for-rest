@@ -508,6 +508,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_CreateSchemaBundleMetadata
+//
+
+@implementation GTLRBigtableAdmin_CreateSchemaBundleMetadata
+@dynamic endTime, name, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_CreateTableRequest
 //
 
@@ -1277,6 +1287,28 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_ListSchemaBundlesResponse
+//
+
+@implementation GTLRBigtableAdmin_ListSchemaBundlesResponse
+@dynamic nextPageToken, schemaBundles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemaBundles" : [GTLRBigtableAdmin_SchemaBundle class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"schemaBundles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_ListTablesResponse
 //
 
@@ -1529,6 +1561,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_ProtoSchema
+//
+
+@implementation GTLRBigtableAdmin_ProtoSchema
+@dynamic protoDescriptors;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_RestoreInfo
 //
 
@@ -1563,6 +1605,21 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_RowAffinity
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_SchemaBundle
+//
+
+@implementation GTLRBigtableAdmin_SchemaBundle
+@dynamic ETag, name, protoSchema;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -1655,7 +1712,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 @implementation GTLRBigtableAdmin_Table
 @dynamic automatedBackupPolicy, changeStreamConfig, clusterStates,
          columnFamilies, deletionProtection, granularity, name, restoreInfo,
-         rowKeySchema, stats;
+         rowKeySchema, stats, tieredStorageConfig;
 @end
 
 
@@ -1741,6 +1798,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_TieredStorageConfig
+//
+
+@implementation GTLRBigtableAdmin_TieredStorageConfig
+@dynamic infrequentAccess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_TieredStorageRule
+//
+
+@implementation GTLRBigtableAdmin_TieredStorageRule
+@dynamic includeIfOlderThan;
 @end
 
 
@@ -1858,6 +1935,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_UpdateLogicalViewRequest
 @dynamic logicalView, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateSchemaBundleMetadata
+//
+
+@implementation GTLRBigtableAdmin_UpdateSchemaBundleMetadata
+@dynamic endTime, name, startTime;
 @end
 
 

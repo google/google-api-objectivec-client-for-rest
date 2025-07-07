@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
@@ -25,6 +25,7 @@
 @class GTLRBigQueryReservation_ReplicationStatus;
 @class GTLRBigQueryReservation_Reservation;
 @class GTLRBigQueryReservation_Reservation_Labels;
+@class GTLRBigQueryReservation_ReservationGroup;
 @class GTLRBigQueryReservation_Status;
 @class GTLRBigQueryReservation_Status_Details_Item;
 @class GTLRBigQueryReservation_TableReference;
@@ -1099,6 +1100,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 
 
 /**
+ *  The response for ReservationService.ListReservationGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "reservationGroups" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBigQueryReservation_ListReservationGroupsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of reservations visible to the user.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_ReservationGroup *> *reservationGroups;
+
+@end
+
+
+/**
  *  The response for ReservationService.ListReservations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1352,8 +1380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 
 /**
  *  Optional. The labels associated with this reservation. You can use these to
- *  organize and group your reservations. You can set this property when
- *  inserting or updating a reservation.
+ *  organize and group your reservations. You can set this property when you
+ *  create or update a reservation.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Reservation_Labels *labels;
 
@@ -1443,6 +1471,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_ReplicationStatus *replicationStatus;
 
 /**
+ *  Optional. The reservation group that this reservation belongs to. You can
+ *  set this property when you create or update a reservation. Reservations do
+ *  not need to belong to a reservation group. Format:
+ *  projects/{project}/locations/{location}/reservationGroups/{reservation_group}
+ *  or just {reservation_group}
+ */
+@property(nonatomic, copy, nullable) NSString *reservationGroup;
+
+/**
  *  Optional. The scaling mode for the reservation. If the field is present but
  *  max_slots is not present, requests will be rejected with error code
  *  `google.rpc.Code.INVALID_ARGUMENT`.
@@ -1530,8 +1567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 
 /**
  *  Optional. The labels associated with this reservation. You can use these to
- *  organize and group your reservations. You can set this property when
- *  inserting or updating a reservation.
+ *  organize and group your reservations. You can set this property when you
+ *  create or update a reservation.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1539,6 +1576,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *        fetch them all at once.
  */
 @interface GTLRBigQueryReservation_Reservation_Labels : GTLRObject
+@end
+
+
+/**
+ *  A reservation group is a container for reservations.
+ */
+@interface GTLRBigQueryReservation_ReservationGroup : GTLRObject
+
+/**
+ *  Identifier. The resource name of the reservation group, e.g., `projects/ *
+ *  /locations/ * /reservationGroups/team1-prod`. The reservation_group_id must
+ *  only contain lower case alphanumeric characters or dashes. It must start
+ *  with a letter and must not end with a dash. Its maximum length is 64
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 

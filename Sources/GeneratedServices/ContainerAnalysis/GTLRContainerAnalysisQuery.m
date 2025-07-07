@@ -141,7 +141,7 @@
 
 @implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -398,7 +398,7 @@
 
 @implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetVulnerabilitySummary
 
-@dynamic filter, parent;
+@dynamic filter, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -417,7 +417,7 @@
 
 @implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -663,7 +663,7 @@
 
 @implementation GTLRContainerAnalysisQuery_ProjectsNotesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -920,7 +920,7 @@
 
 @implementation GTLRContainerAnalysisQuery_ProjectsOccurrencesGetVulnerabilitySummary
 
-@dynamic filter, parent;
+@dynamic filter, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -939,7 +939,7 @@
 
 @implementation GTLRContainerAnalysisQuery_ProjectsOccurrencesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

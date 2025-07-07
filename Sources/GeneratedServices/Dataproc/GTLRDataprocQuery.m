@@ -1250,7 +1250,14 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeJobs
 
-@dynamic name, parent;
+@dynamic jobIds, name, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobIds" : [NSNumber class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1288,7 +1295,14 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStages
 
-@dynamic name, parent;
+@dynamic name, parent, stageIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stageIds" : [NSNumber class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

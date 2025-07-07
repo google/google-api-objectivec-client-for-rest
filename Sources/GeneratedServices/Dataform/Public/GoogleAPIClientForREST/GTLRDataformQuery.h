@@ -428,9 +428,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesDelete : GTLRDataformQuery
 
 /**
- *  Optional. If set to true, any child resources of this repository will also
- *  be deleted. (Otherwise, the request will only succeed if the repository has
- *  no child resources.)
+ *  Optional. If set to true, child resources of this repository (compilation
+ *  results and workflow invocations) will also be deleted. Otherwise, the
+ *  request will only succeed if the repository has no child resources.
+ *  **Note:** *This flag doesn't support deletion of workspaces, release configs
+ *  or workflow configs. If any of such resources exists in the repository, the
+ *  request will fail.*.
  */
 @property(nonatomic, assign) BOOL force;
 

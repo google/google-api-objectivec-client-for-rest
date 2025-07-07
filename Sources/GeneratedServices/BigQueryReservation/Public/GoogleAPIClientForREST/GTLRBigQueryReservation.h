@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 

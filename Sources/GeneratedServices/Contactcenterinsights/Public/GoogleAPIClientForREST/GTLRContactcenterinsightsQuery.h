@@ -1706,6 +1706,48 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Generates a summary of predefined performance metrics for a set of
+ *  conversations. Conversations can be specified by specifying a time window
+ *  and an agent id, for now. The summary includes a comparison of metrics
+ *  computed for conversations in the previous time period, and also a
+ *  comparison with peers in the same time period.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.queryPerformanceOverview
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsQueryPerformanceOverview : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The parent resource of the conversations to derive performance
+ *  stats from. "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Generates a summary of predefined performance metrics for a set of
+ *  conversations. Conversations can be specified by specifying a time window
+ *  and an agent id, for now. The summary includes a comparison of metrics
+ *  computed for conversations in the previous time period, and also a
+ *  comparison with peers in the same time period.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the conversations to derive
+ *    performance stats from. "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsQueryPerformanceOverview
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  SearchAuthorizedViewSets
  *
  *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.search
@@ -4908,6 +4950,183 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Creates a QaQuestionTag.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaQuestionTags.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the QaQuestionTag. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique ID for the new QaQuestionTag. This ID will become the
+ *  final component of the QaQuestionTag's resource name. If no ID is specified,
+ *  a server-generated ID will be used. This value should be 4-64 characters and
+ *  must match the regular expression `^[a-z0-9-]{4,64}$`. Valid characters are
+ *  `a-z-`.
+ */
+@property(nonatomic, copy, nullable) NSString *qaQuestionTagId;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag.
+ *
+ *  Creates a QaQuestionTag.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the QaQuestionTag.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a QaQuestionTag.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaQuestionTags.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaQuestionTag to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Deletes a QaQuestionTag.
+ *
+ *  @param name Required. The name of the QaQuestionTag to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a QaQuestionTag.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaQuestionTags.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaQuestionTag to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag.
+ *
+ *  Gets a QaQuestionTag.
+ *
+ *  @param name Required. The name of the QaQuestionTag to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the question tags.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaQuestionTags.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Supports
+ *  disjunctions (OR) and conjunctions (AND). Supported fields include the
+ *  following: * `project_id` - id of the project to list tags for *
+ *  `qa_scorecard_revision_id` - id of the scorecard revision to list tags for *
+ *  `qa_question_id - id of the question to list tags for`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The parent resource of the QaQuestionTags. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaQuestionTagsResponse.
+ *
+ *  Lists the question tags.
+ *
+ *  @param parent Required. The parent resource of the QaQuestionTags.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a QaQuestionTag.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaQuestionTags.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. Resource name for the QaQuestionTag Format
+ *  projects/{project}/locations/{location}/qaQuestionTags/{qa_question_tag} In
+ *  the above format, the last segment, i.e., qa_question_tag, is a
+ *  server-generated ID corresponding to the tag resource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated. All possible fields can be
+ *  updated by passing `*`, or a subset of the following updateable fields can
+ *  be provided: * `qa_question_tag_name` - the name of the tag *
+ *  `qa_question_ids` - the list of questions the tag applies to
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Updates a QaQuestionTag.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag
+ *    to include in the query.
+ *  @param name Identifier. Resource name for the QaQuestionTag Format
+ *    projects/{project}/locations/{location}/qaQuestionTags/{qa_question_tag}
+ *    In the above format, the last segment, i.e., qa_question_tag, is a
+ *    server-generated ID corresponding to the tag resource.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaQuestionTagsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create a QaScorecard.
  *
  *  Method: contactcenterinsights.projects.locations.qaScorecards.create
@@ -5563,6 +5782,48 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest *)object
                        location:(NSString *)location;
+
+@end
+
+/**
+ *  Generates a summary of predefined performance metrics for a set of
+ *  conversations. Conversations can be specified by specifying a time window
+ *  and an agent id, for now. The summary includes a comparison of metrics
+ *  computed for conversations in the previous time period, and also a
+ *  comparison with peers in the same time period.
+ *
+ *  Method: contactcenterinsights.projects.locations.queryPerformanceOverview
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQueryPerformanceOverview : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The parent resource of the conversations to derive performance
+ *  stats from. "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Generates a summary of predefined performance metrics for a set of
+ *  conversations. Conversations can be specified by specifying a time window
+ *  and an agent id, for now. The summary includes a comparison of metrics
+ *  computed for conversations in the previous time period, and also a
+ *  comparison with peers in the same time period.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the conversations to derive
+ *    performance stats from. "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQueryPerformanceOverview
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

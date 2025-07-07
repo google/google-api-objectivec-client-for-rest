@@ -16,6 +16,17 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCertificateAuthorityService_AttributeTypeAndValue.type
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_AttributeTypeUnspecified = @"ATTRIBUTE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CommonName = @"COMMON_NAME";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CountryCode = @"COUNTRY_CODE";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Locality = @"LOCALITY";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Organization = @"ORGANIZATION";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_OrganizationalUnit = @"ORGANIZATIONAL_UNIT";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_PostalCode = @"POSTAL_CODE";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Province = @"PROVINCE";
+NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_StreetAddress = @"STREET_ADDRESS";
+
 // GTLRCertificateAuthorityService_AuditLogConfig.logType
 NSString * const kGTLRCertificateAuthorityService_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRCertificateAuthorityService_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -29,6 +40,7 @@ NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_TierUnspecified = 
 
 // GTLRCertificateAuthorityService_Certificate.subjectMode
 NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_Default = @"DEFAULT";
+NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_RdnSequence = @"RDN_SEQUENCE";
 NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_ReflectedSpiffe = @"REFLECTED_SPIFFE";
 NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_SubjectRequestModeUnspecified = @"SUBJECT_REQUEST_MODE_UNSPECIFIED";
 
@@ -163,6 +175,16 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_AllowedKeyType
 @dynamic ellipticCurve, rsa;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_AttributeTypeAndValue
+//
+
+@implementation GTLRCertificateAuthorityService_AttributeTypeAndValue
+@dynamic objectId, type, value;
 @end
 
 
@@ -1025,6 +1047,24 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_RelativeDistinguishedName
+//
+
+@implementation GTLRCertificateAuthorityService_RelativeDistinguishedName
+@dynamic attributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRCertificateAuthorityService_AttributeTypeAndValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_RevocationDetails
 //
 
@@ -1112,7 +1152,15 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_Subject
 @dynamic commonName, countryCode, locality, organization, organizationalUnit,
-         postalCode, province, streetAddress;
+         postalCode, province, rdnSequence, streetAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rdnSequence" : [GTLRCertificateAuthorityService_RelativeDistinguishedName class]
+  };
+  return map;
+}
+
 @end
 
 

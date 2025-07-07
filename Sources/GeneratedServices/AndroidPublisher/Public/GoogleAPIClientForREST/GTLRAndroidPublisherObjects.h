@@ -126,6 +126,9 @@
 @class GTLRAndroidPublisher_PrepaidPlan;
 @class GTLRAndroidPublisher_Price;
 @class GTLRAndroidPublisher_ProcessedEvent;
+@class GTLRAndroidPublisher_ProductLineItem;
+@class GTLRAndroidPublisher_ProductOfferDetails;
+@class GTLRAndroidPublisher_PurchaseStateContext;
 @class GTLRAndroidPublisher_RecurringExternalTransaction;
 @class GTLRAndroidPublisher_RefundDetails;
 @class GTLRAndroidPublisher_RefundEvent;
@@ -140,6 +143,7 @@
 @class GTLRAndroidPublisher_RemoteInAppUpdate;
 @class GTLRAndroidPublisher_RemoteInAppUpdateData;
 @class GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle;
+@class GTLRAndroidPublisher_RentOfferDetails;
 @class GTLRAndroidPublisher_ReplacementCancellation;
 @class GTLRAndroidPublisher_RestrictedPaymentCountries;
 @class GTLRAndroidPublisher_Review;
@@ -181,6 +185,7 @@
 @class GTLRAndroidPublisher_TargetingRuleScopeThisSubscription;
 @class GTLRAndroidPublisher_TargetingUpdate;
 @class GTLRAndroidPublisher_TestPurchase;
+@class GTLRAndroidPublisher_TestPurchaseContext;
 @class GTLRAndroidPublisher_TextureCompressionFormat;
 @class GTLRAndroidPublisher_TextureCompressionFormatTargeting;
 @class GTLRAndroidPublisher_Timestamp;
@@ -1097,6 +1102,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_Tim
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ProductOfferDetails.consumptionState
+
+/**
+ *  Consumed already.
+ *
+ *  Value: "CONSUMPTION_STATE_CONSUMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateConsumed;
+/**
+ *  Consumption state unspecified. This value should never be set.
+ *
+ *  Value: "CONSUMPTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateUnspecified;
+/**
+ *  Yet to be consumed.
+ *
+ *  Value: "CONSUMPTION_STATE_YET_TO_BE_CONSUMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateYetToBeConsumed;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ProductPurchaseV2.acknowledgementState
+
+/**
+ *  The purchase is acknowledged.
+ *
+ *  Value: "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateAcknowledged;
+/**
+ *  The purchase is not acknowledged yet.
+ *
+ *  Value: "ACKNOWLEDGEMENT_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStatePending;
+/**
+ *  Unspecified acknowledgement state.
+ *
+ *  Value: "ACKNOWLEDGEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_PurchaseStateContext.purchaseState
+
+/**
+ *  Purchase canceled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Cancelled;
+/**
+ *  The purchase is in a pending state and has not yet been completed. For more
+ *  information on handling pending purchases, see
+ *  https://developer.android.com/google/play/billing/integrate#pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Pending;
+/**
+ *  Purchased successfully.
+ *
+ *  Value: "PURCHASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Purchased;
+/**
+ *  Purchase state unspecified. This value should never be set.
+ *
+ *  Value: "PURCHASE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_PurchaseStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
 
 /**
@@ -1514,6 +1593,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndCompl
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService;
 /** Value: "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_TestPurchaseContext.fopType
+
+/**
+ *  Fop type unspecified. This value should never be set.
+ *
+ *  Value: "FOP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TestPurchaseContext_FopType_FopTypeUnspecified;
+/**
+ *  The purchase was made using a test card.
+ *
+ *  Value: "TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TestPurchaseContext_FopType_Test;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_TextureCompressionFormat.alias
@@ -5642,6 +5737,78 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Contains item-level info for a ProductPurchaseV2.
+ */
+@interface GTLRAndroidPublisher_ProductLineItem : GTLRObject
+
+/** The purchased product ID (for example, 'monthly001'). */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** The offer details for this item. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ProductOfferDetails *productOfferDetails;
+
+@end
+
+
+/**
+ *  Offer details information related to a purchase line item.
+ */
+@interface GTLRAndroidPublisher_ProductOfferDetails : GTLRObject
+
+/**
+ *  Output only. The consumption state of the purchase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateConsumed
+ *        Consumed already. (Value: "CONSUMPTION_STATE_CONSUMED")
+ *    @arg @c kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateUnspecified
+ *        Consumption state unspecified. This value should never be set. (Value:
+ *        "CONSUMPTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateYetToBeConsumed
+ *        Yet to be consumed. (Value: "CONSUMPTION_STATE_YET_TO_BE_CONSUMED")
+ */
+@property(nonatomic, copy, nullable) NSString *consumptionState;
+
+/** The offer ID. Only present for offers. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  The latest offer tags associated with the offer. It includes tags inherited
+ *  from the purchase option.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *offerTags;
+
+/** The per-transaction offer token used to make this purchase line item. */
+@property(nonatomic, copy, nullable) NSString *offerToken;
+
+/** The purchase option ID. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  The quantity associated with the purchase of the inapp product.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  The quantity eligible for refund, i.e. quantity that hasn't been refunded.
+ *  The value reflects quantity-based partial refunds and full refunds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *refundableQuantity;
+
+/**
+ *  Offer details about rent offers. This will only be set for rental line
+ *  items.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RentOfferDetails *rentOfferDetails;
+
+@end
+
+
+/**
  *  A ProductPurchase resource indicates the status of a user's inapp product
  *  purchase.
  */
@@ -5761,6 +5928,114 @@ GTLR_DEPRECATED
 
 /** Payload to attach to the purchase. */
 @property(nonatomic, copy, nullable) NSString *developerPayload;
+
+@end
+
+
+/**
+ *  A ProductPurchaseV2 resource indicates the status of a user's inapp product
+ *  purchase.
+ */
+@interface GTLRAndroidPublisher_ProductPurchaseV2 : GTLRObject
+
+/**
+ *  Output only. The acknowledgement state of the purchase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateAcknowledged
+ *        The purchase is acknowledged. (Value:
+ *        "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED")
+ *    @arg @c kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStatePending
+ *        The purchase is not acknowledged yet. (Value:
+ *        "ACKNOWLEDGEMENT_STATE_PENDING")
+ *    @arg @c kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified
+ *        Unspecified acknowledgement state. (Value:
+ *        "ACKNOWLEDGEMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *acknowledgementState;
+
+/**
+ *  This kind represents a ProductPurchaseV2 object in the androidpublisher
+ *  service.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  An obfuscated version of the id that is uniquely associated with the user's
+ *  account in your app. Only present if specified using
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid
+ *  when the purchase was made.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedExternalAccountId;
+
+/**
+ *  An obfuscated version of the id that is uniquely associated with the user's
+ *  profile in your app. Only present if specified using
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedprofileid
+ *  when the purchase was made.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedExternalProfileId;
+
+/**
+ *  The order id associated with the purchase of the inapp product. May not be
+ *  set if there is no order associated with the purchase.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/** Contains item-level info for a ProductPurchaseV2. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ProductLineItem *> *productLineItem;
+
+/**
+ *  The time when the purchase was successful, i.e., when the PurchaseState has
+ *  changed to PURCHASED. This field will not be present until the payment is
+ *  complete. For example, if the user initiated a pending transaction
+ *  (https://developer.android.com/google/play/billing/integrate#pending), this
+ *  field will not be populated until the user successfully completes the steps
+ *  required to complete the transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *purchaseCompletionTime;
+
+/** Information about the purchase state of the purchase. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PurchaseStateContext *purchaseStateContext;
+
+/**
+ *  ISO 3166-1 alpha-2 billing region code of the user at the time the product
+ *  was granted.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Information related to test purchases. This will only be set for test
+ *  purchases.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_TestPurchaseContext *testPurchaseContext;
+
+@end
+
+
+/**
+ *  Context about the purchase state.
+ */
+@interface GTLRAndroidPublisher_PurchaseStateContext : GTLRObject
+
+/**
+ *  Output only. The purchase state of the purchase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Cancelled
+ *        Purchase canceled. (Value: "CANCELLED")
+ *    @arg @c kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Pending
+ *        The purchase is in a pending state and has not yet been completed. For
+ *        more information on handling pending purchases, see
+ *        https://developer.android.com/google/play/billing/integrate#pending.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Purchased
+ *        Purchased successfully. (Value: "PURCHASED")
+ *    @arg @c kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_PurchaseStateUnspecified
+ *        Purchase state unspecified. This value should never be set. (Value:
+ *        "PURCHASE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseState;
 
 @end
 
@@ -6193,6 +6468,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Offer details information related to a rental line item.
+ */
+@interface GTLRAndroidPublisher_RentOfferDetails : GTLRObject
+@end
+
+
+/**
  *  Information specific to cancellations caused by subscription replacement.
  */
 @interface GTLRAndroidPublisher_ReplacementCancellation : GTLRObject
@@ -6294,8 +6576,8 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_RevocationContext : GTLRObject
 
 /**
- *  Optional. Used when users should be refunded the full amount of the latest
- *  order of the subscription.
+ *  Optional. Used when users should be refunded the full amount of latest
+ *  charge on each item in the subscription.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContextFullRefund *fullRefund;
 
@@ -7663,6 +7945,26 @@ GTLR_DEPRECATED
  *  Whether this subscription purchase is a test purchase.
  */
 @interface GTLRAndroidPublisher_TestPurchase : GTLRObject
+@end
+
+
+/**
+ *  Context about a test purchase.
+ */
+@interface GTLRAndroidPublisher_TestPurchaseContext : GTLRObject
+
+/**
+ *  The fop type of the test purchase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_TestPurchaseContext_FopType_FopTypeUnspecified
+ *        Fop type unspecified. This value should never be set. (Value:
+ *        "FOP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_TestPurchaseContext_FopType_Test The
+ *        purchase was made using a test card. (Value: "TEST")
+ */
+@property(nonatomic, copy, nullable) NSString *fopType;
+
 @end
 
 

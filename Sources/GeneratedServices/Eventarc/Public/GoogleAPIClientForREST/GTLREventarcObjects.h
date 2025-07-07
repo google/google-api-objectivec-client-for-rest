@@ -2380,6 +2380,14 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, strong, nullable) GTLREventarc_GoogleCloudEventarcV1PipelineRetryPolicy *retryPolicy;
 
 /**
+ *  Output only. Whether or not this Pipeline satisfies the requirements of
+ *  physical zone separation
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. Server-assigned unique identifier for the Pipeline. The value
  *  is a UUID4 string and guaranteed to remain unchanged until the resource is
  *  deleted.

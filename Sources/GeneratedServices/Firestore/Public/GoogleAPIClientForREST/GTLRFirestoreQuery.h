@@ -256,6 +256,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new database by cloning an existing one. The new database must be
+ *  in the same cloud region or multi-region location as the existing database.
+ *  This behaves similar to FirestoreAdmin.CreateDatabase except instead of
+ *  creating a new empty database, a new database is created with the database
+ *  type, index configuration, and documents from an existing database. The
+ *  long-running operation can be used to track the progress of the clone, with
+ *  the Operation's metadata field type being the CloneDatabaseMetadata. The
+ *  response type is the Database if the clone was successful. The new database
+ *  is not readable or writeable until the LRO has completed.
+ *
+ *  Method: firestore.projects.databases.clone
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesClone : GTLRFirestoreQuery
+
+/**
+ *  Required. The project to clone the database in. Format is
+ *  `projects/{project_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
+ *
+ *  Creates a new database by cloning an existing one. The new database must be
+ *  in the same cloud region or multi-region location as the existing database.
+ *  This behaves similar to FirestoreAdmin.CreateDatabase except instead of
+ *  creating a new empty database, a new database is created with the database
+ *  type, index configuration, and documents from an existing database. The
+ *  long-running operation can be used to track the progress of the clone, with
+ *  the Operation's metadata field type being the CloneDatabaseMetadata. The
+ *  response type is the Database if the clone was successful. The new database
+ *  is not readable or writeable until the LRO has completed.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest to include in the
+ *    query.
+ *  @param parent Required. The project to clone the database in. Format is
+ *    `projects/{project_id}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesClone
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the metadata and configuration for a Field.
  *
  *  Method: firestore.projects.databases.collectionGroups.fields.get

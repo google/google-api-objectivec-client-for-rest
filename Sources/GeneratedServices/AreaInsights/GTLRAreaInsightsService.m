@@ -6,7 +6,7 @@
 // Description:
 //   Places Aggregate API.
 // Documentation:
-//   https://g3doc.corp.google.com/geo/platform/area_insights/README.md?cl=head
+//   https://developers.google.com/maps/documentation/places-aggregate/overview
 
 #import <GoogleAPIClientForREST/GTLRAreaInsights.h>
 

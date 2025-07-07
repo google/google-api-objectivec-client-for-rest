@@ -87,6 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: workspaceevents.subscriptions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -329,6 +331,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: workspaceevents.subscriptions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -358,9 +362,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the request. You can update one of the following fields in a subscription: *
  *  `expire_time`: The timestamp when the subscription expires. * `ttl`: The
  *  time-to-live (TTL) or duration of the subscription. * `event_types`: The
- *  list of event types to receive about the target resource. To fully replace
- *  the subscription (the equivalent of `PUT`), use `*`. Any omitted fields are
- *  updated with empty values.
+ *  list of event types to receive about the target resource. When using the `*`
+ *  wildcard (equivalent to `PUT`), omitted fields are set to empty values and
+ *  rejected if they're invalid.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -402,6 +406,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: workspaceevents.subscriptions.reactivate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages

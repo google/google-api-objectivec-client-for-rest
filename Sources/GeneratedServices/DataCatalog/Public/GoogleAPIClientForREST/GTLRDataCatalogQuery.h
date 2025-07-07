@@ -152,8 +152,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the configuration related to the migration from Data Catalog to
- *  Dataplex for a specific organization, including all the projects under it
- *  which have a separate configuration set.
+ *  Dataplex Universal Catalog for a specific organization, including all the
+ *  projects under it which have a separate configuration set.
  *
  *  Method: datacatalog.organizations.locations.retrieveConfig
  *
@@ -170,8 +170,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig.
  *
  *  Retrieves the configuration related to the migration from Data Catalog to
- *  Dataplex for a specific organization, including all the projects under it
- *  which have a separate configuration set.
+ *  Dataplex Universal Catalog for a specific organization, including all the
+ *  projects under it which have a separate configuration set.
  *
  *  @param name Required. The organization whose config is being retrieved.
  *
@@ -183,10 +183,10 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the effective configuration related to the migration from Data
- *  Catalog to Dataplex for a specific organization or project. If there is no
- *  specific configuration set for the resource, the setting is checked
- *  hierarchicahlly through the ancestors of the resource, starting from the
- *  resource itself.
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
  *
  *  Method: datacatalog.organizations.locations.retrieveEffectiveConfig
  *
@@ -203,10 +203,10 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
  *
  *  Retrieves the effective configuration related to the migration from Data
- *  Catalog to Dataplex for a specific organization or project. If there is no
- *  specific configuration set for the resource, the setting is checked
- *  hierarchicahlly through the ancestors of the resource, starting from the
- *  resource itself.
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
  *
  *  @param name Required. The resource whose effective config is being
  *    retrieved.
@@ -218,8 +218,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Sets the configuration related to the migration to Dataplex for an
- *  organization or project.
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
  *
  *  Method: datacatalog.organizations.locations.setConfig
  *
@@ -235,8 +235,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
  *
- *  Sets the configuration related to the migration to Dataplex for an
- *  organization or project.
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest to include in the
@@ -1699,10 +1699,10 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the effective configuration related to the migration from Data
- *  Catalog to Dataplex for a specific organization or project. If there is no
- *  specific configuration set for the resource, the setting is checked
- *  hierarchicahlly through the ancestors of the resource, starting from the
- *  resource itself.
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
  *
  *  Method: datacatalog.projects.locations.retrieveEffectiveConfig
  *
@@ -1719,10 +1719,10 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
  *
  *  Retrieves the effective configuration related to the migration from Data
- *  Catalog to Dataplex for a specific organization or project. If there is no
- *  specific configuration set for the resource, the setting is checked
- *  hierarchicahlly through the ancestors of the resource, starting from the
- *  resource itself.
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
  *
  *  @param name Required. The resource whose effective config is being
  *    retrieved.
@@ -1734,8 +1734,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Sets the configuration related to the migration to Dataplex for an
- *  organization or project.
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
  *
  *  Method: datacatalog.projects.locations.setConfig
  *
@@ -1751,8 +1751,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
  *
- *  Sets the configuration related to the migration to Dataplex for an
- *  organization or project.
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest to include in the

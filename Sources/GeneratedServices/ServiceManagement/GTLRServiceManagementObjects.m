@@ -1788,7 +1788,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_Rollout
 @dynamic createdBy, createTime, deleteServiceStrategy, rolloutId, serviceName,
-         status, trafficPercentStrategy;
+         status, trafficPercentStrategy, universe;
 @end
 
 
