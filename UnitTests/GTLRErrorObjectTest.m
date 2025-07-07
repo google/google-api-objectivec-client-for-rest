@@ -121,54 +121,50 @@
 
   // Make sure the underlying JSON support didn't get busted.
 
-  if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, *)) {
-    GTLRErrorObject *obj = [GTLRErrorObject object];
-    obj.code = @123;
-    obj.message = @"A message";
+  GTLRErrorObject *obj = [GTLRErrorObject object];
+  obj.code = @123;
+  obj.message = @"A message";
 
-    NSError *err;
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:obj
-                                         requiringSecureCoding:YES
-                                                         error:&err];
-    XCTAssertNil(err);
-    XCTAssertTrue(data.length > 0);
+  NSError *err;
+  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:obj
+                                       requiringSecureCoding:YES
+                                                       error:&err];
+  XCTAssertNil(err);
+  XCTAssertTrue(data.length > 0);
 
-    NSSet<Class> *classes = [NSSet setWithArray:@[ [GTLRErrorObject class],
-                                                   [NSString class] ]];
-    GTLRErrorObject *obj2 =
-        [NSKeyedUnarchiver unarchivedObjectOfClasses:classes
-                                            fromData:data
+  NSSet<Class> *classes = [NSSet setWithArray:@[ [GTLRErrorObject class],
+                                                 [NSString class] ]];
+  GTLRErrorObject *obj2 =
+      [NSKeyedUnarchiver unarchivedObjectOfClasses:classes
+                                          fromData:data
+                                             error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(obj2);
+  XCTAssertNotEqual(obj, obj2);  // Pointer compare
+  XCTAssertEqualObjects(obj, obj2);
+
+  // Test with a foundation error.
+
+  err = [NSError errorWithDomain:@"my.domain"
+                            code:111
+                        userInfo:nil];
+  obj = [GTLRErrorObject objectWithFoundationError:err];
+
+  err = nil;
+  data = [NSKeyedArchiver archivedDataWithRootObject:obj
+                               requiringSecureCoding:YES
                                                error:&err];
-    XCTAssertNil(err);
-    XCTAssertNotNil(obj2);
-    XCTAssertNotEqual(obj, obj2);  // Pointer compare
-    XCTAssertEqualObjects(obj, obj2);
+  XCTAssertNil(err);
+  XCTAssertTrue(data.length > 0);
 
-    // Test with a foundation error.
-
-    err = [NSError errorWithDomain:@"my.domain"
-                              code:111
-                          userInfo:nil];
-    obj = [GTLRErrorObject objectWithFoundationError:err];
-
-    err = nil;
-    data = [NSKeyedArchiver archivedDataWithRootObject:obj
-                                 requiringSecureCoding:YES
-                                                 error:&err];
-    XCTAssertNil(err);
-    XCTAssertTrue(data.length > 0);
-
-    err = nil;
-    obj2 = [NSKeyedUnarchiver unarchivedObjectOfClass:[GTLRErrorObject class]
-                                             fromData:data
-                                                error:&err];
-    XCTAssertNil(err);
-    XCTAssertNotNil(obj2);
-    XCTAssertNotEqual(obj, obj2);  // Pointer compare.
-    XCTAssertEqualObjects(obj, obj2);
-  } else {
-    XCTFail("use a newer test device");
-  }
+  err = nil;
+  obj2 = [NSKeyedUnarchiver unarchivedObjectOfClass:[GTLRErrorObject class]
+                                           fromData:data
+                                              error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(obj2);
+  XCTAssertNotEqual(obj, obj2);  // Pointer compare.
+  XCTAssertEqualObjects(obj, obj2);
 }
 
 @end
