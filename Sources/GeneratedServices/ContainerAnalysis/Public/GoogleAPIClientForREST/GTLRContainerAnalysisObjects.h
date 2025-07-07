@@ -60,6 +60,8 @@
 @class GTLRContainerAnalysis_Envelope;
 @class GTLRContainerAnalysis_EnvelopeSignature;
 @class GTLRContainerAnalysis_Expr;
+@class GTLRContainerAnalysis_File;
+@class GTLRContainerAnalysis_File_Digest;
 @class GTLRContainerAnalysis_FileHashes;
 @class GTLRContainerAnalysis_Fingerprint;
 @class GTLRContainerAnalysis_FixableTotalByDigest;
@@ -3562,6 +3564,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** The CPE of the resource being scanned. */
 @property(nonatomic, copy, nullable) NSString *cpe;
 
+/** Files that make up the resource described by the occurrence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_File *> *files;
+
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
@@ -3790,6 +3795,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_File
+ */
+@interface GTLRContainerAnalysis_File : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_File_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_File_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_File_Digest : GTLRObject
 @end
 
 
@@ -5049,8 +5077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceRepository : GTLRObject
 
 /**
- *  The Developer Connect Git repository link or the url that matches a
- *  repository link in the current project, formatted as `projects/ *
+ *  The Developer Connect Git repository link formatted as `projects/ *
  *  /locations/ * /connections/ * /gitRepositoryLink/ *`
  */
 @property(nonatomic, copy, nullable) NSString *developerConnect;
@@ -6291,6 +6318,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Note *> *notes;
 
+/**
+ *  Unordered list. Unreachable regions. Populated for requests from the global
+ *  region when `return_partial_success` is set. Format: projects//locations/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -6318,6 +6351,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Occurrence *> *occurrences;
+
+/**
+ *  Unordered list. Unreachable regions. Populated for requests from the global
+ *  region when `return_partial_success` is set. Format: projects//locations/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -8426,6 +8465,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  A listing by resource of the number of fixable and total vulnerabilities.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_FixableTotalByDigest *> *counts;
+
+/**
+ *  Unordered list. Unreachable regions. Populated for requests from the global
+ *  region when `return_partial_success` is set. Format: projects//locations/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

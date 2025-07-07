@@ -754,10 +754,11 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDefaults
 @dynamic additionalLicenses, appliedLicense, bootConversion, bootOption,
-         computeScheduling, diskType, enableIntegrityMonitoring, enableVtpm,
-         encryption, hostname, labels, licenseType, machineType,
-         machineTypeSeries, metadata, networkInterfaces, networkTags,
-         secureBoot, serviceAccount, targetProject, vmName, zoneProperty;
+         computeScheduling, diskReplicaZones, diskType,
+         enableIntegrityMonitoring, enableVtpm, encryption, hostname, labels,
+         licenseType, machineType, machineTypeSeries, metadata,
+         networkInterfaces, networkTags, secureBoot, serviceAccount,
+         targetProject, vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -766,6 +767,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalLicenses" : [NSString class],
+    @"diskReplicaZones" : [NSString class],
     @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
     @"networkTags" : [NSString class]
   };
@@ -810,10 +812,11 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDetails
 @dynamic additionalLicenses, appliedLicense, bootConversion, bootOption,
-         computeScheduling, diskType, enableIntegrityMonitoring, enableVtpm,
-         encryption, hostname, labels, licenseType, machineType,
-         machineTypeSeries, metadata, networkInterfaces, networkTags, project,
-         secureBoot, serviceAccount, vmName, zoneProperty;
+         computeScheduling, diskReplicaZones, diskType,
+         enableIntegrityMonitoring, enableVtpm, encryption, hostname, labels,
+         licenseType, machineType, machineTypeSeries, metadata,
+         networkInterfaces, networkTags, project, secureBoot, serviceAccount,
+         vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -822,6 +825,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalLicenses" : [NSString class],
+    @"diskReplicaZones" : [NSString class],
     @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
     @"networkTags" : [NSString class]
   };

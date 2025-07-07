@@ -354,6 +354,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudLifeSciences"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudLocationFinder",
+            targets: ["GoogleAPIClientForREST_CloudLocationFinder"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudMachineLearningEngine",
             targets: ["GoogleAPIClientForREST_CloudMachineLearningEngine"]
         ),
@@ -992,6 +996,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_SA360",
             targets: ["GoogleAPIClientForREST_SA360"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_SaaSServiceManagement",
+            targets: ["GoogleAPIClientForREST_SaaSServiceManagement"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Safebrowsing",
@@ -1749,6 +1757,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudLifeSciences",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudLifeSciences",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudLocationFinder",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudLocationFinder",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2709,6 +2723,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_SA360",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/SA360",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_SaaSServiceManagement",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/SaaSServiceManagement",
             publicHeadersPath: "Public"
         ),
         .target(

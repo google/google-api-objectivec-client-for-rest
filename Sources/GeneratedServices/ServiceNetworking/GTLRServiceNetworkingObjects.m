@@ -551,6 +551,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_CleanupConnectionMetadata
+//
+
+@implementation GTLRServiceNetworking_CleanupConnectionMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_ClientLibrarySettings
 //
 
@@ -1697,7 +1706,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_PhpSettings
-@dynamic common;
+@dynamic common, libraryPackage;
 @end
 
 

@@ -110,6 +110,7 @@
 @class GTLRDatabaseMigrationService_PrivateConnection_Labels;
 @class GTLRDatabaseMigrationService_PrivateConnectivity;
 @class GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity;
+@class GTLRDatabaseMigrationService_PscInterfaceConfig;
 @class GTLRDatabaseMigrationService_ReverseSshConnectivity;
 @class GTLRDatabaseMigrationService_RoundToScale;
 @class GTLRDatabaseMigrationService_RulesFile;
@@ -201,6 +202,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
@@ -2622,6 +2629,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        The database version is Postgres 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16
  *        The database version is Postgres 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres17
+ *        The database version is Postgres 17. (Value: "POSTGRES_17")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -6878,6 +6887,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /** The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** PSC Interface configuration. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PscInterfaceConfig *pscInterfaceConfig;
+
 /**
  *  Output only. Reserved for future use.
  *
@@ -6974,6 +6986,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Optional. The object filter to apply to the migration job. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MigrationJobObjectsConfig *objectsFilter;
+
+@end
+
+
+/**
+ *  The PSC Interface configuration is used to create PSC Interface between
+ *  DMS's internal VPC and the consumer's PSC.
+ */
+@interface GTLRDatabaseMigrationService_PscInterfaceConfig : GTLRObject
+
+/**
+ *  Required. Fully qualified name of the Network Attachment that DMS will
+ *  connect to. Format:
+ *  `projects/{{project}}/regions/{{region}}/networkAttachments/{{name}}`
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
 
 @end
 

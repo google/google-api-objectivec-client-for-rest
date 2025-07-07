@@ -3512,6 +3512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *endOffset;
 
 /**
+ *  Filter the returned objects. Currently only supported for the contexts
+ *  field. If delimiter is set, the returned prefixes are exempt from this
+ *  filter.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Only applicable if delimiter is set to '/'. If true, will also include
  *  folders and managed folders (besides objects) in the returned prefixes.
  */

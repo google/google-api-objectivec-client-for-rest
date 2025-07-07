@@ -704,8 +704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  Generates an enterprise upgrade URL to upgrade an existing managed Google
- *  Play Accounts enterprise to a managed Google domain.Note: This feature is
- *  not generally available.
+ *  Play Accounts enterprise to a managed Google domain. See the guide
+ *  (https://developers.google.com/android/management/upgrade-an-enterprise) for
+ *  more details.
  *
  *  Method: androidmanagement.enterprises.generateEnterpriseUpgradeUrl
  *
@@ -724,8 +725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Fetches a @c GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse.
  *
  *  Generates an enterprise upgrade URL to upgrade an existing managed Google
- *  Play Accounts enterprise to a managed Google domain.Note: This feature is
- *  not generally available.
+ *  Play Accounts enterprise to a managed Google domain. See the guide
+ *  (https://developers.google.com/android/management/upgrade-an-enterprise) for
+ *  more details.
  *
  *  @param object The @c
  *    GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest to include in
@@ -1080,6 +1082,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
+ *  Updates or creates applications in a policy.
+ *
+ *  Method: androidmanagement.enterprises.policies.modifyPolicyApplications
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the Policy containing the ApplicationPolicy objects to
+ *  be updated, in the form enterprises/{enterpriseId}/policies/{policyId}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_ModifyPolicyApplicationsResponse.
+ *
+ *  Updates or creates applications in a policy.
+ *
+ *  @param object The @c GTLRAndroidManagement_ModifyPolicyApplicationsRequest
+ *    to include in the query.
+ *  @param name Required. The name of the Policy containing the
+ *    ApplicationPolicy objects to be updated, in the form
+ *    enterprises/{enterpriseId}/policies/{policyId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_ModifyPolicyApplicationsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates or creates a policy.
  *
  *  Method: androidmanagement.enterprises.policies.patch
@@ -1115,6 +1151,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Policy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes applications in a policy.
+ *
+ *  Method: androidmanagement.enterprises.policies.removePolicyApplications
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the policy containing the ApplicationPolicy objects to
+ *  be removed, in the form enterprises/{enterpriseId}/policies/{policyId}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_RemovePolicyApplicationsResponse.
+ *
+ *  Removes applications in a policy.
+ *
+ *  @param object The @c GTLRAndroidManagement_RemovePolicyApplicationsRequest
+ *    to include in the query.
+ *  @param name Required. The name of the policy containing the
+ *    ApplicationPolicy objects to be removed, in the form
+ *    enterprises/{enterpriseId}/policies/{policyId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_RemovePolicyApplicationsRequest *)object
                            name:(NSString *)name;
 
 @end

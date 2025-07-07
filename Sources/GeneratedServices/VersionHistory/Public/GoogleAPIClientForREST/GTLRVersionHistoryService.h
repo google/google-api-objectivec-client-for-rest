@@ -6,7 +6,7 @@
 // Description:
 //   Version History API - Prod
 // Documentation:
-//   https://developers.chrome.com/versionhistory
+//   https://developer.chrome.com/docs/web-platform/versionhistory/guide
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 

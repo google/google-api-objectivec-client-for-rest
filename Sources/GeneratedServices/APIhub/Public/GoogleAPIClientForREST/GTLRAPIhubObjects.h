@@ -77,6 +77,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstanceActionSource;
 @class GTLRAPIhub_GoogleCloudApihubV1Point;
 @class GTLRAPIhub_GoogleCloudApihubV1Range;
+@class GTLRAPIhub_GoogleCloudApihubV1ResourceConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1RuntimeProjectAttachment;
 @class GTLRAPIhub_GoogleCloudApihubV1Schema;
 @class GTLRAPIhub_GoogleCloudApihubV1SearchResult;
@@ -857,6 +858,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDet
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec31;
 
 // ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1Plugin.gatewayType
+
+/**
+ *  The gateway type is API Discovery.
+ *
+ *  Value: "API_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApiDiscovery;
+/**
+ *  The gateway type is Apigee Edge Private Cloud.
+ *
+ *  Value: "APIGEE_EDGE_PRIVATE_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePrivateCloud;
+/**
+ *  The gateway type is Apigee Edge Public Cloud.
+ *
+ *  Value: "APIGEE_EDGE_PUBLIC_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePublicCloud;
+/**
+ *  The gateway type is Apigee X and Hybrid.
+ *
+ *  Value: "APIGEE_X_AND_HYBRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeXAndHybrid;
+/**
+ *  The gateway type is Cloud API Gateway.
+ *
+ *  Value: "CLOUD_API_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudApiGateway;
+/**
+ *  The gateway type is Cloud Endpoints.
+ *
+ *  Value: "CLOUD_ENDPOINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudEndpoints;
+/**
+ *  The gateway type is not specified.
+ *
+ *  Value: "GATEWAY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_GatewayTypeUnspecified;
+/**
+ *  The gateway type for any other types of gateways.
+ *
+ *  Value: "OTHERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_Others;
+
+// ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1Plugin.ownershipType
 
 /**
@@ -1066,6 +1119,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstance
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1ResourceConfig.actionType
+
+/**
+ *  Default unspecified action type.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_ActionTypeUnspecified;
+/**
+ *  Action type for sync metadata.
+ *
+ *  Value: "SYNC_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_SyncMetadata;
+/**
+ *  Action type for sync runtime data.
+ *
+ *  Value: "SYNC_RUNTIME_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_SyncRuntimeData;
+
+// ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1SourceMetadata.sourceType
 
 /**
@@ -1228,13 +1303,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Optional. The api functional requirements associated with the API resource.
- *  Carinality is 1 for this attribute.
+ *  Carinality is 1 for this attribute. This maps to the following system
+ *  defined attribute:
+ *  `projects/{project}/locations/{location}/attributes/system-api-functional-requirements`
+ *  attribute. The value of the attribute should be a proper URI, and in case of
+ *  Cloud Storage URI, it should point to a Cloud Storage object, not a
+ *  directory.
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *apiFunctionalRequirements;
 
 /**
  *  Optional. The api requirement doc associated with the API resource.
- *  Carinality is 1 for this attribute.
+ *  Carinality is 1 for this attribute. This maps to the following system
+ *  defined attribute:
+ *  `projects/{project}/locations/{location}/attributes/system-api-requirements`
+ *  attribute. The value of the attribute should be a proper URI, and in case of
+ *  Cloud Storage URI, it should point to a Cloud Storage object, not a
+ *  directory.
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *apiRequirements;
 
@@ -1251,7 +1336,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Optional. The api technical requirements associated with the API resource.
- *  Carinality is 1 for this attribute.
+ *  Carinality is 1 for this attribute. This maps to the following system
+ *  defined attribute:
+ *  `projects/{project}/locations/{location}/attributes/system-api-technical-requirements`
+ *  attribute. The value of the attribute should be a proper URI, and in case of
+ *  Cloud Storage URI, it should point to a Cloud Storage object, not a
+ *  directory.
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *apiTechnicalRequirements;
 
@@ -2587,6 +2677,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *environment;
 
 /**
+ *  Optional. The uri where users can navigate to for the management of the
+ *  deployment. This maps to the following system defined attribute:
+ *  `projects/{project}/locations/{location}/attributes/system-management-url`
+ *  The number of values for this attribute will be based on the cardinality of
+ *  the attribute. The same can be retrieved via GetAttribute API.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *managementUrl;
+
+/**
  *  Identifier. The name of the deployment. Format:
  *  `projects/{project}/locations/{location}/deployments/{deployment}`
  */
@@ -2610,10 +2709,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *slo;
 
 /**
+ *  Optional. The environment at source for the deployment. For example: prod,
+ *  dev, staging, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceEnvironment;
+
+/**
  *  Output only. The list of sources and metadata from the sources of the
  *  deployment.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1SourceMetadata *> *sourceMetadata;
+
+/**
+ *  Optional. The project to which the deployment belongs. For GCP gateways,
+ *  this will refer to the project identifier. For others like Edge/OPDK, this
+ *  will refer to the org identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceProject;
+
+/**
+ *  Optional. The uri where additional source specific information for this
+ *  deployment can be found. This maps to the following system defined
+ *  attribute:
+ *  `projects/{project}/locations/{location}/attributes/system-source-uri` The
+ *  number of values for this attribute will be based on the cardinality of the
+ *  attribute. The same can be retrieved via GetAttribute API.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *sourceUri;
 
 /** Output only. The time at which the deployment was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -3690,6 +3812,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Documentation *documentation;
 
 /**
+ *  Optional. The type of the gateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApiDiscovery The
+ *        gateway type is API Discovery. (Value: "API_DISCOVERY")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePrivateCloud
+ *        The gateway type is Apigee Edge Private Cloud. (Value:
+ *        "APIGEE_EDGE_PRIVATE_CLOUD")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePublicCloud
+ *        The gateway type is Apigee Edge Public Cloud. (Value:
+ *        "APIGEE_EDGE_PUBLIC_CLOUD")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeXAndHybrid
+ *        The gateway type is Apigee X and Hybrid. (Value:
+ *        "APIGEE_X_AND_HYBRID")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudApiGateway
+ *        The gateway type is Cloud API Gateway. (Value: "CLOUD_API_GATEWAY")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudEndpoints
+ *        The gateway type is Cloud Endpoints. (Value: "CLOUD_ENDPOINTS")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_GatewayTypeUnspecified
+ *        The gateway type is not specified. (Value: "GATEWAY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_Others The
+ *        gateway type for any other types of gateways. (Value: "OTHERS")
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayType;
+
+/**
  *  Optional. This field is optional. It is used to notify the plugin hosting
  *  service for any lifecycle changes of the plugin instance and trigger
  *  execution of plugin instance actions in case of API hub managed actions.
@@ -3876,6 +4024,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The source project id of the plugin instance. This will be the id
+ *  of runtime project in case of gcp based plugins and org id in case of non
+ *  gcp based plugins. This is a required field.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceProjectId;
+
+/**
  *  Output only. The current state of the plugin instance (e.g., enabled,
  *  disabled, provisioning).
  *
@@ -3960,6 +4115,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ExecutionStatus *hubInstanceAction;
 
 /**
+ *  Output only. The configuration of resources created for a given plugin
+ *  instance action. Note these will be returned only in case of Non-GCP plugins
+ *  like OPDK.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ResourceConfig *resourceConfig;
+
+/**
  *  Optional. The schedule for this plugin instance action. This can only be set
  *  if the plugin supports API_HUB_SCHEDULE_TRIGGER mode for this action.
  */
@@ -3970,6 +4132,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  UTC will be used.
  */
 @property(nonatomic, copy, nullable) NSString *scheduleTimeZone;
+
+/**
+ *  Optional. The service account used to publish data. Note, the service
+ *  account will only be accepted for non GCP plugins like OPDK.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Output only. The current state of the plugin action in the plugin instance.
@@ -4073,6 +4241,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /** Required. Start of the issue. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Point *start;
+
+@end
+
+
+/**
+ *  The configuration of resources created for a given plugin instance action.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ResourceConfig : GTLRObject
+
+/**
+ *  Output only. The type of the action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_ActionTypeUnspecified
+ *        Default unspecified action type. (Value: "ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_SyncMetadata
+ *        Action type for sync metadata. (Value: "SYNC_METADATA")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_SyncRuntimeData
+ *        Action type for sync runtime data. (Value: "SYNC_RUNTIME_DATA")
+ */
+@property(nonatomic, copy, nullable) NSString *actionType;
+
+/**
+ *  Output only. The pubsub topic to publish the data to. Format is
+ *  projects/{project}/topics/{topic}
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 @end
 

@@ -2124,6 +2124,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Delete schema mode for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.contexts.mode.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of subject to delete the mode for. The format is
+ *  *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}
+ *  *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaMode.
+ *
+ *  Delete schema mode for a subject.
+ *
+ *  @param name Required. The resource name of subject to delete the mode for.
+ *    The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}
+ *    *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Get mode at global level or for a subject.
  *
  *  Method: managedkafka.projects.locations.schemaRegistries.contexts.mode.get
@@ -2910,6 +2946,42 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete schema mode for a subject.
+ *
+ *  Method: managedkafka.projects.locations.schemaRegistries.mode.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedKafkaCloudPlatform
+ */
+@interface GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeDelete : GTLRManagedKafkaQuery
+
+/**
+ *  Required. The resource name of subject to delete the mode for. The format is
+ *  *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}
+ *  *
+ *  projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManagedKafka_SchemaMode.
+ *
+ *  Delete schema mode for a subject.
+ *
+ *  @param name Required. The resource name of subject to delete the mode for.
+ *    The format is *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/mode/{subject}
+ *    *
+ *    projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/mode/{subject}
+ *
+ *  @return GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

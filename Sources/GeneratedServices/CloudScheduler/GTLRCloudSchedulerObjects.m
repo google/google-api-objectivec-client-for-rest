@@ -123,8 +123,8 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 
 @implementation GTLRCloudScheduler_Job
 @dynamic appEngineHttpTarget, attemptDeadline, descriptionProperty, httpTarget,
-         lastAttemptTime, name, pubsubTarget, retryConfig, schedule,
-         scheduleTime, state, status, timeZone, userUpdateTime;
+         lastAttemptTime, name, pubsubTarget, retryConfig, satisfiesPzs,
+         schedule, scheduleTime, state, status, timeZone, userUpdateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -4640,6 +4640,45 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Checks the purchase and consumption status of an inapp item.
+ *
+ *  Method: androidpublisher.purchases.productsv2.getproductpurchasev2
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesProductsv2Getproductpurchasev2 : GTLRAndroidPublisherQuery
+
+/**
+ *  The package name of the application the inapp product was sold in (for
+ *  example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  The token provided to the user's device when the inapp product was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ProductPurchaseV2.
+ *
+ *  Checks the purchase and consumption status of an inapp item.
+ *
+ *  @param packageName The package name of the application the inapp product was
+ *    sold in (for example, 'com.some.thing').
+ *  @param token The token provided to the user's device when the inapp product
+ *    was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesProductsv2Getproductpurchasev2
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                               token:(NSString *)token;
+
+@end
+
+/**
  *  Acknowledges a subscription purchase.
  *
  *  Method: androidpublisher.purchases.subscriptions.acknowledge

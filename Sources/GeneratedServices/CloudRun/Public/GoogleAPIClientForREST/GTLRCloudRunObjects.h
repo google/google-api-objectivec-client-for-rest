@@ -49,6 +49,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Job;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings;
 @class GTLRCloudRun_GoogleCloudRunV2NetworkInterface;
 @class GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource;
 @class GTLRCloudRun_GoogleCloudRunV2NodeSelector;
@@ -3505,6 +3506,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Settings for multi-region deployment.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings : GTLRObject
+
+/** Optional. System-generated unique id for the multi-region Service. */
+@property(nonatomic, copy, nullable) NSString *multiRegionId;
+
+/** Required. List of regions to deploy to, including primary region. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+@end
+
+
+/**
  *  Direct VPC egress settings.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2NetworkInterface : GTLRObject
@@ -4550,6 +4565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
+/** Optional. Settings for multi-region deployment. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings *multiRegionSettings;
+
 /**
  *  The fully qualified name of this Service. In CreateServiceRequest, this
  *  field is ignored, and instead composed from CreateServiceRequest.parent and
@@ -5112,7 +5130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Output only. The exit code of this attempt. This may be unset if the
  *  container was unable to exit cleanly with a code due to some other failure.
- *  See status field for possible failure details.
+ *  See status field for possible failure details. At most one of exit_code or
+ *  term_signal will be set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5123,6 +5142,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  attempt succeeded.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleRpcStatus *status;
+
+/**
+ *  Output only. Termination signal of the container. This is set to non-zero if
+ *  the container is terminated by the system. At most one of exit_code or
+ *  term_signal will be set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *termSignal;
 
 @end
 
@@ -5820,13 +5848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Optional. Enables service mesh connectivity. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ServiceMesh *serviceMesh;
-
-/**
- *  Optional. Enable session affinity.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sessionAffinity;
 
 /** Optional. A list of Volumes to make available to containers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
@@ -6907,8 +6928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceRepository : GTLRObject
 
 /**
- *  The Developer Connect Git repository link or the url that matches a
- *  repository link in the current project, formatted as `projects/ *
+ *  The Developer Connect Git repository link formatted as `projects/ *
  *  /locations/ * /connections/ * /gitRepositoryLink/ *`
  */
 @property(nonatomic, copy, nullable) NSString *developerConnect;

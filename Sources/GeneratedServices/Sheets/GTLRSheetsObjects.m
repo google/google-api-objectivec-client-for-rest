@@ -486,6 +486,12 @@ NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNoBorders = @"PASTE_NO_B
 NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNormal = @"PASTE_NORMAL";
 NSString * const kGTLRSheets_PasteDataRequest_Type_PasteValues = @"PASTE_VALUES";
 
+// GTLRSheets_PersonProperties.displayFormat
+NSString * const kGTLRSheets_PersonProperties_DisplayFormat_Default = @"DEFAULT";
+NSString * const kGTLRSheets_PersonProperties_DisplayFormat_DisplayFormatUnspecified = @"DISPLAY_FORMAT_UNSPECIFIED";
+NSString * const kGTLRSheets_PersonProperties_DisplayFormat_Email = @"EMAIL";
+NSString * const kGTLRSheets_PersonProperties_DisplayFormat_LastNameCommaFirstName = @"LAST_NAME_COMMA_FIRST_NAME";
+
 // GTLRSheets_PieChartSpec.legendPosition
 NSString * const kGTLRSheets_PieChartSpec_LegendPosition_BottomLegend = @"BOTTOM_LEGEND";
 NSString * const kGTLRSheets_PieChartSpec_LegendPosition_LabeledLegend = @"LABELED_LEGEND";
@@ -1492,12 +1498,13 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_CellData
-@dynamic dataSourceFormula, dataSourceTable, dataValidation, effectiveFormat,
-         effectiveValue, formattedValue, hyperlink, note, pivotTable,
-         textFormatRuns, userEnteredFormat, userEnteredValue;
+@dynamic chipRuns, dataSourceFormula, dataSourceTable, dataValidation,
+         effectiveFormat, effectiveValue, formattedValue, hyperlink, note,
+         pivotTable, textFormatRuns, userEnteredFormat, userEnteredValue;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"chipRuns" : [GTLRSheets_ChipRun class],
     @"textFormatRuns" : [GTLRSheets_TextFormatRun class]
   };
   return map;
@@ -1617,6 +1624,26 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_Chip
+//
+
+@implementation GTLRSheets_Chip
+@dynamic personProperties, richLinkProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_ChipRun
+//
+
+@implementation GTLRSheets_ChipRun
+@dynamic chip, startIndex;
 @end
 
 
@@ -2876,6 +2903,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_PersonProperties
+//
+
+@implementation GTLRSheets_PersonProperties
+@dynamic displayFormat, email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_PieChartSpec
 //
 
@@ -3171,6 +3208,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
          duplicateSheet, findReplace, refreshDataSource, trimWhitespace,
          updateConditionalFormatRule, updateDataSource, updateDeveloperMetadata,
          updateEmbeddedObjectPosition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_RichLinkProperties
+//
+
+@implementation GTLRSheets_RichLinkProperties
+@dynamic mimeType, uri;
 @end
 
 

@@ -37,6 +37,235 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gets information about a location.
  *
+ *  Method: networkmanagement.organizations.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsGet : GTLRNetworkManagementQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: networkmanagement.organizations.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsCancel : GTLRNetworkManagementQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRNetworkManagement_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsDelete : GTLRNetworkManagementQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsGet : GTLRNetworkManagementQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsList : GTLRNetworkManagementQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
  *  Method: networkmanagement.projects.locations.get
  *
  *  Authorization scope(s):
@@ -683,11 +912,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
  *  settings already exists (even if the ID is different), the creation fails.
- *  Notes: 1. Creating a configuration with state=DISABLED will fail 2. The
- *  following fields are not considered as `settings` for the purpose of the
- *  check mentioned above, therefore - creating another configuration with the
- *  same fields but different values for the following fields will fail as well:
- *  * name * create_time * update_time * labels * description
+ *  Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The
+ *  following fields are not considered as settings for the purpose of the check
+ *  mentioned above, therefore - creating another configuration with the same
+ *  fields but different values for the following fields will fail as well: *
+ *  name * create_time * update_time * labels * description
  *
  *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.create
  *
@@ -697,8 +926,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsCreate : GTLRNetworkManagementQuery
 
 /**
- *  Required. The parent resource of the VPC Flow Logs configuration to create:
- *  `projects/{project_id}/locations/global`
+ *  Required. The parent resource of the VpcFlowLogsConfig to create, in one of
+ *  the following formats: - For project-level resources:
+ *  `projects/{project_id}/locations/global` - For organization-level resources:
  *  `organizations/{organization_id}/locations/global`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -711,17 +941,18 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
  *  settings already exists (even if the ID is different), the creation fails.
- *  Notes: 1. Creating a configuration with state=DISABLED will fail 2. The
- *  following fields are not considered as `settings` for the purpose of the
- *  check mentioned above, therefore - creating another configuration with the
- *  same fields but different values for the following fields will fail as well:
- *  * name * create_time * update_time * labels * description
+ *  Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The
+ *  following fields are not considered as settings for the purpose of the check
+ *  mentioned above, therefore - creating another configuration with the same
+ *  fields but different values for the following fields will fail as well: *
+ *  name * create_time * update_time * labels * description
  *
  *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
  *    the query.
- *  @param parent Required. The parent resource of the VPC Flow Logs
- *    configuration to create: `projects/{project_id}/locations/global`
- *    `organizations/{organization_id}/locations/global`
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig to
+ *    create, in one of the following formats: - For project-level resources:
+ *    `projects/{project_id}/locations/global` - For organization-level
+ *    resources: `organizations/{organization_id}/locations/global`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsCreate
  */
@@ -741,9 +972,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete : GTLRNetworkManagementQuery
 
 /**
- *  Required. `VpcFlowLogsConfig` resource name using one of the form:
- *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}
- *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *  Required. The resource name of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For a project-level resource:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For an organization-level resource:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -752,10 +985,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a specific `VpcFlowLogsConfig`.
  *
- *  @param name Required. `VpcFlowLogsConfig` resource name using one of the
- *    form:
- *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}
- *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *  @param name Required. The resource name of the VpcFlowLogsConfig, in one of
+ *    the following formats: - For a project-level resource:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For an organization-level resource:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete
  */
@@ -774,9 +1008,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsGet : GTLRNetworkManagementQuery
 
 /**
- *  Required. `VpcFlowLogsConfig` resource name using the form:
- *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
- *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *  Required. The resource name of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For project-level resources:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level resources:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -785,9 +1021,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the details of a specific `VpcFlowLogsConfig`.
  *
- *  @param name Required. `VpcFlowLogsConfig` resource name using the form:
- *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
- *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config}`
+ *  @param name Required. The resource name of the VpcFlowLogsConfig, in one of
+ *    the following formats: - For project-level resources:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For organization-level resources:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsGet
  */
@@ -825,8 +1063,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource of the VpcFlowLogsConfig:
- *  `projects/{project_id}/locations/global`
+ *  Required. The parent resource of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For project-level resourcs:
+ *  `projects/{project_id}/locations/global` - For organization-level resources:
  *  `organizations/{organization_id}/locations/global`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -836,9 +1075,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all `VpcFlowLogsConfigs` in a given project.
  *
- *  @param parent Required. The parent resource of the VpcFlowLogsConfig:
- *    `projects/{project_id}/locations/global`
- *    `organizations/{organization_id}/locations/global`
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig, in one
+ *    of the following formats: - For project-level resourcs:
+ *    `projects/{project_id}/locations/global` - For organization-level
+ *    resources: `organizations/{organization_id}/locations/global`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsList
  *
@@ -853,11 +1093,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
  *  same settings already exists (even if the ID is different), the creation
- *  fails. Notes: 1. Updating a configuration with state=DISABLED will fail. 2.
- *  The following fields are not considered as `settings` for the purpose of the
- *  check mentioned above, therefore - updating another configuration with the
- *  same fields but different values for the following fields will fail as well:
- *  * name * create_time * update_time * labels * description
+ *  fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail.
+ *  2. The following fields are not considered as settings for the purpose of
+ *  the check mentioned above, therefore - updating another configuration with
+ *  the same fields but different values for the following fields will fail as
+ *  well: * name * create_time * update_time * labels * description
  *
  *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.patch
  *
@@ -867,15 +1107,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch : GTLRNetworkManagementQuery
 
 /**
- *  Identifier. Unique name of the configuration using one of the forms:
+ *  Identifier. Unique name of the configuration. The name can have one of the
+ *  following forms: - For project-level configurations:
  *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
- *  `organizations/{organization_number}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level configurations:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field.
+ *  this field. For example, to change the state of the configuration to
+ *  ENABLED, specify `update_mask` = `"state"`, and the `vpc_flow_logs_config`
+ *  would be: `vpc_flow_logs_config = { name =
+ *  "projects/my-project/locations/global/vpcFlowLogsConfigs/my-config" state =
+ *  "ENABLED" }`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -886,18 +1132,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
  *  same settings already exists (even if the ID is different), the creation
- *  fails. Notes: 1. Updating a configuration with state=DISABLED will fail. 2.
- *  The following fields are not considered as `settings` for the purpose of the
- *  check mentioned above, therefore - updating another configuration with the
- *  same fields but different values for the following fields will fail as well:
- *  * name * create_time * update_time * labels * description
+ *  fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail.
+ *  2. The following fields are not considered as settings for the purpose of
+ *  the check mentioned above, therefore - updating another configuration with
+ *  the same fields but different values for the following fields will fail as
+ *  well: * name * create_time * update_time * labels * description
  *
  *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
  *    the query.
- *  @param name Identifier. Unique name of the configuration using one of the
- *    forms:
+ *  @param name Identifier. Unique name of the configuration. The name can have
+ *    one of the following forms: - For project-level configurations:
  *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
- *    `organizations/{organization_number}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For organization-level configurations:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch
  */

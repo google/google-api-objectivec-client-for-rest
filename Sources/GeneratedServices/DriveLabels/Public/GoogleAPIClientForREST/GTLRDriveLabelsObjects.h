@@ -66,6 +66,8 @@
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedCapabilities;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelDisplayHints;
+@class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings;
+@class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLockCapabilities;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission;
@@ -193,6 +195,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label
  *  Value: "DO_NOT_COPY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy_CopyMode_DoNotCopy;
+
+// ----------------------------------------------------------------------------
+// GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp.app
+
+/**
+ *  Unspecified
+ *
+ *  Value: "APP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_AppUnspecified;
+/**
+ *  Drive.
+ *
+ *  Value: "DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Drive;
+/**
+ *  Gmail
+ *
+ *  Value: "GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Gmail;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock.state
@@ -338,6 +362,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *  Value: "LABEL_VIEW_FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest_View_LabelViewFull;
+
+// ----------------------------------------------------------------------------
+// GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest.view
+
+/**
+ *  Implies the field mask: `name,id,revision_id,label_type,properties.*`
+ *
+ *  Value: "LABEL_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest_View_LabelViewBasic;
+/**
+ *  All possible fields.
+ *
+ *  Value: "LABEL_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest_View_LabelViewFull;
 
 /**
  *  The color derived from BadgeConfig and changed to the closest recommended
@@ -1767,6 +1807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /** Output only. UI display hints for rendering the label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelDisplayHints *displayHints;
 
+/** Optional. The EnabledAppSettings for this Label. */
+@property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings *enabledAppSettings;
+
 /** List of fields in descending priority order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDriveLabels_GoogleAppsDriveLabelsV2Field *> *fields;
 
@@ -1945,6 +1988,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shownInApply;
+
+@end
+
+
+/**
+ *  Describes the Workspace apps in which the Label can be used.
+ */
+@interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings : GTLRObject
+
+/** Optional. The list of Apps where the Label can be used. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp *> *enabledApps;
+
+@end
+
+
+/**
+ *  An App where the Label can be used.
+ */
+@interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp : GTLRObject
+
+/**
+ *  Optional. The name of the App.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_AppUnspecified
+ *        Unspecified (Value: "APP_UNSPECIFIED")
+ *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Drive
+ *        Drive. (Value: "DRIVE")
+ *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Gmail
+ *        Gmail (Value: "GMAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *app;
 
 @end
 
@@ -2535,6 +2610,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *        Implies the field mask: `name,id,revision_id,label_type,properties.*`
  *        (Value: "LABEL_VIEW_BASIC")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest_View_LabelViewFull
+ *        All possible fields. (Value: "LABEL_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+@end
+
+
+/**
+ *  Request to update the `EnabledAppSettings` of the given Label. This change
+ *  is not revisioned, does not require publishing, and takes effect
+ *  immediately. \\
+ */
+@interface GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest : GTLRObject
+
+/** Required. The new `EnabledAppSettings` value for the Label. */
+@property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings *enabledAppSettings;
+
+/**
+ *  Optional. The BCP-47 language code to use for evaluating localized field
+ *  labels. When not specified, values in the default configured language will
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional. Set to `true` in order to use the user's admin credentials. The
+ *  server will verify the user is an admin for the Label before allowing
+ *  access.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useAdminAccess;
+
+/**
+ *  Optional. When specified, only certain fields belonging to the indicated
+ *  view will be returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest_View_LabelViewBasic
+ *        Implies the field mask: `name,id,revision_id,label_type,properties.*`
+ *        (Value: "LABEL_VIEW_BASIC")
+ *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest_View_LabelViewFull
  *        All possible fields. (Value: "LABEL_VIEW_FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;

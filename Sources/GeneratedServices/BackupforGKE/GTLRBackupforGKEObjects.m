@@ -189,8 +189,8 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
          deleteLockExpireTime, descriptionProperty, encryptionKey, ETag, labels,
          manual, name, permissiveMode, podCount, resourceCount, retainDays,
          retainExpireTime, satisfiesPzi, satisfiesPzs, selectedApplications,
-         selectedNamespaces, sizeBytes, state, stateReason, uid, updateTime,
-         volumeCount;
+         selectedNamespaceLabels, selectedNamespaces, sizeBytes, state,
+         stateReason, uid, updateTime, volumeCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -258,7 +258,8 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_BackupConfig
 @dynamic allNamespaces, encryptionKey, includeSecrets, includeVolumeData,
-         permissiveMode, selectedApplications, selectedNamespaces;
+         permissiveMode, selectedApplications, selectedNamespaceLabels,
+         selectedNamespaces;
 @end
 
 
@@ -617,6 +618,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_GroupKindDependency
 @dynamic requiring, satisfying;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_Label
+//
+
+@implementation GTLRBackupforGKE_Label
+@dynamic key, value;
 @end
 
 
@@ -1005,6 +1016,24 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
   NSDictionary<NSString *, Class> *map = @{
     @"groupKinds" : [GTLRBackupforGKE_GroupKind class],
     @"namespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ResourceLabels
+//
+
+@implementation GTLRBackupforGKE_ResourceLabels
+@dynamic resourceLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceLabels" : [GTLRBackupforGKE_Label class]
   };
   return map;
 }

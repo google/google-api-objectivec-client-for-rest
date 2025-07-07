@@ -1448,7 +1448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  If the destination table already exists and this flag is `TRUE`, the table
  *  will be overwritten by the contents of assets snapshot. If the flag is
  *  `FALSE` or unset and the destination table already exists, the export call
- *  returns an INVALID_ARGUMEMT error.
+ *  returns an INVALID_ARGUMENT error.
  *
  *  Uses NSNumber of boolValue.
  */

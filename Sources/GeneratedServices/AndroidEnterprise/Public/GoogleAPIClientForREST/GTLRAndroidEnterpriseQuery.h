@@ -498,8 +498,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  Generates an enterprise upgrade URL to upgrade an existing managed Google
- *  Play Accounts enterprise to a managed Google domain. **Note:** This feature
- *  is not generally available.
+ *  Play Accounts enterprise to a managed Google domain. See the guide to
+ *  upgrading an enterprise for more details.
  *
  *  Method: androidenterprise.enterprises.generateEnterpriseUpgradeUrl
  *
@@ -535,8 +535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Fetches a @c GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse.
  *
  *  Generates an enterprise upgrade URL to upgrade an existing managed Google
- *  Play Accounts enterprise to a managed Google domain. **Note:** This feature
- *  is not generally available.
+ *  Play Accounts enterprise to a managed Google domain. See the guide to
+ *  upgrading an enterprise for more details.
  *
  *  @param enterpriseId Required. The ID of the enterprise.
  *

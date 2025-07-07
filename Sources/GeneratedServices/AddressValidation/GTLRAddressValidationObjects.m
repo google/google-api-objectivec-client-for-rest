@@ -47,6 +47,13 @@ NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_Inp
 NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_InputGranularity_Route = @"ROUTE";
 NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_InputGranularity_SubPremise = @"SUB_PREMISE";
 
+// GTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict.possibleNextAction
+NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_PossibleNextAction_Accept = @"ACCEPT";
+NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_PossibleNextAction_Confirm = @"CONFIRM";
+NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_PossibleNextAction_ConfirmAddSubpremises = @"CONFIRM_ADD_SUBPREMISES";
+NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_PossibleNextAction_Fix = @"FIX";
+NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_PossibleNextAction_PossibleNextActionUnspecified = @"POSSIBLE_NEXT_ACTION_UNSPECIFIED";
+
 // GTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict.validationGranularity
 NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_ValidationGranularity_Block = @"BLOCK";
 NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_ValidationGranularity_GranularityUnspecified = @"GRANULARITY_UNSPECIFIED";
@@ -244,7 +251,8 @@ NSString * const kGTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict_Val
 
 @implementation GTLRAddressValidation_GoogleMapsAddressvalidationV1Verdict
 @dynamic addressComplete, geocodeGranularity, hasInferredComponents,
-         hasReplacedComponents, hasUnconfirmedComponents, inputGranularity,
+         hasReplacedComponents, hasSpellCorrectedComponents,
+         hasUnconfirmedComponents, inputGranularity, possibleNextAction,
          validationGranularity;
 @end
 

@@ -178,11 +178,13 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSpellCorrectionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn_QueryConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSingleRegionKey;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTenant;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse_Metrics;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense;
@@ -327,6 +329,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSiteFailureReasonQuotaFailure;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelResponse_Metrics;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigQuerySource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptions;
@@ -483,6 +486,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfigMediaConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn_QueryConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SingleRegionKey;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Sitemap;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo;
@@ -838,6 +842,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Creating;
 /**
+ *  The KMS key is soft deleted. Some cleanup policy will eventually be applied.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Deleted;
+/**
  *  The CmekConfig deletion process failed.
  *
  *  Value: "DELETE_FAILED"
@@ -1160,6 +1170,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec_InterpolationType_Linear;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.actionState
+
+/**
+ *  The connector is successfully set up and awaiting next sync run.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Active;
+/**
+ *  The connector is being set up.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Creating;
+/**
+ *  The connector is in error. The error details can be found in
+ *  DataConnector.errors. If the error is unfixable, the DataConnector can be
+ *  deleted by [CollectionService.DeleteCollection] API.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Failed;
+/**
+ *  Connector initialization failed. Potential causes include runtime errors or
+ *  issues in the asynchronous pipeline, preventing the request from reaching
+ *  downstream services (except for some connector types).
+ *
+ *  Value: "INITIALIZATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_InitializationFailed;
+/**
+ *  The connector is actively syncing records from the data source.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Running;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_StateUnspecified;
+/**
+ *  Connector is in the process of an update.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Updating;
+/**
+ *  The connector has completed a sync run, but encountered non-fatal errors.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.blockingReasons
 
 /**
@@ -1215,6 +1281,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "FEDERATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorModes_Federated;
+/**
+ *  Hybrid connector utilized for federated search and End User Authentication.
+ *
+ *  Value: "FEDERATED_AND_EUA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorModes_FederatedAndEua;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector.connectorType
@@ -1231,6 +1303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "CONNECTOR_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ConnectorTypeUnspecified;
+/**
+ *  Google Cloud NetApp Volumes connector.
+ *
+ *  Value: "GCNV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_Gcnv;
 /**
  *  Data connector connects between FHIR store and VAIS datastore.
  *
@@ -1331,6 +1409,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_StateUnspecified;
 /**
+ *  Connector is in the process of an update.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Updating;
+/**
  *  The connector has completed a sync run, but encountered non-fatal errors.
  *
  *  Value: "WARNING"
@@ -1380,6 +1464,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_StateUnspecified;
+/**
+ *  Connector is in the process of an update.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_Updating;
 /**
  *  The connector has completed a sync run, but encountered non-fatal errors.
  *
@@ -2228,18 +2318,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest.rankingExpressionBackend
 
 /**
- *  Bring your own embedding (BYOE), the default way to evaluate the ranking
- *  expression.
+ *  Deprecated: Use `RANK_BY_EMBEDDING` instead. Ranking by custom embedding
+ *  model, the default way to evaluate the ranking expression. Legacy enum
+ *  option, `RANK_BY_EMBEDDING` should be used instead.
  *
  *  Value: "BYOE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Byoe;
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Byoe GTLR_DEPRECATED;
 /**
- *  The expression is compiled into a Clearbox formula.
+ *  Deprecated: Use `RANK_BY_FORMULA` instead. Ranking by custom formula. Legacy
+ *  enum option, `RANK_BY_FORMULA` should be used instead.
  *
  *  Value: "CLEARBOX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Clearbox;
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Clearbox GTLR_DEPRECATED;
+/**
+ *  Ranking by custom embedding model, the default way to evaluate the ranking
+ *  expression.
+ *
+ *  Value: "RANK_BY_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_RankByEmbedding;
+/**
+ *  Ranking by custom formula.
+ *
+ *  Value: "RANK_BY_FORMULA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_RankByFormula;
 /**
  *  Default option for unspecified/unknown values.
  *
@@ -3214,6 +3319,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Creating;
 /**
+ *  The KMS key is soft deleted. Some cleanup policy will eventually be applied.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Deleted;
+/**
  *  The CmekConfig deletion process failed.
  *
  *  Value: "DELETE_FAILED"
@@ -3726,18 +3837,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest.rankingExpressionBackend
 
 /**
- *  Bring your own embedding (BYOE), the default way to evaluate the ranking
- *  expression.
+ *  Deprecated: Use `RANK_BY_EMBEDDING` instead. Ranking by custom embedding
+ *  model, the default way to evaluate the ranking expression. Legacy enum
+ *  option, `RANK_BY_EMBEDDING` should be used instead.
  *
  *  Value: "BYOE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Byoe;
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Byoe GTLR_DEPRECATED;
 /**
- *  The expression is compiled into a Clearbox formula.
+ *  Deprecated: Use `RANK_BY_FORMULA` instead. Ranking by custom formula. Legacy
+ *  enum option, `RANK_BY_FORMULA` should be used instead.
  *
  *  Value: "CLEARBOX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Clearbox;
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Clearbox GTLR_DEPRECATED;
+/**
+ *  Ranking by custom embedding model, the default way to evaluate the ranking
+ *  expression.
+ *
+ *  Value: "RANK_BY_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_RankByEmbedding;
+/**
+ *  Ranking by custom formula.
+ *
+ *  Value: "RANK_BY_FORMULA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_RankByFormula;
 /**
  *  Default option for unspecified/unknown values.
  *
@@ -4145,6 +4271,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense.licenseAssignmentState
+
+/**
+ *  License assigned to the user.
+ *
+ *  Value: "ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_Assigned;
+/**
+ *  Default value.
+ *
+ *  Value: "LICENSE_ASSIGNMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_LicenseAssignmentStateUnspecified;
+/**
+ *  No license assigned to the user.
+ *
+ *  Value: "NO_LICENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_NoLicense;
+/**
+ *  User attempted to login but no license assigned to the user. This state is
+ *  only used for no user first time login attempt but cannot get license
+ *  assigned. Users already logged in but cannot get license assigned will be
+ *  assigned NO_LICENSE state(License could be unassigned by admin).
+ *
+ *  Value: "NO_LICENSE_ATTEMPTED_LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_NoLicenseAttemptedLogin;
+/**
+ *  No license assigned to the user. Deprecated, translated to NO_LICENSE.
+ *
+ *  Value: "UNASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_Unassigned;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig.type
 
 /**
@@ -4427,6 +4590,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Creating;
+/**
+ *  The KMS key is soft deleted. Some cleanup policy will eventually be applied.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Deleted;
 /**
  *  The CmekConfig deletion process failed.
  *
@@ -4887,7 +5056,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  Calculates diff and replaces the entire document dataset. Existing documents
- *  may be deleted if they are not present in the source location.
+ *  may be deleted if they are not present in the source location. When using
+ *  this mode, there won't be any downtime on the dataset targeted. Any document
+ *  that should remain unchanged or that should be updated will continue serving
+ *  while the operation is running.
  *
  *  Value: "FULL"
  */
@@ -7287,7 +7459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
- *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7322,6 +7494,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The KMS key version is being rotated. (Value: "ACTIVE_ROTATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Creating
  *        The CmekConfig is creating. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Deleted
+ *        The KMS key is soft deleted. Some cleanup policy will eventually be
+ *        applied. (Value: "DELETED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_DeleteFailed
  *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Deleting
@@ -7537,7 +7712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun : GTLRObject
 
 /**
- *  The number of documents deleted.
+ *  Optional. The number of documents deleted.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7551,8 +7726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *entityNameProperty;
 
 /**
- *  The total number of documents failed at sync at any stage (extraction,
- *  indexing, etc).
+ *  Optional. The total number of documents failed at sync at indexing stage.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7565,15 +7739,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errors;
 
 /**
- *  The number of documents extracted from connector source, ready to be
- *  ingested to VAIS.
+ *  Optional. The number of documents extracted from connector source, ready to
+ *  be ingested to VAIS.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *extractedRecordCount;
 
 /**
- *  The number of documents indexed.
+ *  Optional. The number of documents indexed.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7583,15 +7757,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress *progress;
 
 /**
- *  The number of documents scheduled to be crawled/extracted from connector
- *  source. This only applies to third party connectors.
+ *  Optional. The number of documents scheduled to be crawled/extracted from
+ *  connector source. This only applies to third party connectors.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scheduledRecordCount;
 
 /**
- *  The number of requests sent to 3p API.
+ *  Optional. The number of requests sent to 3p API.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8114,6 +8288,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Optional. Action configurations to make the connector support actions. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaActionConfig *actionConfig;
 
+/**
+ *  Output only. State of the action connector. This reflects whether the action
+ *  connector is initializing, active or has encountered errors.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Active
+ *        The connector is successfully set up and awaiting next sync run.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Creating
+ *        The connector is being set up. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Failed
+ *        The connector is in error. The error details can be found in
+ *        DataConnector.errors. If the error is unfixable, the DataConnector can
+ *        be deleted by [CollectionService.DeleteCollection] API. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_InitializationFailed
+ *        Connector initialization failed. Potential causes include runtime
+ *        errors or issues in the asynchronous pipeline, preventing the request
+ *        from reaching downstream services (except for some connector types).
+ *        (Value: "INITIALIZATION_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Running
+ *        The connector is actively syncing records from the data source.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Updating
+ *        Connector is in the process of an update. (Value: "UPDATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ActionState_Warning
+ *        The connector has completed a sync run, but encountered non-fatal
+ *        errors. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *actionState;
+
 /** Optional. The connector level alert config. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfig *> *alertPolicyConfigs;
 
@@ -8152,6 +8359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Big query connector. (Value: "BIG_QUERY")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_ConnectorTypeUnspecified
  *        Default value. (Value: "CONNECTOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_Gcnv
+ *        Google Cloud NetApp Volumes connector. (Value: "GCNV")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GcpFhir
  *        Data connector connects between FHIR store and VAIS datastore. (Value:
  *        "GCP_FHIR")
@@ -8232,13 +8441,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Optional. The refresh interval specifically for incremental data syncs. If
  *  unset, incremental syncs will use the default from env, set to 3hrs. The
- *  minimum is 30 minutes and maximum is 7 days.
+ *  minimum is 30 minutes and maximum is 7 days. Applicable to only 3P
+ *  connectors. When the refresh interval is set to the same value as the
+ *  incremental refresh interval, incremental sync will be disabled.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *incrementalRefreshInterval;
 
 /**
  *  Optional. Indicates whether incremental syncs are paused for this connector.
- *  This is independent of auto_run_disabled.
+ *  This is independent of auto_run_disabled. Applicable to only 3P connectors.
+ *  When the refresh interval is set to the same value as the incremental
+ *  refresh interval, incremental sync will be disabled, i.e. set to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8341,6 +8554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        (Value: "RUNNING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_StateUnspecified
  *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Updating
+ *        Connector is in the process of an update. (Value: "UPDATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_RealtimeState_Warning
  *        The connector has completed a sync run, but encountered non-fatal
  *        errors. (Value: "WARNING")
@@ -8353,7 +8568,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Required. The refresh interval for data sync. If duration is set to 0, the
  *  data will be synced in real time. The streaming feature is not supported
- *  yet. The minimum is 30 minutes and maximum is 7 days.
+ *  yet. The minimum is 30 minutes and maximum is 7 days. When the refresh
+ *  interval is set to the same value as the incremental refresh interval,
+ *  incremental sync will be disabled.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *refreshInterval;
 
@@ -8381,6 +8598,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        (Value: "RUNNING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_StateUnspecified
  *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_Updating
+ *        Connector is in the process of an update. (Value: "UPDATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_State_Warning
  *        The connector has completed a sync run, but encountered non-fatal
  *        errors. (Value: "WARNING")
@@ -8466,6 +8685,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Optional. Any authentication parameters specific to EUA connectors. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AuthParams *authParams;
+
+/** Optional. The tenant project the connector is connected to. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTenant *tenant;
 
 @end
 
@@ -9350,7 +9572,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Supported keys: * `*`: all features, if it's present, all other feature
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
- *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
+ *  `session-sharing`
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features *features;
 
@@ -9436,7 +9659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Supported keys: * `*`: all features, if it's present, all other feature
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
- *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
+ *  `session-sharing`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -9887,7 +10111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEvaluationEvaluationSpec : GTLRObject
 
-/** Required. The specification of the query set. */
+/** Optional. The specification of the query set. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEvaluationEvaluationSpecQuerySetSpec *querySetSpec;
 
 /**
@@ -9910,7 +10134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEvaluationEvaluationSpecQuerySetSpec : GTLRObject
 
 /**
- *  Required. The full resource name of the SampleQuerySet used for the
+ *  Optional. The full resource name of the SampleQuerySet used for the
  *  evaluation, in the format of
  *  `projects/{project}/locations/{location}/sampleQuerySets/{sampleQuerySet}`.
  */
@@ -11227,7 +11451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaQuery : GTLRObject
 
-/** Unique Id for the query. */
+/** Output only. Unique Id for the query. */
 @property(nonatomic, copy, nullable) NSString *queryId;
 
 /** Plain text. */
@@ -11773,35 +11997,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec *queryExpansionSpec;
 
 /**
- *  The ranking expression controls the customized ranking on retrieval
- *  documents. This overrides ServingConfig.ranking_expression. The syntax and
- *  supported features depend on the ranking_expression_backend value. If
- *  ranking_expression_backend is not provided, it defaults to BYOE. === BYOE
- *  === If ranking_expression_backend is not provided or set to `BYOE`, it
- *  should be a single function or multiple functions that are joined by "+". *
- *  ranking_expression = function, { " + ", function }; Supported functions: *
- *  double * relevance_score * double * dotProduct(embedding_field_path)
- *  Function variables: * `relevance_score`: pre-defined keywords, used for
- *  measure relevance between query and document. * `embedding_field_path`: the
- *  document embedding field used with query embedding vector. * `dotProduct`:
- *  embedding function between embedding_field_path and query embedding vector.
- *  Example ranking expression: If document has an embedding field
- *  doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3
- *  * dotProduct(doc_embedding)`. === CLEARBOX === If ranking_expression_backend
- *  is set to `CLEARBOX`, the following expression types (and combinations of
- *  those chained using + or * operators) are supported: * double * signal *
- *  log(signal) * exp(signal) * rr(signal, double > 0) -- reciprocal rank
+ *  Optional. The ranking expression controls the customized ranking on
+ *  retrieval documents. This overrides ServingConfig.ranking_expression. The
+ *  syntax and supported features depend on the `ranking_expression_backend`
+ *  value. If `ranking_expression_backend` is not provided, it defaults to
+ *  `RANK_BY_EMBEDDING`. If ranking_expression_backend is not provided or set to
+ *  `RANK_BY_EMBEDDING`, it should be a single function or multiple functions
+ *  that are joined by "+". * ranking_expression = function, { " + ", function
+ *  }; Supported functions: * double * relevance_score * double *
+ *  dotProduct(embedding_field_path) Function variables: * `relevance_score`:
+ *  pre-defined keywords, used for measure relevance between query and document.
+ *  * `embedding_field_path`: the document embedding field used with query
+ *  embedding vector. * `dotProduct`: embedding function between
+ *  `embedding_field_path` and query embedding vector. Example ranking
+ *  expression: If document has an embedding field doc_embedding, the ranking
+ *  expression could be `0.5 * relevance_score + 0.3 *
+ *  dotProduct(doc_embedding)`. If ranking_expression_backend is set to
+ *  `RANK_BY_FORMULA`, the following expression types (and combinations of those
+ *  chained using + or * operators) are supported: * `double` * `signal` *
+ *  `log(signal)` * `exp(signal)` * `rr(signal, double > 0)` -- reciprocal rank
  *  transformation with second argument being a denominator constant. *
- *  is_nan(signal) -- returns 0 if signal is NaN, 1 otherwise. *
- *  fill_nan(signal1, signal2 | double) -- if signal1 is NaN, returns signal2 |
- *  double, else returns signal1. Examples: * 0.2 * gecko_score + 0.8 *
- *  log(bm25_score) * 0.2 * exp(fill_nan(gecko_score, 0)) + 0.3 *
- *  is_nan(bm25_score) * 0.2 * rr(gecko_score, 16) + 0.8 * rr(bm25_score, 32)
- *  The following signals are supported: * gecko_score -- semantic similarity
- *  adjustment * bm25_score -- keyword match adjustment * jetstream_score --
- *  semantic relevance adjustment * pctr_rank -- predicted conversion rate
- *  adjustment as a rank * freshness_rank -- freshness adjustment as a rank *
- *  base_rank -- the default rank of the result
+ *  `is_nan(signal)` -- returns 0 if signal is NaN, 1 otherwise. *
+ *  `fill_nan(signal1, signal2 | double)` -- if signal1 is NaN, returns signal2
+ *  | double, else returns signal1. Here are a few examples of ranking formulas
+ *  that use the supported ranking expression types: - `0.2 *
+ *  semantic_similarity_score + 0.8 * log(keyword_similarity_score)` -- mostly
+ *  rank by the logarithm of `keyword_similarity_score` with slight
+ *  `semantic_smilarity_score` adjustment. - `0.2 *
+ *  exp(fill_nan(semantic_similarity_score, 0)) + 0.3 *
+ *  is_nan(keyword_similarity_score)` -- rank by the exponent of
+ *  `semantic_similarity_score` filling the value with 0 if it's NaN, also add
+ *  constant 0.3 adjustment to the final score if `semantic_similarity_score` is
+ *  NaN. - `0.2 * rr(semantic_similarity_score, 16) + 0.8 *
+ *  rr(keyword_similarity_score, 16)` -- mostly rank by the reciprocal rank of
+ *  `keyword_similarity_score` with slight adjustment of reciprocal rank of
+ *  `semantic_smilarity_score`. The following signals are supported: *
+ *  `semantic_similarity_score`: semantic similarity adjustment that is
+ *  calculated using the embeddings generated by a proprietary Google model.
+ *  This score determines how semantically similar a search query is to a
+ *  document. * `keyword_similarity_score`: keyword match adjustment uses the
+ *  Best Match 25 (BM25) ranking function. This score is calculated using a
+ *  probabilistic model to estimate the probability that a document is relevant
+ *  to a given query. * `relevance_score`: semantic relevance adjustment that
+ *  uses a proprietary Google model to determine the meaning and intent behind a
+ *  user's query in context with the content in the documents. * `pctr_rank`:
+ *  predicted conversion rate adjustment as a rank use predicted Click-through
+ *  rate (pCTR) to gauge the relevance and attractiveness of a search result
+ *  from a user's perspective. A higher pCTR suggests that the result is more
+ *  likely to satisfy the user's query and intent, making it a valuable signal
+ *  for ranking. * `freshness_rank`: freshness adjustment as a rank *
+ *  `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google
+ *  model to determine the keyword-based overlap between the query and the
+ *  document. * `base_rank`: the default rank of the result
  */
 @property(nonatomic, copy, nullable) NSString *rankingExpression;
 
@@ -11810,11 +12057,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Byoe
- *        Bring your own embedding (BYOE), the default way to evaluate the
- *        ranking expression. (Value: "BYOE")
+ *        Deprecated: Use `RANK_BY_EMBEDDING` instead. Ranking by custom
+ *        embedding model, the default way to evaluate the ranking expression.
+ *        Legacy enum option, `RANK_BY_EMBEDDING` should be used instead.
+ *        (Value: "BYOE")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_Clearbox
- *        The expression is compiled into a Clearbox formula. (Value:
+ *        Deprecated: Use `RANK_BY_FORMULA` instead. Ranking by custom formula.
+ *        Legacy enum option, `RANK_BY_FORMULA` should be used instead. (Value:
  *        "CLEARBOX")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_RankByEmbedding
+ *        Ranking by custom embedding model, the default way to evaluate the
+ *        ranking expression. (Value: "RANK_BY_EMBEDDING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_RankByFormula
+ *        Ranking by custom formula. (Value: "RANK_BY_FORMULA")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RankingExpressionBackend_RankingExpressionBackendUnspecified
  *        Default option for unspecified/unknown values. (Value:
  *        "RANKING_EXPRESSION_BACKEND_UNSPECIFIED")
@@ -11905,6 +12160,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  correction takes effect.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSpellCorrectionSpec *spellCorrectionSpec;
+
+/**
+ *  Uses the Engine, ServingConfig and Control freshly read from the database.
+ *  Note: this skips config cache and introduces dependency on databases, which
+ *  could significantly increase the API latency. It should only be used for
+ *  testing, but not serving end users.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useLatestData;
 
 /**
  *  Information about the end user. Highly recommended for analytics and
@@ -12980,8 +13245,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn : GTLRObject
 
 /**
- *  The resource name of the answer to the user query. Only set if the answer
- *  generation (/answer API call) happened in this turn.
+ *  Optional. The resource name of the answer to the user query. Only set if the
+ *  answer generation (/answer API call) happened in this turn.
  */
 @property(nonatomic, copy, nullable) NSString *answer;
 
@@ -12992,9 +13257,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer *detailedAnswer;
 
-/** The user query. */
+/**
+ *  Optional. The user query. May not be set if this turn is merely regenerating
+ *  an answer to a different turn
+ */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaQuery *query;
 
+/**
+ *  Optional. Represents metadata related to the query config, for example LLM
+ *  model and version used, model parameters (temperature, grounding parameters,
+ *  etc.). The prefix "google." is reserved for Google-developed functionality.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn_QueryConfig *queryConfig;
+
+@end
+
+
+/**
+ *  Optional. Represents metadata related to the query config, for example LLM
+ *  model and version used, model parameters (temperature, grounding parameters,
+ *  etc.). The prefix "google." is reserved for Google-developed functionality.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn_QueryConfig : GTLRObject
 @end
 
 
@@ -13260,6 +13549,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Tenant information for a connector source. This includes some of the same
+ *  information stored in the Credential message, but is limited to only what is
+ *  needed to provide a list of accessible tenants to the user.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTenant : GTLRObject
+
+/** Optional display name for the tenant, e.g. "My Slack Team". */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The tenant's instance ID. Examples: Jira
+ *  ("8594f221-9797-5f78-1fa4-485e198d7cd0"), Slack ("T123456").
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The URI of the tenant, if applicable. For example, the URI of a Jira
+ *  instance is https://my-jira-instance.atlassian.net, and a Slack tenant does
+ *  not have a URI.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the TrainCustomModel operation. This is
  *  returned by the google.longrunning.Operation.metadata field.
  */
@@ -13483,7 +13800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Output only. License assignment state of the user. If the user is assigned
- *  with a license config, the user loggin will be assigned with the license; If
+ *  with a license config, the user login will be assigned with the license; If
  *  the user's license assignment state is unassigned or unspecified, no license
  *  config will be associated to the user;
  *
@@ -15011,6 +15328,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Metadata related to the progress of the
+ *  UserLicenseService.BatchUpdateUserLicenses operation. This will be returned
+ *  by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of user licenses that failed to be updated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of user licenses successfully updated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Request message for UserLicenseService.BatchUpdateUserLicenses method.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequest : GTLRObject
@@ -15023,9 +15373,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deleteUnassignedUserLicenses;
-
-/** Cloud Storage location for the input content. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GcsSource *gcsSource;
 
 /** The inline source for the input content for document embeddings. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequestInlineSource *inlineSource;
@@ -15049,6 +15396,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Required. A list of user licenses to update. Each user license must have a
  *  valid UserLicense.user_principal.
  */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense *> *userLicenses;
+
+@end
+
+
+/**
+ *  Response message for UserLicenseService.BatchUpdateUserLicenses method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
+
+/** UserLicenses successfully updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense *> *userLicenses;
 
 @end
@@ -15114,6 +15475,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Metadata related to the progress of the
+ *  UserLicenseService.BatchUpdateUserLicenses operation. This will be returned
+ *  by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchUpdateUserLicensesMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of user licenses that failed to be updated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of user licenses successfully updated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for UserLicenseService.BatchUpdateUserLicenses method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchUpdateUserLicensesResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
+
+/** UserLicenses successfully updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense *> *userLicenses;
+
+@end
+
+
+/**
  *  Configurations used to enable CMEK data encryption with Cloud KMS keys.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig : GTLRObject
@@ -15147,7 +15555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
- *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -15182,6 +15590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The KMS key version is being rotated. (Value: "ACTIVE_ROTATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Creating
  *        The CmekConfig is creating. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Deleted
+ *        The KMS key is soft deleted. Some cleanup policy will eventually be
+ *        applied. (Value: "DELETED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_DeleteFailed
  *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Deleting
@@ -16305,7 +16716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Supported keys: * `*`: all features, if it's present, all other feature
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
- *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
+ *  `session-sharing`
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features *features;
 
@@ -16382,7 +16794,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Supported keys: * `*`: all features, if it's present, all other feature
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
- *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
+ *  `session-sharing`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -16724,7 +17137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpec : GTLRObject
 
-/** Required. The specification of the query set. */
+/** Optional. The specification of the query set. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpecQuerySetSpec *querySetSpec;
 
 /**
@@ -16747,7 +17160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpecQuerySetSpec : GTLRObject
 
 /**
- *  Required. The full resource name of the SampleQuerySet used for the
+ *  Optional. The full resource name of the SampleQuerySet used for the
  *  evaluation, in the format of
  *  `projects/{project}/locations/{location}/sampleQuerySets/{sampleQuerySet}`.
  */
@@ -17861,35 +18274,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec *queryExpansionSpec;
 
 /**
- *  The ranking expression controls the customized ranking on retrieval
- *  documents. This overrides ServingConfig.ranking_expression. The syntax and
- *  supported features depend on the ranking_expression_backend value. If
- *  ranking_expression_backend is not provided, it defaults to BYOE. === BYOE
- *  === If ranking_expression_backend is not provided or set to `BYOE`, it
- *  should be a single function or multiple functions that are joined by "+". *
- *  ranking_expression = function, { " + ", function }; Supported functions: *
- *  double * relevance_score * double * dotProduct(embedding_field_path)
- *  Function variables: * `relevance_score`: pre-defined keywords, used for
- *  measure relevance between query and document. * `embedding_field_path`: the
- *  document embedding field used with query embedding vector. * `dotProduct`:
- *  embedding function between embedding_field_path and query embedding vector.
- *  Example ranking expression: If document has an embedding field
- *  doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3
- *  * dotProduct(doc_embedding)`. === CLEARBOX === If ranking_expression_backend
- *  is set to `CLEARBOX`, the following expression types (and combinations of
- *  those chained using + or * operators) are supported: * double * signal *
- *  log(signal) * exp(signal) * rr(signal, double > 0) -- reciprocal rank
+ *  Optional. The ranking expression controls the customized ranking on
+ *  retrieval documents. This overrides ServingConfig.ranking_expression. The
+ *  syntax and supported features depend on the `ranking_expression_backend`
+ *  value. If `ranking_expression_backend` is not provided, it defaults to
+ *  `RANK_BY_EMBEDDING`. If ranking_expression_backend is not provided or set to
+ *  `RANK_BY_EMBEDDING`, it should be a single function or multiple functions
+ *  that are joined by "+". * ranking_expression = function, { " + ", function
+ *  }; Supported functions: * double * relevance_score * double *
+ *  dotProduct(embedding_field_path) Function variables: * `relevance_score`:
+ *  pre-defined keywords, used for measure relevance between query and document.
+ *  * `embedding_field_path`: the document embedding field used with query
+ *  embedding vector. * `dotProduct`: embedding function between
+ *  `embedding_field_path` and query embedding vector. Example ranking
+ *  expression: If document has an embedding field doc_embedding, the ranking
+ *  expression could be `0.5 * relevance_score + 0.3 *
+ *  dotProduct(doc_embedding)`. If ranking_expression_backend is set to
+ *  `RANK_BY_FORMULA`, the following expression types (and combinations of those
+ *  chained using + or * operators) are supported: * `double` * `signal` *
+ *  `log(signal)` * `exp(signal)` * `rr(signal, double > 0)` -- reciprocal rank
  *  transformation with second argument being a denominator constant. *
- *  is_nan(signal) -- returns 0 if signal is NaN, 1 otherwise. *
- *  fill_nan(signal1, signal2 | double) -- if signal1 is NaN, returns signal2 |
- *  double, else returns signal1. Examples: * 0.2 * gecko_score + 0.8 *
- *  log(bm25_score) * 0.2 * exp(fill_nan(gecko_score, 0)) + 0.3 *
- *  is_nan(bm25_score) * 0.2 * rr(gecko_score, 16) + 0.8 * rr(bm25_score, 32)
- *  The following signals are supported: * gecko_score -- semantic similarity
- *  adjustment * bm25_score -- keyword match adjustment * jetstream_score --
- *  semantic relevance adjustment * pctr_rank -- predicted conversion rate
- *  adjustment as a rank * freshness_rank -- freshness adjustment as a rank *
- *  base_rank -- the default rank of the result
+ *  `is_nan(signal)` -- returns 0 if signal is NaN, 1 otherwise. *
+ *  `fill_nan(signal1, signal2 | double)` -- if signal1 is NaN, returns signal2
+ *  | double, else returns signal1. Here are a few examples of ranking formulas
+ *  that use the supported ranking expression types: - `0.2 *
+ *  semantic_similarity_score + 0.8 * log(keyword_similarity_score)` -- mostly
+ *  rank by the logarithm of `keyword_similarity_score` with slight
+ *  `semantic_smilarity_score` adjustment. - `0.2 *
+ *  exp(fill_nan(semantic_similarity_score, 0)) + 0.3 *
+ *  is_nan(keyword_similarity_score)` -- rank by the exponent of
+ *  `semantic_similarity_score` filling the value with 0 if it's NaN, also add
+ *  constant 0.3 adjustment to the final score if `semantic_similarity_score` is
+ *  NaN. - `0.2 * rr(semantic_similarity_score, 16) + 0.8 *
+ *  rr(keyword_similarity_score, 16)` -- mostly rank by the reciprocal rank of
+ *  `keyword_similarity_score` with slight adjustment of reciprocal rank of
+ *  `semantic_smilarity_score`. The following signals are supported: *
+ *  `semantic_similarity_score`: semantic similarity adjustment that is
+ *  calculated using the embeddings generated by a proprietary Google model.
+ *  This score determines how semantically similar a search query is to a
+ *  document. * `keyword_similarity_score`: keyword match adjustment uses the
+ *  Best Match 25 (BM25) ranking function. This score is calculated using a
+ *  probabilistic model to estimate the probability that a document is relevant
+ *  to a given query. * `relevance_score`: semantic relevance adjustment that
+ *  uses a proprietary Google model to determine the meaning and intent behind a
+ *  user's query in context with the content in the documents. * `pctr_rank`:
+ *  predicted conversion rate adjustment as a rank use predicted Click-through
+ *  rate (pCTR) to gauge the relevance and attractiveness of a search result
+ *  from a user's perspective. A higher pCTR suggests that the result is more
+ *  likely to satisfy the user's query and intent, making it a valuable signal
+ *  for ranking. * `freshness_rank`: freshness adjustment as a rank *
+ *  `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google
+ *  model to determine the keyword-based overlap between the query and the
+ *  document. * `base_rank`: the default rank of the result
  */
 @property(nonatomic, copy, nullable) NSString *rankingExpression;
 
@@ -17898,11 +18334,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Byoe
- *        Bring your own embedding (BYOE), the default way to evaluate the
- *        ranking expression. (Value: "BYOE")
+ *        Deprecated: Use `RANK_BY_EMBEDDING` instead. Ranking by custom
+ *        embedding model, the default way to evaluate the ranking expression.
+ *        Legacy enum option, `RANK_BY_EMBEDDING` should be used instead.
+ *        (Value: "BYOE")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_Clearbox
- *        The expression is compiled into a Clearbox formula. (Value:
+ *        Deprecated: Use `RANK_BY_FORMULA` instead. Ranking by custom formula.
+ *        Legacy enum option, `RANK_BY_FORMULA` should be used instead. (Value:
  *        "CLEARBOX")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_RankByEmbedding
+ *        Ranking by custom embedding model, the default way to evaluate the
+ *        ranking expression. (Value: "RANK_BY_EMBEDDING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_RankByFormula
+ *        Ranking by custom formula. (Value: "RANK_BY_FORMULA")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RankingExpressionBackend_RankingExpressionBackendUnspecified
  *        Default option for unspecified/unknown values. (Value:
  *        "RANKING_EXPRESSION_BACKEND_UNSPECIFIED")
@@ -19386,6 +19830,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  User License information assigned by the admin.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense : GTLRObject
+
+/** Output only. User created timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. User last logged in time. If the user has not logged in yet,
+ *  this field will be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
+
+/**
+ *  Output only. License assignment state of the user. If the user is assigned
+ *  with a license config, the user login will be assigned with the license; If
+ *  the user's license assignment state is unassigned or unspecified, no license
+ *  config will be associated to the user;
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_Assigned
+ *        License assigned to the user. (Value: "ASSIGNED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_LicenseAssignmentStateUnspecified
+ *        Default value. (Value: "LICENSE_ASSIGNMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_NoLicense
+ *        No license assigned to the user. (Value: "NO_LICENSE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_NoLicenseAttemptedLogin
+ *        User attempted to login but no license assigned to the user. This
+ *        state is only used for no user first time login attempt but cannot get
+ *        license assigned. Users already logged in but cannot get license
+ *        assigned will be assigned NO_LICENSE state(License could be unassigned
+ *        by admin). (Value: "NO_LICENSE_ATTEMPTED_LOGIN")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserLicense_LicenseAssignmentState_Unassigned
+ *        No license assigned to the user. Deprecated, translated to NO_LICENSE.
+ *        (Value: "UNASSIGNED")
+ */
+@property(nonatomic, copy, nullable) NSString *licenseAssignmentState;
+
+/**
+ *  Optional. The full resource name of the Subscription(LicenseConfig) assigned
+ *  to the user.
+ */
+@property(nonatomic, copy, nullable) NSString *licenseConfig;
+
+/** Output only. User update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Required. Immutable. The user principal of the User, could be email address
+ *  or other prinical identifier. This field is immutable. Admin assign licenses
+ *  based on the user principal.
+ */
+@property(nonatomic, copy, nullable) NSString *userPrincipal;
+
+/**
+ *  Optional. The user profile. We user user full name(First name + Last name)
+ *  as user profile.
+ */
+@property(nonatomic, copy, nullable) NSString *userProfile;
+
+@end
+
+
+/**
  *  Config to store data store type configuration for workspace data
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig : GTLRObject
@@ -20167,7 +20675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
- *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -20202,6 +20710,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The KMS key version is being rotated. (Value: "ACTIVE_ROTATING")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Creating
  *        The CmekConfig is creating. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Deleted
+ *        The KMS key is soft deleted. Some cleanup policy will eventually be
+ *        applied. (Value: "DELETED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_DeleteFailed
  *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Deleting
@@ -22015,7 +22526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Supported keys: * `*`: all features, if it's present, all other feature
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
- *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
+ *  `session-sharing`
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features *features;
 
@@ -22092,7 +22604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Supported keys: * `*`: all features, if it's present, all other feature
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
- *  `people-search-org-chart` * `bi-directional-audio` * `feedback`
+ *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
+ *  `session-sharing`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -22939,7 +23452,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest_ReconciliationMode_Full
  *        Calculates diff and replaces the entire document dataset. Existing
  *        documents may be deleted if they are not present in the source
- *        location. (Value: "FULL")
+ *        location. When using this mode, there won't be any downtime on the
+ *        dataset targeted. Any document that should remain unchanged or that
+ *        should be updated will continue serving while the operation is
+ *        running. (Value: "FULL")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest_ReconciliationMode_Incremental
  *        Inserts new documents or updates existing documents. (Value:
  *        "INCREMENTAL")
@@ -23685,6 +24201,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Principal : GTLRObject
 
 /**
+ *  For 3P application identities which are not present in the customer identity
+ *  provider.
+ */
+@property(nonatomic, copy, nullable) NSString *externalEntityId;
+
+/**
  *  Group identifier. For Google Workspace user account, group_id should be the
  *  google workspace group email. For non-google identity provider user account,
  *  group_id is the mapped group identifier configured during the workforcepool
@@ -24139,7 +24661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Query : GTLRObject
 
-/** Unique Id for the query. */
+/** Output only. Unique Id for the query. */
 @property(nonatomic, copy, nullable) NSString *queryId;
 
 /** Plain text. */
@@ -26499,8 +27021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn : GTLRObject
 
 /**
- *  The resource name of the answer to the user query. Only set if the answer
- *  generation (/answer API call) happened in this turn.
+ *  Optional. The resource name of the answer to the user query. Only set if the
+ *  answer generation (/answer API call) happened in this turn.
  */
 @property(nonatomic, copy, nullable) NSString *answer;
 
@@ -26511,9 +27033,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer *detailedAnswer;
 
-/** The user query. */
+/**
+ *  Optional. The user query. May not be set if this turn is merely regenerating
+ *  an answer to a different turn
+ */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Query *query;
 
+/**
+ *  Optional. Represents metadata related to the query config, for example LLM
+ *  model and version used, model parameters (temperature, grounding parameters,
+ *  etc.). The prefix "google." is reserved for Google-developed functionality.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn_QueryConfig *queryConfig;
+
+@end
+
+
+/**
+ *  Optional. Represents metadata related to the query config, for example LLM
+ *  model and version used, model parameters (temperature, grounding parameters,
+ *  etc.). The prefix "google." is reserved for Google-developed functionality.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn_QueryConfig : GTLRObject
 @end
 
 
@@ -27317,7 +27863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /**
  *  Output only. License assignment state of the user. If the user is assigned
- *  with a license config, the user loggin will be assigned with the license; If
+ *  with a license config, the user login will be assigned with the license; If
  *  the user's license assignment state is unassigned or unspecified, no license
  *  config will be associated to the user;
  *

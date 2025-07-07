@@ -45,7 +45,8 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 
 @implementation GTLRFirebaseCloudMessaging_AndroidConfig
 @dynamic bandwidthConstrainedOk, collapseKey, data, directBootOk, fcmOptions,
-         notification, priority, restrictedPackageName, ttl;
+         notification, priority, restrictedPackageName, restrictedSatelliteOk,
+         ttl;
 @end
 
 

@@ -77,7 +77,6 @@
 @class GTLRSQLAdmin_OperationErrors;
 @class GTLRSQLAdmin_PasswordStatus;
 @class GTLRSQLAdmin_PasswordValidationPolicy;
-@class GTLRSQLAdmin_PITRFields;
 @class GTLRSQLAdmin_PoolNodeConfig;
 @class GTLRSQLAdmin_PscAutoConnectionConfig;
 @class GTLRSQLAdmin_PscConfig;
@@ -311,6 +310,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql804
  *  Value: "MYSQL_8_0_42"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8042;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 43.
+ *
+ *  Value: "MYSQL_8_0_43"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8043;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 44.
+ *
+ *  Value: "MYSQL_8_0_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8044;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 45.
+ *
+ *  Value: "MYSQL_8_0_45"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8045;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 46.
+ *
+ *  Value: "MYSQL_8_0_46"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8046;
 /**
  *  The database version is MySQL 8.4.
  *
@@ -788,6 +811,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8042;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 43.
+ *
+ *  Value: "MYSQL_8_0_43"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8043;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 44.
+ *
+ *  Value: "MYSQL_8_0_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8044;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 45.
+ *
+ *  Value: "MYSQL_8_0_45"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8045;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 46.
+ *
+ *  Value: "MYSQL_8_0_46"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8046;
+/**
  *  The database version is MySQL 8.4.
  *
  *  Value: "MYSQL_8_4"
@@ -1178,6 +1225,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8042;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 43.
+ *
+ *  Value: "MYSQL_8_0_43"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8043;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 44.
+ *
+ *  Value: "MYSQL_8_0_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8044;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 45.
+ *
+ *  Value: "MYSQL_8_0_45"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8045;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 46.
+ *
+ *  Value: "MYSQL_8_0_46"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8046;
+/**
  *  The database version is MySQL 8.4.
  *
  *  Value: "MYSQL_8_4"
@@ -1509,6 +1580,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_42"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8042;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 43.
+ *
+ *  Value: "MYSQL_8_0_43"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8043;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 44.
+ *
+ *  Value: "MYSQL_8_0_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8044;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 45.
+ *
+ *  Value: "MYSQL_8_0_45"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8045;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 46.
+ *
+ *  Value: "MYSQL_8_0_46"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8046;
 /**
  *  The database version is MySQL 8.4.
  *
@@ -2036,6 +2131,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8041;
  *  Value: "MYSQL_8_0_42"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8042;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 43.
+ *
+ *  Value: "MYSQL_8_0_43"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8043;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 44.
+ *
+ *  Value: "MYSQL_8_0_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8044;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 45.
+ *
+ *  Value: "MYSQL_8_0_45"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8045;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 46.
+ *
+ *  Value: "MYSQL_8_0_46"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8046;
 /**
  *  The database version is MySQL 8.4.
  *
@@ -2666,12 +2785,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVe
  *  Value: "MANAGE_BACKUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ManageBackup;
-/**
- *  Pre-checks the major version upgrade operation.
- *
- *  Value: "PRE_CHECK_MAJOR_VERSION_UPGRADE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade;
 /**
  *  Promotes a Cloud SQL replica instance.
  *
@@ -3947,6 +4060,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8042 The database major
  *        version is MySQL 8.0 and the minor version is 42. (Value:
  *        "MYSQL_8_0_42")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8043 The database major
+ *        version is MySQL 8.0 and the minor version is 43. (Value:
+ *        "MYSQL_8_0_43")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8044 The database major
+ *        version is MySQL 8.0 and the minor version is 44. (Value:
+ *        "MYSQL_8_0_44")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8045 The database major
+ *        version is MySQL 8.0 and the minor version is 45. (Value:
+ *        "MYSQL_8_0_45")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8046 The database major
+ *        version is MySQL 8.0 and the minor version is 46. (Value:
+ *        "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84 The database version
  *        is MySQL 8.4. (Value: "MYSQL_8_4")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres10 The database
@@ -4410,6 +4535,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8042 The database
  *        major version is MySQL 8.0 and the minor version is 42. (Value:
  *        "MYSQL_8_0_42")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8043 The database
+ *        major version is MySQL 8.0 and the minor version is 43. (Value:
+ *        "MYSQL_8_0_43")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8044 The database
+ *        major version is MySQL 8.0 and the minor version is 44. (Value:
+ *        "MYSQL_8_0_44")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8045 The database
+ *        major version is MySQL 8.0 and the minor version is 45. (Value:
+ *        "MYSQL_8_0_45")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8046 The database
+ *        major version is MySQL 8.0 and the minor version is 46. (Value:
+ *        "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84 The database
  *        version is MySQL 8.4. (Value: "MYSQL_8_4")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres10 The database
@@ -4876,6 +5013,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8042 The
  *        database major version is MySQL 8.0 and the minor version is 42.
  *        (Value: "MYSQL_8_0_42")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8043 The
+ *        database major version is MySQL 8.0 and the minor version is 43.
+ *        (Value: "MYSQL_8_0_43")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8044 The
+ *        database major version is MySQL 8.0 and the minor version is 44.
+ *        (Value: "MYSQL_8_0_44")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8045 The
+ *        database major version is MySQL 8.0 and the minor version is 45.
+ *        (Value: "MYSQL_8_0_45")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8046 The
+ *        database major version is MySQL 8.0 and the minor version is 46.
+ *        (Value: "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 The database
  *        version is MySQL 8.4. (Value: "MYSQL_8_4")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
@@ -5193,6 +5342,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8042 The
  *        database major version is MySQL 8.0 and the minor version is 42.
  *        (Value: "MYSQL_8_0_42")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8043 The
+ *        database major version is MySQL 8.0 and the minor version is 43.
+ *        (Value: "MYSQL_8_0_43")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8044 The
+ *        database major version is MySQL 8.0 and the minor version is 44.
+ *        (Value: "MYSQL_8_0_44")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8045 The
+ *        database major version is MySQL 8.0 and the minor version is 45.
+ *        (Value: "MYSQL_8_0_45")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8046 The
+ *        database major version is MySQL 8.0 and the minor version is 46.
+ *        (Value: "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 The
  *        database version is MySQL 8.4. (Value: "MYSQL_8_4")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
@@ -5369,9 +5530,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  wellness job for OOD. * Readers: * the proactive database wellness job
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlOutOfDiskReport *outOfDiskReport;
-
-/** Input only. PITR related fields added for Instance Independent PITR. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_PITRFields *pitrFields;
 
 /** Output only. DEPRECATED: please use write_endpoint instead. */
 @property(nonatomic, copy, nullable) NSString *primaryDnsName GTLR_DEPRECATED;
@@ -7539,9 +7697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "MAJOR_VERSION_UPGRADE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ManageBackup Changes the
  *        BackupTier of a Cloud SQL instance. (Value: "MANAGE_BACKUP")
- *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade
- *        Pre-checks the major version upgrade operation. (Value:
- *        "PRE_CHECK_MAJOR_VERSION_UPGRADE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PromoteReplica Promotes a
  *        Cloud SQL replica instance. (Value: "PROMOTE_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary
@@ -7835,43 +7990,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetSizeGb;
-
-@end
-
-
-/**
- *  PITR related fields include enablement settings, archiving settings, and the
- *  bucket name.
- */
-@interface GTLRSQLAdmin_PITRFields : GTLRObject
-
-/**
- *  The enablement setting for PITR for MySQL.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableBinLog;
-
-/**
- *  The enablement setting for PITR for PostgreSQL.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *replicationLogArchivingEnabled;
-
-/**
- *  The enablement setting for PITR for SQL Server.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sqlserverPitrEnabled;
-
-/**
- *  The number of transaction log days to retain for PITR
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *transactionLogRetentionDays;
 
 @end
 

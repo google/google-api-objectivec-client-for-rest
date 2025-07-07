@@ -695,6 +695,25 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetConversationalSearchCustomizationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/conversationalSearchCustomizationConfig";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetConversationalSearchCustomizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.getConversationalSearchCustomizationConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetDefaultBranch
 
 @dynamic catalog;
@@ -1358,6 +1377,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig class];
   query.loggingName = @"retail.projects.locations.catalogs.updateCompletionConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateConversationalSearchCustomizationConfig
+
+@dynamic catalog, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig *)object
+                        catalog:(NSString *)catalog {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"catalog" ];
+  NSString *pathURITemplate = @"v2/{+catalog}/conversationalSearchCustomizationConfig";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateConversationalSearchCustomizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.catalog = catalog;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.updateConversationalSearchCustomizationConfig";
   return query;
 }
 

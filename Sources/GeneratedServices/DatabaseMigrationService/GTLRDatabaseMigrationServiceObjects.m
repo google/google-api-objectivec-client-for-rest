@@ -18,6 +18,7 @@ NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_D
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
+NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -2057,8 +2058,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PrivateConnection
-@dynamic createTime, displayName, error, labels, name, satisfiesPzi,
-         satisfiesPzs, state, updateTime, vpcPeeringConfig;
+@dynamic createTime, displayName, error, labels, name, pscInterfaceConfig,
+         satisfiesPzi, satisfiesPzs, state, updateTime, vpcPeeringConfig;
 @end
 
 
@@ -2103,6 +2104,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_PromoteMigrationJobRequest
 @dynamic objectsFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PscInterfaceConfig
+//
+
+@implementation GTLRDatabaseMigrationService_PscInterfaceConfig
+@dynamic networkAttachment;
 @end
 
 

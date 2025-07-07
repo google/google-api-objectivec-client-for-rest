@@ -3546,7 +3546,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
          authorizedNetwork, billingType, caCertificate,
          controlPlaneEncryptionKeyName, createdAt, customerName,
          descriptionProperty, disableVpcPeering, displayName, environments,
-         expiresAt, lastModifiedAt, name, portalDisabled, projectId, properties,
+         expiresAt, lastModifiedAt, name, networkEgressRestricted,
+         portalDisabled, projectId, properties,
          runtimeDatabaseEncryptionKeyName, runtimeType, state, subscriptionPlan,
          subscriptionType, type;
 

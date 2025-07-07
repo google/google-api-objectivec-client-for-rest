@@ -196,6 +196,22 @@ NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExt
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
 
+// GTLRAndroidPublisher_ProductOfferDetails.consumptionState
+NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateConsumed = @"CONSUMPTION_STATE_CONSUMED";
+NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateUnspecified = @"CONSUMPTION_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateYetToBeConsumed = @"CONSUMPTION_STATE_YET_TO_BE_CONSUMED";
+
+// GTLRAndroidPublisher_ProductPurchaseV2.acknowledgementState
+NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateAcknowledged = @"ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED";
+NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStatePending = @"ACKNOWLEDGEMENT_STATE_PENDING";
+NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified = @"ACKNOWLEDGEMENT_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_PurchaseStateContext.purchaseState
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Cancelled = @"CANCELLED";
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Pending = @"PENDING";
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Purchased = @"PURCHASED";
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_PurchaseStateUnspecified = @"PURCHASE_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AlternativeBillingOnly = @"ALTERNATIVE_BILLING_ONLY";
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified = @"EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED";
@@ -284,6 +300,10 @@ NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_
 NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
 NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
 NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified = @"WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_TestPurchaseContext.fopType
+NSString * const kGTLRAndroidPublisher_TestPurchaseContext_FopType_FopTypeUnspecified = @"FOP_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_TestPurchaseContext_FopType_Test = @"TEST";
 
 // GTLRAndroidPublisher_TextureCompressionFormat.alias
 NSString * const kGTLRAndroidPublisher_TextureCompressionFormat_Alias_Astc = @"ASTC";
@@ -2504,6 +2524,35 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ProductLineItem
+//
+
+@implementation GTLRAndroidPublisher_ProductLineItem
+@dynamic productId, productOfferDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ProductOfferDetails
+//
+
+@implementation GTLRAndroidPublisher_ProductOfferDetails
+@dynamic consumptionState, offerId, offerTags, offerToken, purchaseOptionId,
+         quantity, refundableQuantity, rentOfferDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offerTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ProductPurchase
 //
 
@@ -2529,6 +2578,43 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
 @dynamic developerPayload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ProductPurchaseV2
+//
+
+@implementation GTLRAndroidPublisher_ProductPurchaseV2
+@dynamic acknowledgementState, kind, obfuscatedExternalAccountId,
+         obfuscatedExternalProfileId, orderId, productLineItem,
+         purchaseCompletionTime, purchaseStateContext, regionCode,
+         testPurchaseContext;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productLineItem" : [GTLRAndroidPublisher_ProductLineItem class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PurchaseStateContext
+//
+
+@implementation GTLRAndroidPublisher_PurchaseStateContext
+@dynamic purchaseState;
 @end
 
 
@@ -2696,6 +2782,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle
 @dynamic recoveredDeviceCount, totalDeviceCount, versionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RentOfferDetails
+//
+
+@implementation GTLRAndroidPublisher_RentOfferDetails
 @end
 
 
@@ -3401,6 +3496,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_TestPurchase
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TestPurchaseContext
+//
+
+@implementation GTLRAndroidPublisher_TestPurchaseContext
+@dynamic fopType;
 @end
 
 

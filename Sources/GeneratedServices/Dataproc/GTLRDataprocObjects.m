@@ -57,6 +57,11 @@ NSString * const kGTLRDataproc_Batch_State_Succeeded        = @"SUCCEEDED";
 NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_Batch = @"BATCH";
 NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified = @"BATCH_OPERATION_TYPE_UNSPECIFIED";
 
+// GTLRDataproc_ClusterConfig.clusterTier
+NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierPremium = @"CLUSTER_TIER_PREMIUM";
+NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierStandard = @"CLUSTER_TIER_STANDARD";
+NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierUnspecified = @"CLUSTER_TIER_UNSPECIFIED";
+
 // GTLRDataproc_ClusterConfig.clusterType
 NSString * const kGTLRDataproc_ClusterConfig_ClusterType_ClusterTypeUnspecified = @"CLUSTER_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataproc_ClusterConfig_ClusterType_SingleNode = @"SINGLE_NODE";
@@ -892,8 +897,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterConfig
-@dynamic autoscalingConfig, auxiliaryNodeGroups, clusterType, configBucket,
-         dataprocMetricConfig, encryptionConfig, endpointConfig,
+@dynamic autoscalingConfig, auxiliaryNodeGroups, clusterTier, clusterType,
+         configBucket, dataprocMetricConfig, encryptionConfig, endpointConfig,
          gceClusterConfig, gkeClusterConfig, initializationActions,
          lifecycleConfig, masterConfig, metastoreConfig, secondaryWorkerConfig,
          securityConfig, softwareConfig, tempBucket, workerConfig;
@@ -2101,7 +2106,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_LifecycleConfig
-@dynamic autoDeleteTime, autoDeleteTtl, idleDeleteTtl, idleStartTime;
+@dynamic autoDeleteTime, autoDeleteTtl, autoStopTime, autoStopTtl,
+         idleDeleteTtl, idleStartTime, idleStopTtl;
 @end
 
 

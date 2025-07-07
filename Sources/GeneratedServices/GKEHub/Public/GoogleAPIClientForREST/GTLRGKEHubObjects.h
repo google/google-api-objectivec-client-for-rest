@@ -2706,7 +2706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 /** Required. The name of the deployment resource to be overridden. */
 @property(nonatomic, copy, nullable) NSString *deploymentName;
 
-/** Required. The namespace of the deployment resource to be overridden.. */
+/** Required. The namespace of the deployment resource to be overridden. */
 @property(nonatomic, copy, nullable) NSString *deploymentNamespace;
 
 @end

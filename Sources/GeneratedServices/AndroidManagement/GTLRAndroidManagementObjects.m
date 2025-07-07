@@ -281,6 +281,7 @@ NSString * const kGTLRAndroidManagement_Command_Type_RequestDeviceInfo = @"REQUE
 NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword = @"RESET_PASSWORD";
 NSString * const kGTLRAndroidManagement_Command_Type_StartLostMode = @"START_LOST_MODE";
 NSString * const kGTLRAndroidManagement_Command_Type_StopLostMode = @"STOP_LOST_MODE";
+NSString * const kGTLRAndroidManagement_Command_Type_Wipe      = @"WIPE";
 
 // GTLRAndroidManagement_CommonCriteriaModeInfo.commonCriteriaModeStatus
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeDisabled = @"COMMON_CRITERIA_MODE_DISABLED";
@@ -293,6 +294,11 @@ NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVe
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationNotSupported = @"POLICY_SIGNATURE_VERIFICATION_NOT_SUPPORTED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationStatusUnspecified = @"POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded = @"POLICY_SIGNATURE_VERIFICATION_SUCCEEDED";
+
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileAppFunctions
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsAllowed = @"CROSS_PROFILE_APP_FUNCTIONS_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsDisallowed = @"CROSS_PROFILE_APP_FUNCTIONS_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsUnspecified = @"CROSS_PROFILE_APP_FUNCTIONS_UNSPECIFIED";
 
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed = @"COPY_FROM_WORK_TO_PERSONAL_DISALLOWED";
@@ -725,6 +731,11 @@ NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUs
 NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never = @"NEVER";
 NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly = @"WIFI_ONLY";
 
+// GTLRAndroidManagement_Policy.appFunctions
+NSString * const kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsAllowed = @"APP_FUNCTIONS_ALLOWED";
+NSString * const kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsDisallowed = @"APP_FUNCTIONS_DISALLOWED";
+NSString * const kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsUnspecified = @"APP_FUNCTIONS_UNSPECIFIED";
+
 // GTLRAndroidManagement_Policy.assistContentPolicy
 NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentAllowed = @"ASSIST_CONTENT_ALLOWED";
 NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentDisallowed = @"ASSIST_CONTENT_DISALLOWED";
@@ -1025,6 +1036,12 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidDenylist = @"WIFI_SSID_DENYLIST";
 NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidPolicyTypeUnspecified = @"WIFI_SSID_POLICY_TYPE_UNSPECIFIED";
 
+// GTLRAndroidManagement_WipeParams.wipeDataFlags
+NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_PreserveResetProtectionData = @"PRESERVE_RESET_PROTECTION_DATA";
+NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_WipeDataFlagUnspecified = @"WIPE_DATA_FLAG_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_WipeEsims = @"WIPE_ESIMS";
+NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_WipeExternalStorage = @"WIPE_EXTERNAL_STORAGE";
+
 // GTLRAndroidManagement_WorkAccountSetupConfig.authenticationType
 NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeNotEnforced = @"AUTHENTICATION_TYPE_NOT_ENFORCED";
 NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
@@ -1238,6 +1255,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ApplicationPolicyChange
+//
+
+@implementation GTLRAndroidManagement_ApplicationPolicyChange
+@dynamic application, updateMask;
 @end
 
 
@@ -1468,7 +1495,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
          duration, errorCode, esimStatus, newPassword, removeEsimParams,
          requestDeviceInfoParams, requestDeviceInfoStatus, resetPasswordFlags,
          startLostModeParams, startLostModeStatus, stopLostModeParams,
-         stopLostModeStatus, type, userName;
+         stopLostModeStatus, type, userName, wipeParams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1555,8 +1582,8 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_CrossProfilePolicies
-@dynamic crossProfileCopyPaste, crossProfileDataSharing,
-         exemptionsToShowWorkContactsInPersonalProfile,
+@dynamic crossProfileAppFunctions, crossProfileCopyPaste,
+         crossProfileDataSharing, exemptionsToShowWorkContactsInPersonalProfile,
          showWorkContactsInPersonalProfile, workProfileWidgetsDefault;
 @end
 
@@ -2431,6 +2458,34 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_ModifyPolicyApplicationsRequest
+//
+
+@implementation GTLRAndroidManagement_ModifyPolicyApplicationsRequest
+@dynamic changes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changes" : [GTLRAndroidManagement_ApplicationPolicyChange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ModifyPolicyApplicationsResponse
+//
+
+@implementation GTLRAndroidManagement_ModifyPolicyApplicationsResponse
+@dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_NetworkInfo
 //
 
@@ -2675,9 +2730,9 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 @implementation GTLRAndroidManagement_Policy
 @dynamic accountTypesWithManagementDisabled, addUserDisabled,
          adjustVolumeDisabled, advancedSecurityOverrides, alwaysOnVpnPackage,
-         androidDevicePolicyTracks, appAutoUpdatePolicy, applications,
-         assistContentPolicy, autoDateAndTimeZone, autoTimeRequired,
-         blockApplicationsEnabled, bluetoothConfigDisabled,
+         androidDevicePolicyTracks, appAutoUpdatePolicy, appFunctions,
+         applications, assistContentPolicy, autoDateAndTimeZone,
+         autoTimeRequired, blockApplicationsEnabled, bluetoothConfigDisabled,
          bluetoothContactSharingDisabled, bluetoothDisabled, cameraAccess,
          cameraDisabled, cellBroadcastsConfigDisabled, choosePrivateKeyRules,
          complianceRules, createWindowsDisabled,
@@ -2860,6 +2915,34 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_RemoveEsimParams
 @dynamic iccId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_RemovePolicyApplicationsRequest
+//
+
+@implementation GTLRAndroidManagement_RemovePolicyApplicationsRequest
+@dynamic packageNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"packageNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_RemovePolicyApplicationsResponse
+//
+
+@implementation GTLRAndroidManagement_RemovePolicyApplicationsResponse
+@dynamic policy;
 @end
 
 
@@ -3317,6 +3400,24 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_WipeFailureEvent
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WipeParams
+//
+
+@implementation GTLRAndroidManagement_WipeParams
+@dynamic wipeDataFlags, wipeReason;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"wipeDataFlags" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

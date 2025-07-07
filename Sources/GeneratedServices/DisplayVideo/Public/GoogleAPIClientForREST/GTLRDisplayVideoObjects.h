@@ -537,6 +537,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper;
 /**
+ *  Demand Gen ads.
+ *
+ *  Value: "AD_GROUP_FORMAT_DEMAND_GEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen;
+/**
  *  In-stream ads.
  *
  *  Value: "AD_GROUP_FORMAT_IN_STREAM"
@@ -15166,6 +15172,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vend
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTelemetry;
 /**
+ *  Transunion.
+ *
+ *  Value: "THIRD_PARTY_VENDOR_TRANSUNION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTransunion;
+/**
  *  Unknown third-party vendor.
  *
  *  Value: "THIRD_PARTY_VENDOR_UNSPECIFIED"
@@ -15883,6 +15895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Non-skippable in-stream audio ads. (Value: "AD_GROUP_FORMAT_AUDIO")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper Bumper
  *        ads. (Value: "AD_GROUP_FORMAT_BUMPER")
+ *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen
+ *        Demand Gen ads. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream
  *        In-stream ads. (Value: "AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead
@@ -19001,7 +19015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `CreateAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
  *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_KEYWORD`
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
 
@@ -19010,7 +19024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `DeleteAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
  *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_KEYWORD`
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
 
@@ -31898,7 +31912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. The third-party vendors measuring brand lift. The following
  *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_DYNATA` *
- *  `THIRD_PARTY_VENDOR_KANTAR`
+ *  `THIRD_PARTY_VENDOR_KANTAR` * `THIRD_PARTY_VENDOR_KANTAR_MILLWARD_BROWN` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL` * `THIRD_PARTY_VENDOR_INTAGE` *
+ *  `THIRD_PARTY_VENDOR_NIELSEN` * `THIRD_PARTY_VENDOR_MACROMILL`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *brandLiftVendorConfigs;
 
@@ -31906,14 +31922,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Optional. The third-party vendors measuring brand safety. The following
  *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_ZERF` *
  *  `THIRD_PARTY_VENDOR_DOUBLE_VERIFY` *
- *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE`
+ *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL` * `THIRD_PARTY_VENDOR_ZEFR`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *brandSafetyVendorConfigs;
 
 /**
  *  Optional. The third-party vendors measuring reach. The following third-party
  *  vendors are applicable: * `THIRD_PARTY_VENDOR_NIELSEN` *
- *  `THIRD_PARTY_VENDOR_COMSCORE` * `THIRD_PARTY_VENDOR_KANTAR`
+ *  `THIRD_PARTY_VENDOR_COMSCORE` * `THIRD_PARTY_VENDOR_KANTAR` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL` *
+ *  `THIRD_PARTY_VENDOR_KANTAR_MILLWARD_BROWN` *
+ *  `THIRD_PARTY_VENDOR_VIDEO_RESEARCH` * `THIRD_PARTY_VENDOR_MEDIA_SCOPE` *
+ *  `THIRD_PARTY_VENDOR_AUDIENCE_PROJECT` * `THIRD_PARTY_VENDOR_VIDEO_AMP` *
+ *  `THIRD_PARTY_VENDOR_ISPOT_TV`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *reachVendorConfigs;
 
@@ -31922,7 +31944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_MOAT` *
  *  `THIRD_PARTY_VENDOR_DOUBLE_VERIFY` *
  *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE` * `THIRD_PARTY_VENDOR_COMSCORE` *
- *  `THIRD_PARTY_VENDOR_TELEMETRY` * `THIRD_PARTY_VENDOR_MEETRICS`
+ *  `THIRD_PARTY_VENDOR_TELEMETRY` * `THIRD_PARTY_VENDOR_MEETRICS` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *viewabilityVendorConfigs;
 
@@ -32052,6 +32075,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Nielsen. (Value: "THIRD_PARTY_VENDOR_NIELSEN")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTelemetry
  *        Telemetry. (Value: "THIRD_PARTY_VENDOR_TELEMETRY")
+ *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTransunion
+ *        Transunion. (Value: "THIRD_PARTY_VENDOR_TRANSUNION")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorUnspecified
  *        Unknown third-party vendor. (Value: "THIRD_PARTY_VENDOR_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorZefr
@@ -32838,7 +32863,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_YoutubeAndPartnersSettings : GTLRObject
 
 /**
- *  The kind of content on which the YouTube and Partners ads will be shown.
+ *  Output only. The kind of content on which the YouTube and Partners ads will
+ *  be shown. *Warning*: This field will be removed in the near future. Use
+ *  effective_content_category instead.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_YoutubeAndPartnersContentCategoryExpanded
@@ -32865,7 +32892,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Output only. The content category which takes effect when serving the line
  *  item. When content category is set in both line item and advertiser, the
- *  stricter one will take effect when serving the line item.
+ *  stricter one will take effect when serving the line item. New line items
+ *  will only inherit the advertiser level setting.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryExpanded

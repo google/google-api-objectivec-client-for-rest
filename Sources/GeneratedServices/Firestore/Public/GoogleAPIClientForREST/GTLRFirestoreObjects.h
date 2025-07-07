@@ -48,6 +48,7 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSource;
+@class GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags;
 @class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
@@ -61,6 +62,7 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexField;
+@class GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot;
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
 @class GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity;
 @class GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags;
@@ -358,6 +360,60 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDele
  *  Value: "SUCCESSFUL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Successful;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata.operationState
+
+/**
+ *  Request has finished being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelled;
+/**
+ *  Request is in the process of being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation on the operation.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelling;
+/**
+ *  Request has finished being processed, but encountered an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Failed;
+/**
+ *  Request has been processed and is in its finalization stage.
+ *
+ *  Value: "FINALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Finalizing;
+/**
+ *  Request is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Initializing;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_OperationStateUnspecified;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Processing;
+/**
+ *  Request has completed successfully.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
@@ -2453,6 +2509,113 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Metadata for the long-running operation from the CloneDatabase request.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata : GTLRObject
+
+/** The name of the database being cloned to. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** The time the clone finished, unset for ongoing clones. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The operation state of the clone.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelled
+ *        Request has finished being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelling
+ *        Request is in the process of being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Failed
+ *        Request has finished being processed, but encountered an error.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Finalizing
+ *        Request has been processed and is in its finalization stage. (Value:
+ *        "FINALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Initializing
+ *        Request is being prepared for processing. (Value: "INITIALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_OperationStateUnspecified
+ *        Unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Successful
+ *        Request has completed successfully. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *operationState;
+
+/** The snapshot from which this database was cloned. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot *pitrSnapshot;
+
+/**
+ *  How far along the clone is as an estimated percentage of remaining time.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressPercentage;
+
+/** The time the clone was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request message for FirestoreAdmin.CloneDatabase.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest : GTLRObject
+
+/**
+ *  Required. The ID to use for the database, which will become the final
+ *  component of the database's resource name. This database ID must not be
+ *  associated with an existing database. This value should be 4-63 characters.
+ *  Valid characters are /a-z-/ with first character a letter and the last a
+ *  letter or a number. Must not be UUID-like
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also
+ *  valid.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
+/**
+ *  Optional. Encryption configuration for the cloned database. If this field is
+ *  not specified, the cloned database will use the same encryption
+ *  configuration as the source database, namely use_source_encryption.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig *encryptionConfig;
+
+/**
+ *  Required. Specification of the PITR data to clone from. The source database
+ *  must exist. The cloned database will be created in the same location as the
+ *  source database.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot *pitrSnapshot;
+
+/**
+ *  Optional. Immutable. Tags to be bound to the cloned database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags *tags;
+
+@end
+
+
+/**
+ *  Optional. Immutable. Tags to be bound to the cloned database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags : GTLRObject
+@end
+
+
+/**
  *  The CMEK (Customer Managed Encryption Key) configuration for a Firestore
  *  database. If not present, the database is secured by the default Google
  *  encryption key.
@@ -3556,6 +3719,35 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The metadata message for google.cloud.location.Location.metadata.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1LocationMetadata : GTLRObject
+@end
+
+
+/**
+ *  A consistent snapshot of a database at a specific point in time. A PITR
+ *  (Point-in-time recovery) snapshot with previous versions of a database's
+ *  data is available for every minute up to the associated database's data
+ *  retention period. If the PITR feature is enabled, the retention period is 7
+ *  days; otherwise, it is one hour.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot : GTLRObject
+
+/**
+ *  Required. The name of the database that this was a snapshot of. Format:
+ *  `projects/{project}/databases/{database}`.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Output only. Public UUID of the database the snapshot was associated with.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *databaseUid;
+
+/** Required. Snapshot time of the database. */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
+
 @end
 
 

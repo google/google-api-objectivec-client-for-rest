@@ -35,6 +35,7 @@
 @class GTLRSecretManager_Secret;
 @class GTLRSecretManager_Secret_Annotations;
 @class GTLRSecretManager_Secret_Labels;
+@class GTLRSecretManager_Secret_Tags;
 @class GTLRSecretManager_Secret_VersionAliases;
 @class GTLRSecretManager_SecretPayload;
 @class GTLRSecretManager_SecretVersion;
@@ -884,6 +885,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) GTLRSecretManager_Rotation *rotation;
 
 /**
+ *  Optional. Input only. Immutable. Mapping of Tag keys/values directly bound
+ *  to this resource. For example: "123/environment": "production",
+ *  "123/costCenter": "marketing" Tags are used to organize and group resources.
+ *  Tags can be used to control policy evaluation for the resource.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Secret_Tags *tags;
+
+/**
  *  Optional. A list of up to 10 Pub/Sub topics to which messages are published
  *  when control plane operations are called on the secret or its versions.
  */
@@ -950,6 +959,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *        fetch them all at once.
  */
 @interface GTLRSecretManager_Secret_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Mapping of Tag keys/values directly bound
+ *  to this resource. For example: "123/environment": "production",
+ *  "123/costCenter": "marketing" Tags are used to organize and group resources.
+ *  Tags can be used to control policy evaluation for the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSecretManager_Secret_Tags : GTLRObject
 @end
 
 

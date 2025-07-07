@@ -2598,6 +2598,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeScheduling *computeScheduling;
 
 /**
+ *  Optional. Additional replica zones of the target regional disks. If this
+ *  list is not empty a regional disk will be created. The first supported zone
+ *  would be the one stated in the zone field. The rest are taken from this
+ *  list. Please refer to the [regional disk creation
+ *  API](https://cloud.google.com/compute/docs/regions-zones/global-regional-zonal-resources)
+ *  for further details about regional vs zonal disks. If not specified, a zonal
+ *  disk will be created in the same zone the VM is created.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *diskReplicaZones;
+
+/**
  *  The disk type to use in the VM.
  *
  *  Likely values:
@@ -2771,6 +2782,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** Compute instance scheduling information (if empty default is used). */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeScheduling *computeScheduling;
+
+/**
+ *  Optional. Additional replica zones of the target regional disks. If this
+ *  list is not empty a regional disk will be created. The first supported zone
+ *  would be the one stated in the zone field. The rest are taken from this
+ *  list. Please refer to the [regional disk creation
+ *  API](https://cloud.google.com/compute/docs/regions-zones/global-regional-zonal-resources)
+ *  for further details about regional vs zonal disks. If not specified, a zonal
+ *  disk will be created in the same zone the VM is created.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *diskReplicaZones;
 
 /**
  *  The disk type to use in the VM.
@@ -4317,7 +4339,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Immutable. The encryption to apply to the machine image. */
+/**
+ *  Immutable. The encryption to apply to the machine image. If the Image Import
+ *  resource has an encryption, this field must be set to the same encryption
+ *  key.
+ */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
 
 /**
@@ -4336,8 +4362,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /**
  *  Optional. The network interfaces to create with the instance created by the
- *  machine image. Internal and external IP addresses are ignored for machine
- *  image import.
+ *  machine image. Internal and external IP addresses, and network tiers are
+ *  ignored for machine image import.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_NetworkInterface *> *networkInterfaces;
 

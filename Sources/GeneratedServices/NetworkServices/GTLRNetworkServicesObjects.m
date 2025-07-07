@@ -116,6 +116,15 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Spr
 NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByRegion = @"WATERFALL_BY_REGION";
 NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByZone = @"WATERFALL_BY_ZONE";
 
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationGranularity
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_IsolationGranularityUnspecified = @"ISOLATION_GRANULARITY_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_Region = @"REGION";
+
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationMode
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_IsolationModeUnspecified = @"ISOLATION_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Nearest = @"NEAREST";
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Strict = @"STRICT";
+
 // GTLRNetworkServices_WasmPluginLogConfig.minLogLevel
 NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Critical = @"CRITICAL";
 NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Debug = @"DEBUG";
@@ -1660,7 +1669,7 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 @implementation GTLRNetworkServices_ServiceLbPolicy
 @dynamic autoCapacityDrain, createTime, descriptionProperty, failoverConfig,
-         labels, loadBalancingAlgorithm, name, updateTime;
+         isolationConfig, labels, loadBalancingAlgorithm, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1700,6 +1709,16 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 @implementation GTLRNetworkServices_ServiceLbPolicyFailoverConfig
 @dynamic failoverHealthThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ServiceLbPolicyIsolationConfig
+//
+
+@implementation GTLRNetworkServices_ServiceLbPolicyIsolationConfig
+@dynamic isolationGranularity, isolationMode;
 @end
 
 

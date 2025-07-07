@@ -6,7 +6,7 @@
 // Description:
 //   Programmatically manage your Merchant Center Accounts.
 // Documentation:
-//   https://developers.devsite.corp.google.com/merchant/api
+//   https://developers.google.com/merchant/api
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -1084,7 +1084,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cons;
 
-/** Required. The content of the review. */
+/**
+ *  Optional. The content of the review. If empty, the content might still get
+ *  populated from pros and cons.
+ */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
@@ -1487,7 +1490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  Optional. The product expiration time. This field will not bet set if the
+ *  Optional. The product expiration time. This field will not be set if the
  *  notification is sent for a product deletion event.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;

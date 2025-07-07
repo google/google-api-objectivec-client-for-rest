@@ -821,8 +821,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 /**
  *  If `true`, then the policy is enforced. If `false`, then any configuration
- *  is acceptable. This field can be set only in policies for boolean
- *  constraints.
+ *  is acceptable. This field can be set in policies for boolean constraints,
+ *  custom constraints and managed constraints.
  *
  *  Uses NSNumber of boolValue.
  */

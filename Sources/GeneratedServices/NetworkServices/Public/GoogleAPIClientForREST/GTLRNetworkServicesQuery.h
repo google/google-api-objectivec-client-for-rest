@@ -1091,7 +1091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. Name of the GatewayRouteView resource. Formats:
- *  projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+ *  projects/{project_number}/locations/{location}/gateways/{gateway}/routeViews/{route_view}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1101,7 +1101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Get a single RouteView of a Gateway.
  *
  *  @param name Required. Name of the GatewayRouteView resource. Formats:
- *    projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+ *    projects/{project_number}/locations/{location}/gateways/{gateway}/routeViews/{route_view}
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsGet
  */
@@ -1131,7 +1131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The Gateway to which a Route is associated. Formats:
- *  projects/{project_number}/locations/{location}/gateways/{gateway_name}
+ *  projects/{project_number}/locations/{location}/gateways/{gateway}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1141,7 +1141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists RouteViews
  *
  *  @param parent Required. The Gateway to which a Route is associated. Formats:
- *    projects/{project_number}/locations/{location}/gateways/{gateway_name}
+ *    projects/{project_number}/locations/{location}/gateways/{gateway}
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsList
  *
@@ -2294,7 +2294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. Name of the MeshRouteView resource. Format:
- *  projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+ *  projects/{project_number}/locations/{location}/meshes/{mesh}/routeViews/{route_view}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2304,7 +2304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Get a single RouteView of a Mesh.
  *
  *  @param name Required. Name of the MeshRouteView resource. Format:
- *    projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+ *    projects/{project_number}/locations/{location}/meshes/{mesh}/routeViews/{route_view}
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsGet
  */
@@ -2334,7 +2334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The Mesh to which a Route is associated. Format:
- *  projects/{project_number}/locations/{location}/meshes/{mesh_name}
+ *  projects/{project_number}/locations/{location}/meshes/{mesh}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2344,7 +2344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists RouteViews
  *
  *  @param parent Required. The Mesh to which a Route is associated. Format:
- *    projects/{project_number}/locations/{location}/meshes/{mesh_name}
+ *    projects/{project_number}/locations/{location}/meshes/{mesh}
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsList
  *

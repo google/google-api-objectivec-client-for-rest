@@ -189,6 +189,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     //     GTLRCompute_ReservationBlock
     //     GTLRCompute_ReservationBlocksListResponse
     @"compute#reservationList" : [GTLRCompute_ReservationList class],
+    // Skipping "compute#reservationSubBlock", was used on multiple classes:
+    //     GTLRCompute_ReservationSubBlock
+    //     GTLRCompute_ReservationSubBlocksListResponse
     @"compute#resourcePolicy" : [GTLRCompute_ResourcePolicy class],
     @"compute#resourcePolicyAggregatedList" : [GTLRCompute_ResourcePolicyAggregatedList class],
     @"compute#resourcePolicyList" : [GTLRCompute_ResourcePolicyList class],

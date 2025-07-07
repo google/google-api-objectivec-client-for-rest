@@ -1503,6 +1503,54 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChan
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChannelUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_Promotion.redemptionRestriction
+
+/**
+ *  The customer must meet a custom restriction to redeem the promotion. If
+ *  selected, the `custom_redemption_restriction` field must be set.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_Custom;
+/**
+ *  The customer must be a first-time customer to redeem the promotion.
+ *
+ *  Value: "FIRST_ORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_FirstOrder;
+/**
+ *  The customer must use a specific form of payment to redeem the promotion.
+ *
+ *  Value: "FORMS_OF_PAYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_FormsOfPayment;
+/**
+ *  The redemption restriction is unspecified.
+ *
+ *  Value: "REDEMPTION_RESTRICTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_RedemptionRestrictionUnspecified;
+/**
+ *  The customer must sign up for email's to redeem the promotion.
+ *
+ *  Value: "SIGN_UP_FOR_EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForEmail;
+/**
+ *  The customer must sign up for text to redeem the promotion.
+ *
+ *  Value: "SIGN_UP_FOR_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForText;
+/**
+ *  The customer must subscribe to the merchant's channel to redeem the
+ *  promotion.
+ *
+ *  Value: "SUBSCRIBE_AND_SAVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SubscribeAndSave;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_Promotion.storeApplicability
 
 /**
@@ -3888,6 +3936,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *paymentsManager;
+
+/**
+ *  Optional. Whether user has standard read-only access.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
 
 /**
  *  Whether user is a reporting manager. This role is equivalent to the
@@ -9606,6 +9661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *maxHandlingTime;
 
+/** Maximum retail price (MRP) of the item. Applicable to India only. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *maximumRetailPrice;
+
 /** The energy efficiency class as defined in EU directive 2010/30/EU. */
 @property(nonatomic, copy, nullable) NSString *minEnergyEfficiencyClass;
 
@@ -11314,6 +11372,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *couponValueType;
 
+/**
+ *  The custom redemption restriction for the promotion. If the
+ *  `redemption_restriction` field is set to `CUSTOM`, this field must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *customRedemptionRestriction;
+
 /** Free gift description for the promotion. */
 @property(nonatomic, copy, nullable) NSString *freeGiftDescription;
 
@@ -11371,6 +11435,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Required. Long title for the promotion. */
 @property(nonatomic, copy, nullable) NSString *longTitle;
+
+/**
+ *  The maximum monetary discount a customer can receive for the promotion. This
+ *  field is only supported with the `Percent off` coupon value type.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *maxDiscountAmount;
 
 /** Minimum purchase amount for the promotion. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *minimumPurchaseAmount;
@@ -11480,6 +11550,35 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  required.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *redemptionChannel;
+
+/**
+ *  The redemption restriction for the promotion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Promotion_RedemptionRestriction_Custom The
+ *        customer must meet a custom restriction to redeem the promotion. If
+ *        selected, the `custom_redemption_restriction` field must be set.
+ *        (Value: "CUSTOM")
+ *    @arg @c kGTLRShoppingContent_Promotion_RedemptionRestriction_FirstOrder
+ *        The customer must be a first-time customer to redeem the promotion.
+ *        (Value: "FIRST_ORDER")
+ *    @arg @c kGTLRShoppingContent_Promotion_RedemptionRestriction_FormsOfPayment
+ *        The customer must use a specific form of payment to redeem the
+ *        promotion. (Value: "FORMS_OF_PAYMENT")
+ *    @arg @c kGTLRShoppingContent_Promotion_RedemptionRestriction_RedemptionRestrictionUnspecified
+ *        The redemption restriction is unspecified. (Value:
+ *        "REDEMPTION_RESTRICTION_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForEmail
+ *        The customer must sign up for email's to redeem the promotion. (Value:
+ *        "SIGN_UP_FOR_EMAIL")
+ *    @arg @c kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForText
+ *        The customer must sign up for text to redeem the promotion. (Value:
+ *        "SIGN_UP_FOR_TEXT")
+ *    @arg @c kGTLRShoppingContent_Promotion_RedemptionRestriction_SubscribeAndSave
+ *        The customer must subscribe to the merchant's channel to redeem the
+ *        promotion. (Value: "SUBSCRIBE_AND_SAVE")
+ */
+@property(nonatomic, copy, nullable) NSString *redemptionRestriction;
 
 /** Shipping service names for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shippingServiceNames;

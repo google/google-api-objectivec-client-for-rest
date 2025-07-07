@@ -15,6 +15,48 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWorkloadManager_AgentStatus.cloudApiAccessFullScopesGranted
+NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_ErrorState = @"ERROR_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_FailureState = @"FAILURE_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_SuccessState = @"SUCCESS_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_UnspecifiedState = @"UNSPECIFIED_STATE";
+
+// GTLRWorkloadManager_AgentStatus.configurationValid
+NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_ErrorState = @"ERROR_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_FailureState = @"FAILURE_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_SuccessState = @"SUCCESS_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_ConfigurationValid_UnspecifiedState = @"UNSPECIFIED_STATE";
+
+// GTLRWorkloadManager_AgentStatus.systemdServiceEnabled
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_ErrorState = @"ERROR_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_FailureState = @"FAILURE_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_SuccessState = @"SUCCESS_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceEnabled_UnspecifiedState = @"UNSPECIFIED_STATE";
+
+// GTLRWorkloadManager_AgentStatus.systemdServiceRunning
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_ErrorState = @"ERROR_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_FailureState = @"FAILURE_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_SuccessState = @"SUCCESS_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatus_SystemdServiceRunning_UnspecifiedState = @"UNSPECIFIED_STATE";
+
+// GTLRWorkloadManager_AgentStatusIAMPermission.granted
+NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_ErrorState = @"ERROR_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_FailureState = @"FAILURE_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_SuccessState = @"SUCCESS_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusIAMPermission_Granted_UnspecifiedState = @"UNSPECIFIED_STATE";
+
+// GTLRWorkloadManager_AgentStatusServiceStatus.fullyFunctional
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_ErrorState = @"ERROR_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_FailureState = @"FAILURE_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_SuccessState = @"SUCCESS_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_FullyFunctional_UnspecifiedState = @"UNSPECIFIED_STATE";
+
+// GTLRWorkloadManager_AgentStatusServiceStatus.state
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_ErrorState = @"ERROR_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_FailureState = @"FAILURE_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_SuccessState = @"SUCCESS_STATE";
+NSString * const kGTLRWorkloadManager_AgentStatusServiceStatus_State_UnspecifiedState = @"UNSPECIFIED_STATE";
+
 // GTLRWorkloadManager_BackupProperties.latestBackupStatus
 NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateFailure = @"BACKUP_STATE_FAILURE";
 NSString * const kGTLRWorkloadManager_BackupProperties_LatestBackupStatus_BackupStateSuccess = @"BACKUP_STATE_SUCCESS";
@@ -90,27 +132,6 @@ NSString * const kGTLRWorkloadManager_HealthCheck_State_Passed = @"PASSED";
 NSString * const kGTLRWorkloadManager_HealthCheck_State_Skipped = @"SKIPPED";
 NSString * const kGTLRWorkloadManager_HealthCheck_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_HealthCheck_State_Unsupported = @"UNSUPPORTED";
-
-// GTLRWorkloadManager_Instance.status
-NSString * const kGTLRWorkloadManager_Instance_Status_Deprovisioning = @"DEPROVISIONING";
-NSString * const kGTLRWorkloadManager_Instance_Status_InstancestateUnspecified = @"INSTANCESTATE_UNSPECIFIED";
-NSString * const kGTLRWorkloadManager_Instance_Status_Provisioning = @"PROVISIONING";
-NSString * const kGTLRWorkloadManager_Instance_Status_Repairing = @"REPAIRING";
-NSString * const kGTLRWorkloadManager_Instance_Status_Running  = @"RUNNING";
-NSString * const kGTLRWorkloadManager_Instance_Status_Staging  = @"STAGING";
-NSString * const kGTLRWorkloadManager_Instance_Status_Stopped  = @"STOPPED";
-NSString * const kGTLRWorkloadManager_Instance_Status_Stopping = @"STOPPING";
-NSString * const kGTLRWorkloadManager_Instance_Status_Suspended = @"SUSPENDED";
-NSString * const kGTLRWorkloadManager_Instance_Status_Suspending = @"SUSPENDING";
-NSString * const kGTLRWorkloadManager_Instance_Status_Terminated = @"TERMINATED";
-
-// GTLRWorkloadManager_InstanceProperties.role
-NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAppServer = @"INSTANCE_ROLE_APP_SERVER";
-NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleAscs = @"INSTANCE_ROLE_ASCS";
-NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleErs = @"INSTANCE_ROLE_ERS";
-NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaPrimary = @"INSTANCE_ROLE_HANA_PRIMARY";
-NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleHanaSecondary = @"INSTANCE_ROLE_HANA_SECONDARY";
-NSString * const kGTLRWorkloadManager_InstanceProperties_Role_InstanceRoleUnspecified = @"INSTANCE_ROLE_UNSPECIFIED";
 
 // GTLRWorkloadManager_InstanceProperties.roles
 NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleAppServer = @"INSTANCE_ROLE_APP_SERVER";
@@ -235,17 +256,8 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Oracle = @"OR
 NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Redis = @"REDIS";
 NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
 
-// GTLRWorkloadManager_WorkloadProfile.state
-NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Active = @"ACTIVE";
-NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Deploying = @"DEPLOYING";
-NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Destroying = @"DESTROYING";
-NSString * const kGTLRWorkloadManager_WorkloadProfile_State_Maintenance = @"MAINTENANCE";
-NSString * const kGTLRWorkloadManager_WorkloadProfile_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
 // GTLRWorkloadManager_WorkloadProfile.workloadType
 NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_S4Hana = @"S4_HANA";
-NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_SqlServer = @"SQL_SERVER";
-NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_ThreeTierWebApp = @"THREE_TIER_WEB_APP";
 NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
 
 // GTLRWorkloadManager_WorkloadProfileHealth.state
@@ -274,6 +286,78 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AgentStatus
+//
+
+@implementation GTLRWorkloadManager_AgentStatus
+@dynamic agentName, availableVersion, cloudApiAccessFullScopesGranted,
+         configurationErrorMessage, configurationFilePath, configurationValid,
+         installedVersion, kernelVersion, references, services,
+         systemdServiceEnabled, systemdServiceRunning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRWorkloadManager_AgentStatusReference class],
+    @"services" : [GTLRWorkloadManager_AgentStatusServiceStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AgentStatusConfigValue
+//
+
+@implementation GTLRWorkloadManager_AgentStatusConfigValue
+@dynamic isDefault, name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AgentStatusIAMPermission
+//
+
+@implementation GTLRWorkloadManager_AgentStatusIAMPermission
+@dynamic granted, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AgentStatusReference
+//
+
+@implementation GTLRWorkloadManager_AgentStatusReference
+@dynamic name, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AgentStatusServiceStatus
+//
+
+@implementation GTLRWorkloadManager_AgentStatusServiceStatus
+@dynamic configValues, errorMessage, fullyFunctional, iamPermissions, name,
+         state, unspecifiedStateMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configValues" : [GTLRWorkloadManager_AgentStatusConfigValue class],
+    @"iamPermissions" : [GTLRWorkloadManager_AgentStatusIAMPermission class]
+  };
+  return map;
 }
 
 @end
@@ -342,12 +426,13 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 @implementation GTLRWorkloadManager_ComponentHealth
 @dynamic component, componentHealthChecks, componentHealthType, isRequired,
-         state, subComponentHealthes;
+         state, subComponentHealthes, subComponentsHealth;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"componentHealthChecks" : [GTLRWorkloadManager_HealthCheck class],
-    @"subComponentHealthes" : [GTLRWorkloadManager_ComponentHealth class]
+    @"subComponentHealthes" : [GTLRWorkloadManager_ComponentHealth class],
+    @"subComponentsHealth" : [GTLRWorkloadManager_ComponentHealth class]
   };
   return map;
 }
@@ -511,18 +596,8 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_Insight
-@dynamic instanceId, sapDiscovery, sapValidation, sentTime, sqlserverValidation,
-         torsoValidation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_Instance
-//
-
-@implementation GTLRWorkloadManager_Instance
-@dynamic name, region, status;
+@dynamic agentStatus, instanceId, sapDiscovery, sapValidation, sentTime,
+         sqlserverValidation, torsoValidation;
 @end
 
 
@@ -532,30 +607,12 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_InstanceProperties
-@dynamic instanceNumber, machineType, role, roles, sapInstanceProperties,
-         status, upcomingMaintenanceEvent;
+@dynamic instanceNumber, machineType, roles, sapInstanceProperties, status,
+         upcomingMaintenanceEvent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"roles" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_Layer
-//
-
-@implementation GTLRWorkloadManager_Layer
-@dynamic applicationType, databaseType, instances, sid;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"instances" : [GTLRWorkloadManager_Instance class]
   };
   return map;
 }
@@ -1072,7 +1129,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 @implementation GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties
 @dynamic appInstances, clusterInstances, diskMounts, instanceNumber,
-         instanceRole, isDrSite, virtualHostname;
+         instanceRole, isDrSite, osKernelVersion, virtualHostname;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1111,6 +1168,26 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersion
+//
+
+@implementation GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersion
+@dynamic distroKernel, osKernel, rawString;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersionVersion
+//
+
+@implementation GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesKernelVersionVersion
+@dynamic build, major, minor, patch, remainder;
 @end
 
 
@@ -1435,8 +1512,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_WorkloadProfile
-@dynamic application, ascs, database, labels, name, refreshedTime, sapWorkload,
-         state, workloadType;
+@dynamic labels, name, refreshedTime, sapWorkload, workloadType;
 @end
 
 
@@ -1460,11 +1536,12 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_WorkloadProfileHealth
-@dynamic checkTime, componentHealthes, state;
+@dynamic checkTime, componentHealthes, componentsHealth, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"componentHealthes" : [GTLRWorkloadManager_ComponentHealth class]
+    @"componentHealthes" : [GTLRWorkloadManager_ComponentHealth class],
+    @"componentsHealth" : [GTLRWorkloadManager_ComponentHealth class]
   };
   return map;
 }

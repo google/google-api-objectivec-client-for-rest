@@ -346,14 +346,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  of the user defined JSON attribute associated with the Resource. Allowed
  *  comparison operator is `:`. Here user-defined-attribute-json is a
  *  placeholder that can be replaced with any user defined JSON attribute name.
- *  Expressions are combined with either `AND` logic operator or `OR` logical
- *  operator but not both of them together i.e. only one of the `AND` or `OR`
- *  operator can be used throughout the filter string and both the operators
- *  cannot be used together. No other logical operators are supported. At most
- *  three filter fields are allowed in the filter string and if provided more
- *  than that then `INVALID_ARGUMENT` error is returned by the API. Here are a
- *  few examples: * `owner.email = \\"apihub\@google.com\\"` - - The owner team
- *  email is _apihub\@google.com_. * `owner.email = \\"apihub\@google.com\\" AND
+ *  A filter function is also supported in the filter string. The filter
+ *  function is `id(name)`. The `id(name)` function returns the id of the
+ *  resource name. For example, `id(name) = \\"api-1\\"` is equivalent to `name
+ *  = \\"projects/test-project-id/locations/test-location-id/apis/api-1\\"`
+ *  provided the parent is
+ *  `projects/test-project-id/locations/test-location-id`. Expressions are
+ *  combined with either `AND` logic operator or `OR` logical operator but not
+ *  both of them together i.e. only one of the `AND` or `OR` operator can be
+ *  used throughout the filter string and both the operators cannot be used
+ *  together. No other logical operators are supported. At most three filter
+ *  fields are allowed in the filter string and if provided more than that then
+ *  `INVALID_ARGUMENT` error is returned by the API. Here are a few examples: *
+ *  `owner.email = \\"apihub\@google.com\\"` - - The owner team email is
+ *  _apihub\@google.com_. * `owner.email = \\"apihub\@google.com\\" AND
  *  create_time < \\"2021-08-15T14:50:00Z\\" AND create_time >
  *  \\"2021-08-10T12:00:00Z\\"` - The owner team email is _apihub\@google.com_
  *  and the api was created before _2021-08-15 14:50:00 UTC_ and after
@@ -2340,17 +2346,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  of the user defined JSON attribute associated with the Resource. Allowed
  *  comparison operator is `:`. Here user-defined-attribute-json is a
  *  placeholder that can be replaced with any user defined JSON attribute name.
- *  Expressions are combined with either `AND` logic operator or `OR` logical
- *  operator but not both of them together i.e. only one of the `AND` or `OR`
- *  operator can be used throughout the filter string and both the operators
- *  cannot be used together. No other logical operators are supported. At most
- *  three filter fields are allowed in the filter string and if provided more
- *  than that then `INVALID_ARGUMENT` error is returned by the API. Here are a
- *  few examples: * `environment.enum_values.values.id: staging-id` - The
- *  allowed value id of the environment attribute associated with the Deployment
- *  is _staging-id_. * `environment.enum_values.values.display_name: \\"Staging
- *  Deployment\\"` - The allowed value display name of the environment attribute
- *  associated with the Deployment is `Staging Deployment`. *
+ *  A filter function is also supported in the filter string. The filter
+ *  function is `id(name)`. The `id(name)` function returns the id of the
+ *  resource name. For example, `id(name) = \\"deployment-1\\"` is equivalent to
+ *  `name =
+ *  \\"projects/test-project-id/locations/test-location-id/deployments/deployment-1\\"`
+ *  provided the parent is
+ *  `projects/test-project-id/locations/test-location-id`. Expressions are
+ *  combined with either `AND` logic operator or `OR` logical operator but not
+ *  both of them together i.e. only one of the `AND` or `OR` operator can be
+ *  used throughout the filter string and both the operators cannot be used
+ *  together. No other logical operators are supported. At most three filter
+ *  fields are allowed in the filter string and if provided more than that then
+ *  `INVALID_ARGUMENT` error is returned by the API. Here are a few examples: *
+ *  `environment.enum_values.values.id: staging-id` - The allowed value id of
+ *  the environment attribute associated with the Deployment is _staging-id_. *
+ *  `environment.enum_values.values.display_name: \\"Staging Deployment\\"` -
+ *  The allowed value display name of the environment attribute associated with
+ *  the Deployment is `Staging Deployment`. *
  *  `environment.enum_values.values.id: production-id AND create_time <
  *  \\"2021-08-15T14:50:00Z\\" AND create_time > \\"2021-08-10T12:00:00Z\\"` -
  *  The allowed value id of the environment attribute associated with the
@@ -2412,7 +2425,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update a deployment resource in the API hub. The following fields in the
  *  deployment resource can be updated: * display_name * description *
  *  documentation * deployment_type * resource_uri * endpoints * slo *
- *  environment * attributes The update_mask should be used to specify the
+ *  environment * attributes * source_project * source_environment *
+ *  management_url * source_uri The update_mask should be used to specify the
  *  fields being updated.
  *
  *  Method: apihub.projects.locations.deployments.patch
@@ -2441,7 +2455,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update a deployment resource in the API hub. The following fields in the
  *  deployment resource can be updated: * display_name * description *
  *  documentation * deployment_type * resource_uri * endpoints * slo *
- *  environment * attributes The update_mask should be used to specify the
+ *  environment * attributes * source_project * source_environment *
+ *  management_url * source_uri The update_mask should be used to specify the
  *  fields being updated.
  *
  *  @param object The @c GTLRAPIhub_GoogleCloudApihubV1Deployment to include in
@@ -3491,14 +3506,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  filtering. The value must be a string. The comparison operator must be one
  *  of: `<`, `>` or `=`. Filters are not case sensitive. The following fields in
  *  the `PluginInstances` are eligible for filtering: * `state` - The state of
- *  the Plugin Instance. Allowed comparison operators: `=`. Expressions are
- *  combined with either `AND` logic operator or `OR` logical operator but not
- *  both of them together i.e. only one of the `AND` or `OR` operator can be
- *  used throughout the filter string and both the operators cannot be used
- *  together. No other logical operators are supported. At most three filter
- *  fields are allowed in the filter string and if provided more than that then
- *  `INVALID_ARGUMENT` error is returned by the API. Here are a few examples: *
- *  `state = ENABLED` - The plugin instance is in enabled state.
+ *  the Plugin Instance. Allowed comparison operators: `=`. A filter function is
+ *  also supported in the filter string. The filter function is `id(name)`. The
+ *  `id(name)` function returns the id of the resource name. For example,
+ *  `id(name) = \\"plugin-instance-1\\"` is equivalent to `name =
+ *  \\"projects/test-project-id/locations/test-location-id/plugins/plugin-1/instances/plugin-instance-1\\"`
+ *  provided the parent is
+ *  `projects/test-project-id/locations/test-location-id/plugins/plugin-1`.
+ *  Expressions are combined with either `AND` logic operator or `OR` logical
+ *  operator but not both of them together i.e. only one of the `AND` or `OR`
+ *  operator can be used throughout the filter string and both the operators
+ *  cannot be used together. No other logical operators are supported. At most
+ *  three filter fields are allowed in the filter string and if provided more
+ *  than that then `INVALID_ARGUMENT` error is returned by the API. Here are a
+ *  few examples: * `state = ENABLED` - The plugin instance is in enabled state.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3545,6 +3566,55 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a plugin instance in the API hub. The following fields in the
+ *  plugin_instance can be updated currently: * display_name *
+ *  schedule_cron_expression The update_mask should be used to specify the
+ *  fields being updated. To update the auth_config and additional_config of the
+ *  plugin instance, use the ApplyPluginInstanceConfig method.
+ *
+ *  Method: apihub.projects.locations.plugins.instances.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesPatch : GTLRAPIhubQuery
+
+/**
+ *  Identifier. The unique name of the plugin instance resource. Format:
+ *  `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1PluginInstance.
+ *
+ *  Updates a plugin instance in the API hub. The following fields in the
+ *  plugin_instance can be updated currently: * display_name *
+ *  schedule_cron_expression The update_mask should be used to specify the
+ *  fields being updated. To update the auth_config and additional_config of the
+ *  plugin instance, use the ApplyPluginInstanceConfig method.
+ *
+ *  @param object The @c GTLRAPIhub_GoogleCloudApihubV1PluginInstance to include
+ *    in the query.
+ *  @param name Identifier. The unique name of the plugin instance resource.
+ *    Format:
+ *    `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1PluginInstance *)object
+                           name:(NSString *)name;
 
 @end
 

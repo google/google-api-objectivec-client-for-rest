@@ -4982,6 +4982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_TrafficPercentStrategy *trafficPercentStrategy;
 
+/** The TPC universe which the rollout will be rolled out to. */
+@property(nonatomic, copy, nullable) NSString *universe;
+
 @end
 
 

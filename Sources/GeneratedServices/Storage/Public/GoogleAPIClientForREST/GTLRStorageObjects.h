@@ -60,12 +60,15 @@
 @class GTLRStorage_Notification;
 @class GTLRStorage_Notification_CustomAttributes;
 @class GTLRStorage_Object;
+@class GTLRStorage_Object_Contexts;
+@class GTLRStorage_Object_Contexts_Custom;
 @class GTLRStorage_Object_CustomerEncryption;
 @class GTLRStorage_Object_Metadata;
 @class GTLRStorage_Object_Owner;
 @class GTLRStorage_Object_Retention;
 @class GTLRStorage_ObjectAccessControl;
 @class GTLRStorage_ObjectAccessControl_ProjectTeam;
+@class GTLRStorage_ObjectCustomContextPayload;
 @class GTLRStorage_Policy_Bindings_Item;
 @class GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig;
 
@@ -556,6 +559,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  objects. Only enforced when the mode is set to 'Enabled'.
  */
 @interface GTLRStorage_Bucket_IpFilter : GTLRObject
+
+/**
+ *  Whether to allow all service agents to access the bucket regardless of the
+ *  IP filter configuration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAllServiceAgentAccess;
 
 /**
  *  Whether to allow cross-org VPCs in the bucket's IP filter configuration.
@@ -1946,6 +1957,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
+ *  User-defined or system-defined object contexts. Each object context is a
+ *  key-payload pair, where the key provides the identification and the payload
+ *  holds the associated value and additional metadata.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Object_Contexts *contexts;
+
+/**
  *  CRC32c checksum, as described in RFC 4960, Appendix B; encoded using base64
  *  in big-endian byte order. For more information about using the CRC32c
  *  checksum, see [Data Validation and Change
@@ -2123,6 +2141,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  User-defined or system-defined object contexts. Each object context is a
+ *  key-payload pair, where the key provides the identification and the payload
+ *  holds the associated value and additional metadata.
+ */
+@interface GTLRStorage_Object_Contexts : GTLRObject
+
+/** User-defined object contexts. */
+@property(nonatomic, strong, nullable) GTLRStorage_Object_Contexts_Custom *custom;
+
+@end
+
+
+/**
  *  Metadata of customer-supplied encryption key, if the object is encrypted by
  *  such a key.
  */
@@ -2176,6 +2207,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *retainUntilTime;
 
+@end
+
+
+/**
+ *  User-defined object contexts.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRStorage_ObjectCustomContextPayload. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStorage_Object_Contexts_Custom : GTLRObject
 @end
 
 
@@ -2287,6 +2330,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  is always storage#objectAccessControls.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  The payload of a single user-defined object context.
+ */
+@interface GTLRStorage_ObjectCustomContextPayload : GTLRObject
+
+/** The time at which the object context was created in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The time at which the object context was last updated in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The value of the object context. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

@@ -1958,8 +1958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 /**
  *  Response message for generating a URL to upgrade an existing managed Google
- *  Play Accounts enterprise to a managed Google domain. **Note:** This feature
- *  is not generally available.
+ *  Play Accounts enterprise to a managed Google domain.
  */
 @interface GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse : GTLRObject
 

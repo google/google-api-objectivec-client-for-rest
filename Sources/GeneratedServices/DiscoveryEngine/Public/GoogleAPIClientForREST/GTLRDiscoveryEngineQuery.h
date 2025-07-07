@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
- *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -170,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name Required. The name of the CmekConfig of the form
  *    `projects/{project}/locations/{location}/cmekConfig` or
- *    `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *    `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsPatch
  */
@@ -8522,7 +8522,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the CmekConfig of the form
  *  `projects/{project}/locations/{location}/cmekConfig` or
- *  `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *  `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8544,7 +8544,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name Required. The name of the CmekConfig of the form
  *    `projects/{project}/locations/{location}/cmekConfig` or
- *    `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+ *    `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUpdateCmekConfig
  */

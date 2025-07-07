@@ -897,7 +897,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_LocationMetadata
-@dynamic supportedFlexPerformance, supportedServiceLevels;
+@dynamic hasVcp, supportedFlexPerformance, supportedServiceLevels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1186,11 +1186,11 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 @implementation GTLRNetAppFiles_StoragePool
 @dynamic activeDirectory, allowAutoTiering, capacityGib, createTime,
-         customPerformanceEnabled, descriptionProperty, encryptionType,
-         globalAccessAllowed, kmsConfig, labels, ldapEnabled, name, network,
-         psaRange, replicaZone, satisfiesPzi, satisfiesPzs, serviceLevel, state,
-         stateDetails, totalIops, totalThroughputMibps, volumeCapacityGib,
-         volumeCount, zoneProperty;
+         customPerformanceEnabled, descriptionProperty, enableHotTierAutoResize,
+         encryptionType, globalAccessAllowed, hotTierSizeGib, kmsConfig, labels,
+         ldapEnabled, name, network, psaRange, replicaZone, satisfiesPzi,
+         satisfiesPzs, serviceLevel, state, stateDetails, totalIops,
+         totalThroughputMibps, volumeCapacityGib, volumeCount, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1241,7 +1241,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_TieringPolicy
-@dynamic coolingThresholdDays, tierAction;
+@dynamic coolingThresholdDays, hotTierBypassModeEnabled, tierAction;
 @end
 
 

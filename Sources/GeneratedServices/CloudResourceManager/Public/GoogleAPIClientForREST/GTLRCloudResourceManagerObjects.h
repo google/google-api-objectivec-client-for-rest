@@ -1618,6 +1618,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @interface GTLRCloudResourceManager_Project : GTLRObject
 
+/**
+ *  Output only. If this project is a Management Project, list of capabilities
+ *  configured on the parent folder. Note, presence of any capability implies
+ *  that this is a Management Project. Example:
+ *  `folders/123/capabilities/app-management`. OUTPUT ONLY.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *configuredCapabilities;
+
 /** Output only. Creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 

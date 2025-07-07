@@ -2691,6 +2691,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRLogging_AppHub *apphub;
 
 /**
+ *  Output only. AppHub application metadata associated with the destination
+ *  application. This is only populated if the log represented "edge"-like data
+ *  (such as for VPC flow logs) with a source and destination.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_AppHub *apphubDestination;
+
+/**
  *  Output only. The Error Reporting (https://cloud.google.com/error-reporting)
  *  error groups associated with this LogEntry. Error Reporting sets the values
  *  for this field during error group creation.For more information, see View
@@ -3081,10 +3088,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Output only. A client-assigned identifier, such as
- *  "load-balancer-exclusion". Identifiers are limited to 100 characters and can
- *  include only letters, digits, underscores, hyphens, and periods. First
- *  character has to be alphanumeric.
+ *  Optional. A client-assigned identifier, such as "load-balancer-exclusion".
+ *  Identifiers are limited to 100 characters and can include only letters,
+ *  digits, underscores, hyphens, and periods. First character has to be
+ *  alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3394,8 +3401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Optional. Log entries that match any of these exclusion filters will not be
- *  exported.If a log entry is matched by both filter and one of
- *  exclusion_filters it will not be exported.
+ *  exported.If a log entry is matched by both filter and one of exclusions it
+ *  will not be exported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogExclusion *> *exclusions;
 
@@ -3441,11 +3448,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *interceptChildren;
 
 /**
- *  Output only. The client-assigned sink identifier, unique within the
- *  project.For example: "my-syslog-errors-to-pubsub".Sink identifiers are
- *  limited to 100 characters and can include only the following characters:
- *  upper and lower-case alphanumeric characters, underscores, hyphens,
- *  periods.First character has to be alphanumeric.
+ *  Optional. The client-assigned sink identifier, unique within the project.For
+ *  example: "my-syslog-errors-to-pubsub".Sink identifiers are limited to 100
+ *  characters and can include only the following characters: upper and
+ *  lower-case alphanumeric characters, underscores, hyphens, periods.First
+ *  character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4275,7 +4282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRLogging_Query *loggingQuery;
 
 /**
- *  Output only. Resource name of the recent query.In the format:
+ *  Optional. Resource name of the recent query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/recentQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
  *  (https://cloud.google.com/logging/docs/region-support)The QUERY_ID is a

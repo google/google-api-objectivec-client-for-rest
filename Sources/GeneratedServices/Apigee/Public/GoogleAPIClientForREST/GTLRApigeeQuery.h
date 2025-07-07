@@ -2863,7 +2863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Optional. Maximum number of app IDs to return. Defaults to 10000. */
+/** Optional. Maximum number of app IDs to return. Defaults to 1000. */
 @property(nonatomic, assign) long long rows;
 
 /** Returns the list of apps starting from the specified app ID. */
@@ -8792,6 +8792,37 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Delete a SecurityAction.
+ *
+ *  Method: apigee.organizations.environments.securityActions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the security monitoring condition to delete. Format:
+ *  `organizations/{org}/environment/{env}/securityActions/{security_action}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Delete a SecurityAction.
+ *
+ *  @param name Required. The name of the security monitoring condition to
+ *    delete. Format:
+ *    `organizations/{org}/environment/{env}/securityActions/{security_action}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Disable a SecurityAction. The `state` of the SecurityAction after disabling
  *  is `DISABLED`. `DisableSecurityAction` can be called on SecurityActions in
  *  the state `ENABLED`; SecurityActions in a different state (including
@@ -8959,6 +8990,52 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a SecurityAction.
+ *
+ *  Method: apigee.organizations.environments.securityActions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsPatch : GTLRApigeeQuery
+
+/**
+ *  Immutable. This field is ignored during creation as per AIP-133. Please set
+ *  the `security_action_id` field in the CreateSecurityActionRequest when
+ *  creating a new SecurityAction. Format:
+ *  organizations/{org}/environments/{env}/securityActions/{security_action}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. Valid fields to update are
+ *  `description`, `state`, `allow`, `deny`, and `flag`, `expire_time`, and
+ *  `ttl`, `api_proxies`, and `condition_config`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityAction.
+ *
+ *  Update a SecurityAction.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityAction to include
+ *    in the query.
+ *  @param name Immutable. This field is ignored during creation as per AIP-133.
+ *    Please set the `security_action_id` field in the
+ *    CreateSecurityActionRequest when creating a new SecurityAction. Format:
+ *    organizations/{org}/environments/{env}/securityActions/{security_action}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityAction *)object
+                           name:(NSString *)name;
 
 @end
 

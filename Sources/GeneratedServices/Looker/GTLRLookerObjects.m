@@ -39,6 +39,9 @@ NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodStandardA
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandard = @"LOOKER_CORE_STANDARD";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandardAnnual = @"LOOKER_CORE_STANDARD_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial = @"LOOKER_CORE_TRIAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEmbed = @"LOOKER_CORE_TRIAL_EMBED";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEnterprise = @"LOOKER_CORE_TRIAL_ENTERPRISE";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard = @"LOOKER_CORE_TRIAL_STANDARD";
 NSString * const kGTLRLooker_Instance_PlatformEdition_PlatformEditionUnspecified = @"PLATFORM_EDITION_UNSPECIFIED";
 
 // GTLRLooker_Instance.state
@@ -490,7 +493,15 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_ServiceAttachment
-@dynamic connectionStatus, localFqdn, targetServiceAttachmentUri;
+@dynamic connectionStatus, localFqdn, localFqdns, targetServiceAttachmentUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"localFqdns" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

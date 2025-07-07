@@ -6,7 +6,7 @@
 // Description:
 //   Programmatically manage your Merchant Center Accounts.
 // Documentation:
-//   https://developers.devsite.corp.google.com/merchant/api
+//   https://developers.google.com/merchant/api
 
 #import <GoogleAPIClientForREST/GTLRMerchantObjects.h>
 

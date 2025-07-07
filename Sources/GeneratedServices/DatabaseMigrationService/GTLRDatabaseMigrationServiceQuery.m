@@ -1459,7 +1459,7 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
 
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsCreate
 
-@dynamic parent, privateConnectionId, requestId, skipValidation;
+@dynamic parent, privateConnectionId, requestId, skipValidation, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRDatabaseMigrationService_PrivateConnection *)object
                          parent:(NSString *)parent {

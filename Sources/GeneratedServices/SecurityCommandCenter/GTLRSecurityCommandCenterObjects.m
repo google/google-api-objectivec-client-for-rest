@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSecurityCommandCenter_AiModel.deploymentPlatform
+NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_DeploymentPlatformUnspecified = @"DEPLOYMENT_PLATFORM_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gke = @"GKE";
+NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_VertexAi = @"VERTEX_AI";
+
 // GTLRSecurityCommandCenter_AssetDiscoveryConfig.inclusionMode
 NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_Exclude = @"EXCLUDE";
 NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_IncludeOnly = @"INCLUDE_ONLY";
@@ -291,6 +296,11 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Sensitive
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_None = @"NONE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_ResourceValueUnspecified = @"RESOURCE_VALUE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel.deploymentPlatform
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_DeploymentPlatformUnspecified = @"DEPLOYMENT_PLATFORM_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gke = @"GKE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_VertexAi = @"VERTEX_AI";
+
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure.state
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure_State_Calculated = @"CALCULATED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure_State_NotCalculated = @"NOT_CALCULATED";
@@ -504,6 +514,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack.additionalTechniques
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism = @"ABUSE_ELEVATION_CONTROL_MECHANISM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSetuidAndSetgid = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSudoAndSudoCaching = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AccessTokenManipulation = @"ACCESS_TOKEN_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AccountAccessRemoval = @"ACCOUNT_ACCESS_REMOVAL";
@@ -557,6 +568,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_EventTriggeredExecution = @"EVENT_TRIGGERED_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExploitationForClientExecution = @"EXPLOITATION_FOR_CLIENT_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExploitationForPrivilegeEscalation = @"EXPLOITATION_FOR_PRIVILEGE_ESCALATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExternalProxy = @"EXTERNAL_PROXY";
@@ -583,6 +595,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_InstallRootCertificate = @"INSTALL_ROOT_CERTIFICATE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_KernelModulesAndExtensions = @"KERNEL_MODULES_AND_EXTENSIONS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LateralToolTransfer = @"LATERAL_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LinuxAndMacFileAndDirectoryPermissionsModification = @"LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LocalAccount = @"LOCAL_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Masquerading = @"MASQUERADING";
@@ -657,6 +670,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack.primaryTechniques
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism = @"ABUSE_ELEVATION_CONTROL_MECHANISM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSetuidAndSetgid = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSudoAndSudoCaching = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AccessTokenManipulation = @"ACCESS_TOKEN_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AccountAccessRemoval = @"ACCOUNT_ACCESS_REMOVAL";
@@ -710,6 +724,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_EventTriggeredExecution = @"EVENT_TRIGGERED_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExploitationForClientExecution = @"EXPLOITATION_FOR_CLIENT_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExploitationForPrivilegeEscalation = @"EXPLOITATION_FOR_PRIVILEGE_ESCALATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExternalProxy = @"EXTERNAL_PROXY";
@@ -736,6 +751,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAtta
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_InstallRootCertificate = @"INSTALL_ROOT_CERTIFICATE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_KernelModulesAndExtensions = @"KERNEL_MODULES_AND_EXTENSIONS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LateralToolTransfer = @"LATERAL_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LinuxAndMacFileAndDirectoryPermissionsModification = @"LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LocalAccount = @"LOCAL_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Masquerading = @"MASQUERADING";
@@ -917,6 +933,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Tactic
 
 // GTLRSecurityCommandCenter_MitreAttack.additionalTechniques
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism = @"ABUSE_ELEVATION_CONTROL_MECHANISM";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSetuidAndSetgid = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSudoAndSudoCaching = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccessTokenManipulation = @"ACCESS_TOKEN_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccountAccessRemoval = @"ACCOUNT_ACCESS_REMOVAL";
@@ -970,6 +987,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Esc
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_EventTriggeredExecution = @"EVENT_TRIGGERED_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitationForClientExecution = @"EXPLOITATION_FOR_CLIENT_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitationForPrivilegeEscalation = @"EXPLOITATION_FOR_PRIVILEGE_ESCALATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy = @"EXTERNAL_PROXY";
@@ -996,6 +1014,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Inp
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InstallRootCertificate = @"INSTALL_ROOT_CERTIFICATE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_KernelModulesAndExtensions = @"KERNEL_MODULES_AND_EXTENSIONS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LateralToolTransfer = @"LATERAL_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LinuxAndMacFileAndDirectoryPermissionsModification = @"LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccount = @"LOCAL_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Masquerading = @"MASQUERADING";
@@ -1070,6 +1089,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_TacticUnsp
 
 // GTLRSecurityCommandCenter_MitreAttack.primaryTechniques
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism = @"ABUSE_ELEVATION_CONTROL_MECHANISM";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSetuidAndSetgid = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSudoAndSudoCaching = @"ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccessTokenManipulation = @"ACCESS_TOKEN_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccountAccessRemoval = @"ACCOUNT_ACCESS_REMOVAL";
@@ -1123,6 +1143,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Escape
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_EventTriggeredExecution = @"EVENT_TRIGGERED_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitationForClientExecution = @"EXPLOITATION_FOR_CLIENT_EXECUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitationForPrivilegeEscalation = @"EXPLOITATION_FOR_PRIVILEGE_ESCALATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy = @"EXTERNAL_PROXY";
@@ -1149,6 +1170,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InputC
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InstallRootCertificate = @"INSTALL_ROOT_CERTIFICATE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_KernelModulesAndExtensions = @"KERNEL_MODULES_AND_EXTENSIONS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LateralToolTransfer = @"LATERAL_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LinuxAndMacFileAndDirectoryPermissionsModification = @"LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccount = @"LOCAL_ACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Masquerading = @"MASQUERADING";
@@ -1320,6 +1342,17 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_AffectedResources
 @dynamic count;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AiModel
+//
+
+@implementation GTLRSecurityCommandCenter_AiModel
+@dynamic deploymentPlatform, displayName, domain, library, location, name,
+         publisher;
 @end
 
 
@@ -1731,6 +1764,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_BigQueryDestination
+//
+
+@implementation GTLRSecurityCommandCenter_BigQueryDestination
+@dynamic dataset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Binding
 //
 
@@ -2041,6 +2084,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Dataset
+//
+
+@implementation GTLRSecurityCommandCenter_Dataset
+@dynamic displayName, name, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Denied
 //
 
@@ -2215,6 +2268,25 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ExportFindingsMetadata
+//
+
+@implementation GTLRSecurityCommandCenter_ExportFindingsMetadata
+@dynamic bigQueryDestination, exportStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ExportFindingsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ExportFindingsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Expr
 //
 
@@ -2263,7 +2335,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, affectedResources, application, attackExposure,
+@dynamic access, affectedResources, aiModel, application, attackExposure,
          backupDisasterRecovery, canonicalName, category, chokepoint,
          cloudArmor, cloudDlpDataProfile, cloudDlpInspection, compliances,
          connections, contacts, containers, createTime, dataAccessEvents,
@@ -2275,7 +2347,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          muteUpdateTime, name, networks, nextSteps, notebook, orgPolicies,
          parent, parentDisplayName, processes, resourceName, securityMarks,
          securityPosture, severity, sourceProperties, state, toxicCombination,
-         vulnerability;
+         vertexAi, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2814,6 +2886,17 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel
+@dynamic deploymentPlatform, displayName, domain, library, location, name,
+         publisher;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed
 //
 
@@ -3308,6 +3391,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset
+@dynamic displayName, name, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied
 //
 
@@ -3466,7 +3559,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding
-@dynamic access, affectedResources, application, attackExposure,
+@dynamic access, affectedResources, aiModel, application, attackExposure,
          backupDisasterRecovery, canonicalName, category, chokepoint,
          cloudArmor, cloudDlpDataProfile, cloudDlpInspection, compliances,
          connections, contacts, containers, createTime, dataAccessEvents,
@@ -3478,7 +3571,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          muteUpdateTime, name, networks, nextSteps, notebook, orgPolicies,
          parent, parentDisplayName, processes, resourceName, securityMarks,
          securityPosture, severity, sourceProperties, state, toxicCombination,
-         vulnerability;
+         vertexAi, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -4091,6 +4184,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pipeline
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pipeline
+@dynamic displayName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pod
 //
 
@@ -4135,7 +4238,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Process
 @dynamic args, argumentsTruncated, binary, envVariables, envVariablesTruncated,
-         libraries, name, parentPid, pid, script;
+         libraries, name, parentPid, pid, script, userId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4418,6 +4521,25 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"relatedFindings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2VertexAi
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2VertexAi
+@dynamic datasets, pipelines;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datasets" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset class],
+    @"pipelines" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pipeline class]
   };
   return map;
 }
@@ -5306,6 +5428,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Pipeline
+//
+
+@implementation GTLRSecurityCommandCenter_Pipeline
+@dynamic displayName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Pod
 //
 
@@ -5383,7 +5515,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_Process
 @dynamic args, argumentsTruncated, binary, envVariables, envVariablesTruncated,
-         libraries, name, parentPid, pid, script;
+         libraries, name, parentPid, pid, script, userId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5902,6 +6034,25 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"resourceValueConfigsUsed" : [GTLRSecurityCommandCenter_ResourceValueConfigMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_VertexAi
+//
+
+@implementation GTLRSecurityCommandCenter_VertexAi
+@dynamic datasets, pipelines;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datasets" : [GTLRSecurityCommandCenter_Dataset class],
+    @"pipelines" : [GTLRSecurityCommandCenter_Pipeline class]
   };
   return map;
 }

@@ -556,6 +556,33 @@ NSString * const kGTLRDriveLabelsViewLabelViewFull  = @"LABEL_VIEW_FULL";
 
 @end
 
+@implementation GTLRDriveLabelsQuery_LabelsUpdateLabelEnabledAppSettings
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:updateLabelEnabledAppSettings";
+  GTLRDriveLabelsQuery_LabelsUpdateLabelEnabledAppSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDriveLabels_GoogleAppsDriveLabelsV2Label class];
+  query.loggingName = @"drivelabels.labels.updateLabelEnabledAppSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveLabelsQuery_LabelsUpdatePermissions
 
 @dynamic parent, useAdminAccess;

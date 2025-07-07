@@ -352,6 +352,16 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_DownloadRestrictionsMetadata
+//
+
+@implementation GTLRDrive_DownloadRestrictionsMetadata
+@dynamic effectiveDownloadRestrictionWithContext, itemDownloadRestriction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Drive
 //
 
@@ -389,8 +399,8 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 @implementation GTLRDrive_Drive_Capabilities
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
-         canChangeDomainUsersOnlyRestriction, canChangeDriveBackground,
-         canChangeDriveMembersOnlyRestriction,
+         canChangeDomainUsersOnlyRestriction, canChangeDownloadRestriction,
+         canChangeDriveBackground, canChangeDriveMembersOnlyRestriction,
          canChangeSharingFoldersRequiresOrganizerPermissionRestriction,
          canComment, canCopy, canDeleteChildren, canDeleteDrive, canDownload,
          canEdit, canListChildren, canManageMembers, canReadRevisions,
@@ -441,18 +451,19 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 @implementation GTLRDrive_File
 @dynamic appProperties, capabilities, contentHints, contentRestrictions,
          copyRequiresWriterPermission, createdTime, descriptionProperty,
-         driveId, explicitlyTrashed, exportLinks, fileExtension, folderColorRgb,
-         fullFileExtension, hasAugmentedPermissions, hasThumbnail,
-         headRevisionId, iconLink, identifier, imageMediaMetadata,
-         inheritedPermissionsDisabled, isAppAuthorized, kind, labelInfo,
-         lastModifyingUser, linkShareMetadata, md5Checksum, mimeType,
-         modifiedByMe, modifiedByMeTime, modifiedTime, name, originalFilename,
-         ownedByMe, owners, parents, permissionIds, permissions, properties,
-         quotaBytesUsed, resourceKey, sha1Checksum, sha256Checksum, shared,
-         sharedWithMeTime, sharingUser, shortcutDetails, size, spaces, starred,
-         teamDriveId, thumbnailLink, thumbnailVersion, trashed, trashedTime,
-         trashingUser, version, videoMediaMetadata, viewedByMe, viewedByMeTime,
-         viewersCanCopyContent, webContentLink, webViewLink, writersCanShare;
+         downloadRestrictions, driveId, explicitlyTrashed, exportLinks,
+         fileExtension, folderColorRgb, fullFileExtension,
+         hasAugmentedPermissions, hasThumbnail, headRevisionId, iconLink,
+         identifier, imageMediaMetadata, inheritedPermissionsDisabled,
+         isAppAuthorized, kind, labelInfo, lastModifyingUser, linkShareMetadata,
+         md5Checksum, mimeType, modifiedByMe, modifiedByMeTime, modifiedTime,
+         name, originalFilename, ownedByMe, owners, parents, permissionIds,
+         permissions, properties, quotaBytesUsed, resourceKey, sha1Checksum,
+         sha256Checksum, shared, sharedWithMeTime, sharingUser, shortcutDetails,
+         size, spaces, starred, teamDriveId, thumbnailLink, thumbnailVersion,
+         trashed, trashedTime, trashingUser, version, videoMediaMetadata,
+         viewedByMe, viewedByMeTime, viewersCanCopyContent, webContentLink,
+         webViewLink, writersCanShare;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -499,20 +510,21 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 @implementation GTLRDrive_File_Capabilities
 @dynamic canAcceptOwnership, canAddChildren, canAddFolderFromAnotherDrive,
          canAddMyDriveParent, canChangeCopyRequiresWriterPermission,
-         canChangeSecurityUpdateEnabled, canChangeViewersCanCopyContent,
-         canComment, canCopy, canDelete, canDeleteChildren,
-         canDisableInheritedPermissions, canDownload, canEdit,
-         canEnableInheritedPermissions, canListChildren, canModifyContent,
-         canModifyContentRestriction, canModifyEditorContentRestriction,
-         canModifyLabels, canModifyOwnerContentRestriction,
-         canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
-         canMoveChildrenWithinDrive, canMoveChildrenWithinTeamDrive,
-         canMoveItemIntoTeamDrive, canMoveItemOutOfDrive,
-         canMoveItemOutOfTeamDrive, canMoveItemWithinDrive,
-         canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadDrive,
-         canReadLabels, canReadRevisions, canReadTeamDrive, canRemoveChildren,
-         canRemoveContentRestriction, canRemoveMyDriveParent, canRename,
-         canShare, canTrash, canTrashChildren, canUntrash;
+         canChangeItemDownloadRestriction, canChangeSecurityUpdateEnabled,
+         canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
+         canDeleteChildren, canDisableInheritedPermissions, canDownload,
+         canEdit, canEnableInheritedPermissions, canListChildren,
+         canModifyContent, canModifyContentRestriction,
+         canModifyEditorContentRestriction, canModifyLabels,
+         canModifyOwnerContentRestriction, canMoveChildrenOutOfDrive,
+         canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
+         canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
+         canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,
+         canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
+         canMoveTeamDriveItem, canReadDrive, canReadLabels, canReadRevisions,
+         canReadTeamDrive, canRemoveChildren, canRemoveContentRestriction,
+         canRemoveMyDriveParent, canRename, canShare, canTrash,
+         canTrashChildren, canUntrash;
 @end
 
 
@@ -1211,7 +1223,7 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 @implementation GTLRDrive_TeamDrive_Capabilities
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
-         canChangeDomainUsersOnlyRestriction,
+         canChangeDomainUsersOnlyRestriction, canChangeDownloadRestriction,
          canChangeSharingFoldersRequiresOrganizerPermissionRestriction,
          canChangeTeamDriveBackground, canChangeTeamMembersOnlyRestriction,
          canComment, canCopy, canDeleteChildren, canDeleteTeamDrive,

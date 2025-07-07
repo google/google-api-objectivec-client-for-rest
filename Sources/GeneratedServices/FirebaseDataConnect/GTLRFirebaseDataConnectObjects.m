@@ -17,6 +17,25 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRFirebaseDataConnect_GraphqlErrorExtensions.code
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Aborted = @"ABORTED";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Internal = @"INTERNAL";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_NotFound = @"NOT_FOUND";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Ok = @"OK";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_OutOfRange = @"OUT_OF_RANGE";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unknown = @"UNKNOWN";
+
 // GTLRFirebaseDataConnect_PostgreSql.schemaMigration
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_MigrateCompatible = @"MIGRATE_COMPATIBLE";
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_SqlSchemaMigrationUnspecified = @"SQL_SCHEMA_MIGRATION_UNSPECIFIED";
@@ -256,7 +275,7 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_GraphqlErrorExtensions
-@dynamic file;
+@dynamic code, debugDetails, file, resource;
 @end
 
 

@@ -26,6 +26,7 @@
 @class GTLRCloudWorkstations_DomainConfig;
 @class GTLRCloudWorkstations_EphemeralDirectory;
 @class GTLRCloudWorkstations_Expr;
+@class GTLRCloudWorkstations_GatewayConfig;
 @class GTLRCloudWorkstations_GceConfidentialInstanceConfig;
 @class GTLRCloudWorkstations_GceInstance;
 @class GTLRCloudWorkstations_GceInstance_VmTags;
@@ -570,6 +571,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Configuration options for Cluster HTTP Gateway.
+ */
+@interface GTLRCloudWorkstations_GatewayConfig : GTLRObject
+
+/**
+ *  Optional. Whether HTTP/2 is enabled for this workstation cluster. Defaults
+ *  to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *http2Enabled;
 
 @end
 
@@ -1912,6 +1929,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. Configuration options for Cluster HTTP Gateway. */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_GatewayConfig *gatewayConfig;
 
 /**
  *  Optional.

@@ -504,7 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 @interface GTLRConfigQuery_ProjectsLocationsDeploymentsPatch : GTLRConfigQuery
 
 /**
- *  Resource name of the deployment. Format:
+ *  Identifier. Resource name of the deployment. Format:
  *  `projects/{project}/locations/{location}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -541,7 +541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
  *  Updates a Deployment.
  *
  *  @param object The @c GTLRConfig_Deployment to include in the query.
- *  @param name Resource name of the deployment. Format:
+ *  @param name Identifier. Resource name of the deployment. Format:
  *    `projects/{project}/locations/{location}/deployments/{deployment}`
  *
  *  @return GTLRConfigQuery_ProjectsLocationsDeploymentsPatch
@@ -1341,6 +1341,196 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
  *    'projects/{project_id}/locations/{location}'.
  *
  *  @return GTLRConfigQuery_ProjectsLocationsPreviewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get a ResourceChange for a given preview.
+ *
+ *  Method: config.projects.locations.previews.resourceChanges.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesGet : GTLRConfigQuery
+
+/**
+ *  Required. The name of the resource change to retrieve. Format:
+ *  'projects/{project_id}/locations/{location}/previews/{preview}/resourceChanges/{resource_change}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConfig_ResourceChange.
+ *
+ *  Get a ResourceChange for a given preview.
+ *
+ *  @param name Required. The name of the resource change to retrieve. Format:
+ *    'projects/{project_id}/locations/{location}/previews/{preview}/resourceChanges/{resource_change}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ResourceChanges for a given preview.
+ *
+ *  Method: config.projects.locations.previews.resourceChanges.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesList : GTLRConfigQuery
+
+/**
+ *  Optional. Lists the resource changes that match the filter expression. A
+ *  filter expression filters the resource changes listed in the response. The
+ *  expression must be of the form '{field} {operator} {value}' where operators:
+ *  '<', '>', '<=', '>=', '!=', '=', ':' are supported (colon ':' represents a
+ *  HAS operator which is roughly synonymous with equality). {field} can refer
+ *  to a proto or JSON field, or a synthetic field. Field names can be camelCase
+ *  or snake_case. Examples: - Filter by name: name =
+ *  "projects/foo/locations/us-central1/previews/dep/resourceChanges/baz
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to use to sort the list. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. When requesting a page of resource changes, 'page_size' specifies
+ *  number of resource changes to return. If unspecified, at most 500 will be
+ *  returned. The maximum value is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to 'ListResourceChanges' which
+ *  specifies the position in the list from where to continue listing the
+ *  resource changes.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent in whose context the ResourceChanges are listed. The
+ *  parent value is in the format:
+ *  'projects/{project_id}/locations/{location}/previews/{preview}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConfig_ListResourceChangesResponse.
+ *
+ *  Lists ResourceChanges for a given preview.
+ *
+ *  @param parent Required. The parent in whose context the ResourceChanges are
+ *    listed. The parent value is in the format:
+ *    'projects/{project_id}/locations/{location}/previews/{preview}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get a ResourceDrift for a given preview.
+ *
+ *  Method: config.projects.locations.previews.resourceDrifts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsGet : GTLRConfigQuery
+
+/**
+ *  Required. The name of the resource drift to retrieve. Format:
+ *  'projects/{project_id}/locations/{location}/previews/{preview}/resourceDrifts/{resource_drift}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConfig_ResourceDrift.
+ *
+ *  Get a ResourceDrift for a given preview.
+ *
+ *  @param name Required. The name of the resource drift to retrieve. Format:
+ *    'projects/{project_id}/locations/{location}/previews/{preview}/resourceDrifts/{resource_drift}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List ResourceDrifts for a given preview.
+ *
+ *  Method: config.projects.locations.previews.resourceDrifts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsList : GTLRConfigQuery
+
+/**
+ *  Optional. Lists the resource drifts that match the filter expression. A
+ *  filter expression filters the resource drifts listed in the response. The
+ *  expression must be of the form '{field} {operator} {value}' where operators:
+ *  '<', '>', '<=', '>=', '!=', '=', ':' are supported (colon ':' represents a
+ *  HAS operator which is roughly synonymous with equality). {field} can refer
+ *  to a proto or JSON field, or a synthetic field. Field names can be camelCase
+ *  or snake_case. Examples: - Filter by name: name =
+ *  "projects/foo/locations/us-central1/previews/dep/resourceDrifts/baz
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to use to sort the list. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. When requesting a page of resource drifts, 'page_size' specifies
+ *  number of resource drifts to return. If unspecified, at most 500 will be
+ *  returned. The maximum value is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to 'ListResourceDrifts' which
+ *  specifies the position in the list from where to continue listing the
+ *  resource drifts.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent in whose context the ResourceDrifts are listed. The
+ *  parent value is in the format:
+ *  'projects/{project_id}/locations/{location}/previews/{preview}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConfig_ListResourceDriftsResponse.
+ *
+ *  List ResourceDrifts for a given preview.
+ *
+ *  @param parent Required. The parent in whose context the ResourceDrifts are
+ *    listed. The parent value is in the format:
+ *    'projects/{project_id}/locations/{location}/previews/{preview}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

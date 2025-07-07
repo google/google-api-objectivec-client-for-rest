@@ -683,6 +683,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4;
 /**
+ *  [Release 5](https://www.hl7.org/fhir/R5)
+ *
+ *  Value: "R5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R5;
+/**
  *  Standard for Trial Use, [Release 3](https://www.hl7.org/fhir/STU3)
  *
  *  Value: "STU3"
@@ -3577,7 +3583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  store will not change, references in complex data types will not be parsed.
  *  New stores will have this value set to ENABLED after a notification period.
  *  Warning: turning on this flag causes processing existing resources to fail
- *  if they contain references to non-existent resources.
+ *  if they contain references to non-existent resources. Cannot be disabled in
+ *  R5.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_ComplexDataTypeReferenceParsingUnspecified
@@ -3593,7 +3600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Optional. Specifies whether this store has consent enforcement. Not
- *  available for DSTU2 FHIR version due to absence of Consent resources.
+ *  available for DSTU2 FHIR version due to absence of Consent resources. Not
+ *  supported for R5 FHIR version.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ConsentConfig *consentConfig;
 
@@ -3674,7 +3682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Deprecated. Use `notification_configs` instead. If non-empty, publish all
  *  resource modifications of this FHIR store to this destination. The Pub/Sub
  *  message attributes contain a map with a string describing the action that
- *  has triggered the notification. For example, "action":"CreateResource".
+ *  has triggered the notification. For example, "action":"CreateResource". Not
+ *  supported in R5. Use `notification_configs` instead.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig GTLR_DEPRECATED;
 
@@ -3718,6 +3727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        "DSTU2")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_R4 [Release
  *        4](https://www.hl7.org/fhir/R4) (Value: "R4")
+ *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_R5 [Release
+ *        5](https://www.hl7.org/fhir/R5) (Value: "R5")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Stu3 Standard for Trial
  *        Use, [Release 3](https://www.hl7.org/fhir/STU3) (Value: "STU3")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified Users
@@ -6272,7 +6283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)).
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html)),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -6575,7 +6587,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  store must have disable_referential_integrity set to true. If a resource
  *  cannot be de-identified, errors will be logged to Cloud Logging (see
  *  [Viewing error logs in Cloud
- *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Not
+ *  supported for R5 stores.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifiedStoreDestination *deidentifiedStoreDestination;
 

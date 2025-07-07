@@ -169,7 +169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta;
 /**
- *  Deprecated. This vaule is no longer used. Application type built-in.
+ *  Deprecated. This value is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
@@ -211,21 +211,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
@@ -335,12 +335,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "DEV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Dev;
-/**
- *  Long-term support release channel.
- *
- *  Value: "LTS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Lts;
 /**
  *  No release channel specified.
  *
@@ -557,6 +551,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport.state
 
+/**
+ *  Device is outdated
+ *
+ *  Value: "DEVICE_OUTDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_DeviceOutdated;
 /**
  *  Device is offline
  *
@@ -978,6 +978,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator;
 /**
+ *  LayerX Security.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_LAYERX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx;
+/**
  *  Spin.Ai.
  *
  *  Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI"
@@ -1166,7 +1172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta;
 /**
- *  Deprecated. This vaule is no longer used. Application type built-in.
+ *  Deprecated. This value is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
@@ -1208,21 +1214,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
@@ -1540,7 +1546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta;
 /**
- *  Deprecated. This vaule is no longer used. Application type built-in.
+ *  Deprecated. This value is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
@@ -1582,21 +1588,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
@@ -1643,7 +1649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta;
 /**
- *  Deprecated. This vaule is no longer used. Application type built-in.
+ *  Deprecated. This value is no longer used. Application type built-in.
  *
  *  Value: "APPLICATION_TYPE_BUILT_IN"
  */
@@ -1685,21 +1691,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser (Lacros browser app).
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser chrome app.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
 /**
- *  Deprecated. This vaule is no longer used. Application type standalone
+ *  Deprecated. This value is no longer used. Application type standalone
  *  browser extension.
  *
  *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
@@ -2638,7 +2644,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn
- *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        Deprecated. This value is no longer used. Application type built-in.
  *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
@@ -2654,15 +2660,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser chrome app. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeSystemWeb
@@ -2965,8 +2971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        Canary release channel. (Value: "CANARY")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Dev
  *        Dev release channel. (Value: "DEV")
- *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Lts
- *        Long-term support release channel. (Value: "LTS")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_ReleaseChannelUnspecified
  *        No release channel specified. (Value: "RELEASE_CHANNEL_UNSPECIFIED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Stable
@@ -4171,6 +4175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  State the device changed to
  *
  *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_DeviceOutdated
+ *        Device is outdated (Value: "DEVICE_OUTDATED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Offline
  *        Device is offline (Value: "OFFLINE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Online
@@ -5038,6 +5044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Likely values:
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator
  *        CRXcavator. (Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx
+ *        LayerX Security. (Value: "RISK_ASSESSMENT_PROVIDER_LAYERX")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi
  *        Spin.Ai. (Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderUnspecified
@@ -5288,7 +5296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn
- *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        Deprecated. This value is no longer used. Application type built-in.
  *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
@@ -5304,15 +5312,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser chrome app. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeSystemWeb
@@ -5492,7 +5500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn
- *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        Deprecated. This value is no longer used. Application type built-in.
  *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
@@ -5508,15 +5516,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser chrome app. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeSystemWeb
@@ -5554,7 +5562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta
  *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn
- *        Deprecated. This vaule is no longer used. Application type built-in.
+ *        Deprecated. This value is no longer used. Application type built-in.
  *        (Value: "APPLICATION_TYPE_BUILT_IN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeChromeApp
  *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
@@ -5570,15 +5578,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote
  *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser (Lacros browser app). (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser chrome app. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
- *        Deprecated. This vaule is no longer used. Application type standalone
+ *        Deprecated. This value is no longer used. Application type standalone
  *        browser extension. (Value:
  *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeSystemWeb

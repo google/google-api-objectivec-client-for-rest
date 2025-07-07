@@ -84,6 +84,7 @@
 @class GTLRBigquery_ExternalCatalogTableOptions_Parameters;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_ExternalDatasetReference;
+@class GTLRBigquery_ExternalRuntimeOptions;
 @class GTLRBigquery_ExternalServiceCost;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_ForeignTypeInfo;
@@ -152,6 +153,7 @@
 @class GTLRBigquery_PrivacyPolicy;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
+@class GTLRBigquery_PythonOptions;
 @class GTLRBigquery_QueryInfo;
 @class GTLRBigquery_QueryInfo_OptimizationDetails;
 @class GTLRBigquery_QueryParameter;
@@ -952,6 +954,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTabl
  *  Value: "CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified;
+/**
+ *  Indicates that the column metadata index (which the search index depends on)
+ *  is not used. User can refer to the [column metadata index
+ *  usage](https://cloud.google.com/bigquery/docs/metadata-indexing-managed-tables#view_column_metadata_index_usage)
+ *  for more details on why it was not used.
+ *
+ *  Value: "COLUMN_METADATA_INDEX_NOT_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_ColumnMetadataIndexNotUsed;
 /**
  *  Indicates that the estimated performance gain from using the search index is
  *  too low for the given search query.
@@ -2277,11 +2288,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_DefaultRoundingMode_Round
 // GTLRBigquery_Table.managedTableType
 
 /**
- *  The managed table is a BigQuery table for Apache Iceberg.
+ *  The managed table is a BigLake table for Apache Iceberg in BigQuery.
  *
- *  Value: "ICEBERG"
+ *  Value: "BIGLAKE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_ManagedTableType_Iceberg;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_ManagedTableType_Biglake;
 /**
  *  No managed table type specified.
  *
@@ -6913,6 +6924,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Options for the runtime of the external system.
+ */
+@interface GTLRBigquery_ExternalRuntimeOptions : GTLRObject
+
+/**
+ *  Optional. Amount of CPU provisioned for the container instance. If not
+ *  specified, the default value is 0.33 vCPUs.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containerCpu;
+
+/**
+ *  Optional. Amount of memory provisioned for the container instance. Format:
+ *  {number}{unit} where unit is one of "M", "G", "Mi" and "Gi" (e.g. 1G,
+ *  512Mi). If not specified, the default value is 512Mi.
+ */
+@property(nonatomic, copy, nullable) NSString *containerMemory;
+
+/**
+ *  Optional. Maximum number of rows in each batch sent to the external runtime.
+ *  If absent or if 0, BigQuery dynamically decides the number of rows in a
+ *  batch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxBatchingRows;
+
+/**
+ *  Optional. Fully qualified name of the connection whose service account will
+ *  be used to execute the code in the container. Format:
+ *  ```"projects/{project_id}/locations/{location_id}/connections/{connection_id}"```
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeConnection;
+
+/** Optional. Language runtime version (e.g. python-3.11). */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+@end
+
+
+/**
  *  The external service cost is a portion of the total cost, these costs are
  *  not additive with total_bytes_billed. Moreover, this field only track
  *  external service costs that will show up as BigQuery costs (e.g. training
@@ -7519,6 +7572,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        was refreshed. (Value: "BASE_TABLE_TRUNCATED")
  *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified Code not
  *        specified. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_ColumnMetadataIndexNotUsed
+ *        Indicates that the column metadata index (which the search index
+ *        depends on) is not used. User can refer to the [column metadata index
+ *        usage](https://cloud.google.com/bigquery/docs/metadata-indexing-managed-tables#view_column_metadata_index_usage)
+ *        for more details on why it was not used. (Value:
+ *        "COLUMN_METADATA_INDEX_NOT_USED")
  *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_EstimatedPerformanceGainTooLow
  *        Indicates that the estimated performance gain from using the search
  *        index is too low for the given search query. (Value:
@@ -7751,10 +7810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Output only. The reason why a Job was created.
- *  [Preview](https://cloud.google.com/products/#product-launch-stages)
- */
+/** Output only. The reason why a Job was created. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
 /** Optional. Reference describing the unique-per-user name of the job. */
@@ -8733,7 +8789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  method when used with `JOB_CREATION_OPTIONAL` Job creation mode. For
  *  [`jobs.insert`](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/insert)
  *  method calls it will always be `REQUESTED`.
- *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  */
 @interface GTLRBigquery_JobCreationReason : GTLRObject
 
@@ -10742,6 +10797,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Options for a user-defined Python function.
+ */
+@interface GTLRBigquery_PythonOptions : GTLRObject
+
+/** Required. The entry point function in the user's Python code. */
+@property(nonatomic, copy, nullable) NSString *entryPoint;
+
+/**
+ *  Optional. A list of package names along with versions to be installed.
+ *  Follows requirements.txt syntax (e.g. numpy==2.0, permutation,
+ *  urllib3<2.2.1)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *packages;
+
+@end
+
+
+/**
  *  Query optimization information for a QUERY job.
  */
 @interface GTLRBigquery_QueryInfo : GTLRObject
@@ -10913,7 +10986,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Optional. If not set, jobs are always required. If set, the query request
  *  will follow the behavior described JobCreationMode.
- *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationModeUnspecified
@@ -11158,7 +11230,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Optional. The reason why a Job was created. Only relevant when a
  *  job_reference is present in the response. If job_reference is not present it
  *  will always be unset.
- *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
@@ -11200,10 +11271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Auto-generated ID for the query.
- *  [Preview](https://cloud.google.com/products/#product-launch-stages)
- */
+/** Auto-generated ID for the query. */
 @property(nonatomic, copy, nullable) NSString *queryId;
 
 /**
@@ -11696,6 +11764,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Optional. Options for the runtime of the external system executing the
+ *  routine. This field is only applicable for Python UDFs.
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ExternalRuntimeOptions *externalRuntimeOptions;
+
+/**
  *  Optional. If language = "JAVASCRIPT", this field stores the path of the
  *  imported JAVASCRIPT libraries.
  */
@@ -11726,6 +11801,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
+
+/**
+ *  Optional. Options for Python UDF.
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_PythonOptions *pythonOptions;
 
 /** Optional. Remote function specific options. */
 @property(nonatomic, strong, nullable) GTLRBigquery_RemoteFunctionOptions *remoteFunctionOptions;
@@ -12877,8 +12958,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  dataset.
  *
  *  Likely values:
- *    @arg @c kGTLRBigquery_Table_ManagedTableType_Iceberg The managed table is
- *        a BigQuery table for Apache Iceberg. (Value: "ICEBERG")
+ *    @arg @c kGTLRBigquery_Table_ManagedTableType_Biglake The managed table is
+ *        a BigLake table for Apache Iceberg in BigQuery. (Value: "BIGLAKE")
  *    @arg @c kGTLRBigquery_Table_ManagedTableType_ManagedTableTypeUnspecified
  *        No managed table type specified. (Value:
  *        "MANAGED_TABLE_TYPE_UNSPECIFIED")

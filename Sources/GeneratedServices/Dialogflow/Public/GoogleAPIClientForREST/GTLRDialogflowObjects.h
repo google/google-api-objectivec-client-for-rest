@@ -63,6 +63,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCases;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCasesCase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCasesCaseCaseContent;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentGeneratorSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentGeneratorSettings_InputParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentSetParameterAction;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GcsDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources;
@@ -150,6 +152,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsRewriterModelCallSignals;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSearchSnippet;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSearchSnippet_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DeploymentResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DtmfInput;
@@ -183,6 +186,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCases;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings_InputParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentSetParameterAction;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettings;
@@ -191,6 +196,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Generator;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorModelParameter;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Handler;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3HandlerEventHandler;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3HandlerLifecycleHandler;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination;
@@ -256,6 +264,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutState;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPhrase;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings;
@@ -298,6 +307,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolUse;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolUse_InputActionParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolUse_OutputActionParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransitionNode;
@@ -686,7 +696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingFlac;
 /**
- *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
+ *  Uncompressed 16-bit signed little-endian samples (Linear PCM). LINT:
+ *  LEGACY_NAMES
  *
  *  Value: "AUDIO_ENCODING_LINEAR_16"
  */
@@ -1840,7 +1851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Inpu
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingFlac;
 /**
- *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
+ *  Uncompressed 16-bit signed little-endian samples (Linear PCM). LINT:
+ *  LEGACY_NAMES
  *
  *  Value: "AUDIO_ENCODING_LINEAR_16"
  */
@@ -2035,7 +2047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3NluS
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingAlaw;
 /**
  *  Uncompressed 16-bit signed little-endian samples (Linear PCM). Audio content
- *  returned as LINEAR16 also contains a WAV header.
+ *  returned as LINEAR16 also contains a WAV header. LINT: LEGACY_NAMES
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_LINEAR_16"
  */
@@ -2047,7 +2059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Outp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3;
 /**
- *  MP3 audio at 64kbps.
+ *  MP3 audio at 64kbps. LINT: LEGACY_NAMES
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_MP3_64_KBPS"
  */
@@ -6045,9 +6057,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig : GTLRObject
 
 /**
- *  Required. Both flow and playbook versions are supported. Format for flow
+ *  Required. Flow, playbook and tool versions are supported. Format for flow
  *  version: projects//locations//agents//flows//versions/. Format for playbook
- *  version: projects//locations//agents//playbooks//versions/.
+ *  version: projects//locations//agents//playbooks//versions/. Format for tool
+ *  version: projects//locations//agents//tools//versions/.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -6409,6 +6422,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *enableGenerativeFallback;
 
+/** A list of Generators to be called during this fulfillment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentGeneratorSettings *> *generators;
+
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage *> *messages;
 
@@ -6486,6 +6502,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Returned message. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage *message;
 
+@end
+
+
+/**
+ *  Generator settings used by the LLM to generate a text response.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentGeneratorSettings : GTLRObject
+
+/**
+ *  Required. The generator to call. Format:
+ *  `projects//locations//agents//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *generator;
+
+/**
+ *  Map from placeholder parameter in the Generator to corresponding session
+ *  parameters. By default, Dialogflow uses the session parameter with the same
+ *  name to fill in the generator template. e.g. If there is a placeholder
+ *  parameter `city` in the Generator, Dialogflow default to fill in the `$city`
+ *  with `$session.params.city`. However, you may choose to fill `$city` with
+ *  `$session.params.desination-city`. - Map key: parameter ID - Map value:
+ *  session parameter name
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentGeneratorSettings_InputParameters *inputParameters;
+
+/** Required. Output parameter which should contain the generator response. */
+@property(nonatomic, copy, nullable) NSString *outputParameter;
+
+@end
+
+
+/**
+ *  Map from placeholder parameter in the Generator to corresponding session
+ *  parameters. By default, Dialogflow uses the session parameter with the same
+ *  name to fill in the generator template. e.g. If there is a placeholder
+ *  parameter `city` in the Generator, Dialogflow default to fill in the `$city`
+ *  with `$session.params.city`. However, you may choose to fill `$city` with
+ *  `$session.params.desination-city`. - Map key: parameter ID - Map value:
+ *  session parameter name
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentGeneratorSettings_InputParameters : GTLRObject
 @end
 
 
@@ -6693,8 +6755,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        16-bit and 24-bit samples, however, not all fields in `STREAMINFO` are
  *        supported. (Value: "AUDIO_ENCODING_FLAC")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingLinear16
- *        Uncompressed 16-bit signed little-endian samples (Linear PCM). (Value:
- *        "AUDIO_ENCODING_LINEAR_16")
+ *        Uncompressed 16-bit signed little-endian samples (Linear PCM). LINT:
+ *        LEGACY_NAMES (Value: "AUDIO_ENCODING_LINEAR_16")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_AudioEncoding_AudioEncodingMulaw
  *        8-bit samples that compand 14-bit audio samples using G.711
  *        PCMU/mu-law. (Value: "AUDIO_ENCODING_MULAW")
@@ -9420,9 +9482,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Uri for the document. Present if specified for the document. */
 @property(nonatomic, copy, nullable) NSString *documentUri;
 
+/** Metadata associated with the document. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSearchSnippet_Metadata *metadata;
+
 /** Text included in the prompt. */
 @property(nonatomic, copy, nullable) NSString *text;
 
+@end
+
+
+/**
+ *  Metadata associated with the document.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSearchSnippet_Metadata : GTLRObject
 @end
 
 
@@ -9849,9 +9926,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig : GTLRObject
 
 /**
- *  Required. Both flow and playbook versions are supported. Format for flow
+ *  Required. Flow, playbook and tool versions are supported. Format for flow
  *  version: projects//locations//agents//flows//versions/. Format for playbook
- *  version: projects//locations//agents//playbooks//versions/.
+ *  version: projects//locations//agents//playbooks//versions/. Format for tool
+ *  version: projects//locations//agents//tools//versions/.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -11117,6 +11195,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *enableGenerativeFallback;
 
+/** A list of Generators to be called during this fulfillment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings *> *generators;
+
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *> *messages;
 
@@ -11194,6 +11275,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Returned message. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *message;
 
+@end
+
+
+/**
+ *  Generator settings used by the LLM to generate a text response.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings : GTLRObject
+
+/**
+ *  Required. The generator to call. Format:
+ *  `projects//locations//agents//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *generator;
+
+/**
+ *  Map from placeholder parameter in the Generator to corresponding session
+ *  parameters. By default, Dialogflow uses the session parameter with the same
+ *  name to fill in the generator template. e.g. If there is a placeholder
+ *  parameter `city` in the Generator, Dialogflow default to fill in the `$city`
+ *  with `$session.params.city`. However, you may choose to fill `$city` with
+ *  `$session.params.desination-city`. - Map key: parameter ID - Map value:
+ *  session parameter name
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings_InputParameters *inputParameters;
+
+/** Required. Output parameter which should contain the generator response. */
+@property(nonatomic, copy, nullable) NSString *outputParameter;
+
+@end
+
+
+/**
+ *  Map from placeholder parameter in the Generator to corresponding session
+ *  parameters. By default, Dialogflow uses the session parameter with the same
+ *  name to fill in the generator template. e.g. If there is a placeholder
+ *  parameter `city` in the Generator, Dialogflow default to fill in the `$city`
+ *  with `$session.params.city`. However, you may choose to fill `$city` with
+ *  `$session.params.desination-city`. - Map key: parameter ID - Map value:
+ *  session parameter name
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings_InputParameters : GTLRObject
 @end
 
 
@@ -11436,6 +11563,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Custom placeholder value in the prompt text. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Handler can be used to define custom logic to be executed based on the
+ *  user-specified triggers.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3Handler : GTLRObject
+
+/** A handler triggered by event. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3HandlerEventHandler *eventHandler;
+
+/**
+ *  A handler triggered during specific lifecycle of the playbook execution.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3HandlerLifecycleHandler *lifecycleHandler;
+
+@end
+
+
+/**
+ *  A handler that is triggered by the specified event.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3HandlerEventHandler : GTLRObject
+
+/** Optional. The condition that must be satisfied to trigger this handler. */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** Required. The name of the event that triggers this handler. */
+@property(nonatomic, copy, nullable) NSString *event;
+
+/** Required. The fulfillment to call when the event occurs. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Fulfillment *fulfillment;
+
+@end
+
+
+/**
+ *  A handler that is triggered on the specific lifecycle_stage of the playbook
+ *  execution.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3HandlerLifecycleHandler : GTLRObject
+
+/** Optional. The condition that must be satisfied to trigger this handler. */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** Required. The fulfillment to call when this handler is triggered. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Fulfillment *fulfillment;
+
+/**
+ *  Required. The name of the lifecycle stage that triggers this handler.
+ *  Supported values: * `playbook-start` * `pre-action-selection` *
+ *  `pre-action-execution`
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleStage;
 
 @end
 
@@ -11836,8 +12019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        16-bit and 24-bit samples, however, not all fields in `STREAMINFO` are
  *        supported. (Value: "AUDIO_ENCODING_FLAC")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingLinear16
- *        Uncompressed 16-bit signed little-endian samples (Linear PCM). (Value:
- *        "AUDIO_ENCODING_LINEAR_16")
+ *        Uncompressed 16-bit signed little-endian samples (Linear PCM). LINT:
+ *        LEGACY_NAMES (Value: "AUDIO_ENCODING_LINEAR_16")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingMulaw
  *        8-bit samples that compand 14-bit audio samples using G.711
  *        PCMU/mu-law. (Value: "AUDIO_ENCODING_MULAW")
@@ -12795,6 +12978,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The response message for Tools.ListToolVersions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "toolVersions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ListToolVersionsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of tool versions. There will be a maximum number of items returned
+ *  based on the page_size field in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion *> *toolVersions;
+
+@end
+
+
+/**
  *  The response message for TransitionRouteGroups.ListTransitionRouteGroups.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -13171,12 +13382,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        PCMU/a-law. (Value: "OUTPUT_AUDIO_ENCODING_ALAW")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16
  *        Uncompressed 16-bit signed little-endian samples (Linear PCM). Audio
- *        content returned as LINEAR16 also contains a WAV header. (Value:
- *        "OUTPUT_AUDIO_ENCODING_LINEAR_16")
+ *        content returned as LINEAR16 also contains a WAV header. LINT:
+ *        LEGACY_NAMES (Value: "OUTPUT_AUDIO_ENCODING_LINEAR_16")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3
  *        MP3 audio at 32kbps. (Value: "OUTPUT_AUDIO_ENCODING_MP3")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp364Kbps
- *        MP3 audio at 64kbps. (Value: "OUTPUT_AUDIO_ENCODING_MP3_64_KBPS")
+ *        MP3 audio at 64kbps. LINT: LEGACY_NAMES (Value:
+ *        "OUTPUT_AUDIO_ENCODING_MP3_64_KBPS")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMulaw
  *        8-bit samples that compand 14-bit audio samples using G.711
  *        PCMU/mu-law. (Value: "OUTPUT_AUDIO_ENCODING_MULAW")
@@ -13440,6 +13652,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  that may reference this playbook.
  */
 @property(nonatomic, copy, nullable) NSString *goal;
+
+/**
+ *  Optional. A list of registered handlers to execuate based on the specified
+ *  triggers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Handler *> *handlers;
 
 /** Instruction to accomplish target goal. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookInstruction *instruction;
@@ -13839,6 +14057,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  entity property names to property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_Parameters *parameters;
+
+/**
+ *  Scope for the parameters. If not specified, parameters will be treated as
+ *  session parameters. Parameters with custom scope will not be put into
+ *  session parameters. You can reference the parameters with custom scope in
+ *  the agent with the following format: $parameter-scope.params.parameter-id.
+ */
+@property(nonatomic, copy, nullable) NSString *parameterScope;
 
 /**
  *  This field can be used to pass custom data into the webhook associated with
@@ -14597,6 +14823,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The request message for Tools.RestoreToolVersion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreToolVersionRequest : GTLRObject
+@end
+
+
+/**
+ *  The response message for Tools.RestoreToolVersion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreToolVersionResponse : GTLRObject
+
+/** The updated tool. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Tool *tool;
+
+@end
+
+
+/**
  *  The configuration for auto rollout.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfig : GTLRObject
@@ -14761,6 +15005,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *defaultBannedPhraseMatchStrategy;
 
+/** Optional. Settings for prompt security checks. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings *promptSecuritySettings;
+
 @end
 
 
@@ -14774,6 +15021,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. Text input which can be used for prompt or banned phrases. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Settings for prompt security checks.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings : GTLRObject
+
+/**
+ *  Optional. Enable prompt security checks.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePromptSecurity;
 
 @end
 
@@ -15958,6 +16220,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ToolUse_OutputActionParameters : GTLRObject
+@end
+
+
+/**
+ *  Tool version is a snapshot of the tool at certain timestamp.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion : GTLRObject
+
+/** Output only. Last time the tool version was created or modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The display name of the tool version. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The unique identifier of the tool version. Format:
+ *  `projects//locations//agents//tools//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Snapshot of the tool to be associated with this version. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Tool *tool;
+
+/** Output only. Last time the tool version was created or modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -19519,6 +19807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata : GTLRObject
 
+/** The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
 /**
  *  Metadata for the Export Data Operation such as the destination of export.
  */
@@ -20601,7 +20892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall : GTLRObject
 
-/** Required. The name of the tool's action associated with this call. */
+/** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /** Output only. Create time of the tool call. */
@@ -20611,7 +20902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters *inputParameters;
 
 /**
- *  Required. The tool associated with this call. Format:
+ *  Optional. The tool associated with this call. Format:
  *  `projects//locations//tools/`.
  */
 @property(nonatomic, copy, nullable) NSString *tool;
@@ -20636,7 +20927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult : GTLRObject
 
-/** Required. The name of the tool's action associated with this call. */
+/** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /** Only populated if the response content is utf-8 encoded. */
@@ -20658,7 +20949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *rawContent;
 
 /**
- *  Required. The tool associated with this call. Format:
+ *  Optional. The tool associated with this call. Format:
  *  `projects//locations//tools/`.
  */
 @property(nonatomic, copy, nullable) NSString *tool;
@@ -21192,6 +21483,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
 /**
  *  State of CreateConversationModel operation.
  *
@@ -21242,6 +21536,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
 @end
 
 
@@ -21261,6 +21558,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  is measured on server side.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
 
 @end
 
@@ -22846,6 +23146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata : GTLRObject
 
+/** The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
 /**
  *  Metadata for the Export Data Operation such as the destination of export.
  */
@@ -23705,7 +24008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCall : GTLRObject
 
-/** Required. The name of the tool's action associated with this call. */
+/** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /** Output only. Create time of the tool call. */
@@ -23715,7 +24018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters *inputParameters;
 
 /**
- *  Required. The tool associated with this call. Format:
+ *  Optional. The tool associated with this call. Format:
  *  `projects//locations//tools/`.
  */
 @property(nonatomic, copy, nullable) NSString *tool;
@@ -23740,7 +24043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult : GTLRObject
 
-/** Required. The name of the tool's action associated with this call. */
+/** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /** Only populated if the response content is utf-8 encoded. */
@@ -23762,7 +24065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *rawContent;
 
 /**
- *  Required. The tool associated with this call. Format:
+ *  Optional. The tool associated with this call. Format:
  *  `projects//locations//tools/`.
  */
 @property(nonatomic, copy, nullable) NSString *tool;
@@ -23797,6 +24100,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  time is measured on server side.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
 
 @end
 

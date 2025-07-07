@@ -1610,7 +1610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) NSNumber *backupMinimumEnforcedRetentionDays;
 
 /**
- *  Optional. Indicates if the daily backups are immutable. Atleast one of
+ *  Optional. Indicates if the daily backups are immutable. At least one of
  *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
  *  and manual_backup_immutable must be true.
  *
@@ -1619,7 +1619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) NSNumber *dailyBackupImmutable;
 
 /**
- *  Optional. Indicates if the manual backups are immutable. Atleast one of
+ *  Optional. Indicates if the manual backups are immutable. At least one of
  *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
  *  and manual_backup_immutable must be true.
  *
@@ -1628,7 +1628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) NSNumber *manualBackupImmutable;
 
 /**
- *  Optional. Indicates if the monthly backups are immutable. Atleast one of
+ *  Optional. Indicates if the monthly backups are immutable. At least one of
  *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
  *  and manual_backup_immutable must be true.
  *
@@ -1637,7 +1637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) NSNumber *monthlyBackupImmutable;
 
 /**
- *  Optional. Indicates if the weekly backups are immutable. Atleast one of
+ *  Optional. Indicates if the weekly backups are immutable. At least one of
  *  daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable
  *  and manual_backup_immutable must be true.
  *
@@ -2493,6 +2493,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @interface GTLRNetAppFiles_LocationMetadata : GTLRObject
 
+/**
+ *  Output only. Indicates if the location has VCP support.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasVcp;
+
 /** Output only. Supported flex performance in a location. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedFlexPerformance;
 
@@ -3316,6 +3323,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Flag indicating that the hot-tier threshold will be auto-increased
+ *  by 10% of the hot-tier when it hits 100%. Default is true. The increment
+ *  will kick in only if the new size after increment is still less than or
+ *  equal to storage pool size.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHotTierAutoResize;
+
+/**
  *  Output only. Specifies the current pool encryption key source.
  *
  *  Likely values:
@@ -3336,6 +3353,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *globalAccessAllowed GTLR_DEPRECATED;
+
+/**
+ *  Optional. Total hot tier capacity for the Storage Pool. It is applicable
+ *  only to Flex service level. It should be less than the minimum storage pool
+ *  size and cannot be more than the current storage pool size. It cannot be
+ *  decreased once set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hotTierSizeGib;
 
 /** Optional. Specifies the KMS config to be used for volume encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsConfig;
@@ -3426,7 +3453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *stateDetails;
 
 /**
- *  Optional. Custom Performance Total IOPS of the pool If not provided, it will
+ *  Optional. Custom Performance Total IOPS of the pool if not provided, it will
  *  be calculated based on the total_throughput_mibps
  *
  *  Uses NSNumber of longLongValue.
@@ -3434,7 +3461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) NSNumber *totalIops;
 
 /**
- *  Optional. Custom Performance Total Throughput of the pool (in MiB/s)
+ *  Optional. Custom Performance Total Throughput of the pool (in MiBps)
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3503,6 +3530,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *coolingThresholdDays;
+
+/**
+ *  Optional. Flag indicating that the hot tier bypass mode is enabled. Default
+ *  is false. This is only applicable to Flex service level.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hotTierBypassModeEnabled;
 
 /**
  *  Optional. Flag indicating if the volume has tiering policy enable/pause.

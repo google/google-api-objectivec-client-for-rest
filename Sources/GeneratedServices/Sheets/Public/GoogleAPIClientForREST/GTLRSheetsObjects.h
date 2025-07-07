@@ -74,6 +74,8 @@
 @class GTLRSheets_ChartHistogramRule;
 @class GTLRSheets_ChartSourceRange;
 @class GTLRSheets_ChartSpec;
+@class GTLRSheets_Chip;
+@class GTLRSheets_ChipRun;
 @class GTLRSheets_ClearBasicFilterRequest;
 @class GTLRSheets_Color;
 @class GTLRSheets_ColorStyle;
@@ -174,6 +176,7 @@
 @class GTLRSheets_OverlayPosition;
 @class GTLRSheets_Padding;
 @class GTLRSheets_PasteDataRequest;
+@class GTLRSheets_PersonProperties;
 @class GTLRSheets_PieChartSpec;
 @class GTLRSheets_PivotFilterCriteria;
 @class GTLRSheets_PivotFilterSpec;
@@ -195,6 +198,7 @@
 @class GTLRSheets_RepeatCellRequest;
 @class GTLRSheets_Request;
 @class GTLRSheets_Response;
+@class GTLRSheets_RichLinkProperties;
 @class GTLRSheets_RowData;
 @class GTLRSheets_ScorecardChartSpec;
 @class GTLRSheets_SetBasicFilterRequest;
@@ -2821,6 +2825,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNormal
  *  Value: "PASTE_VALUES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteValues;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_PersonProperties.displayFormat
+
+/**
+ *  Default display format.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_Default;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "DISPLAY_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_DisplayFormatUnspecified;
+/**
+ *  Email display format.
+ *
+ *  Value: "EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_Email;
+/**
+ *  Last name, first name display format.
+ *
+ *  Value: "LAST_NAME_COMMA_FIRST_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_LastNameCommaFirstName;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PieChartSpec.legendPosition
@@ -5701,6 +5733,17 @@ GTLR_DEPRECATED
 @interface GTLRSheets_CellData : GTLRObject
 
 /**
+ *  Optional. Runs of chips applied to subsections of the cell. Properties of a
+ *  run start at a specific index in the text and continue until the next run.
+ *  When reading, all chipped and non-chipped runs are included. Non-chipped
+ *  runs will have an empty Chip. When writing, only runs with chips are
+ *  included. Runs containing chips are of length 1 and are represented in the
+ *  user-entered text by an “\@” placeholder symbol. New runs will overwrite any
+ *  prior runs. Writing a new user_entered_value will erase previous runs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ChipRun *> *chipRuns;
+
+/**
  *  Output only. Information about a data source formula on the cell. The field
  *  is set if user_entered_value is a formula referencing some DATA_SOURCE
  *  sheet, e.g. `=SUM(DataSheet!Column)`.
@@ -6287,6 +6330,39 @@ GTLR_DEPRECATED
 
 /** A waterfall chart specification. */
 @property(nonatomic, strong, nullable) GTLRSheets_WaterfallChartSpec *waterfallChart;
+
+@end
+
+
+/**
+ *  The Smart Chip.
+ */
+@interface GTLRSheets_Chip : GTLRObject
+
+/** Properties of a linked person. */
+@property(nonatomic, strong, nullable) GTLRSheets_PersonProperties *personProperties;
+
+/** Properties of a rich link. */
+@property(nonatomic, strong, nullable) GTLRSheets_RichLinkProperties *richLinkProperties;
+
+@end
+
+
+/**
+ *  The run of a chip. The chip continues until the start index of the next run.
+ */
+@interface GTLRSheets_ChipRun : GTLRObject
+
+/** Optional. The chip of this run. */
+@property(nonatomic, strong, nullable) GTLRSheets_Chip *chip;
+
+/**
+ *  Required. The zero-based character index where this run starts, in UTF-16
+ *  code units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -9427,6 +9503,37 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Properties specific to a linked person.
+ */
+@interface GTLRSheets_PersonProperties : GTLRObject
+
+/**
+ *  Optional. The display format of the person chip. If not set, the default
+ *  display format is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_Default Default display
+ *        format. (Value: "DEFAULT")
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_DisplayFormatUnspecified
+ *        Default value, do not use. (Value: "DISPLAY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_Email Email display
+ *        format. (Value: "EMAIL")
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_LastNameCommaFirstName
+ *        Last name, first name display format. (Value:
+ *        "LAST_NAME_COMMA_FIRST_NAME")
+ */
+@property(nonatomic, copy, nullable) NSString *displayFormat;
+
+/**
+ *  Required. The email address linked to this person. This field is always
+ *  present.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
  *  A pie chart.
  */
 @interface GTLRSheets_PieChartSpec : GTLRObject
@@ -10462,6 +10569,28 @@ GTLR_DEPRECATED
 
 /** A reply from updating an embedded object's position. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionResponse *updateEmbeddedObjectPosition;
+
+@end
+
+
+/**
+ *  Properties of a link to a Google resource (such as a file in Drive, a
+ *  YouTube video, a Maps address, or a Calendar event). Only Drive files can be
+ *  written as chips. All other rich link types are read only. URIs cannot
+ *  exceed 2000 bytes when writing. NOTE: Writing Drive file chips requires at
+ *  least one of the `drive.file`, `drive.readonly`, or `drive` OAuth scopes.
+ */
+@interface GTLRSheets_RichLinkProperties : GTLRObject
+
+/**
+ *  Output only. The [MIME
+ *  type](https://developers.google.com/drive/api/v3/mime-types) of the link, if
+ *  there's one (for example, when it's a file in Drive).
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** Required. The URI to the link. This is always present. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

@@ -51,6 +51,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData;
@@ -97,6 +98,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaQuestionTag;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultQaTagResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultScoreSource;
@@ -119,6 +121,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResult;
@@ -176,6 +179,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowInteractionData;
@@ -234,17 +238,20 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultQaTagResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryInterval;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSlice;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceTimeSeries;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequestAgentSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput;
@@ -262,6 +269,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UserInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View;
@@ -3181,6 +3189,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  The metadata for deleting a QaQuestionTag Resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteQaQuestionTagMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The original request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteQaQuestionTagRequest *request;
+
+@end
+
+
+/**
+ *  The request for deleting a QaQuestionTag.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteQaQuestionTagRequest : GTLRObject
+
+/** Required. The name of the QaQuestionTag to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Metadata for deploying an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelMetadata : GTLRObject
@@ -4071,6 +4107,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource : GTLRObject
 
 /**
+ *  Optional. The Cloud Storage path to the conversation audio file if already
+ *  transcribed. Note that: [1] Don't set this field if the audio is not
+ *  transcribed. [2] Audio files and transcript files must be in separate
+ *  buckets / folders. [3] A source file and its corresponding audio file must
+ *  share the same name to be properly ingested, E.g.
+ *  `gs://bucket/transcript/conversation1.json` and
+ *  `gs://bucket/audio/conversation1.mp3`.
+ */
+@property(nonatomic, copy, nullable) NSString *audioBucketUri;
+
+/**
  *  Optional. Specifies the type of the objects in `bucket_uri`.
  *
  *  Likely values:
@@ -4097,9 +4144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /**
  *  Optional. The Cloud Storage path to the conversation metadata. Note that:
  *  [1] Metadata files are expected to be in JSON format. [2] Metadata and
- *  source files (transcripts or audio) must be in separate buckets. [3] A
- *  source file and its corresponding metadata file must share the same name to
- *  be properly ingested, E.g. `gs://bucket/audio/conversation1.mp3` and
+ *  source files (transcripts or audio) must be in separate buckets / folders.
+ *  [3] A source file and its corresponding metadata file must share the same
+ *  name to be properly ingested, E.g. `gs://bucket/audio/conversation1.mp3` and
  *  `gs://bucket/metadata/conversation1.json`.
  */
 @property(nonatomic, copy, nullable) NSString *metadataBucketUri;
@@ -4669,6 +4716,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** String value. */
 @property(nonatomic, copy, nullable) NSString *strValue;
+
+@end
+
+
+/**
+ *  A tag is a resource which aims to categorize a set of questions across
+ *  multiple scorecards, e.g., "Customer Satisfaction","Billing", etc.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaQuestionTag : GTLRObject
+
+/** Output only. The time at which the question tag was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. A user-specified display name for the tag. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. Resource name for the QaQuestionTag Format
+ *  projects/{project}/locations/{location}/qaQuestionTags/{qa_question_tag} In
+ *  the above format, the last segment, i.e., qa_question_tag, is a
+ *  server-generated ID corresponding to the tag resource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of Scorecard Question IDs that the tag applies to. Each
+ *  QaQuestionId is represented as a full resource name containing the Question
+ *  ID. Lastly, Since a tag may not necessarily be referenced by any Scorecard
+ *  Questions, we treat this field as optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qaQuestionIds;
+
+/**
+ *  Output only. The most recent time at which the question tag was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -5423,6 +5506,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  The metadata for updating a QaQuestionTag Resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UpdateQaQuestionTagMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The original request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UpdateQaQuestionTagRequest *request;
+
+@end
+
+
+/**
+ *  The request for updating a QaQuestionTag.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UpdateQaQuestionTagRequest : GTLRObject
+
+/** Required. The QaQuestionTag to update. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaQuestionTag *qaQuestionTag;
+
+/**
+ *  Optional. The list of fields to be updated. All possible fields can be
+ *  updated by passing `*`, or a subset of the following updateable fields can
+ *  be provided: * `qa_question_tag_name` - the name of the tag *
+ *  `qa_question_ids` - the list of questions the tag applies to
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  The metadata for an `UploadConversation` operation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationMetadata : GTLRObject
@@ -6041,7 +6162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  restriction on the conversations that the AuthorizedView can access. Having
  *  *authorizedViews.get* access to the AuthorizedView means having the same
  *  read/write access to the Conversations (as well as metadata/annotations
- *  liked to the conversation) that this AuthorizedView has.
+ *  linked to the conversation) that this AuthorizedView has.
  */
 @property(nonatomic, copy, nullable) NSString *conversationFilter;
 
@@ -7480,6 +7601,34 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The metadata for deleting a QaQuestionTag Resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteQaQuestionTagMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The original request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteQaQuestionTagRequest *request;
+
+@end
+
+
+/**
+ *  The request for deleting a QaQuestionTag.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteQaQuestionTagRequest : GTLRObject
+
+/** Required. The name of the QaQuestionTag to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Metadata for deploying an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployIssueModelMetadata : GTLRObject
@@ -8400,6 +8549,17 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource : GTLRObject
 
 /**
+ *  Optional. The Cloud Storage path to the conversation audio file if already
+ *  transcribed. Note that: [1] Don't set this field if the audio is not
+ *  transcribed. [2] Audio files and transcript files must be in separate
+ *  buckets / folders. [3] A source file and its corresponding audio file must
+ *  share the same name to be properly ingested, E.g.
+ *  `gs://bucket/transcript/conversation1.json` and
+ *  `gs://bucket/audio/conversation1.mp3`.
+ */
+@property(nonatomic, copy, nullable) NSString *audioBucketUri;
+
+/**
  *  Optional. Specifies the type of the objects in `bucket_uri`.
  *
  *  Likely values:
@@ -8426,9 +8586,9 @@ GTLR_DEPRECATED
 /**
  *  Optional. The Cloud Storage path to the conversation metadata. Note that:
  *  [1] Metadata files are expected to be in JSON format. [2] Metadata and
- *  source files (transcripts or audio) must be in separate buckets. [3] A
- *  source file and its corresponding metadata file must share the same name to
- *  be properly ingested, E.g. `gs://bucket/audio/conversation1.mp3` and
+ *  source files (transcripts or audio) must be in separate buckets / folders.
+ *  [3] A source file and its corresponding metadata file must share the same
+ *  name to be properly ingested, E.g. `gs://bucket/audio/conversation1.mp3` and
  *  `gs://bucket/metadata/conversation1.json`.
  */
 @property(nonatomic, copy, nullable) NSString *metadataBucketUri;
@@ -9163,6 +9323,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The response from a ListQaQuestionTags request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "qaQuestionTags" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaQuestionTagsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The parent resource of the questions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag *> *qaQuestionTags;
+
+@end
+
+
+/**
  *  The response from a ListQaScorecardRevisions request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9745,6 +9932,42 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A tag is a resource which aims to categorize a set of questions across
+ *  multiple scorecards, e.g., "Customer Satisfaction","Billing", etc.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag : GTLRObject
+
+/** Output only. The time at which the question tag was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. A user-specified display name for the tag. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. Resource name for the QaQuestionTag Format
+ *  projects/{project}/locations/{location}/qaQuestionTags/{qa_question_tag} In
+ *  the above format, the last segment, i.e., qa_question_tag, is a
+ *  server-generated ID corresponding to the tag resource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of Scorecard Question IDs that the tag applies to. Each
+ *  QaQuestionId is represented as a full resource name containing the Question
+ *  ID. Lastly, Since a tag may not necessarily be referenced by any Scorecard
+ *  Questions, we treat this field as optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qaQuestionIds;
+
+/**
+ *  Output only. The most recent time at which the question tag was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Metadata about the tuning operation for the question. Will only be set if a
  *  scorecard containing this question has been tuned.
  */
@@ -9995,6 +10218,20 @@ GTLR_DEPRECATED
  *        Scorecard revision model training failed. (Value: "TRAINING_FAILED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  A time window for querying conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryInterval : GTLRObject
+
+/** Required. The end time of the time window. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Required. The start time of the time window. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -10266,6 +10503,46 @@ GTLR_DEPRECATED
  *  The metadata for querying performance overview.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request for summarizing performance according to different metrics for
+ *  conversations over a specified time window.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequest : GTLRObject
+
+/** Conversations are from a single agent. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequestAgentSource *agentPerformanceSource;
+
+/** The time window of the conversations to compare the performance to. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryInterval *comparisonQueryInterval;
+
+/**
+ *  Optional. Filter to select a subset of conversations to compute the
+ *  performance overview. Supports the same filters as the filter field in
+ *  QueryMetricsRequest. The source and query interval/comparison query interval
+ *  should not be included here.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The time window of the conversations to derive performance stats
+ *  from.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryInterval *queryInterval;
+
+@end
+
+
+/**
+ *  The entity whose performance is being queried is a single agent.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequestAgentSource : GTLRObject
+
+/** Required. Agent id to query performance overview for. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
 @end
 
 
@@ -10893,6 +11170,44 @@ GTLR_DEPRECATED
  *  The request to undeploy a QaScorecardRevision
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployQaScorecardRevisionRequest : GTLRObject
+@end
+
+
+/**
+ *  The metadata for updating a QaQuestionTag Resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UpdateQaQuestionTagMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The original request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UpdateQaQuestionTagRequest *request;
+
+@end
+
+
+/**
+ *  The request for updating a QaQuestionTag.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UpdateQaQuestionTagRequest : GTLRObject
+
+/** Required. The QaQuestionTag to update. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag *qaQuestionTag;
+
+/**
+ *  Optional. The list of fields to be updated. All possible fields can be
+ *  updated by passing `*`, or a subset of the following updateable fields can
+ *  be provided: * `qa_question_tag_name` - the name of the tag *
+ *  `qa_question_ids` - the list of questions the tag applies to
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
 @end
 
 

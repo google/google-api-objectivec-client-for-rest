@@ -501,8 +501,10 @@ NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwelveHours
 NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwentyFourHours = @"TWENTY_FOUR_HOURS";
 
 // GTLRCloudRedis_Product.engine
+NSString * const kGTLRCloudRedis_Product_Engine_EngineAdbServerlessOracle = @"ENGINE_ADB_SERVERLESS_ORACLE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithGooglesqlDialect = @"ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithPostgresDialect = @"ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT";
+NSString * const kGTLRCloudRedis_Product_Engine_EngineExadataOracle = @"ENGINE_EXADATA_ORACLE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode = @"ENGINE_FIRESTORE_WITH_NATIVE_MODE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedis = @"ENGINE_MEMORYSTORE_FOR_REDIS";
@@ -529,6 +531,7 @@ NSString * const kGTLRCloudRedis_Product_Type_ProductTypeComputeEngine = @"PRODU
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeFirestore = @"PRODUCT_TYPE_FIRESTORE";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeMemorystore = @"PRODUCT_TYPE_MEMORYSTORE";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
+NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOracleOnGcp = @"PRODUCT_TYPE_ORACLE_ON_GCP";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOther = @"PRODUCT_TYPE_OTHER";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeSpanner = @"PRODUCT_TYPE_SPANNER";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeUnspecified = @"PRODUCT_TYPE_UNSPECIFIED";
@@ -750,14 +753,15 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_Cluster
-@dynamic asyncClusterEndpointsDeletionEnabled, authorizationMode,
-         automatedBackupConfig, backupCollection, clusterEndpoints, createTime,
-         crossClusterReplicationConfig, deletionProtectionEnabled,
-         discoveryEndpoints, encryptionInfo, gcsSource, kmsKey,
-         maintenancePolicy, maintenanceSchedule, managedBackupSource, name,
-         nodeType, ondemandMaintenance, persistenceConfig, preciseSizeGb,
-         pscConfigs, pscConnections, pscServiceAttachments, redisConfigs,
-         replicaCount, shardCount, sizeGb, state, stateInfo,
+@dynamic allowFewerZonesDeployment, asyncClusterEndpointsDeletionEnabled,
+         authorizationMode, automatedBackupConfig, backupCollection,
+         clusterEndpoints, createTime, crossClusterReplicationConfig,
+         deletionProtectionEnabled, discoveryEndpoints, encryptionInfo,
+         gcsSource, kmsKey, maintenancePolicy, maintenanceSchedule,
+         managedBackupSource, name, nodeType, ondemandMaintenance,
+         persistenceConfig, preciseSizeGb, pscConfigs, pscConnections,
+         pscServiceAttachments, redisConfigs, replicaCount, shardCount,
+         simulateMaintenanceEvent, sizeGb, state, stateInfo,
          transitEncryptionMode, uid, zoneDistributionConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -929,7 +933,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_DatabaseResourceHealthSignalData
 @dynamic additionalMetadata, compliance, descriptionProperty, eventTime,
-         externalUri, name, provider, resourceContainer, resourceName,
+         externalUri, location, name, provider, resourceContainer, resourceName,
          signalClass, signalId, signalSeverity, signalType, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1235,7 +1239,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
          port, readEndpoint, readEndpointPort, readReplicasMode, redisConfigs,
          redisVersion, replicaCount, reservedIpRange, satisfiesPzi,
          satisfiesPzs, secondaryIpRange, serverCaCerts, state, statusMessage,
-         suspensionReasons, tier, transitEncryptionMode;
+         suspensionReasons, tags, tier, transitEncryptionMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1270,6 +1274,20 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_Instance_RedisConfigs
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_Instance_Tags
+//
+
+@implementation GTLRCloudRedis_Instance_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

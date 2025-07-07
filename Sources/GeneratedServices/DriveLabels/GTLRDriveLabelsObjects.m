@@ -34,6 +34,11 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy_CopyMode_CopyModeUnspecified = @"COPY_MODE_UNSPECIFIED";
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy_CopyMode_DoNotCopy = @"DO_NOT_COPY";
 
+// GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp.app
+NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_AppUnspecified = @"APP_UNSPECIFIED";
+NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Drive = @"DRIVE";
+NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Gmail = @"GMAIL";
+
 // GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock.state
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock_State_Active = @"ACTIVE";
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock_State_Deleting = @"DELETING";
@@ -62,6 +67,10 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequ
 // GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest.view
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest_View_LabelViewBasic = @"LABEL_VIEW_BASIC";
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest_View_LabelViewFull = @"LABEL_VIEW_FULL";
+
+// GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest.view
+NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest_View_LabelViewBasic = @"LABEL_VIEW_BASIC";
+NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest_View_LabelViewFull = @"LABEL_VIEW_FULL";
 
 // ----------------------------------------------------------------------------
 //
@@ -745,10 +754,10 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequ
 
 @implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2Label
 @dynamic appliedCapabilities, appliedLabelPolicy, createTime, creator, customer,
-         disabler, disableTime, displayHints, fields, identifier, labelType,
-         learnMoreUri, lifecycle, lockStatus, name, properties, publisher,
-         publishTime, revisionCreateTime, revisionCreator, revisionId,
-         schemaCapabilities;
+         disabler, disableTime, displayHints, enabledAppSettings, fields,
+         identifier, labelType, learnMoreUri, lifecycle, lockStatus, name,
+         properties, publisher, publishTime, revisionCreateTime,
+         revisionCreator, revisionId, schemaCapabilities;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -791,6 +800,34 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequ
 
 @implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelDisplayHints
 @dynamic disabled, hiddenInSearch, priority, shownInApply;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings
+//
+
+@implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings
+@dynamic enabledApps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledApps" : [GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp
+//
+
+@implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp
+@dynamic app;
 @end
 
 
@@ -1015,6 +1052,16 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequ
 
 @implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest
 @dynamic copyMode, languageCode, useAdminAccess, view;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest
+//
+
+@implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest
+@dynamic enabledAppSettings, languageCode, useAdminAccess, view;
 @end
 
 

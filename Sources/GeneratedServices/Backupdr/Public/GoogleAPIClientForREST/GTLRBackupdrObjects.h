@@ -32,12 +32,18 @@
 @class GTLRBackupdr_BackupPlan;
 @class GTLRBackupdr_BackupPlan_Labels;
 @class GTLRBackupdr_BackupPlanAssociation;
+@class GTLRBackupdr_BackupPlanRevision;
 @class GTLRBackupdr_BackupRule;
 @class GTLRBackupdr_BackupVault;
 @class GTLRBackupdr_BackupVault_Annotations;
 @class GTLRBackupdr_BackupVault_Labels;
 @class GTLRBackupdr_BackupWindow;
 @class GTLRBackupdr_Binding;
+@class GTLRBackupdr_CloudSqlInstanceBackupPlanAssociationProperties;
+@class GTLRBackupdr_CloudSqlInstanceBackupProperties;
+@class GTLRBackupdr_CloudSqlInstanceDataSourceProperties;
+@class GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties;
+@class GTLRBackupdr_CloudSqlInstanceInitializationConfig;
 @class GTLRBackupdr_ComputeInstanceBackupProperties;
 @class GTLRBackupdr_ComputeInstanceBackupProperties_Labels;
 @class GTLRBackupdr_ComputeInstanceDataSourceProperties;
@@ -49,7 +55,10 @@
 @class GTLRBackupdr_DataSource;
 @class GTLRBackupdr_DataSource_Labels;
 @class GTLRBackupdr_DataSourceBackupApplianceApplication;
+@class GTLRBackupdr_DataSourceBackupConfigInfo;
 @class GTLRBackupdr_DataSourceGcpResource;
+@class GTLRBackupdr_DataSourceGcpResourceInfo;
+@class GTLRBackupdr_DataSourceReference;
 @class GTLRBackupdr_DiskBackupProperties;
 @class GTLRBackupdr_DiskDataSourceProperties;
 @class GTLRBackupdr_DiskRestoreProperties;
@@ -357,6 +366,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_BackupType_BackupTypeUns
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_BackupType_OnDemand;
 /**
+ *  Operational backup.
+ *
+ *  Value: "ON_DEMAND_OPERATIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_BackupType_OnDemandOperational;
+/**
  *  Scheduled backup.
  *
  *  Value: "SCHEDULED"
@@ -396,6 +411,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_State_Error;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_State_StateUnspecified;
+/**
+ *  The backup is being uploaded.
+ *
+ *  Value: "UPLOADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_State_Uploading;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_BackupConfigDetails.state
@@ -607,6 +628,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Sta
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRBackupdr_BackupPlanRevision.state
+
+/**
+ *  The resource has been created and is fully usable.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanRevision_State_Active;
+/**
+ *  The resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanRevision_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanRevision_State_Deleting;
+/**
+ *  The resource has been created but is not usable.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanRevision_State_Inactive;
+/**
+ *  State not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanRevision_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBackupdr_BackupVault.accessRestriction
 
 /**
@@ -682,6 +737,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_State_StateUnspecif
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_CloudSqlInstanceInitializationConfig.edition
+
+/**
+ *  Unspecified edition.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_EditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_Enterprise;
+/**
+ *  Enterprise Plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_EnterprisePlus;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_ComputeInstanceBackupProperties.keyRevocationActionType
@@ -816,6 +893,64 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSource_State_Error;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSource_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_DataSourceBackupConfigInfo.lastBackupState
+
+/**
+ *  The most recent backup failed
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_Failed;
+/**
+ *  The first backup has not yet completed
+ *
+ *  Value: "FIRST_BACKUP_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_FirstBackupPending;
+/**
+ *  Status not set.
+ *
+ *  Value: "LAST_BACKUP_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_LastBackupStateUnspecified;
+/**
+ *  The most recent backup could not be run/failed because of the lack of
+ *  permissions
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_PermissionDenied;
+/**
+ *  The most recent backup was successful
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_DataSourceReference.dataSourceBackupConfigState
+
+/**
+ *  The data source is actively protected (i.e. there is a BackupPlanAssociation
+ *  or Appliance SLA pointing to it)
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Active;
+/**
+ *  The possible states of backup configuration. Status not set.
+ *
+ *  Value: "BACKUP_CONFIG_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_BackupConfigStateUnspecified;
+/**
+ *  The data source is no longer protected (but may have backups under it)
+ *
+ *  Value: "PASSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Passive;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_DiskBackupProperties.architecture
@@ -2038,10 +2173,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        is unspecified. (Value: "BACKUP_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBackupdr_Backup_BackupType_OnDemand On demand backup. (Value:
  *        "ON_DEMAND")
+ *    @arg @c kGTLRBackupdr_Backup_BackupType_OnDemandOperational Operational
+ *        backup. (Value: "ON_DEMAND_OPERATIONAL")
  *    @arg @c kGTLRBackupdr_Backup_BackupType_Scheduled Scheduled backup.
  *        (Value: "SCHEDULED")
  */
 @property(nonatomic, copy, nullable) NSString *backupType;
+
+/** Output only. Cloud SQL specific backup properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceBackupProperties *cloudSqlInstanceBackupProperties;
 
 /** Output only. Compute Engine specific backup properties. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_ComputeInstanceBackupProperties *computeInstanceBackupProperties;
@@ -2136,6 +2276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        issue and might be unusable. (Value: "ERROR")
  *    @arg @c kGTLRBackupdr_Backup_State_StateUnspecified State not set. (Value:
  *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_Backup_State_Uploading The backup is being uploaded.
+ *        (Value: "UPLOADING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2522,6 +2664,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_BackupPlan_Labels *labels;
 
 /**
+ *  Optional. Required for CloudSQL resource_type Configures how long logs will
+ *  be stored. It is defined in “days”. This value should be greater than or
+ *  equal to minimum enforced log retention duration of the backup vault.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logRetentionDays;
+
+/**
  *  Output only. Identifier. The resource name of the `BackupPlan`. Format:
  *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
  */
@@ -2529,6 +2680,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Required. */
 @property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Output only. The user friendly revision ID of the `BackupPlanRevision`.
+ *  Example: v0, v1, v2, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  Output only. The resource id of the `BackupPlanRevision`. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *revisionName;
 
 /**
  *  Output only. The `State` for the `BackupPlan`.
@@ -2584,6 +2747,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *backupPlan;
 
+/**
+ *  Output only. The user friendly revision ID of the `BackupPlanRevision`.
+ *  Example: v0, v1, v2, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanRevisionId;
+
+/**
+ *  Output only. The resource id of the `BackupPlanRevision`. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanRevisionName;
+
+/** Output only. Cloud SQL instance's backup plan association properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceBackupPlanAssociationProperties *cloudSqlInstanceBackupPlanAssociationProperties;
+
 /** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2602,8 +2780,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Immutable. Resource name of workload on which backupplan is
- *  applied
+ *  Required. Immutable. Resource name of workload on which the backup plan is
+ *  applied. The format can either be the resource name (e.g.,
+ *  "projects/my-project/zones/us-central1-a/instances/my-instance") or the full
+ *  resource URI (e.g.,
+ *  "https://www.googleapis.com/compute/v1/projects/my-project/zones/us-central1-a/instances/my-instance").
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2639,6 +2820,51 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  `BackupPlanRevision` represents a snapshot of a `BackupPlan` at a point in
+ *  time.
+ */
+@interface GTLRBackupdr_BackupPlanRevision : GTLRObject
+
+/** The Backup Plan being encompassed by this revision. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_BackupPlan *backupPlanSnapshot;
+
+/** Output only. The timestamp that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Identifier. The resource name of the `BackupPlanRevision`.
+ *  Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The user friendly revision ID of the `BackupPlanRevision`.
+ *  Example: v0, v1, v2, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  Output only. Resource State
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_BackupPlanRevision_State_Active The resource has
+ *        been created and is fully usable. (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_BackupPlanRevision_State_Creating The resource is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRBackupdr_BackupPlanRevision_State_Deleting The resource is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupdr_BackupPlanRevision_State_Inactive The resource has
+ *        been created but is not usable. (Value: "INACTIVE")
+ *    @arg @c kGTLRBackupdr_BackupPlanRevision_State_StateUnspecified State not
+ *        set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  `BackupRule` binds the backup schedule to a retention policy.
  */
 @interface GTLRBackupdr_BackupRule : GTLRObject
@@ -2647,11 +2873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Required. Configures the duration for which backup data will be kept. It is
  *  defined in “days”. The value should be greater than or equal to minimum
  *  enforced retention of the backup vault. Minimum value is 1 and maximum value
- *  is 36159 for custom retention on-demand backup. Minimum value is 1 and
- *  maximum value is 90 for hourly backups. Minimum value is 1 and maximum value
- *  is 186 for daily backups. Minimum value is 7 and maximum value is 366 for
- *  weekly backups. Minimum value is 30 and maximum value is 732 for monthly
- *  backups. Minimum value is 365 and maximum value is 36159 for yearly backups.
+ *  is 36159 for custom retention on-demand backup. Minimum and maximum values
+ *  are workload specific for all other rules.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2952,6 +3175,127 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRBackupdr_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Cloud SQL instance's BPA properties.
+ */
+@interface GTLRBackupdr_CloudSqlInstanceBackupPlanAssociationProperties : GTLRObject
+
+/** Output only. The time when the instance was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
+
+@end
+
+
+/**
+ *  CloudSqlInstanceBackupProperties represents Cloud SQL Instance Backup
+ *  properties. .
+ */
+@interface GTLRBackupdr_CloudSqlInstanceBackupProperties : GTLRObject
+
+/**
+ *  Output only. The installed database version of the Cloud SQL instance when
+ *  the backup was taken.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseInstalledVersion;
+
+/**
+ *  Output only. Whether the backup is a final backup.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finalBackup;
+
+/**
+ *  Output only. The tier (or machine type) for this instance. Example:
+ *  `db-custom-1-3840`
+ */
+@property(nonatomic, copy, nullable) NSString *instanceTier;
+
+/**
+ *  Output only. The source instance of the backup. Format:
+ *  projects/{project}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *sourceInstance;
+
+@end
+
+
+/**
+ *  CloudSqlInstanceDataSourceProperties represents the properties of a Cloud
+ *  SQL resource that are stored in the DataSource. .
+ */
+@interface GTLRBackupdr_CloudSqlInstanceDataSourceProperties : GTLRObject
+
+/** Output only. The installed database version of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *databaseInstalledVersion;
+
+/** Output only. The instance creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
+
+/**
+ *  Output only. The tier (or machine type) for this instance. Example:
+ *  `db-custom-1-3840`
+ */
+@property(nonatomic, copy, nullable) NSString *instanceTier;
+
+/**
+ *  Output only. Name of the Cloud SQL instance backed up by the datasource.
+ *  Format: projects/{project}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  CloudSqlInstanceDataSourceReferenceProperties represents the properties of a
+ *  Cloud SQL resource that are stored in the DataSourceReference. .
+ */
+@interface GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties : GTLRObject
+
+/** Output only. The installed database version of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *databaseInstalledVersion;
+
+/** Output only. The instance creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
+
+/**
+ *  Output only. The tier (or machine type) for this instance. Example:
+ *  `db-custom-1-3840`
+ */
+@property(nonatomic, copy, nullable) NSString *instanceTier;
+
+/**
+ *  Output only. Name of the Cloud SQL instance backed up by the datasource.
+ *  Format: projects/{project}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  CloudSqlInstanceInitializationConfig contains the configuration for
+ *  initializing a Cloud SQL instance.
+ */
+@interface GTLRBackupdr_CloudSqlInstanceInitializationConfig : GTLRObject
+
+/**
+ *  Required. The edition of the Cloud SQL instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_EditionUnspecified
+ *        Unspecified edition. (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_Enterprise
+ *        Enterprise edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_EnterprisePlus
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 @end
 
 
@@ -3522,11 +3866,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Information of backup configuration on the DataSource.
+ */
+@interface GTLRBackupdr_DataSourceBackupConfigInfo : GTLRObject
+
+/**
+ *  Output only. The status of the last backup in this DataSource
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_Failed
+ *        The most recent backup failed (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_FirstBackupPending
+ *        The first backup has not yet completed (Value: "FIRST_BACKUP_PENDING")
+ *    @arg @c kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_LastBackupStateUnspecified
+ *        Status not set. (Value: "LAST_BACKUP_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_PermissionDenied
+ *        The most recent backup could not be run/failed because of the lack of
+ *        permissions (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_Succeeded
+ *        The most recent backup was successful (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *lastBackupState;
+
+/**
+ *  Output only. Timestamp of the last successful backup to this DataSource.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupConsistencyTime;
+
+@end
+
+
+/**
  *  DataSourceGcpResource is used for protected resources that are Google Cloud
  *  Resources. This name is easeier to understand than GcpResourceDataSource or
  *  GcpDataSourceResource
  */
 @interface GTLRBackupdr_DataSourceGcpResource : GTLRObject
+
+/**
+ *  Output only. CloudSqlInstanceDataSourceProperties has a subset of Cloud SQL
+ *  Instance properties that are useful at the Datasource level.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceDataSourceProperties *cloudSqlInstanceDatasourceProperties;
 
 /**
  *  ComputeInstanceDataSourceProperties has a subset of Compute Instance
@@ -3553,6 +3934,87 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  compute.googleapis.com/Instance.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The GCP resource that the DataSource is associated with.
+ */
+@interface GTLRBackupdr_DataSourceGcpResourceInfo : GTLRObject
+
+/** Output only. The properties of the Cloud SQL instance. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties *cloudSqlInstanceProperties;
+
+/**
+ *  Output only. The resource name of the GCP resource. Ex:
+ *  projects/{project}/zones/{zone}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *gcpResourcename;
+
+/**
+ *  Output only. The location of the GCP resource. Ex: //"global"/"unspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The type of the GCP resource. Ex:
+ *  compute.googleapis.com/Instance
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  DataSourceReference is a reference to a DataSource resource.
+ */
+@interface GTLRBackupdr_DataSourceReference : GTLRObject
+
+/** Output only. The time when the DataSourceReference was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The resource name of the DataSource. Format:
+ *  projects/{project}/locations/{location}/backupVaults/{backupVault}/dataSources/{dataSource}
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/** Output only. Information of backup configuration on the DataSource. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DataSourceBackupConfigInfo *dataSourceBackupConfigInfo;
+
+/**
+ *  Output only. The backup configuration state of the DataSource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Active
+ *        The data source is actively protected (i.e. there is a
+ *        BackupPlanAssociation or Appliance SLA pointing to it) (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_BackupConfigStateUnspecified
+ *        The possible states of backup configuration. Status not set. (Value:
+ *        "BACKUP_CONFIG_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Passive
+ *        The data source is no longer protected (but may have backups under it)
+ *        (Value: "PASSIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *dataSourceBackupConfigState;
+
+/**
+ *  Output only. Number of backups in the DataSource.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataSourceBackupCount;
+
+/** Output only. The GCP resource that the DataSource is associated with. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DataSourceGcpResourceInfo *dataSourceGcpResourceInfo;
+
+/**
+ *  Identifier. The resource name of the DataSourceReference. Format:
+ *  projects/{project}/locations/{location}/dataSourceReferences/{data_source_reference}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -3959,6 +4421,60 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Response for the FetchBackupPlanAssociationsForResourceType method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backupPlanAssociations" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_FetchBackupPlanAssociationsForResourceTypeResponse : GTLRCollectionObject
+
+/**
+ *  Output only. The BackupPlanAssociations from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupPlanAssociation *> *backupPlanAssociations;
+
+/**
+ *  Output only. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for the FetchDataSourceReferencesForResourceType method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataSourceReferences" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_FetchDataSourceReferencesForResourceTypeResponse : GTLRCollectionObject
+
+/**
+ *  The DataSourceReferences from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_DataSourceReference *> *dataSourceReferences;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for fetching usable BackupVaults.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4066,6 +4582,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /** The description of the backup plan. */
 @property(nonatomic, copy, nullable) NSString *backupPlanDescription;
 
+/** The user friendly id of the backup plan revision. E.g. v0, v1 etc. */
+@property(nonatomic, copy, nullable) NSString *backupPlanRevisionId;
+
+/** The name of the backup plan revision. */
+@property(nonatomic, copy, nullable) NSString *backupPlanRevisionName;
+
 /** The names of the backup plan rules which point to this backupvault */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *backupPlanRules;
 
@@ -4084,6 +4606,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  projects/{project}/locations/{location}/backupPlans/{backupPlanId}
  */
 @property(nonatomic, copy, nullable) NSString *backupPlan;
+
+/**
+ *  The user friendly id of the backup plan revision which triggered this backup
+ *  in case of scheduled backup or used for on demand backup.
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanRevisionId;
+
+/**
+ *  Resource name of the backup plan revision which triggered this backup in
+ *  case of scheduled backup or used for on demand backup. Format:
+ *  projects/{project}/locations/{location}/backupPlans/{backupPlanId}/revisions/{revisionId}
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanRevisionName;
 
 /**
  *  The rule id of the backup plan which triggered this backup in case of
@@ -4185,6 +4720,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Request message for initializing the service.
  */
 @interface GTLRBackupdr_InitializeServiceRequest : GTLRObject
+
+/** Optional. The configuration for initializing a Cloud SQL instance. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceInitializationConfig *cloudSqlInstanceInitializationConfig;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
@@ -4310,6 +4848,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupPlanAssociation *> *backupPlanAssociations;
 
 /** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response message for getting a list of `BackupPlanRevision`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backupPlanRevisions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListBackupPlanRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of `BackupPlanRevisions` in the project for the specified location.
+ *  If the `{location}` value in the request is "-", the response contains a
+ *  list of resources from all locations. In case any location is unreachable,
+ *  the response will only return backup plans in reachable locations and the
+ *  'unreachable' field will be populated with a list of unreachable locations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupPlanRevision *> *backupPlanRevisions;
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListBackupPlanRevisions` call to retrieve the next page of results. If this
+ *  field is omitted or empty, then there are no more results to return.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Locations that could not be reached. */

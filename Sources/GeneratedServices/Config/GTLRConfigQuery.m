@@ -713,6 +713,82 @@ NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecified = @"DELETE_POLIC
 
 @end
 
+@implementation GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_ResourceChange class];
+  query.loggingName = @"config.projects.locations.previews.resourceChanges.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceChanges";
+  GTLRConfigQuery_ProjectsLocationsPreviewsResourceChangesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConfig_ListResourceChangesResponse class];
+  query.loggingName = @"config.projects.locations.previews.resourceChanges.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_ResourceDrift class];
+  query.loggingName = @"config.projects.locations.previews.resourceDrifts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceDrifts";
+  GTLRConfigQuery_ProjectsLocationsPreviewsResourceDriftsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConfig_ListResourceDriftsResponse class];
+  query.loggingName = @"config.projects.locations.previews.resourceDrifts.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRConfigQuery_ProjectsLocationsTerraformVersionsGet
 
 @dynamic name;

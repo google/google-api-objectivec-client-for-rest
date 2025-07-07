@@ -170,6 +170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsReviews;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsStarredPlaces;
 /**
+ *  Authorization scope: Move a copy of your vehicle profile on Maps
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.vehicle_profile"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsVehicleProfile;
+/**
  *  Authorization scope: Move a copy of your Maps activity
  *
  *  Value "https://www.googleapis.com/auth/dataportability.myactivity.maps"

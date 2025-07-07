@@ -1328,13 +1328,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 
 
 /**
- *  Represents a postal address (for example, for postal delivery or payments
- *  addresses). Given a postal address, a postal service can deliver items to a
- *  premise, P.O. box or similar. It is not intended to model geographical
- *  locations (roads, towns, mountains). In typical usage, an address would be
- *  created by user input or from importing existing data, depending on the type
- *  of process. Advice on address input or editing: - Use an
- *  internationalization-ready address widget such as
+ *  Represents a postal address, such as for postal delivery or payments
+ *  addresses. With a postal address, a postal service can deliver items to a
+ *  premise, P.O. box, or similar. A postal address is not intended to model
+ *  geographical locations like roads, towns, or mountains. In typical usage, an
+ *  address would be created by user input or from importing existing data,
+ *  depending on the type of process. Advice on address input or editing: - Use
+ *  an internationalization-ready address widget such as
  *  https://github.com/google/libaddressinput. - Users should not be presented
  *  with UI elements for input or editing of fields outside countries where that
  *  field is used. For more guidance on how to use this schema, see:
@@ -1558,7 +1558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 
 /**
  *  Location to search for. If provided, will find locations which match the
- *  provided location details.
+ *  provided location details, which must include a value for the title.
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_Location *location;
 

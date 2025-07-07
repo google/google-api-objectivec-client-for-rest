@@ -6000,8 +6000,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Contains additional information about cart data. This field may only be used
- *  when calling batchinsert; it is not supported by batchupdate.
+ *  *Beta:* This feature is currently in beta. Contains additional information
+ *  about cart data. This field may only be used when calling batchinsert; it is
+ *  not supported by batchupdate. Cart data reporting is only supported in
+ *  SA360. [Learn more](https://support.google.com/sa360/topic/13425788)
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -6700,6 +6702,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  Session attributes for the conversion, encoded as based64 bytes. This field
+ *  may only be used when calling batchinsert; it is not supported by
+ *  batchupdate.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sessionAttributesEncoded;
 
 /**
  *  The timestamp of conversion, in Unix epoch micros. This is a required field.
@@ -8970,8 +8982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  A custom floodlight variable. This field may only be used when calling
- *  batchinsert; it is not supported by batchupdate.
+ *  A custom floodlight variable. Can be used in both batchinsert and
+ *  batchupdate. Adding this in batchupdate will update or append the variable
+ *  to the existing list.
  */
 @interface GTLRDfareporting_CustomFloodlightVariable : GTLRObject
 

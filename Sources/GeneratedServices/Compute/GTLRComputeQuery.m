@@ -1376,6 +1376,41 @@ NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType = @"UNSPECIFIED_ROUTE
 
 @end
 
+@implementation GTLRComputeQuery_DisksBulkSetLabels
+
+@dynamic project, requestId, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_BulkZoneSetLabelsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/bulkSetLabels";
+  GTLRComputeQuery_DisksBulkSetLabels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.disks.bulkSetLabels";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_DisksCreateSnapshot
 
 @dynamic disk, guestFlush, project, requestId, zoneProperty;
@@ -17992,6 +18027,98 @@ NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType = @"UNSPECIFIED_ROUTE
   query.resource = resource;
   query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
   query.loggingName = @"compute.reservations.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationSubBlocksGet
+
+@dynamic parentName, project, reservationSubBlock, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName
+             reservationSubBlock:(NSString *)reservationSubBlock {
+  NSArray *pathParams = @[
+    @"parentName", @"project", @"reservationSubBlock", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/{parentName}/reservationSubBlocks/{reservationSubBlock}";
+  GTLRComputeQuery_ReservationSubBlocksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.parentName = parentName;
+  query.reservationSubBlock = reservationSubBlock;
+  query.expectedObjectClass = [GTLRCompute_ReservationSubBlocksGetResponse class];
+  query.loggingName = @"compute.reservationSubBlocks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationSubBlocksList
+
+@dynamic filter, maxResults, orderBy, pageToken, parentName, project,
+         returnPartialSuccess, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName {
+  NSArray *pathParams = @[
+    @"parentName", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/{parentName}/reservationSubBlocks";
+  GTLRComputeQuery_ReservationSubBlocksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.parentName = parentName;
+  query.expectedObjectClass = [GTLRCompute_ReservationSubBlocksListResponse class];
+  query.loggingName = @"compute.reservationSubBlocks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationSubBlocksPerformMaintenance
+
+@dynamic parentName, project, requestId, reservationSubBlock, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName
+             reservationSubBlock:(NSString *)reservationSubBlock {
+  NSArray *pathParams = @[
+    @"parentName", @"project", @"reservationSubBlock", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/{parentName}/reservationSubBlocks/{reservationSubBlock}/performMaintenance";
+  GTLRComputeQuery_ReservationSubBlocksPerformMaintenance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.parentName = parentName;
+  query.reservationSubBlock = reservationSubBlock;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.reservationSubBlocks.performMaintenance";
   return query;
 }
 

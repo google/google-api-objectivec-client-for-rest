@@ -1976,6 +1976,284 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
+ *  Uploads the specified SSL certificate.
+ *
+ *  Method: appengine.projects.locations.applications.authorizedCertificates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesCreate : GTLRAppengineQuery
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `parent`. Name of the parent Application resource. Example:
+ *  apps/myapp.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_AuthorizedCertificate.
+ *
+ *  Uploads the specified SSL certificate.
+ *
+ *  @param object The @c GTLRAppengine_AuthorizedCertificate to include in the
+ *    query.
+ *  @param projectsId Part of `parent`. Name of the parent Application resource.
+ *    Example: apps/myapp.
+ *  @param locationsId Part of `parent`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_AuthorizedCertificate *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId;
+
+@end
+
+/**
+ *  Deletes the specified SSL certificate.
+ *
+ *  Method: appengine.projects.locations.applications.authorizedCertificates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesDelete : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *authorizedCertificatesId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the resource to delete. Example:
+ *  apps/myapp/authorizedCertificates/12345.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Empty.
+ *
+ *  Deletes the specified SSL certificate.
+ *
+ *  @param projectsId Part of `name`. Name of the resource to delete. Example:
+ *    apps/myapp/authorizedCertificates/12345.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param authorizedCertificatesId Part of `name`. See documentation of
+ *    `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesDelete
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+           authorizedCertificatesId:(NSString *)authorizedCertificatesId;
+
+@end
+
+/**
+ *  Gets the specified SSL certificate.
+ *
+ *  Method: appengine.projects.locations.applications.authorizedCertificates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesGet : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *authorizedCertificatesId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the resource requested. Example:
+ *  apps/myapp/authorizedCertificates/12345.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Controls the set of fields returned in the GET response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengineViewBasicCertificate Basic certificate information,
+ *        including applicable domains and expiration date. (Value:
+ *        "BASIC_CERTIFICATE")
+ *    @arg @c kGTLRAppengineViewFullCertificate The information from
+ *        BASIC_CERTIFICATE, plus detailed information on the domain mappings
+ *        that have this certificate mapped. (Value: "FULL_CERTIFICATE")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRAppengine_AuthorizedCertificate.
+ *
+ *  Gets the specified SSL certificate.
+ *
+ *  @param projectsId Part of `name`. Name of the resource requested. Example:
+ *    apps/myapp/authorizedCertificates/12345.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param authorizedCertificatesId Part of `name`. See documentation of
+ *    `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesGet
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+           authorizedCertificatesId:(NSString *)authorizedCertificatesId;
+
+@end
+
+/**
+ *  Lists all SSL certificates the user is authorized to administer.
+ *
+ *  Method: appengine.projects.locations.applications.authorizedCertificates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesList : GTLRAppengineQuery
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/** Maximum results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Part of `parent`. Name of the parent Application resource. Example:
+ *  apps/myapp.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Controls the set of fields returned in the LIST response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengineViewBasicCertificate Basic certificate information,
+ *        including applicable domains and expiration date. (Value:
+ *        "BASIC_CERTIFICATE")
+ *    @arg @c kGTLRAppengineViewFullCertificate The information from
+ *        BASIC_CERTIFICATE, plus detailed information on the domain mappings
+ *        that have this certificate mapped. (Value: "FULL_CERTIFICATE")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRAppengine_ListAuthorizedCertificatesResponse.
+ *
+ *  Lists all SSL certificates the user is authorized to administer.
+ *
+ *  @param projectsId Part of `parent`. Name of the parent Application resource.
+ *    Example: apps/myapp.
+ *  @param locationsId Part of `parent`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId;
+
+@end
+
+/**
+ *  Updates the specified SSL certificate. To renew a certificate and maintain
+ *  its existing domain mappings, update certificate_data with a new
+ *  certificate. The new certificate must be applicable to the same domains as
+ *  the original certificate. The certificate display_name may also be updated.
+ *
+ *  Method: appengine.projects.locations.applications.authorizedCertificates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesPatch : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *authorizedCertificatesId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the resource to update. Example:
+ *  apps/myapp/authorizedCertificates/12345.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Standard field mask for the set of fields to be updated. Updates are only
+ *  supported on the certificate_raw_data and display_name fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppengine_AuthorizedCertificate.
+ *
+ *  Updates the specified SSL certificate. To renew a certificate and maintain
+ *  its existing domain mappings, update certificate_data with a new
+ *  certificate. The new certificate must be applicable to the same domains as
+ *  the original certificate. The certificate display_name may also be updated.
+ *
+ *  @param object The @c GTLRAppengine_AuthorizedCertificate to include in the
+ *    query.
+ *  @param projectsId Part of `name`. Name of the resource to update. Example:
+ *    apps/myapp/authorizedCertificates/12345.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param authorizedCertificatesId Part of `name`. See documentation of
+ *    `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_AuthorizedCertificate *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+       authorizedCertificatesId:(NSString *)authorizedCertificatesId;
+
+@end
+
+/**
  *  Lists all domains the user is authorized to administer.
  *
  *  Method: appengine.projects.locations.applications.authorizedDomains.list
@@ -2024,6 +2302,72 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 + (instancetype)queryWithProjectsId:(NSString *)projectsId
                         locationsId:(NSString *)locationsId
                      applicationsId:(NSString *)applicationsId;
+
+@end
+
+/**
+ *  Maps a domain to an application. A user must be authorized to administer a
+ *  domain in order to map it to an application. For a list of available
+ *  authorized domains, see AuthorizedDomains.ListAuthorizedDomains.
+ *
+ *  Method: appengine.projects.locations.applications.domainMappings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsCreate : GTLRAppengineQuery
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Whether the domain creation should override any existing mappings for this
+ *  domain. By default, overrides are rejected.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy
+ *        Strategy unspecified. Defaults to STRICT. (Value:
+ *        "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY")
+ *    @arg @c kGTLRAppengineOverrideStrategyStrict Overrides not allowed. If a
+ *        mapping already exists for the specified domain, the request will
+ *        return an ALREADY_EXISTS (409). (Value: "STRICT")
+ *    @arg @c kGTLRAppengineOverrideStrategyOverride Overrides allowed. If a
+ *        mapping already exists for the specified domain, the request will
+ *        overwrite it. Note that this might stop another Google product from
+ *        serving. For example, if the domain is mapped to another App Engine
+ *        application, that app will no longer serve from that domain. (Value:
+ *        "OVERRIDE")
+ */
+@property(nonatomic, copy, nullable) NSString *overrideStrategy;
+
+/**
+ *  Part of `parent`. Name of the parent Application resource. Example:
+ *  apps/myapp.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Maps a domain to an application. A user must be authorized to administer a
+ *  domain in order to map it to an application. For a list of available
+ *  authorized domains, see AuthorizedDomains.ListAuthorizedDomains.
+ *
+ *  @param object The @c GTLRAppengine_DomainMapping to include in the query.
+ *  @param projectsId Part of `parent`. Name of the parent Application resource.
+ *    Example: apps/myapp.
+ *  @param locationsId Part of `parent`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId;
 
 @end
 

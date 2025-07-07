@@ -479,6 +479,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudLifeSciences/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudLifeSciences/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudLocationFinder' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudLocationFinder/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudLocationFinder/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CloudMachineLearningEngine' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudMachineLearningEngine/**/*.{h,m}'
@@ -1278,6 +1283,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/SA360/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/SA360/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'SaaSServiceManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/SaaSServiceManagement/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/SaaSServiceManagement/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Safebrowsing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

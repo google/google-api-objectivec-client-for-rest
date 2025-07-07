@@ -269,57 +269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Inline;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
 
-// ----------------------------------------------------------------------------
-// GTLRCloudSupport_WorkflowOperationMetadata.operationAction
-
-/**
- *  Operation pertains to the creation of a new support account.
- *
- *  Value: "CREATE_SUPPORT_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_CreateSupportAccount;
-/**
- *  Operation action is not specified.
- *
- *  Value: "OPERATION_ACTION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_OperationActionUnspecified;
-/**
- *  Operation pertains to the purchasing of a support plan that may either
- *  create or update a support account.
- *
- *  Value: "PURCHASE_SUPPORT_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_PurchaseSupportAccount;
-/**
- *  Operation pertains to the updating of an existing support account.
- *
- *  Value: "UPDATE_SUPPORT_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_UpdateSupportAccount;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSupport_WorkflowOperationMetadata.workflowOperationType
-
-/**
- *  Unknown version.
- *
- *  Value: "UNKNOWN_OPERATION_TYPE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_UnknownOperationType;
-/**
- *  Version 1.
- *
- *  Value: "WORKFLOWS_V1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV1;
-/**
- *  Version 2.
- *
- *  Value: "WORKFLOWS_V2"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV2;
-
 /**
  *  An Actor represents an entity that performed an action. For example, an
  *  actor could be a user who posted a comment on a support case, a user who
@@ -1271,55 +1220,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  more results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Metadata about the operation. Used to lookup the current status.
- */
-@interface GTLRCloudSupport_WorkflowOperationMetadata : GTLRObject
-
-/**
- *  The namespace that the job was scheduled in. Must be included in the
- *  workflow metadata so the workflow status can be retrieved.
- *
- *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
- */
-@property(nonatomic, copy, nullable) NSString *namespaceProperty;
-
-/**
- *  The type of action the operation is classified as.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_CreateSupportAccount
- *        Operation pertains to the creation of a new support account. (Value:
- *        "CREATE_SUPPORT_ACCOUNT")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_OperationActionUnspecified
- *        Operation action is not specified. (Value:
- *        "OPERATION_ACTION_UNSPECIFIED")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_PurchaseSupportAccount
- *        Operation pertains to the purchasing of a support plan that may either
- *        create or update a support account. (Value:
- *        "PURCHASE_SUPPORT_ACCOUNT")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_UpdateSupportAccount
- *        Operation pertains to the updating of an existing support account.
- *        (Value: "UPDATE_SUPPORT_ACCOUNT")
- */
-@property(nonatomic, copy, nullable) NSString *operationAction;
-
-/**
- *  Which version of the workflow service this operation came from.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_UnknownOperationType
- *        Unknown version. (Value: "UNKNOWN_OPERATION_TYPE")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV1
- *        Version 1. (Value: "WORKFLOWS_V1")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV2
- *        Version 2. (Value: "WORKFLOWS_V2")
- */
-@property(nonatomic, copy, nullable) NSString *workflowOperationType;
 
 @end
 

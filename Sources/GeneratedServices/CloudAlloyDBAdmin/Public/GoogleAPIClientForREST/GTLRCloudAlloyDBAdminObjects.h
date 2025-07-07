@@ -377,10 +377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Ready;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_StateUnspecified;
 /**
- *  The cluster is stopped. All instances in the cluster are stopped. Customers
- *  can start a stopped cluster at any point and all their instances will come
- *  back to life with same names and IP resources. In this state, customer pays
- *  for storage. Associated backups could also be present in a stopped cluster.
+ *  This is unused. Even when all instances in the cluster are stopped, the
+ *  cluster remains in READY state.
  *
  *  Value: "STOPPED"
  */
@@ -1686,7 +1684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNoPromotableReplica;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
 /**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
@@ -2637,7 +2635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPromotableReplica;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
 /**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
@@ -3183,6 +3181,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct.engine
 
 /**
+ *  Oracle Autonomous DB Serverless engine.
+ *
+ *  Value: "ENGINE_ADB_SERVERLESS_ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineAdbServerlessOracle;
+/**
  *  Cloud Spanner with Google SQL dialect.
  *
  *  Value: "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT"
@@ -3194,6 +3198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithPostgresDialect;
+/**
+ *  Oracle Exadata engine.
+ *
+ *  Value: "ENGINE_EXADATA_ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineExadataOracle;
 /**
  *  Firestore with datastore mode.
  *
@@ -3343,6 +3353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "PRODUCT_TYPE_ON_PREM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOnPrem;
+/**
+ *  Oracle product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_ORACLE_ON_GCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOracleOnGcp;
 /**
  *  Other refers to rest of other product type. This is to be when product type
  *  is known, but it is not present in this enum.
@@ -4342,12 +4358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        and running. (Value: "READY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_State_StateUnspecified The state of
  *        the cluster is unknown. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_State_Stopped The cluster is
- *        stopped. All instances in the cluster are stopped. Customers can start
- *        a stopped cluster at any point and all their instances will come back
- *        to life with same names and IP resources. In this state, customer pays
- *        for storage. Associated backups could also be present in a stopped
- *        cluster. (Value: "STOPPED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_State_Stopped This is unused. Even
+ *        when all instances in the cluster are stopped, the cluster remains in
+ *        READY state. (Value: "STOPPED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -5429,8 +5442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  instance, for example: "google-managed-services-default". If set, the
  *  instance IPs will be created from this allocated range and will override the
  *  IP range used by the parent cluster. The range name must comply with [RFC
- *  1035](http://go/rfc/1035). Specifically, the name must be 1-63 characters
- *  long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
+ *  1035](http://datatracker.ietf.org/doc/html/rfc1035). Specifically, the name
+ *  must be 1-63 characters long and match the regular expression
+ *  [a-z]([-a-z0-9]*[a-z0-9])?.
  */
 @property(nonatomic, copy, nullable) NSString *allocatedIpRangeOverride;
 
@@ -6938,7 +6952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform.
+ *  database resource level events into Condor platform. Next ID: 8
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed : GTLRObject
 
@@ -7017,6 +7031,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  details about signals.
  */
 @property(nonatomic, copy, nullable) NSString *externalUri;
+
+/**
+ *  This is used to identify the location of the resource. Example:
+ *  "us-central1"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Required. The name of the signal, ex: PUBLIC_SQL_INSTANCE,
@@ -7518,13 +7538,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *providerDescription;
 
 /**
- *  Required. The type of resource this ID is identifying. Ex
- *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
- *  alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
- *  spanner.googleapis.com/Instance, spanner.googleapis.com/Database,
- *  firestore.googleapis.com/Database, sqladmin.googleapis.com/Instance,
+ *  Required. The type of resource this ID is identifying. Ex go/keep-sorted
+ *  start alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
  *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
- *  REQUIRED Please refer go/condor-common-datamodel
+ *  compute.googleapis.com/Instance firestore.googleapis.com/Database,
+ *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
+ *  oracledatabase.googleapis.com/CloudExadataInfrastructure
+ *  oracledatabase.googleapis.com/CloudVmCluster
+ *  oracledatabase.googleapis.com/AutonomousDatabase
+ *  spanner.googleapis.com/Instance, spanner.googleapis.com/Database,
+ *  sqladmin.googleapis.com/Instance, go/keep-sorted end REQUIRED Please refer
+ *  go/condor-common-datamodel
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -8434,7 +8458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *retentionUnit GTLR_DEPRECATED;
 
-@property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention;
+@property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention GTLR_DEPRECATED;
 
 /** Timestamp based retention period i.e. 2024-05-01T00:00:00Z */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampBasedRetentionTime;
@@ -8500,12 +8524,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  The specific engine that the underlying database is running.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineAdbServerlessOracle
+ *        Oracle Autonomous DB Serverless engine. (Value:
+ *        "ENGINE_ADB_SERVERLESS_ORACLE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithGooglesqlDialect
  *        Cloud Spanner with Google SQL dialect. (Value:
  *        "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithPostgresDialect
  *        Cloud Spanner with PostgreSQL dialect. (Value:
  *        "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineExadataOracle
+ *        Oracle Exadata engine. (Value: "ENGINE_EXADATA_ORACLE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithDatastoreMode
  *        Firestore with datastore mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_DATASTORE_MODE")
@@ -8576,6 +8605,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Memorystore product area in GCP (Value: "PRODUCT_TYPE_MEMORYSTORE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOnPrem
  *        On premises database product. (Value: "PRODUCT_TYPE_ON_PREM")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOracleOnGcp
+ *        Oracle product area in GCP (Value: "PRODUCT_TYPE_ORACLE_ON_GCP")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOther
  *        Other refers to rest of other product type. This is to be when product
  *        type is known, but it is not present in this enum. (Value:

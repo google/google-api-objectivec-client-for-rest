@@ -11,6 +11,20 @@
 #import <GoogleAPIClientForREST/GTLRTravelImpactModelObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRTravelImpactModel_FlightWithEmissions.contrailsImpactBucket
+NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactModerate = @"CONTRAILS_IMPACT_MODERATE";
+NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactNegligible = @"CONTRAILS_IMPACT_NEGLIGIBLE";
+NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactSevere = @"CONTRAILS_IMPACT_SEVERE";
+NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactUnspecified = @"CONTRAILS_IMPACT_UNSPECIFIED";
+
+// GTLRTravelImpactModel_FlightWithEmissions.source
+NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Easa = @"EASA";
+NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim = @"TIM";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRTravelImpactModel_ComputeFlightEmissionsRequest
 //
@@ -48,11 +62,57 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTravelImpactModel_ComputeTypicalFlightEmissionsRequest
+//
+
+@implementation GTLRTravelImpactModel_ComputeTypicalFlightEmissionsRequest
+@dynamic markets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"markets" : [GTLRTravelImpactModel_Market class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_ComputeTypicalFlightEmissionsResponse
+//
+
+@implementation GTLRTravelImpactModel_ComputeTypicalFlightEmissionsResponse
+@dynamic modelVersion, typicalFlightEmissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"typicalFlightEmissions" : [GTLRTravelImpactModel_TypicalFlightEmissions class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTravelImpactModel_Date
 //
 
 @implementation GTLRTravelImpactModel_Date
 @dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_EasaLabelMetadata
+//
+
+@implementation GTLRTravelImpactModel_EasaLabelMetadata
+@dynamic labelExpiryDate, labelIssueDate, labelVersion, safDiscountPercentage;
 @end
 
 
@@ -82,7 +142,18 @@
 //
 
 @implementation GTLRTravelImpactModel_FlightWithEmissions
-@dynamic emissionsGramsPerPax, flight;
+@dynamic contrailsImpactBucket, easaLabelMetadata, emissionsGramsPerPax, flight,
+         source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_Market
+//
+
+@implementation GTLRTravelImpactModel_Market
+@dynamic destination, origin;
 @end
 
 
@@ -93,4 +164,14 @@
 
 @implementation GTLRTravelImpactModel_ModelVersion
 @dynamic dated, major, minor, patch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_TypicalFlightEmissions
+//
+
+@implementation GTLRTravelImpactModel_TypicalFlightEmissions
+@dynamic emissionsGramsPerPax, market;
 @end

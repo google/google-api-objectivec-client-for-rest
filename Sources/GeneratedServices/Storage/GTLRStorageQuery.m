@@ -1620,7 +1620,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ObjectsList
 
-@dynamic bucket, delimiter, endOffset, includeFoldersAsPrefixes,
+@dynamic bucket, delimiter, endOffset, filter, includeFoldersAsPrefixes,
          includeTrailingDelimiter, matchGlob, maxResults, pageToken, prefix,
          projection, softDeleted, startOffset, userProject, versions;
 

@@ -433,11 +433,29 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_ApkSplits
+//
+
+@implementation GTLRTesting_ApkSplits
+@dynamic bundleSplits;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bundleSplits" : [GTLRTesting_FileReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_AppBundle
 //
 
 @implementation GTLRTesting_AppBundle
-@dynamic bundleLocation;
+@dynamic apks, bundleLocation;
 @end
 
 

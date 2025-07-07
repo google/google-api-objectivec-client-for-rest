@@ -5663,6 +5663,195 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Creates a version for the specified Tool.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsCreate : GTLRDialogflowQuery
+
+/**
+ *  Required. The tool to create a version for. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion.
+ *
+ *  Creates a version for the specified Tool.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion to
+ *    include in the query.
+ *  @param parent Required. The tool to create a version for. Format:
+ *    `projects//locations//agents//tools/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified version of the Tool.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsDelete : GTLRDialogflowQuery
+
+/**
+ *  Optional. This field has no effect for Tools not being used. For Tools that
+ *  are used: * If `force` is set to false, an error will be returned with
+ *  message indicating the referenced resources. * If `force` is set to true,
+ *  Dialogflow will remove the tool, as well as any references to the tool.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the tool version to delete. Format:
+ *  `projects//locations//agents//tools//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified version of the Tool.
+ *
+ *  @param name Required. The name of the tool version to delete. Format:
+ *    `projects//locations//agents//tools//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified version of the Tool.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the tool version. Format:
+ *  `projects//locations//agents//tools//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion.
+ *
+ *  Retrieves the specified version of the Tool.
+ *
+ *  @param name Required. The name of the tool version. Format:
+ *    `projects//locations//agents//tools//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List versions of the specified Tool.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsList : GTLRDialogflowQuery
+
+/**
+ *  Optional. The maximum number of items to return in a single page. By default
+ *  100 and at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent of the tool versions. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListToolVersionsResponse.
+ *
+ *  List versions of the specified Tool.
+ *
+ *  @param parent Required. The parent of the tool versions. Format:
+ *    `projects//locations//agents//tools/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves the specified version of the Tool and stores it as the current
+ *  tool draft, returning the tool with resources updated.
+ *
+ *  Method: dialogflow.projects.locations.agents.tools.versions.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsRestore : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the tool version. Format:
+ *  `projects//locations//agents//tools//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreToolVersionResponse.
+ *
+ *  Retrieves the specified version of the Tool and stores it as the current
+ *  tool draft, returning the tool with resources updated.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreToolVersionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the tool version. Format:
+ *    `projects//locations//agents//tools//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsToolsVersionsRestore
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreToolVersionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an TransitionRouteGroup in the specified flow. Note: You should
  *  always train a flow prior to sending it queries. See the [training
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).

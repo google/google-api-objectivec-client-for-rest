@@ -2916,6 +2916,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** The dataset template to use for dynamic dataset creation. */
 @property(nonatomic, strong, nullable) GTLRDatastream_DatasetTemplate *datasetTemplate;
 
+/**
+ *  Optional. The project id of the BigQuery dataset. If not specified, the
+ *  project will be inferred from the stream resource.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 @end
 
 

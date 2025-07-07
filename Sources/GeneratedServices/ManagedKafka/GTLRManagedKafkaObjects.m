@@ -180,6 +180,16 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_CertificateAuthorityServiceConfig
+//
+
+@implementation GTLRManagedKafka_CertificateAuthorityServiceConfig
+@dynamic caPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_CheckCompatibilityRequest
 //
 
@@ -225,7 +235,7 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 @implementation GTLRManagedKafka_Cluster
 @dynamic capacityConfig, createTime, gcpConfig, labels, name, rebalanceConfig,
-         satisfiesPzi, satisfiesPzs, state, updateTime;
+         satisfiesPzi, satisfiesPzs, state, tlsConfig, updateTime;
 @end
 
 
@@ -1070,6 +1080,16 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_TlsConfig
+//
+
+@implementation GTLRManagedKafka_TlsConfig
+@dynamic sslPrincipalMappingRules, trustConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_Topic
 //
 
@@ -1087,6 +1107,24 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_TrustConfig
+//
+
+@implementation GTLRManagedKafka_TrustConfig
+@dynamic casConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"casConfigs" : [GTLRManagedKafka_CertificateAuthorityServiceConfig class]
+  };
+  return map;
 }
 
 @end

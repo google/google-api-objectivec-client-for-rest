@@ -333,7 +333,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Adds an IP override to a key. The following restrictions hold: * The maximum
- *  number of IP overrides per key is 100. * For any conflict (such as IP
+ *  number of IP overrides per key is 1000. * For any conflict (such as IP
  *  already exists or IP part of an existing IP range), an error is returned.
  *
  *  Method: recaptchaenterprise.projects.keys.addIpOverride
@@ -354,7 +354,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideResponse.
  *
  *  Adds an IP override to a key. The following restrictions hold: * The maximum
- *  number of IP overrides per key is 100. * For any conflict (such as IP
+ *  number of IP overrides per key is 1000. * For any conflict (such as IP
  *  already exists or IP part of an existing IP range), an error is returned.
  *
  *  @param object The @c

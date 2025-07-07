@@ -974,6 +974,24 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings
+@dynamic multiRegionId, regions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2NetworkInterface
 //
 
@@ -1247,10 +1265,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          conditions, createTime, creator, customAudiences, defaultUriDisabled,
          deleteTime, descriptionProperty, ETag, expireTime, generation,
          iapEnabled, ingress, invokerIamDisabled, labels, lastModifier,
-         latestCreatedRevision, latestReadyRevision, launchStage, name,
-         observedGeneration, reconciling, satisfiesPzs, scaling,
-         templateProperty, terminalCondition, threatDetectionEnabled, traffic,
-         trafficStatuses, uid, updateTime, uri, urls;
+         latestCreatedRevision, latestReadyRevision, launchStage,
+         multiRegionSettings, name, observedGeneration, reconciling,
+         satisfiesPzs, scaling, templateProperty, terminalCondition,
+         threatDetectionEnabled, traffic, trafficStatuses, uid, updateTime, uri,
+         urls;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1426,7 +1445,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2TaskAttemptResult
-@dynamic exitCode, status;
+@dynamic exitCode, status, termSignal;
 @end
 
 
@@ -1599,7 +1618,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate
 @dynamic annotations, containers, encryptionKey, encryptionKeyRevocationAction,
          encryptionKeyShutdownDuration, labels, nodeSelector, revision,
-         serviceAccount, serviceMesh, sessionAffinity, volumes, vpcAccess;
+         serviceAccount, serviceMesh, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -209,8 +209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidConfig_Data *data;
 
 /**
- *  If set to true, messages will be allowed to be delivered to the app while
- *  the device is in direct boot mode. See [Support Direct Boot
+ *  Optional. If set to true, messages will be allowed to be delivered to the
+ *  app while the device is in direct boot mode. See [Support Direct Boot
  *  mode](https://developer.android.com/training/articles/direct-boot).
  *
  *  Uses NSNumber of boolValue.
@@ -253,6 +253,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  order to receive the message.
  */
 @property(nonatomic, copy, nullable) NSString *restrictedPackageName;
+
+/**
+ *  Optional. If set to true, messages will be allowed to be delivered to the
+ *  app while the device is connected over a restricted satellite network. This
+ *  should only be enabled for messages that can be handled over a restricted
+ *  satellite network and only for apps that are allowed to work over a
+ *  restricted satellite network. Note that the ability of the app to connect to
+ *  a restricted satellite network is dependent on the carrier's settings and
+ *  the device model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictedSatelliteOk;
 
 /**
  *  How long (in seconds) the message should be kept in FCM storage if the

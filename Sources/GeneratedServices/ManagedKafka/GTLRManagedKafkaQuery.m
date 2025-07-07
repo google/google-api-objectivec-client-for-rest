@@ -1168,6 +1168,25 @@
 
 @end
 
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaMode class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.contexts.mode.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesContextsModeGet
 
 @dynamic name;
@@ -1575,6 +1594,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRManagedKafka_ListSchemaRegistriesResponse class];
   query.loggingName = @"managedkafka.projects.locations.schemaRegistries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesModeDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedKafka_SchemaMode class];
+  query.loggingName = @"managedkafka.projects.locations.schemaRegistries.mode.delete";
   return query;
 }
 

@@ -19,6 +19,7 @@
 @class GTLRSecurityCommandCenter_AccessReview;
 @class GTLRSecurityCommandCenter_AdaptiveProtection;
 @class GTLRSecurityCommandCenter_AffectedResources;
+@class GTLRSecurityCommandCenter_AiModel;
 @class GTLRSecurityCommandCenter_Allowed;
 @class GTLRSecurityCommandCenter_Application;
 @class GTLRSecurityCommandCenter_Asset;
@@ -43,6 +44,7 @@
 @class GTLRSecurityCommandCenter_AzureSubscription;
 @class GTLRSecurityCommandCenter_AzureTenant;
 @class GTLRSecurityCommandCenter_BackupDisasterRecovery;
+@class GTLRSecurityCommandCenter_BigQueryDestination;
 @class GTLRSecurityCommandCenter_Binding;
 @class GTLRSecurityCommandCenter_Chokepoint;
 @class GTLRSecurityCommandCenter_CloudArmor;
@@ -64,6 +66,7 @@
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_DataFlowEvent;
 @class GTLRSecurityCommandCenter_DataRetentionDeletionEvent;
+@class GTLRSecurityCommandCenter_Dataset;
 @class GTLRSecurityCommandCenter_Denied;
 @class GTLRSecurityCommandCenter_Detection;
 @class GTLRSecurityCommandCenter_Disk;
@@ -112,6 +115,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AccessReview;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack;
@@ -144,6 +148,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Database;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk;
@@ -196,6 +201,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Object;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2OrgPolicy;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Package;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pipeline;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pod;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PolicyDriftDetails;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PortRange;
@@ -219,6 +225,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Subject;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2TicketInfo;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ToxicCombination;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2VertexAi;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Vulnerability;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2YaraRuleSignature;
 @class GTLRSecurityCommandCenter_GroupMembership;
@@ -252,6 +259,7 @@
 @class GTLRSecurityCommandCenter_OrgPolicy;
 @class GTLRSecurityCommandCenter_Package;
 @class GTLRSecurityCommandCenter_PathNodeAssociatedFinding;
+@class GTLRSecurityCommandCenter_Pipeline;
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
 @class GTLRSecurityCommandCenter_PolicyDriftDetails;
@@ -285,6 +293,7 @@
 @class GTLRSecurityCommandCenter_TicketInfo;
 @class GTLRSecurityCommandCenter_ToxicCombination;
 @class GTLRSecurityCommandCenter_ValuedResource;
+@class GTLRSecurityCommandCenter_VertexAi;
 @class GTLRSecurityCommandCenter_Vulnerability;
 @class GTLRSecurityCommandCenter_VulnerabilityCountBySeverity;
 @class GTLRSecurityCommandCenter_VulnerabilityCountBySeverity_SeverityToFindingCount;
@@ -299,6 +308,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_AiModel.deploymentPlatform
+
+/**
+ *  Unspecified deployment platform.
+ *
+ *  Value: "DEPLOYMENT_PLATFORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_DeploymentPlatformUnspecified;
+/**
+ *  Google Kubernetes Engine.
+ *
+ *  Value: "GKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gke;
+/**
+ *  Vertex AI.
+ *
+ *  Value: "VERTEX_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_VertexAi;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_AssetDiscoveryConfig.inclusionMode
@@ -1680,6 +1711,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_ResourceValueUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel.deploymentPlatform
+
+/**
+ *  Unspecified deployment platform.
+ *
+ *  Value: "DEPLOYMENT_PLATFORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_DeploymentPlatformUnspecified;
+/**
+ *  Google Kubernetes Engine.
+ *
+ *  Value: "GKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gke;
+/**
+ *  Vertex AI.
+ *
+ *  Value: "VERTEX_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_VertexAi;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure.state
 
 /**
@@ -2759,6 +2812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.001
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSetuidAndSetgid;
+/**
  *  T1548.003
  *
  *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
@@ -3077,6 +3136,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1203
+ *
+ *  Value: "EXPLOITATION_FOR_CLIENT_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExploitationForClientExecution;
+/**
  *  T1068
  *
  *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
@@ -3232,6 +3297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LateralToolTransfer;
+/**
+ *  T1222.002
+ *
+ *  Value: "LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_LinuxAndMacFileAndDirectoryPermissionsModification;
 /**
  *  T1136.001
  *
@@ -3661,6 +3732,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.001
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSetuidAndSetgid;
+/**
  *  T1548.003
  *
  *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
@@ -3979,6 +4056,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1203
+ *
+ *  Value: "EXPLOITATION_FOR_CLIENT_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExploitationForClientExecution;
+/**
  *  T1068
  *
  *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
@@ -4134,6 +4217,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LateralToolTransfer;
+/**
+ *  T1222.002
+ *
+ *  Value: "LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_LinuxAndMacFileAndDirectoryPermissionsModification;
 /**
  *  T1136.001
  *
@@ -5079,6 +5168,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.001
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanismSetuidAndSetgid;
+/**
  *  T1548.003
  *
  *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
@@ -5397,6 +5492,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1203
+ *
+ *  Value: "EXPLOITATION_FOR_CLIENT_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitationForClientExecution;
+/**
  *  T1068
  *
  *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
@@ -5552,6 +5653,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LateralToolTransfer;
+/**
+ *  T1222.002
+ *
+ *  Value: "LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LinuxAndMacFileAndDirectoryPermissionsModification;
 /**
  *  T1136.001
  *
@@ -5981,6 +6088,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism;
 /**
+ *  T1548.001
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SETUID_AND_SETGID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanismSetuidAndSetgid;
+/**
  *  T1548.003
  *
  *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM_SUDO_AND_SUDO_CACHING"
@@ -6299,6 +6412,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1203
+ *
+ *  Value: "EXPLOITATION_FOR_CLIENT_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitationForClientExecution;
+/**
  *  T1068
  *
  *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
@@ -6454,6 +6573,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "LATERAL_TOOL_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LateralToolTransfer;
+/**
+ *  T1222.002
+ *
+ *  Value: "LINUX_AND_MAC_FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LinuxAndMacFileAndDirectoryPermissionsModification;
 /**
  *  T1136.001
  *
@@ -7260,6 +7385,48 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains information about the AI model associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_AiModel : GTLRObject
+
+/**
+ *  The platform on which the model is deployed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_DeploymentPlatformUnspecified
+ *        Unspecified deployment platform. (Value:
+ *        "DEPLOYMENT_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gke Google
+ *        Kubernetes Engine. (Value: "GKE")
+ *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_VertexAi
+ *        Vertex AI. (Value: "VERTEX_AI")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentPlatform;
+
+/**
+ *  The user defined display name of model. Ex. baseline-classification-model
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The domain of the model, for example, “image-classification”. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** The name of the model library, for example, “transformers”. */
+@property(nonatomic, copy, nullable) NSString *library;
+
+/** The region in which the model is used, for example, “us-central1”. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The name of the AI model, for example, "gemini:1.0.0". */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The publisher of the model, for example, “google” or “nvidia”. */
+@property(nonatomic, copy, nullable) NSString *publisher;
+
+@end
+
+
+/**
  *  Allowed IP rule.
  */
 @interface GTLRSecurityCommandCenter_Allowed : GTLRObject
@@ -7973,6 +8140,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The resource value configs created */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig *> *resourceValueConfigs;
+
+@end
+
+
+/**
+ *  The destination big query dataset to export findings to.
+ */
+@interface GTLRSecurityCommandCenter_BigQueryDestination : GTLRObject
+
+/**
+ *  Required. The relative resource name of the destination dataset, in the form
+ *  projects/{projectId}/datasets/{datasetId}.
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
 
 @end
 
@@ -8923,6 +9104,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Vertex AI dataset associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Dataset : GTLRObject
+
+/** The user defined display name of dataset, e.g. plants-dataset */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource name of the dataset, e.g.
+ *  projects/{project}/locations/{location}/datasets/2094040236064505856
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Data source, such as BigQuery source URI, e.g.
+ *  bq://scc-nexus-test.AIPPtest.gsod
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
  *  Denied IP rule.
  */
 @interface GTLRSecurityCommandCenter_Denied : GTLRObject
@@ -9268,6 +9472,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  The LRO metadata for a ExportFindings request.
+ */
+@interface GTLRSecurityCommandCenter_ExportFindingsMetadata : GTLRObject
+
+/** Required. The destination big query dataset to export findings to. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_BigQueryDestination *bigQueryDestination;
+
+/** Optional. Timestamp at which export was started */
+@property(nonatomic, strong, nullable) GTLRDateTime *exportStartTime;
+
+@end
+
+
+/**
+ *  The response to a ExportFindings request. Contains the LRO information.
+ */
+@interface GTLRSecurityCommandCenter_ExportFindingsResponse : GTLRObject
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -9410,6 +9635,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** AffectedResources associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AffectedResources *affectedResources;
+
+/** The AI model associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AiModel *aiModel;
 
 /** Represents an application associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Application *application;
@@ -9794,6 +10022,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  This field cannot be updated. Its value is ignored in all update requests.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ToxicCombination *toxicCombination;
+
+/** VertexAi associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_VertexAi *vertexAi;
 
 /**
  *  Represents vulnerability-specific fields like CVE and CVSS scores. CVE
@@ -11238,6 +11469,48 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains information about the AI model associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel : GTLRObject
+
+/**
+ *  The platform on which the model is deployed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_DeploymentPlatformUnspecified
+ *        Unspecified deployment platform. (Value:
+ *        "DEPLOYMENT_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gke
+ *        Google Kubernetes Engine. (Value: "GKE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_VertexAi
+ *        Vertex AI. (Value: "VERTEX_AI")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentPlatform;
+
+/**
+ *  The user defined display name of model. Ex. baseline-classification-model
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The domain of the model, for example, “image-classification”. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** The name of the model library, for example, “transformers”. */
+@property(nonatomic, copy, nullable) NSString *library;
+
+/** The region in which the model is used, for example, “us-central1”. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The name of the AI model, for example, "gemini:1.0.0". */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The publisher of the model, for example, “google” or “nvidia”. */
+@property(nonatomic, copy, nullable) NSString *publisher;
+
+@end
+
+
+/**
  *  Allowed IP rule.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed : GTLRObject
@@ -12498,6 +12771,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Vertex AI dataset associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset : GTLRObject
+
+/** The user defined display name of dataset, e.g. plants-dataset */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource name of the dataset, e.g.
+ *  projects/{project}/locations/{location}/datasets/2094040236064505856
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Data source, such as a BigQuery source URI, e.g.
+ *  bq://scc-nexus-test.AIPPtest.gsod
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
  *  Denied IP rule.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied : GTLRObject
@@ -12808,6 +13104,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** AffectedResources associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources *affectedResources;
 
+/** The AI model associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel *aiModel;
+
 /** Represents an application associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application *application;
 
@@ -13061,7 +13360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRDateTime *muteUpdateTime;
 
 /**
- *  The [relative resource
+ *  Identifier. The [relative resource
  *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *  of the finding. The following list shows some examples: +
  *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`
@@ -13210,6 +13509,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  This field cannot be updated. Its value is ignored in all update requests.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ToxicCombination *toxicCombination;
+
+/** VertexAi associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2VertexAi *vertexAi;
 
 /**
  *  Represents vulnerability-specific fields like CVE and CVSS scores. CVE
@@ -14388,6 +14690,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Vertex AI training pipeline associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pipeline : GTLRObject
+
+/** The user-defined display name of pipeline, e.g. plants-classification */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource name of the pipeline, e.g.
+ *  projects/{project}/locations/{location}/trainingPipelines/5253428229225578496
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A Kubernetes Pod.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pod : GTLRObject
@@ -14518,6 +14837,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  the script file provided to the interpreter.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File *script;
+
+/**
+ *  The ID of the user that executed the process. E.g. If this is the root user
+ *  this will always be 0.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userId;
 
 @end
 
@@ -15234,6 +15561,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  For example, `organizations/123/sources/456/findings/789`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFindings;
+
+@end
+
+
+/**
+ *  Vertex AI-related information associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2VertexAi : GTLRObject
+
+/** Datasets associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset *> *datasets;
+
+/** Pipelines associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pipeline *> *pipelines;
 
 @end
 
@@ -16911,6 +17252,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Vertex AI training pipeline associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Pipeline : GTLRObject
+
+/** The user defined display name of pipeline, e.g. plants-classification */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource name of the pipeline, e.g.
+ *  projects/{project}/locations/{location}/trainingPipelines/5253428229225578496
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A Kubernetes Pod.
  */
 @interface GTLRSecurityCommandCenter_Pod : GTLRObject
@@ -17154,6 +17512,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  the script file provided to the interpreter.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_File *script;
+
+/**
+ *  The ID of the user that executed the process. E.g. If this is the root user
+ *  this will always be 0.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userId;
 
 @end
 
@@ -18226,6 +18592,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  of this resource. Maximum of 100.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ResourceValueConfigMetadata *> *resourceValueConfigsUsed;
+
+@end
+
+
+/**
+ *  Vertex AI-related information associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_VertexAi : GTLRObject
+
+/** Datasets associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Dataset *> *datasets;
+
+/** Pipelines associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Pipeline *> *pipelines;
 
 @end
 

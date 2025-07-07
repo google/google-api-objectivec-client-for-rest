@@ -1043,11 +1043,12 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus;
+         archiveTime, continuousAnalysis, cpe, files, lastScanTime, sbomStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"analysisError" : [GTLRContainerAnalysis_Status class]
+    @"analysisError" : [GTLRContainerAnalysis_Status class],
+    @"files" : [GTLRContainerAnalysis_File class]
   };
   return map;
 }
@@ -1168,6 +1169,30 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_File
+//
+
+@implementation GTLRContainerAnalysis_File
+@dynamic digest, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_File_Digest
+//
+
+@implementation GTLRContainerAnalysis_File_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2248,11 +2273,12 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_ListNotesResponse
-@dynamic nextPageToken, notes;
+@dynamic nextPageToken, notes, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"notes" : [GTLRContainerAnalysis_Note class]
+    @"notes" : [GTLRContainerAnalysis_Note class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -2270,11 +2296,12 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_ListOccurrencesResponse
-@dynamic nextPageToken, occurrences;
+@dynamic nextPageToken, occurrences, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"occurrences" : [GTLRContainerAnalysis_Occurrence class]
+    @"occurrences" : [GTLRContainerAnalysis_Occurrence class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -3290,11 +3317,12 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityOccurrencesSummary
-@dynamic counts;
+@dynamic counts, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"counts" : [GTLRContainerAnalysis_FixableTotalByDigest class]
+    @"counts" : [GTLRContainerAnalysis_FixableTotalByDigest class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
