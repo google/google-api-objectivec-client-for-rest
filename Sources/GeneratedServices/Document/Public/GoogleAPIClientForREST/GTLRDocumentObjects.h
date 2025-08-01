@@ -5826,7 +5826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1Processor : GTLRObject
 
-/** The time the processor was created. */
+/** Output only. The time the processor was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** The default processor version. */
@@ -6018,16 +6018,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion : GTLRObject
 
-/** The time the processor version was created. */
+/** Output only. The time the processor version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** If set, information about the eventual deprecation of this version. */
+/**
+ *  Output only. If set, information about the eventual deprecation of this
+ *  version.
+ */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo *deprecationInfo;
 
 /** The display name of the processor version. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The schema of the processor version. Describes the output. */
+/** Output only. The schema of the processor version. Describes the output. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
 /**
@@ -6042,13 +6045,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, strong, nullable) NSNumber *googleManaged;
 
-/** The KMS key name used for encryption. */
+/** Output only. The KMS key name used for encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
-/** The KMS key version with which data is encrypted. */
+/** Output only. The KMS key version with which data is encrypted. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
-/** The most recently invoked evaluation for the processor version. */
+/**
+ *  Output only. The most recently invoked evaluation for the processor version.
+ */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference *latestEvaluation;
 
 /**

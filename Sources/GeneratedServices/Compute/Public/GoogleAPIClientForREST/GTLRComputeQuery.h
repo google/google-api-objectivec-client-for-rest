@@ -111,6 +111,28 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeLearned;
 FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 
 // ----------------------------------------------------------------------------
+// view
+
+/**
+ *  This view includes basic information about the reservation block
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewBasic;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "BLOCK_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewBlockViewUnspecified;
+/**
+ *  Includes detailed topology view.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -7838,11 +7860,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 @interface GTLRComputeQuery_GlobalOrganizationOperationsGet : GTLRComputeQuery
 
 /**
- *  Name of the Operations resource to return, or its unique numeric identifier.
+ *  Name of the Operations resource to return. Parent is derived from this
+ *  field.
  */
 @property(nonatomic, copy, nullable) NSString *operation;
 
-/** Parent ID for this request. */
+/**
+ *  Parent ID for this request. Not used. Parent is derived from resource_id.
+ */
 @property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
@@ -7851,8 +7876,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
  *  Retrieves the specified Operations resource. Gets a list of operations by
  *  making a `list()` request.
  *
- *  @param operation Name of the Operations resource to return, or its unique
- *    numeric identifier.
+ *  @param operation Name of the Operations resource to return. Parent is
+ *    derived from this field.
  *
  *  @return GTLRComputeQuery_GlobalOrganizationOperationsGet
  */
@@ -9616,9 +9641,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeDevstorageFullControl
- *    @c kGTLRAuthScopeComputeDevstorageReadOnly
- *    @c kGTLRAuthScopeComputeDevstorageReadWrite
  */
 @interface GTLRComputeQuery_ImagesInsert : GTLRComputeQuery
 
@@ -38636,6 +38658,20 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *reservationBlock;
 
 /**
+ *  View of the Block.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic This view includes basic information about
+ *        the reservation block (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewBlockViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "BLOCK_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRComputeViewFull Includes detailed topology view. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Name of the zone for this request. Zone name should conform to RFC1035.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -45965,6 +46001,13 @@ GTLR_DEPRECATED
  *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The project id or project number in which the subnetwork is intended to be
+ *  used. Only applied for Shared VPC. See [Shared VPC
+ *  documentation](https://cloud.google.com/vpc/docs/shared-vpc/)
+ */
+@property(nonatomic, copy, nullable) NSString *serviceProject;
 
 /**
  *  Fetches a @c GTLRCompute_UsableSubnetworksAggregatedList.

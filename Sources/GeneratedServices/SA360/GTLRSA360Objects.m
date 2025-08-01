@@ -64,6 +64,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetF
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description1 = @"DESCRIPTION_1";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description2 = @"DESCRIPTION_2";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionInPortrait = @"DESCRIPTION_IN_PORTRAIT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionPrefix = @"DESCRIPTION_PREFIX";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline = @"HEADLINE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline1 = @"HEADLINE_1";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline2 = @"HEADLINE_2";
@@ -361,6 +362,20 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_Authorization
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_UserPermissionDenied = @"USER_PERMISSION_DENIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.conversionCustomVariableError
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_DuplicateName = @"DUPLICATE_NAME";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_DuplicateTag = @"DUPLICATE_TAG";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_ExceedsCardinalityLimit = @"EXCEEDS_CARDINALITY_LIMIT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_IncompatibleType = @"INCOMPATIBLE_TYPE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_IncompatibleWithSelectedResource = @"INCOMPATIBLE_WITH_SELECTED_RESOURCE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_InvalidDimension = @"INVALID_DIMENSION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_InvalidMetric = @"INVALID_METRIC";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_NotAvailable = @"NOT_AVAILABLE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_NotFound = @"NOT_FOUND";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_ReservedTag = @"RESERVED_TAG";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_Unspecified = @"UNSPECIFIED";
 
 // GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.customColumnError
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_CustomColumnNotAvailable = @"CUSTOM_COLUMN_NOT_AVAILABLE";
@@ -2302,10 +2317,10 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode
-@dynamic authenticationError, authorizationError, customColumnError, dateError,
-         dateRangeError, distinctError, headerError, internalError,
-         invalidParameterError, queryError, quotaError, requestError,
-         sizeLimitError;
+@dynamic authenticationError, authorizationError, conversionCustomVariableError,
+         customColumnError, dateError, dateRangeError, distinctError,
+         headerError, internalError, invalidParameterError, queryError,
+         quotaError, requestError, sizeLimitError;
 @end
 
 

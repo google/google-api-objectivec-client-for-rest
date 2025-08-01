@@ -60,6 +60,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Initiated by Cloud Console for Oauth consent flow for Workbench Instances.
+ *  Do not use this method directly. Design doc: go/wbi-euc:auth-dd
+ *
+ *  Method: notebooks.projects.locations.instances.checkAuthorization
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckAuthorization : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. The name of the Notebook Instance resource. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_CheckAuthorizationResponse.
+ *
+ *  Initiated by Cloud Console for Oauth consent flow for Workbench Instances.
+ *  Do not use this method directly. Design doc: go/wbi-euc:auth-dd
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_CheckAuthorizationRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Notebook Instance resource. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckAuthorization
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_CheckAuthorizationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Checks whether a notebook instance is upgradable.
  *
  *  Method: notebooks.projects.locations.instances.checkUpgradability
@@ -187,6 +222,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose
  */
 + (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_DiagnoseInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Called by VM to return an EUC for the instance owner. Do not use this method
+ *  directly. Design doc: go/wbi-euc:dd
+ *
+ *  Method: notebooks.projects.locations.instances.generateAccessToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGenerateAccessToken : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_GenerateAccessTokenResponse.
+ *
+ *  Called by VM to return an EUC for the instance owner. Do not use this method
+ *  directly. Design doc: go/wbi-euc:dd
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_GenerateAccessTokenRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGenerateAccessToken
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_GenerateAccessTokenRequest *)object
                            name:(NSString *)name;
 
 @end

@@ -389,7 +389,15 @@ NSString * const kGTLRCivicInfo_SchemaV2ElectoralDistrict_Scope_Ward = @"ward";
 //
 
 @implementation GTLRCivicInfo_SchemaV2SimpleAddressType
-@dynamic city, line1, line2, line3, locationName, state, zip;
+@dynamic addressLine, city, line1, line2, line3, locationName, state, zip;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressLine" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

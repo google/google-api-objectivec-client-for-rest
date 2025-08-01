@@ -76,19 +76,6 @@ NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindPublicAddre
 NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindSubnetwork = @"RESOURCE_KIND_SUBNETWORK";
 NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindUnspecified = @"RESOURCE_KIND_UNSPECIFIED";
 
-// GTLRWorkloadManager_ComponentHealth.componentHealthType
-NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeOptional = @"TYPE_OPTIONAL";
-NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeRequired = @"TYPE_REQUIRED";
-NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeSpecial = @"TYPE_SPECIAL";
-NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRWorkloadManager_ComponentHealth.state
-NSString * const kGTLRWorkloadManager_ComponentHealth_State_Critical = @"CRITICAL";
-NSString * const kGTLRWorkloadManager_ComponentHealth_State_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
-NSString * const kGTLRWorkloadManager_ComponentHealth_State_Healthy = @"HEALTHY";
-NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unhealthy = @"UNHEALTHY";
-NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unsupported = @"UNSUPPORTED";
-
 // GTLRWorkloadManager_DatabaseProperties.databaseType
 NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Ase = @"ASE";
 NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
@@ -124,14 +111,6 @@ NSString * const kGTLRWorkloadManager_ExecutionResult_Type_TypeViolated = @"TYPE
 // GTLRWorkloadManager_ExternalDataSources.type
 NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_BigQueryTable = @"BIG_QUERY_TABLE";
 NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRWorkloadManager_HealthCheck.state
-NSString * const kGTLRWorkloadManager_HealthCheck_State_Degraded = @"DEGRADED";
-NSString * const kGTLRWorkloadManager_HealthCheck_State_Failed = @"FAILED";
-NSString * const kGTLRWorkloadManager_HealthCheck_State_Passed = @"PASSED";
-NSString * const kGTLRWorkloadManager_HealthCheck_State_Skipped = @"SKIPPED";
-NSString * const kGTLRWorkloadManager_HealthCheck_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRWorkloadManager_HealthCheck_State_Unsupported = @"UNSUPPORTED";
 
 // GTLRWorkloadManager_InstanceProperties.roles
 NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleAppServer = @"INSTANCE_ROLE_APP_SERVER";
@@ -260,13 +239,6 @@ NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_WorkloadTypeU
 NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_S4Hana = @"S4_HANA";
 NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
 
-// GTLRWorkloadManager_WorkloadProfileHealth.state
-NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Critical = @"CRITICAL";
-NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
-NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Healthy = @"HEALTHY";
-NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unhealthy = @"UNHEALTHY";
-NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = @"UNSUPPORTED";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRWorkloadManager_AgentCommand
@@ -293,13 +265,23 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_AgentStates
+//
+
+@implementation GTLRWorkloadManager_AgentStates
+@dynamic availableVersion, installedVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_AgentStatus
 //
 
 @implementation GTLRWorkloadManager_AgentStatus
 @dynamic agentName, availableVersion, cloudApiAccessFullScopesGranted,
          configurationErrorMessage, configurationFilePath, configurationValid,
-         installedVersion, kernelVersion, references, services,
+         installedVersion, instanceUri, kernelVersion, references, services,
          systemdServiceEnabled, systemdServiceRunning;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -421,27 +403,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_ComponentHealth
-//
-
-@implementation GTLRWorkloadManager_ComponentHealth
-@dynamic component, componentHealthChecks, componentHealthType, isRequired,
-         state, subComponentHealthes, subComponentsHealth;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"componentHealthChecks" : [GTLRWorkloadManager_HealthCheck class],
-    @"subComponentHealthes" : [GTLRWorkloadManager_ComponentHealth class],
-    @"subComponentsHealth" : [GTLRWorkloadManager_ComponentHealth class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_DatabaseProperties
 //
 
@@ -466,8 +427,9 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 @implementation GTLRWorkloadManager_Evaluation
 @dynamic bigQueryDestination, createTime, customRulesBucket,
-         descriptionProperty, evaluationType, labels, name, resourceFilter,
-         resourceStatus, ruleNames, ruleVersions, schedule, updateTime;
+         descriptionProperty, evaluationType, kmsKey, labels, name,
+         resourceFilter, resourceStatus, ruleNames, ruleVersions, schedule,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -577,16 +539,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_HealthCheck
-//
-
-@implementation GTLRWorkloadManager_HealthCheck
-@dynamic message, metric, resource, source, state;
 @end
 
 
@@ -1236,7 +1188,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_SapInstanceProperties
-@dynamic numbers;
+@dynamic agentStates, numbers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1525,25 +1477,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_WorkloadProfileHealth
-//
-
-@implementation GTLRWorkloadManager_WorkloadProfileHealth
-@dynamic checkTime, componentHealthes, componentsHealth, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"componentHealthes" : [GTLRWorkloadManager_ComponentHealth class],
-    @"componentsHealth" : [GTLRWorkloadManager_ComponentHealth class]
-  };
-  return map;
 }
 
 @end

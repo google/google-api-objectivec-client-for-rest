@@ -145,7 +145,7 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 @dynamic adminUser, advancedReportingEnabled, ccaipManagedUsers, createTime,
          critical, customerDomainPrefix, displayName, early, instanceConfig,
          kmsKey, labels, name, normal, privateAccess, privateComponents,
-         samlParams, state, updateTime, uris, userEmail;
+         releaseVersion, samlParams, state, updateTime, uris, userEmail;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

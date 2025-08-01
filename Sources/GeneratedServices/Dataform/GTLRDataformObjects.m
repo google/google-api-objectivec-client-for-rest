@@ -596,6 +596,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_IamPolicyOverrideView
+//
+
+@implementation GTLRDataform_IamPolicyOverrideView
+@dynamic iamPolicyName, isActive;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_IncrementalLoadMode
 //
 
@@ -1028,6 +1038,21 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
     @"bindings" : [GTLRDataform_Binding class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_PolicyName
+//
+
+@implementation GTLRDataform_PolicyName
+@dynamic identifier, region, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

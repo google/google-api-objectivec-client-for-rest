@@ -159,7 +159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
  *  Immutable. The Pub/Sub topic that receives events for the subscription.
  *  Format: `projects/{project}/topics/{topic}` You must create the topic in the
  *  same Google Cloud project where you create this subscription. Note: The
- *  Workspace Events API uses [ordering
+ *  Google Workspace Events API uses [ordering
  *  keys](https://cloud.google.com/pubsub/docs/ordering) for the benefit of
  *  sequential events. If the Cloud Pub/Sub topic has a [message storage
  *  policy](https://cloud.google.com/pubsub/docs/resource-location-restriction#exceptions)
@@ -256,7 +256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 
 /**
  *  Options about what data to include in the event payload. Only supported for
- *  Google Chat events.
+ *  Google Chat and Google Drive events.
  */
 @interface GTLRWorkspaceEvents_PayloadOptions : GTLRObject
 
@@ -399,7 +399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 
 /**
  *  Optional. Options about what data to include in the event payload. Only
- *  supported for Google Chat events.
+ *  supported for Google Chat and Google Drive events.
  */
 @property(nonatomic, strong, nullable) GTLRWorkspaceEvents_PayloadOptions *payloadOptions;
 

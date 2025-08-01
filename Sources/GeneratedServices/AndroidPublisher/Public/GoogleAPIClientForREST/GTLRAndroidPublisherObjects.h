@@ -20,6 +20,8 @@
 @class GTLRAndroidPublisher_AbiTargeting;
 @class GTLRAndroidPublisher_AcquisitionTargetingRule;
 @class GTLRAndroidPublisher_ActivateBasePlanRequest;
+@class GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest;
+@class GTLRAndroidPublisher_ActivatePurchaseOptionRequest;
 @class GTLRAndroidPublisher_ActivateSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_AllUsers;
 @class GTLRAndroidPublisher_AndroidSdks;
@@ -40,6 +42,7 @@
 @class GTLRAndroidPublisher_BuyerAddress;
 @class GTLRAndroidPublisher_CanceledStateContext;
 @class GTLRAndroidPublisher_CancellationEvent;
+@class GTLRAndroidPublisher_CancelOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_CancelSurveyResult;
 @class GTLRAndroidPublisher_Comment;
 @class GTLRAndroidPublisher_ConvertedOtherRegionsPrice;
@@ -47,8 +50,13 @@
 @class GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices;
 @class GTLRAndroidPublisher_CountryTargeting;
 @class GTLRAndroidPublisher_DeactivateBasePlanRequest;
+@class GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest;
+@class GTLRAndroidPublisher_DeactivatePurchaseOptionRequest;
 @class GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_DeferredItemReplacement;
+@class GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest;
+@class GTLRAndroidPublisher_DeleteOneTimeProductRequest;
+@class GTLRAndroidPublisher_DeletePurchaseOptionRequest;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
 @class GTLRAndroidPublisher_DeveloperInitiatedCancellation;
@@ -76,6 +84,7 @@
 @class GTLRAndroidPublisher_GeneratedSplitApk;
 @class GTLRAndroidPublisher_GeneratedStandaloneApk;
 @class GTLRAndroidPublisher_GeneratedUniversalApk;
+@class GTLRAndroidPublisher_GetOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_GetSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_Grant;
 @class GTLRAndroidPublisher_Image;
@@ -105,6 +114,19 @@
 @class GTLRAndroidPublisher_OfferTag;
 @class GTLRAndroidPublisher_OneTimeCode;
 @class GTLRAndroidPublisher_OneTimeExternalTransaction;
+@class GTLRAndroidPublisher_OneTimeProduct;
+@class GTLRAndroidPublisher_OneTimeProductBuyPurchaseOption;
+@class GTLRAndroidPublisher_OneTimeProductDiscountedOffer;
+@class GTLRAndroidPublisher_OneTimeProductListing;
+@class GTLRAndroidPublisher_OneTimeProductOffer;
+@class GTLRAndroidPublisher_OneTimeProductOfferNoPriceOverrideOptions;
+@class GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig;
+@class GTLRAndroidPublisher_OneTimeProductPreOrderOffer;
+@class GTLRAndroidPublisher_OneTimeProductPurchaseOption;
+@class GTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig;
+@class GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig;
+@class GTLRAndroidPublisher_OneTimeProductRentPurchaseOption;
+@class GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_OneTimePurchaseDetails;
 @class GTLRAndroidPublisher_Order;
 @class GTLRAndroidPublisher_OrderDetails;
@@ -128,6 +150,7 @@
 @class GTLRAndroidPublisher_ProcessedEvent;
 @class GTLRAndroidPublisher_ProductLineItem;
 @class GTLRAndroidPublisher_ProductOfferDetails;
+@class GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_PurchaseStateContext;
 @class GTLRAndroidPublisher_RecurringExternalTransaction;
 @class GTLRAndroidPublisher_RefundDetails;
@@ -137,12 +160,14 @@
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride;
+@class GTLRAndroidPublisher_RegionalTaxConfig;
 @class GTLRAndroidPublisher_RegionalTaxRateInfo;
 @class GTLRAndroidPublisher_Regions;
 @class GTLRAndroidPublisher_RegionsVersion;
 @class GTLRAndroidPublisher_RemoteInAppUpdate;
 @class GTLRAndroidPublisher_RemoteInAppUpdateData;
 @class GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle;
+@class GTLRAndroidPublisher_RentalDetails;
 @class GTLRAndroidPublisher_RentOfferDetails;
 @class GTLRAndroidPublisher_ReplacementCancellation;
 @class GTLRAndroidPublisher_RestrictedPaymentCountries;
@@ -194,6 +219,10 @@
 @class GTLRAndroidPublisher_TrackRelease;
 @class GTLRAndroidPublisher_TrackTargetedCountry;
 @class GTLRAndroidPublisher_UpdateBasePlanStateRequest;
+@class GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest;
+@class GTLRAndroidPublisher_UpdateOneTimeProductOfferStateRequest;
+@class GTLRAndroidPublisher_UpdateOneTimeProductRequest;
+@class GTLRAndroidPublisher_UpdatePurchaseOptionStateRequest;
 @class GTLRAndroidPublisher_UpdateSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_UpdateSubscriptionOfferStateRequest;
 @class GTLRAndroidPublisher_UpdateSubscriptionRequest;
@@ -291,6 +320,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest
  *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ActivatePurchaseOptionRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ActivateSubscriptionOfferRequest.latencyTolerance
@@ -467,6 +548,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_BasePlan_State_Inactive
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_BasePlan_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_CancelOneTimeProductOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_CancelSurveyResult.reason
 
 /**
@@ -533,6 +640,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateBasePlanReque
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeactivatePurchaseOptionRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest.latencyTolerance
 
 /**
@@ -557,6 +716,84 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionO
  *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeleteOneTimeProductRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeletePurchaseOptionRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_DeobfuscationFile.symbolType
@@ -1010,6 +1247,187 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleTy
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleType_UnknownModuleType;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_OneTimeProductOffer.state
+
+/**
+ *  The offer is available to users, as long as its conditions are met.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Active;
+/**
+ *  This state is specific to pre-orders. The offer is cancelled and not
+ *  available to users. All pending orders related to this offer were cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Cancelled;
+/**
+ *  The offer is not and has never been available to users.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Draft;
+/**
+ *  This state is specific to discounted offers. The offer is no longer
+ *  available to users.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Inactive;
+/**
+ *  Default value, should never be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig.availability
+
+/**
+ *  Unspecified availability. Must not be used.
+ *
+ *  Value: "AVAILABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified;
+/**
+ *  The offer is available to users.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_Available;
+/**
+ *  The offer is no longer available to users. This value can only be used if
+ *  the availability was previously set as AVAILABLE.
+ *
+ *  Value: "NO_LONGER_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_OneTimeProductPreOrderOffer.priceChangeBehavior
+
+/**
+ *  The buyer gets the same price as the one they pre-ordered, regardless of any
+ *  price changes that may have happened after the pre-order.
+ *
+ *  Value: "PRE_ORDER_PRICE_CHANGE_BEHAVIOR_NEW_ORDERS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorNewOrdersOnly;
+/**
+ *  The buyer gets charged the minimum between the initial price at the time of
+ *  pre-order and the final offer price on the release date.
+ *
+ *  Value: "PRE_ORDER_PRICE_CHANGE_BEHAVIOR_TWO_POINT_LOWEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorTwoPointLowest;
+/**
+ *  Unspecified price change behavior. Must not be used.
+ *
+ *  Value: "PRE_ORDER_PRICE_CHANGE_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_OneTimeProductPurchaseOption.state
+
+/**
+ *  The purchase option is available to users.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Active;
+/**
+ *  The purchase option is not and has never been available to users.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Draft;
+/**
+ *  The purchase option is not available to users anymore.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Inactive;
+/**
+ *  The purchase option is not available for purchase anymore, but we continue
+ *  to expose its offer via the Play Billing Library for backwards
+ *  compatibility. Only automatically migrated purchase options can be in this
+ *  state.
+ *
+ *  Value: "INACTIVE_PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_InactivePublished;
+/**
+ *  Default value, should never be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig.availability
+
+/**
+ *  Unspecified availability. Must not be used.
+ *
+ *  Value: "AVAILABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_AvailabilityUnspecified;
+/**
+ *  The config will be used for any new regions Play may launch in the future.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_Available;
+/**
+ *  The config is not available anymore and will not be used for any new regions
+ *  Play may launch in the future. This value can only be used if the
+ *  availability was previously set as AVAILABLE.
+ *
+ *  Value: "NO_LONGER_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_NoLongerAvailable;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig.availability
+
+/**
+ *  Unspecified availability. Must not be used.
+ *
+ *  Value: "AVAILABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified;
+/**
+ *  The purchase option is available to users.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available;
+/**
+ *  The purchase option is unavailable but offers linked to it (i.e. Play Points
+ *  offer) are available.
+ *
+ *  Value: "AVAILABLE_FOR_OFFERS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly;
+/**
+ *  The purchase option is initially unavailable, but made available via a
+ *  released pre-order offer.
+ *
+ *  Value: "AVAILABLE_IF_RELEASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased;
+/**
+ *  The purchase option is no longer available to users. This value can only be
+ *  used if the availability was previously set as AVAILABLE.
+ *
+ *  Value: "NO_LONGER_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_Order.state
 
 /**
@@ -1146,6 +1564,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_Ackno
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings.withdrawalRightType
+
+/** Value: "WITHDRAWAL_RIGHT_DIGITAL_CONTENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightDigitalContent;
+/** Value: "WITHDRAWAL_RIGHT_SERVICE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightService;
+/** Value: "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_PurchaseStateContext.purchaseState
 
 /**
@@ -1246,6 +1674,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationC
  *  Value: "PRICE_INCREASE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RegionalTaxConfig.streamingTaxType
+
+/**
+ *  US-specific telecommunications tax tier for multi channel audio streaming
+ *  like radio.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel;
+/**
+ *  US-specific telecommunications tax tier for audio streaming, rental /
+ *  subscription.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioRental;
+/**
+ *  US-specific telecommunications tax tier for audio streaming, sale /
+ *  permanent download.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_SALES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioSales;
+/**
+ *  US-specific telecommunications tax tier for video streaming of multi-channel
+ *  programming.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoMultiChannel;
+/**
+ *  US-specific telecommunications tax tier for video streaming, on demand,
+ *  rentals / subscriptions / pay-per-view.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoRental;
+/**
+ *  US-specific telecommunications tax tier for video streaming of pre-recorded
+ *  content like movies, tv shows.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_VIDEO_SALES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoSales;
+/**
+ *  No telecommunications tax collected.
+ *
+ *  Value: "STREAMING_TAX_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RegionalTaxConfig.taxTier
+
+/** Value: "TAX_TIER_BOOKS_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierBooks1;
+/** Value: "TAX_TIER_LIVE_OR_BROADCAST_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierLiveOrBroadcast1;
+/** Value: "TAX_TIER_MUSIC_OR_AUDIO_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierMusicOrAudio1;
+/** Value: "TAX_TIER_NEWS_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierNews1;
+/** Value: "TAX_TIER_NEWS_2" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierNews2;
+/** Value: "TAX_TIER_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RegionalTaxRateInfo.streamingTaxType
@@ -1762,6 +2258,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InP
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UpdateOneTimeProductRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_UpdateSubscriptionOfferRequest.latencyTolerance
 
 /**
@@ -2059,6 +2607,90 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** Required. The parent subscription (ID) of the base plan to activate. */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
+ *  Request message for ActivateOneTimeProductOffer.
+ */
+@interface GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this update. Defaults
+ *  to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The offer ID of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+@end
+
+
+/**
+ *  Request message for UpdatePurchaseOptionState.
+ */
+@interface GTLRAndroidPublisher_ActivatePurchaseOptionRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. The parent app (package name) of the purchase option to activate.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The parent one-time product (ID) of the purchase option to
+ *  activate.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The purchase option ID of the purchase option to activate. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
 
 @end
 
@@ -2695,6 +3327,89 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for BatchDeleteOneTimeProductOffers.
+ */
+@interface GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest : GTLRObject
+
+/**
+ *  Required. A list of update requests of up to 100 elements. All requests must
+ *  correspond to different offers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest *> *requests;
+
+@end
+
+
+/**
+ *  Request message for BatchDeleteOneTimeProduct.
+ */
+@interface GTLRAndroidPublisher_BatchDeleteOneTimeProductsRequest : GTLRObject
+
+/**
+ *  Required. A list of delete requests of up to 100 elements. All requests must
+ *  delete different one-time products.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeleteOneTimeProductRequest *> *requests;
+
+@end
+
+
+/**
+ *  Request message for BatchDeletePurchaseOption.
+ */
+@interface GTLRAndroidPublisher_BatchDeletePurchaseOptionsRequest : GTLRObject
+
+/**
+ *  Required. A list of delete requests of up to 100 elements. All requests must
+ *  delete purchase options from different one-time products.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeletePurchaseOptionRequest *> *requests;
+
+@end
+
+
+/**
+ *  Request message for the BatchGetOneTimeProductOffers endpoint.
+ */
+@interface GTLRAndroidPublisher_BatchGetOneTimeProductOffersRequest : GTLRObject
+
+/**
+ *  Required. A list of get requests of up to 100 elements. All requests must
+ *  retrieve different offers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GetOneTimeProductOfferRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for the BatchGetOneTimeProductOffers endpoint.
+ */
+@interface GTLRAndroidPublisher_BatchGetOneTimeProductOffersResponse : GTLRObject
+
+/**
+ *  The list of updated one-time product offers, in the same order as the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductOffer *> *oneTimeProductOffers;
+
+@end
+
+
+/**
+ *  Response message for the BatchGetOneTimeProducts endpoint.
+ */
+@interface GTLRAndroidPublisher_BatchGetOneTimeProductsResponse : GTLRObject
+
+/**
+ *  The list of requested one-time products, in the same order as the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProduct *> *oneTimeProducts;
+
+@end
+
+
+/**
  *  Response for the orders.batchGet API.
  */
 @interface GTLRAndroidPublisher_BatchGetOrdersResponse : GTLRObject
@@ -2792,6 +3507,117 @@ GTLR_DEPRECATED
  *  one, in the same order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Subscription *> *subscriptions;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdateOneTimeProductOffers.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersRequest : GTLRObject
+
+/**
+ *  Required. A list of update requests of up to 100 elements. All requests must
+ *  update different offers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdateOneTimeProductOffers.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersResponse : GTLRObject
+
+/**
+ *  The list of updated one-time product offers, in the same order as the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductOffer *> *oneTimeProductOffers;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdateOneTimeProductOfferStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesRequest : GTLRObject
+
+/**
+ *  Required. The update request list of up to 100 elements. All requests must
+ *  update different offers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdateOneTimeProductOfferStateRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdateOneTimeProductOfferStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesResponse : GTLRObject
+
+/**
+ *  The updated one-time product offers list, in the same order as the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductOffer *> *oneTimeProductOffers;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdateOneTimeProduct.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateOneTimeProductsRequest : GTLRObject
+
+/**
+ *  Required. A list of update requests of up to 100 elements. All requests must
+ *  update different one-time products.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdateOneTimeProductRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdateOneTimeProduct.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateOneTimeProductsResponse : GTLRObject
+
+/**
+ *  The list of updated one-time products list, in the same order as the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProduct *> *oneTimeProducts;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdatePurchaseOptionStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesRequest : GTLRObject
+
+/**
+ *  Required. The update request list of up to 100 elements. All requests must
+ *  update different purchase options.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdatePurchaseOptionStateRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdatePurchaseOptionStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesResponse : GTLRObject
+
+/**
+ *  The list of updated one-time products. This list will match the requests one
+ *  to one, in the same order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProduct *> *oneTimeProducts;
 
 @end
 
@@ -2982,6 +3808,47 @@ GTLR_DEPRECATED
 
 /** The time when the order was canceled. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+@end
+
+
+/**
+ *  Request message for CancelOneTimeProductOffer.
+ */
+@interface GTLRAndroidPublisher_CancelOneTimeProductOfferRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this update. Defaults
+ *  to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The offer ID of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
 
 @end
 
@@ -3196,6 +4063,91 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for DeactivateOneTimeProductOffer.
+ */
+@interface GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this update. Defaults
+ *  to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The offer ID of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+@end
+
+
+/**
+ *  Request message for UpdatePurchaseOptionState.
+ */
+@interface GTLRAndroidPublisher_DeactivatePurchaseOptionRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. The parent app (package name) of the purchase option to
+ *  deactivate.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The parent one-time product (ID) of the purchase option to
+ *  deactivate.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The purchase option ID of the purchase option to deactivate. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+@end
+
+
+/**
  *  Request message for DeactivateSubscriptionOffer.
  */
 @interface GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest : GTLRObject
@@ -3243,6 +4195,136 @@ GTLR_DEPRECATED
 
 /** The product_id going to replace the existing product_id. */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
+ *  Request message for deleting an one-time product offer.
+ */
+@interface GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The unique offer ID of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+@end
+
+
+/**
+ *  Request message for deleting a one-time product.
+ */
+@interface GTLRAndroidPublisher_DeleteOneTimeProductRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. The parent app (package name) of the one-time product to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The one-time product ID of the one-time product to delete. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
+ *  Request message for deleting a purchase option.
+ */
+@interface GTLRAndroidPublisher_DeletePurchaseOptionRequest : GTLRObject
+
+/**
+ *  Optional. This field has no effect for purchase options with no offers under
+ *  them. For purchase options with associated offers: * If `force` is set to
+ *  false (default), an error will be returned. * If `force` is set to true, any
+ *  associated offers under the purchase option will be deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. The parent app (package name) of the purchase option to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The parent one-time product (ID) of the purchase option to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The purchase option ID of the purchase option to delete. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
 
 @end
 
@@ -4108,6 +5190,26 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for GetOneTimeProductOffers.
+ */
+@interface GTLRAndroidPublisher_GetOneTimeProductOfferRequest : GTLRObject
+
+/** Required. The unique offer ID of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+@end
+
+
+/**
  *  Request message for GetSubscriptionOffer.
  */
 @interface GTLRAndroidPublisher_GetSubscriptionOfferRequest : GTLRObject
@@ -4853,6 +5955,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for ListOneTimeProductOffers.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "oneTimeProductOffers" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAndroidPublisher_ListOneTimeProductOffersResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The one_time_product offers from the specified request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductOffer *> *oneTimeProductOffers;
+
+@end
+
+
+/**
+ *  Response message for ListOneTimeProducts.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "oneTimeProducts" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAndroidPublisher_ListOneTimeProductsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The one-time products from the specified app.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProduct *> *oneTimeProducts;
+
+@end
+
+
+/**
  *  Response message for ListSubscriptionOffers.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5248,6 +6404,492 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A single one-time product for an app.
+ */
+@interface GTLRAndroidPublisher_OneTimeProduct : GTLRObject
+
+/**
+ *  Required. Set of localized title and description data. Must not have
+ *  duplicate entries with the same language_code.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductListing *> *listings;
+
+/**
+ *  Optional. List of up to 20 custom tags specified for this one-time product,
+ *  and returned to the app through the billing library. Purchase options and
+ *  offers for this product will also receive these tags in the billing library.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OfferTag *> *offerTags;
+
+/** Required. Immutable. Package name of the parent app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. Immutable. Unique product ID of the product. Unique within the
+ *  parent app. Product IDs must start with a number or lowercase letter, and
+ *  can contain numbers (0-9), lowercase letters (a-z), underscores (_), and
+ *  periods (.).
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The set of purchase options for this one-time product. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductPurchaseOption *> *purchaseOptions;
+
+/**
+ *  Output only. The version of the regions configuration that was used to
+ *  generate the one-time product.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionsVersion *regionsVersion;
+
+/**
+ *  Optional. Countries where the purchase of this one-time product is
+ *  restricted to payment methods registered in the same country. If empty, no
+ *  payment location restrictions are imposed.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RestrictedPaymentCountries *restrictedPaymentCountries;
+
+/** Details about taxes and legal compliance. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings *taxAndComplianceSettings;
+
+@end
+
+
+/**
+ *  A purchase option that can be bought.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductBuyPurchaseOption : GTLRObject
+
+/**
+ *  Optional. Whether this purchase option will be available in legacy PBL flows
+ *  that do not support one-time products model. Up to one "buy" purchase option
+ *  can be marked as backwards compatible.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *legacyCompatible;
+
+/**
+ *  Optional. Whether this purchase option allows multi-quantity. Multi-quantity
+ *  allows buyer to purchase more than one item in a single checkout.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multiQuantityEnabled;
+
+@end
+
+
+/**
+ *  Configuration specific to discounted offers.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductDiscountedOffer : GTLRObject
+
+/** Time when the offer will stop being available. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. The number of times this offer can be redeemed. If unset or set to
+ *  0, allows for unlimited offer redemptions. Otherwise must be a number
+ *  between 1 and 50 inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *redemptionLimit;
+
+/** Time when the offer will start being available. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Regional store listing for a one-time product.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductListing : GTLRObject
+
+/**
+ *  Required. The description of this product in the language of this listing.
+ *  The maximum length is 200 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The language of this listing, as defined by BCP-47, e.g., "en-US".
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The title of this product in the language of this listing. The
+ *  maximum length is 55 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A single offer for a one-time product.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductOffer : GTLRObject
+
+/** A discounted offer. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductDiscountedOffer *discountedOffer;
+
+/**
+ *  Required. Immutable. The ID of this product offer. Must be unique within the
+ *  purchase option. It must start with a number or lower-case letter, and can
+ *  only contain lower-case letters (a-z), numbers (0-9), and hyphens (-). The
+ *  maximum length is 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  Optional. List of up to 20 custom tags specified for this offer, and
+ *  returned to the app through the billing library.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OfferTag *> *offerTags;
+
+/**
+ *  Required. Immutable. The package name of the app the parent product belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** A pre-order offer. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductPreOrderOffer *preOrderOffer;
+
+/**
+ *  Required. Immutable. The ID of the parent product this offer belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. Immutable. The ID of the purchase option to which this offer is an
+ *  extension.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Set of regional pricing and availability information for this offer. Must
+ *  not have duplicate entries with the same region_code.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig *> *regionalPricingAndAvailabilityConfigs;
+
+/**
+ *  Output only. The version of the regions configuration that was used to
+ *  generate the one-time product offer.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionsVersion *regionsVersion;
+
+/**
+ *  Output only. The current state of this offer. This field cannot be changed
+ *  by updating the resource. Use the dedicated endpoints instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_Active The offer
+ *        is available to users, as long as its conditions are met. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_Cancelled This
+ *        state is specific to pre-orders. The offer is cancelled and not
+ *        available to users. All pending orders related to this offer were
+ *        cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_Draft The offer is
+ *        not and has never been available to users. (Value: "DRAFT")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_Inactive This
+ *        state is specific to discounted offers. The offer is no longer
+ *        available to users. (Value: "INACTIVE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_StateUnspecified
+ *        Default value, should never be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Options for one-time product offers without a regional price override.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductOfferNoPriceOverrideOptions : GTLRObject
+@end
+
+
+/**
+ *  Regional pricing and availability configuration for a one-time product
+ *  offer.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig : GTLRObject
+
+/**
+ *  The absolute value of the discount that is subtracted from the purchase
+ *  option price. It should be between 0 and the purchase option price.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *absoluteDiscount;
+
+/**
+ *  Required. The availability for this region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified
+ *        Unspecified availability. Must not be used. (Value:
+ *        "AVAILABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_Available
+ *        The offer is available to users. (Value: "AVAILABLE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable
+ *        The offer is no longer available to users. This value can only be used
+ *        if the availability was previously set as AVAILABLE. (Value:
+ *        "NO_LONGER_AVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *availability;
+
+/** The price defined in the purchase option for this region will be used. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductOfferNoPriceOverrideOptions *noOverride;
+
+/**
+ *  Required. Region code this configuration applies to, as defined by ISO
+ *  3166-2, e.g., "US".
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  The fraction of the purchase option price that the user pays for this offer.
+ *  For example, if the purchase option price for this region is $12, then a 50%
+ *  discount would correspond to a price of $6. The discount must be specified
+ *  as a fraction strictly larger than 0 and strictly smaller than 1. The
+ *  resulting price will be rounded to the nearest billable unit (e.g. cents for
+ *  USD). The relative discount is considered invalid if the discounted price
+ *  ends up being smaller than the minimum price allowed in this region.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relativeDiscount;
+
+@end
+
+
+/**
+ *  Configuration specific to pre-order offers.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductPreOrderOffer : GTLRObject
+
+/** Required. Time when the pre-order will stop being available. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. Immutable. Specifies how price changes affect pre-existing
+ *  pre-orders.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorNewOrdersOnly
+ *        The buyer gets the same price as the one they pre-ordered, regardless
+ *        of any price changes that may have happened after the pre-order.
+ *        (Value: "PRE_ORDER_PRICE_CHANGE_BEHAVIOR_NEW_ORDERS_ONLY")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorTwoPointLowest
+ *        The buyer gets charged the minimum between the initial price at the
+ *        time of pre-order and the final offer price on the release date.
+ *        (Value: "PRE_ORDER_PRICE_CHANGE_BEHAVIOR_TWO_POINT_LOWEST")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorUnspecified
+ *        Unspecified price change behavior. Must not be used. (Value:
+ *        "PRE_ORDER_PRICE_CHANGE_BEHAVIOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priceChangeBehavior;
+
+/**
+ *  Required. Time on which the product associated with the pre-order will be
+ *  released and the pre-order orders fulfilled.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *releaseTime;
+
+/** Required. Time when the pre-order will start being available. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  A single purchase option for a one-time product.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductPurchaseOption : GTLRObject
+
+/** A purchase option that can be bought. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductBuyPurchaseOption *buyOption;
+
+/**
+ *  Pricing information for any new locations Play may launch in the future. If
+ *  omitted, the purchase option will not be automatically available in any new
+ *  locations Play may launch in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig *newRegionsConfig NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Optional. List of up to 20 custom tags specified for this purchase option,
+ *  and returned to the app through the billing library. Offers for this
+ *  purchase option will also receive these tags in the billing library.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OfferTag *> *offerTags;
+
+/**
+ *  Required. Immutable. The unique identifier of this purchase option. Must be
+ *  unique within the one-time product. It must start with a number or
+ *  lower-case letter, and can only contain lower-case letters (a-z), numbers
+ *  (0-9), and hyphens (-). The maximum length is 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/** Regional pricing and availability information for this purchase option. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig *> *regionalPricingAndAvailabilityConfigs;
+
+/** A purchase option that can be rented. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductRentPurchaseOption *rentOption;
+
+/**
+ *  Output only. The state of the purchase option, i.e., whether it's active.
+ *  This field cannot be changed by updating the resource. Use the dedicated
+ *  endpoints instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Active
+ *        The purchase option is available to users. (Value: "ACTIVE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Draft The
+ *        purchase option is not and has never been available to users. (Value:
+ *        "DRAFT")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Inactive
+ *        The purchase option is not available to users anymore. (Value:
+ *        "INACTIVE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_InactivePublished
+ *        The purchase option is not available for purchase anymore, but we
+ *        continue to expose its offer via the Play Billing Library for
+ *        backwards compatibility. Only automatically migrated purchase options
+ *        can be in this state. (Value: "INACTIVE_PUBLISHED")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_StateUnspecified
+ *        Default value, should never be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. Details about taxes and legal compliance. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings *taxAndComplianceSettings;
+
+@end
+
+
+/**
+ *  Pricing information for any new regions Play may launch in the future.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig : GTLRObject
+
+/**
+ *  Required. The regional availability for the new regions config. When set to
+ *  AVAILABLE, the pricing information will be used for any new regions Play may
+ *  launch in the future.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_AvailabilityUnspecified
+ *        Unspecified availability. Must not be used. (Value:
+ *        "AVAILABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_Available
+ *        The config will be used for any new regions Play may launch in the
+ *        future. (Value: "AVAILABLE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_NoLongerAvailable
+ *        The config is not available anymore and will not be used for any new
+ *        regions Play may launch in the future. This value can only be used if
+ *        the availability was previously set as AVAILABLE. (Value:
+ *        "NO_LONGER_AVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *availability;
+
+/** Required. Price in EUR to use for any new regions Play may launch in. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *eurPrice;
+
+/** Required. Price in USD to use for any new regions Play may launch in. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *usdPrice;
+
+@end
+
+
+/**
+ *  Regional pricing and availability configuration for a purchase option.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig : GTLRObject
+
+/**
+ *  The availability of the purchase option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified
+ *        Unspecified availability. Must not be used. (Value:
+ *        "AVAILABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available
+ *        The purchase option is available to users. (Value: "AVAILABLE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly
+ *        The purchase option is unavailable but offers linked to it (i.e. Play
+ *        Points offer) are available. (Value: "AVAILABLE_FOR_OFFERS_ONLY")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased
+ *        The purchase option is initially unavailable, but made available via a
+ *        released pre-order offer. (Value: "AVAILABLE_IF_RELEASED")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable
+ *        The purchase option is no longer available to users. This value can
+ *        only be used if the availability was previously set as AVAILABLE.
+ *        (Value: "NO_LONGER_AVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *availability;
+
+/**
+ *  The price of the purchase option in the specified region. Must be set in the
+ *  currency that is linked to the specified region.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *price;
+
+/**
+ *  Required. Region code this configuration applies to, as defined by ISO
+ *  3166-2, e.g., "US".
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  A purchase option that can be rented.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductRentPurchaseOption : GTLRObject
+
+/**
+ *  Optional. The amount of time the user has after starting consuming the
+ *  entitlement before it is revoked. Specified in ISO 8601 format.
+ */
+@property(nonatomic, copy, nullable) NSString *expirationPeriod;
+
+/**
+ *  Required. The amount of time a user has the entitlement for. Starts at
+ *  purchase flow completion. Specified in ISO 8601 format.
+ */
+@property(nonatomic, copy, nullable) NSString *rentalPeriod;
+
+@end
+
+
+/**
+ *  Details about taxation, Google Play policy and legal compliance for one-time
+ *  products.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings : GTLRObject
+
+/**
+ *  Whether this one-time product is declared as a product representing a
+ *  tokenized digital asset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isTokenizedDigitalAsset;
+
+/** Regional tax configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RegionalTaxConfig *> *regionalTaxConfigs;
+
+@end
+
+
+/**
  *  Details of a one-time purchase.
  */
 @interface GTLRAndroidPublisher_OneTimePurchaseDetails : GTLRObject
@@ -5256,11 +6898,22 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *offerId;
 
 /**
+ *  ID of the purchase option. This field is set for both purchase options and
+ *  variant offers. For purchase options, this ID identifies the purchase option
+ *  itself. For variant offers, this ID refers to the associated purchase
+ *  option, and in conjunction with offer_id it identifies the variant offer.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
  *  The number of items purchased (for multi-quantity item purchases).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/** The details of a rent purchase. Only set if it is a rent purchase. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RentalDetails *rentalDetails;
 
 @end
 
@@ -6014,6 +7667,32 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about taxation, Google Play policy and legal compliance for one-time
+ *  product purchase options.
+ */
+@interface GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings : GTLRObject
+
+/**
+ *  Optional. Digital content or service classification for products distributed
+ *  to users in eligible regions. If unset, it defaults to
+ *  `WITHDRAWAL_RIGHT_DIGITAL_CONTENT`. Refer to the [Help Center
+ *  article](https://support.google.com/googleplay/android-developer/answer/10463498)
+ *  for more information.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightDigitalContent
+ *        Value "WITHDRAWAL_RIGHT_DIGITAL_CONTENT"
+ *    @arg @c kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightService
+ *        Value "WITHDRAWAL_RIGHT_SERVICE"
+ *    @arg @c kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightTypeUnspecified
+ *        Value "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *withdrawalRightType;
+
+@end
+
+
+/**
  *  Context about the purchase state.
  */
 @interface GTLRAndroidPublisher_PurchaseStateContext : GTLRObject
@@ -6302,6 +7981,84 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about taxation in a given geographical region.
+ */
+@interface GTLRAndroidPublisher_RegionalTaxConfig : GTLRObject
+
+/**
+ *  You must tell us if your app contains streaming products to correctly charge
+ *  US state and local sales tax. Field only supported in the United States.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eligibleForStreamingServiceTaxRate;
+
+/**
+ *  Required. Region code this configuration applies to, as defined by ISO
+ *  3166-2, e.g. "US".
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  To collect communications or amusement taxes in the United States, choose
+ *  the appropriate tax category. [Learn
+ *  more](https://support.google.com/googleplay/android-developer/answer/10463498#streaming_tax).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel
+ *        US-specific telecommunications tax tier for multi channel audio
+ *        streaming like radio. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioRental
+ *        US-specific telecommunications tax tier for audio streaming, rental /
+ *        subscription. (Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioSales
+ *        US-specific telecommunications tax tier for audio streaming, sale /
+ *        permanent download. (Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_SALES")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoMultiChannel
+ *        US-specific telecommunications tax tier for video streaming of
+ *        multi-channel programming. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoRental
+ *        US-specific telecommunications tax tier for video streaming, on
+ *        demand, rentals / subscriptions / pay-per-view. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoSales
+ *        US-specific telecommunications tax tier for video streaming of
+ *        pre-recorded content like movies, tv shows. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_VIDEO_SALES")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeUnspecified
+ *        No telecommunications tax collected. (Value:
+ *        "STREAMING_TAX_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *streamingTaxType;
+
+/**
+ *  Tax tier to specify reduced tax rate. Developers who sell digital news,
+ *  magazines, newspapers, books, or audiobooks in various regions may be
+ *  eligible for reduced tax rates. [Learn
+ *  more](https://support.google.com/googleplay/android-developer/answer/10463498).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierBooks1
+ *        Value "TAX_TIER_BOOKS_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierLiveOrBroadcast1
+ *        Value "TAX_TIER_LIVE_OR_BROADCAST_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierMusicOrAudio1
+ *        Value "TAX_TIER_MUSIC_OR_AUDIO_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierNews1 Value
+ *        "TAX_TIER_NEWS_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierNews2 Value
+ *        "TAX_TIER_NEWS_2"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierUnspecified
+ *        Value "TAX_TIER_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *taxTier;
+
+@end
+
+
+/**
  *  Specified details about taxation in a given geographical region.
  */
 @interface GTLRAndroidPublisher_RegionalTaxRateInfo : GTLRObject
@@ -6464,6 +8221,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *versionCode;
 
+@end
+
+
+/**
+ *  Details of a rental purchase.
+ */
+@interface GTLRAndroidPublisher_RentalDetails : GTLRObject
 @end
 
 
@@ -8282,6 +10046,160 @@ GTLR_DEPRECATED
  *  subscription
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeactivateBasePlanRequest *deactivateBasePlanRequest;
+
+@end
+
+
+/**
+ *  Request message for UpdateOneTimeProductOffer.
+ */
+@interface GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest : GTLRObject
+
+/**
+ *  Optional. If set to true, and the offer with the given package_name,
+ *  product_id, purchase_option_id and offer_id doesn't exist, an offer will be
+ *  created. If a new offer is created, the update_mask is ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this offer update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The one-time product offer to update. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductOffer *oneTimeProductOffer;
+
+/**
+ *  Required. The version of the available regions being used for the offer.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionsVersion *regionsVersion;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message to update the state of a one-time product offer.
+ */
+@interface GTLRAndroidPublisher_UpdateOneTimeProductOfferStateRequest : GTLRObject
+
+/**
+ *  Activates an offer. Once activated, the offer is available to users, as long
+ *  as its conditions are met.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest *activateOneTimeProductOfferRequest;
+
+/**
+ *  Cancels an offer. Once cancelled, the offer is not available to users. Any
+ *  pending orders related to this offer will be cancelled. This state
+ *  transition is specific to pre-orders.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CancelOneTimeProductOfferRequest *cancelOneTimeProductOfferRequest;
+
+/**
+ *  Deactivates an offer. Once deactivated, the offer is no longer available to
+ *  users. This state transition is specific to discounted offers.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest *deactivateOneTimeProductOfferRequest;
+
+@end
+
+
+/**
+ *  Request message for UpdateOneTimeProduct.
+ */
+@interface GTLRAndroidPublisher_UpdateOneTimeProductRequest : GTLRObject
+
+/**
+ *  Optional. If set to true, and the one-time product with the given
+ *  package_name and product_id doesn't exist, the one-time product will be
+ *  created. If a new one-time product is created, update_mask is ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product upsert.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The one-time product to upsert. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProduct *oneTimeProduct;
+
+/**
+ *  Required. The version of the available regions being used for the one-time
+ *  product.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionsVersion *regionsVersion;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message to update the state of a one-time product purchase option.
+ */
+@interface GTLRAndroidPublisher_UpdatePurchaseOptionStateRequest : GTLRObject
+
+/**
+ *  Activates a purchase option. Once activated, the purchase option will be
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ActivatePurchaseOptionRequest *activatePurchaseOptionRequest;
+
+/**
+ *  Deactivates a purchase option. Once deactivated, the purchase option will
+ *  become unavailable.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeactivatePurchaseOptionRequest *deactivatePurchaseOptionRequest;
 
 @end
 

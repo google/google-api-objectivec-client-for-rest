@@ -3705,6 +3705,50 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_BulkUpdateLineItemsRequest
 //
 
@@ -5658,6 +5702,28 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_ListCampaignsResponse
 //
 
@@ -5915,6 +5981,28 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 + (NSString *)collectionItemsKey {
   return @"guaranteedOrders";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
 }
 
 @end
@@ -7266,6 +7354,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_VideoAdInventoryControl
+//
+
+@implementation GTLRDisplayVideo_VideoAdInventoryControl
+@dynamic allowInFeed, allowInStream, allowShorts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_VideoAdSequenceSettings
 //
 
@@ -7410,8 +7508,8 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 @implementation GTLRDisplayVideo_YoutubeAndPartnersSettings
 @dynamic contentCategory, effectiveContentCategory, inventorySourceSettings,
          leadFormId, linkedMerchantId, relatedVideoIds, targetFrequency,
-         thirdPartyMeasurementConfigs, videoAdSequenceSettings,
-         viewFrequencyCap;
+         thirdPartyMeasurementConfigs, videoAdInventoryControl,
+         videoAdSequenceSettings, viewFrequencyCap;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

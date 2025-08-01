@@ -1253,6 +1253,354 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new ODB Network in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the OdbNetwork to create. This value is restricted to
+ *  (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters
+ *  in length. The value must start with a letter and end with a letter or a
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetworkId;
+
+/**
+ *  Required. The parent value for the OdbNetwork in the following format:
+ *  projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new ODB Network in a given project and location.
+ *
+ *  @param object The @c GTLROracleDatabase_OdbNetwork to include in the query.
+ *  @param parent Required. The parent value for the OdbNetwork in the following
+ *    format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbNetwork *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ODB Network.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the resource in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single ODB Network.
+ *
+ *  @param name Required. The name of the resource in the following format:
+ *    projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ODB Network.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the OdbNetwork in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_OdbNetwork.
+ *
+ *  Gets details of a single ODB Network.
+ *
+ *  @param name Required. The name of the OdbNetwork in the following format:
+ *    projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the ODB Networks in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  ODB Networks will be returned. The maximum value is 1000; values above 1000
+ *  will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the ODB Network in the following format:
+ *  projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListOdbNetworksResponse.
+ *
+ *  Lists the ODB Networks in a given project and location.
+ *
+ *  @param parent Required. The parent value for the ODB Network in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new ODB Subnet in a given ODB Network.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbSubnets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the OdbSubnet to create. This value is restricted to
+ *  (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters
+ *  in length. The value must start with a letter and end with a letter or a
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *odbSubnetId;
+
+/**
+ *  Required. The parent value for the OdbSubnet in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new ODB Subnet in a given ODB Network.
+ *
+ *  @param object The @c GTLROracleDatabase_OdbSubnet to include in the query.
+ *  @param parent Required. The parent value for the OdbSubnet in the following
+ *    format: projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbSubnet *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ODB Subnet.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbSubnets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the resource in the following format:
+ *  projects/{project}/locations/{region}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single ODB Subnet.
+ *
+ *  @param name Required. The name of the resource in the following format:
+ *    projects/{project}/locations/{region}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ODB Subnet.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbSubnets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the OdbSubnet in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_OdbSubnet.
+ *
+ *  Gets details of a single ODB Subnet.
+ *
+ *  @param name Required. The name of the OdbSubnet in the following format:
+ *    projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the ODB Subnets in a given ODB Network.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbSubnets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  ODB Networks will be returned. The maximum value is 1000; values above 1000
+ *  will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the OdbSubnet in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListOdbSubnetsResponse.
+ *
+ *  Lists all the ODB Subnets in a given ODB Network.
+ *
+ *  @param parent Required. The parent value for the OdbSubnet in the following
+ *    format: projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns

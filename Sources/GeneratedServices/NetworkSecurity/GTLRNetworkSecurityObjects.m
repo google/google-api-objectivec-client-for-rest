@@ -49,6 +49,12 @@ NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_AuthzActionUnspecified 
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custom = @"CUSTOM";
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny  = @"DENY";
 
+// GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal.principalSelector
+NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName = @"CLIENT_CERT_COMMON_NAME";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan = @"CLIENT_CERT_DNS_NAME_SAN";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertUriSan = @"CLIENT_CERT_URI_SAN";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified = @"PRINCIPAL_SELECTOR_UNSPECIFIED";
+
 // GTLRNetworkSecurity_AuthzPolicyTarget.loadBalancingScheme
 NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
 NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
@@ -434,11 +440,12 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource
-@dynamic ipBlocks, resources;
+@dynamic ipBlocks, principals, resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ipBlocks" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock class],
+    @"principals" : [GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal class],
     @"resources" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource class]
   };
   return map;
@@ -464,6 +471,16 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock
 @dynamic length, prefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal
+@dynamic principal, principalSelector;
 @end
 
 

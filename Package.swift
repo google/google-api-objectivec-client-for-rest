@@ -902,6 +902,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Parallelstore"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ParameterManager",
+            targets: ["GoogleAPIClientForREST_ParameterManager"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_PaymentsResellerSubscription",
             targets: ["GoogleAPIClientForREST_PaymentsResellerSubscription"]
         ),
@@ -2579,6 +2583,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Parallelstore",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Parallelstore",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ParameterManager",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/ParameterManager",
             publicHeadersPath: "Public"
         ),
         .target(

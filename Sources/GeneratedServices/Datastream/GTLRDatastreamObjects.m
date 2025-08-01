@@ -134,6 +134,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_BasicEncryption
+//
+
+@implementation GTLRDatastream_BasicEncryption
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_BigQueryDestinationConfig
 //
 
@@ -288,6 +297,25 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_EncryptionAndServerValidation
+//
+
+@implementation GTLRDatastream_EncryptionAndServerValidation
+@dynamic caCertificate, serverCertificateHostname;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_EncryptionNotEnforced
+//
+
+@implementation GTLRDatastream_EncryptionNotEnforced
 @end
 
 
@@ -1091,7 +1119,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSslConfig
-@dynamic caCertificate, caCertificateSet;
+@dynamic caCertificate, caCertificateSet, serverCertificateDistinguishedName;
 @end
 
 
@@ -1382,7 +1410,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_ServerAndClientVerification
-@dynamic caCertificate, clientCertificate, clientKey;
+@dynamic caCertificate, clientCertificate, clientKey, serverCertificateHostname;
 @end
 
 
@@ -1392,7 +1420,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_ServerVerification
-@dynamic caCertificate;
+@dynamic caCertificate, serverCertificateHostname;
 @end
 
 
@@ -1497,7 +1525,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_SqlServerProfile
 @dynamic database, hostname, password, port, secretManagerStoredPassword,
-         username;
+         sslConfig, username;
 @end
 
 
@@ -1545,6 +1573,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_SqlServerSourceConfig
 @dynamic changeTables, excludeObjects, includeObjects,
          maxConcurrentBackfillTasks, maxConcurrentCdcTasks, transactionLogs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerSslConfig
+//
+
+@implementation GTLRDatastream_SqlServerSslConfig
+@dynamic basicEncryption, encryptionAndServerValidation, encryptionNotEnforced;
 @end
 
 

@@ -416,6 +416,16 @@ NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSearchConsole_Metadata
+//
+
+@implementation GTLRSearchConsole_Metadata
+@dynamic firstIncompleteDate, firstIncompleteHour;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSearchConsole_MobileFriendlyIssue
 //
 
@@ -546,7 +556,7 @@ NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
 //
 
 @implementation GTLRSearchConsole_SearchAnalyticsQueryResponse
-@dynamic responseAggregationType, rows;
+@dynamic metadata, responseAggregationType, rows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

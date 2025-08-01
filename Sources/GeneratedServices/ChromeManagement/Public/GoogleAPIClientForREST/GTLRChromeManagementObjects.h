@@ -95,6 +95,9 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo;
@@ -105,6 +108,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -1799,6 +1803,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified;
 /**
+ *  Triggered when an external display is connected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayConnected;
+/**
+ *  Triggered when an external display is disconnected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_DISCONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayDisconnected;
+/**
  *  Triggered when a new HTTPS latency problem was detected or the device has
  *  recovered form an existing HTTPS latency problem.
  *
@@ -1883,6 +1899,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "EVENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_EventTypeUnspecified;
+/**
+ *  Triggered when an external display is connected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_ExternalDisplayConnected;
+/**
+ *  Triggered when an external display is disconnected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_DISCONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_ExternalDisplayDisconnected;
 /**
  *  Triggered when a new HTTPS latency problem was detected or the device has
  *  recovered form an existing HTTPS latency problem.
@@ -2298,6 +2326,62 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "IDENTITY_PROVIDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_IdentityProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand.commandState
+
+/**
+ *  Represents an unspecified command state.
+ *
+ *  Value: "COMMAND_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_CommandStateUnspecified;
+/**
+ *  Represents a command that has been executed by the client.
+ *
+ *  Value: "EXECUTED_BY_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_ExecutedByClient;
+/**
+ *  Represents a command that has expired.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Expired;
+/**
+ *  Represents a command in a pending state.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult.resultType
+
+/**
+ *  Represents an unspecified command result.
+ *
+ *  Value: "COMMAND_RESULT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_CommandResultTypeUnspecified;
+/**
+ *  Represents a failed command.
+ *
+ *  Value: "FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Failure;
+/**
+ *  Represents a command with an ignored result.
+ *
+ *  Value: "IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Ignored;
+/**
+ *  Represents a succeeded command.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Success;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
@@ -3066,6 +3150,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *kioskEnabled;
+
+/**
+ *  Output only. The version of this extension's manifest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manifestVersion;
 
 /**
  *  Output only. The minimum number of users using this app.
@@ -3866,6 +3957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSNumber *displayWidthMm;
 
+/** Output only. EDID version. */
+@property(nonatomic, copy, nullable) NSString *edidVersion;
+
 /**
  *  Output only. Is display internal or not.
  *
@@ -3890,6 +3984,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSNumber *modelId;
 
+/**
+ *  Output only. Serial number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serialNumber;
+
 @end
 
 
@@ -3907,6 +4008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Display device name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. EDID version. */
+@property(nonatomic, copy, nullable) NSString *edidVersion;
 
 /**
  *  Output only. Indicates if display is internal or not.
@@ -3935,6 +4039,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resolutionWidth;
+
+/**
+ *  Output only. Serial number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serialNumber;
 
 @end
 
@@ -5829,6 +5940,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        seconds. (Value: "AUDIO_SEVERE_UNDERRUN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified
  *        Event type unknown. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayConnected
+ *        Triggered when an external display is connected. (Value:
+ *        "EXTERNAL_DISPLAY_CONNECTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayDisconnected
+ *        Triggered when an external display is disconnected. (Value:
+ *        "EXTERNAL_DISPLAY_DISCONNECTED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange
  *        Triggered when a new HTTPS latency problem was detected or the device
  *        has recovered form an existing HTTPS latency problem. (Value:
@@ -6757,6 +6874,106 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  A representation of a remote command for a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand : GTLRObject
+
+/** Output only. Result of the remote command. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult *commandResult;
+
+/**
+ *  Output only. State of the remote command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_CommandStateUnspecified
+ *        Represents an unspecified command state. (Value:
+ *        "COMMAND_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_ExecutedByClient
+ *        Represents a command that has been executed by the client. (Value:
+ *        "EXECUTED_BY_CLIENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Expired
+ *        Represents a command that has expired. (Value: "EXPIRED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Pending
+ *        Represents a command in a pending state. (Value: "PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *commandState;
+
+/**
+ *  Required. Type of the remote command. The only supported command_type is
+ *  "clearBrowsingData".
+ */
+@property(nonatomic, copy, nullable) NSString *commandType;
+
+/** Output only. Timestamp of the issurance of the remote command. */
+@property(nonatomic, strong, nullable) GTLRDateTime *issueTime;
+
+/**
+ *  Identifier. Format:
+ *  customers/{customer_id}/profiles/{profile_permanent_id}/commands/{command_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Payload of the remote command. The payload for "clearBrowsingData"
+ *  command supports: - fields "clearCache" and "clearCookies" - values of
+ *  boolean type.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload *payload;
+
+/** Output only. Valid duration of the remote command. */
+@property(nonatomic, strong, nullable) GTLRDuration *validDuration;
+
+@end
+
+
+/**
+ *  Required. Payload of the remote command. The payload for "clearBrowsingData"
+ *  command supports: - fields "clearCache" and "clearCookies" - values of
+ *  boolean type.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload : GTLRObject
+@end
+
+
+/**
+ *  Result of the execution of a command.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult : GTLRObject
+
+/** Output only. Timestamp of the client execution of the remote command. */
+@property(nonatomic, strong, nullable) GTLRDateTime *clientExecutionTime;
+
+/**
+ *  Output only. Result code that indicates the type of error or success of the
+ *  command.
+ */
+@property(nonatomic, copy, nullable) NSString *resultCode;
+
+/**
+ *  Output only. Result type of the remote command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_CommandResultTypeUnspecified
+ *        Represents an unspecified command result. (Value:
+ *        "COMMAND_RESULT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Failure
+ *        Represents a failed command. (Value: "FAILURE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Ignored
+ *        Represents a command with an ignored result. (Value: "IGNORED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Success
+ *        Represents a succeeded command. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *resultType;
+
+@end
+
+
+/**
  *  Describes the ChromeOS device that a `CertificateProvisioningProcess`
  *  belongs to.
  */
@@ -6870,6 +7087,37 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response to ListChromeBrowserProfileCommands method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "chromeBrowserProfileCommands" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfileCommandsResponse : GTLRCollectionObject
+
+/**
+ *  The list of commands returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand *> *chromeBrowserProfileCommands;
+
+/** The pagination token that can be used to list the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total size represents an estimated number of resources returned.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  Response to ListChromeBrowserProfiles method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6897,6 +7145,31 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Request to MoveThirdPartyProfileUser method.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest : GTLRObject
+
+/**
+ *  Required. Destination organizational unit where the third party chrome
+ *  profile user will be moved to.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationOrgUnit;
+
+@end
+
+
+/**
+ *  Response for MoveThirdPartyProfileUser method.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse : GTLRObject
+
+/** Output only. The moved third party profile user. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser *thirdPartyProfileUser;
 
 @end
 
@@ -7141,6 +7414,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  `CertificateProvisioningProcess`.
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess *certificateProvisioningProcess;
+
+@end
+
+
+/**
+ *  A representation of non-Google (third party) user that is associated with a
+ *  managed Chrome profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser : GTLRObject
+
+/**
+ *  Identifier. Format:
+ *  customers/{customer_id}/thirdPartyProfileUsers/{third_party_profile_user_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The ID of the organizational unit assigned to the user. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 @end
 

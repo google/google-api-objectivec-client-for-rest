@@ -2056,7 +2056,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_PhpSettings
-@dynamic common;
+@dynamic common, libraryPackage;
 @end
 
 

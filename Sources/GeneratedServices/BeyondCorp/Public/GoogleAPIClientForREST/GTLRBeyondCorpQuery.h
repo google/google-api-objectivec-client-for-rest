@@ -1729,7 +1729,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single Application.
+ *  Deletes a single application.
  *
  *  Method: beyondcorp.projects.locations.securityGateways.applications.delete
  *
@@ -1765,7 +1765,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
  *
- *  Deletes a single Application.
+ *  Deletes a single application.
  *
  *  @param name Required. Name of the resource.
  *
@@ -2057,7 +2057,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new SecurityGateway in a given project and location.
+ *  Creates a new Security Gateway in a given project and location.
  *
  *  Method: beyondcorp.projects.locations.securityGateways.create
  *
@@ -2075,8 +2075,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server will know to
- *  ignore request if it has already been completed. The server will guarantee
- *  that for at least 60 minutes since the first request.
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2090,7 +2090,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
  *
- *  Creates a new SecurityGateway in a given project and location.
+ *  Creates a new Security Gateway in a given project and location.
  *
  *  @param object The @c
  *    GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway to

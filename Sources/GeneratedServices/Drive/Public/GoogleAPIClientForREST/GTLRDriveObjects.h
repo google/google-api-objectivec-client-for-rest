@@ -53,7 +53,6 @@
 @class GTLRDrive_LabelField;
 @class GTLRDrive_LabelFieldModification;
 @class GTLRDrive_LabelModification;
-@class GTLRDrive_Operation;
 @class GTLRDrive_Operation_Metadata;
 @class GTLRDrive_Operation_Response;
 @class GTLRDrive_Permission;
@@ -944,8 +943,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @interface GTLRDrive_DownloadRestrictionsMetadata : GTLRObject
 
 /**
- *  The effective download restriction applied to this file. This considers all
- *  restriction settings and DLP rules.
+ *  Output only. The effective download restriction applied to this file. This
+ *  considers all restriction settings and DLP rules.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *effectiveDownloadRestrictionWithContext;
 
@@ -1857,8 +1856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSNumber *canChangeCopyRequiresWriterPermission;
 
 /**
- *  Output only. Whether the current user can change the owner-applied download
- *  restrictions of the file.
+ *  Output only. Whether the current user can change the owner or
+ *  organizer-applied download restrictions of the file.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2758,30 +2757,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  the first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRDrive_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Operation *> *operations;
 
 @end
 

@@ -30,10 +30,14 @@ NSString * const kGTLRTesting_AndroidModel_Form_Physical       = @"PHYSICAL";
 NSString * const kGTLRTesting_AndroidModel_Form_Virtual        = @"VIRTUAL";
 
 // GTLRTesting_AndroidModel.formFactor
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Automotive = @"AUTOMOTIVE";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Desktop  = @"DESKTOP";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone    = @"PHONE";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet   = @"TABLET";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Tv       = @"TV";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable = @"WEARABLE";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Xr       = @"XR";
 
 // GTLRTesting_AndroidRoboTest.roboMode
 NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboModeUnspecified = @"ROBO_MODE_UNSPECIFIED";
@@ -70,10 +74,14 @@ NSString * const kGTLRTesting_DeviceSession_State_SessionStateUnspecified = @"SE
 NSString * const kGTLRTesting_DeviceSession_State_Unavailable  = @"UNAVAILABLE";
 
 // GTLRTesting_IosModel.formFactor
+NSString * const kGTLRTesting_IosModel_FormFactor_Automotive   = @"AUTOMOTIVE";
+NSString * const kGTLRTesting_IosModel_FormFactor_Desktop      = @"DESKTOP";
 NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
 NSString * const kGTLRTesting_IosModel_FormFactor_Phone        = @"PHONE";
 NSString * const kGTLRTesting_IosModel_FormFactor_Tablet       = @"TABLET";
+NSString * const kGTLRTesting_IosModel_FormFactor_Tv           = @"TV";
 NSString * const kGTLRTesting_IosModel_FormFactor_Wearable     = @"WEARABLE";
+NSString * const kGTLRTesting_IosModel_FormFactor_Xr           = @"XR";
 
 // GTLRTesting_PerAndroidVersionInfo.deviceCapacity
 NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityHigh = @"DEVICE_CAPACITY_HIGH";

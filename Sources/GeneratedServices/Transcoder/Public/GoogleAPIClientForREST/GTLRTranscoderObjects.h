@@ -47,6 +47,7 @@
 @class GTLRTranscoder_H265ColorFormatSDR;
 @class GTLRTranscoder_Image;
 @class GTLRTranscoder_Input;
+@class GTLRTranscoder_InputAttributes;
 @class GTLRTranscoder_Job;
 @class GTLRTranscoder_Job_Labels;
 @class GTLRTranscoder_JobConfig;
@@ -70,6 +71,7 @@
 @class GTLRTranscoder_Status_Details_Item;
 @class GTLRTranscoder_TextMapping;
 @class GTLRTranscoder_TextStream;
+@class GTLRTranscoder_TrackDefinition;
 @class GTLRTranscoder_VideoStream;
 @class GTLRTranscoder_Vp9CodecSettings;
 @class GTLRTranscoder_Vp9ColorFormatHLG;
@@ -1408,6 +1410,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateCon
  */
 @interface GTLRTranscoder_Input : GTLRObject
 
+/** Optional. Input Attributes. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_InputAttributes *attributes;
+
 /**
  *  A unique key for this input. Must be specified when using advanced mapping
  *  and edit lists.
@@ -1425,6 +1430,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateCon
  *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Input attributes that provide additional information about the input asset.
+ */
+@interface GTLRTranscoder_InputAttributes : GTLRObject
+
+/** Optional. A list of track definitions for the input asset. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_TrackDefinition *> *trackDefinitions;
 
 @end
 
@@ -1457,6 +1473,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateCon
  *  property is always present when ProcessingState is `FAILED`.
  */
 @property(nonatomic, strong, nullable) GTLRTranscoder_Status *error;
+
+/**
+ *  Optional. Insert silence and duplicate frames when timestamp gaps are
+ *  detected in a given stream.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fillContentGaps;
 
 /**
  *  Input only. Specify the `input_uri` to populate empty `uri` fields in each
@@ -2201,6 +2225,45 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateCon
  *  The mapping for the JobConfig.edit_list atoms with text EditAtom.inputs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_TextMapping *> *mapping;
+
+@end
+
+
+/**
+ *  Track definition for the input asset.
+ */
+@interface GTLRTranscoder_TrackDefinition : GTLRObject
+
+/**
+ *  Output only. A list of languages detected in the input asset, represented by
+ *  a BCP 47 language code, such as "en-US" or "sr-Latn". For more information,
+ *  see https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. This
+ *  field is only populated if the detect_languages field is set to true.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *detectedLanguages;
+
+/**
+ *  Optional. Whether to automatically detect the languages present in the
+ *  track. If true, the system will attempt to identify all the languages
+ *  present in the track and populate the languages field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectLanguages;
+
+/**
+ *  The input track.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputTrack;
+
+/**
+ *  Optional. A list of languages spoken in the input asset, represented by a
+ *  BCP 47 language code, such as "en-US" or "sr-Latn". For more information,
+ *  see https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 @end
 

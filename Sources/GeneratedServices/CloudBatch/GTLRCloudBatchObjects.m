@@ -33,12 +33,14 @@ NSString * const kGTLRCloudBatch_AgentTask_TaskSource_User     = @"USER";
 // GTLRCloudBatch_InstancePolicy.provisioningModel
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible = @"PREEMPTIBLE";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified = @"PROVISIONING_MODEL_UNSPECIFIED";
+NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ReservationBound = @"RESERVATION_BOUND";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Spot = @"SPOT";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Standard = @"STANDARD";
 
 // GTLRCloudBatch_InstanceStatus.provisioningModel
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Preemptible = @"PREEMPTIBLE";
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ProvisioningModelUnspecified = @"PROVISIONING_MODEL_UNSPECIFIED";
+NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ReservationBound = @"RESERVATION_BOUND";
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Spot = @"SPOT";
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Standard = @"STANDARD";
 

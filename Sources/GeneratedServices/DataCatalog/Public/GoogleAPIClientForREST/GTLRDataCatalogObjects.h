@@ -3118,9 +3118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest : GTLRObject
 
 /**
- *  If set to `true`, deletes entry tags related to a tag template not listed in
- *  the tags source from an entry. If set to `false`, unlisted tags are
- *  retained.
+ *  forceDeleteMissing
  *
  *  Uses NSNumber of boolValue.
  */

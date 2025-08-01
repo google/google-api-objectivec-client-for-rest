@@ -351,7 +351,7 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_Impersonation
-@dynamic authClaims, unauthenticated;
+@dynamic authClaims, includeDebugDetails, unauthenticated;
 @end
 
 

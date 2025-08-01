@@ -17,6 +17,7 @@
 @class GTLRDatastream_BackfillAllStrategy;
 @class GTLRDatastream_BackfillJob;
 @class GTLRDatastream_BackfillNoneStrategy;
+@class GTLRDatastream_BasicEncryption;
 @class GTLRDatastream_BigQueryDestinationConfig;
 @class GTLRDatastream_BigQueryProfile;
 @class GTLRDatastream_BinaryLogParser;
@@ -28,6 +29,8 @@
 @class GTLRDatastream_DatasetTemplate;
 @class GTLRDatastream_DestinationConfig;
 @class GTLRDatastream_DropLargeObjects;
+@class GTLRDatastream_EncryptionAndServerValidation;
+@class GTLRDatastream_EncryptionNotEnforced;
 @class GTLRDatastream_Error;
 @class GTLRDatastream_Error_Details;
 @class GTLRDatastream_ForwardSshTunnelConnectivity;
@@ -114,6 +117,7 @@
 @class GTLRDatastream_SqlServerRdbms;
 @class GTLRDatastream_SqlServerSchema;
 @class GTLRDatastream_SqlServerSourceConfig;
+@class GTLRDatastream_SqlServerSslConfig;
 @class GTLRDatastream_SqlServerTable;
 @class GTLRDatastream_SqlServerTransactionLogs;
 @class GTLRDatastream_SrvConnectionFormat;
@@ -560,6 +564,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Message to represent the option where Datastream will enforce encryption
+ *  without authenticating server identity. Server certificates will be trusted
+ *  by default.
+ */
+@interface GTLRDatastream_BasicEncryption : GTLRObject
+@end
+
+
+/**
  *  BigQuery destination configuration
  */
 @interface GTLRDatastream_BigQueryDestinationConfig : GTLRObject
@@ -908,6 +921,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDatastream_Empty : GTLRObject
+@end
+
+
+/**
+ *  Message to represent the option where Datastream will enforce encryption and
+ *  authenticate server identity. ca_certificate must be set if user selects
+ *  this option.
+ */
+@interface GTLRDatastream_EncryptionAndServerValidation : GTLRObject
+
+/**
+ *  Optional. Input only. PEM-encoded certificate of the CA that signed the
+ *  source database server's certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *caCertificate;
+
+/**
+ *  Optional. The hostname mentioned in the Subject or SAN extension of the
+ *  server certificate. This field is used for bypassing the hostname validation
+ *  while verifying server certificate. This is required for scenarios where the
+ *  host name that datastream connects to is different from the certificate's
+ *  subject. This specifically happens for private connectivity. It could also
+ *  happen when the customer provides a public IP in connection profile but the
+ *  same is not present in the server certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *serverCertificateHostname;
+
+@end
+
+
+/**
+ *  Message to represent the option where encryption is not enforced. An empty
+ *  message right now to allow future extensibility.
+ */
+@interface GTLRDatastream_EncryptionNotEnforced : GTLRObject
 @end
 
 
@@ -2306,6 +2354,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *caCertificateSet;
 
+/**
+ *  Optional. The distinguished name (DN) mentioned in the server certificate.
+ *  This corresponds to SSL_SERVER_CERT_DN sqlnet parameter. Refer
+ *  https://docs.oracle.com/en/database/oracle/oracle-database/19/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-70AB0695-A9AA-4A94-B141-4C605236EEB7
+ *  If this field is not provided, the DN matching is not enforced.
+ */
+@property(nonatomic, copy, nullable) NSString *serverCertificateDistinguishedName;
+
 @end
 
 
@@ -2845,6 +2901,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
+/**
+ *  Optional. The hostname mentioned in the Subject or SAN extension of the
+ *  server certificate. If this field is not provided, the hostname in the
+ *  server certificate is not validated.
+ */
+@property(nonatomic, copy, nullable) NSString *serverCertificateHostname;
+
 @end
 
 
@@ -2857,6 +2920,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Required. Input only. PEM-encoded server root CA certificate. */
 @property(nonatomic, copy, nullable) NSString *caCertificate;
+
+/**
+ *  Optional. The hostname mentioned in the Subject or SAN extension of the
+ *  server certificate. If this field is not provided, the hostname in the
+ *  server certificate is not validated.
+ */
+@property(nonatomic, copy, nullable) NSString *serverCertificateHostname;
 
 @end
 
@@ -3089,6 +3159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, copy, nullable) NSString *secretManagerStoredPassword;
 
+/** Optional. SSL configuration for the SQLServer connection. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerSslConfig *sslConfig;
+
 /** Required. Username for the SQLServer connection. */
 @property(nonatomic, copy, nullable) NSString *username;
 
@@ -3150,6 +3223,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** CDC reader reads from transaction logs. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerTransactionLogs *transactionLogs;
+
+@end
+
+
+/**
+ *  SQL Server SSL configuration information.
+ */
+@interface GTLRDatastream_SqlServerSslConfig : GTLRObject
+
+/**
+ *  If set, Datastream will enforce encryption without authenticating server
+ *  identity. Server certificates will be trusted by default.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_BasicEncryption *basicEncryption;
+
+/**
+ *  If set, Datastream will enforce encryption and authenticate server identity.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_EncryptionAndServerValidation *encryptionAndServerValidation;
+
+/**
+ *  If set, Datastream will not enforce encryption. If the DB server mandates
+ *  encryption, then connection will be encrypted but server identity will not
+ *  be authenticated.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_EncryptionNotEnforced *encryptionNotEnforced;
 
 @end
 

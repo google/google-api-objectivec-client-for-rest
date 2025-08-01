@@ -312,6 +312,25 @@ NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_CustomPreferen
 NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_MaintenanceWindowPreferenceUnspecified = @"MAINTENANCE_WINDOW_PREFERENCE_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_NoPreference = @"NO_PREFERENCE";
 
+// GTLROracleDatabase_OdbNetwork.state
+NSString * const kGTLROracleDatabase_OdbNetwork_State_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_OdbNetwork_State_Failed   = @"FAILED";
+NSString * const kGTLROracleDatabase_OdbNetwork_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_OdbNetwork_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_OdbNetwork_State_Terminating = @"TERMINATING";
+
+// GTLROracleDatabase_OdbSubnet.purpose
+NSString * const kGTLROracleDatabase_OdbSubnet_Purpose_BackupSubnet = @"BACKUP_SUBNET";
+NSString * const kGTLROracleDatabase_OdbSubnet_Purpose_ClientSubnet = @"CLIENT_SUBNET";
+NSString * const kGTLROracleDatabase_OdbSubnet_Purpose_PurposeUnspecified = @"PURPOSE_UNSPECIFIED";
+
+// GTLROracleDatabase_OdbSubnet.state
+NSString * const kGTLROracleDatabase_OdbSubnet_State_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_OdbSubnet_State_Failed    = @"FAILED";
+NSString * const kGTLROracleDatabase_OdbSubnet_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_OdbSubnet_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_OdbSubnet_State_Terminating = @"TERMINATING";
+
 // GTLROracleDatabase_ScheduledOperationDetails.dayOfWeek
 NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Friday = @"FRIDAY";
@@ -340,7 +359,8 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 @implementation GTLROracleDatabase_AutonomousDatabase
 @dynamic adminPassword, cidr, createTime, database,
          disasterRecoverySupportedLocations, displayName, entitlementId, labels,
-         name, network, peerAutonomousDatabases, properties, sourceConfig;
+         name, network, odbNetwork, odbSubnet, peerAutonomousDatabases,
+         properties, sourceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -595,8 +615,9 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_CloudVmCluster
-@dynamic backupSubnetCidr, cidr, createTime, displayName, exadataInfrastructure,
-         gcpOracleZone, labels, name, network, properties;
+@dynamic backupOdbSubnet, backupSubnetCidr, cidr, createTime, displayName,
+         exadataInfrastructure, gcpOracleZone, labels, name, network,
+         odbNetwork, odbSubnet, properties;
 @end
 
 
@@ -688,8 +709,8 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_DbNodeProperties
-@dynamic dbNodeStorageSizeGb, dbServerOcid, hostname, memorySizeGb, ocid,
-         ocpuCount, state, totalCpuCoreCount;
+@dynamic createTime, dbNodeStorageSizeGb, dbServerOcid, hostname, memorySizeGb,
+         ocid, ocpuCount, state, totalCpuCoreCount;
 @end
 
 
@@ -1051,6 +1072,52 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ListOdbNetworksResponse
+//
+
+@implementation GTLROracleDatabase_ListOdbNetworksResponse
+@dynamic nextPageToken, odbNetworks, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"odbNetworks" : [GTLROracleDatabase_OdbNetwork class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"odbNetworks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListOdbSubnetsResponse
+//
+
+@implementation GTLROracleDatabase_ListOdbSubnetsResponse
+@dynamic nextPageToken, odbSubnets, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"odbSubnets" : [GTLROracleDatabase_OdbSubnet class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"odbSubnets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ListOperationsResponse
 //
 
@@ -1145,6 +1212,54 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
     @"weeksOfMonth" : [NSNumber class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_OdbNetwork
+//
+
+@implementation GTLROracleDatabase_OdbNetwork
+@dynamic createTime, entitlementId, labels, name, network, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_OdbNetwork_Labels
+//
+
+@implementation GTLROracleDatabase_OdbNetwork_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_OdbSubnet
+//
+
+@implementation GTLROracleDatabase_OdbSubnet
+@dynamic cidrRange, createTime, labels, name, purpose, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_OdbSubnet_Labels
+//
+
+@implementation GTLROracleDatabase_OdbSubnet_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

@@ -190,7 +190,7 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
          manual, name, permissiveMode, podCount, resourceCount, retainDays,
          retainExpireTime, satisfiesPzi, satisfiesPzs, selectedApplications,
          selectedNamespaceLabels, selectedNamespaces, sizeBytes, state,
-         stateReason, uid, updateTime, volumeCount;
+         stateReason, troubleshootingInfo, uid, updateTime, volumeCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1078,8 +1078,9 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 @implementation GTLRBackupforGKE_Restore
 @dynamic backup, cluster, completeTime, createTime, descriptionProperty, ETag,
          filter, labels, name, resourcesExcludedCount, resourcesFailedCount,
-         resourcesRestoredCount, restoreConfig, state, stateReason, uid,
-         updateTime, volumeDataRestorePolicyOverrides, volumesRestoredCount;
+         resourcesRestoredCount, restoreConfig, state, stateReason,
+         troubleshootingInfo, uid, updateTime, volumeDataRestorePolicyOverrides,
+         volumesRestoredCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1393,6 +1394,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_TransformationRuleAction
 @dynamic fromPath, op, path, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_TroubleshootingInfo
+//
+
+@implementation GTLRBackupforGKE_TroubleshootingInfo
+@dynamic stateReasonCode, stateReasonUri;
 @end
 
 

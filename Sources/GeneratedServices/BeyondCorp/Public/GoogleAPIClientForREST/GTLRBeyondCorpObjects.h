@@ -41,6 +41,9 @@
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Resource;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaContainerHealthDetails_ExtendedStatus;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway;
@@ -308,8 +311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecurity
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Deleting;
 /**
- *  SecurityGateway is down and may be restored in the future. This happens when
- *  CCFE sends ProjectState = OFF.
+ *  SecurityGateway is down and may be restored in the future.
  *
  *  Value: "DOWN"
  */
@@ -1731,7 +1733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
- *  A Beyondcorp Application resource information.
+ *  The information about an application resource.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application : GTLRObject
 
@@ -1739,20 +1741,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. An arbitrary user-provided name for the Application resource.
+ *  Optional. An arbitrary user-provided name for the application resource.
  *  Cannot exceed 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Required. Endpoint matchers associated with an application. A combination of
- *  hostname and ports as endpoint matcher is used to match the application.
+ *  hostname and ports as endpoint matchers is used to match the application.
  *  Match conditions for OR logic. An array of match conditions to allow for
- *  multiple matching criteria. The rule is considered a match if one the
- *  conditions are met. The conditions can be one of the following combination
- *  (Hostname), (Hostname & Ports) EXAMPLES: Hostname - ("*.abc.com"),
- *  ("xyz.abc.com") Hostname and Ports - ("abc.com" and "22"), ("abc.com" and
- *  "22,33") etc
+ *  multiple matching criteria. The rule is considered a match if one of the
+ *  conditions is met. The conditions can be one of the following combinations
+ *  (Hostname), (Hostname & Ports) EXAMPLES: Hostname - ("*.example.com"),
+ *  ("xyz.example.com") Hostname and Ports - ("example.com" and "22"),
+ *  ("example.com" and "22,33") etc
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher *> *endpointMatchers;
 
@@ -1761,6 +1763,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 /** Output only. Timestamp when the resource was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Optional. Which upstream resources to forward traffic to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream *> *upstreams;
+
+@end
+
+
+/**
+ *  Which upstream resource to forward traffic to.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream : GTLRObject
+
+/** Optional. Routing policy information. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy *egressPolicy;
+
+/** Network to forward traffic to. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork *network;
+
+@end
+
+
+/**
+ *  Network to forward traffic to.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork : GTLRObject
+
+/**
+ *  Required. Network name is of the format:
+ *  `projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Routing policy information.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy : GTLRObject
+
+/** Required. List of the regions where the application sends traffic. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
 
 @end
 
@@ -1868,12 +1912,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
- *  Information about a BeyondCorp SecurityGateway resource.
+ *  The information about a security gateway resource.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway : GTLRObject
 
 /** Output only. Timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Service account used for operations that involve resources in
+ *  consumer projects.
+ */
+@property(nonatomic, copy, nullable) NSString *delegatingServiceAccount;
 
 /**
  *  Optional. An arbitrary user-provided name for the SecurityGateway. Cannot
@@ -1905,8 +1955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Deleting
  *        SecurityGateway is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Down
- *        SecurityGateway is down and may be restored in the future. This
- *        happens when CCFE sends ProjectState = OFF. (Value: "DOWN")
+ *        SecurityGateway is down and may be restored in the future. (Value:
+ *        "DOWN")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Error
  *        SecurityGateway encountered an error and is in an indeterministic
  *        state. (Value: "ERROR")

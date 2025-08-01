@@ -305,6 +305,17 @@ NSString * const kGTLRHangoutsChat_KeyValue_Icon_Train         = @"TRAIN";
 NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoCamera   = @"VIDEO_CAMERA";
 NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay     = @"VIDEO_PLAY";
 
+// GTLRHangoutsChat_MeetSpaceLinkData.huddleStatus
+NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Ended = @"ENDED";
+NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_HuddleStatusUnspecified = @"HUDDLE_STATUS_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Missed = @"MISSED";
+NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Started = @"STARTED";
+
+// GTLRHangoutsChat_MeetSpaceLinkData.type
+NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_Huddle = @"HUDDLE";
+NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_Meeting = @"MEETING";
+NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRHangoutsChat_Membership.role
 NSString * const kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified = @"MEMBERSHIP_ROLE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Membership_Role_RoleManager = @"ROLE_MANAGER";
@@ -317,8 +328,10 @@ NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified =
 NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER";
 
 // GTLRHangoutsChat_RichLinkMetadata.richLinkType
+NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_CalendarEvent = @"CALENDAR_EVENT";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_ChatSpace = @"CHAT_SPACE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile = @"DRIVE_FILE";
+NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_MeetSpace = @"MEET_SPACE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified = @"RICH_LINK_TYPE_UNSPECIFIED";
 
 // GTLRHangoutsChat_SlashCommandMetadata.type
@@ -484,6 +497,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Button
 @dynamic imageButton, textButton;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_CalendarEventLinkData
+//
+
+@implementation GTLRHangoutsChat_CalendarEventLinkData
+@dynamic calendarId, eventId;
 @end
 
 
@@ -1228,9 +1251,9 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1SelectionInput
-@dynamic externalDataSource, items, label, multiSelectMaxSelectedItems,
-         multiSelectMinQueryLength, name, onChangeAction, platformDataSource,
-         type;
+@dynamic externalDataSource, hintText, items, label,
+         multiSelectMaxSelectedItems, multiSelectMinQueryLength, name,
+         onChangeAction, platformDataSource, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1554,6 +1577,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Media
 @dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MeetSpaceLinkData
+//
+
+@implementation GTLRHangoutsChat_MeetSpaceLinkData
+@dynamic huddleStatus, meetingCode, type;
 @end
 
 
@@ -1897,7 +1930,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_RichLinkMetadata
-@dynamic chatSpaceLinkData, driveLinkData, richLinkType, uri;
+@dynamic calendarEventLinkData, chatSpaceLinkData, driveLinkData,
+         meetSpaceLinkData, richLinkType, uri;
 @end
 
 
@@ -2003,7 +2037,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Space
-@dynamic accessSettings, adminInstalled, createTime, displayName,
+@dynamic accessSettings, adminInstalled, createTime, customer, displayName,
          externalUserAllowed, importMode, importModeExpireTime, lastActiveTime,
          membershipCount, name, permissionSettings,
          predefinedPermissionSettings, singleUserBotDm, spaceDetails,

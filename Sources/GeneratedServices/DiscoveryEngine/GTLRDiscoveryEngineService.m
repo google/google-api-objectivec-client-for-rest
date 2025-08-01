@@ -11,9 +11,10 @@
 #import <GoogleAPIClientForREST/GTLRDiscoveryEngine.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeDiscoveryEngineCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDiscoveryEngineCloudPlatform    = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDiscoveryEngineCloudSearchQuery = @"https://www.googleapis.com/auth/cloud_search.query";
 
 // ----------------------------------------------------------------------------
 //   GTLRDiscoveryEngineService

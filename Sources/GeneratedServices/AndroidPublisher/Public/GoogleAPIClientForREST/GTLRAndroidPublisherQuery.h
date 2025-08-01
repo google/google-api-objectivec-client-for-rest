@@ -3078,6 +3078,882 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @end
 
 /**
+ *  Deletes one or more one-time products.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the one-time products
+ *  should be deleted. Must be equal to the package_name field on all the
+ *  OneTimeProduct resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes one or more one-time products.
+ *
+ *  @param object The @c GTLRAndroidPublisher_BatchDeleteOneTimeProductsRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) for which the
+ *    one-time products should be deleted. Must be equal to the package_name
+ *    field on all the OneTimeProduct resources.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchDeleteOneTimeProductsRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Reads one or more one-time products.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchGet : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the products should be
+ *  retrieved. Must be equal to the package_name field on all requests.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. A list of up to 100 product IDs to retrieve. All IDs must be
+ *  different.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productIds;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchGetOneTimeProductsResponse.
+ *
+ *  Reads one or more one-time products.
+ *
+ *  @param packageName Required. The parent app (package name) for which the
+ *    products should be retrieved. Must be equal to the package_name field on
+ *    all requests.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Creates or updates one or more one-time products.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchUpdate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the one-time products
+ *  should be updated. Must be equal to the package_name field on all the
+ *  OneTimeProduct resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchUpdateOneTimeProductsResponse.
+ *
+ *  Creates or updates one or more one-time products.
+ *
+ *  @param object The @c GTLRAndroidPublisher_BatchUpdateOneTimeProductsRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) for which the
+ *    one-time products should be updated. Must be equal to the package_name
+ *    field on all the OneTimeProduct resources.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateOneTimeProductsRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Deletes a one-time product.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. The parent app (package name) of the one-time product to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The one-time product ID of the one-time product to delete. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a one-time product.
+ *
+ *  @param packageName Required. The parent app (package name) of the one-time
+ *    product to delete.
+ *  @param productId Required. The one-time product ID of the one-time product
+ *    to delete.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsDelete
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Reads a single one-time product.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsGet : GTLRAndroidPublisherQuery
+
+/** Required. The parent app (package name) of the product to retrieve. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The product ID of the product to retrieve. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_OneTimeProduct.
+ *
+ *  Reads a single one-time product.
+ *
+ *  @param packageName Required. The parent app (package name) of the product to
+ *    retrieve.
+ *  @param productId Required. The product ID of the product to retrieve.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Lists all one-time products under a given app.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsList : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the one-time product
+ *  should be read.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Optional. The maximum number of one-time product to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 one-time products
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListOneTimeProducts` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListOneTimeProducts` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListOneTimeProductsResponse.
+ *
+ *  Lists all one-time products under a given app.
+ *
+ *  @param packageName Required. The parent app (package name) for which the
+ *    one-time product should be read.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Creates or updates a one-time product.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPatch : GTLRAndroidPublisherQuery
+
+/**
+ *  Optional. If set to true, and the one-time product with the given
+ *  package_name and product_id doesn't exist, the one-time product will be
+ *  created. If a new one-time product is created, update_mask is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product upsert.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. Immutable. Package name of the parent app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. Immutable. Unique product ID of the product. Unique within the
+ *  parent app. Product IDs must start with a number or lowercase letter, and
+ *  can contain numbers (0-9), lowercase letters (a-z), underscores (_), and
+ *  periods (.).
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. A string representing the version of available regions being used
+ *  for the specified resource. Regional prices and latest supported version for
+ *  the resource have to be specified according to the information published in
+ *  [this
+ *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
+ *  Each time the supported locations substantially change, the version will be
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available.
+ */
+@property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_OneTimeProduct.
+ *
+ *  Creates or updates a one-time product.
+ *
+ *  @param object The @c GTLRAndroidPublisher_OneTimeProduct to include in the
+ *    query.
+ *  @param packageName Required. Immutable. Package name of the parent app.
+ *  @param productId Required. Immutable. Unique product ID of the product.
+ *    Unique within the parent app. Product IDs must start with a number or
+ *    lowercase letter, and can contain numbers (0-9), lowercase letters (a-z),
+ *    underscores (_), and periods (.).
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_OneTimeProduct *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Deletes purchase options across one or multiple one-time products. By
+ *  default this operation will fail if there are any existing offers under the
+ *  deleted purchase options. Use the force parameter to override the default
+ *  behavior.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the purchase options to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent one-time product, if all purchase
+ *  options to delete belong to the same one-time product. If this batch delete
+ *  spans multiple one-time products, set this field to "-".
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes purchase options across one or multiple one-time products. By
+ *  default this operation will fail if there are any existing offers under the
+ *  deleted purchase options. Use the force parameter to override the default
+ *  behavior.
+ *
+ *  @param object The @c GTLRAndroidPublisher_BatchDeletePurchaseOptionsRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) of the purchase
+ *    options to delete.
+ *  @param productId Required. The product ID of the parent one-time product, if
+ *    all purchase options to delete belong to the same one-time product. If
+ *    this batch delete spans multiple one-time products, set this field to "-".
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchDeletePurchaseOptionsRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Activates or deactivates purchase options across one or multiple one-time
+ *  products.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.batchUpdateStates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchUpdateStates : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the updated purchase options.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent one-time product, if all updated
+ *  purchase options belong to the same one-time product. If this batch update
+ *  spans multiple one-time products, set this field to "-".
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesResponse.
+ *
+ *  Activates or deactivates purchase options across one or multiple one-time
+ *  products.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesRequest to include in
+ *    the query.
+ *  @param packageName Required. The parent app (package name) of the updated
+ *    purchase options.
+ *  @param productId Required. The product ID of the parent one-time product, if
+ *    all updated purchase options belong to the same one-time product. If this
+ *    batch update spans multiple one-time products, set this field to "-".
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchUpdateStates
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Activates a one-time product offer.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.activate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersActivate : GTLRAndroidPublisherQuery
+
+/** Required. The offer ID of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_OneTimeProductOffer.
+ *
+ *  Activates a one-time product offer.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) of the offer to
+ *    activate.
+ *  @param productId Required. The parent one-time product (ID) of the offer to
+ *    activate.
+ *  @param purchaseOptionId Required. The parent purchase option (ID) of the
+ *    offer to activate.
+ *  @param offerId Required. The offer ID of the offer to activate.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersActivate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId
+                        offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Deletes one or more one-time product offers.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the offers to delete. Must be
+ *  equal to the package_name field on all the OneTimeProductOffer resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent one-time product, if all offers to
+ *  delete belong to the same product. If this request spans multiple one-time
+ *  products, set this field to "-".
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. The parent purchase option (ID) for which the offers should be
+ *  deleted. May be specified as '-' to update offers from multiple purchase
+ *  options.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes one or more one-time product offers.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest to include in
+ *    the query.
+ *  @param packageName Required. The parent app (package name) of the offers to
+ *    delete. Must be equal to the package_name field on all the
+ *    OneTimeProductOffer resources.
+ *  @param productId Required. The product ID of the parent one-time product, if
+ *    all offers to delete belong to the same product. If this request spans
+ *    multiple one-time products, set this field to "-".
+ *  @param purchaseOptionId Required. The parent purchase option (ID) for which
+ *    the offers should be deleted. May be specified as '-' to update offers
+ *    from multiple purchase options.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId;
+
+@end
+
+/**
+ *  Reads one or more one-time product offers.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchGet : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the updated offers. Must be equal
+ *  to the package_name field on all the updated OneTimeProductOffer resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent one-time product, if all updated
+ *  offers belong to the same product. If this request spans multiple one-time
+ *  products, set this field to "-".
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. The parent purchase option (ID) for which the offers should be
+ *  updated. May be specified as '-' to update offers from multiple purchase
+ *  options.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchGetOneTimeProductOffersResponse.
+ *
+ *  Reads one or more one-time product offers.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_BatchGetOneTimeProductOffersRequest to include in the
+ *    query.
+ *  @param packageName Required. The parent app (package name) of the updated
+ *    offers. Must be equal to the package_name field on all the updated
+ *    OneTimeProductOffer resources.
+ *  @param productId Required. The product ID of the parent one-time product, if
+ *    all updated offers belong to the same product. If this request spans
+ *    multiple one-time products, set this field to "-".
+ *  @param purchaseOptionId Required. The parent purchase option (ID) for which
+ *    the offers should be updated. May be specified as '-' to update offers
+ *    from multiple purchase options.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchGet
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchGetOneTimeProductOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId;
+
+@end
+
+/**
+ *  Creates or updates one or more one-time product offers.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the updated offers. Must be equal
+ *  to the package_name field on all the updated OneTimeProductOffer resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent one-time product, if all updated
+ *  offers belong to the same product. If this request spans multiple one-time
+ *  products, set this field to "-".
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. The parent purchase option (ID) for which the offers should be
+ *  updated. May be specified as '-' to update offers from multiple purchase
+ *  options.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersResponse.
+ *
+ *  Creates or updates one or more one-time product offers.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersRequest to include in
+ *    the query.
+ *  @param packageName Required. The parent app (package name) of the updated
+ *    offers. Must be equal to the package_name field on all the updated
+ *    OneTimeProductOffer resources.
+ *  @param productId Required. The product ID of the parent one-time product, if
+ *    all updated offers belong to the same product. If this request spans
+ *    multiple one-time products, set this field to "-".
+ *  @param purchaseOptionId Required. The parent purchase option (ID) for which
+ *    the offers should be updated. May be specified as '-' to update offers
+ *    from multiple purchase options.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId;
+
+@end
+
+/**
+ *  Updates a batch of one-time product offer states.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchUpdateStates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdateStates : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the updated one-time product
+ *  offers.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent one-time product, if all updated
+ *  offers belong to the same one-time product. If this batch update spans
+ *  multiple one-time products, set this field to "-".
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. The purchase option ID of the parent purchase option, if all
+ *  updated offers belong to the same purchase option. If this batch update
+ *  spans multiple purchase options, set this field to "-".
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Fetches a @c
+ *  GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesResponse.
+ *
+ *  Updates a batch of one-time product offer states.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesRequest to
+ *    include in the query.
+ *  @param packageName Required. The parent app (package name) of the updated
+ *    one-time product offers.
+ *  @param productId Required. The product ID of the parent one-time product, if
+ *    all updated offers belong to the same one-time product. If this batch
+ *    update spans multiple one-time products, set this field to "-".
+ *  @param purchaseOptionId Required. The purchase option ID of the parent
+ *    purchase option, if all updated offers belong to the same purchase option.
+ *    If this batch update spans multiple purchase options, set this field to
+ *    "-".
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdateStates
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId;
+
+@end
+
+/**
+ *  Cancels a one-time product offer.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersCancel : GTLRAndroidPublisherQuery
+
+/** Required. The offer ID of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to cancel. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_OneTimeProductOffer.
+ *
+ *  Cancels a one-time product offer.
+ *
+ *  @param object The @c GTLRAndroidPublisher_CancelOneTimeProductOfferRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) of the offer to
+ *    cancel.
+ *  @param productId Required. The parent one-time product (ID) of the offer to
+ *    cancel.
+ *  @param purchaseOptionId Required. The parent purchase option (ID) of the
+ *    offer to cancel.
+ *  @param offerId Required. The offer ID of the offer to cancel.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersCancel
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CancelOneTimeProductOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId
+                        offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Deactivates a one-time product offer.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.deactivate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersDeactivate : GTLRAndroidPublisherQuery
+
+/** Required. The offer ID of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent one-time product (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Required. The parent purchase option (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_OneTimeProductOffer.
+ *
+ *  Deactivates a one-time product offer.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest to include in
+ *    the query.
+ *  @param packageName Required. The parent app (package name) of the offer to
+ *    deactivate.
+ *  @param productId Required. The parent one-time product (ID) of the offer to
+ *    deactivate.
+ *  @param purchaseOptionId Required. The parent purchase option (ID) of the
+ *    offer to deactivate.
+ *  @param offerId Required. The offer ID of the offer to deactivate.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersDeactivate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId
+                        offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Lists all offers under a given app, product, or purchase option.
+ *
+ *  Method: androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersList : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the offers should be read.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Optional. The maximum number of offers to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 offers will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListOneTimeProductsOffers`
+ *  call. Provide this to retrieve the subsequent page. When paginating,
+ *  product_id, package_name and purchase_option_id provided to
+ *  `ListOneTimeProductsOffersRequest` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent one-time product (ID) for which the offers should be
+ *  read. May be specified as '-' to read all offers under an app.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. The parent purchase option (ID) for which the offers should be
+ *  read. May be specified as '-' to read all offers under a one-time product or
+ *  an app. Must be specified as '-' if product_id is specified as '-'.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOptionId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListOneTimeProductOffersResponse.
+ *
+ *  Lists all offers under a given app, product, or purchase option.
+ *
+ *  @param packageName Required. The parent app (package name) for which the
+ *    offers should be read.
+ *  @param productId Required. The parent one-time product (ID) for which the
+ *    offers should be read. May be specified as '-' to read all offers under an
+ *    app.
+ *  @param purchaseOptionId Required. The parent purchase option (ID) for which
+ *    the offers should be read. May be specified as '-' to read all offers
+ *    under a one-time product or an app. Must be specified as '-' if product_id
+ *    is specified as '-'.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                    purchaseOptionId:(NSString *)purchaseOptionId;
+
+@end
+
+/**
  *  Deprecated: subscription archiving is not supported.
  *
  *  Method: androidpublisher.monetization.subscriptions.archive

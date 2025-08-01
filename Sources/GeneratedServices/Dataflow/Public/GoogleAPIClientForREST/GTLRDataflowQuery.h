@@ -410,41 +410,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Get worker stacktraces from debug capture.
- *
- *  Method: dataflow.projects.jobs.debug.getWorkerStacktraces
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataflowCloudPlatform
- *    @c kGTLRAuthScopeDataflowCompute
- */
-@interface GTLRDataflowQuery_ProjectsJobsDebugGetWorkerStacktraces : GTLRDataflowQuery
-
-/** The job for which to get stacktraces. */
-@property(nonatomic, copy, nullable) NSString *jobId;
-
-/** The project id. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRDataflow_GetWorkerStacktracesResponse.
- *
- *  Get worker stacktraces from debug capture.
- *
- *  @param object The @c GTLRDataflow_GetWorkerStacktracesRequest to include in
- *    the query.
- *  @param projectId The project id.
- *  @param jobId The job for which to get stacktraces.
- *
- *  @return GTLRDataflowQuery_ProjectsJobsDebugGetWorkerStacktraces
- */
-+ (instancetype)queryWithObject:(GTLRDataflow_GetWorkerStacktracesRequest *)object
-                      projectId:(NSString *)projectId
-                          jobId:(NSString *)jobId;
-
-@end
-
-/**
  *  Send encoded debug capture data for component.
  *
  *  Method: dataflow.projects.jobs.debug.sendCapture
@@ -1153,6 +1118,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsDebugGetConfig
  */
 + (instancetype)queryWithObject:(GTLRDataflow_GetDebugConfigRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Get worker stacktraces from debug capture.
+ *
+ *  Method: dataflow.projects.locations.jobs.debug.getWorkerStacktraces
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsDebugGetWorkerStacktraces : GTLRDataflowQuery
+
+/** The job for which to get stacktraces. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_GetWorkerStacktracesResponse.
+ *
+ *  Get worker stacktraces from debug capture.
+ *
+ *  @param object The @c GTLRDataflow_GetWorkerStacktracesRequest to include in
+ *    the query.
+ *  @param projectId The project id.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job specified by job_id.
+ *  @param jobId The job for which to get stacktraces.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsDebugGetWorkerStacktraces
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_GetWorkerStacktracesRequest *)object
                       projectId:(NSString *)projectId
                        location:(NSString *)location
                           jobId:(NSString *)jobId;

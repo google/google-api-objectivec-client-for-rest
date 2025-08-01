@@ -1585,7 +1585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) long long merchantId;
 
 /**
- *  Optional. List of fields being updated.
+ *  Optional. List of fields being updated. The following fields can be updated:
+ *  `attribution_settings`, `display_name`, `currency_code`.
  *
  *  String format is a comma-separated list of fields.
  */

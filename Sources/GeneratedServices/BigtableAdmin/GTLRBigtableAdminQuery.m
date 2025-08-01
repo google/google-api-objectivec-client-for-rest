@@ -20,6 +20,7 @@ NSString * const kGTLRBigtableAdminViewFull                    = @"FULL";
 NSString * const kGTLRBigtableAdminViewNameOnly                = @"NAME_ONLY";
 NSString * const kGTLRBigtableAdminViewReplicationView         = @"REPLICATION_VIEW";
 NSString * const kGTLRBigtableAdminViewResponseViewUnspecified = @"RESPONSE_VIEW_UNSPECIFIED";
+NSString * const kGTLRBigtableAdminViewSchemaBundleViewUnspecified = @"SCHEMA_BUNDLE_VIEW_UNSPECIFIED";
 NSString * const kGTLRBigtableAdminViewSchemaView              = @"SCHEMA_VIEW";
 NSString * const kGTLRBigtableAdminViewStatsView               = @"STATS_VIEW";
 NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIFIED";
@@ -1721,7 +1722,7 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

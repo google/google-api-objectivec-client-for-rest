@@ -239,8 +239,8 @@ NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRMerchant_ProductReview
-@dynamic attributes, customAttributes, dataSource, name, productReviewId,
-         productReviewStatus;
+@dynamic customAttributes, dataSource, name, productReviewAttributes,
+         productReviewId, productReviewStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -259,11 +259,11 @@ NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 @implementation GTLRMerchant_ProductReviewAttributes
 @dynamic aggregatorName, asins, brands, collectionMethod, cons, content, gtins,
-         isSpam, maxRating, minRating, mpns, productLinks, productNames, pros,
-         publisherFavicon, publisherName, rating, reviewCountry, reviewerId,
-         reviewerImageLinks, reviewerIsAnonymous, reviewerUsername,
-         reviewLanguage, reviewLink, reviewTime, skus, subclientName, title,
-         transactionId;
+         isIncentivizedReview, isSpam, isVerifiedPurchase, maxRating, minRating,
+         mpns, productLinks, productNames, pros, publisherFavicon,
+         publisherName, rating, reviewCountry, reviewerId, reviewerImageLinks,
+         reviewerIsAnonymous, reviewerUsername, reviewLanguage, reviewLink,
+         reviewTime, skus, subclientName, title, transactionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -354,8 +354,8 @@ NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRMerchant_Review
-@dynamic attributes, customAttributes, dataSource, merchantReviewId,
-         merchantReviewStatus, name;
+@dynamic customAttributes, dataSource, merchantReviewAttributes,
+         merchantReviewId, merchantReviewStatus, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

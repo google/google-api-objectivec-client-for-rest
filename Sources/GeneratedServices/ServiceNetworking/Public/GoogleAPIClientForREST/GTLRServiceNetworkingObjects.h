@@ -1336,9 +1336,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  opposed to simply a description of methods and bindings. They are also
  *  sometimes simply referred to as "APIs" in other contexts, such as the name
  *  of this message itself. See https://cloud.google.com/apis/design/glossary
- *  for detailed terminology.
+ *  for detailed terminology. New usages of this message as an alternative to
+ *  ServiceDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_Api : GTLRObject
+
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /** The methods of this interface, in unspecified order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Method *> *methods;
@@ -1662,7 +1669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  pathTranslation
+ *  no-lint
  *
  *  Likely values:
  *    @arg @c kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathToAddress
@@ -2759,7 +2766,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Enum type definition.
+ *  Enum type definition. New usages of this message as an alternative to
+ *  EnumDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_Enum : GTLRObject
 
@@ -2795,7 +2806,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Enum value definition.
+ *  Enum value definition. New usages of this message as an alternative to
+ *  EnumValueDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_EnumValue : GTLRObject
 
@@ -2855,7 +2870,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  A single field of a message type.
+ *  A single field of a message type. New usages of this message as an
+ *  alternative to FieldDescriptorProto are strongly discouraged. This message
+ *  does not reliability preserve all information necessary to model the schema
+ *  and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceNetworking_Field : GTLRObject
 
@@ -3118,7 +3137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_GoSettings_RenamedServices *renamedServices;
@@ -3129,7 +3148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3683,9 +3702,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Method represents a method of an API interface.
+ *  Method represents a method of an API interface. New usages of this message
+ *  as an alternative to MethodDescriptorProto are strongly discouraged. This
+ *  message does not reliability preserve all information necessary to model the
+ *  schema and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceNetworking_Method : GTLRObject
+
+/**
+ *  The source edition string, only valid when syntax is SYNTAX_EDITIONS. This
+ *  field should be ignored, instead the edition should be inherited from Api.
+ *  This is similar to Field and EnumValue.
+ */
+@property(nonatomic, copy, nullable) NSString *edition GTLR_DEPRECATED;
 
 /** The simple name of this method. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3714,7 +3744,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *responseTypeUrl;
 
 /**
- *  The source syntax of this method.
+ *  The source syntax of this method. This field should be ignored, instead the
+ *  syntax should be inherited from Api. This is similar to Field and EnumValue.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceNetworking_Method_Syntax_SyntaxEditions Syntax
@@ -3724,7 +3755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *    @arg @c kGTLRServiceNetworking_Method_Syntax_SyntaxProto3 Syntax `proto3`.
  *        (Value: "SYNTAX_PROTO3")
  */
-@property(nonatomic, copy, nullable) NSString *syntax;
+@property(nonatomic, copy, nullable) NSString *syntax GTLR_DEPRECATED;
 
 @end
 
@@ -4448,7 +4479,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  A protocol buffer option, which can be attached to a message, field,
- *  enumeration, etc.
+ *  enumeration, etc. New usages of this message as an alternative to
+ *  FileOptions, MessageOptions, FieldOptions, EnumOptions, EnumValueOptions,
+ *  ServiceOptions, or MethodOptions are strongly discouraged.
  */
 @interface GTLRServiceNetworking_Option : GTLRObject
 
@@ -5529,7 +5562,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  A protocol buffer message type.
+ *  A protocol buffer message type. New usages of this message as an alternative
+ *  to DescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_Type : GTLRObject
 
@@ -5720,8 +5757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_ConsumerProject *consumerProject;
 
 /**
- *  RANGES_EXHAUSTED, RANGES_EXHAUSTED, and RANGES_DELETED_LATER are done when
- *  range_reservation is provided.
+ *  RANGES_EXHAUSTED, RANGES_NOT_RESERVED, and RANGES_DELETED_LATER are done
+ *  when range_reservation is provided.
  */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_RangeReservation *rangeReservation;
 

@@ -386,6 +386,29 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 @end
 
+@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsListAssignedTargetingOptions
+
+@dynamic advertiserId, campaignId, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           campaignId:(long long)campaignId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"campaignId"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns/{+campaignId}:listAssignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersCampaignsListAssignedTargetingOptions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.campaignId = campaignId;
+  query.expectedObjectClass = [GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.campaigns.listAssignedTargetingOptions";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_AdvertisersCampaignsPatch
 
 @dynamic advertiserId, campaignId, updateMask;
@@ -412,6 +435,60 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.campaignId = campaignId;
   query.expectedObjectClass = [GTLRDisplayVideo_Campaign class];
   query.loggingName = @"displayvideo.advertisers.campaigns.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
+
+@dynamic advertiserId, assignedTargetingOptionId, campaignId, targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           campaignId:(long long)campaignId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"assignedTargetingOptionId", @"campaignId",
+    @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.campaignId = campaignId;
+  query.targetingType = targetingType;
+  query.assignedTargetingOptionId = assignedTargetingOptionId;
+  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
+  query.loggingName = @"displayvideo.advertisers.campaigns.targetingTypes.assignedTargetingOptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
+
+@dynamic advertiserId, campaignId, filter, orderBy, pageSize, pageToken,
+         targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           campaignId:(long long)campaignId
+                        targetingType:(NSString *)targetingType {
+  NSArray *pathParams = @[
+    @"advertiserId", @"campaignId", @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.campaignId = campaignId;
+  query.targetingType = targetingType;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.campaigns.targetingTypes.assignedTargetingOptions.list";
   return query;
 }
 
@@ -961,6 +1038,29 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 @end
 
+@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersListAssignedTargetingOptions
+
+@dynamic advertiserId, filter, insertionOrderId, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     insertionOrderId:(long long)insertionOrderId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"insertionOrderId"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}:listAssignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersListAssignedTargetingOptions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.insertionOrderId = insertionOrderId;
+  query.expectedObjectClass = [GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.insertionOrders.listAssignedTargetingOptions";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersPatch
 
 @dynamic advertiserId, insertionOrderId, updateMask;
@@ -987,6 +1087,123 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.insertionOrderId = insertionOrderId;
   query.expectedObjectClass = [GTLRDisplayVideo_InsertionOrder class];
   query.loggingName = @"displayvideo.advertisers.insertionOrders.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate
+
+@dynamic advertiserId, insertionOrderId, targetingType;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_AssignedTargetingOption *)object
+                   advertiserId:(long long)advertiserId
+               insertionOrderId:(long long)insertionOrderId
+                  targetingType:(NSString *)targetingType {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"insertionOrderId", @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.insertionOrderId = insertionOrderId;
+  query.targetingType = targetingType;
+  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
+  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete
+
+@dynamic advertiserId, assignedTargetingOptionId, insertionOrderId,
+         targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     insertionOrderId:(long long)insertionOrderId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"assignedTargetingOptionId", @"insertionOrderId",
+    @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.insertionOrderId = insertionOrderId;
+  query.targetingType = targetingType;
+  query.assignedTargetingOptionId = assignedTargetingOptionId;
+  query.expectedObjectClass = [GTLRDisplayVideo_Empty class];
+  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
+
+@dynamic advertiserId, assignedTargetingOptionId, insertionOrderId,
+         targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     insertionOrderId:(long long)insertionOrderId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"assignedTargetingOptionId", @"insertionOrderId",
+    @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.insertionOrderId = insertionOrderId;
+  query.targetingType = targetingType;
+  query.assignedTargetingOptionId = assignedTargetingOptionId;
+  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
+  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList
+
+@dynamic advertiserId, filter, insertionOrderId, orderBy, pageSize, pageToken,
+         targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     insertionOrderId:(long long)insertionOrderId
+                        targetingType:(NSString *)targetingType {
+  NSArray *pathParams = @[
+    @"advertiserId", @"insertionOrderId", @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.insertionOrderId = insertionOrderId;
+  query.targetingType = targetingType;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.list";
   return query;
 }
 

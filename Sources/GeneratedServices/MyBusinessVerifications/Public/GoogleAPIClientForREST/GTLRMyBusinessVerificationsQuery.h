@@ -182,6 +182,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Generate a token for the provided location data to verify the location.
+ *
+ *  Method: mybusinessverifications.verificationTokens.generate
+ */
+@interface GTLRMyBusinessVerificationsQuery_VerificationTokensGenerate : GTLRMyBusinessVerificationsQuery
+
+/**
+ *  Fetches a @c
+ *  GTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse.
+ *
+ *  Generate a token for the provided location data to verify the location.
+ *
+ *  @param object The @c
+ *    GTLRMyBusinessVerifications_GenerateInstantVerificationTokenRequest to
+ *    include in the query.
+ *
+ *  @return GTLRMyBusinessVerificationsQuery_VerificationTokensGenerate
+ */
++ (instancetype)queryWithObject:(GTLRMyBusinessVerifications_GenerateInstantVerificationTokenRequest *)object;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

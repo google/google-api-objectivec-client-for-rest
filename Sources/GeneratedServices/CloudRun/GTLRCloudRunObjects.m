@@ -1455,8 +1455,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2TaskTemplate
-@dynamic containers, encryptionKey, executionEnvironment, maxRetries,
-         nodeSelector, serviceAccount, timeout, volumes, vpcAccess;
+@dynamic containers, encryptionKey, executionEnvironment,
+         gpuZonalRedundancyDisabled, maxRetries, nodeSelector, serviceAccount,
+         timeout, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1617,8 +1618,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate
 @dynamic annotations, containers, encryptionKey, encryptionKeyRevocationAction,
-         encryptionKeyShutdownDuration, labels, nodeSelector, revision,
-         serviceAccount, serviceMesh, volumes, vpcAccess;
+         encryptionKeyShutdownDuration, gpuZonalRedundancyDisabled, labels,
+         nodeSelector, revision, serviceAccount, serviceMesh, volumes,
+         vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

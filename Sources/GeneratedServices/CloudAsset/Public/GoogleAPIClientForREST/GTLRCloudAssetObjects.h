@@ -20,6 +20,7 @@
 @class GTLRCloudAsset_AnalyzerOrgPolicyConstraint;
 @class GTLRCloudAsset_Asset;
 @class GTLRCloudAsset_AssetEnrichment;
+@class GTLRCloudAsset_AssetException;
 @class GTLRCloudAsset_AttachedResource;
 @class GTLRCloudAsset_AuditConfig;
 @class GTLRCloudAsset_AuditLogConfig;
@@ -157,6 +158,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_AssetException.exceptionType
+
+/**
+ *  exception_type is not applicable for the current asset.
+ *
+ *  Value: "EXCEPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AssetException_ExceptionType_ExceptionTypeUnspecified;
+/**
+ *  The asset content is truncated.
+ *
+ *  Value: "TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AssetException_ExceptionType_Truncation;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_AuditLogConfig.logType
@@ -1223,6 +1240,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
 
+/** The exceptions of a resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AssetException *> *assetExceptions;
+
 /**
  *  The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported
  *  asset
@@ -1306,6 +1326,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  members that have "roles/owner" role in the resource's IAM Policy.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceOwners *resourceOwners;
+
+@end
+
+
+/**
+ *  An exception of an asset.
+ */
+@interface GTLRCloudAsset_AssetException : GTLRObject
+
+/** The details of the exception. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The type of exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_AssetException_ExceptionType_ExceptionTypeUnspecified
+ *        exception_type is not applicable for the current asset. (Value:
+ *        "EXCEPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_AssetException_ExceptionType_Truncation The asset
+ *        content is truncated. (Value: "TRUNCATION")
+ */
+@property(nonatomic, copy, nullable) NSString *exceptionType;
 
 @end
 

@@ -53,7 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Alaw;
 /**
- *  Not specified. Will return result google.rpc.Code.INVALID_ARGUMENT.
+ *  Not specified. Only used by GenerateVoiceCloningKey. Otherwise, will return
+ *  result google.rpc.Code.INVALID_ARGUMENT.
  *
  *  Value: "AUDIO_ENCODING_UNSPECIFIED"
  */
@@ -261,8 +262,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        that compand 14-bit audio samples using G.711 PCMU/A-law. Audio
  *        content returned as ALAW also contains a WAV header. (Value: "ALAW")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_AudioEncodingUnspecified
- *        Not specified. Will return result google.rpc.Code.INVALID_ARGUMENT.
- *        (Value: "AUDIO_ENCODING_UNSPECIFIED")
+ *        Not specified. Only used by GenerateVoiceCloningKey. Otherwise, will
+ *        return result google.rpc.Code.INVALID_ARGUMENT. (Value:
+ *        "AUDIO_ENCODING_UNSPECIFIED")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16 Uncompressed
  *        16-bit signed little-endian samples (Linear PCM). Audio content
  *        returned as LINEAR16 also contains a WAV header. (Value: "LINEAR16")

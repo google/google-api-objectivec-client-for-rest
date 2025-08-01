@@ -134,8 +134,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Inserts a data transfer request. See the [Transfer
- *  parameters](/admin-sdk/data-transfer/v1/parameters) reference for specific
- *  application requirements.
+ *  parameters](https://developers.google.com/workspace/admin/data-transfer/v1/parameters)
+ *  reference for specific application requirements.
  *
  *  Method: datatransfer.transfers.insert
  *
@@ -148,8 +148,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataTransfer_DataTransfer.
  *
  *  Inserts a data transfer request. See the [Transfer
- *  parameters](/admin-sdk/data-transfer/v1/parameters) reference for specific
- *  application requirements.
+ *  parameters](https://developers.google.com/workspace/admin/data-transfer/v1/parameters)
+ *  reference for specific application requirements.
  *
  *  @param object The @c GTLRDataTransfer_DataTransfer to include in the query.
  *

@@ -1165,6 +1165,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Parallelstore/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Parallelstore/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'ParameterManager' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/ParameterManager/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/ParameterManager/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'PaymentsResellerSubscription' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/PaymentsResellerSubscription/**/*.{h,m}'

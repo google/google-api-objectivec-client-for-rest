@@ -50,11 +50,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeOther;
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSap;
 /**
- *  SCC IaC (Infra as Code) best practices
+ *  SCC IaC (Infra as Code) best practices.
  *
  *  Value: "SCC_IAC"
  */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac;
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac GTLR_DEPRECATED;
 /**
  *  SQL best practices
  *
@@ -73,58 +73,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
-
-@end
-
-/**
- *  Gets details of a discovered workload profile.
- *
- *  Method: workloadmanager.projects.locations.discoveredprofiles.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
- */
-@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet : GTLRWorkloadManagerQuery
-
-/** Required. Name of the resource */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRWorkloadManager_WorkloadProfile.
- *
- *  Gets details of a discovered workload profile.
- *
- *  @param name Required. Name of the resource
- *
- *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Get the health of a discovered workload profile.
- *
- *  Method: workloadmanager.projects.locations.discoveredprofiles.healthes.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
- */
-@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet : GTLRWorkloadManagerQuery
-
-/** Required. The resource name */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRWorkloadManager_WorkloadProfileHealth.
- *
- *  Get the health of a discovered workload profile.
- *
- *  @param name Required. The resource name
- *
- *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -922,7 +870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *    @arg @c kGTLRWorkloadManagerEvaluationTypeOther Customized best practices
  *        (Value: "OTHER")
  *    @arg @c kGTLRWorkloadManagerEvaluationTypeSccIac SCC IaC (Infra as Code)
- *        best practices (Value: "SCC_IAC")
+ *        best practices. (Value: "SCC_IAC")
  */
 @property(nonatomic, copy, nullable) NSString *evaluationType;
 

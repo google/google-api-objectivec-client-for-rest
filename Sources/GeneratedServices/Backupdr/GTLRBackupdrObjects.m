@@ -580,8 +580,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_BackupConfigInfo
 @dynamic backupApplianceBackupConfig, gcpBackupConfig, lastBackupError,
-         lastBackupState, lastSuccessfulBackupConsistencyTime,
-         lastSuccessfulLogBackupConsistencyTime;
+         lastBackupState, lastSuccessfulBackupConsistencyTime;
 @end
 
 
@@ -1271,6 +1270,26 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return @"dataSourceReferences";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_FetchMsComplianceMetadataRequest
+//
+
+@implementation GTLRBackupdr_FetchMsComplianceMetadataRequest
+@dynamic projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_FetchMsComplianceMetadataResponse
+//
+
+@implementation GTLRBackupdr_FetchMsComplianceMetadataResponse
+@dynamic isAssuredWorkload;
 @end
 
 

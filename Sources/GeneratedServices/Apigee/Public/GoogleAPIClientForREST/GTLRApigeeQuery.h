@@ -5851,7 +5851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. The name of the debug session transaction. Must be of the form:
- *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}/data/{transaction}`.
+ *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debug_session}/data/{transaction}`.
  *  If the API proxy resource has the `space` attribute set, IAM permissions are
  *  checked differently . To learn more, read the [Apigee Spaces
  *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
@@ -5865,7 +5865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The name of the debug session transaction. Must be of
  *    the form:
- *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}/data/{transaction}`.
+ *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debug_session}/data/{transaction}`.
  *    If the API proxy resource has the `space` attribute set, IAM permissions
  *    are checked differently . To learn more, read the [Apigee Spaces
  *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
@@ -5929,7 +5929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. The name of the debug session to retrieve. Must be of the form:
- *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+ *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debug_session}`.
  *  If the API proxy resource has the `space` attribute set, IAM permissions are
  *  checked differently . To learn more, read the [Apigee Spaces
  *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
@@ -5943,7 +5943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The name of the debug session to retrieve. Must be of
  *    the form:
- *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+ *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debug_session}`.
  *    If the API proxy resource has the `space` attribute set, IAM permissions
  *    are checked differently . To learn more, read the [Apigee Spaces
  *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
@@ -5966,13 +5966,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsList : GTLRApigeeQuery
 
 /**
- *  Maximum number of debug sessions to return. The page size defaults to 25.
+ *  Optional. Maximum number of debug sessions to return. The page size defaults
+ *  to 25.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token, returned from a previous ListDebugSessions call, that you can
- *  use to retrieve the next page.
+ *  Optional. Page token, returned from a previous ListDebugSessions call, that
+ *  you can use to retrieve the next page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -12843,7 +12844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Optional. The list of fields to update. Valid fields to update are
- *  `profile`, `scope`, `include_all_resources`, `include`, and `exclude`.
+ *  `include_all_resources` and `include`.
  *
  *  String format is a comma-separated list of fields.
  */

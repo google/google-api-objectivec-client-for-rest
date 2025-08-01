@@ -1341,7 +1341,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_PhpSettings
-@dynamic common;
+@dynamic common, libraryPackage;
 @end
 
 

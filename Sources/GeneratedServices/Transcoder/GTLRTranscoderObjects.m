@@ -409,7 +409,25 @@ NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateConversionStrategy_Fr
 //
 
 @implementation GTLRTranscoder_Input
-@dynamic key, preprocessingConfig, uri;
+@dynamic attributes, key, preprocessingConfig, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_InputAttributes
+//
+
+@implementation GTLRTranscoder_InputAttributes
+@dynamic trackDefinitions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trackDefinitions" : [GTLRTranscoder_TrackDefinition class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -419,9 +437,9 @@ NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateConversionStrategy_Fr
 //
 
 @implementation GTLRTranscoder_Job
-@dynamic batchModePriority, config, createTime, endTime, error, inputUri,
-         labels, mode, name, optimization, outputUri, startTime, state,
-         templateId, ttlAfterCompletionDays;
+@dynamic batchModePriority, config, createTime, endTime, error, fillContentGaps,
+         inputUri, labels, mode, name, optimization, outputUri, startTime,
+         state, templateId, ttlAfterCompletionDays;
 @end
 
 
@@ -754,6 +772,25 @@ NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateConversionStrategy_Fr
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"mapping" : [GTLRTranscoder_TextMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_TrackDefinition
+//
+
+@implementation GTLRTranscoder_TrackDefinition
+@dynamic detectedLanguages, detectLanguages, inputTrack, languages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedLanguages" : [NSString class],
+    @"languages" : [NSString class]
   };
   return map;
 }

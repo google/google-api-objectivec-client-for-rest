@@ -24,6 +24,7 @@
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue;
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item;
 @class GTLRReports_Activity_Id;
+@class GTLRReports_ActivityNetworkInfo;
 @class GTLRReports_AppliedLabel;
 @class GTLRReports_Channel_Params;
 @class GTLRReports_Date;
@@ -121,6 +122,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  `audit#activity`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Network information of the user doing the action. */
+@property(nonatomic, strong, nullable) GTLRReports_ActivityNetworkInfo *networkInfo;
 
 /**
  *  This is the domain that is affected by the report's event. For example
@@ -328,6 +332,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Parameter values */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;
+
+@end
+
+
+/**
+ *  Network information of the user doing the action.
+ */
+@interface GTLRReports_ActivityNetworkInfo : GTLRObject
+
+/**
+ *  IP Address of the user doing the action.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ipAsn;
+
+/** ISO 3166-1 alpha-2 region code of the user doing the action. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  ISO 3166-2 region code (states and provinces) for countries of the user
+ *  doing the action.
+ */
+@property(nonatomic, copy, nullable) NSString *subdivisionCode;
 
 @end
 
@@ -721,7 +749,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Output only. Parameter value pairs for various applications. For the Entity
  *  Usage Report parameters and values, see [the Entity Usage parameters
- *  reference](/admin-sdk/reports/v1/reference/usage-ref-appendix-a/entities).
+ *  reference](https://developers.google.com/workspace/admin/reports/v1/reference/usage-ref-appendix-a/entities).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport_Parameters_Item *> *parameters;
 

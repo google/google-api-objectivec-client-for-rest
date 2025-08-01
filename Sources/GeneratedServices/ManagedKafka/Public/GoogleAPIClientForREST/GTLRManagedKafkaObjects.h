@@ -851,6 +851,20 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The current state of the cluster.
  *
  *  Likely values:

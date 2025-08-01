@@ -1026,6 +1026,33 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_FetchMsComplianceMetadataRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:msComplianceMetadata";
+  GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_FetchMsComplianceMetadataResponse class];
+  query.loggingName = @"backupdr.projects.locations.managementServers.msComplianceMetadata";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsManagementServersSetIamPolicy
 
 @dynamic resource;

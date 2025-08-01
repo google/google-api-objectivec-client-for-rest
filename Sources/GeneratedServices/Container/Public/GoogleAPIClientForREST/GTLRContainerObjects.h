@@ -37,6 +37,7 @@
 @class GTLRContainer_BinaryAuthorization;
 @class GTLRContainer_BlueGreenInfo;
 @class GTLRContainer_BlueGreenSettings;
+@class GTLRContainer_BootDisk;
 @class GTLRContainer_CertificateAuthorityDomainConfig;
 @class GTLRContainer_CidrBlock;
 @class GTLRContainer_ClientCertificateConfig;
@@ -56,6 +57,7 @@
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_DConfig;
+@class GTLRContainer_DefaultComputeClassConfig;
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DesiredAdditionalIPRangesConfig;
 @class GTLRContainer_DesiredEnterpriseConfig;
@@ -64,6 +66,9 @@
 @class GTLRContainer_DNSEndpointConfig;
 @class GTLRContainer_EnterpriseConfig;
 @class GTLRContainer_EphemeralStorageLocalSsdConfig;
+@class GTLRContainer_EvictionGracePeriod;
+@class GTLRContainer_EvictionMinimumReclaim;
+@class GTLRContainer_EvictionSignals;
 @class GTLRContainer_FastSocket;
 @class GTLRContainer_Filter;
 @class GTLRContainer_Fleet;
@@ -97,6 +102,7 @@
 @class GTLRContainer_LoggingComponentConfig;
 @class GTLRContainer_LoggingConfig;
 @class GTLRContainer_LoggingVariantConfig;
+@class GTLRContainer_LustreCsiDriverConfig;
 @class GTLRContainer_MaintenanceExclusionOptions;
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
@@ -146,6 +152,7 @@
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
 @class GTLRContainer_PrivateRegistryAccessConfig;
+@class GTLRContainer_PrivilegedAdmissionConfig;
 @class GTLRContainer_PubSub;
 @class GTLRContainer_QueuedProvisioning;
 @class GTLRContainer_RangeInfo;
@@ -972,6 +979,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent;
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeInfoEvent;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_Fleet.membershipType
+
+/**
+ *  The membership supports only lightweight compatible features.
+ *
+ *  Value: "LIGHTWEIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Fleet_MembershipType_Lightweight;
+/**
+ *  The MembershipType is not set.
+ *
+ *  Value: "MEMBERSHIP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Fleet_MembershipType_MembershipTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_GatewayAPIConfig.channel
 
 /**
@@ -1136,6 +1159,85 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_Cgr
  *  Value: "CGROUP_MODE_V2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV2;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_LinuxNodeConfig.transparentHugepageDefrag
+
+/**
+ *  It means that an application requesting THP will stall on allocation failure
+ *  and directly reclaim pages and compact memory in an effort to allocate a THP
+ *  immediately.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragAlways;
+/**
+ *  It means that an application will wake kswapd in the background to reclaim
+ *  pages and wake kcompactd to compact memory so that THP is available in the
+ *  near future. It’s the responsibility of khugepaged to then install the THP
+ *  pages later.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDefer;
+/**
+ *  It means that an application will enter direct reclaim and compaction like
+ *  always, but only for regions that have used madvise(MADV_HUGEPAGE); all
+ *  other regions will wake kswapd in the background to reclaim pages and wake
+ *  kcompactd to compact memory so that THP is available in the near future.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER_WITH_MADVISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDeferWithMadvise;
+/**
+ *  It means that an application will enter direct reclaim like always but only
+ *  for regions that are have used madvise(MADV_HUGEPAGE). This is the default
+ *  kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_MADVISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragMadvise;
+/**
+ *  It means that an application will never enter direct reclaim or compaction.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragNever;
+/**
+ *  Default value. GKE will not modify the kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_LinuxNodeConfig.transparentHugepageEnabled
+
+/**
+ *  Transparent hugepage support for anonymous memory is enabled system wide.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledAlways;
+/**
+ *  Transparent hugepage support for anonymous memory is enabled inside
+ *  MADV_HUGEPAGE regions. This is the default kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_MADVISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledMadvise;
+/**
+ *  Transparent hugepage support for anonymous memory is disabled.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledNever;
+/**
+ *  Default value. GKE will not modify the kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_LoggingComponentConfig.enableComponents
@@ -2884,6 +2986,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_KubernetesDashboard *kubernetesDashboard GTLR_DEPRECATED;
 
+/** Configuration for the Lustre CSI driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_LustreCsiDriverConfig *lustreCsiDriverConfig;
+
 /**
  *  Configuration for NetworkPolicy. This only tracks whether the addon is
  *  enabled or not on the Master, it does not track whether network policy is
@@ -3032,6 +3137,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  AutoIpamConfig contains all information related to Auto IPAM
  */
 @interface GTLRContainer_AutoIpamConfig : GTLRObject
+
+/**
+ *  The flag that enables Auto IPAM on this cluster
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 
@@ -3068,6 +3181,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  PrivilegedAdmissionConfig is the configuration related to privileged
+ *  admission control.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivilegedAdmissionConfig *privilegedAdmissionConfig;
 
 /**
  *  WorkloadPolicyConfig is the configuration related to GCW workload policy
@@ -3376,6 +3495,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Standard policy for the blue-green upgrade. */
 @property(nonatomic, strong, nullable) GTLRContainer_StandardRolloutPolicy *standardRolloutPolicy;
+
+@end
+
+
+/**
+ *  BootDisk specifies the boot disk configuration for nodepools.
+ */
+@interface GTLRContainer_BootDisk : GTLRObject
+
+/**
+ *  Disk type of the boot disk. (i.e. Hyperdisk-Balanced, PD-Balanced, etc.)
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  For Hyperdisk-Balanced only, the provisioned IOPS config value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedIops;
+
+/**
+ *  For Hyperdisk-Balanced only, the provisioned throughput config value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
+
+/**
+ *  Disk size in GB. Replaces NodeConfig.disk_size_gb
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
 
 @end
 
@@ -4047,6 +4200,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        No change to autoscaling configuration. (Value: "PROFILE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *autoscalingProfile;
+
+/** Default compute class is a configuration for default compute class. */
+@property(nonatomic, strong, nullable) GTLRContainer_DefaultComputeClassConfig *defaultComputeClassConfig;
 
 /**
  *  Enables automatic node pool creation and deletion.
@@ -4888,6 +5044,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  DefaultComputeClassConfig defines default compute class configuration.
+ */
+@interface GTLRContainer_DefaultComputeClassConfig : GTLRObject
+
+/**
+ *  Enables default compute class.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  DefaultSnatStatus contains the desired state of whether default sNAT should
  *  be disabled on the cluster.
  */
@@ -5106,6 +5277,179 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Eviction grace periods are grace periods for each eviction signal.
+ */
+@interface GTLRContainer_EvictionGracePeriod : GTLRObject
+
+/**
+ *  Optional. Grace period for eviction due to imagefs available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsAvailable;
+
+/**
+ *  Optional. Grace period for eviction due to imagefs inodes free signal.
+ *  Sample format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsInodesFree;
+
+/**
+ *  Optional. Grace period for eviction due to memory available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *memoryAvailable;
+
+/**
+ *  Optional. Grace period for eviction due to nodefs available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsAvailable;
+
+/**
+ *  Optional. Grace period for eviction due to nodefs inodes free signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsInodesFree;
+
+/**
+ *  Optional. Grace period for eviction due to pid available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *pidAvailable;
+
+@end
+
+
+/**
+ *  Eviction minimum reclaims are the resource amounts of minimum reclaims for
+ *  each eviction signal.
+ */
+@interface GTLRContainer_EvictionMinimumReclaim : GTLRObject
+
+/**
+ *  Optional. Minimum reclaim for eviction due to imagefs available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsAvailable;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to imagefs inodes free signal.
+ *  Only take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsInodesFree;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to memory available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *memoryAvailable;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to nodefs available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsAvailable;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to nodefs inodes free signal.
+ *  Only take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsInodesFree;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to pid available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *pidAvailable;
+
+@end
+
+
+/**
+ *  Eviction signals are the current state of a particular resource at a
+ *  specific point in time. The kubelet uses eviction signals to make eviction
+ *  decisions by comparing the signals to eviction thresholds, which are the
+ *  minimum amount of the resource that should be available on the node.
+ */
+@interface GTLRContainer_EvictionSignals : GTLRObject
+
+/**
+ *  Optional. Amount of storage available on filesystem that container runtime
+ *  uses for storing images layers. If the container filesystem and image
+ *  filesystem are not separate, then imagefs can store both image layers and
+ *  writeable layers. Defines the amount of "imagefs.available" signal in
+ *  kubelet. Default is unset, if not specified in the kubelet config. It takses
+ *  percentage value for now. Sample format: "30%". Must be >= 15% and <= 50%.
+ *  See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsAvailable;
+
+/**
+ *  Optional. Amount of inodes available on filesystem that container runtime
+ *  uses for storing images layers. Defines the amount of "imagefs.inodesFree"
+ *  signal in kubelet. Default is unset, if not specified in the kubelet config.
+ *  Linux only. It takses percentage value for now. Sample format: "30%". Must
+ *  be >= 5% and <= 50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsInodesFree;
+
+/**
+ *  Optional. Memory available (i.e. capacity - workingSet), in bytes. Defines
+ *  the amount of "memory.available" signal in kubelet. Default is unset, if not
+ *  specified in the kubelet config. Format: positive number + unit, e.g. 100Ki,
+ *  10Mi, 5Gi. Valid units are Ki, Mi, Gi. Must be >= 100Mi and <= 50% of the
+ *  node's memory. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *memoryAvailable;
+
+/**
+ *  Optional. Amount of storage available on filesystem that kubelet uses for
+ *  volumes, daemon logs, etc. Defines the amount of "nodefs.available" signal
+ *  in kubelet. Default is unset, if not specified in the kubelet config. It
+ *  takses percentage value for now. Sample format: "30%". Must be >= 10% and <=
+ *  50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsAvailable;
+
+/**
+ *  Optional. Amount of inodes available on filesystem that kubelet uses for
+ *  volumes, daemon logs, etc. Defines the amount of "nodefs.inodesFree" signal
+ *  in kubelet. Default is unset, if not specified in the kubelet config. Linux
+ *  only. It takses percentage value for now. Sample format: "30%". Must be >=
+ *  5% and <= 50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsInodesFree;
+
+/**
+ *  Optional. Amount of PID available for pod allocation. Defines the amount of
+ *  "pid.available" signal in kubelet. Default is unset, if not specified in the
+ *  kubelet config. It takses percentage value for now. Sample format: "30%".
+ *  Must be >= 10% and <= 50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *pidAvailable;
+
+@end
+
+
+/**
  *  Configuration of Fast Socket feature.
  */
 @interface GTLRContainer_FastSocket : GTLRObject
@@ -5145,6 +5489,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  * /memberships/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *membership;
+
+/**
+ *  The type of the cluster's fleet membership.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_Fleet_MembershipType_Lightweight The membership
+ *        supports only lightweight compatible features. (Value: "LIGHTWEIGHT")
+ *    @arg @c kGTLRContainer_Fleet_MembershipType_MembershipTypeUnspecified The
+ *        MembershipType is not set. (Value: "MEMBERSHIP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *membershipType;
 
 /**
  *  Output only. Whether the cluster has been registered through the fleet API.
@@ -5918,15 +6273,83 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
  *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
  *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
- *  net.ipv4.tcp_tw_reuse net.netfilter.nf_conntrack_max
- *  net.netfilter.nf_conntrack_buckets
+ *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_max_orphans
+ *  net.netfilter.nf_conntrack_max net.netfilter.nf_conntrack_buckets
  *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
  *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
- *  vm.max_map_count
+ *  fs.aio-max-nr fs.file-max fs.inotify.max_user_instances
+ *  fs.inotify.max_user_watches fs.nr_open vm.dirty_background_ratio
+ *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_writeback_centisecs
+ *  vm.max_map_count vm.overcommit_memory vm.overcommit_ratio
+ *  vm.vfs_cache_pressure vm.swappiness vm.watermark_scale_factor
+ *  vm.min_free_kbytes
  */
 @property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig_Sysctls *sysctls;
+
+/**
+ *  Optional. Defines the transparent hugepage defrag configuration on the node.
+ *  VM hugepage allocation can be managed by either limiting defragmentation for
+ *  delayed allocation or skipping it entirely for immediate allocation only.
+ *  See https://docs.kernel.org/admin-guide/mm/transhuge.html for more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragAlways
+ *        It means that an application requesting THP will stall on allocation
+ *        failure and directly reclaim pages and compact memory in an effort to
+ *        allocate a THP immediately. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_ALWAYS")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDefer
+ *        It means that an application will wake kswapd in the background to
+ *        reclaim pages and wake kcompactd to compact memory so that THP is
+ *        available in the near future. It’s the responsibility of khugepaged to
+ *        then install the THP pages later. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDeferWithMadvise
+ *        It means that an application will enter direct reclaim and compaction
+ *        like always, but only for regions that have used
+ *        madvise(MADV_HUGEPAGE); all other regions will wake kswapd in the
+ *        background to reclaim pages and wake kcompactd to compact memory so
+ *        that THP is available in the near future. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER_WITH_MADVISE")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragMadvise
+ *        It means that an application will enter direct reclaim like always but
+ *        only for regions that are have used madvise(MADV_HUGEPAGE). This is
+ *        the default kernel configuration. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_MADVISE")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragNever
+ *        It means that an application will never enter direct reclaim or
+ *        compaction. (Value: "TRANSPARENT_HUGEPAGE_DEFRAG_NEVER")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragUnspecified
+ *        Default value. GKE will not modify the kernel configuration. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transparentHugepageDefrag;
+
+/**
+ *  Optional. Transparent hugepage support for anonymous memory can be entirely
+ *  disabled (mostly for debugging purposes) or only enabled inside
+ *  MADV_HUGEPAGE regions (to avoid the risk of consuming more memory resources)
+ *  or enabled system wide. See
+ *  https://docs.kernel.org/admin-guide/mm/transhuge.html for more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledAlways
+ *        Transparent hugepage support for anonymous memory is enabled system
+ *        wide. (Value: "TRANSPARENT_HUGEPAGE_ENABLED_ALWAYS")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledMadvise
+ *        Transparent hugepage support for anonymous memory is enabled inside
+ *        MADV_HUGEPAGE regions. This is the default kernel configuration.
+ *        (Value: "TRANSPARENT_HUGEPAGE_ENABLED_MADVISE")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledNever
+ *        Transparent hugepage support for anonymous memory is disabled. (Value:
+ *        "TRANSPARENT_HUGEPAGE_ENABLED_NEVER")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledUnspecified
+ *        Default value. GKE will not modify the kernel configuration. (Value:
+ *        "TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transparentHugepageEnabled;
 
 @end
 
@@ -5937,13 +6360,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
  *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
  *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
- *  net.ipv4.tcp_tw_reuse net.netfilter.nf_conntrack_max
- *  net.netfilter.nf_conntrack_buckets
+ *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_max_orphans
+ *  net.netfilter.nf_conntrack_max net.netfilter.nf_conntrack_buckets
  *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
  *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
- *  vm.max_map_count
+ *  fs.aio-max-nr fs.file-max fs.inotify.max_user_instances
+ *  fs.inotify.max_user_watches fs.nr_open vm.dirty_background_ratio
+ *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_writeback_centisecs
+ *  vm.max_map_count vm.overcommit_memory vm.overcommit_ratio
+ *  vm.vfs_cache_pressure vm.swappiness vm.watermark_scale_factor
+ *  vm.min_free_kbytes
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6100,6 +6528,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        Default value. This shouldn't be used. (Value: "VARIANT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *variant;
+
+@end
+
+
+/**
+ *  Configuration for the Lustre CSI driver.
+ */
+@interface GTLRContainer_LustreCsiDriverConfig : GTLRObject
+
+/**
+ *  Whether the Lustre CSI driver is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  If set to true, the Lustre CSI driver will install Lustre kernel modules
+ *  using port 6988.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableLegacyLustrePort;
 
 @end
 
@@ -6696,6 +7147,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Advanced features for the Compute Engine VM. */
 @property(nonatomic, strong, nullable) GTLRContainer_AdvancedMachineFeatures *advancedMachineFeatures;
 
+/** The boot disk configuration for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_BootDisk *bootDisk;
+
 /**
  *  The Customer Managed Encryption Key used to encrypt the boot disk attached
  *  to each node in the node pool. This should be of the form
@@ -7141,6 +7595,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *cpuManagerPolicy;
 
 /**
+ *  Optional. eviction_max_pod_grace_period_seconds is the maximum allowed grace
+ *  period (in seconds) to use when terminating pods in response to a soft
+ *  eviction threshold being met. This value effectively caps the Pod's
+ *  terminationGracePeriodSeconds value during soft evictions. Default: 0.
+ *  Range: [0, 300].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evictionMaxPodGracePeriodSeconds;
+
+/**
+ *  Optional. eviction_minimum_reclaim is a map of signal names to quantities
+ *  that defines minimum reclaims, which describe the minimum amount of a given
+ *  resource the kubelet will reclaim when performing a pod eviction while that
+ *  resource is under pressure.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EvictionMinimumReclaim *evictionMinimumReclaim;
+
+/**
+ *  Optional. eviction_soft is a map of signal names to quantities that defines
+ *  soft eviction thresholds. Each signal is compared to its corresponding
+ *  threshold to determine if a pod eviction should occur.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EvictionSignals *evictionSoft;
+
+/**
+ *  Optional. eviction_soft_grace_period is a map of signal names to quantities
+ *  that defines grace periods for each soft eviction signal. The grace period
+ *  is the amount of time that a pod must be under pressure before an eviction
+ *  occurs.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EvictionGracePeriod *evictionSoftGracePeriod;
+
+/**
  *  Optional. Defines the percent of disk usage after which image garbage
  *  collection is always run. The percent is calculated as this field value out
  *  of 100. The value must be between 10 and 85, inclusive and greater than
@@ -7188,6 +7676,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *insecureKubeletReadonlyPortEnabled;
+
+/**
+ *  Optional. Defines the maximum number of image pulls in parallel. The range
+ *  is 2 to 5, inclusive. The default value is 2 or 3 depending on the disk
+ *  type. See
+ *  https://kubernetes.io/docs/concepts/containers/images/#maximum-parallel-image-pulls
+ *  for more details.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxParallelImagePulls;
 
 /**
  *  Optional. Controls NUMA-aware Memory Manager configuration on the node. For
@@ -8229,6 +8728,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  PrivilegedAdmissionConfig stores the list of authorized allowlist paths for
+ *  the cluster.
+ */
+@interface GTLRContainer_PrivilegedAdmissionConfig : GTLRObject
+
+/**
+ *  The customer allowlist Cloud Storage paths for the cluster. These paths are
+ *  used with the `--autopilot-privileged-admission` flag to authorize
+ *  privileged workloads in Autopilot clusters. Paths can be GKE-owned, in the
+ *  format `gke:////`, or customer-owned, in the format `gs:///`. Wildcards
+ *  (`*`) are supported to authorize all allowlists under specific paths or
+ *  directories. Example: `gs://my-bucket/ *` will authorize all allowlists
+ *  under the `my-bucket` bucket.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowlistPaths;
 
 @end
 
@@ -9986,6 +10505,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  for more information about support for GPUs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
+
+/**
+ *  The desired boot disk config for nodes in the node pool. Initiates an
+ *  upgrade operation that migrates the nodes in the node pool to the specified
+ *  boot disk config.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_BootDisk *bootDisk;
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been

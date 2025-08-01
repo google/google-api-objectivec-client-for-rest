@@ -29,12 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
-/**
- *  Only populates the AuthorizedView's basic metadata. This includes: name,
- *  deletion_protection, etag.
- *
- *  Value: "BASIC"
- */
+/** Value: "BASIC" */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewBasic;
 /**
  *  Only populates `name` and fields related to the table's encryption state.
@@ -62,6 +57,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewReplicationView;
  *  Value: "RESPONSE_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewResponseViewUnspecified;
+/**
+ *  Uses the default view for each method as documented in the request.
+ *
+ *  Value: "SCHEMA_BUNDLE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewSchemaBundleViewUnspecified;
 /**
  *  Only populates `name` and fields related to the table's schema.
  *
@@ -3394,6 +3395,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  are of the form `projects/{project}/instances/{instance}/tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource_view to be applied to the returned SchemaBundles'
+ *  fields. Defaults to NAME_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdminViewSchemaBundleViewUnspecified Uses the default
+ *        view for each method as documented in the request. (Value:
+ *        "SCHEMA_BUNDLE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewNameOnly Only populates `name`. (Value:
+ *        "NAME_ONLY")
+ *    @arg @c kGTLRBigtableAdminViewBasic Only populates the SchemaBundle's
+ *        basic metadata. This includes: name, etag, create_time, update_time.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates every field. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_ListSchemaBundlesResponse.

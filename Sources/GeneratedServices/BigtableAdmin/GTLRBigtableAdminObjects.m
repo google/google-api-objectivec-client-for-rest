@@ -818,6 +818,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum
+@dynamic enumName, schemaBundleId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32
 //
 
@@ -880,6 +890,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap
 @dynamic keyType, valueType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto
+@dynamic messageName, schemaBundleId;
 @end
 
 
@@ -1827,8 +1847,9 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Type
-@dynamic aggregateType, arrayType, boolType, bytesType, dateType, float32Type,
-         float64Type, int64Type, mapType, stringType, structType, timestampType;
+@dynamic aggregateType, arrayType, boolType, bytesType, dateType, enumType,
+         float32Type, float64Type, int64Type, mapType, protoType, stringType,
+         structType, timestampType;
 @end
 
 

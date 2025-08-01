@@ -66,6 +66,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_EncryptDecrypt;
 /**
+ *  CryptoKeys with this purpose may be used with GetPublicKey and Decapsulate.
+ *
+ *  Value: "KEY_ENCAPSULATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_KeyEncapsulation;
+/**
  *  CryptoKeys with this purpose may be used with MacSign.
  *
  *  Value: "MAC"
@@ -197,6 +203,25 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem768;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized pre-hash version supporting SHA256 digests.
@@ -566,6 +591,25 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem768;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized pre-hash version supporting SHA256 digests.
@@ -1145,6 +1189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_EncryptDecrypt
  *        CryptoKeys with this purpose may be used with Encrypt and Decrypt.
  *        (Value: "ENCRYPT_DECRYPT")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_KeyEncapsulation
+ *        CryptoKeys with this purpose may be used with GetPublicKey and
+ *        Decapsulate. (Value: "KEY_ENCAPSULATION")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_Mac CryptoKeys
  *        with this purpose may be used with MacSign. (Value: "MAC")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_RawEncryptDecrypt
@@ -1254,6 +1301,14 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized pre-hash version supporting SHA256
@@ -1552,6 +1607,14 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized pre-hash version supporting SHA256

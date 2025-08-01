@@ -4545,13 +4545,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Ba
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy GTLR_DEPRECATED;
 /**
- *  Disable location setting on the device.
+ *  Disable location setting on the device. Important: On Android 11 and above,
+ *  work profiles on company-owned devices cannot directly enforce disabling of
+ *  location services. When LOCATION_DISABLED is set, then a nonComplianceDetail
+ *  with USER_ACTION is reported. Compliance can only be restored once the user
+ *  manually turns off location services through the device's Settings
+ *  application.
  *
  *  Value: "LOCATION_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationDisabled;
 /**
- *  Enable location setting on the device.
+ *  Enable location setting on the device. Important: On Android 11 and above,
+ *  work profiles on company-owned devices cannot directly enforce enabling of
+ *  location services. When LOCATION_ENFORCED is set, then a NonComplianceDetail
+ *  with USER_ACTION is reported. Compliance can only be restored once the user
+ *  manually turns on location services through the device's Settings
+ *  application.
  *
  *  Value: "LOCATION_ENFORCED"
  */
@@ -12154,9 +12164,19 @@ GTLR_DEPRECATED
  *        GPS, networks, and other sensors. On Android 9 and above, this is
  *        equivalent to LOCATION_ENFORCED. (Value: "HIGH_ACCURACY")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationDisabled
- *        Disable location setting on the device. (Value: "LOCATION_DISABLED")
+ *        Disable location setting on the device. Important: On Android 11 and
+ *        above, work profiles on company-owned devices cannot directly enforce
+ *        disabling of location services. When LOCATION_DISABLED is set, then a
+ *        nonComplianceDetail with USER_ACTION is reported. Compliance can only
+ *        be restored once the user manually turns off location services through
+ *        the device's Settings application. (Value: "LOCATION_DISABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationEnforced Enable
- *        location setting on the device. (Value: "LOCATION_ENFORCED")
+ *        location setting on the device. Important: On Android 11 and above,
+ *        work profiles on company-owned devices cannot directly enforce
+ *        enabling of location services. When LOCATION_ENFORCED is set, then a
+ *        NonComplianceDetail with USER_ACTION is reported. Compliance can only
+ *        be restored once the user manually turns on location services through
+ *        the device's Settings application. (Value: "LOCATION_ENFORCED")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified
  *        Defaults to LOCATION_USER_CHOICE. (Value: "LOCATION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationUserChoice

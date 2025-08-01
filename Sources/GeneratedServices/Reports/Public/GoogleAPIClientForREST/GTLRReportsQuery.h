@@ -709,15 +709,16 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, copy, nullable) NSString *filters;
 
 /**
- *  Comma separated group ids (obfuscated) on which user activities are
- *  filtered, i.e. the response will contain activities for only those users
- *  that are a part of at least one of the group ids mentioned here. Format:
- *  "id:abc123,id:xyz456" *Important:* To filter by groups, you must explicitly
- *  add the groups to your filtering groups allowlist. For more information
- *  about adding groups to filtering groups allowlist, see [Filter results by
- *  Google Group](https://support.google.com/a/answer/11482175)
+ *  `Deprecated`. This field is deprecated and is no longer supported. Comma
+ *  separated group ids (obfuscated) on which user activities are filtered, i.e.
+ *  the response will contain activities for only those users that are a part of
+ *  at least one of the group ids mentioned here. Format: "id:abc123,id:xyz456"
+ *  *Important:* To filter by groups, you must explicitly add the groups to your
+ *  filtering groups allowlist. For more information about adding groups to
+ *  filtering groups allowlist, see [Filter results by Google
+ *  Group](https://support.google.com/a/answer/11482175)
  */
-@property(nonatomic, copy, nullable) NSString *groupIdFilter;
+@property(nonatomic, copy, nullable) NSString *groupIdFilter GTLR_DEPRECATED;
 
 /**
  *  Determines how many activity records are shown on each response page. For

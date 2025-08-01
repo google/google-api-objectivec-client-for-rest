@@ -238,6 +238,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard;
@@ -1681,6 +1682,56 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_SystemGenerated;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion.questionType
+
+/**
+ *  The default question type. The question is fully customizable by the user.
+ *
+ *  Value: "CUSTOMIZABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_Customizable;
+/**
+ *  The question type is using a predefined model provided by CCAI teams. Users
+ *  are not allowed to edit the question_body, answer_choices, upload feedback
+ *  labels for the question nor fine-tune the question. However, users may edit
+ *  other fields like question tags, question order, etc.
+ *
+ *  Value: "PREDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_Predefined;
+/**
+ *  The type of the question is unspecified.
+ *
+ *  Value: "QA_QUESTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_QaQuestionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig.type
+
+/**
+ *  A prebuilt classifier classfying the outcome of the conversation. For
+ *  example, if the customer issue mentioned in a conversation has been resolved
+ *  or not.
+ *
+ *  Value: "CONVERSATION_OUTCOME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome;
+/**
+ *  A prebuilt classifier classfying the initiator of the conversation
+ *  escalation. For example, if it was initiated by the customer or the agent.
+ *
+ *  Value: "CONVERSATION_OUTCOME_ESCALATION_INITIATOR_ROLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole;
+/**
+ *  The type of the predefined question is unspecified.
+ *
+ *  Value: "PREDEFINED_QUESTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_PredefinedQuestionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata.datasetValidationWarnings
 
 /**
@@ -2871,6 +2922,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  projects/{project}/locations/{location}/conversationModels/{conversation_model}
  */
 @property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/** Agent Assist generator ID. */
+@property(nonatomic, copy, nullable) NSString *generatorId;
 
 /**
  *  A map that contains metadata about the summarization and the document from
@@ -4107,18 +4161,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource : GTLRObject
 
 /**
- *  Optional. The Cloud Storage path to the conversation audio file if already
- *  transcribed. Note that: [1] Don't set this field if the audio is not
- *  transcribed. [2] Audio files and transcript files must be in separate
- *  buckets / folders. [3] A source file and its corresponding audio file must
- *  share the same name to be properly ingested, E.g.
- *  `gs://bucket/transcript/conversation1.json` and
+ *  Optional. The Cloud Storage path to the conversation audio file. Note that:
+ *  [1] Audio files will be transcribed if not already. [2] Audio files and
+ *  transcript files must be in separate buckets / folders. [3] A source file
+ *  and its corresponding audio file must share the same name to be properly
+ *  ingested, E.g. `gs://bucket/transcript/conversation1.json` and
  *  `gs://bucket/audio/conversation1.mp3`.
  */
 @property(nonatomic, copy, nullable) NSString *audioBucketUri;
 
 /**
- *  Optional. Specifies the type of the objects in `bucket_uri`.
+ *  Optional. Specifies the type of the objects in `bucket_uri`. Avoid passing
+ *  this. This is inferred from the `transcript_bucket_uri`, `audio_bucket_uri`.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Audio
@@ -4131,7 +4185,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, copy, nullable) NSString *bucketObjectType;
 
-/** Required. The Cloud Storage bucket containing source objects. */
+/**
+ *  Optional. The Cloud Storage bucket containing source objects. Avoid passing
+ *  this. Pass this through one of `transcript_bucket_uri` or
+ *  `audio_bucket_uri`.
+ */
 @property(nonatomic, copy, nullable) NSString *bucketUri;
 
 /**
@@ -4150,6 +4208,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  `gs://bucket/metadata/conversation1.json`.
  */
 @property(nonatomic, copy, nullable) NSString *metadataBucketUri;
+
+/**
+ *  Optional. The Cloud Storage path to the conversation transcripts. Note that:
+ *  [1] Transcript files are expected to be in JSON format. [2] Transcript,
+ *  audio, metadata files must be in separate buckets / folders. [3] A source
+ *  file and its corresponding metadata file must share the same name to be
+ *  properly ingested, E.g. `gs://bucket/audio/conversation1.mp3` and
+ *  `gs://bucket/metadata/conversation1.json`.
+ */
+@property(nonatomic, copy, nullable) NSString *transcriptBucketUri;
 
 @end
 
@@ -7284,6 +7352,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *conversationModel;
 
+/** Agent Assist generator ID. */
+@property(nonatomic, copy, nullable) NSString *generatorId;
+
 /**
  *  A map that contains metadata about the summarization and the document from
  *  which it originates.
@@ -8549,18 +8620,18 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource : GTLRObject
 
 /**
- *  Optional. The Cloud Storage path to the conversation audio file if already
- *  transcribed. Note that: [1] Don't set this field if the audio is not
- *  transcribed. [2] Audio files and transcript files must be in separate
- *  buckets / folders. [3] A source file and its corresponding audio file must
- *  share the same name to be properly ingested, E.g.
- *  `gs://bucket/transcript/conversation1.json` and
+ *  Optional. The Cloud Storage path to the conversation audio file. Note that:
+ *  [1] Audio files will be transcribed if not already. [2] Audio files and
+ *  transcript files must be in separate buckets / folders. [3] A source file
+ *  and its corresponding audio file must share the same name to be properly
+ *  ingested, E.g. `gs://bucket/transcript/conversation1.json` and
  *  `gs://bucket/audio/conversation1.mp3`.
  */
 @property(nonatomic, copy, nullable) NSString *audioBucketUri;
 
 /**
- *  Optional. Specifies the type of the objects in `bucket_uri`.
+ *  Optional. Specifies the type of the objects in `bucket_uri`. Avoid passing
+ *  this. This is inferred from the `transcript_bucket_uri`, `audio_bucket_uri`.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Audio
@@ -8573,7 +8644,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *bucketObjectType;
 
-/** Required. The Cloud Storage bucket containing source objects. */
+/**
+ *  Optional. The Cloud Storage bucket containing source objects. Avoid passing
+ *  this. Pass this through one of `transcript_bucket_uri` or
+ *  `audio_bucket_uri`.
+ */
 @property(nonatomic, copy, nullable) NSString *bucketUri;
 
 /**
@@ -8592,6 +8667,16 @@ GTLR_DEPRECATED
  *  `gs://bucket/metadata/conversation1.json`.
  */
 @property(nonatomic, copy, nullable) NSString *metadataBucketUri;
+
+/**
+ *  Optional. The Cloud Storage path to the conversation transcripts. Note that:
+ *  [1] Transcript files are expected to be in JSON format. [2] Transcript,
+ *  audio, metadata files must be in separate buckets / folders. [3] A source
+ *  file and its corresponding metadata file must share the same name to be
+ *  properly ingested, E.g. `gs://bucket/audio/conversation1.mp3` and
+ *  `gs://bucket/metadata/conversation1.json`.
+ */
+@property(nonatomic, copy, nullable) NSString *transcriptBucketUri;
 
 @end
 
@@ -9841,8 +9926,33 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *order;
 
+/**
+ *  The configuration of the predefined question. This field will only be set if
+ *  the Question Type is predefined.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig *predefinedQuestionConfig;
+
 /** Question text. E.g., "Did the agent greet the customer?" */
 @property(nonatomic, copy, nullable) NSString *questionBody;
+
+/**
+ *  The type of question.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_Customizable
+ *        The default question type. The question is fully customizable by the
+ *        user. (Value: "CUSTOMIZABLE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_Predefined
+ *        The question type is using a predefined model provided by CCAI teams.
+ *        Users are not allowed to edit the question_body, answer_choices,
+ *        upload feedback labels for the question nor fine-tune the question.
+ *        However, users may edit other fields like question tags, question
+ *        order, etc. (Value: "PREDEFINED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_QaQuestionTypeUnspecified
+ *        The type of the question is unspecified. (Value:
+ *        "QA_QUESTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *questionType;
 
 /**
  *  Questions are tagged for categorization and scoring. Tags can either be: -
@@ -9932,6 +10042,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for a predefined question. This field will only be set if the
+ *  Question Type is predefined.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig : GTLRObject
+
+/**
+ *  The type of the predefined question.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome
+ *        A prebuilt classifier classfying the outcome of the conversation. For
+ *        example, if the customer issue mentioned in a conversation has been
+ *        resolved or not. (Value: "CONVERSATION_OUTCOME")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole
+ *        A prebuilt classifier classfying the initiator of the conversation
+ *        escalation. For example, if it was initiated by the customer or the
+ *        agent. (Value: "CONVERSATION_OUTCOME_ESCALATION_INITIATOR_ROLE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_PredefinedQuestionTypeUnspecified
+ *        The type of the predefined question is unspecified. (Value:
+ *        "PREDEFINED_QUESTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A tag is a resource which aims to categorize a set of questions across
  *  multiple scorecards, e.g., "Customer Satisfaction","Billing", etc.
  */
@@ -10014,6 +10151,15 @@ GTLR_DEPRECATED
 
 /** The user-specified display name of the scorecard. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Whether the scorecard is the default one for the project. A default
+ *  scorecard cannot be deleted and will always appear first in scorecard
+ *  selector.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
 
 /**
  *  Identifier. The scorecard name. Format:

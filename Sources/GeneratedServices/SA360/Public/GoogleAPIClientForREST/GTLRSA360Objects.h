@@ -452,6 +452,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAsset
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionInPortrait;
 /**
+ *  The asset is used as a description prefix.
+ *
+ *  Value: "DESCRIPTION_PREFIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionPrefix;
+/**
  *  The asset was used in a headline. Use this only if there is only one
  *  headline in the ad. Otherwise, use the HEADLINE_1, HEADLINE_2 or HEADLINE_3
  *  enums
@@ -2052,6 +2058,85 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsError
  *  Value: "USER_PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_UserPermissionDenied;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.conversionCustomVariableError
+
+/**
+ *  A conversion custom variable with the specified name already exists.
+ *
+ *  Value: "DUPLICATE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_DuplicateName;
+/**
+ *  A conversion custom variable with the specified tag already exists.
+ *
+ *  Value: "DUPLICATE_TAG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_DuplicateTag;
+/**
+ *  The conversion custom variable's cardinality exceeds the segmentation limit.
+ *
+ *  Value: "EXCEEDS_CARDINALITY_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_ExceedsCardinalityLimit;
+/**
+ *  The conversion custom variable requested is incompatible with the current
+ *  request.
+ *
+ *  Value: "INCOMPATIBLE_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_IncompatibleType;
+/**
+ *  The conversion custom variable requested is incompatible with the selected
+ *  resource.
+ *
+ *  Value: "INCOMPATIBLE_WITH_SELECTED_RESOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_IncompatibleWithSelectedResource;
+/**
+ *  The conversion custom variable requested is not of type DIMENSION.
+ *
+ *  Value: "INVALID_DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_InvalidDimension;
+/**
+ *  The conversion custom variable requested is not of type METRIC.
+ *
+ *  Value: "INVALID_METRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_InvalidMetric;
+/**
+ *  The conversion custom variable is not available for use.
+ *
+ *  Value: "NOT_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_NotAvailable;
+/**
+ *  The conversion custom variable is not found.
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_NotFound;
+/**
+ *  A conversion custom variable with the specified tag is reserved for other
+ *  uses.
+ *
+ *  Value: "RESERVED_TAG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_ReservedTag;
+/**
+ *  The received error code is not known in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_Unknown;
+/**
+ *  Enum unspecified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.customColumnError
@@ -8959,6 +9044,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionInPortrait
  *        The asset was used as description in portrait image. (Value:
  *        "DESCRIPTION_IN_PORTRAIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionPrefix
+ *        The asset is used as a description prefix. (Value:
+ *        "DESCRIPTION_PREFIX")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline
  *        The asset was used in a headline. Use this only if there is only one
  *        headline in the ad. Otherwise, use the HEADLINE_1, HEADLINE_2 or
@@ -11972,6 +12060,47 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *authorizationError;
 
 /**
+ *  The reasons for the conversion custom variable error
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_DuplicateName
+ *        A conversion custom variable with the specified name already exists.
+ *        (Value: "DUPLICATE_NAME")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_DuplicateTag
+ *        A conversion custom variable with the specified tag already exists.
+ *        (Value: "DUPLICATE_TAG")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_ExceedsCardinalityLimit
+ *        The conversion custom variable's cardinality exceeds the segmentation
+ *        limit. (Value: "EXCEEDS_CARDINALITY_LIMIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_IncompatibleType
+ *        The conversion custom variable requested is incompatible with the
+ *        current request. (Value: "INCOMPATIBLE_TYPE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_IncompatibleWithSelectedResource
+ *        The conversion custom variable requested is incompatible with the
+ *        selected resource. (Value: "INCOMPATIBLE_WITH_SELECTED_RESOURCE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_InvalidDimension
+ *        The conversion custom variable requested is not of type DIMENSION.
+ *        (Value: "INVALID_DIMENSION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_InvalidMetric
+ *        The conversion custom variable requested is not of type METRIC.
+ *        (Value: "INVALID_METRIC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_NotAvailable
+ *        The conversion custom variable is not available for use. (Value:
+ *        "NOT_AVAILABLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_NotFound
+ *        The conversion custom variable is not found. (Value: "NOT_FOUND")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_ReservedTag
+ *        A conversion custom variable with the specified tag is reserved for
+ *        other uses. (Value: "RESERVED_TAG")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_Unknown
+ *        The received error code is not known in this version. (Value:
+ *        "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_ConversionCustomVariableError_Unspecified
+ *        Enum unspecified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *conversionCustomVariableError;
+
+/**
  *  The reasons for the custom column error
  *
  *  Likely values:
@@ -12892,9 +13021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /**
  *  Immutable. The name of the ad. This is only used to be able to identify the
- *  ad. It does not need to be unique and does not affect the served ad. The
- *  name field is currently only supported for DisplayUploadAd, ImageAd,
- *  ShoppingComparisonListingAd and VideoAd.
+ *  ad. It does not need to be unique and does not affect the served ad.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

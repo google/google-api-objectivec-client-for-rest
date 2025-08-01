@@ -4902,6 +4902,130 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Gets a dynamic feed by ID.
+ *
+ *  Method: dfareporting.dynamicFeeds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicFeedsGet : GTLRDfareportingQuery
+
+/** Required. Dynamic feed ID. */
+@property(nonatomic, assign) long long dynamicFeedId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicFeed.
+ *
+ *  Gets a dynamic feed by ID.
+ *
+ *  @param dynamicFeedId Required. Dynamic feed ID.
+ *
+ *  @return GTLRDfareportingQuery_DynamicFeedsGet
+ */
++ (instancetype)queryWithDynamicFeedId:(long long)dynamicFeedId;
+
+@end
+
+/**
+ *  Inserts a new dynamic feed.
+ *
+ *  Method: dfareporting.dynamicFeeds.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicFeedsInsert : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicFeed.
+ *
+ *  Inserts a new dynamic feed.
+ *
+ *  @param object The @c GTLRDfareporting_DynamicFeedsInsertRequest to include
+ *    in the query.
+ *
+ *  @return GTLRDfareportingQuery_DynamicFeedsInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicFeedsInsertRequest *)object;
+
+@end
+
+/**
+ *  Gets a dynamic profile by ID.
+ *
+ *  Method: dfareporting.dynamicProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesGet : GTLRDfareportingQuery
+
+/** Required. Dynamic profile ID. */
+@property(nonatomic, assign) long long dynamicProfileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicProfile.
+ *
+ *  Gets a dynamic profile by ID.
+ *
+ *  @param dynamicProfileId Required. Dynamic profile ID.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesGet
+ */
++ (instancetype)queryWithDynamicProfileId:(long long)dynamicProfileId;
+
+@end
+
+/**
+ *  Inserts a new dynamic profile.
+ *
+ *  Method: dfareporting.dynamicProfiles.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesInsert : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicProfile.
+ *
+ *  Inserts a new dynamic profile.
+ *
+ *  @param object The @c GTLRDfareporting_DynamicProfile to include in the
+ *    query.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicProfile *)object;
+
+@end
+
+/**
+ *  Updates an existing dynamic profile.
+ *
+ *  Method: dfareporting.dynamicProfiles.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesUpdate : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicProfile.
+ *
+ *  Updates an existing dynamic profile.
+ *
+ *  @param object The @c GTLRDfareporting_DynamicProfile to include in the
+ *    query.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicProfile *)object;
+
+@end
+
+/**
  *  Deletes an existing dynamic targeting key.
  *
  *  Method: dfareporting.dynamicTargetingKeys.delete

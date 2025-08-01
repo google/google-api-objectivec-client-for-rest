@@ -553,12 +553,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
- *  Method: dataplex.organizations.locations.operations.listOperations
+ *  Method: dataplex.organizations.locations.operations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
-@interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsListOperations : GTLRCloudDataplexQuery
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsList : GTLRCloudDataplexQuery
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -580,7 +580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @return GTLRCloudDataplexQuery_OrganizationsLocationsOperationsListOperations
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1317,6 +1317,274 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a DataScan resource.
  *
  *  Method: dataplex.projects.locations.dataScans.create
@@ -1337,7 +1605,8 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the parent location:
  *  projects/{project}/locations/{location_id} where project refers to a
- *  project_id or project_number and location_id refers to a GCP region.
+ *  project_id or project_number and location_id refers to a Google Cloud
+ *  region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1356,7 +1625,8 @@ GTLR_DEPRECATED
  *    include in the query.
  *  @param parent Required. The resource name of the parent location:
  *    projects/{project}/locations/{location_id} where project refers to a
- *    project_id or project_number and location_id refers to a GCP region.
+ *    project_id or project_number and location_id refers to a Google Cloud
+ *    region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansCreate
  */
@@ -1386,7 +1656,7 @@ GTLR_DEPRECATED
  *  Required. The resource name of the dataScan:
  *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id} where
  *  project refers to a project_id or project_number and location_id refers to a
- *  GCP region.
+ *  Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1398,7 +1668,7 @@ GTLR_DEPRECATED
  *  @param name Required. The resource name of the dataScan:
  *    projects/{project}/locations/{location_id}/dataScans/{data_scan_id} where
  *    project refers to a project_id or project_number and location_id refers to
- *    a GCP region.
+ *    a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansDelete
  */
@@ -1463,7 +1733,7 @@ GTLR_DEPRECATED
  *  Required. The resource name of the dataScan:
  *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id} where
  *  project refers to a project_id or project_number and location_id refers to a
- *  GCP region.
+ *  Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1487,7 +1757,7 @@ GTLR_DEPRECATED
  *  @param name Required. The resource name of the dataScan:
  *    projects/{project}/locations/{location_id}/dataScans/{data_scan_id} where
  *    project refers to a project_id or project_number and location_id refers to
- *    a GCP region.
+ *    a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansGet
  */
@@ -1602,7 +1872,7 @@ GTLR_DEPRECATED
  *  Required. The resource name of the DataScanJob:
  *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id}/jobs/{data_scan_job_id}
  *  where project refers to a project_id or project_number and location_id
- *  refers to a GCP region.
+ *  refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1626,7 +1896,7 @@ GTLR_DEPRECATED
  *  @param name Required. The resource name of the DataScanJob:
  *    projects/{project}/locations/{location_id}/dataScans/{data_scan_id}/jobs/{data_scan_job_id}
  *    where project refers to a project_id or project_number and location_id
- *    refers to a GCP region.
+ *    refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansJobsGet
  */
@@ -1677,7 +1947,7 @@ GTLR_DEPRECATED
  *  Required. The resource name of the parent environment:
  *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id} where
  *  project refers to a project_id or project_number and location_id refers to a
- *  GCP region.
+ *  Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1690,7 +1960,7 @@ GTLR_DEPRECATED
  *  @param parent Required. The resource name of the parent environment:
  *    projects/{project}/locations/{location_id}/dataScans/{data_scan_id} where
  *    project refers to a project_id or project_number and location_id refers to
- *    a GCP region.
+ *    a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansJobsList
  *
@@ -1738,7 +2008,8 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the parent location:
  *  projects/{project}/locations/{location_id} where project refers to a
- *  project_id or project_number and location_id refers to a GCP region.
+ *  project_id or project_number and location_id refers to a Google Cloud
+ *  region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1749,7 +2020,8 @@ GTLR_DEPRECATED
  *
  *  @param parent Required. The resource name of the parent location:
  *    projects/{project}/locations/{location_id} where project refers to a
- *    project_id or project_number and location_id refers to a GCP region.
+ *    project_id or project_number and location_id refers to a Google Cloud
+ *    region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansList
  *
@@ -1775,7 +2047,7 @@ GTLR_DEPRECATED
  *  Output only. Identifier. The relative resource name of the scan, of the
  *  form: projects/{project}/locations/{location_id}/dataScans/{datascan_id},
  *  where project refers to a project_id or project_number and location_id
- *  refers to a GCP region.
+ *  refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1803,7 +2075,7 @@ GTLR_DEPRECATED
  *    of the form:
  *    projects/{project}/locations/{location_id}/dataScans/{datascan_id}, where
  *    project refers to a project_id or project_number and location_id refers to
- *    a GCP region.
+ *    a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansPatch
  */
@@ -1826,7 +2098,7 @@ GTLR_DEPRECATED
  *  Required. The resource name of the DataScan:
  *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id}. where
  *  project refers to a project_id or project_number and location_id refers to a
- *  GCP region.Only OnDemand data scans are allowed.
+ *  Google Cloud region.Only OnDemand data scans are allowed.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1841,7 +2113,7 @@ GTLR_DEPRECATED
  *  @param name Required. The resource name of the DataScan:
  *    projects/{project}/locations/{location_id}/dataScans/{data_scan_id}. where
  *    project refers to a project_id or project_number and location_id refers to
- *    a GCP region.Only OnDemand data scans are allowed.
+ *    a Google Cloud region.Only OnDemand data scans are allowed.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansRun
  */
@@ -2484,7 +2756,7 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the DataTaxonomy location, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2496,7 +2768,7 @@ GTLR_DEPRECATED
  *
  *  @param parent Required. The resource name of the DataTaxonomy location, of
  *    the form: projects/{project_number}/locations/{location_id} where
- *    location_id refers to a GCP region.
+ *    location_id refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesList
  *
@@ -2656,7 +2928,7 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the entryGroup, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2675,7 +2947,7 @@ GTLR_DEPRECATED
  *    include in the query.
  *  @param parent Required. The resource name of the entryGroup, of the form:
  *    projects/{project_number}/locations/{location_id} where location_id refers
- *    to a GCP region.
+ *    to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsCreate
  */
@@ -3897,7 +4169,7 @@ GTLR_DEPRECATED
  *  Required. The parent resource where this GlossaryCategory will be created.
  *  Format:
  *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *  where locationId refers to a GCP region.
+ *  where locationId refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3911,7 +4183,7 @@ GTLR_DEPRECATED
  *  @param parent Required. The parent resource where this GlossaryCategory will
  *    be created. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *    where locationId refers to a GCP region.
+ *    where locationId refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesCreate
  */
@@ -4083,7 +4355,7 @@ GTLR_DEPRECATED
  *  Required. The parent, which has this collection of GlossaryCategories.
  *  Format:
  *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *  Location is the GCP region.
+ *  Location is the Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4096,7 +4368,7 @@ GTLR_DEPRECATED
  *  @param parent Required. The parent, which has this collection of
  *    GlossaryCategories. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *    Location is the GCP region.
+ *    Location is the Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesList
  *
@@ -4249,7 +4521,7 @@ GTLR_DEPRECATED
 /**
  *  Required. The parent resource where this Glossary will be created. Format:
  *  projects/{project_id_or_number}/locations/{location_id} where location_id
- *  refers to a GCP region.
+ *  refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4268,7 +4540,7 @@ GTLR_DEPRECATED
  *    include in the query.
  *  @param parent Required. The parent resource where this Glossary will be
  *    created. Format: projects/{project_id_or_number}/locations/{location_id}
- *    where location_id refers to a GCP region.
+ *    where location_id refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCreate
  */
@@ -4439,7 +4711,7 @@ GTLR_DEPRECATED
 /**
  *  Required. The parent, which has this collection of Glossaries. Format:
  *  projects/{project_id_or_number}/locations/{location_id} where location_id
- *  refers to a GCP region.
+ *  refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4450,7 +4722,7 @@ GTLR_DEPRECATED
  *
  *  @param parent Required. The parent, which has this collection of Glossaries.
  *    Format: projects/{project_id_or_number}/locations/{location_id} where
- *    location_id refers to a GCP region.
+ *    location_id refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesList
  *
@@ -4563,7 +4835,7 @@ GTLR_DEPRECATED
  *  Required. The parent resource where the GlossaryTerm will be created.
  *  Format:
  *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *  where location_id refers to a GCP region.
+ *  where location_id refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4580,7 +4852,7 @@ GTLR_DEPRECATED
  *  @param parent Required. The parent resource where the GlossaryTerm will be
  *    created. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *    where location_id refers to a GCP region.
+ *    where location_id refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsCreate
  */
@@ -4747,7 +5019,7 @@ GTLR_DEPRECATED
 /**
  *  Required. The parent, which has this collection of GlossaryTerms. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *  where location_id refers to a GCP region.
+ *  where location_id refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4760,7 +5032,7 @@ GTLR_DEPRECATED
  *  @param parent Required. The parent, which has this collection of
  *    GlossaryTerms. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
- *    where location_id refers to a GCP region.
+ *    where location_id refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsList
  *
@@ -5858,7 +6130,7 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the lake location, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5877,7 +6149,7 @@ GTLR_DEPRECATED
  *    in the query.
  *  @param parent Required. The resource name of the lake location, of the form:
  *    projects/{project_number}/locations/{location_id} where location_id refers
- *    to a GCP region.
+ *    to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesCreate
  */
@@ -6437,7 +6709,7 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the lake location, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6448,7 +6720,7 @@ GTLR_DEPRECATED
  *
  *  @param parent Required. The resource name of the lake location, of the form:
  *    projects/{project_number}/locations/{location_id} where location_id refers
- *    to a GCP region.
+ *    to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesList
  *

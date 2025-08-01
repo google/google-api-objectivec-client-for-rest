@@ -3134,6 +3134,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
+ *  tag from an instance. See [Retrieve Transaction]
+ *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4){:
+ *  .external}. For details on the implementation of RetrieveBulkdata, see
+ *  [Bulkdata
+ *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
+ *  in the Cloud Healthcare API conformance statement. For samples that show how
+ *  to call RetrieveBulkdata, see [Retrieve
+ *  bulkdata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-bulkdata).
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.bulkdata.retrieveBulkdata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesBulkdataRetrieveBulkdata : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path for the `RetrieveBulkdata` DICOMweb request. For example,
+ *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/bukdata/{bulkdata_uri}`.
+ */
+@property(nonatomic, copy, nullable) NSString *dicomWebPath;
+
+/**
+ *  Required. The name of the DICOM store that is being accessed. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
+ *  tag from an instance. See [Retrieve Transaction]
+ *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4){:
+ *  .external}. For details on the implementation of RetrieveBulkdata, see
+ *  [Bulkdata
+ *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
+ *  in the Cloud Healthcare API conformance statement. For samples that show how
+ *  to call RetrieveBulkdata, see [Retrieve
+ *  bulkdata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-bulkdata).
+ *
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ *  @param dicomWebPath Required. The path for the `RetrieveBulkdata` DICOMweb
+ *    request. For example,
+ *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/bukdata/{bulkdata_uri}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesBulkdataRetrieveBulkdata
+ */
++ (instancetype)queryWithParent:(NSString *)parent
+                   dicomWebPath:(NSString *)dicomWebPath;
+
+@end
+
+/**
  *  DeleteInstance deletes an instance associated with the given study, series,
  *  and SOP Instance UID. Delete requests are equivalent to the GET requests
  *  specified in the Retrieve transaction. Study and series search results can
@@ -6050,9 +6108,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. In R5, the conditional update interaction If-None-Match is
- *  supported, including the wildcard behaviour. For samples that show how to
- *  call `update`, see [Updating a FHIR
+ *  instead. The conditional update interaction If-None-Match is supported,
+ *  including the wildcard behaviour, as defined by the R5 spec. This
+ *  functionality is supported in R4 and R5. For samples that show how to call
+ *  `update`, see [Updating a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
@@ -6088,9 +6147,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. In R5, the conditional update interaction If-None-Match is
- *  supported, including the wildcard behaviour. For samples that show how to
- *  call `update`, see [Updating a FHIR
+ *  instead. The conditional update interaction If-None-Match is supported,
+ *  including the wildcard behaviour, as defined by the R5 spec. This
+ *  functionality is supported in R4 and R5. For samples that show how to call
+ *  `update`, see [Updating a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.

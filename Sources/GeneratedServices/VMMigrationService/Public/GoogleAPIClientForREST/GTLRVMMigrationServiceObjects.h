@@ -1924,7 +1924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) NSNumber *committedStorageMb;
 
 /**
- *  The number of cpus the VM has.
+ *  The number of CPU cores the VM has.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1984,6 +1984,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** The tags of the VM. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsVmDetails_Tags *tags;
+
+/**
+ *  The number of vCPUs the VM has. It is calculated as the number of CPU cores
+ *  * threads per CPU the VM has.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vcpuCount;
 
 /**
  *  The virtualization type.
@@ -2693,7 +2701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, strong, nullable) NSNumber *secureBoot;
 
-/** The service account to associate the VM with. */
+/** Optional. The service account to associate the VM with. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
@@ -4711,7 +4719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, copy, nullable) NSString *internalIp;
 
-/** The network to connect the NIC to. */
+/** Optional. The network to connect the NIC to. */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**

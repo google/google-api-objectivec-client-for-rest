@@ -16,6 +16,34 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_MediaDownload
+
+@dynamic fileId, name, viewId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:downloadFile";
+  GTLRDiscoveryEngineQuery_MediaDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GdataMedia class];
+  query.loggingName = @"discoveryengine.media.download";
+  return query;
+}
+
++ (instancetype)queryForMediaWithName:(NSString *)name {
+  GTLRDiscoveryEngineQuery_MediaDownload *query =
+    [self queryWithName:name];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download discoveryengine.media.download";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsDelete
 
 @dynamic name;
@@ -417,6 +445,33 @@
   query.dataStore = dataStore;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponse class];
   query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.completeQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionConfigCompleteQuery
+
+@dynamic completionConfig;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest *)object
+               completionConfig:(NSString *)completionConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"completionConfig" ];
+  NSString *pathURITemplate = @"v1/{+completionConfig}:completeQuery";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionConfigCompleteQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.completionConfig = completionConfig;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.completionConfig.completeQuery";
   return query;
 }
 
@@ -1990,6 +2045,106 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsStreamAssist
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1StreamAssistRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:streamAssist";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsStreamAssist *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1StreamAssistResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.streamAssist";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCompletionConfigCompleteQuery
+
+@dynamic completionConfig;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest *)object
+               completionConfig:(NSString *)completionConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"completionConfig" ];
+  NSString *pathURITemplate = @"v1/{+completionConfig}:completeQuery";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCompletionConfigCompleteQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.completionConfig = completionConfig;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.completionConfig.completeQuery";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsCreate
 
 @dynamic controlId, parent;
@@ -3024,6 +3179,33 @@
   query.dataStore = dataStore;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponse class];
   query.loggingName = @"discoveryengine.projects.locations.dataStores.completeQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionConfigCompleteQuery
+
+@dynamic completionConfig;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest *)object
+               completionConfig:(NSString *)completionConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"completionConfig" ];
+  NSString *pathURITemplate = @"v1/{+completionConfig}:completeQuery";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionConfigCompleteQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.completionConfig = completionConfig;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.dataStores.completionConfig.completeQuery";
   return query;
 }
 

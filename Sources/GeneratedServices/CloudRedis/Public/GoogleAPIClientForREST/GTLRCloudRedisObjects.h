@@ -20,6 +20,7 @@
 @class GTLRCloudRedis_Backup;
 @class GTLRCloudRedis_BackupCollection;
 @class GTLRCloudRedis_BackupConfiguration;
+@class GTLRCloudRedis_BackupDRConfiguration;
 @class GTLRCloudRedis_BackupFile;
 @class GTLRCloudRedis_BackupRun;
 @class GTLRCloudRedis_CertChain;
@@ -31,6 +32,7 @@
 @class GTLRCloudRedis_ClusterPersistenceConfig;
 @class GTLRCloudRedis_ClusterWeeklyMaintenanceWindow;
 @class GTLRCloudRedis_Compliance;
+@class GTLRCloudRedis_ConfigBasedSignalData;
 @class GTLRCloudRedis_ConnectionDetail;
 @class GTLRCloudRedis_CrossClusterReplicationConfig;
 @class GTLRCloudRedis_CustomMetadataData;
@@ -490,6 +492,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindo
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_ConfigBasedSignalData.signalType
+
+/**
+ *  Represents database auditing is disabled.
+ *
+ *  Value: "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeDatabaseAuditingDisabled;
+/**
+ *  Represents if a resource is exposed to public access.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess;
+/**
+ *  Represents if a database has a password configured for the root account or
+ *  not.
+ *
+ *  Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoRootPassword;
+/**
+ *  Outdated Minor Version
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeOutdatedMinorVersion;
+/**
+ *  Represents if a resources requires all incoming connections to use SSL or
+ *  not.
+ *
+ *  Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeUnencryptedConnections;
+/**
+ *  Unspecified signal type.
+ *
+ *  Value: "SIGNAL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_CrossClusterReplicationConfig.clusterRole
 
 /**
@@ -522,6 +566,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_DatabaseResourceFeed.feedType
 
+/**
+ *  Database config based signal data
+ *
+ *  Value: "CONFIG_BASED_SIGNAL_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ConfigBasedSignalData;
 /** Value: "FEEDTYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified;
 /**
@@ -933,6 +983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -1036,6 +1092,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
 /**
+ *  Outdated DB minor version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedMinorVersion;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -1098,6 +1160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeRestrictAuthorizedNetworks;
+/**
+ *  Schema not optimized.
+ *
+ *  Value: "SIGNAL_TYPE_SCHEMA_NOT_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeSchemaNotOptimized;
 /**
  *  Represents if the 3625 (trace flag) database flag for a Cloud SQL for SQL
  *  Server instance is not set to on.
@@ -1884,6 +1952,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -1987,6 +2061,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
 /**
+ *  Outdated DB minor version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedMinorVersion;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -2049,6 +2129,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeRestrictAuthorizedNetworks;
+/**
+ *  Schema not optimized.
+ *
+ *  Value: "SIGNAL_TYPE_SCHEMA_NOT_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeSchemaNotOptimized;
 /**
  *  Represents if the 3625 (trace flag) database flag for a Cloud SQL for SQL
  *  Server instance is not set to on.
@@ -2808,6 +2894,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineExadataO
  *  Value: "ENGINE_FIRESTORE_WITH_DATASTORE_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode;
+/**
+ *  Firestore with MongoDB compatibility mode.
+ *
+ *  Value: "ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithMongodbCompatibilityMode;
 /**
  *  Firestore with native mode.
  *
@@ -3672,6 +3764,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  BackupDRConfiguration to capture the backup and disaster recovery details of
+ *  database resource.
+ */
+@interface GTLRCloudRedis_BackupDRConfiguration : GTLRObject
+
+/**
+ *  Indicates if the resource is managed by BackupDR.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupdrManaged;
+
+@end
+
+
+/**
  *  Backup is consisted of multiple backup files.
  */
 @interface GTLRCloudRedis_BackupFile : GTLRObject
@@ -3925,6 +4033,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) NSNumber *replicaCount;
 
 /**
+ *  Optional. Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Optional. Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Optional. Number of shards for the Redis cluster.
  *
  *  Uses NSNumber of intValue.
@@ -4112,7 +4234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_ClusterWeeklyMaintenanceWindow : GTLRObject
 
 /**
- *  Allows to define schedule that runs specified day of the week.
+ *  Optional. Allows to define schedule that runs specified day of the week.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_DayOfWeekUnspecified
@@ -4134,7 +4256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *day;
 
-/** Start time of the window in UTC. */
+/** Optional. Start time of the window in UTC. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
 
 @end
@@ -4154,6 +4276,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Version of the standard or benchmark, for example, 1.1 */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Config based signal data. This is used to send signals to Condor which are
+ *  based on the DB level configurations. These will be used to send signals for
+ *  self managed databases.
+ */
+@interface GTLRCloudRedis_ConfigBasedSignalData : GTLRObject
+
+/** Required. Full Resource name of the source resource. */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/** Required. Last time signal was refreshed */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
+
+/** Database resource id. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
+
+/**
+ *  Signal data for boolean signals.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signalBoolValue;
+
+/**
+ *  Required. Signal type of the signal
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeDatabaseAuditingDisabled
+ *        Represents database auditing is disabled. (Value:
+ *        "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess
+ *        Represents if a resource is exposed to public access. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoRootPassword
+ *        Represents if a database has a password configured for the root
+ *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeOutdatedMinorVersion
+ *        Outdated Minor Version (Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeUnencryptedConnections
+ *        Represents if a resources requires all incoming connections to use SSL
+ *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeUnspecified
+ *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signalType;
 
 @end
 
@@ -4184,7 +4355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_CrossClusterReplicationConfig : GTLRObject
 
 /**
- *  The role of the cluster in cross cluster replication.
+ *  Output only. The role of the cluster in cross cluster replication.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_ClusterRoleUnspecified
@@ -4255,9 +4426,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform. Next ID: 8
+ *  database resource level events into Condor platform. Next ID: 9
  */
 @interface GTLRCloudRedis_DatabaseResourceFeed : GTLRObject
+
+/**
+ *  Config based signal data is used to ingest signals that are generated based
+ *  on the configuration of the database resource.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_ConfigBasedSignalData *configBasedSignalData;
 
 /** Required. Timestamp when feed is generated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *feedTimestamp;
@@ -4266,6 +4443,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Required. Type feed to be ingested into condor
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ConfigBasedSignalData
+ *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified
  *        Value "FEEDTYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ObservabilityData
@@ -4584,6 +4763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections
+ *        High number of idle connections. (Value:
+ *        "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMaxServerMemory
  *        Indicates that the instance's max server memory is configured higher
  *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
@@ -4637,6 +4819,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy
  *        Detects if a database instance has no user password policy set.
  *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedMinorVersion
+ *        Outdated DB minor version. (Value:
+ *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned
@@ -4668,6 +4853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeRestrictAuthorizedNetworks
  *        Represents not restricted to authorized networks. (Value:
  *        "SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeSchemaNotOptimized
+ *        Schema not optimized. (Value: "SIGNAL_TYPE_SCHEMA_NOT_OPTIMIZED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeSensitiveTraceInfoNotMasked
  *        Represents if the 3625 (trace flag) database flag for a Cloud SQL for
  *        SQL Server instance is not set to on. (Value:
@@ -4864,7 +5051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 25
+ *  Common model for database resource instance metadata. Next ID: 26
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
 
@@ -4873,6 +5060,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Backup configuration for this instance */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_BackupConfiguration *backupConfiguration;
+
+/** Optional. BackupDR Configuration for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupDRConfiguration *backupdrConfiguration;
 
 /** Latest backup run information for this instance */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_BackupRun *backupRun;
@@ -4949,7 +5139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, copy, nullable) NSString *expectedState;
 
 /** GCBDR configuration for the resource. */
-@property(nonatomic, strong, nullable) GTLRCloudRedis_GCBDRConfiguration *gcbdrConfiguration;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_GCBDRConfiguration *gcbdrConfiguration GTLR_DEPRECATED;
 
 /**
  *  Required. Unique identifier for a Database resource
@@ -5279,6 +5469,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections
+ *        High number of idle connections. (Value:
+ *        "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMaxServerMemory
  *        Indicates that the instance's max server memory is configured higher
  *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
@@ -5332,6 +5525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy
  *        Detects if a database instance has no user password policy set.
  *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedMinorVersion
+ *        Outdated DB minor version. (Value:
+ *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned
@@ -5363,6 +5559,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeRestrictAuthorizedNetworks
  *        Represents not restricted to authorized networks. (Value:
  *        "SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeSchemaNotOptimized
+ *        Schema not optimized. (Value: "SIGNAL_TYPE_SCHEMA_NOT_OPTIMIZED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeSensitiveTraceInfoNotMasked
  *        Represents if the 3625 (trace flag) database flag for a Cloud SQL for
  *        SQL Server instance is not set to on. (Value:
@@ -7014,6 +7212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode
  *        Firestore with datastore mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_DATASTORE_MODE")
+ *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithMongodbCompatibilityMode
+ *        Firestore with MongoDB compatibility mode. (Value:
+ *        "ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode
  *        Firestore with native mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_NATIVE_MODE")
@@ -7046,6 +7247,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        as engine in database instance. (Value: "SQL_SERVER")
  */
 @property(nonatomic, copy, nullable) NSString *engine;
+
+/**
+ *  Minor version of the underlying database engine. Example values: For MySQL,
+ *  it could be "8.0.32", "5.7.32" etc.. For Postgres, it could be "14.3",
+ *  "15.3" etc..
+ */
+@property(nonatomic, copy, nullable) NSString *minorVersion;
 
 /**
  *  Type of specific database product. It could be CloudSQL, AlloyDB etc..
@@ -7382,7 +7590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_RemoteCluster : GTLRObject
 
 /**
- *  The full resource path of the remote cluster in the format:
+ *  Output only. The full resource path of the remote cluster in the format:
  *  projects//locations//clusters/
  */
 @property(nonatomic, copy, nullable) NSString *cluster;

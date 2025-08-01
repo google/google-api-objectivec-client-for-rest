@@ -2524,6 +2524,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *stateReasons;
 
+/** Output only. The time when the replica state was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *stateUpdateTime;
+
 @end
 
 

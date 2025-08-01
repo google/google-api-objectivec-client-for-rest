@@ -818,42 +818,6 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
-@implementation GTLRDriveQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"operations/{name}:cancel";
-  GTLRDriveQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.loggingName = @"drive.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRDriveQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"operations/{name}";
-  GTLRDriveQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.loggingName = @"drive.operations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRDriveQuery_OperationsGet
 
 @dynamic name;
@@ -868,23 +832,6 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
   query.name = name;
   query.expectedObjectClass = [GTLRDrive_Operation class];
   query.loggingName = @"drive.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDriveQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"operations";
-  GTLRDriveQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRDrive_ListOperationsResponse class];
-  query.loggingName = @"drive.operations.list";
   return query;
 }
 

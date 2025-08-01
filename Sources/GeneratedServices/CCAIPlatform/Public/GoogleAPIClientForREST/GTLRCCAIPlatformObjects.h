@@ -701,6 +701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 /** Output only. TODO(b/283407860) Deprecate this field. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *privateComponents;
 
+/** Output only. UJET release version, unique for each new release. */
+@property(nonatomic, copy, nullable) NSString *releaseVersion;
+
 /** Optional. Params that sets up Google as IdP. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_SAMLParams *samlParams;
 

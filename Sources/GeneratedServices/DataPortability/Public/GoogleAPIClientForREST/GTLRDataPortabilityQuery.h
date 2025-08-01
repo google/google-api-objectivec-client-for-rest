@@ -43,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
- *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
  *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
@@ -133,7 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
- *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
  *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
@@ -236,7 +234,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
- *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
  *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
@@ -336,7 +333,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
- *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
  *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
@@ -441,7 +437,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
- *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
  *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
@@ -535,7 +530,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
- *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
  *    @c kGTLRAuthScopeDataPortabilityChromeDictionary

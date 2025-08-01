@@ -97,6 +97,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2OutputConfigBigQueryDestination;
 @class GTLRCloudRetail_GoogleCloudRetailV2OutputConfigGcsDestination;
 @class GTLRCloudRetail_GoogleCloudRetailV2OutputResult;
+@class GTLRCloudRetail_GoogleCloudRetailV2PanelInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata;
 @class GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_AllMatchedPins;
 @class GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_DroppedPins;
@@ -5705,6 +5706,42 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Detailed panel information associated with a user event.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2PanelInfo : GTLRObject
+
+/** Optional. The attribution token of the panel. */
+@property(nonatomic, copy, nullable) NSString *attributionToken;
+
+/** Optional. The display name of the panel. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Required. The panel ID. */
+@property(nonatomic, copy, nullable) NSString *panelId;
+
+/**
+ *  Optional. The ordered position of the panel, if shown to the user with other
+ *  panels. If set, then total_panels must also be set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *panelPosition;
+
+/** Optional. The product details associated with the panel. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ProductDetail *> *productDetails;
+
+/**
+ *  Optional. The total number of panels, including this one, shown to the user.
+ *  Must be set if panel_position is set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalPanels;
+
+@end
+
+
+/**
  *  Request for pausing training of a model.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest : GTLRObject
@@ -7693,7 +7730,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. The user attributes that could be used for personalization of
  *  search results. * Populate at most 100 key-value pairs per query. * Only
- *  supports string keys and repeated string values. * Duplcate keys are not
+ *  supports string keys and repeated string values. * Duplicate keys are not
  *  allowed within a single query. Example: user_attributes: [ { key: "pets"
  *  value { values: "dog" values: "cat" } }, { key: "state" value { values: "CA"
  *  } } ]
@@ -7776,7 +7813,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. The user attributes that could be used for personalization of
  *  search results. * Populate at most 100 key-value pairs per query. * Only
- *  supports string keys and repeated string values. * Duplcate keys are not
+ *  supports string keys and repeated string values. * Duplicate keys are not
  *  allowed within a single query. Example: user_attributes: [ { key: "pets"
  *  value { values: "dog" values: "cat" } }, { key: "state" value { values: "CA"
  *  } } ]
@@ -9154,6 +9191,12 @@ GTLR_DEPRECATED
  *  in automatically.
  */
 @property(nonatomic, copy, nullable) NSString *pageViewId;
+
+/**
+ *  Optional. List of panels associated with this event. Used for panel-level
+ *  impression data.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2PanelInfo *> *panels;
 
 /**
  *  The main product details related to the event. This field is optional except

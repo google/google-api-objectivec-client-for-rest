@@ -68,6 +68,9 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings;
 @class GTLRRecaptchaEnterprise_GoogleRpcStatus;
 @class GTLRRecaptchaEnterprise_GoogleRpcStatus_Details_Item;
 
@@ -930,6 +933,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "INVISIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Invisible;
+/**
+ *  Displays a visual challenge or not depending on the user risk analysis
+ *  score.
+ *
+ *  Value: "POLICY_BASED_CHALLENGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_PolicyBasedChallenge;
 /**
  *  Only used to produce scores. It doesn't display the "I'm not a robot"
  *  checkbox and never shows captcha challenges.
@@ -2315,7 +2325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis : GTLRObject
 
 /**
- *  Output only. Challenge information for SCORE_AND_CHALLENGE and INVISIBLE
+ *  Output only. Challenge information for POLICY_BASED_CHALLENGE and INVISIBLE
  *  keys
  *
  *  Likely values:
@@ -3091,7 +3101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Optional. Settings for the frequency and difficulty at which this key
  *  triggers captcha challenges. This should only be specified for
- *  IntegrationTypes CHECKBOX and INVISIBLE and SCORE_AND_CHALLENGE.
+ *  `IntegrationType` CHECKBOX, INVISIBLE or POLICY_BASED_CHALLENGE.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_ChallengeSecurityPreference_Balance
@@ -3107,6 +3117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, copy, nullable) NSString *challengeSecurityPreference;
 
+/** Optional. Challenge settings. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings *challengeSettings;
+
 /**
  *  Required. Describes how this key is integrated with the website.
  *
@@ -3121,12 +3134,72 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Invisible
  *        Doesn't display the "I'm not a robot" checkbox, but may show captcha
  *        challenges after risk analysis. (Value: "INVISIBLE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_PolicyBasedChallenge
+ *        Displays a visual challenge or not depending on the user risk analysis
+ *        score. (Value: "POLICY_BASED_CHALLENGE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Score
  *        Only used to produce scores. It doesn't display the "I'm not a robot"
  *        checkbox and never shows captcha challenges. (Value: "SCORE")
  */
 @property(nonatomic, copy, nullable) NSString *integrationType;
 
+@end
+
+
+/**
+ *  Per-action challenge settings.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings : GTLRObject
+
+/**
+ *  Required. A challenge is triggered if the end-user score is below that
+ *  threshold. Value must be between 0 and 1 (inclusive).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scoreThreshold;
+
+@end
+
+
+/**
+ *  Settings for POLICY_BASED_CHALLENGE keys to control when a challenge is
+ *  triggered.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings : GTLRObject
+
+/**
+ *  Optional. The action to score threshold map. The action name should be the
+ *  same as the action name passed in the `data-action` attribute (see
+ *  https://cloud.google.com/recaptcha/docs/actions-website). Action names are
+ *  case-insensitive. There is a maximum of 100 action settings. An action name
+ *  has a maximum length of 100.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings *actionSettings;
+
+/**
+ *  Required. Defines when a challenge is triggered (unless the default
+ *  threshold is overridden for the given action, see `action_settings`).
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings *defaultSettings;
+
+@end
+
+
+/**
+ *  Optional. The action to score threshold map. The action name should be the
+ *  same as the action name passed in the `data-action` attribute (see
+ *  https://cloud.google.com/recaptcha/docs/actions-website). Action names are
+ *  case-insensitive. There is a maximum of 100 action settings. An action name
+ *  has a maximum length of 100.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings : GTLRObject
 @end
 
 

@@ -174,6 +174,10 @@ NSString * const kGTLRContainer_Filter_EventType_UpgradeAvailableEvent = @"UPGRA
 NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent  = @"UPGRADE_EVENT";
 NSString * const kGTLRContainer_Filter_EventType_UpgradeInfoEvent = @"UPGRADE_INFO_EVENT";
 
+// GTLRContainer_Fleet.membershipType
+NSString * const kGTLRContainer_Fleet_MembershipType_Lightweight = @"LIGHTWEIGHT";
+NSString * const kGTLRContainer_Fleet_MembershipType_MembershipTypeUnspecified = @"MEMBERSHIP_TYPE_UNSPECIFIED";
+
 // GTLRContainer_GatewayAPIConfig.channel
 NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled = @"CHANNEL_DISABLED";
 NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental = @"CHANNEL_EXPERIMENTAL";
@@ -209,6 +213,20 @@ NSString * const kGTLRContainer_IPAllocationPolicy_StackType_StackTypeUnspecifie
 NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeUnspecified = @"CGROUP_MODE_UNSPECIFIED";
 NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV1 = @"CGROUP_MODE_V1";
 NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV2 = @"CGROUP_MODE_V2";
+
+// GTLRContainer_LinuxNodeConfig.transparentHugepageDefrag
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragAlways = @"TRANSPARENT_HUGEPAGE_DEFRAG_ALWAYS";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDefer = @"TRANSPARENT_HUGEPAGE_DEFRAG_DEFER";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDeferWithMadvise = @"TRANSPARENT_HUGEPAGE_DEFRAG_DEFER_WITH_MADVISE";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragMadvise = @"TRANSPARENT_HUGEPAGE_DEFRAG_MADVISE";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragNever = @"TRANSPARENT_HUGEPAGE_DEFRAG_NEVER";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragUnspecified = @"TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED";
+
+// GTLRContainer_LinuxNodeConfig.transparentHugepageEnabled
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledAlways = @"TRANSPARENT_HUGEPAGE_ENABLED_ALWAYS";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledMadvise = @"TRANSPARENT_HUGEPAGE_ENABLED_MADVISE";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledNever = @"TRANSPARENT_HUGEPAGE_ENABLED_NEVER";
+NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledUnspecified = @"TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED";
 
 // GTLRContainer_LoggingComponentConfig.enableComponents
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Apiserver = @"APISERVER";
@@ -580,8 +598,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
          gcsFuseCsiDriverConfig, gkeBackupAgentConfig,
          highScaleCheckpointingConfig, horizontalPodAutoscaling,
-         httpLoadBalancing, kubernetesDashboard, networkPolicyConfig,
-         parallelstoreCsiDriverConfig, rayOperatorConfig, statefulHaConfig;
+         httpLoadBalancing, kubernetesDashboard, lustreCsiDriverConfig,
+         networkPolicyConfig, parallelstoreCsiDriverConfig, rayOperatorConfig,
+         statefulHaConfig;
 @end
 
 
@@ -631,6 +650,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AutoIpamConfig
+@dynamic enabled;
 @end
 
 
@@ -650,7 +670,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Autopilot
-@dynamic enabled, workloadPolicyConfig;
+@dynamic enabled, privilegedAdmissionConfig, workloadPolicyConfig;
 @end
 
 
@@ -779,6 +799,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_BlueGreenSettings
 @dynamic nodePoolSoakDuration, standardRolloutPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_BootDisk
+//
+
+@implementation GTLRContainer_BootDisk
+@dynamic diskType, provisionedIops, provisionedThroughput, sizeGb;
 @end
 
 
@@ -937,7 +967,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_ClusterAutoscaling
 @dynamic autoprovisioningLocations, autoprovisioningNodePoolDefaults,
-         autoscalingProfile, enableNodeAutoprovisioning, resourceLimits;
+         autoscalingProfile, defaultComputeClassConfig,
+         enableNodeAutoprovisioning, resourceLimits;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1212,6 +1243,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_DefaultComputeClassConfig
+//
+
+@implementation GTLRContainer_DefaultComputeClassConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_DefaultSnatStatus
 //
 
@@ -1310,6 +1351,39 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_EvictionGracePeriod
+//
+
+@implementation GTLRContainer_EvictionGracePeriod
+@dynamic imagefsAvailable, imagefsInodesFree, memoryAvailable, nodefsAvailable,
+         nodefsInodesFree, pidAvailable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_EvictionMinimumReclaim
+//
+
+@implementation GTLRContainer_EvictionMinimumReclaim
+@dynamic imagefsAvailable, imagefsInodesFree, memoryAvailable, nodefsAvailable,
+         nodefsInodesFree, pidAvailable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_EvictionSignals
+//
+
+@implementation GTLRContainer_EvictionSignals
+@dynamic imagefsAvailable, imagefsInodesFree, memoryAvailable, nodefsAvailable,
+         nodefsInodesFree, pidAvailable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_FastSocket
 //
 
@@ -1342,7 +1416,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Fleet
-@dynamic membership, preRegistered, project;
+@dynamic membership, membershipType, preRegistered, project;
 @end
 
 
@@ -1669,7 +1743,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_LinuxNodeConfig
-@dynamic cgroupMode, hugepages, sysctls;
+@dynamic cgroupMode, hugepages, sysctls, transparentHugepageDefrag,
+         transparentHugepageEnabled;
 @end
 
 
@@ -1810,6 +1885,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_LoggingVariantConfig
 @dynamic variant;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_LustreCsiDriverConfig
+//
+
+@implementation GTLRContainer_LustreCsiDriverConfig
+@dynamic enabled, enableLegacyLustrePort;
 @end
 
 
@@ -2058,7 +2143,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, advancedMachineFeatures, bootDiskKmsKey,
+@dynamic accelerators, advancedMachineFeatures, bootDisk, bootDiskKmsKey,
          confidentialNodes, containerdConfig, diskSizeGb, diskType,
          effectiveCgroupMode, enableConfidentialStorage,
          ephemeralStorageLocalSsdConfig, fastSocket, flexStart, gcfsConfig,
@@ -2146,10 +2231,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_NodeKubeletConfig
 @dynamic allowedUnsafeSysctls, containerLogMaxFiles, containerLogMaxSize,
          cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy,
-         imageGcHighThresholdPercent, imageGcLowThresholdPercent,
-         imageMaximumGcAge, imageMinimumGcAge,
-         insecureKubeletReadonlyPortEnabled, memoryManager, podPidsLimit,
-         singleProcessOomKill, topologyManager;
+         evictionMaxPodGracePeriodSeconds, evictionMinimumReclaim, evictionSoft,
+         evictionSoftGracePeriod, imageGcHighThresholdPercent,
+         imageGcLowThresholdPercent, imageMaximumGcAge, imageMinimumGcAge,
+         insecureKubeletReadonlyPortEnabled, maxParallelImagePulls,
+         memoryManager, podPidsLimit, singleProcessOomKill, topologyManager;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2497,6 +2583,24 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"certificateAuthorityDomainConfig" : [GTLRContainer_CertificateAuthorityDomainConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_PrivilegedAdmissionConfig
+//
+
+@implementation GTLRContainer_PrivilegedAdmissionConfig
+@dynamic allowlistPaths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowlistPaths" : [NSString class]
   };
   return map;
 }
@@ -3202,7 +3306,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic accelerators, clusterId, confidentialNodes, containerdConfig,
+@dynamic accelerators, bootDisk, clusterId, confidentialNodes, containerdConfig,
          diskSizeGb, diskType, ETag, fastSocket, flexStart, gcfsConfig, gvnic,
          imageType, kubeletConfig, labels, linuxNodeConfig, locations,
          loggingConfig, machineType, maxRunDuration, name, nodeNetworkConfig,

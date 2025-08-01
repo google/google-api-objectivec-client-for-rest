@@ -27,6 +27,7 @@
 @class GTLRHangoutsChat_Attachment;
 @class GTLRHangoutsChat_AttachmentDataRef;
 @class GTLRHangoutsChat_Button;
+@class GTLRHangoutsChat_CalendarEventLinkData;
 @class GTLRHangoutsChat_Card;
 @class GTLRHangoutsChat_CardAction;
 @class GTLRHangoutsChat_CardHeader;
@@ -100,6 +101,7 @@
 @class GTLRHangoutsChat_Inputs;
 @class GTLRHangoutsChat_KeyValue;
 @class GTLRHangoutsChat_MatchedUrl;
+@class GTLRHangoutsChat_MeetSpaceLinkData;
 @class GTLRHangoutsChat_Membership;
 @class GTLRHangoutsChat_MembershipBatchCreatedEventData;
 @class GTLRHangoutsChat_MembershipBatchDeletedEventData;
@@ -1496,6 +1498,58 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoCamera;
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_MeetSpaceLinkData.huddleStatus
+
+/**
+ *  The huddle has ended. In this case the Meet space URI and identifiers will
+ *  no longer be valid.
+ *
+ *  Value: "ENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Ended;
+/**
+ *  Default value for the enum. Don't use.
+ *
+ *  Value: "HUDDLE_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_HuddleStatusUnspecified;
+/**
+ *  The huddle has been missed. In this case the Meet space URI and identifiers
+ *  will no longer be valid.
+ *
+ *  Value: "MISSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Missed;
+/**
+ *  The huddle has started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Started;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_MeetSpaceLinkData.type
+
+/**
+ *  The Meet space is a huddle.
+ *
+ *  Value: "HUDDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_Huddle;
+/**
+ *  The Meet space is a meeting.
+ *
+ *  Value: "MEETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_Meeting;
+/**
+ *  Default value for the enum. Don't use.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Membership.role
 
 /**
@@ -1556,6 +1610,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember
 // GTLRHangoutsChat_RichLinkMetadata.richLinkType
 
 /**
+ *  A Calendar message rich link type. For example, a Calendar chip.
+ *
+ *  Value: "CALENDAR_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_CalendarEvent;
+/**
  *  A Chat space rich link type. For example, a space smart chip.
  *
  *  Value: "CHAT_SPACE"
@@ -1567,6 +1627,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkTy
  *  Value: "DRIVE_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile;
+/**
+ *  A Meet message rich link type. For example, a Meet chip.
+ *
+ *  Value: "MEET_SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_MeetSpace;
 /**
  *  Default value for the enum. Don't use.
  *
@@ -1892,9 +1958,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  with the `chat.app.spaces` scope in [Developer
- *  Preview](https://developers.google.com/workspace/preview). This field is not
- *  populated when using the `chat.bot` scope with [app
+ *  with the `chat.app.spaces` scope. This field is not populated when using the
+ *  `chat.bot` scope with [app
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *  Setting the target audience requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
@@ -2094,8 +2159,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Output only. Annotations associated with the plain-text body of the message.
- *  To add basic formatting to a text message, see [Format text
+ *  Output only. Annotations can be associated with the plain-text body of the
+ *  message or with chips that link to Google Workspace resources like Google
+ *  Docs or Sheets with `start_index` and `length` of 0. To add basic formatting
+ *  to a text message, see [Format text
  *  messages](https://developers.google.com/workspace/chat/format-messages).
  *  Example plain-text message body: ``` Hello \@FooBot how are you!" ``` The
  *  corresponding annotations metadata: ``` "annotations":[{
@@ -2111,7 +2178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Length of the substring in the plain-text message body this annotation
- *  corresponds to.
+ *  corresponds to. If not present, indicates a length of 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2288,6 +2355,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** A button with text and `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_TextButton *textButton;
+
+@end
+
+
+/**
+ *  Data for Calendar event links.
+ */
+@interface GTLRHangoutsChat_CalendarEventLinkData : GTLRObject
+
+/**
+ *  The [Calendar
+ *  identifier](https://developers.google.com/workspace/calendar/api/v3/reference/calendars)
+ *  of the linked Calendar.
+ */
+@property(nonatomic, copy, nullable) NSString *calendarId;
+
+/**
+ *  The [Event
+ *  identifier](https://developers.google.com/workspace/calendar/api/v3/reference/events)
+ *  of the linked Calendar event.
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 @end
 
@@ -2539,24 +2628,65 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Represents information about the user's client, such as locale, host app,
- *  and platform. For Chat apps, `CommonEventObject` includes data submitted by
- *  users interacting with cards, like data entered in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs).
+ *  The common event object is the portion of the overall event object that
+ *  carries general, host-independent information to the add-on from the user's
+ *  client. This information includes details such as the user's locale, host
+ *  app, and platform. In addition to homepage and contextual triggers, add-ons
+ *  construct and pass event objects to [action callback
+ *  functions](https://developers.google.com/workspace/add-ons/concepts/actions#callback_functions)
+ *  when the user interacts with widgets. Your add-on's callback function can
+ *  query the common event object to determine the contents of open widgets in
+ *  the user's client. For example, your add-on can locate the text a user has
+ *  entered into a
+ *  [TextInput](https://developers.google.com/apps-script/reference/card-service/text-input)
+ *  widget in the `eventObject.commentEventObject.formInputs` object. For Chat
+ *  apps, the name of the function that the user invoked when interacting with a
+ *  widget.
  */
 @interface GTLRHangoutsChat_CommonEventObject : GTLRObject
 
 /**
- *  A map containing the values that a user inputs in a widget from a card or
- *  dialog. The map keys are the string IDs assigned to each widget, and the
- *  values represent inputs to the widget. For details, see [Process information
- *  inputted by users](https://developers.google.com/chat/ui/read-form-data).
+ *  A map containing the current values of the widgets in the displayed card.
+ *  The map keys are the string IDs assigned with each widget. The structure of
+ *  the map value object is dependent on the widget type: **Note**: The
+ *  following examples are formatted for Apps Script's V8 runtime. If you're
+ *  using Rhino runtime, you must add `[""]` after the value. For example,
+ *  instead of
+ *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`, format
+ *  the event object as
+ *  `e.commonEventObject.formInputs.employeeName[""].stringInputs.value[0]`. To
+ *  learn more about runtimes in Apps Script, see the [V8 Runtime
+ *  Overview](https://developers.google.com/apps-script/guides/v8-runtime). *
+ *  Single-valued widgets (for example, a text box): a list of strings (only one
+ *  element). **Example**: for a text input widget with `employeeName` as its
+ *  ID, access the text input value with:
+ *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`. *
+ *  Multi-valued widgets (for example, checkbox groups): a list of strings.
+ *  **Example**: for a multi-value widget with `participants` as its ID, access
+ *  the value array with:
+ *  `e.commonEventObject.formInputs.participants.stringInputs.value`. * **A
+ *  date-time picker**: a [`DateTimeInput
+ *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input).
+ *  **Example**: For a picker with an ID of `myDTPicker`, access the
+ *  [`DateTimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input)
+ *  object using `e.commonEventObject.formInputs.myDTPicker.dateTimeInput`. *
+ *  **A date-only picker**: a [`DateInput
+ *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input).
+ *  **Example**: For a picker with an ID of `myDatePicker`, access the
+ *  [`DateInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input)
+ *  object using `e.commonEventObject.formInputs.myDatePicker.dateInput`. * **A
+ *  time-only picker**: a [`TimeInput
+ *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input).
+ *  **Example**: For a picker with an ID of `myTimePicker`, access the
+ *  [`TimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input)
+ *  object using `e.commonEventObject.formInputs.myTimePicker.timeInput`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject_FormInputs *formInputs;
 
 /**
- *  The hostApp enum which indicates the app the add-on is invoked from. Always
- *  `CHAT` for Chat apps.
+ *  Indicates the host app the add-on is active in when the event object is
+ *  generated. Possible values include the following: * `GMAIL` * `CALENDAR` *
+ *  `DRIVE` * `DOCS` * `SHEETS` * `SLIDES` * `CHAT`
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar The add-on
@@ -2591,8 +2721,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *invokedFunction;
 
 /**
- *  Custom [parameters](/chat/api/reference/rest/v1/cards#ActionParameter)
- *  passed to the invoked function. Both keys and values must be strings.
+ *  Any additional parameters you supply to an action using
+ *  [`actionParameters`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#google.apps.card.v1.Action.ActionParameter)
+ *  or
+ *  [`Action.setParameters()`](https://developers.google.com/apps-script/reference/card-service/action#setparametersparameters).
+ *  **Developer Preview:** For [add-ons that extend Google
+ *  Chat](https://developers.google.com/workspace/add-ons/chat), to suggest
+ *  items based on what the users type in multiselect menus, use the value of
+ *  the `"autocomplete_widget_query"` key
+ *  (`event.commonEventObject.parameters["autocomplete_widget_query"]`). You can
+ *  use this value to query a database and suggest selectable items to users as
+ *  they type. For details, see [Collect and process information from Google
+ *  Chat
+ *  users](https://developers.google.com/workspace/add-ons/chat/collect-information).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject_Parameters *parameters;
 
@@ -2611,8 +2752,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *platform;
 
 /**
- *  The timezone ID and offset from Coordinated Universal Time (UTC). Only
- *  supported for the event types
+ *  **Disabled by default.** The timezone ID and offset from Coordinated
+ *  Universal Time (UTC). To turn on this field, you must set
+ *  `addOns.common.useLocaleFromApp` to `true` in your add-on's manifest. Your
+ *  add-on's scope list must also include
+ *  `https://www.googleapis.com/auth/script.locale`. See [Accessing user locale
+ *  and
+ *  timezone](https://developers.google.com/workspace/add-ons/how-tos/access-user-locale)
+ *  for more details. Only supported for the event types
  *  [`CARD_CLICKED`](https://developers.google.com/chat/api/reference/rest/v1/EventType#ENUM_VALUES.CARD_CLICKED)
  *  and
  *  [`SUBMIT_DIALOG`](https://developers.google.com/chat/api/reference/rest/v1/DialogEventType#ENUM_VALUES.SUBMIT_DIALOG).
@@ -2620,8 +2767,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_TimeZone *timeZone;
 
 /**
- *  The full `locale.displayName` in the format of [ISO 639 language code]-[ISO
- *  3166 country/region code] such as "en-US".
+ *  **Disabled by default.** The user's language and country/region identifier
+ *  in the format of [ISO 639](https://wikipedia.org/wiki/ISO_639_macrolanguage)
+ *  language code-[ISO 3166](https://wikipedia.org/wiki/ISO_3166) country/region
+ *  code. For example, `en-US`. To turn on this field, you must set
+ *  `addOns.common.useLocaleFromApp` to `true` in your add-on's manifest. Your
+ *  add-on's scope list must also include
+ *  `https://www.googleapis.com/auth/script.locale`. See [Accessing user locale
+ *  and
+ *  timezone](https://developers.google.com/workspace/add-ons/how-tos/access-user-locale)
+ *  for more details.
  */
 @property(nonatomic, copy, nullable) NSString *userLocale;
 
@@ -2629,10 +2784,40 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A map containing the values that a user inputs in a widget from a card or
- *  dialog. The map keys are the string IDs assigned to each widget, and the
- *  values represent inputs to the widget. For details, see [Process information
- *  inputted by users](https://developers.google.com/chat/ui/read-form-data).
+ *  A map containing the current values of the widgets in the displayed card.
+ *  The map keys are the string IDs assigned with each widget. The structure of
+ *  the map value object is dependent on the widget type: **Note**: The
+ *  following examples are formatted for Apps Script's V8 runtime. If you're
+ *  using Rhino runtime, you must add `[""]` after the value. For example,
+ *  instead of
+ *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`, format
+ *  the event object as
+ *  `e.commonEventObject.formInputs.employeeName[""].stringInputs.value[0]`. To
+ *  learn more about runtimes in Apps Script, see the [V8 Runtime
+ *  Overview](https://developers.google.com/apps-script/guides/v8-runtime). *
+ *  Single-valued widgets (for example, a text box): a list of strings (only one
+ *  element). **Example**: for a text input widget with `employeeName` as its
+ *  ID, access the text input value with:
+ *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`. *
+ *  Multi-valued widgets (for example, checkbox groups): a list of strings.
+ *  **Example**: for a multi-value widget with `participants` as its ID, access
+ *  the value array with:
+ *  `e.commonEventObject.formInputs.participants.stringInputs.value`. * **A
+ *  date-time picker**: a [`DateTimeInput
+ *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input).
+ *  **Example**: For a picker with an ID of `myDTPicker`, access the
+ *  [`DateTimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input)
+ *  object using `e.commonEventObject.formInputs.myDTPicker.dateTimeInput`. *
+ *  **A date-only picker**: a [`DateInput
+ *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input).
+ *  **Example**: For a picker with an ID of `myDatePicker`, access the
+ *  [`DateInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input)
+ *  object using `e.commonEventObject.formInputs.myDatePicker.dateInput`. * **A
+ *  time-only picker**: a [`TimeInput
+ *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input).
+ *  **Example**: For a picker with an ID of `myTimePicker`, access the
+ *  [`TimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input)
+ *  object using `e.commonEventObject.formInputs.myTimePicker.timeInput`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRHangoutsChat_Inputs. Use @c -additionalJSONKeys and @c
@@ -2644,8 +2829,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Custom [parameters](/chat/api/reference/rest/v1/cards#ActionParameter)
- *  passed to the invoked function. Both keys and values must be strings.
+ *  Any additional parameters you supply to an action using
+ *  [`actionParameters`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#google.apps.card.v1.Action.ActionParameter)
+ *  or
+ *  [`Action.setParameters()`](https://developers.google.com/apps-script/reference/card-service/action#setparametersparameters).
+ *  **Developer Preview:** For [add-ons that extend Google
+ *  Chat](https://developers.google.com/workspace/add-ons/chat), to suggest
+ *  items based on what the users type in multiselect menus, use the value of
+ *  the `"autocomplete_widget_query"` key
+ *  (`event.commonEventObject.parameters["autocomplete_widget_query"]`). You can
+ *  use this value to query a database and suggest selectable items to users as
+ *  they type. For details, see [Collect and process information from Google
+ *  Chat
+ *  users](https://developers.google.com/workspace/add-ons/chat/collect-information).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2840,7 +3036,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  In addition to receiving events from user interactions, Chat apps can
  *  receive events about changes to spaces, such as when a new member is added
  *  to a space. To learn about space events, see [Work with events from Google
- *  Chat](https://developers.google.com/workspace/chat/events-overview).
+ *  Chat](https://developers.google.com/workspace/chat/events-overview). Note:
+ *  This event is only used for [Chat interaction
+ *  events](https://developers.google.com/workspace/chat/receive-respond-interactions).
+ *  If your Chat app is built as a [Google Workspace
+ *  add-on](https://developers.google.com/workspace/add-ons/chat/build), see
+ *  [Chat event
+ *  objects](https://developers.google.com/workspace/add-ons/concepts/event-objects#chat-event-object)
+ *  in the add-ons documentation.
  */
 @interface GTLRHangoutsChat_DeprecatedEvent : GTLRObject
 
@@ -4591,6 +4794,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *externalDataSource;
 
 /**
+ *  Optional. Text that appears below the selection input field meant to assist
+ *  users by prompting them to enter a certain value. This text is always
+ *  visible. Only supported by Google Workspace Workflows, but not Google Chat
+ *  API or Google Workspace Add-ons.
+ */
+@property(nonatomic, copy, nullable) NSString *hintText;
+
+/**
  *  An array of selectable items. For example, an array of radio buttons or
  *  checkboxes. Supports up to 100 items.
  *
@@ -5655,6 +5866,49 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Data for Meet space links.
+ */
+@interface GTLRHangoutsChat_MeetSpaceLinkData : GTLRObject
+
+/**
+ *  Optional. Output only. If the Meet is a Huddle, indicates the status of the
+ *  huddle. Otherwise, this is unset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Ended The huddle
+ *        has ended. In this case the Meet space URI and identifiers will no
+ *        longer be valid. (Value: "ENDED")
+ *    @arg @c kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_HuddleStatusUnspecified
+ *        Default value for the enum. Don't use. (Value:
+ *        "HUDDLE_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Missed The huddle
+ *        has been missed. In this case the Meet space URI and identifiers will
+ *        no longer be valid. (Value: "MISSED")
+ *    @arg @c kGTLRHangoutsChat_MeetSpaceLinkData_HuddleStatus_Started The
+ *        huddle has started. (Value: "STARTED")
+ */
+@property(nonatomic, copy, nullable) NSString *huddleStatus;
+
+/** Meeting code of the linked Meet space. */
+@property(nonatomic, copy, nullable) NSString *meetingCode;
+
+/**
+ *  Indicates the type of the Meet space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_MeetSpaceLinkData_Type_Huddle The Meet space is
+ *        a huddle. (Value: "HUDDLE")
+ *    @arg @c kGTLRHangoutsChat_MeetSpaceLinkData_Type_Meeting The Meet space is
+ *        a meeting. (Value: "MEETING")
+ *    @arg @c kGTLRHangoutsChat_MeetSpaceLinkData_Type_TypeUnspecified Default
+ *        value for the enum. Don't use. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Represents a membership relation in Google Chat, such as whether a user or
  *  Chat app is invited to, part of, or absent from a space.
  */
@@ -5857,7 +6111,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ActionResponse *actionResponse;
 
-/** Output only. Annotations associated with the `text` in this message. */
+/**
+ *  Output only. Annotations can be associated with the plain-text body of the
+ *  message or with chips that link to Google Workspace resources like Google
+ *  Docs or Sheets with `start_index` and `length` of 0.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Annotation *> *annotations;
 
 /**
@@ -5992,8 +6250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *privateMessageViewer;
 
 /**
- *  Output only. Information about a message that's quoted by a Google Chat user
- *  in a space. Google Chat users can quote a message to reply to it.
+ *  Optional. Information about a message that's quoted by a Google Chat user in
+ *  a space. Google Chat users can quote a message to reply to it.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_QuotedMessageMetadata *quotedMessageMetadata;
 
@@ -6216,13 +6474,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_QuotedMessageMetadata : GTLRObject
 
 /**
- *  Output only. The timestamp when the quoted message was created or when the
+ *  Required. The timestamp when the quoted message was created or when the
  *  quoted message was last updated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 
 /**
- *  Output only. Resource name of the quoted message. Format:
+ *  Required. Resource name of the message that is quoted. Format:
  *  `spaces/{space}/messages/{message}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6299,9 +6557,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A rich link to a resource.
+ *  A rich link to a resource. Rich links can be associated with the plain-text
+ *  body of the message or represent chips that link to Google Workspace
+ *  resources like Google Docs or Sheets with `start_index` and `length` of 0.
  */
 @interface GTLRHangoutsChat_RichLinkMetadata : GTLRObject
+
+/** Data for a Calendar event link. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_CalendarEventLinkData *calendarEventLinkData;
 
 /** Data for a chat space link. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ChatSpaceLinkData *chatSpaceLinkData;
@@ -6309,15 +6572,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** Data for a drive link. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DriveLinkData *driveLinkData;
 
+/** Data for a Meet space link. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_MeetSpaceLinkData *meetSpaceLinkData;
+
 /**
  *  The rich link type.
  *
  *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_CalendarEvent A
+ *        Calendar message rich link type. For example, a Calendar chip. (Value:
+ *        "CALENDAR_EVENT")
  *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_ChatSpace A Chat
  *        space rich link type. For example, a space smart chip. (Value:
  *        "CHAT_SPACE")
  *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile A Google
  *        Drive rich link type. (Value: "DRIVE_FILE")
+ *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_MeetSpace A Meet
+ *        message rich link type. For example, a Meet chip. (Value:
+ *        "MEET_SPACE")
  *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified
  *        Default value for the enum. Don't use. (Value:
  *        "RICH_LINK_TYPE_UNSPECIFIED")
@@ -6558,6 +6830,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Immutable. The customer id of the domain of the space. Required
+ *  only when creating a space with [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  and `SpaceType` is `SPACE`, otherwise should not be set. In the format
+ *  `customers/{customer}`, where `customer` is the `id` from the [Admin SDK
+ *  customer resource](
+ *  https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers).
+ *  Private apps can also use the `customers/my_customer` alias to create the
+ *  space in the same Google Workspace organization as the app. For DMs, this
+ *  field isn't populated.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
  *  Optional. The space's display name. Required when [creating a
  *  space](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/create)
  *  with a `spaceType` of `SPACE`. If you receive the error message
@@ -6624,8 +6910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Optional. Space permission settings for existing spaces. Input for updating
  *  exact space permission settings, where existing permission settings are
  *  replaced. Output lists current permission settings. Reading and updating
- *  permission settings supports: - In [Developer
- *  Preview](https://developers.google.com/workspace/preview), [App
+ *  permission settings supports: - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
  *  with the `chat.app.spaces` scope. Only populated and settable when the Chat
@@ -6639,8 +6924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  creating a space. If the field is not set, a collaboration space is created.
  *  After you create the space, settings are populated in the
  *  `PermissionSettings` field. Setting predefined permission settings supports:
- *  - In [Developer Preview](https://developers.google.com/workspace/preview),
- *  [App
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
  *  with the `chat.app.spaces` or `chat.app.spaces.create` scopes. - [User
