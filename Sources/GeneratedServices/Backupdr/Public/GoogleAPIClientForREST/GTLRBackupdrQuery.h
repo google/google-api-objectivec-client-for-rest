@@ -339,7 +339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
- *  Update a BackupPlanAssociation
+ *  Update a BackupPlanAssociation.
  *
  *  Method: backupdr.projects.locations.backupPlanAssociations.patch
  *
@@ -385,7 +385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /**
  *  Fetches a @c GTLRBackupdr_Operation.
  *
- *  Update a BackupPlanAssociation
+ *  Update a BackupPlanAssociation.
  *
  *  @param object The @c GTLRBackupdr_BackupPlanAssociation to include in the
  *    query.
@@ -631,7 +631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
- *  Update a BackupPlan
+ *  Update a BackupPlan.
  *
  *  Method: backupdr.projects.locations.backupPlans.patch
  *
@@ -677,7 +677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /**
  *  Fetches a @c GTLRBackupdr_Operation.
  *
- *  Update a BackupPlan
+ *  Update a BackupPlan.
  *
  *  @param object The @c GTLRBackupdr_BackupPlan to include in the query.
  *  @param name Output only. Identifier. The resource name of the `BackupPlan`.
@@ -2238,6 +2238,43 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the Assured Workloads compliance metadata for a given project.
+ *
+ *  Method: backupdr.projects.locations.managementServers.msComplianceMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata : GTLRBackupdrQuery
+
+/**
+ *  Required. The project and location to be used to check CSS metadata for
+ *  target project information, in the format
+ *  'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
+ *  map to Google Cloud regions, for example **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchMsComplianceMetadataResponse.
+ *
+ *  Returns the Assured Workloads compliance metadata for a given project.
+ *
+ *  @param object The @c GTLRBackupdr_FetchMsComplianceMetadataRequest to
+ *    include in the query.
+ *  @param parent Required. The project and location to be used to check CSS
+ *    metadata for target project information, in the format
+ *    'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
+ *    map to Google Cloud regions, for example **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_FetchMsComplianceMetadataRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

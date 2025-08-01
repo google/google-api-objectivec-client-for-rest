@@ -703,11 +703,50 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application
-@dynamic createTime, displayName, endpointMatchers, name, updateTime;
+@dynamic createTime, displayName, endpointMatchers, name, updateTime, upstreams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"endpointMatchers" : [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher class]
+    @"endpointMatchers" : [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher class],
+    @"upstreams" : [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream
+@dynamic egressPolicy, network;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy
+@dynamic regions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [NSString class]
   };
   return map;
 }
@@ -813,7 +852,8 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway
-@dynamic createTime, displayName, externalIps, hubs, name, state, updateTime;
+@dynamic createTime, delegatingServiceAccount, displayName, externalIps, hubs,
+         name, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

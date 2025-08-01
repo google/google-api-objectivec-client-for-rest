@@ -3107,8 +3107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
- *  Output only. A system-generated fingerprint for this version of the
- *  resource. May be used to detect modification conflict during updates.
+ *  Optional. A system-generated fingerprint for this version of the resource.
+ *  May be used to detect modification conflict during updates.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -4423,8 +4423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. A system-generated fingerprint for this version of the
- *  resource. May be used to detect modification conflict during updates.
+ *  Optional. A system-generated fingerprint for this version of the resource.
+ *  May be used to detect modification conflict during updates.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -5189,6 +5189,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *executionEnvironment;
 
 /**
+ *  Optional. True if GPU zonal redundancy is disabled on this task template.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
+
+/**
  *  Number of retries allowed per Task, before marking this Task failed.
  *  Defaults to 3.
  *
@@ -5523,8 +5530,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. A system-generated fingerprint for this version of the
- *  resource. May be used to detect modification conflict during updates.
+ *  Optional. A system-generated fingerprint for this version of the resource.
+ *  May be used to detect modification conflict during updates.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -5647,7 +5654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  The fully qualified name of this WorkerPool. In CreateWorkerPoolRequest,
  *  this field is ignored, and instead composed from
  *  CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
- *  Format: projects/{project}/locations/{location}/workerPools/{worker_id}
+ *  Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5814,6 +5821,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  before shutting down all instances. The minimum increment is 1 hour.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *encryptionKeyShutdownDuration;
+
+/**
+ *  Optional. True if GPU zonal redundancy is disabled on this worker pool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
 
 /**
  *  Optional. Unstructured key value map that can be used to organize and

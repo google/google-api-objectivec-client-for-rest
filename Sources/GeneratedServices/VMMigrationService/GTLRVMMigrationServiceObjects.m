@@ -465,8 +465,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 @implementation GTLRVMMigrationService_AwsVmDetails
 @dynamic architecture, bootOption, committedStorageMb, cpuCount, diskCount,
          displayName, instanceType, memoryMb, osDescription, powerState,
-         securityGroups, sourceDescription, sourceId, tags, virtualizationType,
-         vmId, vpcId, zoneProperty;
+         securityGroups, sourceDescription, sourceId, tags, vcpuCount,
+         virtualizationType, vmId, vpcId, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

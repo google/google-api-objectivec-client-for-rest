@@ -2546,12 +2546,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupConsistencyTime;
 
-/**
- *  Output only. If the last log backup were successful, this field has the
- *  consistency date.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulLogBackupConsistencyTime;
-
 @end
 
 
@@ -2616,10 +2610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_BackupPlan : GTLRObject
 
-/**
- *  Required. The backup rules for this `BackupPlan`. There must be at least one
- *  `BackupRule` message.
- */
+/** Optional. The backup rules for this `BackupPlan`. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupRule *> *backupRules;
 
 /**
@@ -2664,9 +2655,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_BackupPlan_Labels *labels;
 
 /**
- *  Optional. Required for CloudSQL resource_type Configures how long logs will
- *  be stored. It is defined in “days”. This value should be greater than or
- *  equal to minimum enforced log retention duration of the backup vault.
+ *  Optional. Applicable only for CloudSQL resource_type. Configures how long
+ *  logs will be stored. It is defined in “days”. This value should be greater
+ *  than or equal to minimum enforced log retention duration of the backup
+ *  vault.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2678,7 +2670,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. */
+/**
+ *  Required. The resource type to which the `BackupPlan` will be applied.
+ *  Examples include, "compute.googleapis.com/Instance",
+ *  "sqladmin.googleapis.com/Instance", "alloydb.googleapis.com/Cluster",
+ *  "compute.googleapis.com/Disk".
+ */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
@@ -2788,7 +2785,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
-/** Required. Immutable. */
+/**
+ *  Required. Immutable. Resource type of workload on which backupplan is
+ *  applied
+ */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 /** Output only. The config info related to backup rules. */
@@ -3191,7 +3191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  CloudSqlInstanceBackupProperties represents Cloud SQL Instance Backup
- *  properties. .
+ *  properties.
  */
 @interface GTLRBackupdr_CloudSqlInstanceBackupProperties : GTLRObject
 
@@ -3225,7 +3225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  CloudSqlInstanceDataSourceProperties represents the properties of a Cloud
- *  SQL resource that are stored in the DataSource. .
+ *  SQL resource that are stored in the DataSource.
  */
 @interface GTLRBackupdr_CloudSqlInstanceDataSourceProperties : GTLRObject
 
@@ -3252,7 +3252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  CloudSqlInstanceDataSourceReferenceProperties represents the properties of a
- *  Cloud SQL resource that are stored in the DataSourceReference. .
+ *  Cloud SQL resource that are stored in the DataSourceReference.
  */
 @interface GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties : GTLRObject
 
@@ -3501,7 +3501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  Optional. Array of disks associated with this instance. Persistent disks
- *  must be created before you can assign them.
+ *  must be created before you can assign them. Source regional persistent disks
+ *  will be restored with default replica zones if not specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_AttachedDisk *> *disks;
 
@@ -3566,7 +3567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Optional. An array of network configurations for this instance. These
  *  specify how interfaces are configured to interact with other network
  *  services, such as connecting to the internet. Multiple interfaces are
- *  supported per instance.
+ *  supported per instance. Required to restore in different project or region.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_NetworkInterface *> *networkInterfaces;
 
@@ -3609,7 +3610,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_AllocationAffinity *reservationAffinity;
 
-/** Optional. Resource policies applied to this instance. */
+/**
+ *  Optional. Resource policies applied to this instance. By default, no
+ *  resource policies will be applied.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicies;
 
 /** Optional. Sets the scheduling options for this instance. */
@@ -4193,7 +4197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
-/** Required. Name of the disk.. */
+/** Required. Name of the disk. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4470,6 +4474,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Request message for GetMsComplianceMetadata
+ */
+@interface GTLRBackupdr_FetchMsComplianceMetadataRequest : GTLRObject
+
+/** Required. The project id of the target project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  Response message for GetMsComplianceMetadata
+ */
+@interface GTLRBackupdr_FetchMsComplianceMetadataResponse : GTLRObject
+
+/**
+ *  The ms compliance metadata of the target project, if the project is an
+ *  assured workloads project, values will be true, otherwise false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAssuredWorkload;
 
 @end
 
@@ -6506,7 +6537,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Required. backup rule_id for which a backup needs to be triggered. */
+/**
+ *  Optional. backup rule_id for which a backup needs to be triggered. If not
+ *  specified, on-demand backup with custom retention will be triggered.
+ */
 @property(nonatomic, copy, nullable) NSString *ruleId;
 
 @end

@@ -73,6 +73,7 @@
 @class GTLRBackupforGKE_TimeOfDay;
 @class GTLRBackupforGKE_TransformationRule;
 @class GTLRBackupforGKE_TransformationRuleAction;
+@class GTLRBackupforGKE_TroubleshootingInfo;
 @class GTLRBackupforGKE_VolumeBackup;
 @class GTLRBackupforGKE_VolumeDataRestorePolicyBinding;
 @class GTLRBackupforGKE_VolumeDataRestorePolicyOverride;
@@ -1074,6 +1075,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  used programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
+
+/**
+ *  Output only. Information about the troubleshooting steps which will provide
+ *  debugging information to the end users.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_TroubleshootingInfo *troubleshootingInfo;
 
 /**
  *  Output only. Server generated global unique identifier of
@@ -2992,6 +2999,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *stateReason;
 
 /**
+ *  Output only. Information about the troubleshooting steps which will provide
+ *  debugging information to the end users.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_TroubleshootingInfo *troubleshootingInfo;
+
+/**
  *  Output only. Server generated global unique identifier of
  *  [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format.
  */
@@ -3869,6 +3882,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  for transformation.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Stores information about troubleshooting doc for debugging a particular
+ *  state of an operation (eg - backup/restore). This will be used by the end
+ *  user to debug their operation failure scenario easily.
+ */
+@interface GTLRBackupforGKE_TroubleshootingInfo : GTLRObject
+
+/**
+ *  Output only. Unique code for each backup/restore operation failure message
+ *  which helps user identify the failure.
+ */
+@property(nonatomic, copy, nullable) NSString *stateReasonCode;
+
+/**
+ *  Output only. URL for the troubleshooting doc which will help the user fix
+ *  the failing backup/restore operation.
+ */
+@property(nonatomic, copy, nullable) NSString *stateReasonUri;
 
 @end
 

@@ -1139,6 +1139,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  */
 @property(nonatomic, strong, nullable) NSNumber *hasVoiceOfMerchant;
 
+/**
+ *  Output only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isParticularlyPersonalPlace;
+
 /** Output only. A link to the location on Maps. */
 @property(nonatomic, copy, nullable) NSString *mapsUri;
 

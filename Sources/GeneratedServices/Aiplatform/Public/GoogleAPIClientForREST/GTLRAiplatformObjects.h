@@ -235,6 +235,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewBigQuerySource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKey;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKeyCompositeKey;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValues;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValuesFeature;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponseWriteResponse;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySourceFeatureGroup;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig;
@@ -273,6 +276,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionResponse_Response;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GcsSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GdcConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfigRagConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels;
@@ -288,12 +292,17 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenieSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMaps;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkWeb;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata;
@@ -309,6 +318,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Index;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Index_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint;
+@class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint_EmbeddingMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointCrowdingTag;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointRestriction;
@@ -1418,6 +1428,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Corpus
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus_State_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata.deploymentStage
+
+/**
+ *  The deployment is adding nodes to the serving cluster.
+ *
+ *  Value: "ADDING_NODES_TO_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_AddingNodesToCluster;
+/**
+ *  The deployment is creating the underlying serving cluster.
+ *
+ *  Value: "CREATING_SERVING_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_CreatingServingCluster;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DEPLOYMENT_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_DeploymentStageUnspecified;
+/**
+ *  The deployment has terminated.
+ *
+ *  Value: "DEPLOYMENT_TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_DeploymentTerminated;
+/**
+ *  The deployment is performing finalization steps.
+ *
+ *  Value: "FINISHING_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_FinishingUp;
+/**
+ *  The deployment is getting the container image for the model server.
+ *
+ *  Value: "GETTING_CONTAINER_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_GettingContainerImage;
+/**
+ *  The deployment is preparing the model assets.
+ *
+ *  Value: "PREPARING_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_PreparingModel;
+/**
+ *  The deployment is initializing and setting up the environment.
+ *
+ *  Value: "STARTING_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_StartingDeployment;
+/**
+ *  The deployment is starting the model server.
+ *
+ *  Value: "STARTING_MODEL_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_StartingModelServer;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1CustomJob.state
 
 /**
@@ -1572,6 +1640,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DataLa
  *  Value: "JOB_STATE_UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DataLabelingJob_State_JobStateUpdating;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata.deploymentStage
+
+/**
+ *  The deployment is adding nodes to the serving cluster.
+ *
+ *  Value: "ADDING_NODES_TO_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_AddingNodesToCluster;
+/**
+ *  The deployment is creating the underlying serving cluster.
+ *
+ *  Value: "CREATING_SERVING_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_CreatingServingCluster;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DEPLOYMENT_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_DeploymentStageUnspecified;
+/**
+ *  The deployment has terminated.
+ *
+ *  Value: "DEPLOYMENT_TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_DeploymentTerminated;
+/**
+ *  The deployment is performing finalization steps.
+ *
+ *  Value: "FINISHING_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_FinishingUp;
+/**
+ *  The deployment is getting the container image for the model server.
+ *
+ *  Value: "GETTING_CONTAINER_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_GettingContainerImage;
+/**
+ *  The deployment is preparing the model assets.
+ *
+ *  Value: "PREPARING_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_PreparingModel;
+/**
+ *  The deployment is initializing and setting up the environment.
+ *
+ *  Value: "STARTING_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_StartingDeployment;
+/**
+ *  The deployment is starting the model server.
+ *
+ *  Value: "STARTING_MODEL_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_StartingModelServer;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig.mode
@@ -9668,6 +9794,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata : GTLRObject
 
+/**
+ *  Output only. The deployment stage of the model. Only populated if this
+ *  CreateEndpoint request deploys a model at the same time.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_AddingNodesToCluster
+ *        The deployment is adding nodes to the serving cluster. (Value:
+ *        "ADDING_NODES_TO_CLUSTER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_CreatingServingCluster
+ *        The deployment is creating the underlying serving cluster. (Value:
+ *        "CREATING_SERVING_CLUSTER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_DeploymentStageUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "DEPLOYMENT_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_DeploymentTerminated
+ *        The deployment has terminated. (Value: "DEPLOYMENT_TERMINATED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_FinishingUp
+ *        The deployment is performing finalization steps. (Value:
+ *        "FINISHING_UP")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_GettingContainerImage
+ *        The deployment is getting the container image for the model server.
+ *        (Value: "GETTING_CONTAINER_IMAGE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_PreparingModel
+ *        The deployment is preparing the model assets. (Value:
+ *        "PREPARING_MODEL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_StartingDeployment
+ *        The deployment is initializing and setting up the environment. (Value:
+ *        "STARTING_DEPLOYMENT")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_StartingModelServer
+ *        The deployment is starting the model server. (Value:
+ *        "STARTING_MODEL_SERVER")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentStage;
+
 /** The operation generic information. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
 
@@ -11155,6 +11315,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 @property(nonatomic, strong, nullable) NSNumber *enableAccessLogging;
 
 /**
+ *  Optional. If true, logs to Cloud Logging errors relating to datapoint
+ *  upserts. Under normal operation conditions, these log entries should be very
+ *  rare. However, if incompatible datapoint updates are being uploaded to an
+ *  index, a high volume of log entries may be generated in a short period of
+ *  time. Note that logs may incur a cost, especially if the deployed index
+ *  receives a high volume of datapoint upserts. Estimate your costs before
+ *  enabling this option.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableDatapointUpsertLogging;
+
+/**
  *  Required. The user specified ID of the DeployedIndex. The ID can be up to
  *  128 characters long and must start with a letter and only contain letters,
  *  numbers, and underscores. The ID must be unique within the project it is
@@ -11339,6 +11512,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 /** Configuration for faster model deployment. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FasterDeploymentConfig *fasterDeploymentConfig;
+
+/**
+ *  GDC pretrained / Gemini model name. The model name is a plain model name,
+ *  e.g. gemini-1.5-flash-002.
+ */
+@property(nonatomic, copy, nullable) NSString *gdcConnectedModel;
 
 /**
  *  Immutable. The ID of the DeployedModel. If not provided upon deployment,
@@ -11558,6 +11737,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  Runtime operation information for EndpointService.DeployModel.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata : GTLRObject
+
+/**
+ *  Output only. The deployment stage of the model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_AddingNodesToCluster
+ *        The deployment is adding nodes to the serving cluster. (Value:
+ *        "ADDING_NODES_TO_CLUSTER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_CreatingServingCluster
+ *        The deployment is creating the underlying serving cluster. (Value:
+ *        "CREATING_SERVING_CLUSTER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_DeploymentStageUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "DEPLOYMENT_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_DeploymentTerminated
+ *        The deployment has terminated. (Value: "DEPLOYMENT_TERMINATED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_FinishingUp
+ *        The deployment is performing finalization steps. (Value:
+ *        "FINISHING_UP")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_GettingContainerImage
+ *        The deployment is getting the container image for the model server.
+ *        (Value: "GETTING_CONTAINER_IMAGE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_PreparingModel
+ *        The deployment is preparing the model assets. (Value:
+ *        "PREPARING_MODEL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_StartingDeployment
+ *        The deployment is initializing and setting up the environment. (Value:
+ *        "STARTING_DEPLOYMENT")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_StartingModelServer
+ *        The deployment is starting the model server. (Value:
+ *        "STARTING_MODEL_SERVER")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentStage;
 
 /** The operation generic information. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
@@ -11796,6 +12008,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  a default name will be used.
  */
 @property(nonatomic, copy, nullable) NSString *modelDisplayName;
+
+/**
+ *  Optional. The ID to use for the uploaded Model, which will become the final
+ *  component of the model resource name. When not provided, Vertex AI will
+ *  generate a value for this ID. When Model Registry model is provided, this
+ *  field will be ignored. This value may be up to 63 characters, and valid
+ *  characters are `[a-z0-9_-]`. The first character cannot be a number or
+ *  hyphen.
+ */
+@property(nonatomic, copy, nullable) NSString *modelUserId;
 
 @end
 
@@ -12104,6 +12326,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  "overwrite" update happens.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Configures the Google Distributed Cloud (GDC) environment for online
+ *  prediction. Only set this field when the Endpoint is to be deployed in a GDC
+ *  environment.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GdcConfig *gdcConfig;
 
 /**
  *  Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is
@@ -15754,6 +15983,93 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Request message for FeatureOnlineStoreService.FeatureViewDirectWrite.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest : GTLRObject
+
+/** Required. The data keys and associated feature values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValues *> *dataKeyAndFeatureValues;
+
+@end
+
+
+/**
+ *  A data key and associated feature values to write to the feature view.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValues : GTLRObject
+
+/** The data key. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKey *dataKey;
+
+/** List of features to write. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValuesFeature *> *features;
+
+@end
+
+
+/**
+ *  Feature name & value pair.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValuesFeature : GTLRObject
+
+/** Feature short name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Feature value. A user provided timestamp may be set in the
+ *  `FeatureValue.metadata.generate_time` field.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureValue *value;
+
+@end
+
+
+/**
+ *  Response message for FeatureOnlineStoreService.FeatureViewDirectWrite.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponse : GTLRObject
+
+/**
+ *  Response status for the keys listed in
+ *  FeatureViewDirectWriteResponse.write_responses. The error only applies to
+ *  the listed data keys - the stream will remain open for further
+ *  FeatureOnlineStoreService.FeatureViewDirectWriteRequest requests. Partial
+ *  failures (e.g. if the first 10 keys of a request fail, but the rest succeed)
+ *  from a single request may result in multiple responses - there will be one
+ *  response for the successful request keys and one response for the failing
+ *  request keys.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleRpcStatus *status;
+
+/**
+ *  Details about write for each key. If status is not OK,
+ *  WriteResponse.data_key will have the key with error, but
+ *  WriteResponse.online_store_write_time will not be present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponseWriteResponse *> *writeResponses;
+
+@end
+
+
+/**
+ *  Details about the write for each key.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponseWriteResponse : GTLRObject
+
+/** What key is this write response associated with. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKey *dataKey;
+
+/**
+ *  When the feature values were written to the online store. If
+ *  FeatureViewDirectWriteResponse.status is not OK, this field is not
+ *  populated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *onlineStoreWriteTime;
+
+@end
+
+
+/**
  *  A Feature Registry source for features that need to be synced to Online
  *  Store.
  */
@@ -16752,6 +17068,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Google Distributed Cloud (GDC) config.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GdcConfig : GTLRObject
+
+/**
+ *  GDC zone. A cluster will be designated for the Vertex AI workload in this
+ *  zone.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
  *  Configuration for GenAiAdvancedFeatures.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfig : GTLRObject
@@ -17374,6 +17706,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Tool to retrieve public maps data for grounding, powered by Google.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps : GTLRObject
+
+/**
+ *  The authentication config to access the API. Deprecated. Please use
+ *  auth_config instead.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ApiAuth *apiAuth GTLR_DEPRECATED;
+
+/** The authentication config to access the API. Only API key is supported. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig *authConfig;
+
+@end
+
+
+/**
  *  Tool to retrieve public web data for grounding, powered by Google.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval : GTLRObject
@@ -17460,11 +17809,104 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk : GTLRObject
 
+/** Grounding chunk from Google Maps. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMaps *maps;
+
 /** Grounding chunk from context retrieved by the retrieval tools. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext *retrievedContext;
 
 /** Grounding chunk from the web. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkWeb *web;
+
+@end
+
+
+/**
+ *  Chunk from Google Maps.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMaps : GTLRObject
+
+/**
+ *  Sources used to generate the place answer. This includes review snippets and
+ *  photos that were used to generate the answer, as well as uris to flag
+ *  content.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources *placeAnswerSources;
+
+/**
+ *  This Place's resource name, in `places/{place_id}` format. Can be used to
+ *  look up the Place.
+ */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+/** Text of the chunk. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** Title of the chunk. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** URI reference of the chunk. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Sources used to generate the place answer.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources : GTLRObject
+
+/** A link where users can flag a problem with the generated answer. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** Snippets of reviews that are used to generate the answer. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet *> *reviewSnippets;
+
+@end
+
+
+/**
+ *  Author attribution for a photo or review.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution : GTLRObject
+
+/** Name of the author of the Photo or Review. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Profile photo URI of the author of the Photo or Review. */
+@property(nonatomic, copy, nullable) NSString *photoUri;
+
+/** URI of the author of the Photo or Review. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Encapsulates a review snippet.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet : GTLRObject
+
+/** This review's author. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution *authorAttribution;
+
+/** A link where users can flag a problem with the review. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** A link to show the review on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *googleMapsUri;
+
+/**
+ *  A string of formatted recent time, expressing the review time relative to
+ *  the current time in a form appropriate for the language and country.
+ */
+@property(nonatomic, copy, nullable) NSString *relativePublishTimeDescription;
+
+/**
+ *  A reference representing this place review which may be used to look up this
+ *  place review again.
+ */
+@property(nonatomic, copy, nullable) NSString *review;
 
 @end
 
@@ -17513,6 +17955,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  Metadata returned to client when grounding is enabled.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata : GTLRObject
+
+/**
+ *  Optional. Output only. Resource name of the Google Maps widget context token
+ *  to be used with the PlacesContextElement widget to render contextual data.
+ *  This is populated only for Google Maps grounding.
+ */
+@property(nonatomic, copy, nullable) NSString *googleMapsWidgetContextToken;
 
 /**
  *  List of supporting references retrieved from specified grounding source.
@@ -18308,6 +18757,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Required. Unique identifier of the datapoint. */
 @property(nonatomic, copy, nullable) NSString *datapointId;
 
+/** Optional. The key-value map of additional metadata for the datapoint. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint_EmbeddingMetadata *embeddingMetadata;
+
 /**
  *  Required. Feature embedding vector for dense index. An array of numbers with
  *  the length of [NearestNeighborSearchConfig.dimensions].
@@ -18334,6 +18786,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Optional. Feature embedding vector for sparse index. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointSparseEmbedding *sparseEmbedding;
 
+@end
+
+
+/**
+ *  Optional. The key-value map of additional metadata for the datapoint.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint_EmbeddingMetadata : GTLRObject
 @end
 
 
@@ -22827,9 +23291,9 @@ GTLR_DEPRECATED
  *  Required. The DeployedModel to be mutated within the Endpoint. Only the
  *  following fields can be mutated: * `min_replica_count` in either
  *  DedicatedResources or AutomaticResources * `max_replica_count` in either
- *  DedicatedResources or AutomaticResources * autoscaling_metric_specs *
- *  `disable_container_logging` (v1 only) * `enable_container_logging` (v1beta1
- *  only)
+ *  DedicatedResources or AutomaticResources * `required_replica_count` in
+ *  DedicatedResources * autoscaling_metric_specs * `disable_container_logging`
+ *  (v1 only) * `enable_container_logging` (v1beta1 only)
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DeployedModel *deployedModel;
 
@@ -26610,6 +27074,14 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences : GTLRObject
 
+/**
+ *  Optional. For notebook resource. When set to true, the Colab Enterprise link
+ *  will be disabled in the "open notebook" dialog in UI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colabNotebookDisabled;
+
 /** Required. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences_References *references;
 
@@ -28333,6 +28805,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Customer-managed encryption key spec for a ReasoningEngine. If set, this
+ *  ReasoningEngine and all sub-resources of this ReasoningEngine will be
+ *  secured by this key.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec *encryptionSpec;
+
+/**
  *  Optional. Used to perform consistent read-modify-write updates. If not set,
  *  a blind "overwrite" update happens.
  */
@@ -28383,6 +28862,15 @@ GTLR_DEPRECATED
  *  to avoid introducing breaking changes.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec *packageSpec;
+
+/**
+ *  Optional. The service account that the Reasoning Engine artifact runs as. It
+ *  should have "roles/storage.objectViewer" for reading the user project's
+ *  Cloud Storage and "roles/aiplatform.user" for using Vertex extensions. If
+ *  not specified, the Vertex AI Reasoning Engine Service Agent in the project
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 
@@ -37259,7 +37747,8 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Multiplier for adjusting the default learning rate. Mutually
- *  exclusive with `learning_rate`.
+ *  exclusive with `learning_rate`. This feature is only available for 1P
+ *  models.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -38283,9 +38772,12 @@ GTLR_DEPRECATED
  *  subset of these functions by populating FunctionCall in the response. User
  *  should provide a FunctionResponse for each function call in the next turn.
  *  Based on the function responses, Model will generate the final response back
- *  to the user. Maximum 128 function declarations can be provided.
+ *  to the user. Maximum 512 function declarations can be provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration *> *functionDeclarations;
+
+/** Optional. GoogleMaps tool type. Tool to support Google Maps in Model. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps *googleMaps;
 
 /**
  *  Optional. GoogleSearch tool type. Tool to support Google Search in Model.

@@ -11,6 +11,21 @@
 #import <GoogleAPIClientForREST/GTLRStorageObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig.restrictionMode
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted = @"FullyRestricted";
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted = @"NotRestricted";
+
+// GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig.restrictionMode
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted = @"FullyRestricted";
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_NotRestricted = @"NotRestricted";
+
+// GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig.restrictionMode
+NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted = @"FullyRestricted";
+NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted = @"NotRestricted";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRStorage_AdvanceRelocateBucketOperationRequest
 //
@@ -158,7 +173,9 @@
 //
 
 @implementation GTLRStorage_Bucket_Encryption
-@dynamic defaultKmsKeyName;
+@dynamic customerManagedEncryptionEnforcementConfig,
+         customerSuppliedEncryptionEnforcementConfig, defaultKmsKeyName,
+         googleManagedEncryptionEnforcementConfig;
 @end
 
 
@@ -300,6 +317,36 @@
 
 @implementation GTLRStorage_Bucket_Website
 @dynamic mainPageSuffix, notFoundPage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig
+//
+
+@implementation GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig
+@dynamic effectiveTime, restrictionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig
+//
+
+@implementation GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig
+@dynamic effectiveTime, restrictionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig
+//
+
+@implementation GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig
+@dynamic effectiveTime, restrictionMode;
 @end
 
 

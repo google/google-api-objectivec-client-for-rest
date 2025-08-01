@@ -48,14 +48,17 @@
 @class GTLRSecurityCommandCenter_Binding;
 @class GTLRSecurityCommandCenter_Chokepoint;
 @class GTLRSecurityCommandCenter_CloudArmor;
+@class GTLRSecurityCommandCenter_CloudControl;
 @class GTLRSecurityCommandCenter_CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_CloudDlpInspection;
 @class GTLRSecurityCommandCenter_CloudLoggingEntry;
 @class GTLRSecurityCommandCenter_Compliance;
+@class GTLRSecurityCommandCenter_ComplianceDetails;
 @class GTLRSecurityCommandCenter_Connection;
 @class GTLRSecurityCommandCenter_Contact;
 @class GTLRSecurityCommandCenter_ContactDetails;
 @class GTLRSecurityCommandCenter_Container;
+@class GTLRSecurityCommandCenter_Control;
 @class GTLRSecurityCommandCenter_CreateResourceValueConfigRequest;
 @class GTLRSecurityCommandCenter_CustomModuleValidationError;
 @class GTLRSecurityCommandCenter_CustomModuleValidationErrors;
@@ -88,6 +91,7 @@
 @class GTLRSecurityCommandCenter_Finding_ExternalSystems;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_Folder;
+@class GTLRSecurityCommandCenter_Framework;
 @class GTLRSecurityCommandCenter_GcpMetadata;
 @class GTLRSecurityCommandCenter_Geolocation;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
@@ -133,14 +137,17 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Binding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Chokepoint;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpInspection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudLoggingEntry;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Compliance;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ComplianceDetails;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Connection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Contact;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ContactDetails;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Container;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Control;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cve;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cvssv3;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cwe;
@@ -165,6 +172,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_ExternalSystems;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Folder;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Geolocation;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
@@ -461,6 +469,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_BulkMuteFindingsRe
  *  Value: "UNDEFINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_BulkMuteFindingsRequest_MuteState_Undefined;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_CloudControl.type
+
+/**
+ *  Built in Cloud Control.
+ *
+ *  Value: "BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudControl_Type_BuiltIn;
+/**
+ *  Unspecified.
+ *
+ *  Value: "CLOUD_CONTROL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudControl_Type_CloudControlTypeUnspecified;
+/**
+ *  Custom Cloud Control.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudControl_Type_Custom;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_CloudDlpDataProfile.parentType
@@ -923,7 +953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThre
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_CloudProviderUnspecified;
 /**
- *  Google Cloud Platform.
+ *  Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -1238,6 +1268,63 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_Inac
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Framework.category
+
+/**
+ *  Assured Workloads framework
+ *
+ *  Value: "ASSURED_WORKLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Category_AssuredWorkloads;
+/**
+ *  Data Security framework
+ *
+ *  Value: "DATA_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Category_DataSecurity;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "FRAMEWORK_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Category_FrameworkCategoryUnspecified;
+/**
+ *  Google Best Practices framework
+ *
+ *  Value: "GOOGLE_BEST_PRACTICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Category_GoogleBestPractices;
+/**
+ *  Security Benchmarks framework
+ *
+ *  Value: "SECURITY_BENCHMARKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Category_SecurityBenchmarks;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Framework.type
+
+/**
+ *  The framework is a built-in framework if it is created and managed by GCP.
+ *
+ *  Value: "FRAMEWORK_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Type_FrameworkTypeBuiltIn;
+/**
+ *  The framework is a custom framework if it is created and managed by the
+ *  user.
+ *
+ *  Value: "FRAMEWORK_TYPE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Type_FrameworkTypeCustom;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "FRAMEWORK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Type_FrameworkTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse.state
 
 /**
@@ -1316,7 +1403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_CloudProviderUnspecified;
 /**
- *  Google Cloud Platform.
+ *  Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -1481,7 +1568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_CloudProviderUnspecified;
 /**
- *  The cloud provider is Google Cloud Platform.
+ *  The cloud provider is Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -1509,7 +1596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_CloudProviderUnspecified;
 /**
- *  The cloud provider is Google Cloud Platform.
+ *  The cloud provider is Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -1753,6 +1840,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl.type
+
+/**
+ *  Built in Cloud Control.
+ *
+ *  Value: "BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl_Type_BuiltIn;
+/**
+ *  Unspecified.
+ *
+ *  Value: "CLOUD_CONTROL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl_Type_CloudControlTypeUnspecified;
+/**
+ *  Custom Cloud Control.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl_Type_Custom;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpDataProfile.parentType
@@ -2421,6 +2530,63 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework.category
+
+/**
+ *  Assured Workloads framework
+ *
+ *  Value: "ASSURED_WORKLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_AssuredWorkloads;
+/**
+ *  Data Security framework
+ *
+ *  Value: "DATA_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_DataSecurity;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "FRAMEWORK_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_FrameworkCategoryUnspecified;
+/**
+ *  Google Best Practices framework
+ *
+ *  Value: "GOOGLE_BEST_PRACTICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_GoogleBestPractices;
+/**
+ *  Security Benchmarks framework
+ *
+ *  Value: "SECURITY_BENCHMARKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_SecurityBenchmarks;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework.type
+
+/**
+ *  The framework is a built-in framework if it is created and managed by GCP.
+ *
+ *  Value: "FRAMEWORK_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Type_FrameworkTypeBuiltIn;
+/**
+ *  The framework is a custom framework if it is created and managed by the
+ *  user.
+ *
+ *  Value: "FRAMEWORK_TYPE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Type_FrameworkTypeCustom;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "FRAMEWORK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Type_FrameworkTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership.groupType
@@ -3339,6 +3505,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ModifyCloudComputeInfrastructure;
+/**
+ *  T1556.006
+ *
+ *  Value: "MULTI_FACTOR_AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_MultiFactorAuthentication;
 /**
  *  T1090.003
  *
@@ -4260,6 +4432,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ModifyCloudComputeInfrastructure;
 /**
+ *  T1556.006
+ *
+ *  Value: "MULTI_FACTOR_AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_MultiFactorAuthentication;
+/**
  *  T1090.003
  *
  *  Value: "MULTI_HOP_PROXY"
@@ -4615,7 +4793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_CloudProviderUnspecified;
 /**
- *  The cloud provider is Google Cloud Platform.
+ *  The cloud provider is Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -4707,7 +4885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_CloudProviderUnspecified;
 /**
- *  The cloud provider is Google Cloud Platform.
+ *  The cloud provider is Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -5696,6 +5874,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyCloudComputeInfrastructure;
 /**
+ *  T1556.006
+ *
+ *  Value: "MULTI_FACTOR_AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_MultiFactorAuthentication;
+/**
  *  T1090.003
  *
  *  Value: "MULTI_HOP_PROXY"
@@ -6616,6 +6800,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyCloudComputeInfrastructure;
 /**
+ *  T1556.006
+ *
+ *  Value: "MULTI_FACTOR_AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_MultiFactorAuthentication;
+/**
  *  T1090.003
  *
  *  Value: "MULTI_HOP_PROXY"
@@ -6942,7 +7132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Resource_CloudProv
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Resource_CloudProvider_CloudProviderUnspecified;
 /**
- *  The cloud provider is Google Cloud Platform.
+ *  The cloud provider is Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -7107,7 +7297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudPr
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudProvider_CloudProviderUnspecified;
 /**
- *  The cloud provider is Google Cloud Platform.
+ *  The cloud provider is Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -7219,7 +7409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_CloudProviderUnspecified;
 /**
- *  The cloud provider is Google Cloud Platform.
+ *  The cloud provider is Google Cloud.
  *
  *  Value: "GOOGLE_CLOUD_PLATFORM"
  */
@@ -8354,6 +8544,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  CloudControl associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_CloudControl : GTLRObject
+
+/** Name of the CloudControl associated with the finding. */
+@property(nonatomic, copy, nullable) NSString *cloudControlName;
+
+/** Policy type of the CloudControl */
+@property(nonatomic, copy, nullable) NSString *policyType;
+
+/**
+ *  Type of cloud control.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_CloudControl_Type_BuiltIn Built in
+ *        Cloud Control. (Value: "BUILT_IN")
+ *    @arg @c kGTLRSecurityCommandCenter_CloudControl_Type_CloudControlTypeUnspecified
+ *        Unspecified. (Value: "CLOUD_CONTROL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_CloudControl_Type_Custom Custom Cloud
+ *        Control. (Value: "CUSTOM")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Version of the Cloud Control
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  The [data profile](https://cloud.google.com/dlp/docs/data-profiles)
  *  associated with the finding.
  */
@@ -8470,6 +8694,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Compliance Details associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_ComplianceDetails : GTLRObject
+
+/** CloudControl associated with the finding */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudControl *cloudControl;
+
+/**
+ *  Cloud Control Deployments associated with the finding. For example,
+ *  organizations/123/locations/global/cloudControlDeployments/deploymentIdentifier
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cloudControlDeploymentNames;
+
+/** Details of Frameworks associated with the finding */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Framework *> *frameworks;
+
+@end
+
+
+/**
  *  Contains information about the IP connection associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_Connection : GTLRObject
@@ -8567,6 +8811,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  string can identify a container image version using mutable tags.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Compliance control associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Control : GTLRObject
+
+/** Name of the Control */
+@property(nonatomic, copy, nullable) NSString *controlName;
+
+/** Display name of the control. For example, AU-02. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 @end
 
@@ -9232,7 +9490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_CloudProviderUnspecified
  *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_GoogleCloudPlatform
- *        Google Cloud Platform. (Value: "GOOGLE_CLOUD_PLATFORM")
+ *        Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_CloudProvider_MicrosoftAzure
  *        Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -9684,6 +9942,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpInspection *cloudDlpInspection;
 
+/** Details about the compliance implications of the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ComplianceDetails *complianceDetails;
+
 /**
  *  Contains compliance information for security standards associated to the
  *  finding.
@@ -10102,8 +10363,53 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
- *  GCP metadata associated with the resource, only applicable if the finding's
- *  cloud provider is Google Cloud Platform.
+ *  Compliance framework associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Framework : GTLRObject
+
+/**
+ *  Category of the framework associated with the finding. E.g. Security
+ *  Benchmark, or Assured Workloads
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *category;
+
+/** The controls associated with the framework. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Control *> *controls;
+
+/**
+ *  Display name of the framework. For a standard framework, this will look like
+ *  e.g. PCI DSS 3.2.1, whereas for a custom framework it can be a user defined
+ *  string like MyFramework
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Name of the framework associated with the finding */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Type of the framework associated with the finding, to specify whether the
+ *  framework is built-in (pre-defined and immutable) or a custom framework
+ *  defined by the customer (equivalent to security posture)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Framework_Type_FrameworkTypeBuiltIn The
+ *        framework is a built-in framework if it is created and managed by GCP.
+ *        (Value: "FRAMEWORK_TYPE_BUILT_IN")
+ *    @arg @c kGTLRSecurityCommandCenter_Framework_Type_FrameworkTypeCustom The
+ *        framework is a custom framework if it is created and managed by the
+ *        user. (Value: "FRAMEWORK_TYPE_CUSTOM")
+ *    @arg @c kGTLRSecurityCommandCenter_Framework_Type_FrameworkTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "FRAMEWORK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Google Cloud metadata associated with the resource. Only applicable if the
+ *  finding's cloud provider is Google Cloud.
  */
 @interface GTLRSecurityCommandCenter_GcpMetadata : GTLRObject
 
@@ -10409,7 +10715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_CloudProviderUnspecified
  *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_GoogleCloudPlatform
- *        Google Cloud Platform. (Value: "GOOGLE_CLOUD_PLATFORM")
+ *        Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_CloudProvider_MicrosoftAzure
  *        Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -10959,8 +11265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        The cloud provider is unspecified. (Value:
  *        "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
+ *        The cloud provider is Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_MicrosoftAzure
  *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -11059,8 +11364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        The cloud provider is unspecified. (Value:
  *        "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
+ *        The cloud provider is Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_MicrosoftAzure
  *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -12081,6 +12385,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  CloudControl associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl : GTLRObject
+
+/** Name of the CloudControl associated with the finding. */
+@property(nonatomic, copy, nullable) NSString *cloudControlName;
+
+/** Policy type of the CloudControl */
+@property(nonatomic, copy, nullable) NSString *policyType;
+
+/**
+ *  Type of cloud control.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl_Type_BuiltIn
+ *        Built in Cloud Control. (Value: "BUILT_IN")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl_Type_CloudControlTypeUnspecified
+ *        Unspecified. (Value: "CLOUD_CONTROL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl_Type_Custom
+ *        Custom Cloud Control. (Value: "CUSTOM")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Version of the Cloud Control
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  The [data profile](https://cloud.google.com/dlp/docs/data-profiles)
  *  associated with the finding.
  */
@@ -12197,6 +12535,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Compliance Details associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ComplianceDetails : GTLRObject
+
+/** CloudControl associated with the finding */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudControl *cloudControl;
+
+/**
+ *  Cloud Control Deployments associated with the finding. For example,
+ *  organizations/123/locations/global/cloudControlDeployments/deploymentIdentifier
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cloudControlDeploymentNames;
+
+/** Details of Frameworks associated with the finding */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework *> *frameworks;
+
+@end
+
+
+/**
  *  Contains information about the IP connection associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Connection : GTLRObject
@@ -12294,6 +12652,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  string can identify a container image version using mutable tags.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Compliance control associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Control : GTLRObject
+
+/** Name of the Control */
+@property(nonatomic, copy, nullable) NSString *controlName;
+
+/** Display name of the control. For example, AU-02. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 @end
 
@@ -13157,6 +13529,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpInspection *cloudDlpInspection;
 
+/** Details about the compliance implications of the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ComplianceDetails *complianceDetails;
+
 /**
  *  Contains compliance information for security standards associated to the
  *  finding.
@@ -13584,6 +13959,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The user defined display name for this folder. */
 @property(nonatomic, copy, nullable) NSString *resourceFolderDisplayName;
+
+@end
+
+
+/**
+ *  Compliance framework associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework : GTLRObject
+
+/**
+ *  Category of the framework associated with the finding. E.g. Security
+ *  Benchmark, or Assured Workloads
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *category;
+
+/** The controls associated with the framework. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Control *> *controls;
+
+/**
+ *  Display name of the framework. For a standard framework, this will look like
+ *  e.g. PCI DSS 3.2.1, whereas for a custom framework it can be a user defined
+ *  string like MyFramework
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Name of the framework associated with the finding */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Type of the framework associated with the finding, to specify whether the
+ *  framework is built-in (pre-defined and immutable) or a custom framework
+ *  defined by the customer (equivalent to security posture)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Type_FrameworkTypeBuiltIn
+ *        The framework is a built-in framework if it is created and managed by
+ *        GCP. (Value: "FRAMEWORK_TYPE_BUILT_IN")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Type_FrameworkTypeCustom
+ *        The framework is a custom framework if it is created and managed by
+ *        the user. (Value: "FRAMEWORK_TYPE_CUSTOM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Type_FrameworkTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "FRAMEWORK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -14954,8 +15374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        The cloud provider is unspecified. (Value:
  *        "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
+ *        The cloud provider is Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_MicrosoftAzure
  *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -14964,7 +15383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** The human readable name of the resource. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The GCP metadata associated with the finding. */
+/** The Google Cloud metadata associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GcpMetadata *gcpMetadata;
 
 /** The region or location of the service (if applicable). */
@@ -15085,8 +15504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        The cloud provider is unspecified. (Value:
  *        "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
+ *        The cloud provider is Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_MicrosoftAzure
  *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -17630,8 +18048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        The cloud provider is unspecified. (Value:
  *        "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_Resource_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
+ *        The cloud provider is Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_Resource_CloudProvider_MicrosoftAzure
  *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -18216,8 +18633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        The cloud provider is unspecified. (Value:
  *        "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_Simulation_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
+ *        The cloud provider is Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_Simulation_CloudProvider_MicrosoftAzure
  *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */
@@ -18695,8 +19111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        The cloud provider is unspecified. (Value:
  *        "CLOUD_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_GoogleCloudPlatform
- *        The cloud provider is Google Cloud Platform. (Value:
- *        "GOOGLE_CLOUD_PLATFORM")
+ *        The cloud provider is Google Cloud. (Value: "GOOGLE_CLOUD_PLATFORM")
  *    @arg @c kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_MicrosoftAzure
  *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
  */

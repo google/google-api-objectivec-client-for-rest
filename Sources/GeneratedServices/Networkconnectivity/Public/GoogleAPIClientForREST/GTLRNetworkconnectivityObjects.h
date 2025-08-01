@@ -2782,9 +2782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedInterconnectAttachments : GTLRObject
 
 /**
- *  Optional. IP ranges allowed to be included during import from hub (does not
- *  control transit connectivity). The only allowed value for now is
- *  "ALL_IPV4_RANGES".
+ *  Optional. Hub routes fully encompassed by include import ranges are included
+ *  during import from hub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
 
@@ -2862,9 +2861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedRouterApplianceInstances : GTLRObject
 
 /**
- *  Optional. IP ranges allowed to be included during import from hub (does not
- *  control transit connectivity). The only allowed value for now is
- *  "ALL_IPV4_RANGES".
+ *  Optional. Hub routes fully encompassed by include import ranges are included
+ *  during import from hub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
 
@@ -2940,9 +2938,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedVpnTunnels : GTLRObject
 
 /**
- *  Optional. IP ranges allowed to be included during import from hub (does not
- *  control transit connectivity). The only allowed value for now is
- *  "ALL_IPV4_RANGES".
+ *  Optional. Hub routes fully encompassed by include import ranges are included
+ *  during import from hub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
 

@@ -1874,7 +1874,7 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsPatch
 
-@dynamic name, updateMask;
+@dynamic allowMissing, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation *)object
                            name:(NSString *)name {

@@ -628,6 +628,174 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksCreate
+
+@dynamic odbNetworkId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbNetwork *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/odbNetworks";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.create";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_OdbNetwork class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/odbNetworks";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_ListOdbNetworksResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsCreate
+
+@dynamic odbSubnetId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbSubnet *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/odbSubnets";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbSubnets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbSubnets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_OdbSubnet class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbSubnets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/odbSubnets";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_ListOdbSubnetsResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbSubnets.list";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsOperationsCancel
 
 @dynamic name;

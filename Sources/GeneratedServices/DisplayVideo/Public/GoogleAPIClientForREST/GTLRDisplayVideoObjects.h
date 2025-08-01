@@ -263,6 +263,7 @@
 @class GTLRDisplayVideo_User;
 @class GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_UserRewardedContentTargetingOptionDetails;
+@class GTLRDisplayVideo_VideoAdInventoryControl;
 @class GTLRDisplayVideo_VideoAdSequenceSettings;
 @class GTLRDisplayVideo_VideoAdSequenceStep;
 @class GTLRDisplayVideo_VideoDiscoveryAd;
@@ -4844,7 +4845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *
  *  Value: "SDF_VERSION_6"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6 GTLR_DEPRECATED;
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
@@ -14148,7 +14149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  *
  *  Value: "SDF_VERSION_6"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6 GTLR_DEPRECATED;
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
@@ -14254,7 +14255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *
  *  Value: "SDF_VERSION_6"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6 GTLR_DEPRECATED;
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
@@ -19471,6 +19472,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  as the pageToken in a subsequent call to `BulkListAssignedTargetingOptions`
  *  to fetch the next page of results. This token will be absent if there are no
  *  more line_item_assigned_targeting_options to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent
+ *  BulkListCampaignAssignedTargetingOptionsRequest to fetch the next page of
+ *  results. This token will be absent if there are no more
+ *  assigned_targeting_options to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent
+ *  BulkListInsertionOrderAssignedTargetingOptionsRequest to fetch the next page
+ *  of results. This token will be absent if there are no more
+ *  assigned_targeting_options to return.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -28125,6 +28186,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Response message for ListCampaignAssignedTargetingOptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent ListCampaignAssignedTargetingOptionsRequest
+ *  to fetch the next page of results. This token will be absent if there are no
+ *  more assigned_targeting_options to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRDisplayVideo_ListCampaignsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -28461,6 +28551,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  A token to retrieve the next page of results. Pass this value in the
  *  page_token field in the subsequent call to `ListGuaranteedOrders` method to
  *  retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent
+ *  ListInsertionOrderAssignedTargetingOptionsRequest to fetch the next page of
+ *  results. This token will be absent if there are no more
+ *  assigned_targeting_options to return.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -32388,6 +32508,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  The video ad inventory control used in certain YouTube line item types.
+ */
+@interface GTLRDisplayVideo_VideoAdInventoryControl : GTLRObject
+
+/**
+ *  Optional. Whether ads can serve as in-feed format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowInFeed;
+
+/**
+ *  Optional. Whether ads can serve as in-stream format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowInStream;
+
+/**
+ *  Optional. Whether ads can serve as shorts format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowShorts;
+
+@end
+
+
+/**
  *  Settings related to VideoAdSequence.
  */
 @interface GTLRDisplayVideo_VideoAdSequenceSettings : GTLRObject
@@ -32952,6 +33101,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Optional. The third-party measurement configs of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ThirdPartyMeasurementConfigs *thirdPartyMeasurementConfigs;
+
+/**
+ *  Optional. The settings to control which inventory is allowed for this line
+ *  item.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoAdInventoryControl *videoAdInventoryControl;
 
 /** Optional. The settings related to VideoAdSequence. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoAdSequenceSettings *videoAdSequenceSettings;

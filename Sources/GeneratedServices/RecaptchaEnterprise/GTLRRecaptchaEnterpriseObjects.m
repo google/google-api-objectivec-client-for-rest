@@ -165,6 +165,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Checkbox = @"CHECKBOX";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_IntegrationTypeUnspecified = @"INTEGRATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Invisible = @"INVISIBLE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_PolicyBasedChallenge = @"POLICY_BASED_CHALLENGE";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Score = @"SCORE";
 
 // ----------------------------------------------------------------------------
@@ -1118,13 +1119,47 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings
 @dynamic allowAllDomains, allowAmpTraffic, allowedDomains,
-         challengeSecurityPreference, integrationType;
+         challengeSecurityPreference, challengeSettings, integrationType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedDomains" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings
+@dynamic scoreThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings
+@dynamic actionSettings, defaultSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings
+
++ (Class)classForAdditionalProperties {
+  return [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings class];
 }
 
 @end

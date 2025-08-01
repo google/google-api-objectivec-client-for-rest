@@ -195,6 +195,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Complete;
 /**
+ *  The upgrade was forced into soaking and the soaking time has passed. This is
+ *  the equivalent of COMPLETE status for upgrades that were forced into
+ *  soaking.
+ *
+ *  Value: "FORCED_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedComplete;
+/**
  *  A cluster will be forced to enter soaking if an upgrade doesn't finish
  *  within a certain limit, despite it's actual status.
  *
@@ -1785,6 +1793,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Degraded;
 /**
+ *  DEPROVISIONING means that deprovisioning is in progress.
+ *
+ *  Value: "DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Deprovisioning;
+/**
  *  DISABLED means that the component is not enabled.
  *
  *  Value: "DISABLED"
@@ -1840,6 +1854,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_St
  *  Value: "DEGRADED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Degraded;
+/**
+ *  DEPROVISIONING means that deprovisioning is in progress.
+ *
+ *  Value: "DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Deprovisioning;
 /**
  *  DISABLED means that the component is not enabled.
  *
@@ -1974,6 +1994,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_Manage
  *  Value: "MANAGEMENT_MANUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementManual;
+/**
+ *  Google should remove any managed Service Mesh components from this cluster
+ *  and deprovision any resources.
+ *
+ *  Value: "MANAGEMENT_NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementNotInstalled;
 /**
  *  Unspecified
  *
@@ -2192,6 +2219,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *        has passed all post conditions (soaking). At the scope level, this
  *        means all eligible clusters are in COMPLETE status. (Value:
  *        "COMPLETE")
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedComplete The
+ *        upgrade was forced into soaking and the soaking time has passed. This
+ *        is the equivalent of COMPLETE status for upgrades that were forced
+ *        into soaking. (Value: "FORCED_COMPLETE")
  *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedSoaking A
  *        cluster will be forced to enter soaking if an upgrade doesn't finish
  *        within a certain limit, despite it's actual status. (Value:
@@ -5204,6 +5235,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Degraded
  *        DEGRADED means that the component is ready, but operating in a
  *        degraded state. (Value: "DEGRADED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Deprovisioning
+ *        DEPROVISIONING means that deprovisioning is in progress. (Value:
+ *        "DEPROVISIONING")
  *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Disabled
  *        DISABLED means that the component is not enabled. (Value: "DISABLED")
  *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_FailedPrecondition
@@ -5244,6 +5278,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Degraded DEGRADED
  *        means that the component is ready, but operating in a degraded state.
  *        (Value: "DEGRADED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Deprovisioning
+ *        DEPROVISIONING means that deprovisioning is in progress. (Value:
+ *        "DEPROVISIONING")
  *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Disabled DISABLED
  *        means that the component is not enabled. (Value: "DISABLED")
  *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_FailedPrecondition
@@ -5333,6 +5370,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshSpec_Management_ManagementManual User will
  *        manually configure their service mesh components. (Value:
  *        "MANAGEMENT_MANUAL")
+ *    @arg @c kGTLRGKEHub_ServiceMeshSpec_Management_ManagementNotInstalled
+ *        Google should remove any managed Service Mesh components from this
+ *        cluster and deprovision any resources. (Value:
+ *        "MANAGEMENT_NOT_INSTALLED")
  *    @arg @c kGTLRGKEHub_ServiceMeshSpec_Management_ManagementUnspecified
  *        Unspecified (Value: "MANAGEMENT_UNSPECIFIED")
  */

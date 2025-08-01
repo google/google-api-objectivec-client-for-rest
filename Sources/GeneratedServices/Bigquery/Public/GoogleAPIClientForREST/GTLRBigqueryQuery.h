@@ -57,6 +57,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewFull;
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewMetadata;
 
 // ----------------------------------------------------------------------------
+// formatOptionsTimestampOutputFormat
+
+/**
+ *  Timestamp is output as float64 seconds since Unix epoch.
+ *
+ *  Value: "FLOAT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64;
+/**
+ *  Timestamp is output as int64 microseconds since Unix epoch.
+ *
+ *  Value: "INT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64;
+/**
+ *  Timestamp is output as ISO 8601 String
+ *  ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ").
+ *
+ *  Value: "ISO8601_STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String;
+/**
+ *  Corresponds to default API output behavior, which is FLOAT64.
+ *
+ *  Value: "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified;
+
+// ----------------------------------------------------------------------------
 // projection
 
 /**
@@ -730,6 +759,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
  */
 @interface GTLRBigqueryQuery_JobsGetQueryResults : GTLRBigqueryQuery
+
+/**
+ *  Optional. The API output format for a timestamp. This offers more explicit
+ *  control over the timestamp output format as compared to the existing
+ *  `use_int64_timestamp` option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified
+ *        Corresponds to default API output behavior, which is FLOAT64. (Value:
+ *        "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64 Timestamp
+ *        is output as float64 seconds since Unix epoch. (Value: "FLOAT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64 Timestamp is
+ *        output as int64 microseconds since Unix epoch. (Value: "INT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String
+ *        Timestamp is output as ISO 8601 String
+ *        ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ"). (Value: "ISO8601_STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *formatOptionsTimestampOutputFormat;
 
 /** Optional. Output timestamp as usec int64. Default is false. */
 @property(nonatomic, assign) BOOL formatOptionsUseInt64Timestamp;
@@ -1992,6 +2040,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /** Required. Dataset id of the table to list. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  Optional. The API output format for a timestamp. This offers more explicit
+ *  control over the timestamp output format as compared to the existing
+ *  `use_int64_timestamp` option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified
+ *        Corresponds to default API output behavior, which is FLOAT64. (Value:
+ *        "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64 Timestamp
+ *        is output as float64 seconds since Unix epoch. (Value: "FLOAT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64 Timestamp is
+ *        output as int64 microseconds since Unix epoch. (Value: "INT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String
+ *        Timestamp is output as ISO 8601 String
+ *        ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ"). (Value: "ISO8601_STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *formatOptionsTimestampOutputFormat;
 
 /** Optional. Output timestamp as usec int64. Default is false. */
 @property(nonatomic, assign) BOOL formatOptionsUseInt64Timestamp;

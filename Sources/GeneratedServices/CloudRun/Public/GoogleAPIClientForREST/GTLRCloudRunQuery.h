@@ -1594,8 +1594,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project in which this worker pool should be
- *  created. Format: projects/{project}/locations/{location}, where {project}
- *  can be project id or number. Only lowercase characters, digits, and hyphens.
+ *  created. Format: `projects/{project}/locations/{location}`, where
+ *  `{project}` can be project id or number. Only lowercase characters, digits,
+ *  and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1608,7 +1609,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The unique identifier for the WorkerPool. It must begin with
  *  letter, and cannot end with hyphen; must contain fewer than 50 characters.
- *  The name of the worker pool becomes {parent}/workerPools/{worker_pool_id}.
+ *  The name of the worker pool becomes `{parent}/workerPools/{worker_pool_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *workerPoolId;
 
@@ -1620,9 +1621,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2WorkerPool to include in
  *    the query.
  *  @param parent Required. The location and project in which this worker pool
- *    should be created. Format: projects/{project}/locations/{location}, where
- *    {project} can be project id or number. Only lowercase characters, digits,
- *    and hyphens.
+ *    should be created. Format: `projects/{project}/locations/{location}`,
+ *    where `{project}` can be project id or number. Only lowercase characters,
+ *    digits, and hyphens.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsCreate
  */
@@ -1649,8 +1650,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the WorkerPool. Format:
- *  projects/{project}/locations/{location}/workerPools/{worker_pool}, where
- *  {project} can be project id or number.
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *  `{project}` can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1666,8 +1667,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a WorkerPool.
  *
  *  @param name Required. The full name of the WorkerPool. Format:
- *    projects/{project}/locations/{location}/workerPools/{worker_pool}, where
- *    {project} can be project id or number.
+ *    `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *    `{project}` can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsDelete
  */
@@ -1687,8 +1688,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the WorkerPool. Format:
- *  projects/{project}/locations/{location}/workerPools/{worker_pool}, where
- *  {project} can be project id or number.
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *  `{project}` can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1698,8 +1699,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets information about a WorkerPool.
  *
  *  @param name Required. The full name of the WorkerPool. Format:
- *    projects/{project}/locations/{location}/workerPools/{worker_pool}, where
- *    {project} can be project id or number.
+ *    `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *    `{project}` can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGet
  */
@@ -1778,8 +1779,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The location and project to list resources on. Location must be a
  *  valid Google Cloud region, and cannot be the "-" wildcard. Format:
- *  projects/{project}/locations/{location}, where {project} can be project id
- *  or number.
+ *  `projects/{project}/locations/{location}`, where `{project}` can be project
+ *  id or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1795,8 +1796,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The location and project to list resources on.
  *    Location must be a valid Google Cloud region, and cannot be the "-"
- *    wildcard. Format: projects/{project}/locations/{location}, where {project}
- *    can be project id or number.
+ *    wildcard. Format: `projects/{project}/locations/{location}`, where
+ *    `{project}` can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsList
  *
@@ -1839,7 +1840,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The fully qualified name of this WorkerPool. In CreateWorkerPoolRequest,
  *  this field is ignored, and instead composed from
  *  CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
- *  Format: projects/{project}/locations/{location}/workerPools/{worker_id}
+ *  Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1866,7 +1867,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The fully qualified name of this WorkerPool. In
  *    CreateWorkerPoolRequest, this field is ignored, and instead composed from
  *    CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
- *    Format: projects/{project}/locations/{location}/workerPools/{worker_id}
+ *    Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsPatch
  */

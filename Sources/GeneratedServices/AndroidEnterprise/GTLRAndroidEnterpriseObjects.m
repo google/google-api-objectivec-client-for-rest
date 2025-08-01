@@ -80,6 +80,11 @@ NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_Enro
 NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserDevice = @"userDevice";
 NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserlessDevice = @"userlessDevice";
 
+// GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions.authenticationRequirement
+NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_AuthenticationRequirementUnspecified = @"authenticationRequirementUnspecified";
+NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Optional = @"optional";
+NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Required = @"required";
+
 // GTLRAndroidEnterprise_Enterprise.enterpriseType
 NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_EnterpriseTypeUnspecified = @"enterpriseTypeUnspecified";
 NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGoogleDomain = @"managedGoogleDomain";
@@ -631,7 +636,17 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_EnrollmentToken
-@dynamic duration, enrollmentTokenType, token;
+@dynamic duration, enrollmentTokenType, googleAuthenticationOptions, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions
+//
+
+@implementation GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions
+@dynamic authenticationRequirement, requiredAccountEmail;
 @end
 
 

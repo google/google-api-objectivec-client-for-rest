@@ -391,6 +391,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Te
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina = @"ARGENTINA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Armenia = @"ARMENIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia = @"AUSTRALIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Austria = @"AUSTRIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan = @"AZERBAIJAN";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belarus = @"BELARUS";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium = @"BELGIUM";
@@ -2123,6 +2124,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2DocumentFallbackLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DocumentFallbackLocation
+@dynamic globalProcessing, multiRegionProcessing;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2DocumentLocation
 //
 
@@ -3769,7 +3780,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ProcessingLocation
-@dynamic imageFallbackLocation;
+@dynamic documentFallbackLocation, imageFallbackLocation;
 @end
 
 

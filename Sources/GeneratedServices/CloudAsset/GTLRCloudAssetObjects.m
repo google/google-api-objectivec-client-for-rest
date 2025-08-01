@@ -14,6 +14,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudAsset_AssetException.exceptionType
+NSString * const kGTLRCloudAsset_AssetException_ExceptionType_ExceptionTypeUnspecified = @"EXCEPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_AssetException_ExceptionType_Truncation = @"TRUNCATION";
+
 // GTLRCloudAsset_AuditLogConfig.logType
 NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -345,13 +349,14 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_Asset
-@dynamic accessLevel, accessPolicy, ancestors, assetType, iamPolicy, name,
-         orgPolicy, osInventory, relatedAsset, relatedAssets, resource,
-         servicePerimeter, updateTime;
+@dynamic accessLevel, accessPolicy, ancestors, assetExceptions, assetType,
+         iamPolicy, name, orgPolicy, osInventory, relatedAsset, relatedAssets,
+         resource, servicePerimeter, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ancestors" : [NSString class],
+    @"assetExceptions" : [GTLRCloudAsset_AssetException class],
     @"orgPolicy" : [GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy class]
   };
   return map;
@@ -367,6 +372,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_AssetEnrichment
 @dynamic resourceOwners;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AssetException
+//
+
+@implementation GTLRCloudAsset_AssetException
+@dynamic details, exceptionType;
 @end
 
 

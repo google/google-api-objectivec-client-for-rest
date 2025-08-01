@@ -1010,9 +1010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  */
 @interface GTLRMerchant_ProductReview : GTLRObject
 
-/** Optional. A list of product review attributes. */
-@property(nonatomic, strong, nullable) GTLRMerchant_ProductReviewAttributes *attributes;
-
 /** Optional. A list of custom (merchant-provided) attributes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMerchant_CustomAttribute *> *customAttributes;
 
@@ -1024,6 +1021,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *  `"{productreview.name=accounts/{account}/productReviews/{productReview}}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. A list of product review attributes. */
+@property(nonatomic, strong, nullable) GTLRMerchant_ProductReviewAttributes *productReviewAttributes;
 
 /**
  *  Required. The permanent, unique identifier for the product review in the
@@ -1097,12 +1097,26 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<NSString *> *gtins;
 
 /**
+ *  Optional. Indicates whether the review is incentivized.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isIncentivizedReview;
+
+/**
  *  Optional. Indicates whether the review is marked as spam in the publisher's
  *  system.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSpam;
+
+/**
+ *  Optional. Indicates whether the reviewer's purchase is verified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isVerifiedPurchase;
 
 /**
  *  Optional. The maximum possible number for the rating. The value of the max
@@ -1527,9 +1541,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  */
 @interface GTLRMerchant_Review : GTLRObject
 
-/** Optional. A list of merchant review attributes. */
-@property(nonatomic, strong, nullable) GTLRMerchant_ReviewAttributes *attributes;
-
 /**
  *  Optional. A list of custom (merchant-provided) attributes. It can also be
  *  used for submitting any attribute of the data specification in its generic
@@ -1545,6 +1556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
 
 /** Output only. The primary data source of the merchant review. */
 @property(nonatomic, copy, nullable) NSString *dataSource;
+
+/** Optional. A list of merchant review attributes. */
+@property(nonatomic, strong, nullable) GTLRMerchant_ReviewAttributes *merchantReviewAttributes;
 
 /**
  *  Required. The user provided merchant review ID to uniquely identify the

@@ -138,6 +138,28 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ExportMetadata_Source_LookerOrigi
 FOUNDATION_EXTERN NSString * const kGTLRLooker_ExportMetadata_Source_SourceUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRLooker_Instance.classType
+
+/**
+ *  Unspecified storage class.
+ *
+ *  Value: "CLASS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ClassType_ClassTypeUnspecified;
+/**
+ *  PD SSD.
+ *
+ *  Value: "P1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ClassType_P1;
+/**
+ *  Filestore.
+ *
+ *  Value: "R1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ClassType_R1;
+
+// ----------------------------------------------------------------------------
 // GTLRLooker_Instance.platformEdition
 
 /**
@@ -665,6 +687,17 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 /** Looker Instance Admin settings. */
 @property(nonatomic, strong, nullable) GTLRLooker_AdminSettings *adminSettings;
+
+/**
+ *  Optional. Storage class of the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLooker_Instance_ClassType_ClassTypeUnspecified Unspecified
+ *        storage class. (Value: "CLASS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRLooker_Instance_ClassType_P1 PD SSD. (Value: "P1")
+ *    @arg @c kGTLRLooker_Instance_ClassType_R1 Filestore. (Value: "R1")
+ */
+@property(nonatomic, copy, nullable) NSString *classType;
 
 /**
  *  Network name in the consumer project. Format:

@@ -19,6 +19,12 @@ NSString * const kGTLRBigqueryDatasetViewDatasetViewUnspecified = @"DATASET_VIEW
 NSString * const kGTLRBigqueryDatasetViewFull                  = @"FULL";
 NSString * const kGTLRBigqueryDatasetViewMetadata              = @"METADATA";
 
+// formatOptionsTimestampOutputFormat
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64 = @"FLOAT64";
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64 = @"INT64";
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String = @"ISO8601_STRING";
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified = @"TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED";
+
 // projection
 NSString * const kGTLRBigqueryProjectionFull    = @"full";
 NSString * const kGTLRBigqueryProjectionMinimal = @"minimal";
@@ -304,11 +310,16 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_JobsGetQueryResults
 
-@dynamic formatOptionsUseInt64Timestamp, jobId, location, maxResults, pageToken,
-         projectId, startIndex, timeoutMs;
+@dynamic formatOptionsTimestampOutputFormat, formatOptionsUseInt64Timestamp,
+         jobId, location, maxResults, pageToken, projectId, startIndex,
+         timeoutMs;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"formatOptionsTimestampOutputFormat" : @"formatOptions.timestampOutputFormat",
+    @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp"
+  };
+  return map;
 }
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
@@ -1038,11 +1049,16 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_TabledataList
 
-@dynamic datasetId, formatOptionsUseInt64Timestamp, maxResults, pageToken,
-         projectId, selectedFields, startIndex, tableId;
+@dynamic datasetId, formatOptionsTimestampOutputFormat,
+         formatOptionsUseInt64Timestamp, maxResults, pageToken, projectId,
+         selectedFields, startIndex, tableId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"formatOptionsTimestampOutputFormat" : @"formatOptions.timestampOutputFormat",
+    @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp"
+  };
+  return map;
 }
 
 + (instancetype)queryWithProjectId:(NSString *)projectId

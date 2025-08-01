@@ -21,6 +21,9 @@
 @class GTLRStorage_Bucket_Cors_Item;
 @class GTLRStorage_Bucket_CustomPlacementConfig;
 @class GTLRStorage_Bucket_Encryption;
+@class GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig;
+@class GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig;
+@class GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig;
 @class GTLRStorage_Bucket_HierarchicalNamespace;
 @class GTLRStorage_Bucket_IamConfiguration;
 @class GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly;
@@ -78,6 +81,59 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig.restrictionMode
+
+/**
+ *  Creation of new objects with Customer-Managed Encryption is fully
+ *  restricted.
+ *
+ *  Value: "FullyRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted;
+/**
+ *  Creation of new objects with Customer-Managed Encryption is not restricted.
+ *
+ *  Value: "NotRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted;
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig.restrictionMode
+
+/**
+ *  Creation of new objects with Customer-Supplied Encryption is fully
+ *  restricted.
+ *
+ *  Value: "FullyRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted;
+/**
+ *  Creation of new objects with Customer-Supplied Encryption is not restricted.
+ *
+ *  Value: "NotRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_NotRestricted;
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig.restrictionMode
+
+/**
+ *  Creation of new objects with Google Managed Encryption is fully restricted.
+ *
+ *  Value: "FullyRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted;
+/**
+ *  Creation of new objects with Google Managed Encryption is not restricted.
+ *
+ *  Value: "NotRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted;
 
 /**
  *  An AdvanceRelocateBucketOperation request.
@@ -504,10 +560,34 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorage_Bucket_Encryption : GTLRObject
 
 /**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Managed Encryption type by default.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig *customerManagedEncryptionEnforcementConfig;
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Supplied Encryption type by default.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig *customerSuppliedEncryptionEnforcementConfig;
+
+/**
  *  A Cloud KMS key that will be used to encrypt objects inserted into this
  *  bucket, if no encryption method is specified.
  */
 @property(nonatomic, copy, nullable) NSString *defaultKmsKeyName;
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Google Managed Encryption type by default.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig *googleManagedEncryptionEnforcementConfig;
 
 @end
 
@@ -760,6 +840,99 @@ NS_ASSUME_NONNULL_BEGIN
  *  bucket as the content for a 404 Not Found result.
  */
 @property(nonatomic, copy, nullable) NSString *notFoundPage;
+
+@end
+
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Managed Encryption type by default.
+ */
+@interface GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which configuration was
+ *  enforced and effective. This value is in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  Restriction mode for Customer-Managed Encryption Keys. Defaults to
+ *  NotRestricted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted
+ *        Creation of new objects with Customer-Managed Encryption is fully
+ *        restricted. (Value: "FullyRestricted")
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted
+ *        Creation of new objects with Customer-Managed Encryption is not
+ *        restricted. (Value: "NotRestricted")
+ */
+@property(nonatomic, copy, nullable) NSString *restrictionMode;
+
+@end
+
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Supplied Encryption type by default.
+ */
+@interface GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which configuration was
+ *  enforced and effective. This value is in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  Restriction mode for Customer-Supplied Encryption Keys. Defaults to
+ *  NotRestricted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted
+ *        Creation of new objects with Customer-Supplied Encryption is fully
+ *        restricted. (Value: "FullyRestricted")
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_NotRestricted
+ *        Creation of new objects with Customer-Supplied Encryption is not
+ *        restricted. (Value: "NotRestricted")
+ */
+@property(nonatomic, copy, nullable) NSString *restrictionMode;
+
+@end
+
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Google Managed Encryption type by default.
+ */
+@interface GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which configuration was
+ *  enforced and effective. This value is in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  Restriction mode for Google-Managed Encryption Keys. Defaults to
+ *  NotRestricted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted
+ *        Creation of new objects with Google Managed Encryption is fully
+ *        restricted. (Value: "FullyRestricted")
+ *    @arg @c kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted
+ *        Creation of new objects with Google Managed Encryption is not
+ *        restricted. (Value: "NotRestricted")
+ */
+@property(nonatomic, copy, nullable) NSString *restrictionMode;
 
 @end
 

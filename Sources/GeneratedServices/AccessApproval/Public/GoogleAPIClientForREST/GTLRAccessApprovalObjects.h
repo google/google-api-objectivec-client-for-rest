@@ -292,6 +292,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512;
 /**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem768;
+/**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized pre-hash version supporting SHA256 digests.
  *
@@ -1005,6 +1024,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignHashSlhDsaSha2128sSha256
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized pre-hash version supporting SHA256

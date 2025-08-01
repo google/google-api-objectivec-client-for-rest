@@ -39,6 +39,11 @@ NSString * const kGTLRComputeRouteTypeAdvertised           = @"ADVERTISED";
 NSString * const kGTLRComputeRouteTypeLearned              = @"LEARNED";
 NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType = @"UNSPECIFIED_ROUTE_TYPE";
 
+// view
+NSString * const kGTLRComputeViewBasic                = @"BASIC";
+NSString * const kGTLRComputeViewBlockViewUnspecified = @"BLOCK_VIEW_UNSPECIFIED";
+NSString * const kGTLRComputeViewFull                 = @"FULL";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -17616,7 +17621,7 @@ NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType = @"UNSPECIFIED_ROUTE
 
 @implementation GTLRComputeQuery_ReservationBlocksGet
 
-@dynamic project, reservation, reservationBlock, zoneProperty;
+@dynamic project, reservation, reservationBlock, view, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -20629,7 +20634,8 @@ NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType = @"UNSPECIFIED_ROUTE
 
 @implementation GTLRComputeQuery_SubnetworksListUsable
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         serviceProject;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];

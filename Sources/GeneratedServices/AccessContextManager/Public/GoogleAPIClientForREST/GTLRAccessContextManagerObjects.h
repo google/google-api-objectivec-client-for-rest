@@ -1382,9 +1382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dryRunAccessLevels;
 
 /**
- *  Required. Immutable. Google Group id whose members are subject to this
- *  binding's restrictions. See "id" in the [G Suite Directory API's Groups
- *  resource]
+ *  Optional. Immutable. Google Group id whose users are subject to this
+ *  binding's restrictions. See "id" in the [Google Workspace Directory API's
+ *  Group Resource]
  *  (https://developers.google.com/admin-sdk/directory/v1/reference/groups#resource).
  *  If a group's email address/alias is changed, this resource will continue to
  *  point at the changed group. This field does not accept group email addresses

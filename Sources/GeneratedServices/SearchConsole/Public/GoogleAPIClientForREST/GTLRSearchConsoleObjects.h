@@ -25,6 +25,7 @@
 @class GTLRSearchConsole_Image;
 @class GTLRSearchConsole_IndexStatusInspectionResult;
 @class GTLRSearchConsole_Item;
+@class GTLRSearchConsole_Metadata;
 @class GTLRSearchConsole_MobileFriendlyIssue;
 @class GTLRSearchConsole_MobileUsabilityInspectionResult;
 @class GTLRSearchConsole_MobileUsabilityIssue;
@@ -1519,6 +1520,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
 
 
 /**
+ *  An object that may be returned with your query results, providing context
+ *  about the state of the data. When you request recent data (using `all` or
+ *  `hourly_all` for `dataState`), some of the rows returned may represent data
+ *  that is incomplete, which means that the data is still being collected and
+ *  processed. This metadata object helps you identify exactly when this starts
+ *  and ends. All dates and times provided in this object are in the
+ *  `America/Los_Angeles` time zone. The specific field returned within this
+ *  object depends on how you've grouped your data in the request. See details
+ *  in inner fields.
+ */
+@interface GTLRSearchConsole_Metadata : GTLRObject
+
+/**
+ *  The first date for which the data is still being collected and processed,
+ *  presented in `YYYY-MM-DD` format (ISO-8601 extended local date format). This
+ *  field is populated only when the request's `dataState` is "`all`", data is
+ *  grouped by "`DATE`", and the requested date range contains incomplete data
+ *  points. All values after the `first_incomplete_date` may still change
+ *  noticeably.
+ */
+@property(nonatomic, copy, nullable) NSString *firstIncompleteDate;
+
+/**
+ *  The first hour for which the data is still being collected and processed,
+ *  presented in `YYYY-MM-DDThh:mm:ss[+|-]hh:mm` format (ISO-8601 extended
+ *  offset date-time format). This field is populated only when the request's
+ *  `dataState` is "`hourly_all`", data is grouped by "`HOUR`" and the requested
+ *  date range contains incomplete data points. All values after the
+ *  `first_incomplete_hour` may still change noticeably.
+ */
+@property(nonatomic, copy, nullable) NSString *firstIncompleteHour;
+
+@end
+
+
+/**
  *  Mobile-friendly issue.
  */
 @interface GTLRSearchConsole_MobileFriendlyIssue : GTLRObject
@@ -1917,6 +1954,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *  specified by the aggregation type parameter.
  */
 @interface GTLRSearchConsole_SearchAnalyticsQueryResponse : GTLRObject
+
+/**
+ *  An object that may be returned with your query results, providing context
+ *  about the state of the data. See details in Metadata object documentation.
+ */
+@property(nonatomic, strong, nullable) GTLRSearchConsole_Metadata *metadata;
 
 /**
  *  How the results were aggregated.

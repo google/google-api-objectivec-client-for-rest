@@ -165,6 +165,45 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_CheckAuthorizationRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_CheckAuthorizationRequest
+@dynamic authorizationDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails
+//
+
+@implementation GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_CheckAuthorizationResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_CheckAuthorizationResponse
+@dynamic createTime, oauthUri, success;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"oauthUri" : @"oauth_uri" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_CheckInstanceUpgradabilityResponse
 //
 
@@ -343,6 +382,36 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_GenerateAccessTokenRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_GenerateAccessTokenRequest
+@dynamic vmToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_GenerateAccessTokenResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_GenerateAccessTokenResponse
+@dynamic accessToken, expiresIn, scope, tokenType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"accessToken" : @"access_token",
+    @"expiresIn" : @"expires_in",
+    @"tokenType" : @"token_type"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_GPUDriverConfig
 //
 
@@ -368,9 +437,10 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_Instance
 @dynamic createTime, creator, disableProxyAccess, enableDeletionProtection,
-         enableThirdPartyIdentity, gceSetup, healthInfo, healthState,
-         identifier, instanceOwners, labels, name, proxyUri, satisfiesPzi,
-         satisfiesPzs, state, thirdPartyProxyUrl, updateTime, upgradeHistory;
+         enableManagedEuc, enableThirdPartyIdentity, gceSetup, healthInfo,
+         healthState, identifier, instanceOwners, labels, name, proxyUri,
+         satisfiesPzi, satisfiesPzs, state, thirdPartyProxyUrl, updateTime,
+         upgradeHistory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

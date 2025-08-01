@@ -334,7 +334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 /** Optional. Set if the artifact metadata is stored in Artifact analysis. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_GoogleArtifactAnalysis *googleArtifactAnalysis;
 
-/** Optional. Set if the artifact is stored in Artifact regsitry. */
+/** Optional. Set if the artifact is stored in Artifact registry. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_GoogleArtifactRegistry *googleArtifactRegistry;
 
 /**

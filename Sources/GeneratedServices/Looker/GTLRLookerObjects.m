@@ -30,6 +30,11 @@ NSString * const kGTLRLooker_ExportMetadata_Source_LookerCore  = @"LOOKER_CORE";
 NSString * const kGTLRLooker_ExportMetadata_Source_LookerOriginal = @"LOOKER_ORIGINAL";
 NSString * const kGTLRLooker_ExportMetadata_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 
+// GTLRLooker_Instance.classType
+NSString * const kGTLRLooker_Instance_ClassType_ClassTypeUnspecified = @"CLASS_TYPE_UNSPECIFIED";
+NSString * const kGTLRLooker_Instance_ClassType_P1             = @"P1";
+NSString * const kGTLRLooker_Instance_ClassType_R1             = @"R1";
+
 // GTLRLooker_Instance.platformEdition
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEmbedAnnual = @"LOOKER_CORE_EMBED_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEnterpriseAnnual = @"LOOKER_CORE_ENTERPRISE_ANNUAL";
@@ -221,7 +226,7 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_Instance
-@dynamic adminSettings, consumerNetwork, createTime, customDomain,
+@dynamic adminSettings, classType, consumerNetwork, createTime, customDomain,
          denyMaintenancePeriod, egressPublicIp, encryptionConfig, fipsEnabled,
          geminiEnabled, ingressPrivateIp, ingressPublicIp,
          lastDenyMaintenancePeriod, linkedLspProjectNumber, lookerUri,

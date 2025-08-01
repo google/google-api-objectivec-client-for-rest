@@ -656,6 +656,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_BigLakeConfiguration_TableForma
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_BigLakeConfiguration_TableFormat_TableFormatUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_DataFormatOptions.timestampOutputFormat
+
+/**
+ *  Timestamp is output as float64 seconds since Unix epoch.
+ *
+ *  Value: "FLOAT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Float64;
+/**
+ *  Timestamp is output as int64 microseconds since Unix epoch.
+ *
+ *  Value: "INT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Int64;
+/**
+ *  Timestamp is output as ISO 8601 String
+ *  ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ").
+ *
+ *  Value: "ISO8601_STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Iso8601String;
+/**
+ *  Corresponds to default API output behavior, which is FLOAT64.
+ *
+ *  Value: "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_TimestampOutputFormatUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_Dataset.defaultRoundingMode
 
 /**
@@ -5278,6 +5307,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_DataFormatOptions : GTLRObject
 
 /**
+ *  Optional. The API output format for a timestamp. This offers more explicit
+ *  control over the timestamp output format as compared to the existing
+ *  `use_int64_timestamp` option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Float64
+ *        Timestamp is output as float64 seconds since Unix epoch. (Value:
+ *        "FLOAT64")
+ *    @arg @c kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Int64
+ *        Timestamp is output as int64 microseconds since Unix epoch. (Value:
+ *        "INT64")
+ *    @arg @c kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Iso8601String
+ *        Timestamp is output as ISO 8601 String
+ *        ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ"). (Value: "ISO8601_STRING")
+ *    @arg @c kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_TimestampOutputFormatUnspecified
+ *        Corresponds to default API output behavior, which is FLOAT64. (Value:
+ *        "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *timestampOutputFormat;
+
+/**
  *  Optional. Output timestamp as usec int64. Default is false.
  *
  *  Uses NSNumber of boolValue.
@@ -6929,17 +6979,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_ExternalRuntimeOptions : GTLRObject
 
 /**
- *  Optional. Amount of CPU provisioned for the container instance. If not
- *  specified, the default value is 0.33 vCPUs.
+ *  Optional. Amount of CPU provisioned for a Python UDF container instance. For
+ *  more information, see [Configure container limits for Python
+ *  UDFs](https://cloud.google.com/bigquery/docs/user-defined-functions-python#configure-container-limits)
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *containerCpu;
 
 /**
- *  Optional. Amount of memory provisioned for the container instance. Format:
- *  {number}{unit} where unit is one of "M", "G", "Mi" and "Gi" (e.g. 1G,
- *  512Mi). If not specified, the default value is 512Mi.
+ *  Optional. Amount of memory provisioned for a Python UDF container instance.
+ *  Format: {number}{unit} where unit is one of "M", "G", "Mi" and "Gi" (e.g.
+ *  1G, 512Mi). If not specified, the default value is 512Mi. For more
+ *  information, see [Configure container limits for Python
+ *  UDFs](https://cloud.google.com/bigquery/docs/user-defined-functions-python#configure-container-limits)
  */
 @property(nonatomic, copy, nullable) NSString *containerMemory;
 
@@ -6959,7 +7012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *runtimeConnection;
 
-/** Optional. Language runtime version (e.g. python-3.11). */
+/** Optional. Language runtime version. Example: `python-3.11`. */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 @end
@@ -6978,6 +7031,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  billing purposes. Output only.
  */
 @interface GTLRBigquery_ExternalServiceCost : GTLRObject
+
+/**
+ *  The billing method used for the external job. This field is only used when
+ *  billed on the services sku, set to "SERVICES_SKU". Otherwise, it is
+ *  unspecified for backward compatibility.
+ */
+@property(nonatomic, copy, nullable) NSString *billingMethod;
 
 /**
  *  External service cost in terms of bigquery bytes billed.
@@ -9409,6 +9469,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *totalPartitionsProcessed;
 
 /**
+ *  Output only. Total slot-milliseconds for the job that run on external
+ *  services and billed on the service SKU. This field is only populated for
+ *  jobs that have external service costs, and is the total of the usage for
+ *  costs whose billing method is "SERVICES_SKU".
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalServicesSkuSlotMs;
+
+/**
  *  Output only. Slot-milliseconds for the job.
  *
  *  Uses NSNumber of longLongValue.
@@ -10801,13 +10871,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_PythonOptions : GTLRObject
 
-/** Required. The entry point function in the user's Python code. */
+/**
+ *  Required. The name of the function defined in Python code as the entry point
+ *  when the Python UDF is invoked.
+ */
 @property(nonatomic, copy, nullable) NSString *entryPoint;
 
 /**
- *  Optional. A list of package names along with versions to be installed.
- *  Follows requirements.txt syntax (e.g. numpy==2.0, permutation,
- *  urllib3<2.2.1)
+ *  Optional. A list of Python package names along with versions to be
+ *  installed. Example: ["pandas>=2.1", "google-cloud-translate==3.11"]. For
+ *  more information, see [Use third-party
+ *  packages](https://cloud.google.com/bigquery/docs/user-defined-functions-python#third-party-packages).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packages;
 
@@ -10873,6 +10947,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  struct.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameterType_StructTypes_Item *> *structTypes;
+
+/**
+ *  Optional. Precision (maximum number of total digits in base 10) for seconds
+ *  of TIMESTAMP type. Possible values include: * 6 (Default, for TIMESTAMP type
+ *  with microsecond precision) * 12 (For TIMESTAMP type with picosecond
+ *  precision)
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timestampPrecision;
 
 /** Required. The top level type of this field. */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -11803,7 +11887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
- *  Optional. Options for Python UDF.
+ *  Optional. Options for the Python UDF.
  *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_PythonOptions *pythonOptions;

@@ -19,6 +19,11 @@ NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_Recommendatio
 NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationSuspended = @"BUSINESS_LOCATION_SUSPENDED";
 NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_RecommendationReasonUnspecified = @"RECOMMENDATION_REASON_UNSPECIFIED";
 
+// GTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse.result
+NSString * const kGTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse_Result_Failed = @"FAILED";
+NSString * const kGTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse_Result_ResultUnspecified = @"RESULT_UNSPECIFIED";
+NSString * const kGTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse_Result_Succeeded = @"SUCCEEDED";
+
 // GTLRMyBusinessVerifications_Verification.method
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Address = @"ADDRESS";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Auto = @"AUTO";
@@ -132,6 +137,26 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMyBusinessVerifications_GenerateInstantVerificationTokenRequest
+//
+
+@implementation GTLRMyBusinessVerifications_GenerateInstantVerificationTokenRequest
+@dynamic locationData, locationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse
+//
+
+@implementation GTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse
+@dynamic instantVerificationToken, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMyBusinessVerifications_ListVerificationsResponse
 //
 
@@ -149,6 +174,16 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
   return @"verifications";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessVerifications_LocationData
+//
+
+@implementation GTLRMyBusinessVerifications_LocationData
+@dynamic address, name;
 @end
 
 

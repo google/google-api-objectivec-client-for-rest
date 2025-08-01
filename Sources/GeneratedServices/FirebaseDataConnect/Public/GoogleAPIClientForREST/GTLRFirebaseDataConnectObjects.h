@@ -694,9 +694,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
- *  More detailed error message to assist debugging. In the backend, only
- *  include it in admin authenticated API like ExecuteGraphql. In the emulator,
- *  always include it to assist debugging.
+ *  More detailed error message to assist debugging. It contains application
+ *  business logic that are inappropriate to leak publicly. In the emulator,
+ *  Data Connect API always includes it to assist local development and
+ *  debugging. In the backend, ConnectorService always hides it. GraphqlService
+ *  without impersonation always include it. GraphqlService with impersonation
+ *  includes it only if explicitly opted-in with `include_debug_details` in
+ *  `GraphqlRequestExtensions`.
  */
 @property(nonatomic, copy, nullable) NSString *debugDetails;
 
@@ -830,6 +834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *  verified user may have auth_claims of {"sub": , "email_verified": true}
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Impersonation_AuthClaims *authClaims;
+
+/**
+ *  Optional. If set, include debug details in GraphQL error extensions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeDebugDetails;
 
 /**
  *  Evaluate the auth policy as an unauthenticated request. Can only be set to

@@ -352,6 +352,119 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Creates a Chrome browser profile remote command.
+ *
+ *  Method: chromemanagement.customers.profiles.commands.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesCommandsCreate : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand.
+ *
+ *  Creates a Chrome browser profile remote command.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand
+ *    to include in the query.
+ *  @param parent Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesCommandsCreate
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a Chrome browser profile remote command.
+ *
+ *  Method: chromemanagement.customers.profiles.commands.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesCommandsGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format:
+ *  customers/{customer_id}/profiles/{profile_permanent_id}/commands/{command_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand.
+ *
+ *  Gets a Chrome browser profile remote command.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}/commands/{command_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesCommandsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists remote commands of a Chrome browser profile.
+ *
+ *  Method: chromemanagement.customers.profiles.commands.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesCommandsList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The maximum number of commands to return. The default page size is
+ *  100 if page_size is unspecified, and the maximum page size allowed is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token used to retrieve a specific page of the listing
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfileCommandsResponse.
+ *
+ *  Lists remote commands of a Chrome browser profile.
+ *
+ *  @param parent Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesCommandsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes the data collected from a Chrome browser profile.
  *
  *  Method: chromemanagement.customers.profiles.delete
@@ -1277,6 +1390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  https_latency_change_event - network_state_change_event -
  *  wifi_signal_strength_event - vpn_connection_state_change_event -
  *  app_install_event - app_uninstall_event - app_launch_event - os_crash_event
+ *  - external_displays_event
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1508,6 +1622,43 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves a third party chrome profile user to a destination OU. All profiles
+ *  associated to that user will be moved to the destination OU.
+ *
+ *  Method: chromemanagement.customers.thirdPartyProfileUsers.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ */
+@interface GTLRChromeManagementQuery_CustomersThirdPartyProfileUsersMove : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format:
+ *  customers/{customer_id}/thirdPartyProfileUsers/{third_party_profile_user_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse.
+ *
+ *  Moves a third party chrome profile user to a destination OU. All profiles
+ *  associated to that user will be moved to the destination OU.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest
+ *    to include in the query.
+ *  @param name Required. Format:
+ *    customers/{customer_id}/thirdPartyProfileUsers/{third_party_profile_user_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersThirdPartyProfileUsersMove
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest *)object
+                           name:(NSString *)name;
 
 @end
 

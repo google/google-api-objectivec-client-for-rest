@@ -17,7 +17,6 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeDataPortabilityAlertsSubscriptions = @"https://www.googleapis.com/auth/dataportability.alerts.subscriptions";
-NSString * const kGTLRAuthScopeDataPortabilityBusinessmessagingConversations = @"https://www.googleapis.com/auth/dataportability.businessmessaging.conversations";
 NSString * const kGTLRAuthScopeDataPortabilityChromeAutofill   = @"https://www.googleapis.com/auth/dataportability.chrome.autofill";
 NSString * const kGTLRAuthScopeDataPortabilityChromeBookmarks  = @"https://www.googleapis.com/auth/dataportability.chrome.bookmarks";
 NSString * const kGTLRAuthScopeDataPortabilityChromeDictionary = @"https://www.googleapis.com/auth/dataportability.chrome.dictionary";

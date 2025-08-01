@@ -463,8 +463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  one of the following authorization scopes: -
+ *  and one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces.create` -
  *  `https://www.googleapis.com/auth/chat.app.spaces` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
@@ -517,8 +516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  one of the following authorization scopes: -
+ *  and one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces.create` -
  *  `https://www.googleapis.com/auth/chat.app.spaces` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
@@ -558,9 +556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: - `https://www.googleapis.com/auth/chat.app.delete`
- *  (only in spaces the app created) - [User
+ *  and the authorization scope: -
+ *  `https://www.googleapis.com/auth/chat.app.delete` (only in spaces the app
+ *  created) - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.delete` -
@@ -607,9 +605,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: - `https://www.googleapis.com/auth/chat.app.delete`
- *  (only in spaces the app created) - [User
+ *  and the authorization scope: -
+ *  `https://www.googleapis.com/auth/chat.app.delete` (only in spaces the app
+ *  created) - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.delete` -
@@ -886,8 +884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: -
+ *  and the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -951,8 +948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: -
+ *  and the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -993,8 +989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: -
+ *  and the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -1061,8 +1056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: -
+ *  and the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -1108,7 +1102,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` -
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.bot` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` (requires
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth)) -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -1164,7 +1161,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` -
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.bot` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` (requires
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth)) -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -1204,7 +1204,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` -
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.bot` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` (requires
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth)) -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -1317,7 +1320,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` -
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.bot` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` (requires
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth)) -
  *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -1351,8 +1357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: -
+ *  and the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.memberships` (only in spaces the
  *  app created) - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
@@ -1408,8 +1413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  the authorization scope: -
+ *  and the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.memberships` (only in spaces the
  *  app created) - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
@@ -2290,8 +2294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  one of the following authorization scopes: -
+ *  and one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
@@ -2399,8 +2402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) and
- *  one of the following authorization scopes: -
+ *  and one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -

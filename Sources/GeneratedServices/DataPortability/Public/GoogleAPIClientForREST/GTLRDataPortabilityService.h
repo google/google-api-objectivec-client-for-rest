@@ -35,13 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityAlertsSubscriptions;
 /**
- *  Authorization scope: Move a copy of messages between you and the businesses
- *  you have conversations with across Google services
- *
- *  Value "https://www.googleapis.com/auth/dataportability.businessmessaging.conversations"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityBusinessmessagingConversations;
-/**
  *  Authorization scope: Move a copy of the information you entered into online
  *  forms in Chrome
  *

@@ -5465,7 +5465,7 @@ GTLR_DEPRECATED
  *  (https://cloud.google.com/dataplex/docs/data-profiling-overview). Data
  *  discovery: scans data in Cloud Storage buckets to extract and then catalog
  *  metadata. For more information, see Discover and catalog Cloud Storage data
- *  (https://cloud.google.com/bigquery/docs/automatic-discovery). LINT.IfChange
+ *  (https://cloud.google.com/bigquery/docs/automatic-discovery).
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScan : GTLRObject
 
@@ -5519,7 +5519,7 @@ GTLR_DEPRECATED
  *  Output only. Identifier. The relative resource name of the scan, of the
  *  form: projects/{project}/locations/{location_id}/dataScans/{datascan_id},
  *  where project refers to a project_id or project_number and location_id
- *  refers to a GCP region.
+ *  refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5987,7 +5987,7 @@ GTLR_DEPRECATED
  *  the form:
  *  projects/{project}/locations/{location_id}/dataScans/{datascan_id}/jobs/{job_id},
  *  where project refers to a project_id or project_number and location_id
- *  refers to a GCP region.
+ *  refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6053,7 +6053,7 @@ GTLR_DEPRECATED
 
 /**
  *  Immutable. The service-qualified full resource name of the cloud resource
- *  for a DataScan job to scan against. The field could eitherbe: Cloud Storage
+ *  for a DataScan job to scan against. The field could either be: Cloud Storage
  *  bucket for DataDiscoveryScan Format:
  *  //storage.googleapis.com/projects/PROJECT_ID/buckets/BUCKET_ID or BigQuery
  *  table of type "TABLE" for DataProfileScan/DataQualityScan Format:
@@ -6774,8 +6774,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Immutable. Relative resource name of the Entry Link Type used to
- *  create this Entry Link, of the form:
- *  `projects/{project_id_or_number}/locations/{location_id}/entryLinkTypes/{entry_link_type_id}.
+ *  create this Entry Link. For example: Entry link between synonym terms in a
+ *  glossary: projects/dataplex-types/locations/global/entryLinkTypes/synonym
+ *  Entry link between related terms in a glossary:
+ *  projects/dataplex-types/locations/global/entryLinkTypes/related Entry link
+ *  between glossary terms and data assets:
+ *  projects/dataplex-types/locations/global/entryLinkTypes/definition
  */
 @property(nonatomic, copy, nullable) NSString *entryLinkType;
 
@@ -7318,8 +7322,9 @@ GTLR_DEPRECATED
 
 /**
  *  A Glossary represents a collection of GlossaryCategories and GlossaryTerms
- *  defined by the user. Glossary is a top level resource and is the GCP parent
- *  resource of all the GlossaryCategories and GlossaryTerms within it.
+ *  defined by the user. Glossary is a top level resource and is the Google
+ *  Cloud parent resource of all the GlossaryCategories and GlossaryTerms within
+ *  it.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Glossary : GTLRObject
 

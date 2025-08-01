@@ -19,7 +19,6 @@
 @class GTLRCloudBuild_Binding;
 @class GTLRCloudBuild_BitbucketCloudConfig;
 @class GTLRCloudBuild_BitbucketDataCenterConfig;
-@class GTLRCloudBuild_Capabilities;
 @class GTLRCloudBuild_ChildStatusReference;
 @class GTLRCloudBuild_Connection;
 @class GTLRCloudBuild_Connection_Annotations;
@@ -930,20 +929,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudBuild_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
- *  Capabilities adds and removes POSIX capabilities from running containers.
- */
-@interface GTLRCloudBuild_Capabilities : GTLRObject
-
-/** Optional. Added capabilities +optional */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *add;
-
-/** Optional. Removed capabilities +optional */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *drop;
-
 @end
 
 
@@ -2737,9 +2722,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowPrivilegeEscalation;
-
-/** Optional. Adds and removes POSIX capabilities from running containers. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Capabilities *capabilities;
 
 /**
  *  Run container in privileged mode.

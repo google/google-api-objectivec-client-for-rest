@@ -336,6 +336,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_Ev
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppUninstalled = @"APP_UNINSTALLED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun = @"AUDIO_SEVERE_UNDERRUN";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayConnected = @"EXTERNAL_DISPLAY_CONNECTED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayDisconnected = @"EXTERNAL_DISPLAY_DISCONNECTED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange = @"NETWORK_HTTPS_LATENCY_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange = @"NETWORK_STATE_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_OsCrash = @"OS_CRASH";
@@ -351,6 +353,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNot
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AppUninstalled = @"APP_UNINSTALLED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AudioSevereUnderrun = @"AUDIO_SEVERE_UNDERRUN";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_ExternalDisplayConnected = @"EXTERNAL_DISPLAY_CONNECTED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_ExternalDisplayDisconnected = @"EXTERNAL_DISPLAY_DISCONNECTED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkHttpsLatencyChange = @"NETWORK_HTTPS_LATENCY_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkStateChange = @"NETWORK_STATE_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_OsCrash = @"OS_CRASH";
@@ -433,6 +437,18 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBro
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_ExternalIdentityProvider = @"EXTERNAL_IDENTITY_PROVIDER";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_GoogleIdentityProvider = @"GOOGLE_IDENTITY_PROVIDER";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_IdentityProviderUnspecified = @"IDENTITY_PROVIDER_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand.commandState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_CommandStateUnspecified = @"COMMAND_STATE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_ExecutedByClient = @"EXECUTED_BY_CLIENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Expired = @"EXPIRED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Pending = @"PENDING";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult.resultType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_CommandResultTypeUnspecified = @"COMMAND_RESULT_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Failure = @"FAILURE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Ignored = @"IGNORED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Success = @"SUCCESS";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_ChromeBrowser = @"CHROME_BROWSER";
@@ -624,8 +640,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo
 @dynamic googleOwned, isCwsHosted, isExtensionPolicySupported, isKioskOnly,
-         isTheme, kioskEnabled, minUserCount, permissions, siteAccess,
-         supportEnabled, type;
+         isTheme, kioskEnabled, manifestVersion, minUserCount, permissions,
+         siteAccess, supportEnabled, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -983,8 +999,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice
-@dynamic displayHeightMm, displayName, displayWidthMm, internal, manufacturerId,
-         manufactureYear, modelId;
+@dynamic displayHeightMm, displayName, displayWidthMm, edidVersion, internal,
+         manufacturerId, manufactureYear, modelId, serialNumber;
 @end
 
 
@@ -994,8 +1010,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo
-@dynamic deviceId, displayName, isInternal, refreshRate, resolutionHeight,
-         resolutionWidth;
+@dynamic deviceId, displayName, edidVersion, isInternal, refreshRate,
+         resolutionHeight, resolutionWidth, serialNumber;
 @end
 
 
@@ -1894,6 +1910,41 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand
+@dynamic commandResult, commandState, commandType, issueTime, name, payload,
+         validDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult
+@dynamic clientExecutionTime, resultCode, resultType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice
 //
 
@@ -1944,6 +1995,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfileCommandsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfileCommandsResponse
+@dynamic chromeBrowserProfileCommands, nextPageToken, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chromeBrowserProfileCommands" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"chromeBrowserProfileCommands";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfilesResponse
 //
 
@@ -1961,6 +2034,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
   return @"chromeBrowserProfiles";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest
+@dynamic destinationOrgUnit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse
+@dynamic thirdPartyProfileUser;
 @end
 
 
@@ -2072,6 +2165,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataResponse
 @dynamic certificateProvisioningProcess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser
+@dynamic name, orgUnitId;
 @end
 
 

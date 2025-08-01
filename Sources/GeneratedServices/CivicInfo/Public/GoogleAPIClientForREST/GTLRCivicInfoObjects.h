@@ -908,6 +908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_SchemaV2ElectoralDistrict_Scop
  */
 @interface GTLRCivicInfo_SchemaV2SimpleAddressType : GTLRObject
 
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addressLine;
+
 /** The city or town for the address. */
 @property(nonatomic, copy, nullable) NSString *city;
 

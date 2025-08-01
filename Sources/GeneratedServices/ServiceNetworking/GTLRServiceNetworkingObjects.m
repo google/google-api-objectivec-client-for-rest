@@ -305,7 +305,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Api
-@dynamic methods, mixins, name, options, sourceContext, syntax, version;
+@dynamic edition, methods, mixins, name, options, sourceContext, syntax,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1387,8 +1388,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Method
-@dynamic name, options, requestStreaming, requestTypeUrl, responseStreaming,
-         responseTypeUrl, syntax;
+@dynamic edition, name, options, requestStreaming, requestTypeUrl,
+         responseStreaming, responseTypeUrl, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

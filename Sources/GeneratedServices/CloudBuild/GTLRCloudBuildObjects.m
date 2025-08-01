@@ -260,25 +260,6 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_Capabilities
-//
-
-@implementation GTLRCloudBuild_Capabilities
-@dynamic add, drop;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"add" : [NSString class],
-    @"drop" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBuild_ChildStatusReference
 //
 
@@ -1144,8 +1125,8 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_SecurityContext
-@dynamic allowPrivilegeEscalation, capabilities, privileged, runAsGroup,
-         runAsNonRoot, runAsUser;
+@dynamic allowPrivilegeEscalation, privileged, runAsGroup, runAsNonRoot,
+         runAsUser;
 @end
 
 

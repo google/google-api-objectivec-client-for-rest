@@ -2537,6 +2537,25 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2PanelInfo
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PanelInfo
+@dynamic attributionToken, displayName, panelId, panelPosition, productDetails,
+         totalPanels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productDetails" : [GTLRCloudRetail_GoogleCloudRetailV2ProductDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest
 //
 
@@ -3837,13 +3856,15 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 @implementation GTLRCloudRetail_GoogleCloudRetailV2UserEvent
 @dynamic attributes, attributionToken, cartId, completionDetail, entity,
          eventTime, eventType, experimentIds, filter, offset, orderBy,
-         pageCategories, pageViewId, productDetails, purchaseTransaction,
-         referrerUri, searchQuery, sessionId, uri, userInfo, visitorId;
+         pageCategories, pageViewId, panels, productDetails,
+         purchaseTransaction, referrerUri, searchQuery, sessionId, uri,
+         userInfo, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"experimentIds" : [NSString class],
     @"pageCategories" : [NSString class],
+    @"panels" : [GTLRCloudRetail_GoogleCloudRetailV2PanelInfo class],
     @"productDetails" : [GTLRCloudRetail_GoogleCloudRetailV2ProductDetail class]
   };
   return map;

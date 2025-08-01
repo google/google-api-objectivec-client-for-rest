@@ -96,6 +96,12 @@ NSString * const kGTLRBigquery_BigLakeConfiguration_FileFormat_Parquet = @"PARQU
 NSString * const kGTLRBigquery_BigLakeConfiguration_TableFormat_Iceberg = @"ICEBERG";
 NSString * const kGTLRBigquery_BigLakeConfiguration_TableFormat_TableFormatUnspecified = @"TABLE_FORMAT_UNSPECIFIED";
 
+// GTLRBigquery_DataFormatOptions.timestampOutputFormat
+NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Float64 = @"FLOAT64";
+NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Int64 = @"INT64";
+NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_Iso8601String = @"ISO8601_STRING";
+NSString * const kGTLRBigquery_DataFormatOptions_TimestampOutputFormat_TimestampOutputFormatUnspecified = @"TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED";
+
 // GTLRBigquery_Dataset.defaultRoundingMode
 NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfAwayFromZero = @"ROUND_HALF_AWAY_FROM_ZERO";
 NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfEven = @"ROUND_HALF_EVEN";
@@ -1246,7 +1252,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_DataFormatOptions
-@dynamic useInt64Timestamp;
+@dynamic timestampOutputFormat, useInt64Timestamp;
 @end
 
 
@@ -1784,8 +1790,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_ExternalServiceCost
-@dynamic bytesBilled, bytesProcessed, externalService, reservedSlotCount,
-         slotMs;
+@dynamic billingMethod, bytesBilled, bytesProcessed, externalService,
+         reservedSlotCount, slotMs;
 @end
 
 
@@ -2384,8 +2390,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          referencedRoutines, referencedTables, reservationUsage, schema,
          searchStatistics, sparkStatistics, statementType, timeline,
          totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
-         totalPartitionsProcessed, totalSlotMs, transferredBytes,
-         undeclaredQueryParameters, vectorSearchStatistics;
+         totalPartitionsProcessed, totalServicesSkuSlotMs, totalSlotMs,
+         transferredBytes, undeclaredQueryParameters, vectorSearchStatistics;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3083,7 +3089,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_QueryParameterType
-@dynamic arrayType, rangeElementType, structTypes, type;
+@dynamic arrayType, rangeElementType, structTypes, timestampPrecision, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

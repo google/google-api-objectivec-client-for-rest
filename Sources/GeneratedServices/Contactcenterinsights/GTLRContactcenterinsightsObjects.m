@@ -291,6 +291,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Qa
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_SourceTypeUnspecified = @"SOURCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource_SourceType_SystemGenerated = @"SYSTEM_GENERATED";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion.questionType
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_Customizable = @"CUSTOMIZABLE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_Predefined = @"PREDEFINED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion_QuestionType_QaQuestionTypeUnspecified = @"QA_QUESTION_TYPE_UNSPECIFIED";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig.type
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome = @"CONVERSATION_OUTCOME";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole = @"CONVERSATION_OUTCOME_ESCALATION_INITIATOR_ROLE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_PredefinedQuestionTypeUnspecified = @"PREDEFINED_QUESTION_TYPE_UNSPECIFIED";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata.datasetValidationWarnings
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_AllFeedbackLabelsHaveTheSameAnswer = @"ALL_FEEDBACK_LABELS_HAVE_THE_SAME_ANSWER";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_DatasetValidationWarningUnspecified = @"DATASET_VALIDATION_WARNING_UNSPECIFIED";
@@ -786,8 +796,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData
-@dynamic answerRecord, confidence, conversationModel, metadata, text,
-         textSections;
+@dynamic answerRecord, confidence, conversationModel, generatorId, metadata,
+         text, textSections;
 @end
 
 
@@ -1374,7 +1384,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource
 @dynamic audioBucketUri, bucketObjectType, bucketUri, customMetadataKeys,
-         metadataBucketUri;
+         metadataBucketUri, transcriptBucketUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2862,8 +2872,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData
-@dynamic answerRecord, confidence, conversationModel, metadata, text,
-         textSections;
+@dynamic answerRecord, confidence, conversationModel, generatorId, metadata,
+         text, textSections;
 @end
 
 
@@ -3478,7 +3488,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource
 @dynamic audioBucketUri, bucketObjectType, bucketUri, customMetadataKeys,
-         metadataBucketUri;
+         metadataBucketUri, transcriptBucketUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4245,7 +4255,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion
 @dynamic abbreviation, answerChoices, answerInstructions, createTime, metrics,
-         name, order, questionBody, tags, tuningMetadata, updateTime;
+         name, order, predefinedQuestionConfig, questionBody, questionType,
+         tags, tuningMetadata, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4275,6 +4286,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics
 @dynamic accuracy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig
+@dynamic type;
 @end
 
 
@@ -4320,7 +4341,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard
-@dynamic createTime, descriptionProperty, displayName, name, updateTime;
+@dynamic createTime, descriptionProperty, displayName, isDefault, name,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

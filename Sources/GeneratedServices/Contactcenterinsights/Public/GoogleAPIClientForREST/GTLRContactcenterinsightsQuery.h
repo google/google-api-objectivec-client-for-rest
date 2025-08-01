@@ -1372,7 +1372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  final component of the AuthorizedView's resource name. If no ID is
  *  specified, a server-generated ID will be used. This value should be 4-64
  *  characters and must match the regular expression
- *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See go/aip/122#resource-id-segments
+ *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See aip.dev/122#resource-id-segments
  */
 @property(nonatomic, copy, nullable) NSString *authorizedViewId;
 
@@ -1822,7 +1822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  final component of the AuthorizedViewSet's resource name. If no ID is
  *  specified, a server-generated ID will be used. This value should be 4-64
  *  characters and must match the regular expression
- *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See go/aip/122#resource-id-segments
+ *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See aip.dev/122#resource-id-segments
  */
 @property(nonatomic, copy, nullable) NSString *authorizedViewSetId;
 
@@ -3151,6 +3151,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
  */
 @interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. Defaults to false. If set to true, and the conversation is not
+ *  found, a new conversation will be created. In this situation, `update_mask`
+ *  is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  Immutable. The resource name of the conversation. Format:

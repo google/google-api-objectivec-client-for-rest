@@ -18,6 +18,7 @@
 @class GTLRAIPlatformNotebooks_AccessConfig;
 @class GTLRAIPlatformNotebooks_Binding;
 @class GTLRAIPlatformNotebooks_BootDisk;
+@class GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails;
 @class GTLRAIPlatformNotebooks_ConfidentialInstanceConfig;
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_DataDisk;
@@ -754,6 +755,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request message for checking authorization for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_CheckAuthorizationRequest : GTLRObject
+
+/**
+ *  Optional. The details of the OAuth authorization response. This may include
+ *  additional params such as dry_run, version_info, origin, propagate, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails *authorizationDetails;
+
+@end
+
+
+/**
+ *  Optional. The details of the OAuth authorization response. This may include
+ *  additional params such as dry_run, version_info, origin, propagate, etc.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails : GTLRObject
+@end
+
+
+/**
+ *  Response message for checking authorization for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_CheckAuthorizationResponse : GTLRObject
+
+/** Output only. Timestamp when this Authorization request was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  If the user has not completed OAuth consent, then the oauth_url is returned.
+ *  Otherwise, this field is not set.
+ */
+@property(nonatomic, copy, nullable) NSString *oauthUri;
+
+/**
+ *  Success indicates that the user completed OAuth consent and access tokens
+ *  can be generated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *success;
+
+@end
+
+
+/**
  *  Response for checking if a notebook instance is upgradeable.
  */
 @interface GTLRAIPlatformNotebooks_CheckInstanceUpgradabilityResponse : GTLRObject
@@ -1208,6 +1261,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request message for generating an EUC for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_GenerateAccessTokenRequest : GTLRObject
+
+/**
+ *  Required. The VM identity token (a JWT) for authenticating the VM.
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ */
+@property(nonatomic, copy, nullable) NSString *vmToken;
+
+@end
+
+
+/**
+ *  Response message for generating an EUC for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_GenerateAccessTokenResponse : GTLRObject
+
+/**
+ *  Short-lived access token string which may be used to access Google APIs.
+ */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/**
+ *  The time in seconds when the access token expires. Typically that's 3600.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
+
+/**
+ *  Space-separated list of scopes contained in the returned token.
+ *  https://cloud.google.com/docs/authentication/token-types#access-contents
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Type of the returned access token (e.g. "Bearer"). It specifies how the
+ *  token must be used. Bearer tokens may be used by any entity without proof of
+ *  identity.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenType;
+
+@end
+
+
+/**
  *  A GPU driver configuration
  */
 @interface GTLRAIPlatformNotebooks_GPUDriverConfig : GTLRObject
@@ -1277,6 +1377,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableDeletionProtection;
+
+/**
+ *  Optional. Flag to enable managed end user credentials for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableManagedEuc;
 
 /**
  *  Optional. Flag that specifies that a notebook can be accessed with third

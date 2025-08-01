@@ -758,7 +758,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 /**
  *  Required. The name of the subscription resource that is entitled to the
- *  current end user.
+ *  current end user. It is in the format of
+ *  "partners/{partner_id}/subscriptions/{subscriptionId}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -967,7 +968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  [Preview only] Request to generate a user session.
+ *  Request to generate a user session.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest : GTLRObject
 
@@ -978,8 +979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  [Preview only] Response that contains the details for generated user
- *  session.
+ *  Response that contains the details for generated user session.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionResponse : GTLRObject
 
@@ -1919,7 +1919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  expired or not. You don't need to worry about multiple sessions resulting in
  *  duplicate fulfillments as guaranteed by the same subscription id. Please
  *  refer to the [Google Managed
- *  Signup](/payments/reseller/subscription/reference/index/User.Signup.Integration/Google.Managed.Signup.\\(In.Preview\\))
+ *  Signup](/payments/reseller/subscription/reference/index/User.Signup.Integration/Google.Managed.Signup)
  *  documentation for additional integration details.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UserSession : GTLRObject

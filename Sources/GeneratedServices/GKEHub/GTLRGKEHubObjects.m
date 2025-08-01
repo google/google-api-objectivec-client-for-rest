@@ -25,6 +25,7 @@ NSString * const kGTLRGKEHub_CloudBuildSpec_SecurityPolicy_SecurityPolicyUnspeci
 // GTLRGKEHub_ClusterUpgradeUpgradeStatus.code
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Complete = @"COMPLETE";
+NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedComplete = @"FORCED_COMPLETE";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedSoaking = @"FORCED_SOAKING";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Ineligible = @"INELIGIBLE";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_InProgress = @"IN_PROGRESS";
@@ -330,6 +331,7 @@ NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_Up
 // GTLRGKEHub_ServiceMeshControlPlaneManagement.state
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Active = @"ACTIVE";
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Degraded = @"DEGRADED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Deprovisioning = @"DEPROVISIONING";
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Disabled = @"DISABLED";
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_FailedPrecondition = @"FAILED_PRECONDITION";
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
@@ -340,6 +342,7 @@ NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Stalled = @
 // GTLRGKEHub_ServiceMeshDataPlaneManagement.state
 NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Active = @"ACTIVE";
 NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Degraded = @"DEGRADED";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Deprovisioning = @"DEPROVISIONING";
 NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Disabled = @"DISABLED";
 NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_FailedPrecondition = @"FAILED_PRECONDITION";
 NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
@@ -366,6 +369,7 @@ NSString * const kGTLRGKEHub_ServiceMeshSpec_DefaultChannel_Stable = @"STABLE";
 // GTLRGKEHub_ServiceMeshSpec.management
 NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementAutomatic = @"MANAGEMENT_AUTOMATIC";
 NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementManual = @"MANAGEMENT_MANUAL";
+NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementNotInstalled = @"MANAGEMENT_NOT_INSTALLED";
 NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementUnspecified = @"MANAGEMENT_UNSPECIFIED";
 
 // GTLRGKEHub_State.code

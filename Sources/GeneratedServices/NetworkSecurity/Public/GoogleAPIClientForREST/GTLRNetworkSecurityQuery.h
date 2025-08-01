@@ -2831,7 +2831,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the ClientTlsPolicy resource. It matches the pattern
- *  `projects/ * /locations/{location}/clientTlsPolicies/{client_tls_policy}`
+ *  `projects/{project}/locations/{location}/clientTlsPolicies/{client_tls_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2854,8 +2854,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkSecurity_ClientTlsPolicy to include in the
  *    query.
  *  @param name Required. Name of the ClientTlsPolicy resource. It matches the
- *    pattern `projects/ *
- *    /locations/{location}/clientTlsPolicies/{client_tls_policy}`
+ *    pattern
+ *    `projects/{project}/locations/{location}/clientTlsPolicies/{client_tls_policy}`
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsClientTlsPoliciesPatch
  */

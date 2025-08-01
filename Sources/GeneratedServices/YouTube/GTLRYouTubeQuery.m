@@ -2473,6 +2473,30 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @end
 
+@implementation GTLRYouTubeQuery_YoutubeV3LiveChatMessagesStream
+
+@dynamic hl, liveChatId, maxResults, pageToken, part, profileImageSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/liveChat/messages/stream";
+  GTLRYouTubeQuery_YoutubeV3LiveChatMessagesStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRYouTube_LiveChatMessageListResponse class];
+  query.loggingName = @"youtube.youtube.v3.liveChat.messages.stream";
+  return query;
+}
+
+@end
+
 @implementation GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads
 
 @dynamic part;

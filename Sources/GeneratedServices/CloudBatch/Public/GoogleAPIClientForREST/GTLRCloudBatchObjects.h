@@ -198,6 +198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningMo
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified;
 /**
+ *  Bound to the lifecycle of the reservation in which it is provisioned.
+ *
+ *  Value: "RESERVATION_BOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ReservationBound;
+/**
  *  SPOT VM.
  *
  *  Value: "SPOT"
@@ -228,6 +234,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningMo
  *  Value: "PROVISIONING_MODEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ProvisioningModelUnspecified;
+/**
+ *  Bound to the lifecycle of the reservation in which it is provisioned.
+ *
+ *  Value: "RESERVATION_BOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ReservationBound;
 /**
  *  SPOT VM.
  *
@@ -1640,6 +1652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        supported. (Value: "PREEMPTIBLE")
  *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified
  *        Unspecified. (Value: "PROVISIONING_MODEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ReservationBound
+ *        Bound to the lifecycle of the reservation in which it is provisioned.
+ *        (Value: "RESERVATION_BOUND")
  *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Spot SPOT VM.
  *        (Value: "SPOT")
  *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Standard Standard
@@ -1742,6 +1757,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        supported. (Value: "PREEMPTIBLE")
  *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ProvisioningModelUnspecified
  *        Unspecified. (Value: "PROVISIONING_MODEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ReservationBound
+ *        Bound to the lifecycle of the reservation in which it is provisioned.
+ *        (Value: "RESERVATION_BOUND")
  *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Spot SPOT VM.
  *        (Value: "SPOT")
  *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Standard Standard

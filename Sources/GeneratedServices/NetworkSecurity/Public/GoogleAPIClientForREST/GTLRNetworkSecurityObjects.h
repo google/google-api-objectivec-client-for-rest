@@ -24,6 +24,7 @@
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResourceTagValueIdSet;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch;
@@ -303,6 +304,46 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custo
  *  Value: "DENY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal.principalSelector
+
+/**
+ *  The principal rule is matched against the common name in the client’s
+ *  certificate. Authorization against multiple common names in the client
+ *  certificate is not supported. Requests with multiple common names in the
+ *  client certificate will be rejected if CLIENT_CERT_COMMON_NAME is set as the
+ *  principal selector. A match happens when there is an exact common name value
+ *  match. This is only applicable for Application Load Balancers except for
+ *  classic Global External Application load balancer. CLIENT_CERT_COMMON_NAME
+ *  is not supported for INTERNAL_SELF_MANAGED load balancing scheme.
+ *
+ *  Value: "CLIENT_CERT_COMMON_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName;
+/**
+ *  The principal rule is matched against a list of DNS Name SANs in the
+ *  validated client’s certificate. A match happens when there is any exact DNS
+ *  Name SAN value match.
+ *
+ *  Value: "CLIENT_CERT_DNS_NAME_SAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan;
+/**
+ *  The principal rule is matched against a list of URI SANs in the validated
+ *  client’s certificate. A match happens when there is any exact URI SAN value
+ *  match. This is the default principal selector.
+ *
+ *  Value: "CLIENT_CERT_URI_SAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertUriSan;
+/**
+ *  Unspecified principal selector. It will be treated as CLIENT_CERT_URI_SAN by
+ *  default.
+ *
+ *  Value: "PRINCIPAL_SELECTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_AuthzPolicyTarget.loadBalancingScheme
@@ -1805,10 +1846,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource : GTLRObject
 
 /**
- *  Optional. A list of IPs or CIDRs to match against the source IP of a
- *  request. Limited to 5 ip_blocks.
+ *  Optional. A list of IP addresses or IP address ranges to match against the
+ *  source IP address of the request. Limited to 5 ip_blocks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock *> *ipBlocks;
+
+/**
+ *  Optional. A list of identities derived from the client's certificate. This
+ *  field will not match on a request unless frontend mutual TLS is enabled for
+ *  the forwarding rule or Gateway and the client certificate has been
+ *  successfully validated by mTLS. Each identity is a string whose value is
+ *  matched against a list of URI SANs, DNS Name SANs, or the common name in the
+ *  client's certificate. A match happens when any principal matches with the
+ *  rule. Limited to 5 principals.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal *> *principals;
 
 /**
  *  Optional. A list of resources to match against the resource of the source VM
@@ -1847,6 +1899,55 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /** Required. The address prefix. */
 @property(nonatomic, copy, nullable) NSString *prefix;
+
+@end
+
+
+/**
+ *  Describes the properties of a principal to be matched against.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal : GTLRObject
+
+/**
+ *  Required. A non-empty string whose value is matched against the principal
+ *  value based on the principal_selector. Only exact match can be applied for
+ *  CLIENT_CERT_URI_SAN, CLIENT_CERT_DNS_NAME_SAN, CLIENT_CERT_COMMON_NAME
+ *  selectors.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *principal;
+
+/**
+ *  Optional. An enum to decide what principal value the principal rule will
+ *  match against. If not specified, the PrincipalSelector is
+ *  CLIENT_CERT_URI_SAN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName
+ *        The principal rule is matched against the common name in the client’s
+ *        certificate. Authorization against multiple common names in the client
+ *        certificate is not supported. Requests with multiple common names in
+ *        the client certificate will be rejected if CLIENT_CERT_COMMON_NAME is
+ *        set as the principal selector. A match happens when there is an exact
+ *        common name value match. This is only applicable for Application Load
+ *        Balancers except for classic Global External Application load
+ *        balancer. CLIENT_CERT_COMMON_NAME is not supported for
+ *        INTERNAL_SELF_MANAGED load balancing scheme. (Value:
+ *        "CLIENT_CERT_COMMON_NAME")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan
+ *        The principal rule is matched against a list of DNS Name SANs in the
+ *        validated client’s certificate. A match happens when there is any
+ *        exact DNS Name SAN value match. (Value: "CLIENT_CERT_DNS_NAME_SAN")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertUriSan
+ *        The principal rule is matched against a list of URI SANs in the
+ *        validated client’s certificate. A match happens when there is any
+ *        exact URI SAN value match. This is the default principal selector.
+ *        (Value: "CLIENT_CERT_URI_SAN")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified
+ *        Unspecified principal selector. It will be treated as
+ *        CLIENT_CERT_URI_SAN by default. (Value:
+ *        "PRINCIPAL_SELECTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *principalSelector;
 
 @end
 
@@ -2106,7 +2207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  authorities, in addition to certificates trusted by the TrustConfig. *
  *  `clientCertificate` is a client certificate that the load balancer uses to
  *  express its identity to the backend, if the connection to the backend uses
- *  mTLS. You can attach the BackendAuthenticationConfig to the load balancer’s
+ *  mTLS. You can attach the BackendAuthenticationConfig to the load balancer's
  *  BackendService directly determining how that BackendService negotiates TLS.
  */
 @interface GTLRNetworkSecurity_BackendAuthenticationConfig : GTLRObject
@@ -2249,7 +2350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Required. Name of the ClientTlsPolicy resource. It matches the pattern
- *  `projects/ * /locations/{location}/clientTlsPolicies/{client_tls_policy}`
+ *  `projects/{project}/locations/{location}/clientTlsPolicies/{client_tls_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -848,14 +848,25 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_DicomNotificationConfig
+//
+
+@implementation GTLRCloudHealthcare_DicomNotificationConfig
+@dynamic pubsubTopic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_DicomStore
 //
 
 @implementation GTLRCloudHealthcare_DicomStore
-@dynamic labels, name, notificationConfig, streamConfigs;
+@dynamic labels, name, notificationConfig, notificationConfigs, streamConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"notificationConfigs" : [GTLRCloudHealthcare_DicomNotificationConfig class],
     @"streamConfigs" : [GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig class]
   };
   return map;

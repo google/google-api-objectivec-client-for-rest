@@ -32,44 +32,6 @@ NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer   = @"SQL_SERVER";
 
 @end
 
-@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRWorkloadManager_WorkloadProfile class];
-  query.loggingName = @"workloadmanager.projects.locations.discoveredprofiles.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRWorkloadManager_WorkloadProfileHealth class];
-  query.loggingName = @"workloadmanager.projects.locations.discoveredprofiles.healthes.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList
 
 @dynamic filter, pageSize, pageToken, parent;

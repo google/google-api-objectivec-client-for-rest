@@ -184,6 +184,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Virtual;
 // GTLRTesting_AndroidModel.formFactor
 
 /**
+ *  This device has an automotive form factor.
+ *
+ *  Value: "AUTOMOTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Automotive;
+/**
+ *  This device has a desktop form factor.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Desktop;
+/**
  *  Do not use. For proto versioning only.
  *
  *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
@@ -202,11 +214,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet;
 /**
+ *  This device has a television form factor.
+ *
+ *  Value: "TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tv;
+/**
  *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable;
+/**
+ *  This device has an Extended Reality form factor.
+ *
+ *  Value: "XR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Xr;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_AndroidRoboTest.roboMode
@@ -403,6 +427,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Unavailable;
 // GTLRTesting_IosModel.formFactor
 
 /**
+ *  This device has an automotive form factor.
+ *
+ *  Value: "AUTOMOTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Automotive;
+/**
+ *  This device has a desktop form factor.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Desktop;
+/**
  *  Do not use. For proto versioning only.
  *
  *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
@@ -421,11 +457,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Phone;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tablet;
 /**
+ *  This device has a television form factor.
+ *
+ *  Value: "TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tv;
+/**
  *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Wearable;
+/**
+ *  This device has an Extended Reality form factor.
+ *
+ *  Value: "XR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Xr;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_PerAndroidVersionInfo.deviceCapacity
@@ -1297,6 +1345,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Whether this device is a phone, tablet, wearable, etc.
  *
  *  Likely values:
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Automotive This device has an
+ *        automotive form factor. (Value: "AUTOMOTIVE")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Desktop This device has a
+ *        desktop form factor. (Value: "DESKTOP")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified
  *        Do not use. For proto versioning only. (Value:
  *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
@@ -1304,8 +1356,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        shape of a phone. (Value: "PHONE")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Tablet This device has the
  *        shape of a tablet. (Value: "TABLET")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Tv This device has a
+ *        television form factor. (Value: "TV")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Wearable This device has the
  *        shape of a watch or other wearable. (Value: "WEARABLE")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Xr This device has an
+ *        Extended Reality form factor. (Value: "XR")
  */
 @property(nonatomic, copy, nullable) NSString *formFactor;
 
@@ -2228,6 +2284,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Whether this device is a phone, tablet, wearable, etc.
  *
  *  Likely values:
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Automotive This device has an
+ *        automotive form factor. (Value: "AUTOMOTIVE")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Desktop This device has a desktop
+ *        form factor. (Value: "DESKTOP")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified Do
  *        not use. For proto versioning only. (Value:
  *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
@@ -2235,8 +2295,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        of a phone. (Value: "PHONE")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_Tablet This device has the shape
  *        of a tablet. (Value: "TABLET")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Tv This device has a television
+ *        form factor. (Value: "TV")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_Wearable This device has the
  *        shape of a watch or other wearable. (Value: "WEARABLE")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Xr This device has an Extended
+ *        Reality form factor. (Value: "XR")
  */
 @property(nonatomic, copy, nullable) NSString *formFactor;
 

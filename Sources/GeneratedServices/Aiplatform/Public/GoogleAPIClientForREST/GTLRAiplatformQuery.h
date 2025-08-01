@@ -5029,6 +5029,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Optional. Configures the Google Distributed Cloud (GDC) environment for
+ *  online prediction. Only set this field when the Endpoint is to be deployed
+ *  in a GDC environment.
+ */
+@property(nonatomic, copy, nullable) NSString *gdcZone;
+
+/**
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
  *  "desc" after a field name for descending. Supported fields: * `display_name`
  *  * `create_time` * `update_time` Example: `display_name, create_time desc`.
@@ -5078,9 +5085,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Updates an existing deployed model. Updatable fields include
- *  `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
- *  `disable_container_logging` (v1 only), and `enable_container_logging`
- *  (v1beta1 only).
+ *  `min_replica_count`, `max_replica_count`, `required_replica_count`,
+ *  `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
+ *  `enable_container_logging` (v1beta1 only).
  *
  *  Method: aiplatform.projects.locations.endpoints.mutateDeployedModel
  *
@@ -5100,9 +5107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
  *
  *  Updates an existing deployed model. Updatable fields include
- *  `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
- *  `disable_container_logging` (v1 only), and `enable_container_logging`
- *  (v1beta1 only).
+ *  `min_replica_count`, `max_replica_count`, `required_replica_count`,
+ *  `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
+ *  `enable_container_logging` (v1beta1 only).
  *
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1MutateDeployedModelRequest to
@@ -6837,6 +6844,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Bidirectional streaming RPC to directly write to feature values in a feature
+ *  view. Requests may not have a one-to-one mapping to responses and responses
+ *  may be returned out-of-order to reduce latency.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.directWrite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDirectWrite : GTLRAiplatformQuery
+
+/**
+ *  FeatureView resource format
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+ */
+@property(nonatomic, copy, nullable) NSString *featureView;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponse.
+ *
+ *  Bidirectional streaming RPC to directly write to feature values in a feature
+ *  view. Requests may not have a one-to-one mapping to responses and responses
+ *  may be returned out-of-order to reduce latency.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest to
+ *    include in the query.
+ *  @param featureView FeatureView resource format
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDirectWrite
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest *)object
+                    featureView:(NSString *)featureView;
 
 @end
 

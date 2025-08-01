@@ -2745,7 +2745,7 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent, readMask;
+@dynamic filter, gdcZone, orderBy, pageSize, pageToken, parent, readMask;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -3746,6 +3746,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
   query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.featureViews.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDirectWrite
+
+@dynamic featureView;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest *)object
+                    featureView:(NSString *)featureView {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"featureView" ];
+  NSString *pathURITemplate = @"v1/{+featureView}:directWrite";
+  GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDirectWrite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.featureView = featureView;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponse class];
+  query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.featureViews.directWrite";
   return query;
 }
 

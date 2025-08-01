@@ -59,6 +59,7 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64;
@@ -66,6 +67,7 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes;
@@ -2190,6 +2192,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  A protobuf enum type. Values of type `Enum` are stored in `Value.int_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum : GTLRObject
+
+/**
+ *  The fully qualified name of the protobuf enum message, including package. In
+ *  the format of "foo.bar.EnumMessage".
+ */
+@property(nonatomic, copy, nullable) NSString *enumName;
+
+/** The ID of the schema bundle that this enum is defined in. */
+@property(nonatomic, copy, nullable) NSString *schemaBundleId;
+
+@end
+
+
+/**
  *  Float32 Values of type `Float32` are stored in `Value.float_value`.
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32 : GTLRObject
@@ -2269,6 +2288,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /** The type of the values in a map. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *valueType;
+
+@end
+
+
+/**
+ *  A protobuf message type. Values of type `Proto` are stored in
+ *  `Value.bytes_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto : GTLRObject
+
+/**
+ *  The fully qualified name of the protobuf message, including package. In the
+ *  format of "foo.bar.Message".
+ */
+@property(nonatomic, copy, nullable) NSString *messageName;
+
+/** The ID of the schema bundle that this proto is defined in. */
+@property(nonatomic, copy, nullable) NSString *schemaBundleId;
 
 @end
 
@@ -4091,6 +4128,9 @@ GTLR_DEPRECATED
 /** Date */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate *dateType;
 
+/** Enum */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum *enumType;
+
 /** Float32 */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32 *float32Type;
 
@@ -4102,6 +4142,9 @@ GTLR_DEPRECATED
 
 /** Map */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap *mapType;
+
+/** Proto */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto *protoType;
 
 /** String */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString *stringType;

@@ -1081,7 +1081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The 2D point of the detected landmark using the normalized image coordindate
+ *  The 2D point of the detected landmark using the normalized image coordinate
  *  system. The normalized coordinates have the range from 0 to 1.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedVertex *point;
@@ -1399,7 +1399,7 @@ GTLR_DEPRECATED
  *  horizontal it might look like: 0----1 | | 3----2 When it's clockwise rotated
  *  180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the
  *  vertex order will still be (0, 1, 2, 3). Note that values can be less than
- *  0, or greater than 1 due to trignometric calculations for location of the
+ *  0, or greater than 1 due to trigonometric calculations for location of the
  *  box.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingPoly : GTLRObject
@@ -1942,7 +1942,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The 2D point of the detected landmark using the normalized image coordindate
+ *  The 2D point of the detected landmark using the normalized image coordinate
  *  system. The normalized coordinates have the range from 0 to 1.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedVertex *point;
@@ -2366,7 +2366,7 @@ GTLR_DEPRECATED
  *  horizontal it might look like: 0----1 | | 3----2 When it's clockwise rotated
  *  180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the
  *  vertex order will still be (0, 1, 2, 3). Note that values can be less than
- *  0, or greater than 1 due to trignometric calculations for location of the
+ *  0, or greater than 1 due to trigonometric calculations for location of the
  *  box.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingPoly : GTLRObject
@@ -2547,7 +2547,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The 2D point of the detected landmark using the normalized image coordindate
+ *  The 2D point of the detected landmark using the normalized image coordinate
  *  system. The normalized coordinates have the range from 0 to 1.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedVertex *point;
@@ -2865,7 +2865,7 @@ GTLR_DEPRECATED
  *  horizontal it might look like: 0----1 | | 3----2 When it's clockwise rotated
  *  180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the
  *  vertex order will still be (0, 1, 2, 3). Note that values can be less than
- *  0, or greater than 1 due to trignometric calculations for location of the
+ *  0, or greater than 1 due to trigonometric calculations for location of the
  *  box.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingPoly : GTLRObject
@@ -3434,7 +3434,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The 2D point of the detected landmark using the normalized image coordindate
+ *  The 2D point of the detected landmark using the normalized image coordinate
  *  system. The normalized coordinates have the range from 0 to 1.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1NormalizedVertex *point;
@@ -3752,7 +3752,7 @@ GTLR_DEPRECATED
  *  horizontal it might look like: 0----1 | | 3----2 When it's clockwise rotated
  *  180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the
  *  vertex order will still be (0, 1, 2, 3). Note that values can be less than
- *  0, or greater than 1 due to trignometric calculations for location of the
+ *  0, or greater than 1 due to trigonometric calculations for location of the
  *  box.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1NormalizedBoundingPoly : GTLRObject
@@ -4380,7 +4380,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The 2D point of the detected landmark using the normalized image coordindate
+ *  The 2D point of the detected landmark using the normalized image coordinate
  *  system. The normalized coordinates have the range from 0 to 1.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex *point;
@@ -4698,7 +4698,7 @@ GTLR_DEPRECATED
  *  horizontal it might look like: 0----1 | | 3----2 When it's clockwise rotated
  *  180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the
  *  vertex order will still be (0, 1, 2, 3). Note that values can be less than
- *  0, or greater than 1 due to trignometric calculations for location of the
+ *  0, or greater than 1 due to trigonometric calculations for location of the
  *  box.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingPoly : GTLRObject

@@ -860,28 +860,6 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_ListOperationsResponse
-//
-
-@implementation GTLRDrive_ListOperationsResponse
-@dynamic nextPageToken, operations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDrive_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDrive_ModifyLabelsRequest
 //
 

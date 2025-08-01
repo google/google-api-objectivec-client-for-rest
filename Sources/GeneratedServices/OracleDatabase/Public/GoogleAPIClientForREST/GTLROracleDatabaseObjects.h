@@ -49,6 +49,10 @@
 @class GTLROracleDatabase_Location_Labels;
 @class GTLROracleDatabase_Location_Metadata;
 @class GTLROracleDatabase_MaintenanceWindow;
+@class GTLROracleDatabase_OdbNetwork;
+@class GTLROracleDatabase_OdbNetwork_Labels;
+@class GTLROracleDatabase_OdbSubnet;
+@class GTLROracleDatabase_OdbSubnet_Labels;
 @class GTLROracleDatabase_Operation;
 @class GTLROracleDatabase_Operation_Metadata;
 @class GTLROracleDatabase_Operation_Response;
@@ -1558,6 +1562,96 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_MaintenanceWindow_Prefere
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_NoPreference;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_OdbNetwork.state
+
+/**
+ *  Indicates that the resource is in available state.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbNetwork_State_Available;
+/**
+ *  Indicates that the resource is in failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbNetwork_State_Failed;
+/**
+ *  Indicates that the resource is in provisioning state.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbNetwork_State_Provisioning;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbNetwork_State_StateUnspecified;
+/**
+ *  Indicates that the resource is in terminating state.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbNetwork_State_Terminating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_OdbSubnet.purpose
+
+/**
+ *  Subnet to be used for backup.
+ *
+ *  Value: "BACKUP_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_Purpose_BackupSubnet;
+/**
+ *  Subnet to be used for client connections.
+ *
+ *  Value: "CLIENT_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_Purpose_ClientSubnet;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_Purpose_PurposeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_OdbSubnet.state
+
+/**
+ *  Indicates that the resource is in available state.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_State_Available;
+/**
+ *  Indicates that the resource is in failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_State_Failed;
+/**
+ *  Indicates that the resource is in provisioning state.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_State_Provisioning;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_State_StateUnspecified;
+/**
+ *  Indicates that the resource is in terminating state.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_State_Terminating;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_ScheduledOperationDetails.dayOfWeek
 
 /**
@@ -1693,6 +1787,22 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  following format: projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. The name of the OdbNetwork associated with the Autonomous
+ *  Database. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network} It is
+ *  optional but if specified, this should match the parent ODBNetwork of the
+ *  OdbSubnet.
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetwork;
+
+/**
+ *  Optional. The name of the OdbSubnet associated with the Autonomous Database.
+ *  Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *odbSubnet;
 
 /**
  *  Output only. The peer Autonomous Database names of the given Autonomous
@@ -3064,6 +3174,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @interface GTLROracleDatabase_CloudVmCluster : GTLRObject
 
+/**
+ *  Optional. The name of the backup OdbSubnet associated with the VM Cluster.
+ *  Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *backupOdbSubnet;
+
 /** Optional. CIDR range of the backup subnet. */
 @property(nonatomic, copy, nullable) NSString *backupSubnetCidr;
 
@@ -3103,6 +3220,21 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. The name of the OdbNetwork associated with the VM Cluster. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network} It is
+ *  optional but if specified, this should match the parent ODBNetwork of the
+ *  odb_subnet and backup_odb_subnet.
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetwork;
+
+/**
+ *  Optional. The name of the OdbSubnet associated with the VM Cluster for IP
+ *  allocation. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *odbSubnet;
 
 /** Optional. Various properties of the VM Cluster. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_CloudVmClusterProperties *properties;
@@ -3520,6 +3652,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  Various properties and settings associated with Db node.
  */
 @interface GTLROracleDatabase_DbNodeProperties : GTLRObject
+
+/** Output only. The date and time that the database node was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  Optional. Local storage per database node.
@@ -4192,6 +4327,66 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The response for `OdbNetwork.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "odbNetworks" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROracleDatabase_ListOdbNetworksResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of ODB Networks.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_OdbNetwork *> *odbNetworks;
+
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response for `OdbSubnet.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "odbSubnets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROracleDatabase_ListOdbSubnetsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of ODB Subnets.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_OdbSubnet *> *odbSubnets;
+
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4377,6 +4572,132 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *weeksOfMonth;
 
+@end
+
+
+/**
+ *  Represents OdbNetwork resource.
+ */
+@interface GTLROracleDatabase_OdbNetwork : GTLRObject
+
+/** Output only. The date and time that the OdbNetwork was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The ID of the subscription entitlement associated with the
+ *  OdbNetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/** Optional. Labels or tags associated with the resource. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_OdbNetwork_Labels *labels;
+
+/**
+ *  Identifier. The name of the OdbNetwork resource in the following format:
+ *  projects/{project}/locations/{region}/odbNetworks/{odb_network}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The name of the VPC network in the following format:
+ *  projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. State of the ODB Network.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_OdbNetwork_State_Available Indicates that the
+ *        resource is in available state. (Value: "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_OdbNetwork_State_Failed Indicates that the
+ *        resource is in failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_OdbNetwork_State_Provisioning Indicates that
+ *        the resource is in provisioning state. (Value: "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_OdbNetwork_State_StateUnspecified Default
+ *        unspecified value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_OdbNetwork_State_Terminating Indicates that
+ *        the resource is in terminating state. (Value: "TERMINATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Optional. Labels or tags associated with the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_OdbNetwork_Labels : GTLRObject
+@end
+
+
+/**
+ *  Represents OdbSubnet resource.
+ */
+@interface GTLROracleDatabase_OdbSubnet : GTLRObject
+
+/** Required. The CIDR range of the subnet. */
+@property(nonatomic, copy, nullable) NSString *cidrRange;
+
+/** Output only. The date and time that the OdbNetwork was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Labels or tags associated with the resource. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_OdbSubnet_Labels *labels;
+
+/**
+ *  Identifier. The name of the OdbSubnet resource in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Purpose of the subnet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_Purpose_BackupSubnet Subnet to be
+ *        used for backup. (Value: "BACKUP_SUBNET")
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_Purpose_ClientSubnet Subnet to be
+ *        used for client connections. (Value: "CLIENT_SUBNET")
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_Purpose_PurposeUnspecified Default
+ *        unspecified value. (Value: "PURPOSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
+
+/**
+ *  Output only. State of the ODB Subnet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_State_Available Indicates that the
+ *        resource is in available state. (Value: "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_State_Failed Indicates that the
+ *        resource is in failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_State_Provisioning Indicates that
+ *        the resource is in provisioning state. (Value: "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_State_StateUnspecified Default
+ *        unspecified value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_OdbSubnet_State_Terminating Indicates that the
+ *        resource is in terminating state. (Value: "TERMINATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Optional. Labels or tags associated with the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_OdbSubnet_Labels : GTLRObject
 @end
 
 

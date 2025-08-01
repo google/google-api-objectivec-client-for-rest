@@ -124,6 +124,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetFilter;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryVertexDatasetGenerationCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DlpJob;
+@class GTLRDLP_GooglePrivacyDlpV2DocumentFallbackLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DocumentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2Domain;
 @class GTLRDLP_GooglePrivacyDlpV2EntityId;
@@ -2267,6 +2268,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  *  Value: "AUSTRALIA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia;
+/**
+ *  The infoType is typically used in Austria.
+ *
+ *  Value: "AUSTRIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Austria;
 /**
  *  The infoType is typically used in Azerbaijan.
  *
@@ -7252,6 +7259,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Configure document processing to fall back to any of the following
+ *  processing options if document processing is unavailable in the original
+ *  request location.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DocumentFallbackLocation : GTLRObject
+
+/** Processing occurs in the global region. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2GlobalProcessing *globalProcessing;
+
+/**
+ *  Processing occurs in a multi-region that contains the current region if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing *multiRegionProcessing;
+
+@end
+
+
+/**
  *  Location of a finding within a document.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DocumentLocation : GTLRObject
@@ -8109,7 +8135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Processing will happen in the global region.
+ *  Processing occurs in the global region.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2GlobalProcessing : GTLRObject
 @end
@@ -8354,16 +8380,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configure image processing to fall back to the configured processing option
- *  below if unavailable in the request location.
+ *  Configure image processing to fall back to any of the following processing
+ *  options if image processing is unavailable in the original request location.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation : GTLRObject
 
-/** Processing will happen in the global region. */
+/** Processing occurs in the global region. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2GlobalProcessing *globalProcessing;
 
 /**
- *  Processing will happen in a multi-region that contains the current region if
+ *  Processing occurs in a multi-region that contains the current region if
  *  available.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing *multiRegionProcessing;
@@ -8517,6 +8543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        The infoType is typically used in Armenia. (Value: "ARMENIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia
  *        The infoType is typically used in Australia. (Value: "AUSTRALIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Austria
+ *        The infoType is typically used in Austria. (Value: "AUSTRIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan
  *        The infoType is typically used in Azerbaijan. (Value: "AZERBAIJAN")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belarus
@@ -10039,7 +10067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Processing will happen in a multi-region that contains the current region if
+ *  Processing occurs in a multi-region that contains the current region if
  *  available.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing : GTLRObject
@@ -10435,7 +10463,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ProcessingLocation : GTLRObject
 
-/** Image processing will fall back using this configuration. */
+/** Document processing falls back using this configuration. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DocumentFallbackLocation *documentFallbackLocation;
+
+/** Image processing falls back using this configuration. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation *imageFallbackLocation;
 
 @end
@@ -10750,7 +10781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  A column can be tagged with a custom tag. In this case, the user must
  *  indicate an auxiliary table that contains statistical information on the
- *  possible values of this column (below).
+ *  possible values of this column.
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 
@@ -10784,7 +10815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  A column can be tagged with a custom tag. In this case, the user must
  *  indicate an auxiliary table that contains statistical information on the
- *  possible values of this column (below).
+ *  possible values of this column.
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 
@@ -11190,7 +11221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  All result fields mentioned below are updated while the job is processing.
+ *  All Result fields are updated while the job is processing.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Result : GTLRObject
 
@@ -12001,7 +12032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  A column can be tagged with a custom tag. In this case, the user must
  *  indicate an auxiliary table that contains statistical information on the
- *  possible values of this column (below).
+ *  possible values of this column.
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 

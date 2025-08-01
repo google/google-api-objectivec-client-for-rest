@@ -34,6 +34,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Downloads a file from the session.
+ *
+ *  Method: discoveryengine.media.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_MediaDownload : GTLRDiscoveryEngineQuery
+
+/** Required. The ID of the file to be downloaded. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Required. The resource name of the Session. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The ID of the view to be downloaded. */
+@property(nonatomic, copy, nullable) NSString *viewId;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GdataMedia.
+ *
+ *  Downloads a file from the session.
+ *
+ *  @param name Required. The resource name of the Session. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_MediaDownload
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Downloads a file from the session.
+ *
+ *  @param name Required. The resource name of the Session. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_MediaDownload
+ */
++ (instancetype)queryForMediaWithName:(NSString *)name;
+
+@end
+
+/**
  *  De-provisions a CmekConfig.
  *
  *  Method: discoveryengine.projects.locations.cmekConfigs.delete
@@ -793,6 +841,51 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompleteQuery
  */
 + (instancetype)queryWithDataStore:(NSString *)dataStore;
+
+@end
+
+/**
+ *  Completes the user input with advanced keyword suggestions.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.completionConfig.completeQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudSearchQuery
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionConfigCompleteQuery : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The completion_config of the parent dataStore or engine resource
+ *  name for which the completion is performed, such as `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/ *
+ *  /completionConfig` `projects/ *
+ *  /locations/global/collections/default_collection/engines/ *
+ *  /completionConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *completionConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponse.
+ *
+ *  Completes the user input with advanced keyword suggestions.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest
+ *    to include in the query.
+ *  @param completionConfig Required. The completion_config of the parent
+ *    dataStore or engine resource name for which the completion is performed,
+ *    such as `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/ *
+ *    /completionConfig` `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /completionConfig`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionConfigCompleteQuery
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest *)object
+               completionConfig:(NSString *)completionConfig;
 
 @end
 
@@ -2502,8 +2595,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsList : GTLRDiscoveryEngineQuery
 
 /**
- *  A filter to apply on the list results. The supported features are:
- *  user_pseudo_id, state. Example: "user_pseudo_id = some_id"
+ *  A comma-separated list of fields to filter by, in EBNF grammar. The
+ *  supported fields are: * `user_pseudo_id` * `state` * `display_name` *
+ *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` Examples:
+ *  * `user_pseudo_id = some_id` * `display_name = "some_name"` * `starred =
+ *  true` * `is_pinned=true AND (NOT labels:hidden)` * `create_time >
+ *  "1970-01-01T12:00:00Z"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3588,6 +3685,159 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets an Assistant.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Resource name of Assistant. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant.
+ *
+ *  Gets an Assistant.
+ *
+ *  @param name Required. Resource name of Assistant. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates an Assistant
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Resource name of the assistant. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ *  It must be a UTF-8 encoded string with a length limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant.
+ *
+ *  Updates an Assistant
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant to include in
+ *    the query.
+ *  @param name Immutable. Resource name of the assistant. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ *    It must be a UTF-8 encoded string with a length limit of 1024 characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Assists the user with a query in a streaming fashion.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.streamAssist
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsStreamAssist : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Assistant. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1StreamAssistResponse.
+ *
+ *  Assists the user with a query in a streaming fashion.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1StreamAssistRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the Assistant. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsStreamAssist
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1StreamAssistRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Completes the user input with advanced keyword suggestions.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.completionConfig.completeQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudSearchQuery
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCompletionConfigCompleteQuery : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The completion_config of the parent dataStore or engine resource
+ *  name for which the completion is performed, such as `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/ *
+ *  /completionConfig` `projects/ *
+ *  /locations/global/collections/default_collection/engines/ *
+ *  /completionConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *completionConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponse.
+ *
+ *  Completes the user input with advanced keyword suggestions.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest
+ *    to include in the query.
+ *  @param completionConfig Required. The completion_config of the parent
+ *    dataStore or engine resource name for which the completion is performed,
+ *    such as `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/ *
+ *    /completionConfig` `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /completionConfig`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCompletionConfigCompleteQuery
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest *)object
+               completionConfig:(NSString *)completionConfig;
 
 @end
 
@@ -4807,8 +5057,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsList : GTLRDiscoveryEngineQuery
 
 /**
- *  A filter to apply on the list results. The supported features are:
- *  user_pseudo_id, state. Example: "user_pseudo_id = some_id"
+ *  A comma-separated list of fields to filter by, in EBNF grammar. The
+ *  supported fields are: * `user_pseudo_id` * `state` * `display_name` *
+ *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` Examples:
+ *  * `user_pseudo_id = some_id` * `display_name = "some_name"` * `starred =
+ *  true` * `is_pinned=true AND (NOT labels:hidden)` * `create_time >
+ *  "1970-01-01T12:00:00Z"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5518,6 +5772,51 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompleteQuery
  */
 + (instancetype)queryWithDataStore:(NSString *)dataStore;
+
+@end
+
+/**
+ *  Completes the user input with advanced keyword suggestions.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.completionConfig.completeQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudSearchQuery
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionConfigCompleteQuery : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The completion_config of the parent dataStore or engine resource
+ *  name for which the completion is performed, such as `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/ *
+ *  /completionConfig` `projects/ *
+ *  /locations/global/collections/default_collection/engines/ *
+ *  /completionConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *completionConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponse.
+ *
+ *  Completes the user input with advanced keyword suggestions.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest
+ *    to include in the query.
+ *  @param completionConfig Required. The completion_config of the parent
+ *    dataStore or engine resource name for which the completion is performed,
+ *    such as `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/ *
+ *    /completionConfig` `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /completionConfig`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionConfigCompleteQuery
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest *)object
+               completionConfig:(NSString *)completionConfig;
 
 @end
 
@@ -7120,8 +7419,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsList : GTLRDiscoveryEngineQuery
 
 /**
- *  A filter to apply on the list results. The supported features are:
- *  user_pseudo_id, state. Example: "user_pseudo_id = some_id"
+ *  A comma-separated list of fields to filter by, in EBNF grammar. The
+ *  supported fields are: * `user_pseudo_id` * `state` * `display_name` *
+ *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` Examples:
+ *  * `user_pseudo_id = some_id` * `display_name = "some_name"` * `starred =
+ *  true` * `is_pinned=true AND (NOT labels:hidden)` * `create_time >
+ *  "1970-01-01T12:00:00Z"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

@@ -40,8 +40,8 @@
 //
 
 @implementation GTLRReports_Activity
-@dynamic actor, ETag, events, identifier, ipAddress, kind, ownerDomain,
-         resourceDetails;
+@dynamic actor, ETag, events, identifier, ipAddress, kind, networkInfo,
+         ownerDomain, resourceDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -161,6 +161,24 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"parameter" : [GTLRReports_NestedParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_ActivityNetworkInfo
+//
+
+@implementation GTLRReports_ActivityNetworkInfo
+@dynamic ipAsn, regionCode, subdivisionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipAsn" : [NSNumber class]
   };
   return map;
 }

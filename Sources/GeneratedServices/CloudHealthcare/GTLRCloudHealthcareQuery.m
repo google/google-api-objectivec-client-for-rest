@@ -1623,6 +1623,29 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesBulkdataRetrieveBulkdata
+
+@dynamic dicomWebPath, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent
+                   dicomWebPath:(NSString *)dicomWebPath {
+  NSArray *pathParams = @[
+    @"dicomWebPath", @"parent"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesBulkdataRetrieveBulkdata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.dicomWebPath = dicomWebPath;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.studies.series.instances.bulkdata.retrieveBulkdata";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesDelete
 
 @dynamic dicomWebPath, parent;

@@ -278,7 +278,7 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 @implementation GTLRManagedKafka_ConnectCluster
 @dynamic capacityConfig, config, createTime, gcpConfig, kafkaCluster, labels,
-         name, state, updateTime;
+         name, satisfiesPzi, satisfiesPzs, state, updateTime;
 @end
 
 

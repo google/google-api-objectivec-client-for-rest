@@ -883,7 +883,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_ReplicaConfig
-@dynamic lastActiveSyncTime, peerInstance, state, stateReasons;
+@dynamic lastActiveSyncTime, peerInstance, state, stateReasons, stateUpdateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
