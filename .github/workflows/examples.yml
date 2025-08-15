@@ -38,6 +38,10 @@ jobs:
         SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
     steps:
     - uses: actions/checkout@v4
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: Build Debug
       run:  |
         set -eu

@@ -36,6 +36,10 @@ jobs:
         CONFIGURATION: ["debug", "release"]
     steps:
     - uses: actions/checkout@v4
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: Build ServiceGenerator
       run:  |
         set -eu
@@ -50,6 +54,10 @@ jobs:
         CONFIGURATION: ["Debug", "Release"]
     steps:
     - uses: actions/checkout@v4
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: Build ServiceGenerator
       run:  |
         set -eu
