@@ -32,6 +32,10 @@ jobs:
         extra_flags: ["", "--use-static-frameworks"]
     steps:
     - uses: actions/checkout@v4
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: "iOS, macOS, tvOS, and visionOS"
       run:  |
         pod lib lint --verbose ${{ matrix.extra_flags }} \
@@ -62,6 +66,10 @@ jobs:
         pod_configuration: ["Debug", "Release"]
     steps:
     - uses: actions/checkout@v4
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: "macOS"
       run:  |
         pod lib lint --verbose \
