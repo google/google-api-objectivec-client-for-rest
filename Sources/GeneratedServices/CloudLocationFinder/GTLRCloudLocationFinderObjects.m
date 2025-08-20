@@ -12,6 +12,7 @@
 // Constants
 
 // GTLRCloudLocationFinder_CloudLocation.cloudLocationType
+NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGdccZone = @"CLOUD_LOCATION_TYPE_GDCC_ZONE";
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegion = @"CLOUD_LOCATION_TYPE_REGION";
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegionExtension = @"CLOUD_LOCATION_TYPE_REGION_EXTENSION";
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeUnspecified = @"CLOUD_LOCATION_TYPE_UNSPECIFIED";

@@ -633,6 +633,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Thursday = @"TH
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Tuesday = @"TUESDAY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"WEDNESDAY";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDLP_GooglePrivacyDlpV2Action
@@ -5083,3 +5087,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @implementation GTLRDLP_GoogleTypeTimeOfDay
 @dynamic hours, minutes, nanos, seconds;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_Proto2BridgeMessageSet
+//
+
+@implementation GTLRDLP_Proto2BridgeMessageSet
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_UtilStatusProto
+//
+
+@implementation GTLRDLP_UtilStatusProto
+@dynamic canonicalCode, code, message, messageSet, space;
+@end
+
+#pragma clang diagnostic pop

@@ -686,6 +686,37 @@ NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOP
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesExecuteSql
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_ExecuteSqlPayload *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/executeSql";
+  GTLRSQLAdminQuery_InstancesExecuteSql *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesExecuteSqlResponse class];
+  query.loggingName = @"sql.instances.executeSql";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesExport
 
 @dynamic instance, project;
@@ -1389,7 +1420,7 @@ NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOP
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesGetLatestRecoveryTime
 
-@dynamic instance, project;
+@dynamic instance, project, sourceInstanceDeletionTime;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {

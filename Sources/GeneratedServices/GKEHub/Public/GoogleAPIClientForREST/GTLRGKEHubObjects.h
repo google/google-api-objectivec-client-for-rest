@@ -1576,17 +1576,85 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompleted;
 /**
+ *  Fleet is eligible for modernization.
+ *
+ *  Value: "MODERNIZATION_ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationEligible;
+/**
+ *  Modernization is finalized for all clusters in a fleet. Rollback is no
+ *  longer allowed.
+ *
+ *  Value: "MODERNIZATION_FINALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationFinalized;
+/**
  *  Modernization is in progress for a cluster.
  *
  *  Value: "MODERNIZATION_IN_PROGRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress;
 /**
+ *  Fleet is opted out from automated modernization.
+ *
+ *  Value: "MODERNIZATION_MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationManual;
+/**
+ *  Migrating the cluster's workloads to the new implementation.
+ *
+ *  Value: "MODERNIZATION_MIGRATING_WORKLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationMigratingWorkloads;
+/**
+ *  Modernization of all the fleet's clusters is complete. Soaking before
+ *  finalizing the modernization.
+ *
+ *  Value: "MODERNIZATION_MODERNIZED_SOAKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizedSoaking;
+/**
+ *  Modernization of one or more clusters in a fleet is in progress.
+ *
+ *  Value: "MODERNIZATION_MODERNIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizing;
+/**
+ *  Cluster has been prepared for its workloads to be migrated.
+ *
+ *  Value: "MODERNIZATION_PREPARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPrepared;
+/**
+ *  Preparing cluster so that its workloads can be migrated.
+ *
+ *  Value: "MODERNIZATION_PREPARING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPreparing;
+/**
+ *  Rollback is in progress for modernization of a cluster.
+ *
+ *  Value: "MODERNIZATION_ROLLING_BACK_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRollingBackCluster;
+/**
+ *  Rollback is in progress for modernization of all clusters in a fleet.
+ *
+ *  Value: "MODERNIZATION_ROLLING_BACK_FLEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRollingBackFleet;
+/**
  *  Modernization is scheduled for a cluster.
  *
  *  Value: "MODERNIZATION_SCHEDULED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled;
+/**
+ *  Modernization is stalled for a cluster.
+ *
+ *  Value: "MODERNIZATION_STALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationStalled;
 /**
  *  Modernization will be scheduled for a fleet.
  *
@@ -2002,7 +2070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_Manage
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshSpec_Management_ManagementNotInstalled;
 /**
- *  Unspecified
+ *  Unspecified.
  *
  *  Value: "MANAGEMENT_UNSPECIFIED"
  */
@@ -5105,12 +5173,45 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompleted
  *        Modernization is completed for a cluster. (Value:
  *        "MODERNIZATION_COMPLETED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationEligible Fleet
+ *        is eligible for modernization. (Value: "MODERNIZATION_ELIGIBLE")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationFinalized
+ *        Modernization is finalized for all clusters in a fleet. Rollback is no
+ *        longer allowed. (Value: "MODERNIZATION_FINALIZED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress
  *        Modernization is in progress for a cluster. (Value:
  *        "MODERNIZATION_IN_PROGRESS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationManual Fleet is
+ *        opted out from automated modernization. (Value:
+ *        "MODERNIZATION_MANUAL")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationMigratingWorkloads
+ *        Migrating the cluster's workloads to the new implementation. (Value:
+ *        "MODERNIZATION_MIGRATING_WORKLOADS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizedSoaking
+ *        Modernization of all the fleet's clusters is complete. Soaking before
+ *        finalizing the modernization. (Value:
+ *        "MODERNIZATION_MODERNIZED_SOAKING")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizing
+ *        Modernization of one or more clusters in a fleet is in progress.
+ *        (Value: "MODERNIZATION_MODERNIZING")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPrepared
+ *        Cluster has been prepared for its workloads to be migrated. (Value:
+ *        "MODERNIZATION_PREPARED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPreparing
+ *        Preparing cluster so that its workloads can be migrated. (Value:
+ *        "MODERNIZATION_PREPARING")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRollingBackCluster
+ *        Rollback is in progress for modernization of a cluster. (Value:
+ *        "MODERNIZATION_ROLLING_BACK_CLUSTER")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRollingBackFleet
+ *        Rollback is in progress for modernization of all clusters in a fleet.
+ *        (Value: "MODERNIZATION_ROLLING_BACK_FLEET")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled
  *        Modernization is scheduled for a cluster. (Value:
  *        "MODERNIZATION_SCHEDULED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationStalled
+ *        Modernization is stalled for a cluster. (Value:
+ *        "MODERNIZATION_STALLED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationWillBeScheduled
  *        Modernization will be scheduled for a fleet. (Value:
  *        "MODERNIZATION_WILL_BE_SCHEDULED")
@@ -5375,7 +5476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *        cluster and deprovision any resources. (Value:
  *        "MANAGEMENT_NOT_INSTALLED")
  *    @arg @c kGTLRGKEHub_ServiceMeshSpec_Management_ManagementUnspecified
- *        Unspecified (Value: "MANAGEMENT_UNSPECIFIED")
+ *        Unspecified. (Value: "MANAGEMENT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *management;
 

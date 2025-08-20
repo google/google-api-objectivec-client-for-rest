@@ -72,6 +72,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"C
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_DatabaseFailover = @"DATABASE_FAILOVER";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot = @"LOAD_SNAPSHOT";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Migrate = @"MIGRATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_SaveSnapshot = @"SAVE_SNAPSHOT";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update = @"UPDATE";

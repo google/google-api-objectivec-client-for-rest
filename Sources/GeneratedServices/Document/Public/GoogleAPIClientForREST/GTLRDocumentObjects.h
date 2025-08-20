@@ -114,6 +114,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult;
 @class GTLRDocument_GoogleCloudDocumentaiV1Evaluation;
 @class GTLRDocument_GoogleCloudDocumentaiV1Evaluation_EntityMetrics;
 @class GTLRDocument_GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics;
@@ -698,6 +700,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity.method
+
+/**
+ *  The entity's value is derived through inference and is not necessarily an
+ *  exact text extraction from the document.
+ *
+ *  Value: "DERIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_Derive;
+/**
+ *  The entity's value is directly extracted as-is from the document text.
+ *
+ *  Value: "EXTRACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_Extract;
+/**
+ *  When the method is not specified, it should be treated as `EXTRACT`.
+ *
+ *  Value: "METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_MethodUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef.layoutType
 
 /**
@@ -929,6 +954,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  *  Value: "REQUIRED_ONCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult.validationResultType
+
+/**
+ *  The validation is invalid.
+ *
+ *  Value: "VALIDATION_RESULT_TYPE_INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeInvalid;
+/**
+ *  The validation is not applicable.
+ *
+ *  Value: "VALIDATION_RESULT_TYPE_NOT_APPLICABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeNotApplicable;
+/**
+ *  The validation is skipped.
+ *
+ *  Value: "VALIDATION_RESULT_TYPE_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeSkipped;
+/**
+ *  The validation result type is unspecified.
+ *
+ *  Value: "VALIDATION_RESULT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeUnspecified;
+/**
+ *  The validation is valid.
+ *
+ *  Value: "VALIDATION_RESULT_TYPE_VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeValid;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics.metricsType
@@ -3349,6 +3408,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
+/**
+ *  The output of the validation given the document and the validation rules.
+ *  The output is appended to the document in the processing order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput *> *validationOutputs;
+
 @end
 
 
@@ -3638,6 +3703,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
 @property(nonatomic, copy, nullable) NSString *mentionText;
+
+/**
+ *  Optional. Specifies how the entity's value is obtained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_Derive
+ *        The entity's value is derived through inference and is not necessarily
+ *        an exact text extraction from the document. (Value: "DERIVE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_Extract
+ *        The entity's value is directly extracted as-is from the document text.
+ *        (Value: "EXTRACT")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_MethodUnspecified
+ *        When the method is not specified, it should be treated as `EXTRACT`.
+ *        (Value: "METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *method;
 
 /**
  *  Optional. Normalized entity value. Absent if the extracted value could not
@@ -5049,6 +5130,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  before that index.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
+
+@end
+
+
+/**
+ *  The output of the validation given the document and the validation rules.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput : GTLRObject
+
+/**
+ *  The overall result of the validation, true if all applicable rules are
+ *  valid.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passAllRules;
+
+/** The result of each validation rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult *> *validationResults;
+
+@end
+
+
+/**
+ *  Validation result for a single validation rule.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult : GTLRObject
+
+/** The description of the validation rule. */
+@property(nonatomic, copy, nullable) NSString *ruleDescription;
+
+/** The name of the validation rule. */
+@property(nonatomic, copy, nullable) NSString *ruleName;
+
+/**
+ *  The detailed information of the running the validation process using the
+ *  entity from the document based on the validation rule.
+ */
+@property(nonatomic, copy, nullable) NSString *validationDetails;
+
+/**
+ *  The result of the validation rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeInvalid
+ *        The validation is invalid. (Value: "VALIDATION_RESULT_TYPE_INVALID")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeNotApplicable
+ *        The validation is not applicable. (Value:
+ *        "VALIDATION_RESULT_TYPE_NOT_APPLICABLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeSkipped
+ *        The validation is skipped. (Value: "VALIDATION_RESULT_TYPE_SKIPPED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeUnspecified
+ *        The validation result type is unspecified. (Value:
+ *        "VALIDATION_RESULT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeValid
+ *        The validation is valid. (Value: "VALIDATION_RESULT_TYPE_VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *validationResultType;
 
 @end
 

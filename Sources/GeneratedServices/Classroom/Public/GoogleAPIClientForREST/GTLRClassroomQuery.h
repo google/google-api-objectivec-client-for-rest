@@ -3699,8 +3699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  permitted to create courses or for access errors. * `NOT_FOUND` if the
  *  primary teacher is not a valid user. * `FAILED_PRECONDITION` if the course
  *  owner's account is disabled or for the following request errors: *
- *  UserCannotOwnCourse * UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if
- *  an alias was specified in the `id` and already exists.
+ *  UserCannotOwnCourse * UserGroupsMembershipLimitReached *
+ *  CourseTitleCannotContainUrl * `ALREADY_EXISTS` if an alias was specified in
+ *  the `id` and already exists.
  *
  *  Method: classroom.courses.create
  *
@@ -3720,8 +3721,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  permitted to create courses or for access errors. * `NOT_FOUND` if the
  *  primary teacher is not a valid user. * `FAILED_PRECONDITION` if the course
  *  owner's account is disabled or for the following request errors: *
- *  UserCannotOwnCourse * UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if
- *  an alias was specified in the `id` and already exists.
+ *  UserCannotOwnCourse * UserGroupsMembershipLimitReached *
+ *  CourseTitleCannotContainUrl * `ALREADY_EXISTS` if an alias was specified in
+ *  the `id` and already exists.
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *
@@ -3945,7 +3947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
  *  are specified in the update mask or if no update mask is supplied. *
  *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable * InactiveCourseOwner * IneligibleOwner
+ *  CourseNotModifiable * InactiveCourseOwner * IneligibleOwner *
+ *  CourseTitleCannotContainUrl
  *
  *  Method: classroom.courses.patch
  *
@@ -3985,7 +3988,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
  *  are specified in the update mask or if no update mask is supplied. *
  *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable * InactiveCourseOwner * IneligibleOwner
+ *  CourseNotModifiable * InactiveCourseOwner * IneligibleOwner *
+ *  CourseTitleCannotContainUrl
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *  @param identifier Identifier of the course to update. This identifier can be
@@ -5193,7 +5197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `PERMISSION_DENIED` if the requesting user is not permitted to modify the
  *  requested course or for access errors. * `NOT_FOUND` if no course exists
  *  with the requested ID. * `FAILED_PRECONDITION` for the following request
- *  errors: * CourseNotModifiable
+ *  errors: * CourseNotModifiable * CourseTitleCannotContainUrl
  *
  *  Method: classroom.courses.update
  *
@@ -5217,7 +5221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `PERMISSION_DENIED` if the requesting user is not permitted to modify the
  *  requested course or for access errors. * `NOT_FOUND` if no course exists
  *  with the requested ID. * `FAILED_PRECONDITION` for the following request
- *  errors: * CourseNotModifiable
+ *  errors: * CourseNotModifiable * CourseTitleCannotContainUrl
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *  @param identifier Identifier of the course to update. This identifier can be

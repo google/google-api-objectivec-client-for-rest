@@ -550,7 +550,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Resource name of a KMS crypto key (managed by the user) used to
+ *  Optional. Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt their event data. It must match the pattern `projects/ *
  *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
  */

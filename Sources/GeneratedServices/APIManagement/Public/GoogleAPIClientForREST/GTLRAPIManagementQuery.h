@@ -61,6 +61,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  GetEntitlement returns the entitlement for the provided project.
+ *
+ *  Method: apim.projects.locations.getEntitlement
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIManagementCloudPlatform
+ */
+@interface GTLRAPIManagementQuery_ProjectsLocationsGetEntitlement : GTLRAPIManagementQuery
+
+/**
+ *  Required. The entitlement resource name Format:
+ *  projects/{project}/locations/{location}/entitlement
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAPIManagement_Entitlement.
+ *
+ *  GetEntitlement returns the entitlement for the provided project.
+ *
+ *  @param name Required. The entitlement resource name Format:
+ *    projects/{project}/locations/{location}/entitlement
+ *
+ *  @return GTLRAPIManagementQuery_ProjectsLocationsGetEntitlement
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: apim.projects.locations.list
@@ -71,8 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAPIManagementQuery_ProjectsLocationsList : GTLRAPIManagementQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

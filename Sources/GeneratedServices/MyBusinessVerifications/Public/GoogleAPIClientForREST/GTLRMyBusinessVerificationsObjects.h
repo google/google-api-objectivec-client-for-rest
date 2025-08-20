@@ -123,6 +123,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Met
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Method_Sms;
 /**
+ *  Verify the location via a trusted partner.
+ *
+ *  Value: "TRUSTED_PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Method_TrustedPartner;
+/**
  *  Default value, will result in errors.
  *
  *  Value: "VERIFICATION_METHOD_UNSPECIFIED"
@@ -202,6 +208,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_Sms;
 /**
+ *  Verify the location via a trusted partner.
+ *
+ *  Value: "TRUSTED_PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_TrustedPartner;
+/**
  *  Default value, will result in errors.
  *
  *  Value: "VERIFICATION_METHOD_UNSPECIFIED"
@@ -252,6 +264,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *  Value: "SMS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Sms;
+/**
+ *  Verify the location via a trusted partner.
+ *
+ *  Value: "TRUSTED_PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_TrustedPartner;
 /**
  *  Default value, will result in errors.
  *
@@ -678,6 +696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *    @arg @c kGTLRMyBusinessVerifications_Verification_Method_Sms Send an SMS
  *        with a verification PIN to a specific phone number. The PIN is used to
  *        complete verification with Google. (Value: "SMS")
+ *    @arg @c kGTLRMyBusinessVerifications_Verification_Method_TrustedPartner
+ *        Verify the location via a trusted partner. (Value: "TRUSTED_PARTNER")
  *    @arg @c kGTLRMyBusinessVerifications_Verification_Method_VerificationMethodUnspecified
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
@@ -751,6 +771,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *    @arg @c kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_Sms
  *        Send an SMS with a verification PIN to a specific phone number. The
  *        PIN is used to complete verification with Google. (Value: "SMS")
+ *    @arg @c kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_TrustedPartner
+ *        Verify the location via a trusted partner. (Value: "TRUSTED_PARTNER")
  *    @arg @c kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VerificationMethodUnspecified
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
@@ -849,6 +871,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *    @arg @c kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Sms Send
  *        an SMS with a verification PIN to a specific phone number. The PIN is
  *        used to complete verification with Google. (Value: "SMS")
+ *    @arg @c kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_TrustedPartner
+ *        Verify the location via a trusted partner. (Value: "TRUSTED_PARTNER")
  *    @arg @c kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VerificationMethodUnspecified
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
@@ -872,6 +896,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *  Token that is associated to the location.
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessVerifications_VerificationToken *token;
+
+/**
+ *  The input for TRUSTED_PARTNER method The verification token that is
+ *  associated to the location.
+ */
+@property(nonatomic, copy, nullable) NSString *trustedPartnerToken;
 
 @end
 

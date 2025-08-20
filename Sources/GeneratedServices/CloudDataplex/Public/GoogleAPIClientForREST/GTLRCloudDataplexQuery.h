@@ -4,7 +4,7 @@
 // API:
 //   Cloud Dataplex API (dataplex/v1)
 // Description:
-//   Dataplex API is used to manage the lifecycle of data lakes.
+//   A unified, intelligent governance solution for data and AI assets.
 // Documentation:
 //   https://cloud.google.com/dataplex/docs
 
@@ -8700,8 +8700,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Creates a metadata job. For example, use a metadata job to import Dataplex
- *  Catalog entries and aspects from a third-party system into Dataplex.
+ *  Creates a metadata job. For example, use a metadata job to import metadata
+ *  from a third-party system into Dataplex Universal Catalog.
  *
  *  Method: dataplex.projects.locations.metadataJobs.create
  *
@@ -8731,8 +8731,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Creates a metadata job. For example, use a metadata job to import Dataplex
- *  Catalog entries and aspects from a third-party system into Dataplex.
+ *  Creates a metadata job. For example, use a metadata job to import metadata
+ *  from a third-party system into Dataplex Universal Catalog.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob to
  *    include in the query.
@@ -9025,7 +9025,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The query against which entries in scope should be matched. The
- *  query syntax is defined in Search syntax for Dataplex Catalog
+ *  query syntax is defined in Search syntax for Dataplex Universal Catalog
  *  (https://cloud.google.com/dataplex/docs/search-syntax).
  */
 @property(nonatomic, copy, nullable) NSString *query;

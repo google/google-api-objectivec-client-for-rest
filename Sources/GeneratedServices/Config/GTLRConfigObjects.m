@@ -104,6 +104,10 @@ NSString * const kGTLRConfig_PreviewOperationMetadata_Step_Succeeded = @"SUCCEED
 NSString * const kGTLRConfig_PreviewOperationMetadata_Step_UnlockingDeployment = @"UNLOCKING_DEPLOYMENT";
 NSString * const kGTLRConfig_PreviewOperationMetadata_Step_ValidatingRepository = @"VALIDATING_REPOSITORY";
 
+// GTLRConfig_ProviderConfig.sourceType
+NSString * const kGTLRConfig_ProviderConfig_SourceType_ProviderSourceUnspecified = @"PROVIDER_SOURCE_UNSPECIFIED";
+NSString * const kGTLRConfig_ProviderConfig_SourceType_ServiceMaintained = @"SERVICE_MAINTAINED";
+
 // GTLRConfig_Resource.intent
 NSString * const kGTLRConfig_Resource_Intent_Create            = @"CREATE";
 NSString * const kGTLRConfig_Resource_Intent_Delete            = @"DELETE";
@@ -262,9 +266,9 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 @implementation GTLRConfig_Deployment
 @dynamic annotations, artifactsGcsBucket, createTime, deleteBuild, deleteLogs,
          deleteResults, errorCode, errorLogs, importExistingResources, labels,
-         latestRevision, lockState, name, quotaValidation, serviceAccount,
-         state, stateDetail, terraformBlueprint, tfErrors, tfVersion,
-         tfVersionConstraint, updateTime, workerPool;
+         latestRevision, lockState, name, providerConfig, quotaValidation,
+         serviceAccount, state, stateDetail, terraformBlueprint, tfErrors,
+         tfVersion, tfVersionConstraint, updateTime, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -738,7 +742,7 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 @implementation GTLRConfig_Preview
 @dynamic annotations, artifactsGcsBucket, build, createTime, deployment,
          errorCode, errorLogs, errorStatus, labels, logs, name,
-         previewArtifacts, previewMode, serviceAccount, state,
+         previewArtifacts, previewMode, providerConfig, serviceAccount, state,
          terraformBlueprint, tfErrors, tfVersion, tfVersionConstraint,
          workerPool;
 
@@ -845,6 +849,16 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ProviderConfig
+//
+
+@implementation GTLRConfig_ProviderConfig
+@dynamic sourceType;
 @end
 
 
@@ -968,7 +982,7 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 @implementation GTLRConfig_Revision
 @dynamic action, applyResults, build, createTime, errorCode, errorLogs,
-         importExistingResources, logs, name, quotaValidation,
+         importExistingResources, logs, name, providerConfig, quotaValidation,
          quotaValidationResults, serviceAccount, state, stateDetail,
          terraformBlueprint, tfErrors, tfVersion, tfVersionConstraint,
          updateTime, workerPool;

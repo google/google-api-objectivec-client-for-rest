@@ -37,6 +37,7 @@
 @class GTLRCloudIdentity_GroupRelation;
 @class GTLRCloudIdentity_GroupRelation_Labels;
 @class GTLRCloudIdentity_IdpCredential;
+@class GTLRCloudIdentity_InboundOidcSsoProfile;
 @class GTLRCloudIdentity_InboundSamlSsoProfile;
 @class GTLRCloudIdentity_InboundSsoAssignment;
 @class GTLRCloudIdentity_MemberRelation;
@@ -47,6 +48,9 @@
 @class GTLRCloudIdentity_MembershipRelation_Labels;
 @class GTLRCloudIdentity_MembershipRole;
 @class GTLRCloudIdentity_MembershipRoleRestrictionEvaluation;
+@class GTLRCloudIdentity_OidcIdpConfig;
+@class GTLRCloudIdentity_OidcRpConfig;
+@class GTLRCloudIdentity_OidcSsoInfo;
 @class GTLRCloudIdentity_Operation_Metadata;
 @class GTLRCloudIdentity_Operation_Response;
 @class GTLRCloudIdentity_Policy;
@@ -675,6 +679,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GroupRelation_RelationType
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_DomainWideSamlIfEnabled;
 /**
+ *  Use an external OIDC Identity Provider for SSO for the targeted users.
+ *
+ *  Value: "OIDC_SSO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_OidcSso;
+/**
  *  Use an external SAML Identity Provider for SSO for the targeted users.
  *
  *  Value: "SAML_SSO"
@@ -1021,6 +1031,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /**
  *  LRO response metadata for
+ *  InboundOidcSsoProfilesService.CreateInboundOidcSsoProfile.
+ */
+@interface GTLRCloudIdentity_CreateInboundOidcSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  LRO response metadata for
  *  InboundSamlSsoProfilesService.CreateInboundSamlSsoProfile.
  */
 @interface GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata : GTLRObject
@@ -1062,6 +1089,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  LRO response metadata for InboundSamlSsoProfilesService.DeleteIdpCredential.
  */
 @interface GTLRCloudIdentity_DeleteIdpCredentialOperationMetadata : GTLRObject
+@end
+
+
+/**
+ *  LRO response metadata for
+ *  InboundOidcSsoProfilesService.DeleteInboundOidcSsoProfile.
+ */
+@interface GTLRCloudIdentity_DeleteInboundOidcSsoProfileOperationMetadata : GTLRObject
 @end
 
 
@@ -2684,6 +2719,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  An [OIDC](https://openid.net/developers/how-connect-works/) federation
+ *  between a Google enterprise customer and an OIDC identity provider.
+ */
+@interface GTLRCloudIdentity_InboundOidcSsoProfile : GTLRObject
+
+/** Immutable. The customer. For example: `customers/C0123abc`. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Human-readable name of the OIDC SSO profile. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** OIDC identity provider configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_OidcIdpConfig *idpConfig;
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the OIDC SSO
+ *  profile.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  OIDC relying party (RP) configuration for this OIDC SSO profile. These are
+ *  the RP details provided by Google that should be configured on the
+ *  corresponding identity provider.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_OidcRpConfig *rpConfig;
+
+@end
+
+
+/**
  *  A [SAML 2.0](https://www.oasis-open.org/standards#samlv2.0) federation
  *  between a Google enterprise customer and a SAML identity provider.
  */
@@ -2731,6 +2798,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  OpenID Connect SSO details. Must be set if and only if `sso_mode` is set to
+ *  `OIDC_SSO`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_OidcSsoInfo *oidcSsoInfo;
+
+/**
  *  Must be zero (which is the default value so it can be omitted) for
  *  assignments with `target_org_unit` set and must be greater-than-or-equal-to
  *  one for assignments with `target_group` set.
@@ -2763,6 +2836,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        domain-wide SAML is removed. Google may disallow this mode at that
  *        point and existing assignments with this mode may be automatically
  *        changed to `SSO_OFF`. (Value: "DOMAIN_WIDE_SAML_IF_ENABLED")
+ *    @arg @c kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_OidcSso Use an
+ *        external OIDC Identity Provider for SSO for the targeted users.
+ *        (Value: "OIDC_SSO")
  *    @arg @c kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SamlSso Use an
  *        external SAML Identity Provider for SSO for the targeted users.
  *        (Value: "SAML_SSO")
@@ -2841,6 +2917,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_IdpCredential *> *idpCredentials;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response of the InboundOidcSsoProfilesService.ListInboundOidcSsoProfiles
+ *  method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "inboundOidcSsoProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudIdentity_ListInboundOidcSsoProfilesResponse : GTLRCollectionObject
+
+/**
+ *  List of InboundOidcSsoProfiles.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_InboundOidcSsoProfile *> *inboundOidcSsoProfiles;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -3325,6 +3429,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /** The `Membership` resource after modifying its `MembershipRole`s. */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_Membership *membership;
+
+@end
+
+
+/**
+ *  OIDC IDP (identity provider) configuration.
+ */
+@interface GTLRCloudIdentity_OidcIdpConfig : GTLRObject
+
+/**
+ *  The **Change Password URL** of the identity provider. Users will be sent to
+ *  this URL when changing their passwords at `myaccount.google.com`. This takes
+ *  precedence over the change password URL configured at customer-level. Must
+ *  use `HTTPS`.
+ */
+@property(nonatomic, copy, nullable) NSString *changePasswordUri;
+
+/**
+ *  Required. The Issuer identifier for the IdP. Must be a URL. The discovery
+ *  URL will be derived from this as described in Section 4 of [the OIDC
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html).
+ */
+@property(nonatomic, copy, nullable) NSString *issuerUri;
+
+@end
+
+
+/**
+ *  OIDC RP (relying party) configuration.
+ */
+@interface GTLRCloudIdentity_OidcRpConfig : GTLRObject
+
+/** OAuth2 client ID for OIDC. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Input only. OAuth2 client secret for OIDC. */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Output only. The URL(s) that this client may use in authentication requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *redirectUris;
+
+@end
+
+
+/**
+ *  Details that are applicable when `sso_mode` is set to `OIDC_SSO`.
+ */
+@interface GTLRCloudIdentity_OidcSsoInfo : GTLRObject
+
+/**
+ *  Required. Name of the `InboundOidcSsoProfile` to use. Must be of the form
+ *  `inboundOidcSsoProfiles/{inbound_oidc_sso_profile}`.
+ */
+@property(nonatomic, copy, nullable) NSString *inboundOidcSsoProfile;
 
 @end
 
@@ -3870,6 +4030,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Metadata for UpdateGroup LRO.
  */
 @interface GTLRCloudIdentity_UpdateGroupMetadata : GTLRObject
+@end
+
+
+/**
+ *  LRO response metadata for
+ *  InboundOidcSsoProfilesService.UpdateInboundOidcSsoProfile.
+ */
+@interface GTLRCloudIdentity_UpdateInboundOidcSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 

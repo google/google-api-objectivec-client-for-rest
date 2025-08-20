@@ -182,8 +182,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AccessDeterminationLogCo
  *  consensual determination * Timestamp of the applied enforcement leading to
  *  the decision * Enforcement version at the time the applicable consents were
  *  applied * The Consent resource name * The timestamp of the Consent resource
- *  used for enforcement * Policy type (`PATIENT` or `ADMIN`) Note that this
- *  mode adds some overhead to CRUD operations.
+ *  used for enforcement * Policy type (`PATIENT` or `ADMIN`) Due to the limited
+ *  space for logging, this mode is the same as `MINIMUM` for methods that
+ *  return multiple resources (such as FHIR Search).
  *
  *  Value: "VERBOSE"
  */
@@ -1205,8 +1206,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        enforcement leading to the decision * Enforcement version at the time
  *        the applicable consents were applied * The Consent resource name * The
  *        timestamp of the Consent resource used for enforcement * Policy type
- *        (`PATIENT` or `ADMIN`) Note that this mode adds some overhead to CRUD
- *        operations. (Value: "VERBOSE")
+ *        (`PATIENT` or `ADMIN`) Due to the limited space for logging, this mode
+ *        is the same as `MINIMUM` for methods that return multiple resources
+ *        (such as FHIR Search). (Value: "VERBOSE")
  */
 @property(nonatomic, copy, nullable) NSString *logLevel;
 

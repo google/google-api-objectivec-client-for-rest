@@ -920,6 +920,11 @@ NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntitySta
 NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusScheduledForDeletion = @"ENTITY_STATUS_SCHEDULED_FOR_DELETION";
 NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusUnspecified = @"ENTITY_STATUS_UNSPECIFIED";
 
+// GTLRDisplayVideo_CustomBiddingAlgorithm.thirdPartyOptimizationPartner
+NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Adelaide = @"ADELAIDE";
+NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Scibids = @"SCIBIDS";
+NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Unknown = @"UNKNOWN";
+
 // GTLRDisplayVideo_CustomBiddingAlgorithmRules.state
 NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithmRules_State_Accepted = @"ACCEPTED";
 NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithmRules_State_Rejected = @"REJECTED";
@@ -4321,7 +4326,7 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 @implementation GTLRDisplayVideo_CustomBiddingAlgorithm
 @dynamic advertiserId, customBiddingAlgorithmId, customBiddingAlgorithmType,
          displayName, entityStatus, modelDetails, name, partnerId,
-         sharedAdvertiserIds;
+         sharedAdvertiserIds, thirdPartyOptimizationPartner;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

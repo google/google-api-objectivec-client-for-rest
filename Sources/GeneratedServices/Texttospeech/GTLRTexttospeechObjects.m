@@ -365,5 +365,5 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_VoiceSelectionParams
-@dynamic customVoice, languageCode, name, ssmlGender, voiceClone;
+@dynamic customVoice, languageCode, modelName, name, ssmlGender, voiceClone;
 @end

@@ -1078,6 +1078,82 @@
 
 @end
 
+@implementation GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation class];
+  query.loggingName = @"apihub.projects.locations.discoveredApiObservations.discoveredApiOperations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveredApiOperations";
+  GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiOperationsResponse class];
+  query.loggingName = @"apihub.projects.locations.discoveredApiObservations.discoveredApiOperations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation class];
+  query.loggingName = @"apihub.projects.locations.discoveredApiObservations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveredApiObservations";
+  GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiObservationsResponse class];
+  query.loggingName = @"apihub.projects.locations.discoveredApiObservations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAPIhubQuery_ProjectsLocationsExternalApisCreate
 
 @dynamic externalApiId, parent;

@@ -2177,6 +2177,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidS
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_LostInMediation;
 /**
+ *  The impression was not billed because it exceeded a guaranteed deal delivery
+ *  goal.
+ *
+ *  Value: "OVERDELIVERED_IMPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_OverdeliveredImpression;
+/**
  *  A placeholder for an undefined status. This value will never be returned in
  *  responses.
  *
@@ -5560,6 +5567,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_LostInMediation
  *        The buyer was not billed because the ad was outplaced in the mediation
  *        waterfall. (Value: "LOST_IN_MEDIATION")
+ *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_OverdeliveredImpression
+ *        The impression was not billed because it exceeded a guaranteed deal
+ *        delivery goal. (Value: "OVERDELIVERED_IMPRESSION")
  *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified
  *        A placeholder for an undefined status. This value will never be
  *        returned in responses. (Value: "STATUS_UNSPECIFIED")

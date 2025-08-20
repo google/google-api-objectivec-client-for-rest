@@ -406,6 +406,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseTy
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade;
 
 // ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeOsDevice.osVersionCompliance
+
+/**
+ *  Compliance status unspecified.
+ *
+ *  Value: "complianceUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_ComplianceUnspecified;
+/**
+ *  Compliance status compliant.
+ *
+ *  Value: "compliant"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Compliant;
+/**
+ *  Compliance status not compliant.
+ *
+ *  Value: "notCompliant"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_NotCompliant;
+/**
+ *  Compliance status pending.
+ *
+ *  Value: "pending"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Pending;
+
+// ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeosdevicesCommand.state
 
 /**
@@ -2115,6 +2143,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /** The Chrome device's operating system version. */
 @property(nonatomic, copy, nullable) NSString *osVersion;
+
+/**
+ *  Output only. Compliance status of the OS version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_ComplianceUnspecified
+ *        Compliance status unspecified. (Value: "complianceUnspecified")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Compliant
+ *        Compliance status compliant. (Value: "compliant")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_NotCompliant
+ *        Compliance status not compliant. (Value: "notCompliant")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Pending
+ *        Compliance status pending. (Value: "pending")
+ */
+@property(nonatomic, copy, nullable) NSString *osVersionCompliance;
 
 /** The Chrome device's platform version. */
 @property(nonatomic, copy, nullable) NSString *platformVersion;

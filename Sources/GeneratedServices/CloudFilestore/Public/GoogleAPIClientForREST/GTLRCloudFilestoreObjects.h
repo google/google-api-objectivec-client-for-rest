@@ -559,6 +559,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Creat
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Failed;
 /**
+ *  The replica is being promoted.
+ *
+ *  Value: "PROMOTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Promoting;
+/**
  *  The replica is ready.
  *
  *  Value: "READY"
@@ -2509,6 +2515,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        experiencing an issue and might be unusable. You can get further
  *        details from the `stateReasons` field of the `ReplicaConfig` object.
  *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Promoting The replica is
+ *        being promoted. (Value: "PROMOTING")
  *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Ready The replica is
  *        ready. (Value: "READY")
  *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Removing The replica is

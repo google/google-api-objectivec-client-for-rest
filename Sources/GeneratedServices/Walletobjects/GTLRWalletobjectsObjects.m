@@ -1663,7 +1663,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_Image
-@dynamic contentDescription, kind, sourceUri;
+@dynamic contentDescription, kind, privateImageId, sourceUri;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -2931,6 +2931,25 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_UpcomingNotification
 @dynamic enableNotification;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_UploadPrivateImageRequest
+//
+
+@implementation GTLRWalletobjects_UploadPrivateImageRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_UploadPrivateImageResponse
+//
+
+@implementation GTLRWalletobjects_UploadPrivateImageResponse
+@dynamic privateImageId;
 @end
 
 

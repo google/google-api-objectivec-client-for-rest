@@ -1385,10 +1385,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
-/**
- *  Output only. Full path to the Application resource in the API. Example:
- *  apps/myapp.\@OutputOnly
- */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2205,7 +2201,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /**
  *  A single firewall rule that is evaluated against incoming traffic and
- *  provides an action to take on matched requests.
+ *  provides an action to take on matched requests. A positive integer between
+ *  1, Int32.MaxValue-1 that defines the order of rule evaluation. Rules with
+ *  the lowest priority are evaluated first.A default rule at priority
+ *  Int32.MaxValue matches all IPv4 and IPv6 traffic when no previous rule
+ *  matches. Only the action of this rule can be modified by the user.
  */
 @interface GTLRAppengine_FirewallRule : GTLRObject
 
@@ -2231,11 +2231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  A positive integer between 1, Int32.MaxValue-1 that defines the order of
- *  rule evaluation. Rules with the lowest priority are evaluated first.A
- *  default rule at priority Int32.MaxValue matches all IPv4 and IPv6 traffic
- *  when no previous rule matches. Only the action of this rule can be modified
- *  by the user.
+ *  priority
  *
  *  Uses NSNumber of intValue.
  */

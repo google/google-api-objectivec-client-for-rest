@@ -70,6 +70,12 @@ NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgra
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradePerpetual = @"enterpriseUpgradePerpetual";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade = @"kioskUpgrade";
 
+// GTLRDirectory_ChromeOsDevice.osVersionCompliance
+NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_ComplianceUnspecified = @"complianceUnspecified";
+NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Compliant = @"compliant";
+NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_NotCompliant = @"notCompliant";
+NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Pending = @"pending";
+
 // GTLRDirectory_ChromeosdevicesCommand.state
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_AckedByClient = @"ACKED_BY_CLIENT";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Cancelled = @"CANCELLED";
@@ -626,9 +632,10 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
          extendedSupportStart, fanInfo, firmwareVersion, firstEnrollmentTime,
          kind, lastDeprovisionTimestamp, lastEnrollmentTime, lastKnownNetwork,
          lastSync, macAddress, manufactureDate, meid, model, notes, orderNumber,
-         orgUnitId, orgUnitPath, osUpdateStatus, osVersion, platformVersion,
-         recentUsers, screenshotFiles, serialNumber, status, supportEndDate,
-         systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
+         orgUnitId, orgUnitPath, osUpdateStatus, osVersion, osVersionCompliance,
+         platformVersion, recentUsers, screenshotFiles, serialNumber, status,
+         supportEndDate, systemRamFreeReports, systemRamTotal, tpmVersionInfo,
+         willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

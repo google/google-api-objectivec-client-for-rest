@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   SaaS Runtime API (saasservicemgmt/v1beta1)
+// Description:
+//   Model, deploy, and operate your SaaS at scale.
 // Documentation:
 //   https://cloud.google.com/saas-runtime/docs
 

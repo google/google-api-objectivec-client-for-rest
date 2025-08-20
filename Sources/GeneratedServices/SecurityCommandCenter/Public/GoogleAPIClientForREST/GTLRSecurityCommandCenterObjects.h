@@ -12228,6 +12228,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The resource name of the Cloud KMS `CryptoKey` used to protect
+ *  this configuration's data, if configured during Security Command Center
+ *  activation.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
+
+/**
  *  The dataset to write findings' updates to. Its format is
  *  "projects/[project_id]/datasets/[bigquery_dataset_id]". BigQuery dataset
  *  unique ID must contain only letters (a-z, A-Z), numbers (0-9), or
@@ -13565,6 +13572,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Output only. The name of the Cloud KMS key used to encrypt this finding, if
+ *  any.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
+
 /** Data access events associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent *> *dataAccessEvents;
 
@@ -14861,6 +14874,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  set by the server and will be ignored if provided on config creation.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The resource name of the Cloud KMS `CryptoKey` used to encrypt
+ *  this configuration data, if CMEK was enabled during Security Command Center
+ *  activation.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
 /**
  *  A description of the mute config.

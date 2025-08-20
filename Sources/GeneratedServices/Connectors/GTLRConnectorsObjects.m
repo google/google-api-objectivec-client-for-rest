@@ -312,7 +312,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 @implementation GTLRConnectors_Action
 @dynamic descriptionProperty, displayName, inputJsonSchema, inputParameters,
-         name, resultJsonSchema, resultMetadata;
+         metadata, name, resultJsonSchema, resultMetadata;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -324,6 +324,34 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
     @"resultMetadata" : [GTLRConnectors_ResultMetadata class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Action_Metadata
+//
+
+@implementation GTLRConnectors_Action_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_Action_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Action_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_Action_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -363,10 +391,38 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_CheckStatusResponse
-@dynamic descriptionProperty, state;
+@dynamic descriptionProperty, metadata, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_CheckStatusResponse_Metadata
+//
+
+@implementation GTLRConnectors_CheckStatusResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_CheckStatusResponse_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_CheckStatusResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_CheckStatusResponse_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -417,7 +473,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_Entity
-@dynamic fields, name;
+@dynamic fields, metadata, name;
 @end
 
 
@@ -437,11 +493,39 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_Entity_Metadata
+//
+
+@implementation GTLRConnectors_Entity_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_Entity_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Entity_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_Entity_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_EntityType
 //
 
 @implementation GTLRConnectors_EntityType
-@dynamic fields, jsonSchema, name, operations;
+@dynamic defaultSortBy, fields, jsonSchema, metadata, name, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -449,6 +533,34 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
     @"operations" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_EntityType_Metadata
+//
+
+@implementation GTLRConnectors_EntityType_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_EntityType_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_EntityType_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_EntityType_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -470,7 +582,35 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExchangeAuthCodeResponse
-@dynamic accessCredentials;
+@dynamic accessCredentials, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExchangeAuthCodeResponse_Metadata
+//
+
+@implementation GTLRConnectors_ExchangeAuthCodeResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_ExchangeAuthCodeResponse_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExchangeAuthCodeResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_ExchangeAuthCodeResponse_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -504,7 +644,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExecuteActionResponse
-@dynamic results;
+@dynamic metadata, results;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -518,10 +658,38 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_ExecuteActionResponse_Metadata
+//
+
+@implementation GTLRConnectors_ExecuteActionResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_ExecuteActionResponse_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_ExecuteActionResponse_Results_Item
 //
 
 @implementation GTLRConnectors_ExecuteActionResponse_Results_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteActionResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_ExecuteActionResponse_Metadata_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -564,6 +732,54 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExecuteSqlQueryResponse_Results_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteToolRequest
+//
+
+@implementation GTLRConnectors_ExecuteToolRequest
+@dynamic parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteToolRequest_Parameters
+//
+
+@implementation GTLRConnectors_ExecuteToolRequest_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteToolResponse
+//
+
+@implementation GTLRConnectors_ExecuteToolResponse
+@dynamic result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteToolResponse_Result
+//
+
+@implementation GTLRConnectors_ExecuteToolResponse_Result
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -802,7 +1018,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ListActionsResponse
-@dynamic actions, nextPageToken, unsupportedActionNames;
+@dynamic actions, metadata, nextPageToken, unsupportedActionNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -821,11 +1037,39 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_ListActionsResponse_Metadata
+//
+
+@implementation GTLRConnectors_ListActionsResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_ListActionsResponse_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ListActionsResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_ListActionsResponse_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_ListEntitiesResponse
 //
 
 @implementation GTLRConnectors_ListEntitiesResponse
-@dynamic entities, nextPageToken;
+@dynamic entities, metadata, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -843,11 +1087,39 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_ListEntitiesResponse_Metadata
+//
+
+@implementation GTLRConnectors_ListEntitiesResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_ListEntitiesResponse_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ListEntitiesResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_ListEntitiesResponse_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_ListEntityTypesResponse
 //
 
 @implementation GTLRConnectors_ListEntityTypesResponse
-@dynamic nextPageToken, types, unsupportedTypeNames;
+@dynamic metadata, nextPageToken, types, unsupportedTypeNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -859,6 +1131,56 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 + (NSString *)collectionItemsKey {
   return @"types";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ListEntityTypesResponse_Metadata
+//
+
+@implementation GTLRConnectors_ListEntityTypesResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ListToolsResponse
+//
+
+@implementation GTLRConnectors_ListToolsResponse
+@dynamic nextPageToken, tools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tools" : [GTLRConnectors_Tool class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tools";
 }
 
 @end
@@ -1055,7 +1377,35 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_RefreshAccessTokenResponse
-@dynamic accessCredentials;
+@dynamic accessCredentials, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_RefreshAccessTokenResponse_Metadata
+//
+
+@implementation GTLRConnectors_RefreshAccessTokenResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -1125,11 +1475,40 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_Tool
+//
+
+@implementation GTLRConnectors_Tool
+@dynamic descriptionProperty, inputSchema, name, outputSchema;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_UpdateEntitiesWithConditionsResponse
 //
 
 @implementation GTLRConnectors_UpdateEntitiesWithConditionsResponse
-@dynamic response;
+@dynamic metadata, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata
+//
+
+@implementation GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata class];
+}
+
 @end
 
 
@@ -1139,6 +1518,20 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata
+//
+
+@implementation GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

@@ -55,6 +55,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1DateRange;
+@class GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent;
 @class GTLRCloudchannel_GoogleCloudChannelV1EduData;
 @class GTLRCloudchannel_GoogleCloudChannelV1Entitlement;
 @class GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange;
@@ -876,6 +877,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Custome
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent.discountType
+
+/**
+ *  Deal code discount.
+ *
+ *  Value: "DEAL_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DealCode;
+/**
+ *  Not used.
+ *
+ *  Value: "DISCOUNT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DiscountTypeUnspecified;
+/**
+ *  Promotional discount.
+ *
+ *  Value: "PROMOTIONAL_DISCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_PromotionalDiscount;
+/**
+ *  Regional discount.
+ *
+ *  Value: "REGIONAL_DISCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_RegionalDiscount;
+/**
+ *  Reseller margin.
+ *
+ *  Value: "RESELLER_MARGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_ResellerMargin;
+/**
+ *  Sales-provided discount.
+ *
+ *  Value: "SALES_DISCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_SalesDiscount;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1EduData.instituteSize
@@ -3460,6 +3501,44 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents a single component of the total discount applicable on a Price.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent : GTLRObject
+
+/** Fixed value discount. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeMoney *discountAbsolute;
+
+/**
+ *  Discount percentage, represented as decimal. For example, a 20% discount
+ *  will be represented as 0.2.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *discountPercentage;
+
+/**
+ *  Type of the discount.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DealCode
+ *        Deal code discount. (Value: "DEAL_CODE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DiscountTypeUnspecified
+ *        Not used. (Value: "DISCOUNT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_PromotionalDiscount
+ *        Promotional discount. (Value: "PROMOTIONAL_DISCOUNT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_RegionalDiscount
+ *        Regional discount. (Value: "REGIONAL_DISCOUNT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_ResellerMargin
+ *        Reseller margin. (Value: "RESELLER_MARGIN")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_SalesDiscount
+ *        Sales-provided discount. (Value: "SALES_DISCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *discountType;
+
+@end
+
+
+/**
  *  Required Edu Attributes
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1EduData : GTLRObject
@@ -4819,11 +4898,23 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *discount;
 
+/**
+ *  Breakdown of the discount into its components. This will be empty if there
+ *  is no discount present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent *> *discountComponents;
+
 /** Effective Price after applying the discounts. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeMoney *effectivePrice;
 
 /** Link to external price list, such as link to Google Voice rate card. */
 @property(nonatomic, copy, nullable) NSString *externalPriceUri;
+
+/**
+ *  The time period with respect to which base and effective prices are defined.
+ *  Example: 1 month, 6 months, 1 year, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Period *pricePeriod;
 
 @end
 

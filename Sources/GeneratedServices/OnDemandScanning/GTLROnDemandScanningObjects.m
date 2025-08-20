@@ -495,6 +495,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_CISAKnownExploitedVulnerabilities
+//
+
+@implementation GTLROnDemandScanning_CISAKnownExploitedVulnerabilities
+@dynamic knownRansomwareCampaignUse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_CloudRepoSourceContext
 //
 
@@ -660,6 +670,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_EnvelopeSignature
 @dynamic keyid, sig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_ExploitPredictionScoringSystem
+//
+
+@implementation GTLROnDemandScanning_ExploitPredictionScoringSystem
+@dynamic percentile, score;
 @end
 
 
@@ -1500,6 +1520,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_Risk
+//
+
+@implementation GTLROnDemandScanning_Risk
+@dynamic cisaKev, epss;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_RunDetails
 //
 
@@ -1965,7 +1995,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 @implementation GTLROnDemandScanning_VulnerabilityOccurrence
 @dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
          extraDetails, fixAvailable, longDescription, packageIssue, relatedUrls,
-         severity, shortDescription, type, vexAssessment;
+         risk, severity, shortDescription, type, vexAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

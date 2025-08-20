@@ -94,6 +94,7 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRConfiguration;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData;
@@ -1265,6 +1266,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed.feedType
 
 /**
+ *  Database resource metadata from BackupDR
+ *
+ *  Value: "BACKUPDR_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata;
+/**
  *  Database config based signal data
  *
  *  Value: "CONFIG_BASED_SIGNAL_DATA"
@@ -1789,6 +1796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
+/**
+ *  Outdated client.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedClient;
 /**
  *  Outdated DB minor version.
  *
@@ -2770,6 +2783,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
+/**
+ *  Outdated client.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedClient;
 /**
  *  Outdated DB minor version.
  *
@@ -7046,6 +7065,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  BackupDRMetadata contains information about the backup and disaster recovery
+ *  metadata of a database resource.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata : GTLRObject
+
+/** Backup configuration for this instance. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration *backupConfiguration;
+
+/** BackupDR configuration for this instance. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRConfiguration *backupdrConfiguration;
+
+/** Latest backup run information for this instance. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun *backupRun;
+
+/** Required. Full resource name of this instance. */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/** Required. Last time backup configuration was refreshed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
+
+/** Required. Database resource id. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
+
+@end
+
+
+/**
  *  A backup run.
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun : GTLRObject
@@ -7163,9 +7209,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform. Next ID: 9
+ *  database resource level events into Condor platform. Next ID: 11
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed : GTLRObject
+
+/** BackupDR metadata is used to ingest metadata from BackupDR. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata *backupdrMetadata;
 
 /**
  *  Config based signal data is used to ingest signals that are generated based
@@ -7180,6 +7229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Required. Type feed to be ingested into condor
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata
+ *        Database resource metadata from BackupDR (Value: "BACKUPDR_METADATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData
  *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_FeedtypeUnspecified
@@ -7209,6 +7260,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId GTLR_DEPRECATED;
 
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata *resourceMetadata;
+
+/**
+ *  Optional. If true, the feed won't be ingested by DB Center. This indicates
+ *  that the feed is intentionally skipped. For example, BackupDR feeds are only
+ *  needed for resources integrated with DB Center (e.g., CloudSQL, AlloyDB).
+ *  Feeds for non-integrated resources (e.g., Compute Engine, Persistent Disk)
+ *  can be skipped.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipIngestion;
 
 @end
 
@@ -7556,6 +7618,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy
  *        Detects if a database instance has no user password policy set.
  *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedClient
+ *        Outdated client. (Value: "SIGNAL_TYPE_OUTDATED_CLIENT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
@@ -8267,6 +8331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy
  *        Detects if a database instance has no user password policy set.
  *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedClient
+ *        Outdated client. (Value: "SIGNAL_TYPE_OUTDATED_CLIENT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")

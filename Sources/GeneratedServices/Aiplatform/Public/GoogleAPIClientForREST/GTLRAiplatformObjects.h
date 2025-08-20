@@ -365,6 +365,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Model;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Model_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ModelArmorConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ModelBaseModelSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ModelContainerSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ModelDataStats;
@@ -577,6 +578,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_ClassMethods_Item;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcePool;
@@ -809,7 +811,6 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidResults;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCodeExecution;
-@class GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInput;
@@ -1306,6 +1307,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candid
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MaxTokens;
 /**
+ *  The model response was blocked by Model Armor.
+ *
+ *  Value: "MODEL_ARMOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ModelArmor;
+/**
  *  All other reasons that stopped the token generation.
  *
  *  Value: "OTHER"
@@ -1640,6 +1647,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DataLa
  *  Value: "JOB_STATE_UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DataLabelingJob_State_JobStateUpdating;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex.deploymentTier
+
+/**
+ *  Default deployment tier.
+ *
+ *  Value: "DEPLOYMENT_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex_DeploymentTier_DeploymentTierUnspecified;
+/**
+ *  Optimized for costs.
+ *
+ *  Value: "STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex_DeploymentTier_Storage;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata.deploymentStage
@@ -2538,6 +2561,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Genera
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ImageSafety;
 /**
+ *  The user prompt was blocked by Model Armor.
+ *
+ *  Value: "MODEL_ARMOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ModelArmor;
+/**
  *  Candidates blocked due to other reason.
  *
  *  Value: "OTHER"
@@ -2854,6 +2883,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Machin
  *  Value: "NVIDIA_B200"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaB200;
+/**
+ *  Nvidia GB200 GPU.
+ *
+ *  Value: "NVIDIA_GB200"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaGb200;
 /**
  *  Nvidia H100 80Gb GPU.
  *
@@ -5981,22 +6016,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TimeSe
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TimeSeriesData_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse.environment
-
-/**
- *  Operates in a web browser.
- *
- *  Value: "ENVIRONMENT_BROWSER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentBrowser;
-/**
- *  Defaults to browser.
- *
- *  Value: "ENVIRONMENT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline.state
 
 /**
@@ -7517,7 +7536,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  Required. The resource metric name. Supported metrics: * For Online
  *  Prediction: *
  *  `aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle` *
- *  `aiplatform.googleapis.com/prediction/online/cpu/utilization`
+ *  `aiplatform.googleapis.com/prediction/online/cpu/utilization` *
+ *  `aiplatform.googleapis.com/prediction/online/request_count`
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -8777,6 +8797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MaxTokens
  *        Token generation reached the configured maximum output tokens. (Value:
  *        "MAX_TOKENS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ModelArmor
+ *        The model response was blocked by Model Armor. (Value: "MODEL_ARMOR")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Other
  *        All other reasons that stopped the token generation. (Value: "OTHER")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ProhibitedContent
@@ -11298,6 +11320,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 @property(nonatomic, copy, nullable) NSString *deploymentGroup;
 
 /**
+ *  Optional. The deployment tier that the index is deployed to.
+ *  DEPLOYMENT_TIER_UNSPECIFIED defaults to PERFORMANCE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex_DeploymentTier_DeploymentTierUnspecified
+ *        Default deployment tier. (Value: "DEPLOYMENT_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex_DeploymentTier_Storage
+ *        Optimized for costs. (Value: "STORAGE")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentTier;
+
+/**
  *  The display name of the DeployedIndex. If not provided upon creation, the
  *  Index's display_name is used.
  */
@@ -11949,7 +11983,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestEndpointConfig : GTLRObject
 
 /**
- *  Optional. If true, the endpoint will be exposed through a dedicated DNS
+ *  Optional. By default, if dedicated endpoint is enabled, the endpoint will be
+ *  exposed through a dedicated DNS [Endpoint.dedicated_endpoint_dns]. Your
+ *  request to the dedicated DNS will be isolated from other users' traffic and
+ *  will have better performance and reliability. Note: Once you enabled
+ *  dedicated endpoint, you won't be able to send request to the shared DNS
+ *  {region}-aiplatform.googleapis.com. The limitations will be removed soon. If
+ *  this field is set to true, the dedicated endpoint will be disabled and the
+ *  deployed model will be exposed through the shared DNS
+ *  {region}-aiplatform.googleapis.com.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dedicatedEndpointDisabled;
+
+/**
+ *  Optional. Deprecated. Use dedicated_endpoint_disabled instead. If true, the
+ *  endpoint will be exposed through a dedicated DNS
  *  [Endpoint.dedicated_endpoint_dns]. Your request to the dedicated DNS will be
  *  isolated from other users' traffic and will have better performance and
  *  reliability. Note: Once you enabled dedicated endpoint, you won't be able to
@@ -11958,13 +12008,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *dedicatedEndpointEnabled;
+@property(nonatomic, strong, nullable) NSNumber *dedicatedEndpointEnabled GTLR_DEPRECATED;
 
 /**
  *  Optional. The user-specified display name of the endpoint. If not set, a
  *  default name will be used.
  */
 @property(nonatomic, copy, nullable) NSString *endpointDisplayName;
+
+/**
+ *  Optional. Immutable. The ID to use for endpoint, which will become the final
+ *  component of the endpoint resource name. If not provided, Vertex AI will
+ *  generate a value for this ID. If the first character is a letter, this value
+ *  may be up to 63 characters, and valid characters are `[a-z0-9-]`. The last
+ *  character must be a letter or number. If the first character is a number,
+ *  this value may be up to 9 characters, and valid characters are `[0-9]` with
+ *  no leading zeros. When using HTTP/JSON, this field is populated based on a
+ *  query string argument, such as `?endpoint_id=12345`. This is the fallback
+ *  for fields that are not included in either the URI or the body.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointUserId;
 
 @end
 
@@ -12449,6 +12512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  compliance.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1EnterpriseWebSearch : GTLRObject
+
+/**
+ *  Optional. List of domains to be excluded from the search results. The
+ *  default limit is 2000 domains.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeDomains;
+
 @end
 
 
@@ -17145,6 +17215,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels *labels;
 
 /**
+ *  Optional. Settings for prompt and response sanitization using the Model
+ *  Armor service. If supplied, safety_settings must not be supplied.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ModelArmorConfig *modelArmorConfig;
+
+/**
  *  Optional. Per request settings for blocking unsafe content. Enforced on
  *  GenerateContentResponse.candidates.
  */
@@ -17240,6 +17316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ImageSafety
  *        Candidates blocked due to unsafe image generation content. (Value:
  *        "IMAGE_SAFETY")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ModelArmor
+ *        The user prompt was blocked by Model Armor. (Value: "MODEL_ARMOR")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Other
  *        Candidates blocked due to other reason. (Value: "OTHER")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ProhibitedContent
@@ -17709,16 +17787,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  Tool to retrieve public maps data for grounding, powered by Google.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps : GTLRObject
-
-/**
- *  The authentication config to access the API. Deprecated. Please use
- *  auth_config instead.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ApiAuth *apiAuth GTLR_DEPRECATED;
-
-/** The authentication config to access the API. Only API key is supported. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig *authConfig;
-
 @end
 
 
@@ -17915,6 +17983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  Chunk from context retrieved by the retrieval tools.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext : GTLRObject
+
+/**
+ *  Output only. The full document name for the referenced Vertex AI Search
+ *  document.
+ */
+@property(nonatomic, copy, nullable) NSString *documentName;
 
 /**
  *  Additional context for the RAG retrieval result. This is only populated when
@@ -20867,6 +20941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *        Nvidia A100 80GB GPU. (Value: "NVIDIA_A100_80GB")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaB200
  *        Nvidia B200 GPU. (Value: "NVIDIA_B200")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaGb200
+ *        Nvidia GB200 GPU. (Value: "NVIDIA_GB200")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH10080gb
  *        Nvidia H100 80Gb GPU. (Value: "NVIDIA_H100_80GB")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH100Mega80gb
@@ -21852,6 +21928,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Model_Labels : GTLRObject
+@end
+
+
+/**
+ *  Configuration for Model Armor integrations of prompt and responses.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ModelArmorConfig : GTLRObject
+
+/**
+ *  Optional. The name of the Model Armor template to use for prompt
+ *  sanitization.
+ */
+@property(nonatomic, copy, nullable) NSString *promptTemplateName;
+
+/**
+ *  Optional. The name of the Model Armor template to use for response
+ *  sanitization.
+ */
+@property(nonatomic, copy, nullable) NSString *responseTemplateName;
+
 @end
 
 
@@ -28893,11 +28989,50 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec : GTLRObject
 
 /**
+ *  Optional. Concurrency for each container and agent server. Recommended
+ *  value: 2 * cpu + 1. Defaults to 9.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containerConcurrency;
+
+/**
  *  Optional. Environment variables to be set with the Reasoning Engine
  *  deployment. The environment variables can be updated through the
  *  UpdateReasoningEngine API.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EnvVar *> *env;
+
+/**
+ *  Optional. The maximum number of application instances that can be launched
+ *  to handle increased traffic. Defaults to 100. Range: [1, 1000]. If VPC-SC or
+ *  PSC-I is enabled, the acceptable range is [1, 100].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstances;
+
+/**
+ *  Optional. The minimum number of application instances that will be kept
+ *  running at all times. Defaults to 1. Range: [0, 10].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minInstances;
+
+/** Optional. Configuration for PSC-I. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PscInterfaceConfig *pscInterfaceConfig;
+
+/**
+ *  Optional. Resource limits for each container. Only 'cpu' and 'memory' keys
+ *  are supported. Defaults to {"cpu": "4", "memory": "4Gi"}. * The only
+ *  supported values for CPU are '1', '2', '4', '6' and '8'. For more
+ *  information, go to https://cloud.google.com/run/docs/configuring/cpu. * The
+ *  only supported values for memory are '1Gi', '2Gi', ... '32 Gi'. * For
+ *  required cpu on different memory values, go to
+ *  https://cloud.google.com/run/docs/configuring/memory-limits
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits *resourceLimits;
 
 /**
  *  Optional. Environment variables where the value is a secret in Cloud Secret
@@ -28907,6 +29042,24 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SecretEnvVar *> *secretEnv;
 
+@end
+
+
+/**
+ *  Optional. Resource limits for each container. Only 'cpu' and 'memory' keys
+ *  are supported. Defaults to {"cpu": "4", "memory": "4Gi"}. * The only
+ *  supported values for CPU are '1', '2', '4', '6' and '8'. For more
+ *  information, go to https://cloud.google.com/run/docs/configuring/cpu. * The
+ *  only supported values for memory are '1Gi', '2Gi', ... '32 Gi'. * For
+ *  required cpu on different memory values, go to
+ *  https://cloud.google.com/run/docs/configuring/memory-limits
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits : GTLRObject
 @end
 
 
@@ -38754,13 +38907,6 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolCodeExecution *codeExecution;
 
 /**
- *  Optional. Tool to support the model interacting directly with the computer.
- *  If enabled, it automatically populates computer-use specific Function
- *  Declarations.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse *computerUse;
-
-/**
  *  Optional. Tool to support searching public web data, powered by Vertex AI
  *  Search and Sec4 compliance.
  */
@@ -38889,25 +39035,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Tool to support computer use.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse : GTLRObject
-
-/**
- *  Required. The environment being operated.
- *
- *  Likely values:
- *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentBrowser
- *        Operates in a web browser. (Value: "ENVIRONMENT_BROWSER")
- *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentUnspecified
- *        Defaults to browser. (Value: "ENVIRONMENT_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *environment;
-
-@end
-
-
-/**
  *  Tool config. This config is shared for all tools provided in the request.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig : GTLRObject
@@ -38926,6 +39053,13 @@ GTLR_DEPRECATED
  *  Google.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch : GTLRObject
+
+/**
+ *  Optional. List of domains to be excluded from the search results. The
+ *  default limit is 2000 domains. Example: ["amazon.com", "facebook.com"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeDomains;
+
 @end
 
 
@@ -40817,6 +40951,14 @@ GTLR_DEPRECATED
 
 /** Optional. The end offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *endOffset;
+
+/**
+ *  Optional. The frame rate of the video sent to the model. If not specified,
+ *  the default value will be 1.0. The fps range is (0.0, 24.0].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fps;
 
 /** Optional. The start offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *startOffset;

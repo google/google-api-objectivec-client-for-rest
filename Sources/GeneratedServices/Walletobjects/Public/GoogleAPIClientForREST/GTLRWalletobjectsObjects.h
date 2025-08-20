@@ -6306,7 +6306,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, copy, nullable) NSString *kind GTLR_DEPRECATED;
 
-/** The URI for the image. */
+/**
+ *  An ID for an already uploaded private image. Either this or source_uri
+ *  should be set. Requests setting both or neither will be rejected. Please
+ *  contact support to use private images.
+ */
+@property(nonatomic, copy, nullable) NSString *privateImageId;
+
+/**
+ *  A URI for the image. Either this or private_image_id should be set. Requests
+ *  setting both or neither will be rejected.
+ */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_ImageUri *sourceUri;
 
 @end
@@ -10336,6 +10346,27 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableNotification;
+
+@end
+
+
+/**
+ *  Request to upload a private image to use in a pass.
+ */
+@interface GTLRWalletobjects_UploadPrivateImageRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for uploading the private image.
+ */
+@interface GTLRWalletobjects_UploadPrivateImageResponse : GTLRObject
+
+/**
+ *  Unique ID of the uploaded image to be referenced later in
+ *  Image.private_image_id.
+ */
+@property(nonatomic, copy, nullable) NSString *privateImageId;
 
 @end
 

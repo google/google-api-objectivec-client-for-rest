@@ -60,6 +60,19 @@ NSString * const kGTLRNetAppFiles_BackupVault_State_Ready      = @"READY";
 NSString * const kGTLRNetAppFiles_BackupVault_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_BackupVault_State_Updating   = @"UPDATING";
 
+// GTLRNetAppFiles_HybridReplicationParameters.hybridReplicationType
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ContinuousReplication = @"CONTINUOUS_REPLICATION";
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_Migration = @"MIGRATION";
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_OnpremReplication = @"ONPREM_REPLICATION";
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ReverseOnpremReplication = @"REVERSE_ONPREM_REPLICATION";
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_VolumeHybridReplicationTypeUnspecified = @"VOLUME_HYBRID_REPLICATION_TYPE_UNSPECIFIED";
+
+// GTLRNetAppFiles_HybridReplicationParameters.replicationSchedule
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Daily = @"DAILY";
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Every10Minutes = @"EVERY_10_MINUTES";
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Hourly = @"HOURLY";
+NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_HybridReplicationScheduleUnspecified = @"HYBRID_REPLICATION_SCHEDULE_UNSPECIFIED";
+
 // GTLRNetAppFiles_KmsConfig.state
 NSString * const kGTLRNetAppFiles_KmsConfig_State_Creating     = @"CREATING";
 NSString * const kGTLRNetAppFiles_KmsConfig_State_Deleting     = @"DELETING";
@@ -111,12 +124,16 @@ NSString * const kGTLRNetAppFiles_QuotaRule_Type_TypeUnspecified = @"TYPE_UNSPEC
 NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_ContinuousReplication = @"CONTINUOUS_REPLICATION";
 NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_HybridReplicationTypeUnspecified = @"HYBRID_REPLICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_Migration = @"MIGRATION";
+NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_OnpremReplication = @"ONPREM_REPLICATION";
+NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_ReverseOnpremReplication = @"REVERSE_ONPREM_REPLICATION";
 
 // GTLRNetAppFiles_Replication.mirrorState
 NSString * const kGTLRNetAppFiles_Replication_MirrorState_Aborted = @"ABORTED";
 NSString * const kGTLRNetAppFiles_Replication_MirrorState_BaselineTransferring = @"BASELINE_TRANSFERRING";
+NSString * const kGTLRNetAppFiles_Replication_MirrorState_ExternallyManaged = @"EXTERNALLY_MANAGED";
 NSString * const kGTLRNetAppFiles_Replication_MirrorState_Mirrored = @"MIRRORED";
 NSString * const kGTLRNetAppFiles_Replication_MirrorState_MirrorStateUnspecified = @"MIRROR_STATE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_Replication_MirrorState_PendingPeering = @"PENDING_PEERING";
 NSString * const kGTLRNetAppFiles_Replication_MirrorState_Preparing = @"PREPARING";
 NSString * const kGTLRNetAppFiles_Replication_MirrorState_Stopped = @"STOPPED";
 NSString * const kGTLRNetAppFiles_Replication_MirrorState_Transferring = @"TRANSFERRING";
@@ -136,7 +153,9 @@ NSString * const kGTLRNetAppFiles_Replication_Role_Source      = @"SOURCE";
 NSString * const kGTLRNetAppFiles_Replication_State_Creating   = @"CREATING";
 NSString * const kGTLRNetAppFiles_Replication_State_Deleting   = @"DELETING";
 NSString * const kGTLRNetAppFiles_Replication_State_Error      = @"ERROR";
+NSString * const kGTLRNetAppFiles_Replication_State_ExternallyManagedReplication = @"EXTERNALLY_MANAGED_REPLICATION";
 NSString * const kGTLRNetAppFiles_Replication_State_PendingClusterPeering = @"PENDING_CLUSTER_PEERING";
+NSString * const kGTLRNetAppFiles_Replication_State_PendingRemoteResync = @"PENDING_REMOTE_RESYNC";
 NSString * const kGTLRNetAppFiles_Replication_State_PendingSvmPeering = @"PENDING_SVM_PEERING";
 NSString * const kGTLRNetAppFiles_Replication_State_Ready      = @"READY";
 NSString * const kGTLRNetAppFiles_Replication_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -161,6 +180,11 @@ NSString * const kGTLRNetAppFiles_Snapshot_State_Updating      = @"UPDATING";
 NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_CloudKms = @"CLOUD_KMS";
 NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_ServiceManaged = @"SERVICE_MANAGED";
+
+// GTLRNetAppFiles_StoragePool.qosType
+NSString * const kGTLRNetAppFiles_StoragePool_QosType_Auto     = @"AUTO";
+NSString * const kGTLRNetAppFiles_StoragePool_QosType_Manual   = @"MANUAL";
+NSString * const kGTLRNetAppFiles_StoragePool_QosType_QosTypeUnspecified = @"QOS_TYPE_UNSPECIFIED";
 
 // GTLRNetAppFiles_StoragePool.serviceLevel
 NSString * const kGTLRNetAppFiles_StoragePool_ServiceLevel_Extreme = @"EXTREME";
@@ -518,8 +542,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_HybridReplicationParameters
-@dynamic clusterLocation, descriptionProperty, labels, peerClusterName,
-         peerIpAddresses, peerSvmName, peerVolumeName, replication;
+@dynamic clusterLocation, descriptionProperty, hybridReplicationType, labels,
+         largeVolumeConstituentCount, peerClusterName, peerIpAddresses,
+         peerSvmName, peerVolumeName, replication, replicationSchedule;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1022,8 +1047,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @implementation GTLRNetAppFiles_Replication
 @dynamic clusterLocation, createTime, descriptionProperty, destinationVolume,
          destinationVolumeParameters, healthy, hybridPeeringDetails,
-         hybridReplicationType, labels, mirrorState, name, replicationSchedule,
-         role, sourceVolume, state, stateDetails, transferStats;
+         hybridReplicationType, hybridReplicationUserCommands, labels,
+         mirrorState, name, replicationSchedule, role, sourceVolume, state,
+         stateDetails, transferStats;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1185,12 +1211,13 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_StoragePool
-@dynamic activeDirectory, allowAutoTiering, capacityGib, createTime,
-         customPerformanceEnabled, descriptionProperty, enableHotTierAutoResize,
-         encryptionType, globalAccessAllowed, hotTierSizeGib, kmsConfig, labels,
-         ldapEnabled, name, network, psaRange, replicaZone, satisfiesPzi,
-         satisfiesPzs, serviceLevel, state, stateDetails, totalIops,
-         totalThroughputMibps, volumeCapacityGib, volumeCount, zoneProperty;
+@dynamic activeDirectory, allowAutoTiering, availableThroughputMibps,
+         capacityGib, createTime, customPerformanceEnabled, descriptionProperty,
+         enableHotTierAutoResize, encryptionType, globalAccessAllowed,
+         hotTierSizeGib, kmsConfig, labels, ldapEnabled, name, network,
+         psaRange, qosType, replicaZone, satisfiesPzi, satisfiesPzs,
+         serviceLevel, state, stateDetails, totalIops, totalThroughputMibps,
+         volumeCapacityGib, volumeCount, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1259,6 +1286,24 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_UserCommands
+//
+
+@implementation GTLRNetAppFiles_UserCommands
+@dynamic commands;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"commands" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_ValidateDirectoryServiceRequest
 //
 
@@ -1299,8 +1344,8 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
          multipleEndpoints, name, network, protocols, psaRange, replicaZone,
          restoreParameters, restrictedActions, securityStyle, serviceLevel,
          shareName, smbSettings, snapReserve, snapshotDirectory, snapshotPolicy,
-         state, stateDetails, storagePool, tieringPolicy, unixPermissions,
-         usedGib, zoneProperty;
+         state, stateDetails, storagePool, throughputMibps, tieringPolicy,
+         unixPermissions, usedGib, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

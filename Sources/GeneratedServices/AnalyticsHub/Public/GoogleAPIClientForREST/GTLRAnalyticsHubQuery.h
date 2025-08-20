@@ -760,6 +760,264 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Approves a query template.
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.queryTemplates.approve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesApprove : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. The resource path of the QueryTemplate. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_QueryTemplate.
+ *
+ *  Approves a query template.
+ *
+ *  @param object The @c GTLRAnalyticsHub_ApproveQueryTemplateRequest to include
+ *    in the query.
+ *  @param name Required. The resource path of the QueryTemplate. e.g.
+ *    `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesApprove
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_ApproveQueryTemplateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new QueryTemplate
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.queryTemplates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesCreate : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. The parent resource path of the QueryTemplate. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myQueryTemplate`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID of the QueryTemplate to create. Must contain only Unicode
+ *  letters, numbers (0-9), underscores (_). Max length: 100 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *queryTemplateId;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_QueryTemplate.
+ *
+ *  Creates a new QueryTemplate
+ *
+ *  @param object The @c GTLRAnalyticsHub_QueryTemplate to include in the query.
+ *  @param parent Required. The parent resource path of the QueryTemplate. e.g.
+ *    `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myQueryTemplate`.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_QueryTemplate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a query template.
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.queryTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesDelete : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. The resource path of the QueryTemplate. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_Empty.
+ *
+ *  Deletes a query template.
+ *
+ *  @param name Required. The resource path of the QueryTemplate. e.g.
+ *    `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a QueryTemplate
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.queryTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesGet : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. The parent resource path of the QueryTemplate. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_QueryTemplate.
+ *
+ *  Gets a QueryTemplate
+ *
+ *  @param name Required. The parent resource path of the QueryTemplate. e.g.
+ *    `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all QueryTemplates in a given project and location.
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.queryTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesList : GTLRAnalyticsHubQuery
+
+/**
+ *  Optional. The maximum number of results to return in a single response page.
+ *  Leverage the page tokens to iterate through the entire collection.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token, returned by a previous call, to request the next page
+ *  of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource path of the QueryTemplates. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_ListQueryTemplatesResponse.
+ *
+ *  Lists all QueryTemplates in a given project and location.
+ *
+ *  @param parent Required. The parent resource path of the QueryTemplates. e.g.
+ *    `projects/myproject/locations/us/dataExchanges/123`.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing QueryTemplate
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.queryTemplates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesPatch : GTLRAnalyticsHubQuery
+
+/**
+ *  Output only. The resource name of the QueryTemplate. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/456`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask specifies the fields to update in the query template
+ *  resource. The fields specified in the `updateMask` are relative to the
+ *  resource and are not a full request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_QueryTemplate.
+ *
+ *  Updates an existing QueryTemplate
+ *
+ *  @param object The @c GTLRAnalyticsHub_QueryTemplate to include in the query.
+ *  @param name Output only. The resource name of the QueryTemplate. e.g.
+ *    `projects/myproject/locations/us/dataExchanges/123/queryTemplates/456`
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_QueryTemplate *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Submits a query template for approval.
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.queryTemplates.submit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesSubmit : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. The resource path of the QueryTemplate. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_QueryTemplate.
+ *
+ *  Submits a query template for approval.
+ *
+ *  @param object The @c GTLRAnalyticsHub_SubmitQueryTemplateRequest to include
+ *    in the query.
+ *  @param name Required. The resource path of the QueryTemplate. e.g.
+ *    `projects/myproject/locations/us/dataExchanges/123/queryTemplates/myqueryTemplate`.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesSubmit
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_SubmitQueryTemplateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the IAM policy.
  *
  *  Method: analyticshub.projects.locations.dataExchanges.setIamPolicy

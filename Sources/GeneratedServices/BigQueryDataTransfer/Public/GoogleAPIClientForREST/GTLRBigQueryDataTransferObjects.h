@@ -493,6 +493,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) NSNumber *immutable;
 
 /**
+ *  For list parameters, the max size of the list.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxListSize;
+
+/**
  *  For integer and double values specifies maximum allowed value.
  *
  *  Uses NSNumber of doubleValue.

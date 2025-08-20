@@ -358,8 +358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesList : GTLRAndroidManagementQuery
 
 /**
- *  The requested page size. The actual page size may be fixed to a min or max
- *  value.
+ *  The requested page size. If unspecified, at most 10 devices will be
+ *  returned. The maximum value is 100; values above 100 will be coerced to 100.
+ *  The limits can change over time.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

@@ -38,10 +38,12 @@
 @class GTLRNetworkManagement_FirewallInfo;
 @class GTLRNetworkManagement_ForwardInfo;
 @class GTLRNetworkManagement_ForwardingRuleInfo;
+@class GTLRNetworkManagement_GeoLocation;
 @class GTLRNetworkManagement_GKEMasterInfo;
 @class GTLRNetworkManagement_GoogleServiceInfo;
 @class GTLRNetworkManagement_Host;
 @class GTLRNetworkManagement_InstanceInfo;
+@class GTLRNetworkManagement_InterconnectAttachmentInfo;
 @class GTLRNetworkManagement_LatencyDistribution;
 @class GTLRNetworkManagement_LatencyPercentile;
 @class GTLRNetworkManagement_LoadBalancerBackend;
@@ -1411,6 +1413,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_FirewallInfo.targetType
+
+/**
+ *  Firewall rule applies to instances.
+ *
+ *  Value: "INSTANCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_TargetType_Instances;
+/**
+ *  Firewall rule applies to internal managed load balancers.
+ *
+ *  Value: "INTERNAL_MANAGED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_TargetType_InternalManagedLb;
+/**
+ *  Target type is not specified. In this case we treat the rule as applying to
+ *  INSTANCES target type.
+ *
+ *  Value: "TARGET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_TargetType_TargetTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ForwardInfo.target
 
 /**
@@ -2028,12 +2053,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath;
 /**
- *  Path template.
- *
- *  Value: "PATH_TEMPLATE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_PathTemplate;
-/**
  *  The default value. This value is used if the status is omitted.
  *
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
@@ -2359,6 +2378,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExt
  *  Value: "ARRIVE_AT_INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInstance;
+/**
+ *  Forwarding state: arriving at an interconnect attachment.
+ *
+ *  Value: "ARRIVE_AT_INTERCONNECT_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInterconnectAttachment;
 /**
  *  Forwarding state: arriving at a Compute Engine internal load balancer.
  *
@@ -3813,6 +3838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 
+/** Geolocation (region code) of the destination IP address (if relevant). */
+@property(nonatomic, copy, nullable) NSString *destinationGeolocationCode;
+
 /** Destination IP address of the dropped packet (if relevant). */
 @property(nonatomic, copy, nullable) NSString *destinationIp;
 
@@ -3821,6 +3849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** URI of the resource that caused the drop. */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
+
+/** Geolocation (region code) of the source IP address (if relevant). */
+@property(nonatomic, copy, nullable) NSString *sourceGeolocationCode;
 
 /** Source IP address of the dropped packet (if relevant). */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
@@ -3884,8 +3915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *  used for protocol forwarding, Private Service Connect and other network
  *  services to provide forwarding information in the control plane. Applicable
  *  only to destination endpoint. Format:
- *  projects/{project}/global/forwardingRules/{id} or
- *  projects/{project}/regions/{region}/forwardingRules/{id}
+ *  `projects/{project}/global/forwardingRules/{id}` or
+ *  `projects/{project}/regions/{region}/forwardingRules/{id}`
  */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
 
@@ -4235,6 +4266,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetTags;
 
 /**
+ *  Target type of the firewall rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_TargetType_Instances Firewall
+ *        rule applies to instances. (Value: "INSTANCES")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_TargetType_InternalManagedLb
+ *        Firewall rule applies to internal managed load balancers. (Value:
+ *        "INTERNAL_MANAGED_LB")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_TargetType_TargetTypeUnspecified
+ *        Target type is not specified. In this case we treat the rule as
+ *        applying to INSTANCES target type. (Value: "TARGET_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetType;
+
+/**
  *  The URI of the firewall rule. This field is not applicable to implied VPC
  *  firewall rules.
  */
@@ -4332,6 +4378,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** VIP of the forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *vip;
+
+@end
+
+
+/**
+ *  The geographical location of the MonitoringPoint.
+ */
+@interface GTLRNetworkManagement_GeoLocation : GTLRObject
+
+/** Country. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** Formatted address. */
+@property(nonatomic, copy, nullable) NSString *formattedAddress;
 
 @end
 
@@ -4496,6 +4556,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** URI of a Compute Engine instance. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with an Interconnect attachment.
+ */
+@interface GTLRNetworkManagement_InterconnectAttachmentInfo : GTLRObject
+
+/** URI of the Cloud Router to be used for dynamic routing. */
+@property(nonatomic, copy, nullable) NSString *cloudRouterUri;
+
+/** Name of an Interconnect attachment. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  URI of the Interconnect where the Interconnect attachment is configured.
+ */
+@property(nonatomic, copy, nullable) NSString *interconnectUri;
+
+/**
+ *  Name of a Google Cloud region where the Interconnect attachment is
+ *  configured.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** URI of an Interconnect attachment. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -5017,11 +5105,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Output only. The codes of errors detected in the MonitoringPoint. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
 
-/**
- *  Output only. The geographical location of the MonitoringPoint. Examples: -
- *  "New York, NY, USA" - "Berlin, Germany"
- */
-@property(nonatomic, copy, nullable) NSString *geoLocation;
+/** Output only. The geographical location of the MonitoringPoint. ; */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GeoLocation *geoLocation;
 
 /** Output only. The host information of the MonitoringPoint. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Host *host;
@@ -5052,6 +5137,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** Output only. The time the MonitoringPoint was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. Indicates if an upgrade is available for the MonitoringPoint.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *upgradeAvailable;
 
 /**
  *  Output only. The type of upgrade available for the MonitoringPoint.
@@ -5232,6 +5324,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The list of error messages detected for the
+ *  NetworkMonitoringProvider.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
+
+/**
  *  Output only. Identifier. Name of the resource. Format:
  *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
  */
@@ -5291,8 +5389,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Output only. IP address or hostname of the network path destination. */
 @property(nonatomic, copy, nullable) NSString *destination;
 
-/** Output only. Geographical location of the destination MonitoringPoint. */
-@property(nonatomic, copy, nullable) NSString *destinationGeoLocation;
+/**
+ *  Output only. Geographical location of the destination MonitoringPoint. ;
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GeoLocation *destinationGeoLocation;
 
 /** Output only. The display name of the network path. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -5700,8 +5800,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        Monitoring policy. (Value: "MONITORING_POLICY")
  *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath
  *        Network path. (Value: "NETWORK_PATH")
- *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_PathTemplate Path
- *        template. (Value: "PATH_TEMPLATE")
  *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_ResourceTypeUnspecified
  *        The default value. This value is used if the status is omitted.
  *        (Value: "RESOURCE_TYPE_UNSPECIFIED")
@@ -6327,6 +6425,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Display information of a Compute Engine instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_InstanceInfo *instance;
 
+/** Display information of an interconnect attachment. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_InterconnectAttachmentInfo *interconnectAttachment;
+
 /**
  *  Display information of the load balancers. Deprecated in favor of the
  *  `load_balancer_backend_info` field, not used in new tests.
@@ -6392,6 +6493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtInstance Forwarding
  *        state: arriving at a Compute Engine instance. (Value:
  *        "ARRIVE_AT_INSTANCE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtInterconnectAttachment
+ *        Forwarding state: arriving at an interconnect attachment. (Value:
+ *        "ARRIVE_AT_INTERCONNECT_ATTACHMENT")
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer
  *        Forwarding state: arriving at a Compute Engine internal load balancer.
  *        (Value: "ARRIVE_AT_INTERNAL_LOAD_BALANCER")

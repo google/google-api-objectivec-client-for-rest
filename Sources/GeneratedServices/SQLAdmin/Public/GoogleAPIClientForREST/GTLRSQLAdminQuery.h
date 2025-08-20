@@ -1078,6 +1078,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 @end
 
 /**
+ *  Execute SQL statements.
+ *
+ *  Method: sql.instances.executeSql
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesExecuteSql : GTLRSQLAdminQuery
+
+/** Required. Database instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesExecuteSqlResponse.
+ *
+ *  Execute SQL statements.
+ *
+ *  @param object The @c GTLRSQLAdmin_ExecuteSqlPayload to include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Database instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesExecuteSql
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_ExecuteSqlPayload *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL
  *  dump or CSV file.
  *
@@ -2107,6 +2143,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The timestamp used to identify the time when the source instance is deleted.
+ *  If this instance is deleted, then you must set the timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *sourceInstanceDeletionTime;
 
 /**
  *  Fetches a @c GTLRSQLAdmin_SqlInstancesGetLatestRecoveryTimeResponse.

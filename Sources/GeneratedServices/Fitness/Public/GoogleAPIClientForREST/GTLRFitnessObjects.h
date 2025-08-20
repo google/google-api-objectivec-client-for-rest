@@ -910,8 +910,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Sessions with an end time that is between startTime and endTime of the
- *  request.
+ *  Sessions starting before endTime of the request and ending after startTime
+ *  of the request up to (endTime of the request + 1 day).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_Session *> *session;
 

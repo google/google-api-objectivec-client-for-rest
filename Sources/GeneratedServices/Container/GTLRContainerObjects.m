@@ -2821,6 +2821,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_RotationConfig
+//
+
+@implementation GTLRContainer_RotationConfig
+@dynamic enabled, rotationInterval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_SandboxConfig
 //
 
@@ -2854,7 +2864,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_SecretManagerConfig
-@dynamic enabled;
+@dynamic enabled, rotationConfig;
 @end
 
 

@@ -309,7 +309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny;
 // GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal.principalSelector
 
 /**
- *  The principal rule is matched against the common name in the client’s
+ *  The principal rule is matched against the common name in the client's
  *  certificate. Authorization against multiple common names in the client
  *  certificate is not supported. Requests with multiple common names in the
  *  client certificate will be rejected if CLIENT_CERT_COMMON_NAME is set as the
@@ -323,15 +323,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny;
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName;
 /**
  *  The principal rule is matched against a list of DNS Name SANs in the
- *  validated client’s certificate. A match happens when there is any exact DNS
- *  Name SAN value match.
+ *  validated client's certificate. A match happens when there is any exact DNS
+ *  Name SAN value match. This is only applicable for Application Load Balancers
+ *  except for classic Global External Application load balancer.
+ *  CLIENT_CERT_DNS_NAME_SAN is not supported for INTERNAL_SELF_MANAGED load
+ *  balancing scheme.
  *
  *  Value: "CLIENT_CERT_DNS_NAME_SAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan;
 /**
  *  The principal rule is matched against a list of URI SANs in the validated
- *  client’s certificate. A match happens when there is any exact URI SAN value
+ *  client's certificate. A match happens when there is any exact URI SAN value
  *  match. This is the default principal selector.
  *
  *  Value: "CLIENT_CERT_URI_SAN"
@@ -1847,7 +1850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Optional. A list of IP addresses or IP address ranges to match against the
- *  source IP address of the request. Limited to 5 ip_blocks.
+ *  source IP address of the request. Limited to 10 ip_blocks per Authorization
+ *  Policy
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock *> *ipBlocks;
 
@@ -1858,13 +1862,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  successfully validated by mTLS. Each identity is a string whose value is
  *  matched against a list of URI SANs, DNS Name SANs, or the common name in the
  *  client's certificate. A match happens when any principal matches with the
- *  rule. Limited to 5 principals.
+ *  rule. Limited to 50 principals per Authorization Policy for Regional
+ *  Internal Application Load Balancer, Regional External Application Load
+ *  Balancer, Cross-region Internal Application Load Balancer, and Cloud Service
+ *  Mesh. Limited to 25 principals per Authorization Policy for Global External
+ *  Application Load Balancer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal *> *principals;
 
 /**
  *  Optional. A list of resources to match against the resource of the source VM
- *  of a request. Limited to 5 resources.
+ *  of a request. Limited to 10 resources per Authorization Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource *> *resources;
 
@@ -1923,7 +1931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName
- *        The principal rule is matched against the common name in the client’s
+ *        The principal rule is matched against the common name in the client's
  *        certificate. Authorization against multiple common names in the client
  *        certificate is not supported. Requests with multiple common names in
  *        the client certificate will be rejected if CLIENT_CERT_COMMON_NAME is
@@ -1935,11 +1943,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        "CLIENT_CERT_COMMON_NAME")
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan
  *        The principal rule is matched against a list of DNS Name SANs in the
- *        validated client’s certificate. A match happens when there is any
- *        exact DNS Name SAN value match. (Value: "CLIENT_CERT_DNS_NAME_SAN")
+ *        validated client's certificate. A match happens when there is any
+ *        exact DNS Name SAN value match. This is only applicable for
+ *        Application Load Balancers except for classic Global External
+ *        Application load balancer. CLIENT_CERT_DNS_NAME_SAN is not supported
+ *        for INTERNAL_SELF_MANAGED load balancing scheme. (Value:
+ *        "CLIENT_CERT_DNS_NAME_SAN")
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertUriSan
  *        The principal rule is matched against a list of URI SANs in the
- *        validated client’s certificate. A match happens when there is any
+ *        validated client's certificate. A match happens when there is any
  *        exact URI SAN value match. This is the default principal selector.
  *        (Value: "CLIENT_CERT_URI_SAN")
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified
@@ -1983,7 +1995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  Required. A list of resource tag value permanent IDs to match against the
  *  resource manager tags value associated with the source VM of a request. The
  *  match follows AND semantics which means all the ids must match. Limited to 5
- *  matches.
+ *  ids in the Tag value id set.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2072,23 +2084,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 /**
  *  Optional. A list of HTTP Hosts to match against. The match can be one of
  *  exact, prefix, suffix, or contains (substring match). Matches are always
- *  case sensitive unless the ignoreCase is set. Limited to 5 matches.
+ *  case sensitive unless the ignoreCase is set. Limited to 10 hosts per
+ *  Authorization Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *hosts;
 
 /**
  *  Optional. A list of HTTP methods to match against. Each entry must be a
  *  valid HTTP method name (GET, PUT, POST, HEAD, PATCH, DELETE, OPTIONS). It
- *  only allows exact match and is always case sensitive.
+ *  only allows exact match and is always case sensitive. Limited to 10 methods
+ *  per Authorization Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
 
 /**
  *  Optional. A list of paths to match against. The match can be one of exact,
  *  prefix, suffix, or contains (substring match). Matches are always case
- *  sensitive unless the ignoreCase is set. Limited to 5 matches. Note that this
- *  path match includes the query parameters. For gRPC services, this should be
- *  a fully-qualified name of the form /package.service/method.
+ *  sensitive unless the ignoreCase is set. Limited to 10 paths per
+ *  Authorization Policy. Note that this path match includes the query
+ *  parameters. For gRPC services, this should be a fully-qualified name of the
+ *  form /package.service/method.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *paths;
 
@@ -2104,7 +2119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  Required. A list of headers to match against in http header. The match can
  *  be one of exact, prefix, suffix, or contains (substring match). The match
  *  follows AND semantics which means all the headers must match. Matches are
- *  always case sensitive unless the ignoreCase is set. Limited to 5 matches.
+ *  always case sensitive unless the ignoreCase is set. Limited to 10 headers
+ *  per Authorization Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch *> *headers;
 
@@ -2542,7 +2558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
- *  Message describing Endpoint object
+ *  Message describing Endpoint object.
  */
 @interface GTLRNetworkSecurity_FirewallEndpoint : GTLRObject
 
@@ -2565,7 +2581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 /** Required. Project to bill on endpoint uptime usage. */
 @property(nonatomic, copy, nullable) NSString *billingProjectId;
 
-/** Output only. Create time stamp */
+/** Output only. Create time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -2578,7 +2594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 /** Optional. Labels as key value pairs */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpoint_Labels *labels;
 
-/** Immutable. Identifier. name of resource */
+/** Immutable. Identifier. Name of resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

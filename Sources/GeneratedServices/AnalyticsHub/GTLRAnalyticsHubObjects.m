@@ -66,6 +66,17 @@ NSString * const kGTLRAnalyticsHub_Listing_ResourceType_SharedResourceTypeUnspec
 NSString * const kGTLRAnalyticsHub_Listing_State_Active        = @"ACTIVE";
 NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAnalyticsHub_QueryTemplate.state
+NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Approved = @"APPROVED";
+NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Deleted = @"DELETED";
+NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Drafted = @"DRAFTED";
+NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Pending = @"PENDING";
+NSString * const kGTLRAnalyticsHub_QueryTemplate_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAnalyticsHub_Routine.routineType
+NSString * const kGTLRAnalyticsHub_Routine_RoutineType_RoutineTypeUnspecified = @"ROUTINE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsHub_Routine_RoutineType_TableValuedFunction = @"TABLE_VALUED_FUNCTION";
+
 // GTLRAnalyticsHub_Subscription.resourceType
 NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_BigqueryDataset = @"BIGQUERY_DATASET";
 NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_PubsubTopic = @"PUBSUB_TOPIC";
@@ -76,6 +87,15 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateActive = @"STATE_ACTI
 NSString * const kGTLRAnalyticsHub_Subscription_State_StateInactive = @"STATE_INACTIVE";
 NSString * const kGTLRAnalyticsHub_Subscription_State_StateStale = @"STATE_STALE";
 NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_ApproveQueryTemplateRequest
+//
+
+@implementation GTLRAnalyticsHub_ApproveQueryTemplateRequest
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -532,6 +552,28 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_ListQueryTemplatesResponse
+//
+
+@implementation GTLRAnalyticsHub_ListQueryTemplatesResponse
+@dynamic nextPageToken, queryTemplates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryTemplates" : [GTLRAnalyticsHub_QueryTemplate class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"queryTemplates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse
 //
 
@@ -739,6 +781,22 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_QueryTemplate
+//
+
+@implementation GTLRAnalyticsHub_QueryTemplate
+@dynamic createTime, descriptionProperty, displayName, documentation, name,
+         primaryContact, proposer, routine, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_RefreshSubscriptionRequest
 //
 
@@ -807,6 +865,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_Routine
+//
+
+@implementation GTLRAnalyticsHub_Routine
+@dynamic definitionBody, routineType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_SelectedResource
 //
 
@@ -864,6 +932,15 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_SubmitQueryTemplateRequest
+//
+
+@implementation GTLRAnalyticsHub_SubmitQueryTemplateRequest
 @end
 
 

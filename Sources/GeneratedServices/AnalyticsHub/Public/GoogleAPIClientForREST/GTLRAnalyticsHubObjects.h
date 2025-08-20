@@ -53,9 +53,11 @@
 @class GTLRAnalyticsHub_PubsubWrapper;
 @class GTLRAnalyticsHub_PushConfig;
 @class GTLRAnalyticsHub_PushConfig_Attributes;
+@class GTLRAnalyticsHub_QueryTemplate;
 @class GTLRAnalyticsHub_RestrictedExportConfig;
 @class GTLRAnalyticsHub_RestrictedExportPolicy;
 @class GTLRAnalyticsHub_RetryPolicy;
+@class GTLRAnalyticsHub_Routine;
 @class GTLRAnalyticsHub_SelectedResource;
 @class GTLRAnalyticsHub_SharingEnvironmentConfig;
 @class GTLRAnalyticsHub_Status;
@@ -254,6 +256,56 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_Active;
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_QueryTemplate.state
+
+/**
+ *  The QueryTemplate is in approved state.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Approved;
+/**
+ *  The QueryTemplate is in deleted state.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Deleted;
+/**
+ *  The QueryTemplate is in draft state.
+ *
+ *  Value: "DRAFTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Drafted;
+/**
+ *  The QueryTemplate is in pending state.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Pending;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_QueryTemplate_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Routine.routineType
+
+/**
+ *  Default value.
+ *
+ *  Value: "ROUTINE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Routine_RoutineType_RoutineTypeUnspecified;
+/**
+ *  Non-built-in persistent TVF.
+ *
+ *  Value: "TABLE_VALUED_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Routine_RoutineType_TableValuedFunction;
+
+// ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_Subscription.resourceType
 
 /**
@@ -304,6 +356,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateSta
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified;
+
+/**
+ *  Message for approving a QueryTemplate.
+ */
+@interface GTLRAnalyticsHub_ApproveQueryTemplateRequest : GTLRObject
+@end
+
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -1564,6 +1623,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Message for response to the list of QueryTemplates.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "queryTemplates" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAnalyticsHub_ListQueryTemplatesResponse : GTLRCollectionObject
+
+/** A token to request the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of QueryTemplates.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_QueryTemplate *> *queryTemplates;
+
+@end
+
+
+/**
  *  Message for response to the listing of shared resource subscriptions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2015,6 +2098,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  A query template is a container for sharing table-valued functions defined
+ *  by contributors in a data clean room.
+ */
+@interface GTLRAnalyticsHub_QueryTemplate : GTLRObject
+
+/** Output only. Timestamp when the QueryTemplate was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Short description of the QueryTemplate. The description must not
+ *  contain Unicode non-characters and C0 and C1 control codes except tabs (HT),
+ *  new lines (LF), carriage returns (CR), and page breaks (FF). Default value
+ *  is an empty string. Max length: 2000 bytes.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Human-readable display name of the QueryTemplate. The display name
+ *  must contain only Unicode letters, numbers (0-9), underscores (_), dashes
+ *  (-), spaces ( ), ampersands (&) and can't start or end with spaces. Default
+ *  value is an empty string. Max length: 63 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. Documentation describing the QueryTemplate. */
+@property(nonatomic, copy, nullable) NSString *documentation;
+
+/**
+ *  Output only. The resource name of the QueryTemplate. e.g.
+ *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/456`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Email or URL of the primary point of contact of the QueryTemplate.
+ *  Max Length: 1000 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryContact;
+
+/**
+ *  Optional. Will be deprecated. Email or URL of the primary point of contact
+ *  of the QueryTemplate. Max Length: 1000 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *proposer;
+
+/** Optional. The routine associated with the QueryTemplate. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Routine *routine;
+
+/**
+ *  Output only. The QueryTemplate lifecycle state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_QueryTemplate_State_Approved The QueryTemplate
+ *        is in approved state. (Value: "APPROVED")
+ *    @arg @c kGTLRAnalyticsHub_QueryTemplate_State_Deleted The QueryTemplate is
+ *        in deleted state. (Value: "DELETED")
+ *    @arg @c kGTLRAnalyticsHub_QueryTemplate_State_Drafted The QueryTemplate is
+ *        in draft state. (Value: "DRAFTED")
+ *    @arg @c kGTLRAnalyticsHub_QueryTemplate_State_Pending The QueryTemplate is
+ *        in pending state. (Value: "PENDING")
+ *    @arg @c kGTLRAnalyticsHub_QueryTemplate_State_StateUnspecified Default
+ *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Timestamp when the QueryTemplate was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Message for refreshing a subscription.
  */
 @interface GTLRAnalyticsHub_RefreshSubscriptionRequest : GTLRObject
@@ -2147,6 +2304,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Represents a bigquery routine.
+ */
+@interface GTLRAnalyticsHub_Routine : GTLRObject
+
+/** Optional. The definition body of the routine. */
+@property(nonatomic, copy, nullable) NSString *definitionBody;
+
+/**
+ *  Required. The type of routine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Routine_RoutineType_RoutineTypeUnspecified
+ *        Default value. (Value: "ROUTINE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsHub_Routine_RoutineType_TableValuedFunction
+ *        Non-built-in persistent TVF. (Value: "TABLE_VALUED_FUNCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *routineType;
+
+@end
+
+
+/**
  *  Resource in this dataset that is selectively shared.
  */
 @interface GTLRAnalyticsHub_SelectedResource : GTLRObject
@@ -2249,6 +2428,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAnalyticsHub_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Message for submitting a QueryTemplate.
+ */
+@interface GTLRAnalyticsHub_SubmitQueryTemplateRequest : GTLRObject
 @end
 
 

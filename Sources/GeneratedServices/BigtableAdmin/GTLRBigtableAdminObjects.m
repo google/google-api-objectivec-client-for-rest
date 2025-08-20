@@ -1046,7 +1046,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_Instance
 @dynamic createTime, displayName, labels, name, satisfiesPzi, satisfiesPzs,
-         state, type;
+         state, tags, type;
 @end
 
 
@@ -1056,6 +1056,20 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_Instance_Tags
+//
+
+@implementation GTLRBigtableAdmin_Instance_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

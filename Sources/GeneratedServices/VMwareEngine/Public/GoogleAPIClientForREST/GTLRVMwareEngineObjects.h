@@ -1509,6 +1509,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday;
 
 /**
+ *  Request message for VmwareEngine.AcceleratePrivateCloudDeletion
+ */
+@interface GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest : GTLRObject
+
+/**
+ *  Optional. Checksum used to ensure that the user-provided value is up to date
+ *  before the server processes the request. The server compares provided
+ *  checksum with the current checksum of the resource. If the user-provided
+ *  value is out of date, this request returns an `ABORTED` error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The request ID must be a valid UUID with the exception that zero
+ *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Announcement for the resources of Vmware Engine.
  */
 @interface GTLRVMwareEngine_Announcement : GTLRObject

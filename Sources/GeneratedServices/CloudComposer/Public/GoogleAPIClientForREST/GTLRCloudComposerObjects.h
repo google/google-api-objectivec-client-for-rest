@@ -367,6 +367,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_Operatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot;
 /**
+ *  Migrates resource to a new major version.
+ *
+ *  Value: "MIGRATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Migrate;
+/**
  *  Saves snapshot of the resource operation.
  *
  *  Value: "SAVE_SNAPSHOT"
@@ -1876,6 +1882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *        resource deletion operation. (Value: "DELETE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot
  *        Loads snapshot of the resource operation. (Value: "LOAD_SNAPSHOT")
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Migrate
+ *        Migrates resource to a new major version. (Value: "MIGRATE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_SaveSnapshot
  *        Saves snapshot of the resource operation. (Value: "SAVE_SNAPSHOT")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified

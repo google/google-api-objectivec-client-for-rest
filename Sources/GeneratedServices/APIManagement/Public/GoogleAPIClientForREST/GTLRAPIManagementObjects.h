@@ -534,6 +534,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_TagAction_Action_Remove;
 
 
 /**
+ *  Entitlement stores data related to API Observation entitlement for a given
+ *  project
+ */
+@interface GTLRAPIManagement_Entitlement : GTLRObject
+
+/**
+ *  Whether API Observation is entitled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *apiObservationEntitled;
+
+/**
+ *  Project number of associated billing project that has Apigee and Advanced
+ *  API Security entitled.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *billingProjectNumber;
+
+/** Output only. The time of the entitlement creation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The entitlement resource name
+ *  `projects/{project}/locations/{location}/entitlement`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time of the entitlement update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  The GCLB observation source.
  */
 @interface GTLRAPIManagement_GclbObservationSource : GTLRObject

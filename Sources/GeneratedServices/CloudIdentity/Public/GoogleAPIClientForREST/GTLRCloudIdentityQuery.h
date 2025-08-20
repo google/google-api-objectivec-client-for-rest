@@ -2280,6 +2280,216 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
+ *  Creates an InboundOidcSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesCreate : GTLRCloudIdentityQuery
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Creates an InboundOidcSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundOidcSsoProfile to include in
+ *    the query.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundOidcSsoProfile *)object;
+
+@end
+
+/**
+ *  Deletes an InboundOidcSsoProfile.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesDelete : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundOidcSsoProfile to delete. Format:
+ *  `inboundOidcSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Deletes an InboundOidcSsoProfile.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundOidcSsoProfile to delete. Format:
+ *    `inboundOidcSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an InboundOidcSsoProfile.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundOidcSsoProfile to get. Format:
+ *  `inboundOidcSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_InboundOidcSsoProfile.
+ *
+ *  Gets an InboundOidcSsoProfile.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundOidcSsoProfile to get. Format:
+ *    `inboundOidcSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists InboundOidcSsoProfile objects for a Google enterprise customer.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesList : GTLRCloudIdentityQuery
+
+/**
+ *  A [Common Expression Language](https://github.com/google/cel-spec)
+ *  expression to filter the results. The only supported filter is filtering by
+ *  customer. For example: `customer=="customers/C0123abc"`. Omitting the filter
+ *  or specifying a filter of `customer=="customers/my_customer"` will return
+ *  the profiles for the customer that the caller (authenticated user) belongs
+ *  to. Specifying a filter of `customer==""` will return the global shared OIDC
+ *  profiles.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of InboundOidcSsoProfiles to return. The service may
+ *  return fewer than this value. If omitted (or defaulted to zero) the server
+ *  will use a sensible default. This default may change over time. The maximum
+ *  allowed value is 100. Requests with page_size greater than that will be
+ *  silently interpreted as having this maximum value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListInboundOidcSsoProfiles` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListInboundOidcSsoProfiles` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListInboundOidcSsoProfilesResponse.
+ *
+ *  Lists InboundOidcSsoProfile objects for a Google enterprise customer.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates an InboundOidcSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesPatch : GTLRCloudIdentityQuery
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the OIDC SSO
+ *  profile.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Updates an InboundOidcSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundOidcSsoProfile to include in
+ *    the query.
+ *  @param name Output only. [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the OIDC SSO
+ *    profile.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundOidcSsoProfile *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an InboundSamlSsoProfile for a customer. When the target customer
  *  has enabled [Multi-party approval for sensitive
  *  actions](https://support.google.com/a/answer/13790448), the `Operation` in

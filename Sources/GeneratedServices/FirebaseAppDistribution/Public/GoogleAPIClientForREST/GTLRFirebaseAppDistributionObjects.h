@@ -1012,16 +1012,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 @interface GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1DistributeReleaseRequest : GTLRObject
 
 /**
- *  A list of group aliases (IDs) to be given access to this release. A combined
- *  maximum of 999 `testerEmails` and `groupAliases` can be specified in a
- *  single request.
+ *  Optional. A list of group aliases (IDs) to be given access to this release.
+ *  A combined maximum of 999 `testerEmails` and `groupAliases` can be specified
+ *  in a single request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupAliases;
 
 /**
- *  A list of tester email addresses to be given access to this release. A
- *  combined maximum of 999 `testerEmails` and `groupAliases` can be specified
- *  in a single request.
+ *  Optional. A list of tester email addresses to be given access to this
+ *  release. A combined maximum of 999 `testerEmails` and `groupAliases` can be
+ *  specified in a single request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testerEmails;
 

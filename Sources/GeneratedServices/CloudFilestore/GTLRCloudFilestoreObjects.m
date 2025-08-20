@@ -108,6 +108,7 @@ NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_SquashModeUnspe
 // GTLRCloudFilestore_ReplicaConfig.state
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Creating = @"CREATING";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Failed = @"FAILED";
+NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Promoting = @"PROMOTING";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Ready = @"READY";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Removing = @"REMOVING";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";

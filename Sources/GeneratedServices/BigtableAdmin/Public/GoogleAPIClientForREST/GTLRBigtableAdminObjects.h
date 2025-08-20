@@ -83,6 +83,7 @@
 @class GTLRBigtableAdmin_HotTablet;
 @class GTLRBigtableAdmin_Instance;
 @class GTLRBigtableAdmin_Instance_Labels;
+@class GTLRBigtableAdmin_Instance_Tags;
 @class GTLRBigtableAdmin_Intersection;
 @class GTLRBigtableAdmin_Location;
 @class GTLRBigtableAdmin_Location_Labels;
@@ -2612,6 +2613,16 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing" Tags and Labels (above) are both used to bind metadata to
+ *  resources, with different use-cases. See
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
+ *  in-depth overview on the difference between tags and labels.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance_Tags *tags;
+
+/**
  *  The type of the instance. Defaults to `PRODUCTION`.
  *
  *  Likely values:
@@ -2648,6 +2659,23 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRBigtableAdmin_Instance_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing" Tags and Labels (above) are both used to bind metadata to
+ *  resources, with different use-cases. See
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
+ *  in-depth overview on the difference between tags and labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigtableAdmin_Instance_Tags : GTLRObject
 @end
 
 

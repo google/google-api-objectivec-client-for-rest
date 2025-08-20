@@ -71,8 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_OrganizationsLocationsList : GTLRNetworkManagementQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -865,8 +865,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsList : GTLRNetworkManagementQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -992,7 +992,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the resource. Format:
- *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1002,7 +1002,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the NetworkMonitoringProvider resource.
  *
  *  @param name Required. Name of the resource. Format:
- *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *    `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGet
  */
@@ -1038,7 +1038,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Parent value for ListNetworkMonitoringProvidersRequest. Format:
- *  projects/{project}/locations/{location}
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1049,7 +1049,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. Parent value for
  *    ListNetworkMonitoringProvidersRequest. Format:
- *    projects/{project}/locations/{location}
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersList
  *

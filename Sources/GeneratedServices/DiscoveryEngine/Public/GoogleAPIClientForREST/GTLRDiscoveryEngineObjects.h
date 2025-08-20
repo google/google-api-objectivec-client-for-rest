@@ -260,16 +260,23 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerStepActionSearchAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswer;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerReply;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_EnabledTools;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContent;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContentBlob;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContentCodeExecutionResult;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContentExecutableCode;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContentFile;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicy;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfigSystemInstruction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGroundedContent;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGroundedContentTextGroundingMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGroundedContentTextGroundingMetadataReference;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGroundedContentTextGroundingMetadataReferenceDocumentMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGroundedContentTextGroundingMetadataSegment;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolList;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistUserMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue;
@@ -505,6 +512,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseQueryExpansionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult_ModelScores;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResultRankSignals;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResultRankSignalsCustomSignal;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSessionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitation;
@@ -3645,6 +3654,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswer_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant.webGroundingType
+
+/**
+ *  Web grounding is disabled.
+ *
+ *  Value: "WEB_GROUNDING_TYPE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeDisabled;
+/**
+ *  Grounding with Enterprise Web Search is enabled.
+ *
+ *  Value: "WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeEnterpriseWebSearch;
+/**
+ *  Grounding with Google Search is enabled.
+ *
+ *  Value: "WEB_GROUNDING_TYPE_GOOGLE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeGoogleSearch;
+/**
+ *  Default, unspecified setting. This is the same as disabled.
+ *
+ *  Value: "WEB_GROUNDING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContentCodeExecutionResult.outcome
 
 /**
@@ -3673,6 +3710,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "OUTCOME_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContentCodeExecutionResult_Outcome_OutcomeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase.matchType
+
+/**
+ *  Defaults to SIMPLE_STRING_MATCH.
+ *
+ *  Value: "BANNED_PHRASE_MATCH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase_MatchType_BannedPhraseMatchTypeUnspecified;
+/**
+ *  The banned phrase matches if it is found anywhere in the text as an exact
+ *  substring.
+ *
+ *  Value: "SIMPLE_STRING_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase_MatchType_SimpleStringMatch;
+/**
+ *  Banned phrase only matches if the pattern found in the text is surrounded by
+ *  word delimiters. The phrase itself may still contain word delimiters.
+ *
+ *  Value: "WORD_BOUNDARY_STRING_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase_MatchType_WordBoundaryStringMatch;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata.state
@@ -5678,6 +5739,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "HARM_SEVERITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SafetyRating_Severity_HarmSeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest.rankingExpressionBackend
+
+/**
+ *  Deprecated: Use `RANK_BY_EMBEDDING` instead. Ranking by custom embedding
+ *  model, the default way to evaluate the ranking expression. Legacy enum
+ *  option, `RANK_BY_EMBEDDING` should be used instead.
+ *
+ *  Value: "BYOE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_Byoe GTLR_DEPRECATED;
+/**
+ *  Deprecated: Use `RANK_BY_FORMULA` instead. Ranking by custom formula. Legacy
+ *  enum option, `RANK_BY_FORMULA` should be used instead.
+ *
+ *  Value: "CLEARBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_Clearbox GTLR_DEPRECATED;
+/**
+ *  Ranking by custom embedding model, the default way to evaluate the ranking
+ *  expression.
+ *
+ *  Value: "RANK_BY_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_RankByEmbedding;
+/**
+ *  Ranking by custom formula.
+ *
+ *  Value: "RANK_BY_FORMULA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_RankByFormula;
+/**
+ *  Default option for unspecified/unknown values.
+ *
+ *  Value: "RANKING_EXPRESSION_BACKEND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_RankingExpressionBackendUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest.relevanceThreshold
@@ -8066,6 +8165,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
+/**
+ *  Optional. Whether to use static secrets for the connector. If true, the
+ *  secrets provided in the action_params will be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useStaticSecrets;
+
 @end
 
 
@@ -9848,6 +9955,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  run.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errors;
+
+/**
+ *  Optional. If the connector is a hybrid connector, determines whether
+ *  ingestion is enabled and appropriate resources are provisioned during
+ *  connector creation. If the connector is not a hybrid connector, this field
+ *  is ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hybridIngestionDisabled;
 
 /**
  *  The refresh interval to sync the Access Control List information for the
@@ -12422,8 +12539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
  *  "desc" after a field name for descending. Supported fields: * `update_time`
- *  * `create_time` * `session_name` * `is_pinned` Example: * "update_time desc"
- *  * "create_time" * "is_pinned desc,update_time desc": list sessions by
+ *  * `create_time` * `session_name` * `is_pinned` Example: * `update_time desc`
+ *  * `create_time` * `is_pinned desc,update_time desc`: list sessions by
  *  is_pinned first, then by update_time.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -14273,6 +14390,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Required. Full resource name of DataStore, such as
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  The path must include the project number, project id is not supported for
+ *  this field.
  */
 @property(nonatomic, copy, nullable) NSString *dataStore;
 
@@ -16800,6 +16919,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant : GTLRObject
 
+/** Optional. Customer policy for the assistant. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicy *customerPolicy;
+
+/**
+ *  Optional. Note: not implemented yet. Use enabled_actions instead. The
+ *  enabled tools on this assistant. The keys are connector name, for example
+ *  "projects/{projectId}/locations/{locationId}/collections/{collectionId}/dataconnector
+ *  The values consist of admin enabled tools towards the connector instance.
+ *  Admin can selectively enable multiple tools on any of the connector
+ *  instances that they created in the project. For example
+ *  {"jira1ConnectorName": [(toolId1, "createTicket"), (toolId2,
+ *  "transferTicket")], "gmail1ConnectorName": [(toolId3, "sendEmail"),..] }
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_EnabledTools *enabledTools;
+
+/** Optional. Configuration for the generation of the assistant response. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfig *generationConfig;
+
 /**
  *  Immutable. Resource name of the assistant. Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
@@ -16807,6 +16944,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. The type of web grounding to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeDisabled
+ *        Web grounding is disabled. (Value: "WEB_GROUNDING_TYPE_DISABLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeEnterpriseWebSearch
+ *        Grounding with Enterprise Web Search is enabled. (Value:
+ *        "WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeGoogleSearch
+ *        Grounding with Google Search is enabled. (Value:
+ *        "WEB_GROUNDING_TYPE_GOOGLE_SEARCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_WebGroundingType_WebGroundingTypeUnspecified
+ *        Default, unspecified setting. This is the same as disabled. (Value:
+ *        "WEB_GROUNDING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *webGroundingType;
+
+@end
+
+
+/**
+ *  Optional. Note: not implemented yet. Use enabled_actions instead. The
+ *  enabled tools on this assistant. The keys are connector name, for example
+ *  "projects/{projectId}/locations/{locationId}/collections/{collectionId}/dataconnector
+ *  The values consist of admin enabled tools towards the connector instance.
+ *  Admin can selectively enable multiple tools on any of the connector
+ *  instances that they created in the project. For example
+ *  {"jira1ConnectorName": [(toolId1, "createTicket"), (toolId2,
+ *  "transferTicket")], "gmail1ConnectorName": [(toolId3, "sendEmail"),..] }
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolList. Use
+ *        @c -additionalJSONKeys and @c -additionalPropertyForName: to get the
+ *        list of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_EnabledTools : GTLRObject
 @end
 
 
@@ -16915,6 +17090,91 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Required. The media type (MIME type) of the file. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Customer-defined policy for the assistant.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicy : GTLRObject
+
+/** Optional. List of banned phrases. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase *> *bannedPhrases;
+
+@end
+
+
+/**
+ *  Definition of a customer-defined banned phrase. A banned phrase is not
+ *  allowed to appear in the user query or the LLM response, or else the answer
+ *  will be refused.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase : GTLRObject
+
+/**
+ *  Optional. If true, diacritical marks (e.g., accents, umlauts) are ignored
+ *  when matching banned phrases. For example, "cafe" would match "café".
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreDiacritics;
+
+/**
+ *  Optional. Match type for the banned phrase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase_MatchType_BannedPhraseMatchTypeUnspecified
+ *        Defaults to SIMPLE_STRING_MATCH. (Value:
+ *        "BANNED_PHRASE_MATCH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase_MatchType_SimpleStringMatch
+ *        The banned phrase matches if it is found anywhere in the text as an
+ *        exact substring. (Value: "SIMPLE_STRING_MATCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase_MatchType_WordBoundaryStringMatch
+ *        Banned phrase only matches if the pattern found in the text is
+ *        surrounded by word delimiters. The phrase itself may still contain
+ *        word delimiters. (Value: "WORD_BOUNDARY_STRING_MATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *matchType;
+
+/** Required. The raw string content to be banned. */
+@property(nonatomic, copy, nullable) NSString *phrase;
+
+@end
+
+
+/**
+ *  Configuration for the generation of the assistant response.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfig : GTLRObject
+
+/**
+ *  The default language to use for the generation of the assistant response.
+ *  Use an ISO 639-1 language code such as `en`. If not specified, the language
+ *  will be automatically detected.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLanguage;
+
+/**
+ *  System instruction, also known as the prompt preamble for LLM calls. See
+ *  also
+ *  https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/system-instructions
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfigSystemInstruction *systemInstruction;
+
+@end
+
+
+/**
+ *  System instruction, also known as the prompt preamble for LLM calls.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfigSystemInstruction : GTLRObject
+
+/**
+ *  Optional. Additional system instruction that will be added to the default
+ *  system instruction.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalSystemInstruction;
 
 @end
 
@@ -17030,6 +17290,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** The text segment itself. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Information to identify a tool.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolInfo : GTLRObject
+
+/** The display name of the tool. */
+@property(nonatomic, copy, nullable) NSString *toolDisplayName;
+
+/**
+ *  The name of the tool as defined by
+ *  DataConnectorService.QueryAvailableActions. Note: it's using `action` in the
+ *  DataConnectorService apis, but they are the same as the `tool` here.
+ */
+@property(nonatomic, copy, nullable) NSString *toolName;
+
+@end
+
+
+/**
+ *  The enabled tools on a connector
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolList : GTLRObject
+
+/** The list of tools with corresponding tool information. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolInfo *> *toolInfo;
 
 @end
 
@@ -20887,6 +21176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Required. Full resource name of DataStore, such as
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  The path must include the project number, project id is not supported for
+ *  this field.
  */
 @property(nonatomic, copy, nullable) NSString *dataStore;
 
@@ -22387,6 +22678,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  chunk.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ChunkDocumentMetadata : GTLRObject
+
+/**
+ *  The mime type of the document.
+ *  https://www.iana.org/assignments/media-types/media-types.xhtml.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  Data representation. The structured JSON data for the document. It should
@@ -27301,6 +27598,88 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec *queryExpansionSpec;
 
+/**
+ *  Optional. The ranking expression controls the customized ranking on
+ *  retrieval documents. This overrides ServingConfig.ranking_expression. The
+ *  syntax and supported features depend on the `ranking_expression_backend`
+ *  value. If `ranking_expression_backend` is not provided, it defaults to
+ *  `RANK_BY_EMBEDDING`. If ranking_expression_backend is not provided or set to
+ *  `RANK_BY_EMBEDDING`, it should be a single function or multiple functions
+ *  that are joined by "+". * ranking_expression = function, { " + ", function
+ *  }; Supported functions: * double * relevance_score * double *
+ *  dotProduct(embedding_field_path) Function variables: * `relevance_score`:
+ *  pre-defined keywords, used for measure relevance between query and document.
+ *  * `embedding_field_path`: the document embedding field used with query
+ *  embedding vector. * `dotProduct`: embedding function between
+ *  `embedding_field_path` and query embedding vector. Example ranking
+ *  expression: If document has an embedding field doc_embedding, the ranking
+ *  expression could be `0.5 * relevance_score + 0.3 *
+ *  dotProduct(doc_embedding)`. If ranking_expression_backend is set to
+ *  `RANK_BY_FORMULA`, the following expression types (and combinations of those
+ *  chained using + or * operators) are supported: * `double` * `signal` *
+ *  `log(signal)` * `exp(signal)` * `rr(signal, double > 0)` -- reciprocal rank
+ *  transformation with second argument being a denominator constant. *
+ *  `is_nan(signal)` -- returns 0 if signal is NaN, 1 otherwise. *
+ *  `fill_nan(signal1, signal2 | double)` -- if signal1 is NaN, returns signal2
+ *  | double, else returns signal1. Here are a few examples of ranking formulas
+ *  that use the supported ranking expression types: - `0.2 *
+ *  semantic_similarity_score + 0.8 * log(keyword_similarity_score)` -- mostly
+ *  rank by the logarithm of `keyword_similarity_score` with slight
+ *  `semantic_smilarity_score` adjustment. - `0.2 *
+ *  exp(fill_nan(semantic_similarity_score, 0)) + 0.3 *
+ *  is_nan(keyword_similarity_score)` -- rank by the exponent of
+ *  `semantic_similarity_score` filling the value with 0 if it's NaN, also add
+ *  constant 0.3 adjustment to the final score if `semantic_similarity_score` is
+ *  NaN. - `0.2 * rr(semantic_similarity_score, 16) + 0.8 *
+ *  rr(keyword_similarity_score, 16)` -- mostly rank by the reciprocal rank of
+ *  `keyword_similarity_score` with slight adjustment of reciprocal rank of
+ *  `semantic_smilarity_score`. The following signals are supported: *
+ *  `semantic_similarity_score`: semantic similarity adjustment that is
+ *  calculated using the embeddings generated by a proprietary Google model.
+ *  This score determines how semantically similar a search query is to a
+ *  document. * `keyword_similarity_score`: keyword match adjustment uses the
+ *  Best Match 25 (BM25) ranking function. This score is calculated using a
+ *  probabilistic model to estimate the probability that a document is relevant
+ *  to a given query. * `relevance_score`: semantic relevance adjustment that
+ *  uses a proprietary Google model to determine the meaning and intent behind a
+ *  user's query in context with the content in the documents. * `pctr_rank`:
+ *  predicted conversion rate adjustment as a rank use predicted Click-through
+ *  rate (pCTR) to gauge the relevance and attractiveness of a search result
+ *  from a user's perspective. A higher pCTR suggests that the result is more
+ *  likely to satisfy the user's query and intent, making it a valuable signal
+ *  for ranking. * `freshness_rank`: freshness adjustment as a rank *
+ *  `document_age`: The time in hours elapsed since the document was last
+ *  updated, a floating-point number (e.g., 0.25 means 15 minutes). *
+ *  `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google
+ *  model to determine the keyword-based overlap between the query and the
+ *  document. * `base_rank`: the default rank of the result
+ */
+@property(nonatomic, copy, nullable) NSString *rankingExpression;
+
+/**
+ *  Optional. The backend to use for the ranking expression evaluation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_Byoe
+ *        Deprecated: Use `RANK_BY_EMBEDDING` instead. Ranking by custom
+ *        embedding model, the default way to evaluate the ranking expression.
+ *        Legacy enum option, `RANK_BY_EMBEDDING` should be used instead.
+ *        (Value: "BYOE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_Clearbox
+ *        Deprecated: Use `RANK_BY_FORMULA` instead. Ranking by custom formula.
+ *        Legacy enum option, `RANK_BY_FORMULA` should be used instead. (Value:
+ *        "CLEARBOX")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_RankByEmbedding
+ *        Ranking by custom embedding model, the default way to evaluate the
+ *        ranking expression. (Value: "RANK_BY_EMBEDDING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_RankByFormula
+ *        Ranking by custom formula. (Value: "RANK_BY_FORMULA")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RankingExpressionBackend_RankingExpressionBackendUnspecified
+ *        Default option for unspecified/unknown values. (Value:
+ *        "RANKING_EXPRESSION_BACKEND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *rankingExpressionBackend;
+
 /** Optional. The specification for returning the relevance score. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestRelevanceScoreSpec *relevanceScoreSpec;
 
@@ -27938,6 +28317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /**
  *  Required. Full resource name of DataStore, such as
  *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  The path must include the project number, project id is not supported for
+ *  this field.
  */
 @property(nonatomic, copy, nullable) NSString *dataStore;
 
@@ -28430,6 +28811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Output only. Google provided available scores. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult_ModelScores *modelScores;
 
+/** Optional. A set of ranking signals associated with the result. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResultRankSignals *rankSignals;
+
 @end
 
 
@@ -28443,6 +28827,91 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult_ModelScores : GTLRObject
+@end
+
+
+/**
+ *  A set of ranking signals.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResultRankSignals : GTLRObject
+
+/**
+ *  Optional. Combined custom boosts for a doc.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boostingFactor;
+
+/** Optional. A list of custom clearbox signals. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResultRankSignalsCustomSignal *> *customSignals;
+
+/**
+ *  Optional. The default rank of the result.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultRank;
+
+/**
+ *  Optional. Age of the document in hours.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentAge;
+
+/**
+ *  Optional. Keyword matching adjustment.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keywordSimilarityScore;
+
+/**
+ *  Optional. Predicted conversion rate adjustment as a rank.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pctrRank;
+
+/**
+ *  Optional. Semantic relevance adjustment.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relevanceScore;
+
+/**
+ *  Optional. Semantic similarity adjustment.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *semanticSimilarityScore;
+
+/**
+ *  Optional. Topicality adjustment as a rank.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topicalityRank;
+
+@end
+
+
+/**
+ *  Custom clearbox signal represented by name and value pair.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResultRankSignalsCustomSignal : GTLRObject
+
+/** Optional. Name of the signal. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Float value representing the ranking signal (e.g. 1.25 for BM25).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
 @end
 
 

@@ -315,11 +315,13 @@
 @class GTLRDLP_GoogleRpcStatus_Details_Item;
 @class GTLRDLP_GoogleTypeDate;
 @class GTLRDLP_GoogleTypeTimeOfDay;
+@class GTLRDLP_Proto2BridgeMessageSet;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -6033,12 +6035,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  List of user-specified file type groups to transform. If specified, only the
- *  files with these file types will be transformed. If empty, all supported
- *  files will be transformed. Supported types may be automatically added over
- *  time. If a file type is set in this field that isn't supported by the
- *  Deidentify action then the job will fail and will not be successfully
- *  created/started. Currently the only file types supported are: IMAGES,
- *  TEXT_FILES, CSV, TSV.
+ *  files with these file types are transformed. If empty, all supported files
+ *  are transformed. Supported types may be automatically added over time. Any
+ *  unsupported file types that are set in this field are excluded from
+ *  de-identification. An error is recorded for each unsupported file in the
+ *  TransformationDetails output table. Currently the only file types supported
+ *  are: IMAGES, TEXT_FILES, CSV, TSV.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypesToTransform;
 
@@ -13046,6 +13048,68 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
+ *  This is proto2's version of MessageSet. DEPRECATED: DO NOT USE FOR NEW
+ *  FIELDS. If you are using editions or proto2, please make your own extendable
+ *  messages for your use case. If you are using proto3, please use `Any`
+ *  instead. MessageSet was the implementation of extensions for proto1. When
+ *  proto2 was introduced, extensions were implemented as a first-class feature.
+ *  This schema for MessageSet was meant to be a "bridge" solution to migrate
+ *  MessageSet-bearing messages from proto1 to proto2. This schema has been
+ *  open-sourced only to facilitate the migration of Google products with
+ *  MessageSet-bearing messages to open-source environments.
+ */
+GTLR_DEPRECATED
+@interface GTLRDLP_Proto2BridgeMessageSet : GTLRObject
+@end
+
+
+/**
+ *  Wire-format for a Status object
+ */
+@interface GTLRDLP_UtilStatusProto : GTLRObject
+
+/**
+ *  copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+ *  int32 canonical_code = 6;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canonicalCode;
+
+/**
+ *  Numeric code drawn from the space specified below. Often, this is the
+ *  canonical error space, and code is drawn from google3/util/task/codes.proto
+ *  copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+ *  int32 code = 1;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  Detail message copybara:strip_begin(b/383363683)
+ *  copybara:strip_end_and_replace optional string message = 3;
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  message_set associates an arbitrary proto message with the status.
+ *  copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+ *  proto2.bridge.MessageSet message_set = 5;
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_Proto2BridgeMessageSet *messageSet;
+
+/**
+ *  copybara:strip_begin(b/383363683) Space to which this status belongs
+ *  copybara:strip_end_and_replace optional string space = 2; // Space to which
+ *  this status belongs
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 

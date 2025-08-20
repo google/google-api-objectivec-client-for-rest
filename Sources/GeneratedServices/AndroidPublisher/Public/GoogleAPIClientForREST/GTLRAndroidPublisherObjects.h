@@ -53,6 +53,7 @@
 @class GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_DeactivatePurchaseOptionRequest;
 @class GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest;
+@class GTLRAndroidPublisher_DeferredItemRemoval;
 @class GTLRAndroidPublisher_DeferredItemReplacement;
 @class GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_DeleteOneTimeProductRequest;
@@ -1405,13 +1406,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseO
  *  Value: "AVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available;
-/**
- *  The purchase option is unavailable but offers linked to it (i.e. Play Points
- *  offer) are available.
- *
- *  Value: "AVAILABLE_FOR_OFFERS_ONLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly;
 /**
  *  The purchase option is initially unavailable, but made available via a
  *  released pre-order offer.
@@ -4191,6 +4185,13 @@ GTLR_DEPRECATED
 /**
  *  Information related to deferred item replacement.
  */
+@interface GTLRAndroidPublisher_DeferredItemRemoval : GTLRObject
+@end
+
+
+/**
+ *  Information related to deferred item replacement.
+ */
 @interface GTLRAndroidPublisher_DeferredItemReplacement : GTLRObject
 
 /** The product_id going to replace the existing product_id. */
@@ -6821,9 +6822,6 @@ GTLR_DEPRECATED
  *        "AVAILABILITY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available
  *        The purchase option is available to users. (Value: "AVAILABLE")
- *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly
- *        The purchase option is unavailable but offers linked to it (i.e. Play
- *        Points offer) are available. (Value: "AVAILABLE_FOR_OFFERS_ONLY")
  *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased
  *        The purchase option is initially unavailable, but made available via a
  *        released pre-order offer. (Value: "AVAILABLE_IF_RELEASED")
@@ -9247,6 +9245,9 @@ GTLR_DEPRECATED
 
 /** The item is auto renewing. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_AutoRenewingPlan *autoRenewingPlan;
+
+/** Information for deferred item removal. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeferredItemRemoval *deferredItemRemoval;
 
 /** Information for deferred item replacement. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeferredItemReplacement *deferredItemReplacement;

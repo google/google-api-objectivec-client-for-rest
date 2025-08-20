@@ -401,6 +401,7 @@ NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_Ad
 NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_FatalVastError = @"FATAL_VAST_ERROR";
 NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression = @"INVALID_IMPRESSION";
 NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_LostInMediation = @"LOST_IN_MEDIATION";
+NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_OverdeliveredImpression = @"OVERDELIVERED_IMPRESSION";
 NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRAdExchangeBuyerII_Note.creatorRole

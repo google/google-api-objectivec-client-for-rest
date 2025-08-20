@@ -10,6 +10,18 @@
 
 #import <GoogleAPIClientForREST/GTLRManagedKafkaQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRManagedKafkaViewSchemaRegistryViewBasic  = @"SCHEMA_REGISTRY_VIEW_BASIC";
+NSString * const kGTLRManagedKafkaViewSchemaRegistryViewFull   = @"SCHEMA_REGISTRY_VIEW_FULL";
+NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspecified = @"SCHEMA_REGISTRY_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRManagedKafkaQuery
 
 @dynamic fields;
@@ -1582,7 +1594,7 @@
 
 @implementation GTLRManagedKafkaQuery_ProjectsLocationsSchemaRegistriesList
 
-@dynamic parent;
+@dynamic parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

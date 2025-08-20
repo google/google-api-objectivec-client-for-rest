@@ -21,6 +21,7 @@ NSString * const kGTLRReportsApplicationNameAdmin              = @"admin";
 NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
 NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
+NSString * const kGTLRReportsApplicationNameClassroom          = @"classroom";
 NSString * const kGTLRReportsApplicationNameContextAwareAccess = @"context_aware_access";
 NSString * const kGTLRReportsApplicationNameDataStudio         = @"data_studio";
 NSString * const kGTLRReportsApplicationNameDrive              = @"drive";

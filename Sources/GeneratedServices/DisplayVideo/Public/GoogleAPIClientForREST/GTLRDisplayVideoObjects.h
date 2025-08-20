@@ -5380,6 +5380,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_Enti
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_CustomBiddingAlgorithm.thirdPartyOptimizationPartner
+
+/**
+ *  Third party attention measurement service provider that DV3
+ *  partners/advertisers can partner with.
+ *
+ *  Value: "ADELAIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Adelaide;
+/**
+ *  Third party data science service provider that DV3 partners/advertisers can
+ *  partner with.
+ *
+ *  Value: "SCIBIDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Scibids;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CustomBiddingAlgorithmRules.state
 
 /**
@@ -19558,7 +19582,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. A field mask identifying which fields to update. Only the
- *  following fields are currently supported: * entityStatus
+ *  following fields are currently supported: * entityStatus *
+ *  containsEuPoliticalAdvertising
  *
  *  String format is a comma-separated list of fields.
  */
@@ -22103,6 +22128,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *sharedAdvertiserIds;
+
+/**
+ *  Optional. Immutable. Designates the third party optimization partner that
+ *  manages this algorithm.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Adelaide
+ *        Third party attention measurement service provider that DV3
+ *        partners/advertisers can partner with. (Value: "ADELAIDE")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Scibids
+ *        Third party data science service provider that DV3
+ *        partners/advertisers can partner with. (Value: "SCIBIDS")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Unknown
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *thirdPartyOptimizationPartner;
 
 @end
 

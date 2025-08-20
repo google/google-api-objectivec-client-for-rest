@@ -2860,7 +2860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  RetrieveStudyMetadata returns instance associated with the given study
- *  presented as metadata with the bulk data removed. See [RetrieveTransaction]
+ *  presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -2892,7 +2892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveStudyMetadata returns instance associated with the given study
- *  presented as metadata with the bulk data removed. See [RetrieveTransaction]
+ *  presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3135,10 +3135,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
- *  tag from an instance. See [Retrieve Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4){:
- *  .external}. For details on the implementation of RetrieveBulkdata, see
- *  [Bulkdata
+ *  tag from an instance. See [Retrieve
+ *  Transaction](http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  For details on the implementation of RetrieveBulkdata, see [Bulkdata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
  *  to call RetrieveBulkdata, see [Retrieve
@@ -3168,10 +3167,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
- *  tag from an instance. See [Retrieve Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4){:
- *  .external}. For details on the implementation of RetrieveBulkdata, see
- *  [Bulkdata
+ *  tag from an instance. See [Retrieve
+ *  Transaction](http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  For details on the implementation of RetrieveBulkdata, see [Bulkdata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
  *  to call RetrieveBulkdata, see [Retrieve
@@ -3428,8 +3426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  RetrieveInstanceMetadata returns instance associated with the given study,
- *  series, and SOP Instance UID presented as metadata with the bulk data
- *  removed. See [RetrieveTransaction]
+ *  series, and SOP Instance UID presented as metadata. See
+ *  [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3462,8 +3460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveInstanceMetadata returns instance associated with the given study,
- *  series, and SOP Instance UID presented as metadata with the bulk data
- *  removed. See [RetrieveTransaction]
+ *  series, and SOP Instance UID presented as metadata. See
+ *  [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3552,8 +3550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  RetrieveSeriesMetadata returns instance associated with the given study and
- *  series, presented as metadata with the bulk data removed. See
- *  [RetrieveTransaction]
+ *  series, presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3585,8 +3582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveSeriesMetadata returns instance associated with the given study and
- *  series, presented as metadata with the bulk data removed. See
- *  [RetrieveTransaction]
+ *  series, presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)

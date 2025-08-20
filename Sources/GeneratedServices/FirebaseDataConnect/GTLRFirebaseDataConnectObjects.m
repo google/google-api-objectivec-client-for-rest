@@ -575,7 +575,8 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_PostgreSql
-@dynamic cloudSql, database, schemaMigration, schemaValidation, unlinked;
+@dynamic cloudSql, database, ephemeral, schemaMigration, schemaValidation,
+         unlinked;
 @end
 
 

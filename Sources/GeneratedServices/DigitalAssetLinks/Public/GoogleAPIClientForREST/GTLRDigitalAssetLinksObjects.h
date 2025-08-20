@@ -429,7 +429,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode
  */
 @property(nonatomic, copy, nullable) NSString *debugString;
 
-/** Error codes that describe the result of the Check operation. */
+/**
+ *  Error codes that describe the result of the Check operation. NOTE: Error
+ *  codes may be populated even when `linked` is true. The error codes do not
+ *  necessarily imply that the request failed, but rather, specify any errors
+ *  encountered in the statements file(s) which may or may not impact whether
+ *  the server determines the requested source and target to be linked.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errorCode;
 
 /**

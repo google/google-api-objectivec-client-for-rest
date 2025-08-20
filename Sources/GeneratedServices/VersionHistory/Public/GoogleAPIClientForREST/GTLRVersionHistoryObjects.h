@@ -18,6 +18,7 @@
 @class GTLRVersionHistory_Interval;
 @class GTLRVersionHistory_Platform;
 @class GTLRVersionHistory_Release;
+@class GTLRVersionHistory_RolloutData;
 @class GTLRVersionHistory_Version;
 
 // Generated comments include content from the discovery document; avoid them
@@ -442,6 +443,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
 @property(nonatomic, strong, nullable) NSNumber *pinnable;
 
 /**
+ *  Rollout-related metadata. Some releases are part of one or more A/B
+ *  rollouts. This field contains the names and data describing this release's
+ *  role in any rollouts.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVersionHistory_RolloutData *> *rolloutData;
+
+/**
  *  Timestamp interval of when the release was live. If end_time is unspecified,
  *  the release is currently live.
  */
@@ -449,6 +457,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
 
 /** String containing just the version number. e.g. "84.0.4147.38" */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Rollout-related metadata for a release.
+ */
+@interface GTLRVersionHistory_RolloutData : GTLRObject
+
+/** The name of the rollout. */
+@property(nonatomic, copy, nullable) NSString *rolloutName;
+
+/**
+ *  Tags associated with a release's role in a rollout. Most rollouts will have
+ *  at least one release with a "rollout" tag and another release with a
+ *  "control" tag. Some rollouts may have additional named arms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tag;
 
 @end
 
