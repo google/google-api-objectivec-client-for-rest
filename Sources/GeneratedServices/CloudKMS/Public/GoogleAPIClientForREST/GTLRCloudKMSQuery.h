@@ -31,6 +31,13 @@ NS_ASSUME_NONNULL_BEGIN
 // publicKeyFormat
 
 /**
+ *  The returned public key will be encoded in DER format (the PrivateKeyInfo
+ *  structure from RFC 5208).
+ *
+ *  Value: "DER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatDer;
+/**
  *  This is supported only for PQC algorithms. The key material is returned in
  *  the format defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
  *
@@ -56,6 +63,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatPem;
  *  Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified;
+/**
+ *  The returned public key is in raw bytes format defined in its standard
+ *  https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *
+ *  Value: "XWING_RAW_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatXwingRawBytes;
 
 // ----------------------------------------------------------------------------
 // versionView
@@ -1253,6 +1267,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Decapsulates data that was encapsulated with a public key retrieved from
+ *  GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose
+ *  KEY_ENCAPSULATION.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.decapsulate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDecapsulate : GTLRCloudKMSQuery
+
+/**
+ *  Required. The resource name of the CryptoKeyVersion to use for
+ *  decapsulation.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_DecapsulateResponse.
+ *
+ *  Decapsulates data that was encapsulated with a public key retrieved from
+ *  GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose
+ *  KEY_ENCAPSULATION.
+ *
+ *  @param object The @c GTLRCloudKMS_DecapsulateRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    decapsulation.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDecapsulate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_DecapsulateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
  *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time
  *  will be set to the time destroy_scheduled_duration in the future. At that
@@ -1355,9 +1407,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *        [Textual Encoding of Subject Public Key Info]
  *        (https://tools.ietf.org/html/rfc7468#section-13) for more information.
  *        (Value: "PEM")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatDer The returned public key will be
+ *        encoded in DER format (the PrivateKeyInfo structure from RFC 5208).
+ *        (Value: "DER")
  *    @arg @c kGTLRCloudKMSPublicKeyFormatNistPqc This is supported only for PQC
  *        algorithms. The key material is returned in the format defined by NIST
  *        PQC standards (FIPS 203, FIPS 204, and FIPS 205). (Value: "NIST_PQC")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatXwingRawBytes The returned public key
+ *        is in raw bytes format defined in its standard
+ *        https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *        (Value: "XWING_RAW_BYTES")
  */
 @property(nonatomic, copy, nullable) NSString *publicKeyFormat;
 

@@ -47,6 +47,8 @@
 @class GTLRAPIhub_GoogleCloudApihubV1Deployment;
 @class GTLRAPIhub_GoogleCloudApihubV1Deployment_Attributes;
 @class GTLRAPIhub_GoogleCloudApihubV1DeploymentMetadata;
+@class GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation;
+@class GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation;
 @class GTLRAPIhub_GoogleCloudApihubV1Documentation;
 @class GTLRAPIhub_GoogleCloudApihubV1Endpoint;
 @class GTLRAPIhub_GoogleCloudApihubV1EnumAttributeValues;
@@ -54,12 +56,21 @@
 @class GTLRAPIhub_GoogleCloudApihubV1ExternalApi;
 @class GTLRAPIhub_GoogleCloudApihubV1ExternalApi_Attributes;
 @class GTLRAPIhub_GoogleCloudApihubV1GoogleServiceAccountConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1Header;
 @class GTLRAPIhub_GoogleCloudApihubV1HostingService;
 @class GTLRAPIhub_GoogleCloudApihubV1HostProjectRegistration;
 @class GTLRAPIhub_GoogleCloudApihubV1HttpOperation;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails_QueryParams;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpRequest;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpRequest_Headers;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpResponse;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpResponse_Headers;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpResponse_ResponseCodes;
 @class GTLRAPIhub_GoogleCloudApihubV1Issue;
 @class GTLRAPIhub_GoogleCloudApihubV1LastExecution;
 @class GTLRAPIhub_GoogleCloudApihubV1LintResponse;
+@class GTLRAPIhub_GoogleCloudApihubV1MatchResult;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiIntValues;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiSelectValues;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiStringValues;
@@ -68,6 +79,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1OperationDetails;
 @class GTLRAPIhub_GoogleCloudApihubV1Owner;
 @class GTLRAPIhub_GoogleCloudApihubV1Path;
+@class GTLRAPIhub_GoogleCloudApihubV1PathParam;
 @class GTLRAPIhub_GoogleCloudApihubV1Plugin;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginActionConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstance;
@@ -76,6 +88,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstanceActionID;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstanceActionSource;
 @class GTLRAPIhub_GoogleCloudApihubV1Point;
+@class GTLRAPIhub_GoogleCloudApihubV1QueryParam;
 @class GTLRAPIhub_GoogleCloudApihubV1Range;
 @class GTLRAPIhub_GoogleCloudApihubV1ResourceConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1RuntimeProjectAttachment;
@@ -650,6 +663,78 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DependencyErro
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DependencyErrorDetail_Error_SupplierRecreated;
 
 // ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation.sourceTypes
+
+/**
+ *  GCP internal load balancer.
+ *
+ *  Value: "GCP_ILB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_SourceTypes_GcpIlb;
+/**
+ *  GCP external load balancer.
+ *
+ *  Value: "GCP_XLB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_SourceTypes_GcpXlb;
+/**
+ *  Source type not specified.
+ *
+ *  Value: "SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_SourceTypes_SourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation.style
+
+/**
+ *  Style is GraphQL API
+ *
+ *  Value: "GRAPHQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Graphql;
+/**
+ *  Style is Grpc API
+ *
+ *  Value: "GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Grpc;
+/**
+ *  Style is Rest API
+ *
+ *  Value: "REST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Rest;
+/**
+ *  Unknown style
+ *
+ *  Value: "STYLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_StyleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation.classification
+
+/**
+ *  Operation is not classified as known or unknown.
+ *
+ *  Value: "CLASSIFICATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_ClassificationUnspecified;
+/**
+ *  Operation has a matched catalog operation.
+ *
+ *  Value: "KNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_Known;
+/**
+ *  Operation does not have a matched catalog operation.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1ExecutionStatus.currentExecutionState
 
 /**
@@ -670,6 +755,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatu
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecutionState_Running;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1Header.dataType
+
+/**
+ *  Boolean data type
+ *
+ *  Value: "BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Bool;
+/**
+ *  Unspecified data type
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_DataTypeUnspecified;
+/**
+ *  Float data type
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Float;
+/**
+ *  Integer data type
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Integer;
+/**
+ *  String data type
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_String;
+/**
+ *  UUID data type
+ *
+ *  Value: "UUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Uuid;
 
 // ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1HttpOperation.method
@@ -856,6 +981,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDet
  *  Value: "OPEN_API_SPEC_3_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec31;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1PathParam.dataType
+
+/**
+ *  Boolean data type
+ *
+ *  Value: "BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Bool;
+/**
+ *  Unspecified data type
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_DataTypeUnspecified;
+/**
+ *  Float data type
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Float;
+/**
+ *  Integer data type
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Integer;
+/**
+ *  String data type
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_String;
+/**
+ *  UUID data type
+ *
+ *  Value: "UUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Uuid;
 
 // ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1Plugin.gatewayType
@@ -1117,6 +1282,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstance
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1QueryParam.dataType
+
+/**
+ *  Boolean data type
+ *
+ *  Value: "BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Bool;
+/**
+ *  Unspecified data type
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_DataTypeUnspecified;
+/**
+ *  Float data type
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Float;
+/**
+ *  Integer data type
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Integer;
+/**
+ *  String data type
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_String;
+/**
+ *  UUID data type
+ *
+ *  Value: "UUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Uuid;
 
 // ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1ResourceConfig.actionType
@@ -2681,7 +2886,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  deployment. This maps to the following system defined attribute:
  *  `projects/{project}/locations/{location}/attributes/system-management-url`
  *  The number of values for this attribute will be based on the cardinality of
- *  the attribute. The same can be retrieved via GetAttribute API.
+ *  the attribute. The same can be retrieved via GetAttribute API. The value of
+ *  the attribute should be a valid URL.
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *managementUrl;
 
@@ -2692,9 +2898,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. A uri that uniquely identfies the deployment within a particular
- *  gateway. For example, if the runtime resource is of type APIGEE_PROXY, then
- *  this field will be a combination of org, proxy name and environment.
+ *  Required. The resource URI identifies the deployment within its gateway. For
+ *  Apigee gateways, its recommended to use the format:
+ *  organizations/{org}/environments/{env}/apis/{api}. For ex: if a proxy with
+ *  name `orders` is deployed in `staging` environment of `cymbal` organization,
+ *  the resource URI would be:
+ *  `organizations/cymbal/environments/staging/apis/orders`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
@@ -2733,7 +2942,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  attribute:
  *  `projects/{project}/locations/{location}/attributes/system-source-uri` The
  *  number of values for this attribute will be based on the cardinality of the
- *  attribute. The same can be retrieved via GetAttribute API.
+ *  attribute. The same can be retrieved via GetAttribute API. The value of the
+ *  attribute should be a valid URI, and in case of Cloud Storage URI, it should
+ *  point to a Cloud Storage object, not a directory.
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *sourceUri;
 
@@ -2806,6 +3017,165 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  The DisablePlugin method's request.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1DisablePluginRequest : GTLRObject
+@end
+
+
+/**
+ *  Respresents an API Observation observed in one of the sources.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation : GTLRObject
+
+/**
+ *  Optional. The number of observed API Operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *apiOperationCount;
+
+/** Output only. Create time stamp of the observation in API Hub. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The hostname of requests processed for this Observation. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Output only. The number of known API Operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knownOperationsCount;
+
+/** Optional. Last event detected time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEventDetectedTime;
+
+/**
+ *  Identifier. The name of the discovered API Observation. Format:
+ *  `projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. For an observation pushed from a gcp resource, this would be the
+ *  gcp project id.
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
+/**
+ *  Optional. The IP address (IPv4 or IPv6) of the origin server that the
+ *  request was sent to. This field can include port information. Examples:
+ *  `"192.168.1.1"`, `"10.0.0.1:80"`, `"FE80::0202:B3FF:FE1E:8329"`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serverIps;
+
+/** Optional. The location of the observation source. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceLocations;
+
+/**
+ *  Output only. The metadata of the source from which the observation was
+ *  collected.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1SourceMetadata *sourceMetadata;
+
+/**
+ *  Optional. The type of the source from which the observation was collected.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceTypes;
+
+/**
+ *  Optional. Style of ApiObservation
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Graphql
+ *        Style is GraphQL API (Value: "GRAPHQL")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Grpc
+ *        Style is Grpc API (Value: "GRPC")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Rest
+ *        Style is Rest API (Value: "REST")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_StyleUnspecified
+ *        Unknown style (Value: "STYLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *style;
+
+/**
+ *  Output only. The number of unknown API Operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unknownOperationsCount;
+
+/** Output only. Update time stamp of the observation in API Hub. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  DiscoveredApiOperation represents an API Operation observed in one of the
+ *  sources.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation : GTLRObject
+
+/**
+ *  Output only. The classification of the discovered API operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_ClassificationUnspecified
+ *        Operation is not classified as known or unknown. (Value:
+ *        "CLASSIFICATION_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_Known
+ *        Operation has a matched catalog operation. (Value: "KNOWN")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_Unknown
+ *        Operation does not have a matched catalog operation. (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *classification;
+
+/**
+ *  Optional. The number of occurrences of this API Operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Output only. Create time stamp of the discovered API operation in API Hub.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. First seen time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstSeenTime;
+
+/** Optional. An HTTP Operation. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails *httpOperation;
+
+/** Optional. Last seen time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSeenTime;
+
+/**
+ *  Output only. The list of matched results for the discovered API operation.
+ *  This will be populated only if the classification is known. The current
+ *  usecase is for a single match. Keeping it repeated to support multiple
+ *  matches in future.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1MatchResult *> *matchResults;
+
+/**
+ *  Identifier. The name of the discovered API Operation. Format:
+ *  `projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}/discoveredApiOperations/{discovered_api_operation}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The metadata of the source from which the api operation was
+ *  collected.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1SourceMetadata *sourceMetadata;
+
+/**
+ *  Output only. Update time stamp of the discovered API operation in API Hub.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -2987,6 +3357,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  An aggregation of HTTP header occurrences.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1Header : GTLRObject
+
+/**
+ *  The number of occurrences of this Header across transactions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Data type of header
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Bool Boolean data
+ *        type (Value: "BOOL")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_DataTypeUnspecified
+ *        Unspecified data type (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Float Float data
+ *        type (Value: "FLOAT")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Integer Integer
+ *        data type (Value: "INTEGER")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_String String data
+ *        type (Value: "STRING")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Uuid UUID data type
+ *        (Value: "UUID")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/** Header name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The information related to the service implemented by the plugin developer,
  *  used to invoke the plugin's functionality.
  */
@@ -3071,6 +3478,103 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Path *path;
 
+@end
+
+
+/**
+ *  An HTTP-based API Operation, sometimes called a "REST" Operation.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails : GTLRObject
+
+/** Required. An HTTP Operation. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpOperation *httpOperation;
+
+/** Optional. Path params of HttpOperation */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1PathParam *> *pathParams;
+
+/** Optional. Query params of HttpOperation */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails_QueryParams *queryParams;
+
+/** Optional. Request metadata. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpRequest *request;
+
+/** Optional. Response metadata. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpResponse *response;
+
+@end
+
+
+/**
+ *  Optional. Query params of HttpOperation
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAPIhub_GoogleCloudApihubV1QueryParam. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails_QueryParams : GTLRObject
+@end
+
+
+/**
+ *  An aggregation of HTTP requests.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpRequest : GTLRObject
+
+/** Optional. Unordered map from header name to header metadata */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpRequest_Headers *headers;
+
+@end
+
+
+/**
+ *  Optional. Unordered map from header name to header metadata
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAPIhub_GoogleCloudApihubV1Header. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpRequest_Headers : GTLRObject
+@end
+
+
+/**
+ *  An aggregation of HTTP responses.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpResponse : GTLRObject
+
+/** Optional. Unordered map from header name to header metadata */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpResponse_Headers *headers;
+
+/** Optional. Map of status code to observed count */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpResponse_ResponseCodes *responseCodes;
+
+@end
+
+
+/**
+ *  Optional. Unordered map from header name to header metadata
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAPIhub_GoogleCloudApihubV1Header. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpResponse_Headers : GTLRObject
+@end
+
+
+/**
+ *  Optional. Map of status code to observed count
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpResponse_ResponseCodes : GTLRObject
 @end
 
 
@@ -3367,6 +3871,61 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  Message for response to listing DiscoveredApiObservations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "discoveredApiObservations" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiObservationsResponse : GTLRCollectionObject
+
+/**
+ *  The DiscoveredApiObservation from the specified project and location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation *> *discoveredApiObservations;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing DiscoveredApiOperations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "discoveredApiOperations" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiOperationsResponse : GTLRCollectionObject
+
+/**
+ *  The DiscoveredApiOperations from the specified project, location and
+ *  DiscoveredApiObservation.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation *> *discoveredApiOperations;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The ListExternalApis method's response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3578,6 +4137,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  MatchResult represents the result of matching a discovered API operation
+ *  with a catalog API operation.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1MatchResult : GTLRObject
+
+/**
+ *  Output only. The name of the matched API Operation. Format:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/operations/{operation}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The config variable value of data type multi int.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1MultiIntValues : GTLRObject
@@ -3778,11 +4352,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  HTTP Path parameter.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1PathParam : GTLRObject
+
+/**
+ *  Optional. Data type of path param
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Bool Boolean
+ *        data type (Value: "BOOL")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_DataTypeUnspecified
+ *        Unspecified data type (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Float Float data
+ *        type (Value: "FLOAT")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Integer Integer
+ *        data type (Value: "INTEGER")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_String String
+ *        data type (Value: "STRING")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Uuid UUID data
+ *        type (Value: "UUID")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Optional. Segment location in the path, 1-indexed
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *position;
+
+@end
+
+
+/**
  *  A plugin resource in the API Hub.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1Plugin : GTLRObject
 
-/** Optional. The configuration of actions supported by the plugin. */
+/** Required. The configuration of actions supported by the plugin. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1PluginActionConfig *> *actionsConfig;
 
 /** Optional. The configuration template for the plugin. */
@@ -4026,7 +4634,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 /**
  *  Optional. The source project id of the plugin instance. This will be the id
  *  of runtime project in case of gcp based plugins and org id in case of non
- *  gcp based plugins. This is a required field.
+ *  gcp based plugins. This field will be a required field for Google provided
+ *  on-ramp plugins.
  */
 @property(nonatomic, copy, nullable) NSString *sourceProjectId;
 
@@ -4227,6 +4836,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *line;
+
+@end
+
+
+/**
+ *  An aggregation of HTTP query parameter occurrences.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1QueryParam : GTLRObject
+
+/**
+ *  Optional. The number of occurrences of this query parameter across
+ *  transactions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Optional. Data type of path param
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Bool Boolean
+ *        data type (Value: "BOOL")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_DataTypeUnspecified
+ *        Unspecified data type (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Float Float
+ *        data type (Value: "FLOAT")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Integer Integer
+ *        data type (Value: "INTEGER")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_String String
+ *        data type (Value: "STRING")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Uuid UUID data
+ *        type (Value: "UUID")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/** Required. Name of query param */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

@@ -2304,7 +2304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /** A summary of the nearby restaurants. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *restaurant;
 
-/** A summary of the nearby gas stations. */
+/** A summary of the nearby stores. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *store;
 
 @end

@@ -3269,7 +3269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch : GTLRDataprocQuery
 
-/** Required. The resource name of the session template. */
+/** Required. Identifier. The resource name of the session template. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3278,7 +3278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Updates the session template synchronously.
  *
  *  @param object The @c GTLRDataproc_SessionTemplate to include in the query.
- *  @param name Required. The resource name of the session template.
+ *  @param name Required. Identifier. The resource name of the session template.
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch
  */

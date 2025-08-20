@@ -60,6 +60,7 @@
 @class GTLRBackupdr_DataSourceGcpResourceInfo;
 @class GTLRBackupdr_DataSourceReference;
 @class GTLRBackupdr_DiskBackupProperties;
+@class GTLRBackupdr_DiskBackupProperties_Labels;
 @class GTLRBackupdr_DiskDataSourceProperties;
 @class GTLRBackupdr_DiskRestoreProperties;
 @class GTLRBackupdr_DiskRestoreProperties_Labels;
@@ -1114,6 +1115,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_GuestOsFeature_Type_VirtioScsiM
  *  Value: "WINDOWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_LocationMetadata.unsupportedFeatures
+
+/** Value: "COMPUTE_INSTANCE" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ComputeInstance;
+/** Value: "FEATURE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified;
+/** Value: "MANAGEMENT_SERVER" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_ManagementServer.state
@@ -4028,6 +4039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_DiskBackupProperties : GTLRObject
 
+/** The access mode of the source disk. */
+@property(nonatomic, copy, nullable) NSString *accessMode;
+
 /**
  *  The architecture of the source disk. Valid values are ARM64 or X86_64.
  *
@@ -4049,8 +4063,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Indicates whether the source disk is using confidential compute mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+
 /** A list of guest OS features that are applicable to this backup. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_GuestOsFeature *> *guestOsFeature;
+
+/** The labels of the source disk. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskBackupProperties_Labels *labels;
 
 /**
  *  A list of publicly available licenses that are applicable to this backup.
@@ -4058,6 +4082,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  image.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
+
+/**
+ *  The physical block size of the source disk.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *physicalBlockSizeBytes;
+
+/**
+ *  The number of IOPS provisioned for the source disk.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedIops;
+
+/**
+ *  The number of throughput provisioned for the source disk.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
 
 /**
  *  Region and zone are mutually exclusive fields. The URL of the region of the
@@ -4078,6 +4123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /** The source disk used to create this backup. */
 @property(nonatomic, copy, nullable) NSString *sourceDisk;
 
+/** The storage pool of the source disk. */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
 /** The URL of the type of the disk. */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4088,6 +4136,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  The labels of the source disk.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_DiskBackupProperties_Labels : GTLRObject
 @end
 
 
@@ -5213,6 +5273,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBackupdr_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRBackupdr_LocationMetadata
+ */
+@interface GTLRBackupdr_LocationMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unsupportedFeatures;
+
 @end
 
 

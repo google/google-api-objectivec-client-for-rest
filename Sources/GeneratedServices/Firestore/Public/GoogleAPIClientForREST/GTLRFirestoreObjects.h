@@ -3424,6 +3424,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Whether it is an unique index. Unique index ensures all values for
+ *  the indexed field(s) are unique across documents.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unique;
+
 @end
 
 

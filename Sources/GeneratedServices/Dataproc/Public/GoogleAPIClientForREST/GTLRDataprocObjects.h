@@ -476,13 +476,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_Operatio
 // GTLRDataproc_ClusterConfig.clusterTier
 
 /**
- *  Premium dataproc cluster.
+ *  Premium Dataproc cluster.
  *
  *  Value: "CLUSTER_TIER_PREMIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierPremium;
 /**
- *  Standard dataproc cluster.
+ *  Standard Dataproc cluster.
  *
  *  Value: "CLUSTER_TIER_STANDARD"
  */
@@ -1395,6 +1395,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter;
 /**
+ *  The Jupyter Kernel Gateway.
+ *
+ *  Value: "JUPYTER_KERNEL_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_JupyterKernelGateway;
+/**
  *  The Pig component.
  *
  *  Value: "PIG"
@@ -1865,6 +1871,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The requestor ID is used to identify if the request comes from a
+ *  GCA investigation or the old Ask Gemini Experience.
+ */
+@property(nonatomic, copy, nullable) NSString *requestorId;
 
 @end
 
@@ -2754,13 +2766,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AuxiliaryNodeGroup *> *auxiliaryNodeGroups;
 
 /**
- *  Optional. The tier of the cluster.
+ *  Optional. The cluster tier.
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierPremium Premium
- *        dataproc cluster. (Value: "CLUSTER_TIER_PREMIUM")
+ *        Dataproc cluster. (Value: "CLUSTER_TIER_PREMIUM")
  *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierStandard
- *        Standard dataproc cluster. (Value: "CLUSTER_TIER_STANDARD")
+ *        Standard Dataproc cluster. (Value: "CLUSTER_TIER_STANDARD")
  *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierUnspecified Not
  *        set. Works the same as CLUSTER_TIER_STANDARD. (Value:
  *        "CLUSTER_TIER_UNSPECIFIED")
@@ -8842,7 +8854,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_SessionTemplate_Labels *labels;
 
-/** Required. The resource name of the session template. */
+/** Required. Identifier. The resource name of the session template. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Optional. Runtime configuration for session execution. */

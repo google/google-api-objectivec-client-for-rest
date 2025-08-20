@@ -178,6 +178,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowInvocation;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowMultiLanguageSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowValidationResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Form;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FormParameter;
@@ -202,6 +203,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSource;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Intent;
@@ -224,6 +226,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookImportStrategy;
@@ -232,6 +235,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookInvocation;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookOutput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookStep;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookVersion;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters;
@@ -317,6 +321,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TypeSchema;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TypeSchemaSchemaReference;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3UserUtterance;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory;
@@ -1820,6 +1826,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Impo
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_ReportConflict;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema.type
+
+/**
+ *  Represents a repeated value.
+ *
+ *  Value: "ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_Array;
+/**
+ *  Represents a boolean value.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_Boolean;
+/**
+ *  Not specified.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_DataTypeUnspecified;
+/**
+ *  Represents any number value.
+ *
+ *  Value: "NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_Number;
+/**
+ *  Represents any string value.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_String;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig.audioEncoding
 
 /**
@@ -2115,6 +2155,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Page
  *  Value: "PARAMETER_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_ParameterStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition.type
+
+/**
+ *  Represents a boolean value.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Boolean;
+/**
+ *  Represents a repeated value.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_List;
+/**
+ *  Represents a null value.
+ *
+ *  Value: "NULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Null;
+/**
+ *  Represents any number value.
+ *
+ *  Value: "NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Number;
+/**
+ *  Represents any object value.
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Object;
+/**
+ *  Not specified. No validation will be performed.
+ *
+ *  Value: "PARAMETER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_ParameterTypeUnspecified;
+/**
+ *  Represents any string value.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_String;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook.playbookType
+
+/**
+ *  Unspecified type. Default to TASK.
+ *
+ *  Value: "PLAYBOOK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Playbook_PlaybookType_PlaybookTypeUnspecified;
+/**
+ *  Routine playbook.
+ *
+ *  Value: "ROUTINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Playbook_PlaybookType_Routine;
+/**
+ *  Task playbook.
+ *
+ *  Value: "TASK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Playbook_PlaybookType_Task;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookImportStrategy.mainPlaybookImportStrategy
@@ -4776,10 +4884,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3FlowInvocation *flowInvocation;
 
 /**
+ *  Optional. Action performed on behalf of the agent by transitioning to a
+ *  target CX flow.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTransition *flowTransition;
+
+/**
  *  Optional. Action performed on behalf of the agent by invoking a child
  *  playbook.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookInvocation *playbookInvocation;
+
+/**
+ *  Optional. Action performed on behalf of the agent by transitioning to a
+ *  target playbook.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTransition *playbookTransition;
 
 /**
  *  Optional. Action performed on behalf of the agent by calling a plugin tool.
@@ -10826,6 +10946,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3EventHandler *> *eventHandlers;
 
+/** Optional. Defined structured input parameters for this flow. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition *> *inputParameterDefinitions;
+
 /** Optional. Knowledge connector configuration. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3KnowledgeConnectorSettings *knowledgeConnectorSettings;
 
@@ -10848,6 +10971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** NLU related settings of the flow. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3NluSettings *nluSettings;
+
+/** Optional. Defined structured output parameters for this flow. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition *> *outputParameterDefinitions;
 
 /**
  *  A flow's transition route group serve two purposes: * They are responsible
@@ -10969,6 +11095,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  must be a subset of the languages supported by the agent.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedResponseLanguageCodes;
+
+@end
+
+
+/**
+ *  Stores metadata of the transition to a target CX flow. Flow transition
+ *  actions exit the caller playbook and enter the child flow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTransition : GTLRObject
+
+/** Output only. The display name of the flow. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The unique identifier of the flow. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *flow;
 
 @end
 
@@ -11972,6 +12116,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *content;
+
+@end
+
+
+/**
+ *  A type schema object that's specified inline.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema : GTLRObject
+
+/** Schema of the elements if this is an ARRAY type. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TypeSchema *items;
+
+/**
+ *  Data type of the schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_Array
+ *        Represents a repeated value. (Value: "ARRAY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_Boolean
+ *        Represents a boolean value. (Value: "BOOLEAN")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_DataTypeUnspecified
+ *        Not specified. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_Number
+ *        Represents any number value. (Value: "NUMBER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema_Type_String
+ *        Represents any string value. (Value: "STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -13618,6 +13790,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Defines the properties of a parameter. Used to define parameters used in the
+ *  agent and the input / output parameters for each fulfillment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition : GTLRObject
+
+/**
+ *  Human-readable description of the parameter. Limited to 300 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. Name of parameter. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Type of parameter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Boolean
+ *        Represents a boolean value. (Value: "BOOLEAN")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_List
+ *        Represents a repeated value. (Value: "LIST")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Null
+ *        Represents a null value. (Value: "NULL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Number
+ *        Represents any number value. (Value: "NUMBER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_Object
+ *        Represents any object value. (Value: "OBJECT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_ParameterTypeUnspecified
+ *        Not specified. No validation will be performed. (Value:
+ *        "PARAMETER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition_Type_String
+ *        Represents any string value. (Value: "STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *type GTLR_DEPRECATED;
+
+/** Optional. Type schema of parameter. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TypeSchema *typeSchema;
+
+@end
+
+
+/**
  *  Text input which can be used for prompt or banned phrases.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase : GTLRObject
@@ -13659,6 +13875,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Handler *> *handlers;
 
+/** Optional. Defined structured input parameters for this playbook. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition *> *inputParameterDefinitions;
+
 /** Instruction to accomplish target goal. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookInstruction *instruction;
 
@@ -13670,6 +13889,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//locations//agents//playbooks/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Defined structured output parameters for this playbook. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition *> *outputParameterDefinitions;
+
+/**
+ *  Optional. Type of the playbook.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Playbook_PlaybookType_PlaybookTypeUnspecified
+ *        Unspecified type. Default to TASK. (Value:
+ *        "PLAYBOOK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Playbook_PlaybookType_Routine
+ *        Routine playbook. (Value: "ROUTINE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Playbook_PlaybookType_Task
+ *        Task playbook. (Value: "TASK")
+ */
+@property(nonatomic, copy, nullable) NSString *playbookType;
 
 /**
  *  Output only. The resource name of flows referenced by the current playbook
@@ -13891,6 +14127,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Step instruction in text format. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Stores metadata of the transition to another target playbook. Playbook
+ *  transition actions exit the caller playbook and enter the target playbook.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTransition : GTLRObject
+
+/** Output only. The display name of the playbook. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The unique identifier of the playbook. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *playbook;
 
 @end
 
@@ -15198,7 +15452,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings : GTLRObject
 
-/** Filename pattern for exported audio. */
+/**
+ *  Filename pattern for exported audio. {conversation} and {timestamp} are
+ *  placeholders that will be replaced with the conversation ID and epoch micros
+ *  of the conversation. For example,
+ *  "{conversation}/recording_{timestamp}.mulaw".
+ */
 @property(nonatomic, copy, nullable) NSString *audioExportPattern;
 
 /**
@@ -16555,6 +16814,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Human-readable statuses of the webhooks triggered during this turn. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *webhookStatuses;
+
+@end
+
+
+/**
+ *  Encapsulates different type schema variations: either a reference to an a
+ *  schema that's already defined by a tool, or an inline definition.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TypeSchema : GTLRObject
+
+/** Set if this is an inline schema definition. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSchema *inlineSchema;
+
+/** Set if this is a schema reference. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TypeSchemaSchemaReference *schemaReference;
+
+@end
+
+
+/**
+ *  A reference to the schema of an existing tool.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TypeSchemaSchemaReference : GTLRObject
+
+/** The name of the schema. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
+ *  The tool that contains this schema definition. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
 
 @end
 

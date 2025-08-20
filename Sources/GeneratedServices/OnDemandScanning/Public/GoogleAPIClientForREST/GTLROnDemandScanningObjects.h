@@ -29,6 +29,7 @@
 @class GTLROnDemandScanning_BuildProvenance;
 @class GTLROnDemandScanning_BuildProvenance_BuildOptions;
 @class GTLROnDemandScanning_Category;
+@class GTLROnDemandScanning_CISAKnownExploitedVulnerabilities;
 @class GTLROnDemandScanning_CloudRepoSourceContext;
 @class GTLROnDemandScanning_Command;
 @class GTLROnDemandScanning_Completeness;
@@ -40,6 +41,7 @@
 @class GTLROnDemandScanning_DSSEAttestationOccurrence;
 @class GTLROnDemandScanning_Envelope;
 @class GTLROnDemandScanning_EnvelopeSignature;
+@class GTLROnDemandScanning_ExploitPredictionScoringSystem;
 @class GTLROnDemandScanning_File;
 @class GTLROnDemandScanning_File_Digest;
 @class GTLROnDemandScanning_FileHashes;
@@ -98,6 +100,7 @@
 @class GTLROnDemandScanning_ResourceDescriptor;
 @class GTLROnDemandScanning_ResourceDescriptor_Annotations;
 @class GTLROnDemandScanning_ResourceDescriptor_Digest;
+@class GTLROnDemandScanning_Risk;
 @class GTLROnDemandScanning_RunDetails;
 @class GTLROnDemandScanning_SbomReferenceIntotoPayload;
 @class GTLROnDemandScanning_SbomReferenceIntotoPredicate;
@@ -1355,6 +1358,20 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_CISAKnownExploitedVulnerabilities
+ */
+@interface GTLROnDemandScanning_CISAKnownExploitedVulnerabilities : GTLRObject
+
+/**
+ *  Whether the vulnerability is known to have been leveraged as part of a
+ *  ransomware campaign.
+ */
+@property(nonatomic, copy, nullable) NSString *knownRansomwareCampaignUse;
+
+@end
+
+
+/**
  *  A CloudRepoSourceContext denotes a particular revision in a Google Cloud
  *  Source Repo.
  */
@@ -1845,6 +1862,30 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *sig;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_ExploitPredictionScoringSystem
+ */
+@interface GTLROnDemandScanning_ExploitPredictionScoringSystem : GTLRObject
+
+/**
+ *  The percentile of the current score, the proportion of all scored
+ *  vulnerabilities with the same or a lower EPSS score
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentile;
+
+/**
+ *  The EPSS score representing the probability [0-1] of exploitation in the
+ *  wild in the next 30 days
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -3315,6 +3356,26 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_Risk
+ */
+@interface GTLROnDemandScanning_Risk : GTLRObject
+
+/**
+ *  CISA maintains the authoritative source of vulnerabilities that have been
+ *  exploited in the wild.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_CISAKnownExploitedVulnerabilities *cisaKev;
+
+/**
+ *  The Exploit Prediction Scoring System (EPSS) estimates the likelihood
+ *  (probability) that a software vulnerability will be exploited in the wild.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ExploitPredictionScoringSystem *epss;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_RunDetails
  */
 @interface GTLROnDemandScanning_RunDetails : GTLRObject
@@ -4226,6 +4287,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** Output only. URLs related to this vulnerability. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_RelatedUrl *> *relatedUrls;
+
+/** Risk information about the vulnerability, such as CISA, EPSS, etc. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Risk *risk;
 
 /**
  *  Output only. The note provider assigned severity of this vulnerability.

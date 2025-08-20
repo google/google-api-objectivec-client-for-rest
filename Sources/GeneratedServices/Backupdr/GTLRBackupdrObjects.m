@@ -215,6 +215,11 @@ NSString * const kGTLRBackupdr_GuestOsFeature_Type_UefiCompatible = @"UEFI_COMPA
 NSString * const kGTLRBackupdr_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTIO_SCSI_MULTIQUEUE";
 NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows     = @"WINDOWS";
 
+// GTLRBackupdr_LocationMetadata.unsupportedFeatures
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ComputeInstance = @"COMPUTE_INSTANCE";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer = @"MANAGEMENT_SERVER";
+
 // GTLRBackupdr_ManagementServer.state
 NSString * const kGTLRBackupdr_ManagementServer_State_Creating = @"CREATING";
 NSString * const kGTLRBackupdr_ManagementServer_State_Deleting = @"DELETING";
@@ -1057,8 +1062,10 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_DiskBackupProperties
-@dynamic architecture, descriptionProperty, guestOsFeature, licenses, region,
-         replicaZones, sizeGb, sourceDisk, type, zoneProperty;
+@dynamic accessMode, architecture, descriptionProperty,
+         enableConfidentialCompute, guestOsFeature, labels, licenses,
+         physicalBlockSizeBytes, provisionedIops, provisionedThroughput, region,
+         replicaZones, sizeGb, sourceDisk, storagePool, type, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1075,6 +1082,20 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
     @"replicaZones" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_DiskBackupProperties_Labels
+//
+
+@implementation GTLRBackupdr_DiskBackupProperties_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1714,6 +1735,24 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_LocationMetadata
+//
+
+@implementation GTLRBackupdr_LocationMetadata
+@dynamic unsupportedFeatures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unsupportedFeatures" : [NSString class]
+  };
+  return map;
 }
 
 @end

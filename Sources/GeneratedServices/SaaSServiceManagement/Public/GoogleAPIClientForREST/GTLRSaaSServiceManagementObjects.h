@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   SaaS Runtime API (saasservicemgmt/v1beta1)
+// Description:
+//   Model, deploy, and operate your SaaS at scale.
 // Documentation:
 //   https://cloud.google.com/saas-runtime/docs
 
@@ -1583,8 +1585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Saas_Labels *labels;
 
 /**
- *  Optional. Immutable. List of locations that the service is available in.
- *  Rollout refers to the list to generate a rollout plan.
+ *  Optional. List of locations that the service is available in. Rollout refers
+ *  to the list to generate a rollout plan.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_Location *> *locations;
 
@@ -1676,7 +1678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 /**
  *  Optional. Immutable. A reference to the consumer resource this SaaS Tenant
  *  is representing. The relationship with a consumer resource can be used by
- *  EasySaaS for retrieving consumer-defined settings and policies such as
+ *  SaaS Runtime for retrieving consumer-defined settings and policies such as
  *  maintenance policies (using Unified Maintenance Policy API).
  */
 @property(nonatomic, copy, nullable) NSString *consumerResource;
@@ -1706,8 +1708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /**
  *  Required. Immutable. A reference to the Saas that defines the product
- *  (managed service) that the producer wants to manage with EasySaaS. Part of
- *  the EasySaaS common data model.
+ *  (managed service) that the producer wants to manage with SaaS Runtime. Part
+ *  of the SaaS Runtime common data model.
  */
 @property(nonatomic, copy, nullable) NSString *saas;
 
@@ -1770,7 +1772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *dependency;
 
 /**
- *  Optional. Tells EasySaaS if this mapping should be used during lookup or not
+ *  Optional. Tells SaaS Runtime if this mapping should be used during lookup or
+ *  not
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2141,8 +2144,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /**
  *  Required. Immutable. A reference to the Saas that defines the product
- *  (managed service) that the producer wants to manage with EasySaaS. Part of
- *  the EasySaaS common data model. Immutable once set.
+ *  (managed service) that the producer wants to manage with SaaS Runtime. Part
+ *  of the SaaS Runtime common data model. Immutable once set.
  */
 @property(nonatomic, copy, nullable) NSString *saas;
 
@@ -2200,7 +2203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  will be allowed to execute at a time (that can change in the future for
  *  non-mutating operations). UnitOperations allow different actors interacting
  *  with the same unit to focus only on the change they have requested. This is
- *  a base object that contains the common fields in all unit operations.
+ *  a base object that contains the common fields in all unit operations. Next:
+ *  19
  */
 @interface GTLRSaaSServiceManagement_UnitOperation : GTLRObject
 

@@ -23888,6 +23888,56 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
 @end
 
 /**
+ *  Requests to remove a peering from the specified network. Applicable only for
+ *  PeeringConnection with update_strategy=CONSENSUS.
+ *
+ *  Method: compute.networks.requestRemovePeering
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworksRequestRemovePeering : GTLRComputeQuery
+
+/** Name of the network resource to remove peering from. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Requests to remove a peering from the specified network. Applicable only for
+ *  PeeringConnection with update_strategy=CONSENSUS.
+ *
+ *  @param object The @c GTLRCompute_NetworksRequestRemovePeeringRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param network Name of the network resource to remove peering from.
+ *
+ *  @return GTLRComputeQuery_NetworksRequestRemovePeering
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworksRequestRemovePeeringRequest *)object
+                        project:(NSString *)project
+                        network:(NSString *)network;
+
+@end
+
+/**
  *  Switches the network mode from auto subnet mode to custom subnet mode.
  *
  *  Method: compute.networks.switchToCustomMode

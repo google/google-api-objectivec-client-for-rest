@@ -1381,6 +1381,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  */
 @property(nonatomic, strong, nullable) NSNumber *copySourceAcl NS_RETURNS_NOT_RETAINED;
 
+/** Restores only the objects that were created after this time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAfterTime;
+
+/** Restores only the objects that were created before this time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdBeforeTime;
+
 /**
  *  Restores only the objects matching any of the specified glob(s). If this
  *  parameter is not specified, all objects will be restored within the

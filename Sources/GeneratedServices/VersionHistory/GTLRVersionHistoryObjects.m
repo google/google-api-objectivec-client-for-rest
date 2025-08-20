@@ -167,7 +167,33 @@ NSString * const kGTLRVersionHistory_Platform_PlatformType_WinArm64 = @"WIN_ARM6
 //
 
 @implementation GTLRVersionHistory_Release
-@dynamic fraction, fractionGroup, name, pinnable, serving, version;
+@dynamic fraction, fractionGroup, name, pinnable, rolloutData, serving, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rolloutData" : [GTLRVersionHistory_RolloutData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVersionHistory_RolloutData
+//
+
+@implementation GTLRVersionHistory_RolloutData
+@dynamic rolloutName, tag;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tag" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -522,7 +522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 /** Required. Name of the certification body. */
 @property(nonatomic, copy, nullable) NSString *authority;
 
-/** Required. A unique code to identify the certification. */
+/** Optional. A unique code to identify the certification. */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /** Optional. A URL link to the certification. */
@@ -661,11 +661,23 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 /** Required. Name of the certification body. */
 @property(nonatomic, copy, nullable) NSString *authority;
 
-/** Required. A unique code to identify the certification. */
+/** Optional. A unique code to identify the certification. */
 @property(nonatomic, copy, nullable) NSString *code;
+
+/** Optional. A URL link to the certification. */
+@property(nonatomic, copy, nullable) NSString *link;
+
+/** Optional. A URL link to the certification logo. */
+@property(nonatomic, copy, nullable) NSString *logo;
 
 /** Required. Name of the certification. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The expiration date (UTC). */
+@property(nonatomic, copy, nullable) NSString *validUntil;
+
+/** Optional. A custom value of the certification. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

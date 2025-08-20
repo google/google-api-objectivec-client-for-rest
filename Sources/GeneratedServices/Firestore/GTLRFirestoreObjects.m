@@ -1119,7 +1119,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Index
 @dynamic apiScope, density, fields, multikey, name, queryScope, shardCount,
-         state;
+         state, unique;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

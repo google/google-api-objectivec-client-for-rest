@@ -4,7 +4,7 @@
 // API:
 //   Cloud Dataplex API (dataplex/v1)
 // Description:
-//   Dataplex API is used to manage the lifecycle of data lakes.
+//   A unified, intelligent governance solution for data and AI assets.
 // Documentation:
 //   https://cloud.google.com/dataplex/docs
 

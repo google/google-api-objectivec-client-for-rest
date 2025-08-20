@@ -36,6 +36,25 @@
 
 @end
 
+@implementation GTLRAPIManagementQuery_ProjectsLocationsGetEntitlement
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRAPIManagementQuery_ProjectsLocationsGetEntitlement *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIManagement_Entitlement class];
+  query.loggingName = @"apim.projects.locations.getEntitlement";
+  return query;
+}
+
+@end
+
 @implementation GTLRAPIManagementQuery_ProjectsLocationsList
 
 @dynamic extraLocationTypes, filter, name, pageSize, pageToken;

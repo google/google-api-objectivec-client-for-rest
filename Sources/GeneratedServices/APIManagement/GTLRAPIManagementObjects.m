@@ -201,6 +201,17 @@ NSString * const kGTLRAPIManagement_TagAction_Action_Remove    = @"REMOVE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIManagement_Entitlement
+//
+
+@implementation GTLRAPIManagement_Entitlement
+@dynamic apiObservationEntitled, billingProjectNumber, createTime, name,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIManagement_GclbObservationSource
 //
 

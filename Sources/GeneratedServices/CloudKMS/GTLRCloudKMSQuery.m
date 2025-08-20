@@ -15,9 +15,11 @@
 // Constants
 
 // publicKeyFormat
+NSString * const kGTLRCloudKMSPublicKeyFormatDer               = @"DER";
 NSString * const kGTLRCloudKMSPublicKeyFormatNistPqc           = @"NIST_PQC";
 NSString * const kGTLRCloudKMSPublicKeyFormatPem               = @"PEM";
 NSString * const kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified = @"PUBLIC_KEY_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCloudKMSPublicKeyFormatXwingRawBytes     = @"XWING_RAW_BYTES";
 
 // versionView
 NSString * const kGTLRCloudKMSVersionViewCryptoKeyVersionViewUnspecified = @"CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED";
@@ -719,6 +721,33 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudKMS_CryptoKeyVersion class];
   query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDecapsulate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_DecapsulateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:decapsulate";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDecapsulate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_DecapsulateResponse class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.decapsulate";
   return query;
 }
 

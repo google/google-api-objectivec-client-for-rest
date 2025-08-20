@@ -1936,7 +1936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
  *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).) -
  *  `accessory_widgets` (Requires [app
- *  authentication](/chat/api/guides/auth/service-accounts).)
+ *  authentication](/chat/api/guides/auth/service-accounts).) -
+ *  `quoted_message_metadata` (Only allows removal of the quoted message.)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2237,7 +2238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
  *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).) -
  *  `accessory_widgets` (Requires [app
- *  authentication](/chat/api/guides/auth/service-accounts).)
+ *  authentication](/chat/api/guides/auth/service-accounts).) -
+ *  `quoted_message_metadata` (Only allows removal of the quoted message.)
  *
  *  String format is a comma-separated list of fields.
  */

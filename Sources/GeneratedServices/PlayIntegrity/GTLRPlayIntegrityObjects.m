@@ -70,6 +70,12 @@ NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PlayPr
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PossibleRisk = @"POSSIBLE_RISK";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated = @"UNEVALUATED";
 
+// GTLRPlayIntegrity_PcAccountDetails.appLicensingVerdict
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Licensed = @"LICENSED";
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
+
 // GTLRPlayIntegrity_PcDeviceIntegrity.deviceRecognitionVerdict
 NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_DeviceRecognitionVerdictUnspecified = @"DEVICE_RECOGNITION_VERDICT_UNSPECIFIED";
 NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_MeetsPcIntegrity = @"MEETS_PC_INTEGRITY";
@@ -235,6 +241,16 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlayIntegrity_PcAccountDetails
+//
+
+@implementation GTLRPlayIntegrity_PcAccountDetails
+@dynamic appLicensingVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlayIntegrity_PcDeviceIntegrity
 //
 
@@ -267,7 +283,7 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 //
 
 @implementation GTLRPlayIntegrity_PcTokenPayloadExternal
-@dynamic deviceIntegrity, requestDetails;
+@dynamic accountDetails, deviceIntegrity, requestDetails;
 @end
 
 

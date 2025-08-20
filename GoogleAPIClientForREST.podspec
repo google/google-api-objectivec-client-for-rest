@@ -1320,6 +1320,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/SecretManager/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/SecretManager/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'SecureSourceManager' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/SecureSourceManager/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/SecureSourceManager/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'SecurityCommandCenter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/SecurityCommandCenter/**/*.{h,m}'

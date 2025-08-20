@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   SaaS Runtime API (saasservicemgmt/v1beta1)
+// Description:
+//   Model, deploy, and operate your SaaS at scale.
 // Documentation:
 //   https://cloud.google.com/saas-runtime/docs
 
@@ -36,6 +38,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSaaSServiceManagementCloudPlatf
 
 /**
  *  Service for executing SaaS Runtime API queries.
+ *
+ *  Model, deploy, and operate your SaaS at scale.
  */
 @interface GTLRSaaSServiceManagementService : GTLRService
 

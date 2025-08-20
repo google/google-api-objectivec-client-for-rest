@@ -1119,12 +1119,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @interface GTLRStorageTransfer_ErrorLogEntry : GTLRObject
 
-/** A list of messages that carry the error details. */
+/** Optional. A list of messages that carry the error details. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errorDetails;
 
 /**
- *  Required. A URL that refers to the target (a data source, a data sink, or an
- *  object) with which the error is associated.
+ *  Output only. A URL that refers to the target (a data source, a data sink, or
+ *  an object) with which the error is associated.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -2643,19 +2643,19 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @interface GTLRStorageTransfer_TransferSpec : GTLRObject
 
-/** An AWS S3 compatible data source. */
+/** Optional. An AWS S3 compatible data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsS3CompatibleData *awsS3CompatibleDataSource;
 
-/** An AWS S3 data source. */
+/** Optional. An AWS S3 data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsS3Data *awsS3DataSource;
 
-/** An Azure Blob Storage data source. */
+/** Optional. An Azure Blob Storage data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AzureBlobStorageData *azureBlobStorageDataSource;
 
-/** A Cloud Storage data sink. */
+/** Optional. A Cloud Storage data sink. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSink;
 
-/** A Cloud Storage data source. */
+/** Optional. A Cloud Storage data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSource;
 
 /**
@@ -2667,10 +2667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsIntermediateDataLocation;
 
-/** An HDFS cluster data source. */
+/** Optional. An HDFS cluster data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_HdfsData *hdfsDataSource;
 
-/** An HTTP URL data source. */
+/** Optional. An HTTP URL data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_HttpData *httpDataSource;
 
 /**
@@ -2680,10 +2680,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_ObjectConditions *objectConditions;
 
-/** A POSIX Filesystem data sink. */
+/** Optional. A POSIX Filesystem data sink. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_PosixFilesystem *posixDataSink;
 
-/** A POSIX Filesystem data source. */
+/** Optional. A POSIX Filesystem data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_PosixFilesystem *posixDataSource;
 
 /**

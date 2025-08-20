@@ -67,6 +67,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChat;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChrome;
 /**
+ *  The Classroom activity reports return information about different types of
+ *  [Classroom activity
+ *  events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *
+ *  Value: "classroom"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameClassroom;
+/**
  *  The Context-aware access activity reports return information about users'
  *  access denied events due to Context-aware access rules.
  *
@@ -316,6 +324,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        Workspace activity reports return information about various types of
  *        Gemini activity events performed by users within a Workspace
  *        application. (Value: "gemini_in_workspace_apps")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -534,6 +547,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        Workspace activity reports return information about various types of
  *        Gemini activity events performed by users within a Workspace
  *        application. (Value: "gemini_in_workspace_apps")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *
@@ -639,6 +657,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return information about various Google Keep activity events.
  *        The Keep activity report is only available for Google Workspace
  *        Business and Enterprise customers. (Value: "keep")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -851,6 +874,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return information about various Google Keep activity events.
  *        The Keep activity report is only available for Google Workspace
  *        Business and Enterprise customers. (Value: "keep")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  *
  *  @return GTLRReportsQuery_ActivitiesWatch
  */

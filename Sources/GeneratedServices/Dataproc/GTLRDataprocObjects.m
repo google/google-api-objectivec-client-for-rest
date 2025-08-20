@@ -243,6 +243,7 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi = @"HUDI";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Iceberg = @"ICEBERG";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_JupyterKernelGateway = @"JUPYTER_KERNEL_GATEWAY";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Pig = @"PIG";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Ranger = @"RANGER";
@@ -470,7 +471,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_AnalyzeBatchRequest
-@dynamic requestId;
+@dynamic requestId, requestorId;
 @end
 
 

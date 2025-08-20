@@ -222,6 +222,11 @@ NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_TrackingSt
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_UnsupportedFirewallPolicyRule = @"UNSUPPORTED_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule = @"VPC_FIREWALL_RULE";
 
+// GTLRNetworkManagement_FirewallInfo.targetType
+NSString * const kGTLRNetworkManagement_FirewallInfo_TargetType_Instances = @"INSTANCES";
+NSString * const kGTLRNetworkManagement_FirewallInfo_TargetType_InternalManagedLb = @"INTERNAL_MANAGED_LB";
+NSString * const kGTLRNetworkManagement_FirewallInfo_TargetType_TargetTypeUnspecified = @"TARGET_TYPE_UNSPECIFIED";
+
 // GTLRNetworkManagement_ForwardInfo.target
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_AnotherProject = @"ANOTHER_PROJECT";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
@@ -344,7 +349,6 @@ NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Unreachable = @"UN
 NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPoint = @"MONITORING_POINT";
 NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPolicy = @"MONITORING_POLICY";
 NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath = @"NETWORK_PATH";
-NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_PathTemplate = @"PATH_TEMPLATE";
 NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_WebPath = @"WEB_PATH";
 
@@ -403,6 +407,7 @@ NSString * const kGTLRNetworkManagement_Step_State_ApplyIngressFirewallRule = @"
 NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute  = @"APPLY_ROUTE";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer = @"ARRIVE_AT_EXTERNAL_LOAD_BALANCER";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInstance = @"ARRIVE_AT_INSTANCE";
+NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInterconnectAttachment = @"ARRIVE_AT_INTERCONNECT_ATTACHMENT";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer = @"ARRIVE_AT_INTERNAL_LOAD_BALANCER";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpcConnector = @"ARRIVE_AT_VPC_CONNECTOR";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnGateway = @"ARRIVE_AT_VPN_GATEWAY";
@@ -692,7 +697,8 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_DropInfo
-@dynamic cause, destinationIp, region, resourceUri, sourceIp;
+@dynamic cause, destinationGeolocationCode, destinationIp, region, resourceUri,
+         sourceGeolocationCode, sourceIp;
 @end
 
 
@@ -762,7 +768,7 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 @implementation GTLRNetworkManagement_FirewallInfo
 @dynamic action, direction, displayName, firewallRuleType, networkUri, policy,
          policyPriority, policyUri, priority, targetServiceAccounts, targetTags,
-         uri;
+         targetType, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -794,6 +800,16 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 @dynamic displayName, loadBalancerName, matchedPortRange, matchedProtocol,
          networkUri, pscGoogleApiTarget, pscServiceAttachmentUri, region,
          target, uri, vip;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_GeoLocation
+//
+
+@implementation GTLRNetworkManagement_GeoLocation
+@dynamic country, formattedAddress;
 @end
 
 
@@ -853,6 +869,16 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_InterconnectAttachmentInfo
+//
+
+@implementation GTLRNetworkManagement_InterconnectAttachmentInfo
+@dynamic cloudRouterUri, displayName, interconnectUri, region, uri;
 @end
 
 
@@ -1158,7 +1184,8 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 @implementation GTLRNetworkManagement_MonitoringPoint
 @dynamic autoGeoLocationEnabled, connectionStatus, createTime, displayName,
          errors, geoLocation, host, hostname, name, networkInterfaces,
-         originatingIp, providerTags, type, updateTime, upgradeType, version;
+         originatingIp, providerTags, type, updateTime, upgradeAvailable,
+         upgradeType, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1211,7 +1238,15 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_NetworkMonitoringProvider
-@dynamic createTime, name, providerType, providerUri, state, updateTime;
+@dynamic createTime, errors, name, providerType, providerUri, state, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1507,11 +1542,11 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 @dynamic abort, appEngineVersion, causesDrop, cloudFunction, cloudRunRevision,
          cloudSqlInstance, deliver, descriptionProperty,
          directVpcEgressConnection, drop, endpoint, firewall, forward,
-         forwardingRule, gkeMaster, googleService, instance, loadBalancer,
-         loadBalancerBackendInfo, nat, network, projectId, proxyConnection,
-         redisCluster, redisInstance, route, serverlessExternalConnection,
-         serverlessNeg, state, storageBucket, vpcConnector, vpnGateway,
-         vpnTunnel;
+         forwardingRule, gkeMaster, googleService, instance,
+         interconnectAttachment, loadBalancer, loadBalancerBackendInfo, nat,
+         network, projectId, proxyConnection, redisCluster, redisInstance,
+         route, serverlessExternalConnection, serverlessNeg, state,
+         storageBucket, vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

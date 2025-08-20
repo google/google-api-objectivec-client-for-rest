@@ -94,7 +94,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Creates a new Label.
+ *  Creates a label. For more information, see [Create and publish a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/create-label).
  *
  *  Method: drivelabels.labels.create
  *
@@ -105,7 +106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_LabelsCreate : GTLRDriveLabelsQuery
 
 /**
- *  The BCP-47 language code to use for evaluating localized Field labels in
+ *  The BCP-47 language code to use for evaluating localized field labels in
  *  response. When not specified, values in the default configured language will
  *  be used.
  */
@@ -120,7 +121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
  *
- *  Creates a new Label.
+ *  Creates a label. For more information, see [Create and publish a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/create-label).
  *
  *  @param object The @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label to include
  *    in the query.
@@ -132,9 +134,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Permanently deletes a Label and related metadata on Drive Items. Once
- *  deleted, the Label and related Drive item metadata will be deleted. Only
- *  draft Labels, and disabled Labels may be deleted.
+ *  Permanently deletes a label and related metadata on Drive items. For more
+ *  information, see [Disable, enable, and delete a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label).
+ *  Once deleted, the label and related Drive item metadata will be deleted.
+ *  Only draft labels and disabled labels may be deleted.
  *
  *  Method: drivelabels.labels.delete
  *
@@ -149,13 +153,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
- *  The revision_id of the label that the write request will be applied to. If
- *  this is not the latest revision of the label, the request will not be
+ *  The revision ID of the label that the write request will be applied to. If
+ *  this isn't the latest revision of the label, the request will not be
  *  processed and will return a 400 Bad Request error.
  */
 @property(nonatomic, copy, nullable) NSString *writeControlRequiredRevisionId;
@@ -163,9 +167,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleProtobufEmpty.
  *
- *  Permanently deletes a Label and related metadata on Drive Items. Once
- *  deleted, the Label and related Drive item metadata will be deleted. Only
- *  draft Labels, and disabled Labels may be deleted.
+ *  Permanently deletes a label and related metadata on Drive items. For more
+ *  information, see [Disable, enable, and delete a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label).
+ *  Once deleted, the label and related Drive item metadata will be deleted.
+ *  Only draft labels and disabled labels may be deleted.
  *
  *  @param name Required. Label resource name.
  *
@@ -176,10 +182,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates a single Label by applying a set of update requests resulting in a
- *  new draft revision. The batch update is all-or-nothing: If any of the update
- *  requests are invalid, no changes are applied. The resulting draft revision
- *  must be published before the changes may be used with Drive Items.
+ *  Updates a single label by applying a set of update requests resulting in a
+ *  new draft revision. For more information, see [Update a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/update-label).
+ *  The batch update is all-or-nothing: If any of the update requests are
+ *  invalid, no changes are applied. The resulting draft revision must be
+ *  published before the changes may be used with Drive items.
  *
  *  Method: drivelabels.labels.delta
  *
@@ -189,22 +197,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsDelta : GTLRDriveLabelsQuery
 
-/** Required. The resource name of the Label to update. */
+/** Required. The resource name of the label to update. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c
  *  GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponse.
  *
- *  Updates a single Label by applying a set of update requests resulting in a
- *  new draft revision. The batch update is all-or-nothing: If any of the update
- *  requests are invalid, no changes are applied. The resulting draft revision
- *  must be published before the changes may be used with Drive Items.
+ *  Updates a single label by applying a set of update requests resulting in a
+ *  new draft revision. For more information, see [Update a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/update-label).
+ *  The batch update is all-or-nothing: If any of the update requests are
+ *  invalid, no changes are applied. The resulting draft revision must be
+ *  published before the changes may be used with Drive items.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest to include
  *    in the query.
- *  @param name Required. The resource name of the Label to update.
+ *  @param name Required. The resource name of the label to update.
  *
  *  @return GTLRDriveLabelsQuery_LabelsDelta
  */
@@ -214,11 +224,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Disable a published Label. Disabling a Label will result in a new disabled
- *  published revision based on the current published revision. If there is a
- *  draft revision, a new disabled draft revision will be created based on the
- *  latest draft revision. Older draft revisions will be deleted. Once disabled,
- *  a label may be deleted with `DeleteLabel`.
+ *  Disable a published label. For more information, see [Disable, enable, and
+ *  delete a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label).
+ *  Disabling a label will result in a new disabled published revision based on
+ *  the current published revision. If there's a draft revision, a new disabled
+ *  draft revision will be created based on the latest draft revision. Older
+ *  draft revisions will be deleted. Once disabled, a label may be deleted with
+ *  `DeleteLabel`.
  *
  *  Method: drivelabels.labels.disable
  *
@@ -234,11 +247,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
  *
- *  Disable a published Label. Disabling a Label will result in a new disabled
- *  published revision based on the current published revision. If there is a
- *  draft revision, a new disabled draft revision will be created based on the
- *  latest draft revision. Older draft revisions will be deleted. Once disabled,
- *  a label may be deleted with `DeleteLabel`.
+ *  Disable a published label. For more information, see [Disable, enable, and
+ *  delete a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label).
+ *  Disabling a label will result in a new disabled published revision based on
+ *  the current published revision. If there's a draft revision, a new disabled
+ *  draft revision will be created based on the latest draft revision. Older
+ *  draft revisions will be deleted. Once disabled, a label may be deleted with
+ *  `DeleteLabel`.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2DisableLabelRequest to include in
@@ -253,10 +269,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Enable a disabled Label and restore it to its published state. This will
- *  result in a new published revision based on the current disabled published
- *  revision. If there is an existing disabled draft revision, a new revision
- *  will be created based on that draft and will be enabled.
+ *  Enable a disabled label and restore it to its published state. For more
+ *  information, see [Disable, enable, and delete a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label).
+ *  This will result in a new published revision based on the current disabled
+ *  published revision. If there's an existing disabled draft revision, a new
+ *  revision will be created based on that draft and will be enabled.
  *
  *  Method: drivelabels.labels.enable
  *
@@ -272,10 +290,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
  *
- *  Enable a disabled Label and restore it to its published state. This will
- *  result in a new published revision based on the current disabled published
- *  revision. If there is an existing disabled draft revision, a new revision
- *  will be created based on that draft and will be enabled.
+ *  Enable a disabled label and restore it to its published state. For more
+ *  information, see [Disable, enable, and delete a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label).
+ *  This will result in a new published revision based on the current disabled
+ *  published revision. If there's an existing disabled draft revision, a new
+ *  revision will be created based on that draft and will be enabled.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2EnableLabelRequest to include in
@@ -290,11 +310,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Get a label by its resource name. Resource name may be any of: *
- *  `labels/{id}` - See `labels/{id}\@latest` * `labels/{id}\@latest` - Gets the
- *  latest revision of the label. * `labels/{id}\@published` - Gets the current
- *  published revision of the label. * `labels/{id}\@{revision_id}` - Gets the
- *  label at the specified revision ID.
+ *  Get a label by its resource name. For more information, see [Search for
+ *  labels](https://developers.google.com/workspace/drive/labels/guides/search-label).
+ *  Resource name may be any of: * `labels/{id}` - See `labels/{id}\@latest` *
+ *  `labels/{id}\@latest` - Gets the latest revision of the label. *
+ *  `labels/{id}\@published` - Gets the current published revision of the label.
+ *  * `labels/{id}\@{revision_id}` - Gets the label at the specified revision
+ *  ID.
  *
  *  Method: drivelabels.labels.get
  *
@@ -341,11 +363,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
  *
- *  Get a label by its resource name. Resource name may be any of: *
- *  `labels/{id}` - See `labels/{id}\@latest` * `labels/{id}\@latest` - Gets the
- *  latest revision of the label. * `labels/{id}\@published` - Gets the current
- *  published revision of the label. * `labels/{id}\@{revision_id}` - Gets the
- *  label at the specified revision ID.
+ *  Get a label by its resource name. For more information, see [Search for
+ *  labels](https://developers.google.com/workspace/drive/labels/guides/search-label).
+ *  Resource name may be any of: * `labels/{id}` - See `labels/{id}\@latest` *
+ *  `labels/{id}\@latest` - Gets the latest revision of the label. *
+ *  `labels/{id}\@published` - Gets the current published revision of the label.
+ *  * `labels/{id}\@{revision_id}` - Gets the label at the specified revision
+ *  ID.
  *
  *  @param name Required. Label resource name. May be any of: * `labels/{id}`
  *    (equivalent to labels/{id}\@latest) * `labels/{id}\@latest` *
@@ -358,7 +382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  List labels.
+ *  List labels. For more information, see [Search for
+ *  labels](https://developers.google.com/workspace/drive/labels/guides/search-label).
  *
  *  Method: drivelabels.labels.list
  *
@@ -372,7 +397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 
 /**
  *  The customer to scope this list request to. For example:
- *  "customers/abcd1234". If unset, will return all labels within the current
+ *  `customers/abcd1234`. If unset, will return all labels within the current
  *  customer.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -384,7 +409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Specifies the level of access the user must have on the returned Labels. The
+ *  Specifies the level of access the user must have on the returned labels. The
  *  minimum role a user must have on a label. Defaults to `READER`.
  *
  *  Likely values:
@@ -422,7 +447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. This will return
- *  all Labels within the customer.
+ *  all labels within the customer.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
@@ -442,7 +467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLabelsResponse.
  *
- *  List labels.
+ *  List labels. For more information, see [Search for
+ *  labels](https://developers.google.com/workspace/drive/labels/guides/search-label).
  *
  *  @return GTLRDriveLabelsQuery_LabelsList
  *
@@ -455,7 +481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Lists the LabelLocks on a Label.
+ *  Lists the label locks on a label.
  *
  *  Method: drivelabels.labels.locks.list
  *
@@ -467,22 +493,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsLocksList : GTLRDriveLabelsQuery
 
-/** Maximum number of Locks to return per page. Default: 100. Max: 200. */
+/** Maximum number of locks to return per page. Default: 100. Max: 200. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The token of the page to return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Label on which Locks are applied. Format: labels/{label} */
+/** Required. Label on which locks are applied. Format: `labels/{label}`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLabelLocksResponse.
  *
- *  Lists the LabelLocks on a Label.
+ *  Lists the label locks on a label.
  *
- *  @param parent Required. Label on which Locks are applied. Format:
- *    labels/{label}
+ *  @param parent Required. Label on which locks are applied. Format:
+ *    `labels/{label}`.
  *
  *  @return GTLRDriveLabelsQuery_LabelsLocksList
  *
@@ -495,8 +521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Deletes Label permissions. Permissions affect the Label resource as a whole,
- *  are not revisioned, and do not require publishing.
+ *  Deletes label permissions. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.permissions.batchDelete
  *
@@ -507,9 +533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_LabelsPermissionsBatchDelete : GTLRDriveLabelsQuery
 
 /**
- *  Required. The parent Label resource name shared by all permissions being
- *  deleted. Format: labels/{label} If this is set, the parent field in the
- *  UpdateLabelPermissionRequest messages must either be empty or match this
+ *  Required. The parent label resource name shared by all permissions being
+ *  deleted. Format: `labels/{label}`. If this is set, the parent field in the
+ *  `UpdateLabelPermissionRequest` messages must either be empty or match this
  *  field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -517,15 +543,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleProtobufEmpty.
  *
- *  Deletes Label permissions. Permissions affect the Label resource as a whole,
- *  are not revisioned, and do not require publishing.
+ *  Deletes label permissions. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest
  *    to include in the query.
- *  @param parent Required. The parent Label resource name shared by all
- *    permissions being deleted. Format: labels/{label} If this is set, the
- *    parent field in the UpdateLabelPermissionRequest messages must either be
+ *  @param parent Required. The parent label resource name shared by all
+ *    permissions being deleted. Format: `labels/{label}`. If this is set, the
+ *    parent field in the `UpdateLabelPermissionRequest` messages must either be
  *    empty or match this field.
  *
  *  @return GTLRDriveLabelsQuery_LabelsPermissionsBatchDelete
@@ -536,10 +562,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates Label permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates label permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.permissions.batchUpdate
  *
@@ -550,9 +576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_LabelsPermissionsBatchUpdate : GTLRDriveLabelsQuery
 
 /**
- *  Required. The parent Label resource name shared by all permissions being
- *  updated. Format: labels/{label} If this is set, the parent field in the
- *  UpdateLabelPermissionRequest messages must either be empty or match this
+ *  Required. The parent label resource name shared by all permissions being
+ *  updated. Format: `labels/{label}`. If this is set, the parent field in the
+ *  `UpdateLabelPermissionRequest` messages must either be empty or match this
  *  field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -561,17 +587,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Fetches a @c
  *  GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsResponse.
  *
- *  Updates Label permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates label permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest
  *    to include in the query.
- *  @param parent Required. The parent Label resource name shared by all
- *    permissions being updated. Format: labels/{label} If this is set, the
- *    parent field in the UpdateLabelPermissionRequest messages must either be
+ *  @param parent Required. The parent label resource name shared by all
+ *    permissions being updated. Format: `labels/{label}`. If this is set, the
+ *    parent field in the `UpdateLabelPermissionRequest` messages must either be
  *    empty or match this field.
  *
  *  @return GTLRDriveLabelsQuery_LabelsPermissionsBatchUpdate
@@ -582,10 +608,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.permissions.create
  *
@@ -596,29 +622,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_LabelsPermissionsCreate : GTLRDriveLabelsQuery
 
 /**
- *  Required. The parent Label resource name on the Label Permission is created.
- *  Format: labels/{label}
+ *  Required. The parent label resource name on the label permission is created.
+ *  Format: `labels/{label}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission.
  *
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission
  *    to include in the query.
- *  @param parent Required. The parent Label resource name on the Label
- *    Permission is created. Format: labels/{label}
+ *  @param parent Required. The parent label resource name on the label
+ *    permission is created. Format: `labels/{label}`.
  *
  *  @return GTLRDriveLabelsQuery_LabelsPermissionsCreate
  */
@@ -628,8 +654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Deletes a Label's permission. Permissions affect the Label resource as a
- *  whole, are not revisioned, and do not require publishing.
+ *  Deletes a label's permission. Permissions affect the label resource as a
+ *  whole, aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.permissions.delete
  *
@@ -639,22 +665,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsPermissionsDelete : GTLRDriveLabelsQuery
 
-/** Required. Label Permission resource name. */
+/** Required. Label permission resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleProtobufEmpty.
  *
- *  Deletes a Label's permission. Permissions affect the Label resource as a
- *  whole, are not revisioned, and do not require publishing.
+ *  Deletes a label's permission. Permissions affect the label resource as a
+ *  whole, aren't revisioned, and don't require publishing.
  *
- *  @param name Required. Label Permission resource name.
+ *  @param name Required. Label permission resource name.
  *
  *  @return GTLRDriveLabelsQuery_LabelsPermissionsDelete
  */
@@ -663,7 +689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Lists a Label's permissions.
+ *  Lists a label's permissions.
  *
  *  Method: drivelabels.labels.permissions.list
  *
@@ -684,14 +710,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent Label resource name on which Label Permission are
- *  listed. Format: labels/{label}
+ *  Required. The parent label resource name on which label permissions are
+ *  listed. Format: `labels/{label}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
@@ -699,10 +725,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Fetches a @c
  *  GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLabelPermissionsResponse.
  *
- *  Lists a Label's permissions.
+ *  Lists a label's permissions.
  *
- *  @param parent Required. The parent Label resource name on which Label
- *    Permission are listed. Format: labels/{label}
+ *  @param parent Required. The parent label resource name on which label
+ *    permissions are listed. Format: `labels/{label}`.
  *
  *  @return GTLRDriveLabelsQuery_LabelsPermissionsList
  *
@@ -715,18 +741,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Publish all draft changes to the Label. Once published, the Label may not
- *  return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for
- *  more information. Publishing a Label will result in a new published
- *  revision. All previous draft revisions will be deleted. Previous published
- *  revisions will be kept but are subject to automated deletion as needed. Once
- *  published, some changes are no longer permitted. Generally, any change that
- *  would invalidate or cause new restrictions on existing metadata related to
- *  the Label will be rejected. For example, the following changes to a Label
- *  will be rejected after the Label is published: * The label cannot be
- *  directly deleted. It must be disabled first, then deleted. * Field.FieldType
- *  cannot be changed. * Changes to Field validation options cannot reject
- *  something that was previously accepted. * Reducing the max entries.
+ *  Publish all draft changes to the label. Once published, the label may not
+ *  return to its draft state. For more information, see [Create and publish a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/create-label).
+ *  Publishing a label will result in a new published revision. All previous
+ *  draft revisions will be deleted. Previous published revisions will be kept
+ *  but are subject to automated deletion as needed. For more information, see
+ *  [Label
+ *  lifecycle](https://developers.google.com/workspace/drive/labels/guides/label-lifecycle).
+ *  Once published, some changes are no longer permitted. Generally, any change
+ *  that would invalidate or cause new restrictions on existing metadata related
+ *  to the label will be rejected. For example, the following changes to a label
+ *  will be rejected after the label is published: * The label cannot be
+ *  directly deleted. It must be disabled first, then deleted. *
+ *  `Field.FieldType` cannot be changed. * Changes to field validation options
+ *  cannot reject something that was previously accepted. * Reducing the maximum
+ *  entries.
  *
  *  Method: drivelabels.labels.publish
  *
@@ -742,18 +772,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
  *
- *  Publish all draft changes to the Label. Once published, the Label may not
- *  return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for
- *  more information. Publishing a Label will result in a new published
- *  revision. All previous draft revisions will be deleted. Previous published
- *  revisions will be kept but are subject to automated deletion as needed. Once
- *  published, some changes are no longer permitted. Generally, any change that
- *  would invalidate or cause new restrictions on existing metadata related to
- *  the Label will be rejected. For example, the following changes to a Label
- *  will be rejected after the Label is published: * The label cannot be
- *  directly deleted. It must be disabled first, then deleted. * Field.FieldType
- *  cannot be changed. * Changes to Field validation options cannot reject
- *  something that was previously accepted. * Reducing the max entries.
+ *  Publish all draft changes to the label. Once published, the label may not
+ *  return to its draft state. For more information, see [Create and publish a
+ *  label](https://developers.google.com/workspace/drive/labels/guides/create-label).
+ *  Publishing a label will result in a new published revision. All previous
+ *  draft revisions will be deleted. Previous published revisions will be kept
+ *  but are subject to automated deletion as needed. For more information, see
+ *  [Label
+ *  lifecycle](https://developers.google.com/workspace/drive/labels/guides/label-lifecycle).
+ *  Once published, some changes are no longer permitted. Generally, any change
+ *  that would invalidate or cause new restrictions on existing metadata related
+ *  to the label will be rejected. For example, the following changes to a label
+ *  will be rejected after the label is published: * The label cannot be
+ *  directly deleted. It must be disabled first, then deleted. *
+ *  `Field.FieldType` cannot be changed. * Changes to field validation options
+ *  cannot reject something that was previously accepted. * Reducing the maximum
+ *  entries.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2PublishLabelRequest to include in
@@ -768,7 +802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Lists the LabelLocks on a Label.
+ *  Lists the label locks on a label.
  *
  *  Method: drivelabels.labels.revisions.locks.list
  *
@@ -780,22 +814,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsLocksList : GTLRDriveLabelsQuery
 
-/** Maximum number of Locks to return per page. Default: 100. Max: 200. */
+/** Maximum number of locks to return per page. Default: 100. Max: 200. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The token of the page to return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Label on which Locks are applied. Format: labels/{label} */
+/** Required. Label on which locks are applied. Format: `labels/{label}`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLabelLocksResponse.
  *
- *  Lists the LabelLocks on a Label.
+ *  Lists the label locks on a label.
  *
- *  @param parent Required. Label on which Locks are applied. Format:
- *    labels/{label}
+ *  @param parent Required. Label on which locks are applied. Format:
+ *    `labels/{label}`.
  *
  *  @return GTLRDriveLabelsQuery_LabelsRevisionsLocksList
  *
@@ -808,8 +842,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Deletes Label permissions. Permissions affect the Label resource as a whole,
- *  are not revisioned, and do not require publishing.
+ *  Deletes label permissions. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.batchDelete
  *
@@ -820,9 +854,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsBatchDelete : GTLRDriveLabelsQuery
 
 /**
- *  Required. The parent Label resource name shared by all permissions being
- *  deleted. Format: labels/{label} If this is set, the parent field in the
- *  UpdateLabelPermissionRequest messages must either be empty or match this
+ *  Required. The parent label resource name shared by all permissions being
+ *  deleted. Format: `labels/{label}`. If this is set, the parent field in the
+ *  `UpdateLabelPermissionRequest` messages must either be empty or match this
  *  field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -830,15 +864,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleProtobufEmpty.
  *
- *  Deletes Label permissions. Permissions affect the Label resource as a whole,
- *  are not revisioned, and do not require publishing.
+ *  Deletes label permissions. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest
  *    to include in the query.
- *  @param parent Required. The parent Label resource name shared by all
- *    permissions being deleted. Format: labels/{label} If this is set, the
- *    parent field in the UpdateLabelPermissionRequest messages must either be
+ *  @param parent Required. The parent label resource name shared by all
+ *    permissions being deleted. Format: `labels/{label}`. If this is set, the
+ *    parent field in the `UpdateLabelPermissionRequest` messages must either be
  *    empty or match this field.
  *
  *  @return GTLRDriveLabelsQuery_LabelsRevisionsPermissionsBatchDelete
@@ -849,10 +883,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates Label permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates label permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.batchUpdate
  *
@@ -863,9 +897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsBatchUpdate : GTLRDriveLabelsQuery
 
 /**
- *  Required. The parent Label resource name shared by all permissions being
- *  updated. Format: labels/{label} If this is set, the parent field in the
- *  UpdateLabelPermissionRequest messages must either be empty or match this
+ *  Required. The parent label resource name shared by all permissions being
+ *  updated. Format: `labels/{label}`. If this is set, the parent field in the
+ *  `UpdateLabelPermissionRequest` messages must either be empty or match this
  *  field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -874,17 +908,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Fetches a @c
  *  GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsResponse.
  *
- *  Updates Label permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates label permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest
  *    to include in the query.
- *  @param parent Required. The parent Label resource name shared by all
- *    permissions being updated. Format: labels/{label} If this is set, the
- *    parent field in the UpdateLabelPermissionRequest messages must either be
+ *  @param parent Required. The parent label resource name shared by all
+ *    permissions being updated. Format: `labels/{label}`. If this is set, the
+ *    parent field in the `UpdateLabelPermissionRequest` messages must either be
  *    empty or match this field.
  *
  *  @return GTLRDriveLabelsQuery_LabelsRevisionsPermissionsBatchUpdate
@@ -895,10 +929,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.create
  *
@@ -909,29 +943,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsCreate : GTLRDriveLabelsQuery
 
 /**
- *  Required. The parent Label resource name on the Label Permission is created.
- *  Format: labels/{label}
+ *  Required. The parent label resource name on the label permission is created.
+ *  Format: `labels/{label}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission.
  *
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission
  *    to include in the query.
- *  @param parent Required. The parent Label resource name on the Label
- *    Permission is created. Format: labels/{label}
+ *  @param parent Required. The parent label resource name on the label
+ *    permission is created. Format: `labels/{label}`.
  *
  *  @return GTLRDriveLabelsQuery_LabelsRevisionsPermissionsCreate
  */
@@ -941,8 +975,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Deletes a Label's permission. Permissions affect the Label resource as a
- *  whole, are not revisioned, and do not require publishing.
+ *  Deletes a label's permission. Permissions affect the label resource as a
+ *  whole, aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.delete
  *
@@ -952,22 +986,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsDelete : GTLRDriveLabelsQuery
 
-/** Required. Label Permission resource name. */
+/** Required. Label permission resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleProtobufEmpty.
  *
- *  Deletes a Label's permission. Permissions affect the Label resource as a
- *  whole, are not revisioned, and do not require publishing.
+ *  Deletes a label's permission. Permissions affect the label resource as a
+ *  whole, aren't revisioned, and don't require publishing.
  *
- *  @param name Required. Label Permission resource name.
+ *  @param name Required. Label permission resource name.
  *
  *  @return GTLRDriveLabelsQuery_LabelsRevisionsPermissionsDelete
  */
@@ -976,7 +1010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Lists a Label's permissions.
+ *  Lists a label's permissions.
  *
  *  Method: drivelabels.labels.revisions.permissions.list
  *
@@ -997,14 +1031,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent Label resource name on which Label Permission are
- *  listed. Format: labels/{label}
+ *  Required. The parent label resource name on which label permissions are
+ *  listed. Format: `labels/{label}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
@@ -1012,10 +1046,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Fetches a @c
  *  GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLabelPermissionsResponse.
  *
- *  Lists a Label's permissions.
+ *  Lists a label's permissions.
  *
- *  @param parent Required. The parent Label resource name on which Label
- *    Permission are listed. Format: labels/{label}
+ *  @param parent Required. The parent label resource name on which label
+ *    permissions are listed. Format: `labels/{label}`.
  *
  *  @return GTLRDriveLabelsQuery_LabelsRevisionsPermissionsList
  *
@@ -1028,10 +1062,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.revisions.updatePermissions
  *
@@ -1041,26 +1075,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsUpdatePermissions : GTLRDriveLabelsQuery
 
-/** Required. The parent Label resource name. */
+/** Required. The parent label resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission.
  *
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission
  *    to include in the query.
- *  @param parent Required. The parent Label resource name.
+ *  @param parent Required. The parent label resource name.
  *
  *  @return GTLRDriveLabelsQuery_LabelsRevisionsUpdatePermissions
  */
@@ -1070,8 +1104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do
- *  not require publishing, and take effect immediately.
+ *  Updates a label's `CopyMode`. Changes to this policy aren't revisioned,
+ *  don't require publishing, and take effect immediately.
  *
  *  Method: drivelabels.labels.updateLabelCopyMode
  *
@@ -1081,19 +1115,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsUpdateLabelCopyMode : GTLRDriveLabelsQuery
 
-/** Required. The resource name of the Label to update. */
+/** Required. The resource name of the label to update. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
  *
- *  Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do
- *  not require publishing, and take effect immediately.
+ *  Updates a label's `CopyMode`. Changes to this policy aren't revisioned,
+ *  don't require publishing, and take effect immediately.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest to
  *    include in the query.
- *  @param name Required. The resource name of the Label to update.
+ *  @param name Required. The resource name of the label to update.
  *
  *  @return GTLRDriveLabelsQuery_LabelsUpdateLabelCopyMode
  */
@@ -1103,32 +1137,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates a Label's EabledAppSettings. Enabling a Label in a Workspace
- *  Application allows it to be used in that application. This change is not
- *  revisioned, does not require publishing, and takes effect immediately.
+ *  Updates a label's `EnabledAppSettings`. Enabling a label in a Google
+ *  Workspace app allows it to be used in that app. This change isn't
+ *  revisioned, doesn't require publishing, and takes effect immediately.
  *
  *  Method: drivelabels.labels.updateLabelEnabledAppSettings
  */
 @interface GTLRDriveLabelsQuery_LabelsUpdateLabelEnabledAppSettings : GTLRDriveLabelsQuery
 
 /**
- *  Required. The resource name of the Label to update. The resource name of the
- *  Label to update.
+ *  Required. The resource name of the label to update. The resource name of the
+ *  label to update.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.
  *
- *  Updates a Label's EabledAppSettings. Enabling a Label in a Workspace
- *  Application allows it to be used in that application. This change is not
- *  revisioned, does not require publishing, and takes effect immediately.
+ *  Updates a label's `EnabledAppSettings`. Enabling a label in a Google
+ *  Workspace app allows it to be used in that app. This change isn't
+ *  revisioned, doesn't require publishing, and takes effect immediately.
  *
  *  @param object The @c
  *    GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest
  *    to include in the query.
- *  @param name Required. The resource name of the Label to update. The resource
- *    name of the Label to update.
+ *  @param name Required. The resource name of the label to update. The resource
+ *    name of the label to update.
  *
  *  @return GTLRDriveLabelsQuery_LabelsUpdateLabelEnabledAppSettings
  */
@@ -1138,10 +1172,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  Method: drivelabels.labels.updatePermissions
  *
@@ -1151,26 +1185,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LabelsUpdatePermissions : GTLRDriveLabelsQuery
 
-/** Required. The parent Label resource name. */
+/** Required. The parent label resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission.
  *
- *  Updates a Label's permissions. If a permission for the indicated principal
- *  doesn't exist, a new Label Permission is created, otherwise the existing
- *  permission is updated. Permissions affect the Label resource as a whole, are
- *  not revisioned, and do not require publishing.
+ *  Updates a label's permissions. If a permission for the indicated principal
+ *  doesn't exist, a label permission is created, otherwise the existing
+ *  permission is updated. Permissions affect the label resource as a whole,
+ *  aren't revisioned, and don't require publishing.
  *
  *  @param object The @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission
  *    to include in the query.
- *  @param parent Required. The parent Label resource name.
+ *  @param parent Required. The parent label resource name.
  *
  *  @return GTLRDriveLabelsQuery_LabelsUpdatePermissions
  */
@@ -1180,8 +1214,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @end
 
 /**
- *  Get the constraints on the structure of a Label; such as, the maximum number
- *  of Fields allowed and maximum length of the label title.
+ *  Get the constraints on the structure of a label; such as, the maximum number
+ *  of fields allowed and maximum length of the label title.
  *
  *  Method: drivelabels.limits.getLabel
  *
@@ -1193,14 +1227,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  */
 @interface GTLRDriveLabelsQuery_LimitsGetLabel : GTLRDriveLabelsQuery
 
-/** Required. Label revision resource name Must be: "limits/label" */
+/** Required. Label revision resource name must be: "limits/label". */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLimits.
  *
- *  Get the constraints on the structure of a Label; such as, the maximum number
- *  of Fields allowed and maximum length of the label title.
+ *  Get the constraints on the structure of a label; such as, the maximum number
+ *  of fields allowed and maximum length of the label title.
  *
  *  @return GTLRDriveLabelsQuery_LimitsGetLabel
  */
@@ -1222,8 +1256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
 @interface GTLRDriveLabelsQuery_UsersGetCapabilities : GTLRDriveLabelsQuery
 
 /**
- *  The customer to scope this request to. For example: "customers/abcd1234". If
- *  unset, will return settings within the current customer.
+ *  The customer to scope this request to. For example: `customers/abcd1234`. If
+ *  unset, it will return settings within the current customer.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 

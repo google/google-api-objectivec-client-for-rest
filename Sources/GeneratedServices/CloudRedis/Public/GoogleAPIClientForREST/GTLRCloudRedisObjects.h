@@ -21,6 +21,7 @@
 @class GTLRCloudRedis_BackupCollection;
 @class GTLRCloudRedis_BackupConfiguration;
 @class GTLRCloudRedis_BackupDRConfiguration;
+@class GTLRCloudRedis_BackupDRMetadata;
 @class GTLRCloudRedis_BackupFile;
 @class GTLRCloudRedis_BackupRun;
 @class GTLRCloudRedis_CertChain;
@@ -567,6 +568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig
 // GTLRCloudRedis_DatabaseResourceFeed.feedType
 
 /**
+ *  Database resource metadata from BackupDR
+ *
+ *  Value: "BACKUPDR_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_BackupdrMetadata;
+/**
  *  Database config based signal data
  *
  *  Value: "CONFIG_BASED_SIGNAL_DATA"
@@ -1092,11 +1099,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
 /**
+ *  Outdated client.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedClient;
+/**
  *  Outdated DB minor version.
  *
  *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedMinorVersion;
+/**
+ *  Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedVersion;
 /**
  *  Represents out of disk.
  *
@@ -1148,6 +1167,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload;
+/**
+ *  Replication delay.
+ *
+ *  Value: "SIGNAL_TYPE_REPLICATION_LAG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReplicationLag;
 /**
  *  Detects if a database instance/cluster is suspended.
  *
@@ -2061,11 +2086,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy;
 /**
+ *  Outdated client.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedClient;
+/**
  *  Outdated DB minor version.
  *
  *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedMinorVersion;
+/**
+ *  Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedVersion;
 /**
  *  Represents out of disk.
  *
@@ -2117,6 +2154,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload;
+/**
+ *  Replication delay.
+ *
+ *  Value: "SIGNAL_TYPE_REPLICATION_LAG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReplicationLag;
 /**
  *  Detects if a database instance/cluster is suspended.
  *
@@ -3780,6 +3823,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  BackupDRMetadata contains information about the backup and disaster recovery
+ *  metadata of a database resource.
+ */
+@interface GTLRCloudRedis_BackupDRMetadata : GTLRObject
+
+/** Backup configuration for this instance. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupConfiguration *backupConfiguration;
+
+/** BackupDR configuration for this instance. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupDRConfiguration *backupdrConfiguration;
+
+/** Latest backup run information for this instance. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupRun *backupRun;
+
+/** Required. Full resource name of this instance. */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/** Required. Last time backup configuration was refreshed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
+
+/** Required. Database resource id. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
+
+@end
+
+
+/**
  *  Backup is consisted of multiple backup files.
  */
 @interface GTLRCloudRedis_BackupFile : GTLRObject
@@ -4426,9 +4496,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform. Next ID: 9
+ *  database resource level events into Condor platform. Next ID: 11
  */
 @interface GTLRCloudRedis_DatabaseResourceFeed : GTLRObject
+
+/** BackupDR metadata is used to ingest metadata from BackupDR. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupDRMetadata *backupdrMetadata;
 
 /**
  *  Config based signal data is used to ingest signals that are generated based
@@ -4443,6 +4516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Required. Type feed to be ingested into condor
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_BackupdrMetadata
+ *        Database resource metadata from BackupDR (Value: "BACKUPDR_METADATA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ConfigBasedSignalData
  *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified
@@ -4472,6 +4547,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId GTLR_DEPRECATED;
 
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceMetadata *resourceMetadata;
+
+/**
+ *  Optional. If true, the feed won't be ingested by DB Center. This indicates
+ *  that the feed is intentionally skipped. For example, BackupDR feeds are only
+ *  needed for resources integrated with DB Center (e.g., CloudSQL, AlloyDB).
+ *  Feeds for non-integrated resources (e.g., Compute Engine, Persistent Disk)
+ *  can be skipped.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipIngestion;
 
 @end
 
@@ -4819,9 +4905,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoUserPasswordPolicy
  *        Detects if a database instance has no user password policy set.
  *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedClient
+ *        Outdated client. (Value: "SIGNAL_TYPE_OUTDATED_CLIENT")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedVersion
+ *        Outdated version. (Value: "SIGNAL_TYPE_OUTDATED_VERSION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned
@@ -4847,6 +4937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload
  *        Indicates that the instance has read intensive workload. (Value:
  *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReplicationLag
+ *        Replication delay. (Value: "SIGNAL_TYPE_REPLICATION_LAG")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeResourceSuspended
  *        Detects if a database instance/cluster is suspended. (Value:
  *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")
@@ -5525,9 +5617,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoUserPasswordPolicy
  *        Detects if a database instance has no user password policy set.
  *        (Value: "SIGNAL_TYPE_NO_USER_PASSWORD_POLICY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedClient
+ *        Outdated client. (Value: "SIGNAL_TYPE_OUTDATED_CLIENT")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedVersion
+ *        Outdated version. (Value: "SIGNAL_TYPE_OUTDATED_VERSION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned
@@ -5553,6 +5649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload
  *        Indicates that the instance has read intensive workload. (Value:
  *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReplicationLag
+ *        Replication delay. (Value: "SIGNAL_TYPE_REPLICATION_LAG")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeResourceSuspended
  *        Detects if a database instance/cluster is suspended. (Value:
  *        "SIGNAL_TYPE_RESOURCE_SUSPENDED")

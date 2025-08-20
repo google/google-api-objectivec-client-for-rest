@@ -10995,6 +10995,37 @@ NSString * const kGTLRComputeViewFull                 = @"FULL";
 
 @end
 
+@implementation GTLRComputeQuery_NetworksRequestRemovePeering
+
+@dynamic network, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworksRequestRemovePeeringRequest *)object
+                        project:(NSString *)project
+                        network:(NSString *)network {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"network", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}/requestRemovePeering";
+  GTLRComputeQuery_NetworksRequestRemovePeering *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.network = network;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networks.requestRemovePeering";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworksSwitchToCustomMode
 
 @dynamic network, project, requestId;

@@ -2313,6 +2313,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  operators: `>` and `<`. * `resource_uri` - A URI to the deployment resource.
  *  Allowed comparison operators: `=`. * `api_versions` - The API versions
  *  linked to this deployment. Allowed comparison operators: `:`. *
+ *  `source_project` - The project/organization at source for the deployment.
+ *  Allowed comparison operators: `=`. * `source_environment` - The environment
+ *  at source for the deployment. Allowed comparison operators: `=`. *
  *  `deployment_type.enum_values.values.id` - The allowed value id of the
  *  deployment_type attribute associated with the Deployment. Allowed comparison
  *  operators: `:`. * `deployment_type.enum_values.values.display_name` - The
@@ -2468,6 +2471,177 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1Deployment *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a DiscoveredAPIOperation in a given project, location, ApiObservation
+ *  and ApiOperation.
+ *
+ *  Method: apihub.projects.locations.discoveredApiObservations.discoveredApiOperations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsGet : GTLRAPIhubQuery
+
+/**
+ *  Required. The name of the DiscoveredApiOperation to retrieve. Format:
+ *  projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}/discoveredApiOperations/{discovered_api_operation}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation.
+ *
+ *  Gets a DiscoveredAPIOperation in a given project, location, ApiObservation
+ *  and ApiOperation.
+ *
+ *  @param name Required. The name of the DiscoveredApiOperation to retrieve.
+ *    Format:
+ *    projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}/discoveredApiOperations/{discovered_api_operation}
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the DiscoveredAPIOperations in a given project, location and
+ *  ApiObservation.
+ *
+ *  Method: apihub.projects.locations.discoveredApiObservations.discoveredApiOperations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsList : GTLRAPIhubQuery
+
+/**
+ *  Optional. DiscoveredApiOperations will be returned. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListDiscoveredApiApiOperations` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListDiscoveredApiApiOperations` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of DiscoveredApiOperations.
+ *  Format:
+ *  projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiOperationsResponse.
+ *
+ *  Lists all the DiscoveredAPIOperations in a given project, location and
+ *  ApiObservation.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    DiscoveredApiOperations. Format:
+ *    projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a DiscoveredAPIObservation in a given project, location and
+ *  ApiObservation.
+ *
+ *  Method: apihub.projects.locations.discoveredApiObservations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsGet : GTLRAPIhubQuery
+
+/**
+ *  Required. The name of the DiscoveredApiObservation to retrieve. Format:
+ *  projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation.
+ *
+ *  Gets a DiscoveredAPIObservation in a given project, location and
+ *  ApiObservation.
+ *
+ *  @param name Required. The name of the DiscoveredApiObservation to retrieve.
+ *    Format:
+ *    projects/{project}/locations/{location}/discoveredApiObservations/{discovered_api_observation}
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the DiscoveredAPIObservations in a given project and location.
+ *
+ *  Method: apihub.projects.locations.discoveredApiObservations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsList : GTLRAPIhubQuery
+
+/**
+ *  Optional. The maximum number of ApiObservations to return. The service may
+ *  return fewer than this value. If unspecified, at most 10 ApiObservations
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListApiObservations` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListApiObservations` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of ApiObservations. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiObservationsResponse.
+ *
+ *  Lists all the DiscoveredAPIObservations in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    ApiObservations. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

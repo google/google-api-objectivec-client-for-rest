@@ -123,6 +123,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_St
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity.method
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_Derive = @"DERIVE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_Extract = @"EXTRACT";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentEntity_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
+
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef.layoutType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Block = @"BLOCK";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_FormField = @"FORM_FIELD";
@@ -167,6 +172,13 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypePr
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalOnce = @"OPTIONAL_ONCE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredMultiple = @"REQUIRED_MULTIPLE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce = @"REQUIRED_ONCE";
+
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult.validationResultType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeInvalid = @"VALIDATION_RESULT_TYPE_INVALID";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeNotApplicable = @"VALIDATION_RESULT_TYPE_NOT_APPLICABLE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeSkipped = @"VALIDATION_RESULT_TYPE_SKIPPED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeUnspecified = @"VALIDATION_RESULT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeValid = @"VALIDATION_RESULT_TYPE_VALID";
 
 // GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics.metricsType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics_MetricsType_Aggregate = @"AGGREGATE";
@@ -1546,7 +1558,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 @implementation GTLRDocument_GoogleCloudDocumentaiV1Document
 @dynamic chunkedDocument, content, docid, documentLayout, entities,
          entityRelations, error, mimeType, pages, revisions, shardInfo, text,
-         textChanges, textStyles, uri;
+         textChanges, textStyles, uri, validationOutputs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1555,7 +1567,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
     @"pages" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPage class],
     @"revisions" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision class],
     @"textChanges" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange class],
-    @"textStyles" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle class]
+    @"textStyles" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle class],
+    @"validationOutputs" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput class]
   };
   return map;
 }
@@ -1784,8 +1797,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity
-@dynamic confidence, identifier, mentionId, mentionText, normalizedValue,
-         pageAnchor, properties, provenance, redacted, textAnchor, type;
+@dynamic confidence, identifier, mentionId, mentionText, method,
+         normalizedValue, pageAnchor, properties, provenance, redacted,
+         textAnchor, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2429,6 +2443,34 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput
+@dynamic passAllRules, validationResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"validationResults" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult
+@dynamic ruleDescription, ruleName, validationDetails, validationResultType;
 @end
 
 

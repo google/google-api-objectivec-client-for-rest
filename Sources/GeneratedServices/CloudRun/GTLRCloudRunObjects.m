@@ -1358,8 +1358,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest
-@dynamic buildpackBuild, dockerBuild, imageUri, serviceAccount, storageSource,
-         tags, workerPool;
+@dynamic buildpackBuild, dockerBuild, imageUri, machineType, serviceAccount,
+         storageSource, tags, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1526,7 +1526,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2VolumeMount
-@dynamic mountPath, name;
+@dynamic mountPath, name, subPath;
 @end
 
 

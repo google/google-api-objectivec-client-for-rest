@@ -878,6 +878,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  Optional. The name of the model. If set, the service will choose the model
+ *  matching the specified configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *modelName;
+
+/**
  *  The name of the voice. If both the name and the gender are not set, the
  *  service will choose a voice based on the other parameters such as
  *  language_code.

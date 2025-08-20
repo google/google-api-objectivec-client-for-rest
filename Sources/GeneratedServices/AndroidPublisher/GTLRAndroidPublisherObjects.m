@@ -249,7 +249,6 @@ NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsCon
 // GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig.availability
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available = @"AVAILABLE";
-NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly = @"AVAILABLE_FOR_OFFERS_ONLY";
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased = @"AVAILABLE_IF_RELEASED";
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable = @"NO_LONGER_AVAILABLE";
 
@@ -1597,6 +1596,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest
 @dynamic basePlanId, latencyTolerance, offerId, packageName, productId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeferredItemRemoval
+//
+
+@implementation GTLRAndroidPublisher_DeferredItemRemoval
 @end
 
 
@@ -3960,9 +3968,9 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
-@dynamic autoRenewingPlan, deferredItemReplacement, expiryTime,
-         latestSuccessfulOrderId, offerDetails, prepaidPlan, productId,
-         signupPromotion;
+@dynamic autoRenewingPlan, deferredItemRemoval, deferredItemReplacement,
+         expiryTime, latestSuccessfulOrderId, offerDetails, prepaidPlan,
+         productId, signupPromotion;
 @end
 
 

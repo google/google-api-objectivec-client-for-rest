@@ -302,6 +302,21 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest
+//
+
+@implementation GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest
+@dynamic ETag, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Announcement
 //
 

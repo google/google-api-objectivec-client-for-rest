@@ -189,7 +189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy_CopyMode_CopyModeUnspecified;
 /**
- *  The applied label and field values are not copied by default when the Drive
+ *  The applied label and field values aren't copied by default when the Drive
  *  item it's applied to is copied.
  *
  *  Value: "DO_NOT_COPY"
@@ -206,7 +206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_AppUnspecified;
 /**
- *  Drive.
+ *  Drive
  *
  *  Value: "DRIVE"
  */
@@ -222,13 +222,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label
 // GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock.state
 
 /**
- *  The LabelLock is active and is being enforced by the server.
+ *  The label lock is active and is being enforced by the server.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock_State_Active;
 /**
- *  The LabelLock is being deleted. The LabelLock will continue to be enforced
+ *  The label lock is being deleted. The label lock will continue to be enforced
  *  by the server until it has been fully removed.
  *
  *  Value: "DELETING"
@@ -340,7 +340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest_CopyMode_CopyModeUnspecified;
 /**
- *  The applied label and field values are not copied by default when the Drive
+ *  The applied label and field values aren't copied by default when the Drive
  *  item it's applied to is copied.
  *
  *  Value: "DO_NOT_COPY"
@@ -421,7 +421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Deletes one of more Label Permissions.
+ *  Deletes one or more label permissions.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest : GTLRObject
 
@@ -430,9 +430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access. If this is
- *  set, the use_admin_access field in the DeleteLabelPermissionRequest messages
- *  must either be empty or match this field.
+ *  verify the user is an admin for the label before allowing access. If this is
+ *  set, the `use_admin_access` field in the `DeleteLabelPermissionRequest`
+ *  messages must either be empty or match this field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -442,7 +442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Updates one or more Label Permissions.
+ *  Updates one or more label permissions.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest : GTLRObject
 
@@ -451,9 +451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access. If this is
- *  set, the use_admin_access field in the UpdateLabelPermissionRequest messages
- *  must either be empty or match this field.
+ *  verify the user is an admin for the label before allowing access. If this is
+ *  set, the `use_admin_access` field in the `UpdateLabelPermissionRequest`
+ *  messages must either be empty or match this field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -463,7 +463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response for updating one or more Label Permissions.
+ *  Response for updating one or more label permissions.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsResponse : GTLRObject
 
@@ -474,31 +474,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Limits for date Field type.
+ *  Limits for date field type.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DateLimits : GTLRObject
 
-/** Maximum value for the date Field type. */
+/** Maximum value for the date field type. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleTypeDate *maxValue;
 
-/** Minimum value for the date Field type. */
+/** Minimum value for the date field type. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleTypeDate *minValue;
 
 @end
 
 
 /**
- *  Deletes a Label Permission. Permissions affect the Label resource as a
- *  whole, are not revisioned, and do not require publishing.
+ *  Deletes a label permission. Permissions affect the label resource as a
+ *  whole, aren't revisioned, and don't require publishing.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeleteLabelPermissionRequest : GTLRObject
 
-/** Required. Label Permission resource name. */
+/** Required. Label permission resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -508,26 +508,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  The set of requests for updating aspects of a Label. If any request is not
+ *  The set of requests for updating aspects of a label. If any request isn't
  *  valid, no requests will be applied.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest : GTLRObject
 
 /**
- *  The BCP-47 language code to use for evaluating localized Field labels when
+ *  The BCP-47 language code to use for evaluating localized field labels when
  *  `include_label_in_response` is `true`.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  A list of updates to apply to the Label. Requests will be applied in the
+ *  A list of updates to apply to the label. Requests will be applied in the
  *  order they are specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest *> *requests;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -553,7 +553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to create a Field within a Label.
+ *  Request to create a field within a label.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateFieldRequest : GTLRObject
 
@@ -564,26 +564,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to create a Selection Choice.
+ *  Request to create a selection choice.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateSelectionChoiceRequest : GTLRObject
 
-/** Required. The Choice to create. */
+/** Required. The choice to create. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice *choice;
 
-/** Required. The Selection Field in which a Choice will be created. */
+/** Required. The selection field in which a choice will be created. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
 @end
 
 
 /**
- *  Request to delete the Field.
+ *  Request to delete the field.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDeleteFieldRequest : GTLRObject
 
 /**
- *  Required. ID of the Field to delete.
+ *  Required. ID of the field to delete.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -593,11 +593,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to delete a Choice.
+ *  Request to delete a choice.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDeleteSelectionChoiceRequest : GTLRObject
 
-/** Required. The Selection Field from which a Choice will be deleted. */
+/** Required. The selection field from which a choice will be deleted. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
 /**
@@ -611,15 +611,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to disable the Field.
+ *  Request to disable the field.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableFieldRequest : GTLRObject
 
-/** Required. Field Disabled Policy. */
+/** Required. Field disabled policy. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LifecycleDisabledPolicy *disabledPolicy;
 
 /**
- *  Required. Key of the Field to disable.
+ *  Required. Key of the field to disable.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -628,7 +628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /**
  *  The fields that should be updated. At least one field must be specified. The
  *  root `disabled_policy` is implied and should not be specified. A single `*`
- *  can be used as short-hand for updating every field.
+ *  can be used as a short-hand for updating every field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -638,14 +638,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to disable a Choice.
+ *  Request to disable a choice.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableSelectionChoiceRequest : GTLRObject
 
 /** Required. The disabled policy to update. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LifecycleDisabledPolicy *disabledPolicy;
 
-/** Required. The Selection Field in which a Choice will be disabled. */
+/** Required. The selection field in which a choice will be disabled. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
 /**
@@ -658,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /**
  *  The fields that should be updated. At least one field must be specified. The
  *  root `disabled_policy` is implied and should not be specified. A single `*`
- *  can be used as short-hand for updating every field.
+ *  can be used as a short-hand for updating every field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -668,12 +668,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to enable the Field.
+ *  Request to enable the field.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestEnableFieldRequest : GTLRObject
 
 /**
- *  Required. ID of the Field to enable.
+ *  Required. ID of the field to enable.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -683,11 +683,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to enable a Choice.
+ *  Request to enable a choice.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestEnableSelectionChoiceRequest : GTLRObject
 
-/** Required. The Selection Field in which a Choice will be enabled. */
+/** Required. The selection field in which a choice will be enabled. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
 /**
@@ -701,68 +701,68 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  A single kind of update to apply to a Label.
+ *  A single kind of update to apply to a label.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest : GTLRObject
 
-/** Creates a new Field. */
+/** Creates a field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateFieldRequest *createField;
 
-/** Creates Choice within a Selection field. */
+/** Create a choice within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateSelectionChoiceRequest *createSelectionChoice;
 
-/** Deletes a Field from the label. */
+/** Deletes a field from the label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDeleteFieldRequest *deleteField;
 
-/** Delete a Choice within a Selection Field. */
+/** Delete a choice within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDeleteSelectionChoiceRequest *deleteSelectionChoice;
 
-/** Disables the Field. */
+/** Disables the field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableFieldRequest *disableField;
 
-/** Disable a Choice within a Selection Field. */
+/** Disable a choice within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableSelectionChoiceRequest *disableSelectionChoice;
 
-/** Enables the Field. */
+/** Enables the field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestEnableFieldRequest *enableField;
 
-/** Enable a Choice within a Selection Field. */
+/** Enable a choice within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestEnableSelectionChoiceRequest *enableSelectionChoice;
 
-/** Updates basic properties of a Field. */
+/** Updates basic properties of a field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldPropertiesRequest *updateField;
 
-/** Update Field type and/or type options. */
+/** Update field type and/or type options. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest *updateFieldType;
 
-/** Updates the Label properties. */
+/** Updates the label properties. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateLabelPropertiesRequest *updateLabel;
 
-/** Update a Choice properties within a Selection Field. */
+/** Update a choice property within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateSelectionChoicePropertiesRequest *updateSelectionChoiceProperties;
 
 @end
 
 
 /**
- *  Request to update Field properties.
+ *  Request to update field properties.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldPropertiesRequest : GTLRObject
 
 /**
- *  Required. The Field to update.
+ *  Required. The field to update.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Required. Basic Field properties. */
+/** Required. Basic field properties. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldProperties *properties;
 
 /**
  *  The fields that should be updated. At least one field must be specified. The
  *  root `properties` is implied and should not be specified. A single `*` can
- *  be used as short-hand for updating every field.
+ *  be used as a short-hand for updating every field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -772,7 +772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to change the type of a Field.
+ *  Request to change the type of a field.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest : GTLRObject
 
@@ -780,7 +780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldDateOptions *dateOptions;
 
 /**
- *  Required. The Field to update.
+ *  Required. The field to update.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -798,7 +798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /**
  *  The fields that should be updated. At least one field must be specified. The
  *  root of `type_options` is implied and should not be specified. A single `*`
- *  can be used as short-hand for updating every field.
+ *  can be used as a short-hand for updating every field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -811,7 +811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Updates basic properties of a Label.
+ *  Updates basic properties of a label.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateLabelPropertiesRequest : GTLRObject
 
@@ -821,7 +821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /**
  *  The fields that should be updated. At least one field must be specified. The
  *  root `label_properties` is implied and should not be specified. A single `*`
- *  can be used as short-hand for updating every field.
+ *  can be used as a short-hand for updating every field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -831,27 +831,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to update a Choice properties.
+ *  Request to update a choice property.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateSelectionChoicePropertiesRequest : GTLRObject
 
-/** Required. The Selection Field to update. */
+/** Required. The selection field to update. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
 /**
- *  Required. The Choice to update.
+ *  Required. The choice to update.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Required. The Choice properties to update. */
+/** Required. The choice properties to update. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceProperties *properties;
 
 /**
  *  The fields that should be updated. At least one field must be specified. The
  *  root `properties` is implied and should not be specified. A single `*` can
- *  be used as short-hand for updating every field.
+ *  be used as a short-hand for updating every field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -861,7 +861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response for Label update.
+ *  Response for label update.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponse : GTLRObject
 
@@ -873,8 +873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  The label after updates were applied. This is only set if
- *  [BatchUpdateLabelResponse2.include_label_in_response] is `true` and there
- *  were no errors.
+ *  `include_label_in_response` is `true` and there were no errors.
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2Label *updatedLabel;
 
@@ -882,7 +881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response following Field create.
+ *  Response following field create.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseCreateFieldResponse : GTLRObject
 
@@ -906,15 +905,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response following Selection Choice create.
+ *  Response following selection choice create.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseCreateSelectionChoiceResponse : GTLRObject
 
-/** The server-generated id of the field. */
+/** The server-generated ID of the field. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
 /**
- *  The server-generated ID of the created choice within the Field
+ *  The server-generated ID of the created choice within the field.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -924,42 +923,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response following Field delete.
+ *  Response following field delete.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDeleteFieldResponse : GTLRObject
 @end
 
 
 /**
- *  Response following Choice delete.
+ *  Response following choice delete.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDeleteSelectionChoiceResponse : GTLRObject
 @end
 
 
 /**
- *  Response following Field disable.
+ *  Response following field disable.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDisableFieldResponse : GTLRObject
 @end
 
 
 /**
- *  Response following Choice disable.
+ *  Response following choice disable.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDisableSelectionChoiceResponse : GTLRObject
 @end
 
 
 /**
- *  Response following Field enable.
+ *  Response following field enable.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseEnableFieldResponse : GTLRObject
 @end
 
 
 /**
- *  Response following Choice enable.
+ *  Response following choice enable.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseEnableSelectionChoiceResponse : GTLRObject
 @end
@@ -970,47 +969,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseResponse : GTLRObject
 
-/** Creates a new Field. */
+/** Creates a field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseCreateFieldResponse *createField;
 
-/** Creates a new selection list option to add to a Selection Field. */
+/** Creates a selection list option to add to a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseCreateSelectionChoiceResponse *createSelectionChoice;
 
-/** Deletes a Field from the label. */
+/** Deletes a field from the label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDeleteFieldResponse *deleteField;
 
-/** Deletes a Choice from a Selection Field. */
+/** Deletes a choice from a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDeleteSelectionChoiceResponse *deleteSelectionChoice;
 
-/** Disables Field. */
+/** Disables field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDisableFieldResponse *disableField;
 
-/** Disables a Choice within a Selection Field. */
+/** Disables a choice within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseDisableSelectionChoiceResponse *disableSelectionChoice;
 
-/** Enables Field. */
+/** Enables field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseEnableFieldResponse *enableField;
 
-/** Enables a Choice within a Selection Field. */
+/** Enables a choice within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseEnableSelectionChoiceResponse *enableSelectionChoice;
 
-/** Updates basic properties of a Field. */
+/** Updates basic properties of a field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateFieldPropertiesResponse *updateField;
 
-/** Update Field type and/or type options. */
+/** Updates field type and/or type options. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateFieldTypeResponse *updateFieldType;
 
-/** Updated basic properties of a Label. */
+/** Updates basic properties of a label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateLabelPropertiesResponse *updateLabel;
 
-/** Updates a Choice within a Selection Field. */
+/** Updates a choice within a selection field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateSelectionChoicePropertiesResponse *updateSelectionChoiceProperties;
 
 @end
 
 
 /**
- *  Response following update to Field properties.
+ *  Response following update to field properties.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateFieldPropertiesResponse : GTLRObject
 
@@ -1026,21 +1025,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response following update to Field type.
+ *  Response following update to field type.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateFieldTypeResponse : GTLRObject
 @end
 
 
 /**
- *  Response following update to Label properties.
+ *  Response following update to label properties.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateLabelPropertiesResponse : GTLRObject
 @end
 
 
 /**
- *  Response following update to Selection Choice properties.
+ *  Response following update to selection choice properties.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseUpdateSelectionChoicePropertiesResponse : GTLRObject
 
@@ -1056,7 +1055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to deprecate a published Label.
+ *  Request to deprecate a published label.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2DisableLabelRequest : GTLRObject
 
@@ -1072,7 +1071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /**
  *  The fields that should be updated. At least one field must be specified. The
  *  root `disabled_policy` is implied and should not be specified. A single `*`
- *  can be used as short-hand for updating every field.
+ *  can be used as a short-hand for updating every field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1080,7 +1079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1088,7 +1087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Provides control over how write requests are executed. Defaults to unset,
- *  which means last write wins.
+ *  which means the last write wins.
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2WriteControl *writeControl;
 
@@ -1108,7 +1107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1116,7 +1115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Provides control over how write requests are executed. Defaults to unset,
- *  which means last write wins.
+ *  which means the last write wins.
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2WriteControl *writeControl;
 
@@ -1162,7 +1161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Output only. The key of a field, unique within a label or library. This
- *  value is autogenerated. Matches the regex: `([a-zA-Z0-9])+`
+ *  value is autogenerated. Matches the regex: `([a-zA-Z0-9])+`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1174,7 +1173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /** Output only. The lifecycle of this field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2Lifecycle *lifecycle;
 
-/** Output only. The LockStatus of this field. */
+/** Output only. The `LockStatus` of this field. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LockStatus *lockStatus;
 
 /** The basic properties of the field. */
@@ -1337,48 +1336,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Field constants governing the structure of a Field; such as, the maximum
+ *  Field constants governing the structure of a field; such as, the maximum
  *  title length, minimum and maximum field values or length, etc.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLimits : GTLRObject
 
-/** Date Field limits. */
+/** Date field limits. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2DateLimits *dateLimits;
 
-/** Integer Field limits. */
+/** Integer field limits. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2IntegerLimits *integerLimits;
 
-/** Long text Field limits. */
+/** Long text field limits. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LongTextLimits *longTextLimits;
 
 /**
- *  Limits for Field description, also called help text.
+ *  Limits for field description, also called help text.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxDescriptionLength;
 
 /**
- *  Limits for Field title.
+ *  Limits for field title.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxDisplayNameLength;
 
 /**
- *  Max length for the id.
+ *  Maximum length for the id.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxIdLength;
 
-/** Selection Field limits. */
+/** Selection field limits. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2SelectionLimits *selectionLimits;
 
-/** The relevant limits for the specified Field.Type. Text Field limits. */
+/** The relevant limits for the specified Field.Type. Text field limits. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2TextLimits *textLimits;
 
-/** User Field limits. */
+/** User field limits. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2UserLimits *userLimits;
 
 @end
@@ -1524,7 +1523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /** Output only. Lifecycle of the choice. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2Lifecycle *lifecycle;
 
-/** Output only. The LockStatus of this choice. */
+/** Output only. The `LockStatus` of this choice. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LockStatus *lockStatus;
 
 /** Basic properties of the choice. */
@@ -1743,19 +1742,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Limits for integer Field type.
+ *  Limits for integer field type.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2IntegerLimits : GTLRObject
 
 /**
- *  Maximum value for an integer Field type.
+ *  Maximum value for an integer field type.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxValue;
 
 /**
- *  Minimum value for an integer Field type.
+ *  Minimum value for an integer field type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1788,26 +1787,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Output only. The customer this label belongs to. For example:
- *  "customers/123abc789."
+ *  `customers/123abc789`.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Output only. The user who disabled this label. This value has no meaning
- *  when the label is not disabled.
+ *  when the label isn't disabled.
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2UserInfo *disabler;
 
 /**
  *  Output only. The time this label was disabled. This value has no meaning
- *  when the label is not disabled.
+ *  when the label isn't disabled.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *disableTime;
 
 /** Output only. UI display hints for rendering the label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelDisplayHints *displayHints;
 
-/** Optional. The EnabledAppSettings for this Label. */
+/** Optional. The `EnabledAppSettings` for this Label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings *enabledAppSettings;
 
 /** List of fields in descending priority order. */
@@ -1816,7 +1815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /**
  *  Output only. Globally unique identifier of this label. ID makes up part of
  *  the label `name`, but unlike `name`, ID is consistent between revisions.
- *  Matches the regex: `([a-zA-Z0-9])+`
+ *  Matches the regex: `([a-zA-Z0-9])+`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1852,7 +1851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2Lifecycle *lifecycle;
 
-/** Output only. The LockStatus of this label. */
+/** Output only. The `LockStatus` of this label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LockStatus *lockStatus;
 
 /**
@@ -1867,13 +1866,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Output only. The user who published this label. This value has no meaning
- *  when the label is not published.
+ *  when the label isn't published.>>
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2UserInfo *publisher;
 
 /**
  *  Output only. The time this label was published. This value has no meaning
- *  when the label is not published.
+ *  when the label isn't published.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 
@@ -1887,7 +1886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *  Output only. Revision ID of the label. Revision ID might be part of the
  *  label `name` depending on the request issued. A new revision is created
  *  whenever revisioned properties of a label are changed. Matches the regex:
- *  `([a-zA-Z0-9])+`
+ *  `([a-zA-Z0-9])+`.
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
@@ -1946,7 +1945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy_CopyMode_CopyModeUnspecified
  *        Copy mode unspecified. (Value: "COPY_MODE_UNSPECIFIED")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelAppliedLabelPolicy_CopyMode_DoNotCopy
- *        The applied label and field values are not copied by default when the
+ *        The applied label and field values aren't copied by default when the
  *        Drive item it's applied to is copied. (Value: "DO_NOT_COPY")
  */
 @property(nonatomic, copy, nullable) NSString *copyMode NS_RETURNS_NOT_RETAINED;
@@ -1955,7 +1954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  UI display hints for rendering the label.
+ *  The UI display hints for rendering the label.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelDisplayHints : GTLRObject
 
@@ -1975,7 +1974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @property(nonatomic, strong, nullable) NSNumber *hiddenInSearch;
 
 /**
- *  Order to display label in a list.
+ *  The order to display labels in a list.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1993,29 +1992,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Describes the Workspace apps in which the Label can be used.
+ *  Describes the Google Workspace apps in which the label can be used.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings : GTLRObject
 
-/** Optional. The list of Apps where the Label can be used. */
+/** Optional. The list of apps where the label can be used. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp *> *enabledApps;
 
 @end
 
 
 /**
- *  An App where the Label can be used.
+ *  An app where the label can be used.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp : GTLRObject
 
 /**
- *  Optional. The name of the App.
+ *  Optional. The name of the app.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_AppUnspecified
  *        Unspecified (Value: "APP_UNSPECIFIED")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Drive
- *        Drive. (Value: "DRIVE")
+ *        Drive (Value: "DRIVE")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettingsEnabledApp_App_Gmail
  *        Gmail (Value: "GMAIL")
  */
@@ -2025,16 +2024,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Label constraints governing the structure of a Label; such as, the maximum
- *  number of Fields allowed and maximum length of the label title.
+ *  Label constraints governing the structure of a label; such as, the maximum
+ *  number of fields allowed and maximum length of the label title.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLimits : GTLRObject
 
-/** The limits for Fields. */
+/** The limits for fields. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLimits *fieldLimits;
 
 /**
- *  The maximum number of published Fields that can be deleted.
+ *  The maximum number of published fields that can be deleted.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2056,7 +2055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @property(nonatomic, strong, nullable) NSNumber *maxDraftRevisions;
 
 /**
- *  The maximum number of Fields allowed within the label.
+ *  The maximum number of fields allowed within the label.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2076,54 +2075,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  A Lock that can be applied to a Label, Field, or Choice.
+ *  A lock that can be applied to a label, field, or choice.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock : GTLRObject
 
-/** Output only. The user's capabilities on this LabelLock. */
+/** Output only. The user's capabilities on this label lock. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLockCapabilities *capabilities;
 
 /**
- *  The ID of the Selection Field Choice that should be locked. If present,
+ *  The ID of the selection field choice that should be locked. If present,
  *  `field_id` must also be present.
  */
 @property(nonatomic, copy, nullable) NSString *choiceId;
 
-/** Output only. The time this LabelLock was created. */
+/** Output only. The time this label lock was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The user whose credentials were used to create the LabelLock.
- *  This will not be present if no user was responsible for creating the
- *  LabelLock.
+ *  Output only. The user whose credentials were used to create the label lock.
+ *  Not present if no user was responsible for creating the label lock.
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2UserInfo *creator;
 
 /**
- *  Output only. A timestamp indicating when this LabelLock was scheduled for
- *  deletion. This will be present only if this LabelLock is in the DELETING
- *  state.
+ *  Output only. A timestamp indicating when this label lock was scheduled for
+ *  deletion. Present only if this label lock is in the `DELETING` state.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
- *  The ID of the Field that should be locked. Empty if the whole Label should
+ *  The ID of the field that should be locked. Empty if the whole label should
  *  be locked.
  */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
-/** Output only. Resource name of this LabelLock. */
+/** Output only. Resource name of this label lock. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. This LabelLock's state.
+ *  Output only. This label lock's state.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock_State_Active The
- *        LabelLock is active and is being enforced by the server. (Value:
+ *        label lock is active and is being enforced by the server. (Value:
  *        "ACTIVE")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock_State_Deleting
- *        The LabelLock is being deleted. The LabelLock will continue to be
+ *        The label lock is being deleted. The label lock will continue to be
  *        enforced by the server until it has been fully removed. (Value:
  *        "DELETING")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLock_State_StateUnspecified
@@ -2135,7 +2132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  A description of a user's capabilities on a LabelLock.
+ *  A description of a user's capabilities on a label lock.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelLockCapabilities : GTLRObject
 
@@ -2158,14 +2155,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /**
  *  Audience to grant a role to. The magic value of `audiences/default` may be
  *  used to apply the role to the default audience in the context of the
- *  organization that owns the Label.
+ *  organization that owns the label.
  */
 @property(nonatomic, copy, nullable) NSString *audience;
 
 /**
- *  Specifies the email address for a user or group pricinpal. Not populated for
- *  audience principals. User and Group permissions may only be inserted using
- *  email address. On update requests, if email address is specified, no
+ *  Specifies the email address for a user or group principal. Not populated for
+ *  audience principals. User and group permissions may only be inserted using
+ *  an email address. On update requests, if email address is specified, no
  *  principal should be specified.
  */
 @property(nonatomic, copy, nullable) NSString *email;
@@ -2262,16 +2259,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  The lifecycle state of an object, such as label, field, or choice. The
- *  lifecycle enforces the following transitions: * `UNPUBLISHED_DRAFT`
+ *  The lifecycle state of an object, such as label, field, or choice. For more
+ *  information, see [Label
+ *  lifecycle](https://developers.google.com/workspace/drive/labels/guides/label-lifecycle).
+ *  The lifecycle enforces the following transitions: * `UNPUBLISHED_DRAFT`
  *  (starting state) * `UNPUBLISHED_DRAFT` -> `PUBLISHED` * `UNPUBLISHED_DRAFT`
  *  -> (Deleted) * `PUBLISHED` -> `DISABLED` * `DISABLED` -> `PUBLISHED` *
  *  `DISABLED` -> (Deleted) The published and disabled states have some distinct
- *  characteristics: * Published—Some kinds of changes might be made to an
+ *  characteristics: * `Published`: Some kinds of changes might be made to an
  *  object in this state, in which case `has_unpublished_changes` will be true.
- *  Also, some kinds of changes are not permitted. Generally, any change that
+ *  Also, some kinds of changes aren't permitted. Generally, any change that
  *  would invalidate or cause new restrictions on existing metadata related to
- *  the label are rejected. * Disabled—When disabled, the configured
+ *  the label are rejected. * `Disabled`: When disabled, the configured
  *  `DisabledPolicy` takes effect.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2Lifecycle : GTLRObject
@@ -2345,7 +2344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  The response to a ListLabelLocksRequest.
+ *  The response to a `ListLabelLocksRequest`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "labelLocks" property. If returned as the result of a query, it
@@ -2355,7 +2354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLabelLocksResponse : GTLRCollectionObject
 
 /**
- *  LabelLocks.
+ *  Label locks.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2369,7 +2368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response for listing the permissions on a Label.
+ *  Response for listing the permissions on a label.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "labelPermissions" property. If returned as the result of a query,
@@ -2393,7 +2392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Response for listing Labels.
+ *  Response for listing labels.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "labels" property. If returned as the result of a query, it should
@@ -2417,12 +2416,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Limits for list-variant of a Field type.
+ *  Limits for list-variant of a field type.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLimits : GTLRObject
 
 /**
- *  Maximum number of values allowed for the Field type.
+ *  Maximum number of values allowed for the field type.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2439,8 +2438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Output only. Indicates whether this label component is the (direct) target
- *  of a LabelLock. A label component can be implicitly locked even if it's not
- *  the direct target of a LabelLock, in which case this field is set to false.
+ *  of a label lock. A label component can be implicitly locked even if it's not
+ *  the direct target of a label lock, in which case this field is set to false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2450,19 +2449,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Limits for long text Field type.
+ *  Limits for long text field type.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2LongTextLimits : GTLRObject
 
 /**
- *  Maximum length allowed for a long text Field type.
+ *  Maximum length allowed for a long text field type.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxLength;
 
 /**
- *  Minimum length allowed for a long text Field type.
+ *  Minimum length allowed for a long text field type.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2484,7 +2483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2492,7 +2491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Provides control over how write requests are executed. Defaults to unset,
- *  which means last write wins.
+ *  which means the last write wins.
  */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2WriteControl *writeControl;
 
@@ -2500,15 +2499,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Limits for selection Field type.
+ *  Limits for selection field type.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2SelectionLimits : GTLRObject
 
-/** Limits for list-variant of a Field type. */
+/** Limits for list-variant of a field type. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLimits *listLimits;
 
 /**
- *  The max number of choices.
+ *  Maximum number of choices.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2529,7 +2528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @property(nonatomic, strong, nullable) NSNumber *maxDisplayNameLength;
 
 /**
- *  Maximum ID length for a selection options.
+ *  Maximum ID length for a selection option.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2539,19 +2538,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Limits for text Field type.
+ *  Limits for text field type.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2TextLimits : GTLRObject
 
 /**
- *  Maximum length allowed for a text Field type.
+ *  Maximum length allowed for a text field type.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxLength;
 
 /**
- *  Minimum length allowed for a text Field type.
+ *  Minimum length allowed for a text field type.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2561,14 +2560,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to update the `CopyMode` of the given Label. Changes to this policy
- *  are not revisioned, do not require publishing, and take effect immediately.
- *  \\
+ *  Request to update the `CopyMode` of the given label. Changes to this policy
+ *  aren't revisioned, don't require publishing, and take effect immediately. \\
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest : GTLRObject
 
 /**
- *  Required. Indicates how the applied Label, and Field values should be copied
+ *  Required. Indicates how the applied label and field values should be copied
  *  when a Drive item is copied.
  *
  *  Likely values:
@@ -2582,7 +2580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest_CopyMode_CopyModeUnspecified
  *        Copy mode unspecified. (Value: "COPY_MODE_UNSPECIFIED")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest_CopyMode_DoNotCopy
- *        The applied label and field values are not copied by default when the
+ *        The applied label and field values aren't copied by default when the
  *        Drive item it's applied to is copied. (Value: "DO_NOT_COPY")
  */
 @property(nonatomic, copy, nullable) NSString *copyMode NS_RETURNS_NOT_RETAINED;
@@ -2595,7 +2593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2618,13 +2616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Request to update the `EnabledAppSettings` of the given Label. This change
- *  is not revisioned, does not require publishing, and takes effect
- *  immediately. \\
+ *  Request to update the `EnabledAppSettings` of the given label. This change
+ *  is not revisioned, doesn't require publishing, and takes effect immediately.
+ *  \\
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelEnabledAppSettingsRequest : GTLRObject
 
-/** Required. The new `EnabledAppSettings` value for the Label. */
+/** Required. The new `EnabledAppSettings` value for the label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelEnabledAppSettings *enabledAppSettings;
 
 /**
@@ -2636,7 +2634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Optional. Set to `true` in order to use the user's admin credentials. The
- *  server will verify the user is an admin for the Label before allowing
+ *  server will verify the user is an admin for the label before allowing
  *  access.
  *
  *  Uses NSNumber of boolValue.
@@ -2660,20 +2658,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 
 /**
- *  Updates a Label Permission. Permissions affect the Label resource as a
- *  whole, are not revisioned, and do not require publishing.
+ *  Updates a label permission. Permissions affect the label resource as a
+ *  whole, aren't revisioned, and don't require publishing.
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelPermissionRequest : GTLRObject
 
-/** Required. The permission to create or update on the Label. */
+/** Required. The permission to create or update on the label. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2LabelPermission *labelPermission;
 
-/** Required. The parent Label resource name. */
+/** Required. The parent label resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Set to `true` in order to use the user's admin credentials. The server will
- *  verify the user is an admin for the Label before allowing access.
+ *  verify the user is an admin for the label before allowing access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2703,14 +2701,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @property(nonatomic, strong, nullable) NSNumber *canAdministrateLabels;
 
 /**
- *  Output only. Whether the user is allowed to create new admin labels.
+ *  Output only. Whether the user is allowed to create admin labels.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canCreateAdminLabels;
 
 /**
- *  Output only. Whether the user is allowed to create new shared labels.
+ *  Output only. Whether the user is allowed to create shared labels.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2728,8 +2726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2UserInfo : GTLRObject
 
 /**
- *  The identifier for this user that can be used with the People API to get
- *  more information. For example, people/12345678.
+ *  The identifier for this user that can be used with the [People
+ *  API](https://developers.google.com/people) to get more information. For
+ *  example, `people/12345678`.
  */
 @property(nonatomic, copy, nullable) NSString *person;
 
@@ -2741,7 +2740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  */
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2UserLimits : GTLRObject
 
-/** Limits for list-variant of a Field type. */
+/** Limits for list-variant of a field type. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2ListLimits *listLimits;
 
 @end
@@ -2754,8 +2753,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 @interface GTLRDriveLabels_GoogleAppsDriveLabelsV2WriteControl : GTLRObject
 
 /**
- *  The revision_id of the label that the write request will be applied to. If
- *  this is not the latest revision of the label, the request will not be
+ *  The revision ID of the label that the write request will be applied to. If
+ *  this isn't the latest revision of the label, the request will not be
  *  processed and will return a 400 Bad Request error.
  */
 @property(nonatomic, copy, nullable) NSString *requiredRevisionId;

@@ -444,19 +444,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders;
 /**
- *  When restricted, this prevents actions like copy, download, and print that
- *  might result in uncontrolled duplicates of items. Now deprecated in favor of
- *  READERS_CAN_DOWNLOAD.
+ *  Deprecated: Use READERS_CAN_DOWNLOAD instead.
  *
  *  Value: "ITEM_DUPLICATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication GTLR_DEPRECATED;
+/**
+ *  When restricted, this prevents actions like copy, download, and print for
+ *  readers. Replaces ITEM_DUPLICATION.
+ *
+ *  Value: "READERS_CAN_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ReadersCanDownload;
 /**
  *  When restricted, this prevents items from being shared outside the domain.
  *
  *  Value: "SHARING_OUTSIDE_DOMAIN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain;
+/**
+ *  When restricted, this prevents actions like copy, download, and print for
+ *  writers.
+ *
+ *  Value: "WRITERS_CAN_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_WritersCanDownload;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_RestrictionChange.newRestriction
@@ -1597,13 +1609,19 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders
  *        When restricted, this limits sharing of folders to managers only.
  *        (Value: "FILE_ORGANIZER_CAN_SHARE_FOLDERS")
- *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication When
- *        restricted, this prevents actions like copy, download, and print that
- *        might result in uncontrolled duplicates of items. Now deprecated in
- *        favor of READERS_CAN_DOWNLOAD. (Value: "ITEM_DUPLICATION")
+ *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication
+ *        Deprecated: Use READERS_CAN_DOWNLOAD instead. (Value:
+ *        "ITEM_DUPLICATION")
+ *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ReadersCanDownload
+ *        When restricted, this prevents actions like copy, download, and print
+ *        for readers. Replaces ITEM_DUPLICATION. (Value:
+ *        "READERS_CAN_DOWNLOAD")
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain
  *        When restricted, this prevents items from being shared outside the
  *        domain. (Value: "SHARING_OUTSIDE_DOMAIN")
+ *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_WritersCanDownload
+ *        When restricted, this prevents actions like copy, download, and print
+ *        for writers. (Value: "WRITERS_CAN_DOWNLOAD")
  */
 @property(nonatomic, copy, nullable) NSString *feature;
 

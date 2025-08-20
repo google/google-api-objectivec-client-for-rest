@@ -166,6 +166,14 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_P
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainVerified = @"PRIMARY_DOMAIN_VERIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent.discountType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DealCode = @"DEAL_CODE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DiscountTypeUnspecified = @"DISCOUNT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_PromotionalDiscount = @"PROMOTIONAL_DISCOUNT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_RegionalDiscount = @"REGIONAL_DISCOUNT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_ResellerMargin = @"RESELLER_MARGIN";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_SalesDiscount = @"SALES_DISCOUNT";
+
 // GTLRCloudchannel_GoogleCloudChannelV1EduData.instituteSize
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteSize_InstituteSizeUnspecified = @"INSTITUTE_SIZE_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteSize_Size10001OrMore = @"SIZE_10001_OR_MORE";
@@ -935,6 +943,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent
+@dynamic discountAbsolute, discountPercentage, discountType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1EduData
 //
 
@@ -1561,7 +1579,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Price
-@dynamic basePrice, discount, effectivePrice, externalPriceUri;
+@dynamic basePrice, discount, discountComponents, effectivePrice,
+         externalPriceUri, pricePeriod;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discountComponents" : [GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent class]
+  };
+  return map;
+}
+
 @end
 
 

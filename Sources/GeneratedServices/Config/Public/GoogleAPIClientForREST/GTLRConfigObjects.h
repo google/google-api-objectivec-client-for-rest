@@ -40,6 +40,7 @@
 @class GTLRConfig_PreviewResult;
 @class GTLRConfig_PropertyChange;
 @class GTLRConfig_PropertyDrift;
+@class GTLRConfig_ProviderConfig;
 @class GTLRConfig_Resource;
 @class GTLRConfig_Resource_CaiAssets;
 @class GTLRConfig_ResourceCAIInfo;
@@ -543,6 +544,22 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_PreviewOperationMetadata_Step_Unl
  *  Value: "VALIDATING_REPOSITORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConfig_PreviewOperationMetadata_Step_ValidatingRepository;
+
+// ----------------------------------------------------------------------------
+// GTLRConfig_ProviderConfig.sourceType
+
+/**
+ *  Unspecified source type, default to public sources.
+ *
+ *  Value: "PROVIDER_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProviderConfig_SourceType_ProviderSourceUnspecified;
+/**
+ *  Service maintained provider source type.
+ *
+ *  Value: "SERVICE_MAINTAINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProviderConfig_SourceType_ServiceMaintained;
 
 // ----------------------------------------------------------------------------
 // GTLRConfig_Resource.intent
@@ -1137,6 +1154,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *  `projects/{project}/locations/{location}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. This field specifies the provider configurations. */
+@property(nonatomic, strong, nullable) GTLRConfig_ProviderConfig *providerConfig;
 
 /**
  *  Optional. Input to control quota checks for resources in terraform
@@ -2143,6 +2163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  */
 @property(nonatomic, copy, nullable) NSString *previewMode;
 
+/** Optional. This field specifies the provider configurations. */
+@property(nonatomic, strong, nullable) GTLRConfig_ProviderConfig *providerConfig;
+
 /**
  *  Required. User-specified Service Account (SA) credentials to be used when
  *  previewing resources. Format:
@@ -2391,6 +2414,26 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 /** Output only. The path of the property drift. */
 @property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  ProviderConfig contains the provider configurations.
+ */
+@interface GTLRConfig_ProviderConfig : GTLRObject
+
+/**
+ *  Optional. ProviderSource specifies the source type of the provider.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_ProviderConfig_SourceType_ProviderSourceUnspecified
+ *        Unspecified source type, default to public sources. (Value:
+ *        "PROVIDER_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_ProviderConfig_SourceType_ServiceMaintained Service
+ *        maintained provider source type. (Value: "SERVICE_MAINTAINED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
 
 @end
 
@@ -2698,6 +2741,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *  revisions/{revision}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. This field specifies the provider configurations. */
+@property(nonatomic, strong, nullable) GTLRConfig_ProviderConfig *providerConfig;
 
 /**
  *  Optional. Input to control quota checks for resources in terraform

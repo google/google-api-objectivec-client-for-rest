@@ -154,8 +154,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesCreate : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -166,8 +166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param object The @c GTLRAppengine_AuthorizedCertificate to include in the
  *    query.
- *  @param appsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param appsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsAuthorizedCertificatesCreate
  */
@@ -187,7 +187,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesDelete : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource to delete. Example:
+ *  Part of `name`. Required. Name of the resource to delete. Example:
  *  apps/myapp/authorizedCertificates/12345.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -200,8 +200,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Deletes the specified SSL certificate.
  *
- *  @param appsId Part of `name`. Name of the resource to delete. Example:
- *    apps/myapp/authorizedCertificates/12345.
+ *  @param appsId Part of `name`. Required. Name of the resource to delete.
+ *    Example: apps/myapp/authorizedCertificates/12345.
  *  @param authorizedCertificatesId Part of `name`. See documentation of
  *    `appsId`.
  *
@@ -225,7 +225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesGet : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/authorizedCertificates/12345.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -251,8 +251,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Gets the specified SSL certificate.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/authorizedCertificates/12345.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/authorizedCertificates/12345.
  *  @param authorizedCertificatesId Part of `name`. See documentation of
  *    `appsId`.
  *
@@ -276,8 +276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesList : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -305,8 +305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Lists all SSL certificates the user is authorized to administer.
  *
- *  @param appsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param appsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsAuthorizedCertificatesList
  *
@@ -332,7 +332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesPatch : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource to update. Example:
+ *  Part of `name`. Required. Name of the resource to update. Example:
  *  apps/myapp/authorizedCertificates/12345.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -358,8 +358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param object The @c GTLRAppengine_AuthorizedCertificate to include in the
  *    query.
- *  @param appsId Part of `name`. Name of the resource to update. Example:
- *    apps/myapp/authorizedCertificates/12345.
+ *  @param appsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/authorizedCertificates/12345.
  *  @param authorizedCertificatesId Part of `name`. See documentation of
  *    `appsId`.
  *
@@ -384,8 +384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsAuthorizedDomainsList : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -400,8 +400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Lists all domains the user is authorized to administer.
  *
- *  @param appsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param appsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsAuthorizedDomainsList
  *
@@ -459,8 +459,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsDomainMappingsCreate : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -492,8 +492,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  authorized domains, see AuthorizedDomains.ListAuthorizedDomains.
  *
  *  @param object The @c GTLRAppengine_DomainMapping to include in the query.
- *  @param appsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param appsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsDomainMappingsCreate
  */
@@ -515,7 +515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsDomainMappingsDelete : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource to delete. Example:
+ *  Part of `name`. Required. Name of the resource to delete. Example:
  *  apps/myapp/domainMappings/example.com.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -530,8 +530,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  administer the associated domain in order to delete a DomainMapping
  *  resource.
  *
- *  @param appsId Part of `name`. Name of the resource to delete. Example:
- *    apps/myapp/domainMappings/example.com.
+ *  @param appsId Part of `name`. Required. Name of the resource to delete.
+ *    Example: apps/myapp/domainMappings/example.com.
  *  @param domainMappingsId Part of `name`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsDomainMappingsDelete
@@ -554,7 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsDomainMappingsGet : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/domainMappings/example.com.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -567,8 +567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Gets the specified domain mapping.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/domainMappings/example.com.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/domainMappings/example.com.
  *  @param domainMappingsId Part of `name`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsDomainMappingsGet
@@ -591,8 +591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsDomainMappingsList : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -607,8 +607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Lists the domain mappings on an application.
  *
- *  @param appsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param appsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsDomainMappingsList
  *
@@ -634,7 +634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsDomainMappingsPatch : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource to update. Example:
+ *  Part of `name`. Required. Name of the resource to update. Example:
  *  apps/myapp/domainMappings/example.com.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -658,8 +658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  order to update a DomainMapping resource.
  *
  *  @param object The @c GTLRAppengine_DomainMapping to include in the query.
- *  @param appsId Part of `name`. Name of the resource to update. Example:
- *    apps/myapp/domainMappings/example.com.
+ *  @param appsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/domainMappings/example.com.
  *  @param domainMappingsId Part of `name`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsDomainMappingsPatch
@@ -720,8 +720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsFirewallIngressRulesCreate : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Firewall collection in which to create
- *  a new rule. Example: apps/myapp/firewall/ingressRules.
+ *  Part of `parent`. Required. Name of the parent Firewall collection in which
+ *  to create a new rule. Example: apps/myapp/firewall/ingressRules.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -731,8 +731,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Creates a firewall rule for the application.
  *
  *  @param object The @c GTLRAppengine_FirewallRule to include in the query.
- *  @param appsId Part of `parent`. Name of the parent Firewall collection in
- *    which to create a new rule. Example: apps/myapp/firewall/ingressRules.
+ *  @param appsId Part of `parent`. Required. Name of the parent Firewall
+ *    collection in which to create a new rule. Example:
+ *    apps/myapp/firewall/ingressRules.
  *
  *  @return GTLRAppengineQuery_AppsFirewallIngressRulesCreate
  */
@@ -919,7 +920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsGet : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the Application resource to get. Example:
+ *  Part of `name`. Required. Name of the Application resource to get. Example:
  *  apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -944,8 +945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Gets information about an application.
  *
- *  @param appsId Part of `name`. Name of the Application resource to get.
- *    Example: apps/myapp.
+ *  @param appsId Part of `name`. Required. Name of the Application resource to
+ *    get. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsGet
  */
@@ -1187,8 +1188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsPatch : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the Application resource to update. Example:
- *  apps/myapp.
+ *  Part of `name`. Required. Name of the Application resource to update.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -1209,8 +1210,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  application.
  *
  *  @param object The @c GTLRAppengine_Application to include in the query.
- *  @param appsId Part of `name`. Name of the Application resource to update.
- *    Example: apps/myapp.
+ *  @param appsId Part of `name`. Required. Name of the Application resource to
+ *    update. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsPatch
  */
@@ -1238,7 +1239,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  */
 @interface GTLRAppengineQuery_AppsRepair : GTLRAppengineQuery
 
-/** Part of `name`. Name of the application to repair. Example: apps/myapp */
+/**
+ *  Part of `name`. Required. Name of the application to repair. Example:
+ *  apps/myapp
+ */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
 /**
@@ -1257,8 +1261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param object The @c GTLRAppengine_RepairApplicationRequest to include in
  *    the query.
- *  @param appsId Part of `name`. Name of the application to repair. Example:
- *    apps/myapp
+ *  @param appsId Part of `name`. Required. Name of the application to repair.
+ *    Example: apps/myapp
  *
  *  @return GTLRAppengineQuery_AppsRepair
  */
@@ -1278,7 +1282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesDelete : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1291,8 +1295,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Deletes the specified service and all enclosed versions.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsServicesDelete
@@ -1315,7 +1319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesGet : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1328,8 +1332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Gets the current configuration of the specified service.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsServicesGet
@@ -1352,8 +1356,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesList : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -1368,8 +1372,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Lists all the services in the application.
  *
- *  @param appsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param appsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsServicesList
  *
@@ -1392,7 +1396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesPatch : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource to update. Example:
+ *  Part of `name`. Required. Name of the resource to update. Example:
  *  apps/myapp/services/default.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1430,8 +1434,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Updates the configuration of the specified service.
  *
  *  @param object The @c GTLRAppengine_Service to include in the query.
- *  @param appsId Part of `name`. Name of the resource to update. Example:
- *    apps/myapp/services/default.
+ *  @param appsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/services/default.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsServicesPatch
@@ -1453,8 +1457,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsCreate : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent resource to create this version under.
- *  Example: apps/myapp/services/default.
+ *  Part of `parent`. Required. Name of the parent resource to create this
+ *  version under. Example: apps/myapp/services/default.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
 
@@ -1467,8 +1471,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Deploys code and resource files to a new version.
  *
  *  @param object The @c GTLRAppengine_Version to include in the query.
- *  @param appsId Part of `parent`. Name of the parent resource to create this
- *    version under. Example: apps/myapp/services/default.
+ *  @param appsId Part of `parent`. Required. Name of the parent resource to
+ *    create this version under. Example: apps/myapp/services/default.
  *  @param servicesId Part of `parent`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsServicesVersionsCreate
@@ -1490,7 +1494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsDelete : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default/versions/v1.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1506,8 +1510,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Deletes an existing Version resource.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default/versions/v1.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *
@@ -1533,7 +1537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsGet : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default/versions/v1.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1564,8 +1568,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Gets the specified Version resource. By default, only a BASIC_VIEW will be
  *  returned. Specify the FULL_VIEW parameter to get the full resource.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default/versions/v1.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *
@@ -1593,7 +1597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesDebug : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default/versions/v1/instances/instance-1.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1619,8 +1623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param object The @c GTLRAppengine_DebugInstanceRequest to include in the
  *    query.
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default/versions/v1/instances/instance-1.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1/instances/instance-1.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *  @param instancesId Part of `name`. See documentation of `appsId`.
@@ -1656,7 +1660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesDelete : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default/versions/v1/instances/instance-1.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1685,8 +1689,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
  *  method.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default/versions/v1/instances/instance-1.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1/instances/instance-1.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *  @param instancesId Part of `name`. See documentation of `appsId`.
@@ -1713,7 +1717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesGet : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default/versions/v1/instances/instance-1.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1732,8 +1736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Gets instance information.
  *
- *  @param appsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default/versions/v1/instances/instance-1.
+ *  @param appsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1/instances/instance-1.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *  @param instancesId Part of `name`. See documentation of `appsId`.
@@ -1762,7 +1766,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesList : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Version resource. Example:
+ *  Part of `parent`. Required. Name of the parent Version resource. Example:
  *  apps/myapp/services/default/versions/v1.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1786,8 +1790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  over time, see the Stackdriver Monitoring API
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
  *
- *  @param appsId Part of `parent`. Name of the parent Version resource.
- *    Example: apps/myapp/services/default/versions/v1.
+ *  @param appsId Part of `parent`. Required. Name of the parent Version
+ *    resource. Example: apps/myapp/services/default/versions/v1.
  *  @param servicesId Part of `parent`. See documentation of `appsId`.
  *  @param versionsId Part of `parent`. See documentation of `appsId`.
  *
@@ -1816,7 +1820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsList : GTLRAppengineQuery
 
 /**
- *  Part of `parent`. Name of the parent Service resource. Example:
+ *  Part of `parent`. Required. Name of the parent Service resource. Example:
  *  apps/myapp/services/default.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1849,8 +1853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Lists the versions of a service.
  *
- *  @param appsId Part of `parent`. Name of the parent Service resource.
- *    Example: apps/myapp/services/default.
+ *  @param appsId Part of `parent`. Required. Name of the parent Service
+ *    resource. Example: apps/myapp/services/default.
  *  @param servicesId Part of `parent`. See documentation of `appsId`.
  *
  *  @return GTLRAppengineQuery_AppsServicesVersionsList
@@ -1906,7 +1910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsServicesVersionsPatch : GTLRAppengineQuery
 
 /**
- *  Part of `name`. Name of the resource to update. Example:
+ *  Part of `name`. Required. Name of the resource to update. Example:
  *  apps/myapp/services/default/versions/1.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1961,8 +1965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)
  *
  *  @param object The @c GTLRAppengine_Version to include in the query.
- *  @param appsId Part of `name`. Name of the resource to update. Example:
- *    apps/myapp/services/default/versions/1.
+ *  @param appsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/services/default/versions/1.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *
@@ -1992,8 +1996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
 
@@ -2004,8 +2008,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param object The @c GTLRAppengine_AuthorizedCertificate to include in the
  *    query.
- *  @param projectsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param projectsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *  @param locationsId Part of `parent`. See documentation of `projectsId`.
  *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
  *
@@ -2038,7 +2042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the resource to delete. Example:
+ *  Part of `name`. Required. Name of the resource to delete. Example:
  *  apps/myapp/authorizedCertificates/12345.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2048,8 +2052,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Deletes the specified SSL certificate.
  *
- *  @param projectsId Part of `name`. Name of the resource to delete. Example:
- *    apps/myapp/authorizedCertificates/12345.
+ *  @param projectsId Part of `name`. Required. Name of the resource to delete.
+ *    Example: apps/myapp/authorizedCertificates/12345.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param authorizedCertificatesId Part of `name`. See documentation of
@@ -2086,7 +2090,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/authorizedCertificates/12345.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2109,8 +2113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Gets the specified SSL certificate.
  *
- *  @param projectsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/authorizedCertificates/12345.
+ *  @param projectsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/authorizedCertificates/12345.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param authorizedCertificatesId Part of `name`. See documentation of
@@ -2150,8 +2154,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
 
@@ -2173,8 +2177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Lists all SSL certificates the user is authorized to administer.
  *
- *  @param projectsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param projectsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *  @param locationsId Part of `parent`. See documentation of `projectsId`.
  *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
  *
@@ -2213,7 +2217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the resource to update. Example:
+ *  Part of `name`. Required. Name of the resource to update. Example:
  *  apps/myapp/authorizedCertificates/12345.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2236,8 +2240,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param object The @c GTLRAppengine_AuthorizedCertificate to include in the
  *    query.
- *  @param projectsId Part of `name`. Name of the resource to update. Example:
- *    apps/myapp/authorizedCertificates/12345.
+ *  @param projectsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/authorizedCertificates/12345.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param authorizedCertificatesId Part of `name`. See documentation of
@@ -2278,8 +2282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
 
@@ -2288,8 +2292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Lists all domains the user is authorized to administer.
  *
- *  @param projectsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param projectsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *  @param locationsId Part of `parent`. See documentation of `projectsId`.
  *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
  *
@@ -2344,8 +2348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *overrideStrategy;
 
 /**
- *  Part of `parent`. Name of the parent Application resource. Example:
- *  apps/myapp.
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
 
@@ -2357,8 +2361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  authorized domains, see AuthorizedDomains.ListAuthorizedDomains.
  *
  *  @param object The @c GTLRAppengine_DomainMapping to include in the query.
- *  @param projectsId Part of `parent`. Name of the parent Application resource.
- *    Example: apps/myapp.
+ *  @param projectsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
  *  @param locationsId Part of `parent`. See documentation of `projectsId`.
  *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
  *
@@ -2393,7 +2397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/domainMappings/example.com.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2403,8 +2407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Gets the specified domain mapping.
  *
- *  @param projectsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/domainMappings/example.com.
+ *  @param projectsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/domainMappings/example.com.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param domainMappingsId Part of `name`. See documentation of `projectsId`.
@@ -2439,8 +2443,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the Application resource to update. Example:
- *  apps/myapp.
+ *  Part of `name`. Required. Name of the Application resource to update.
+ *  Example: apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
 
@@ -2461,8 +2465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  application.
  *
  *  @param object The @c GTLRAppengine_Application to include in the query.
- *  @param projectsId Part of `name`. Name of the Application resource to
- *    update. Example: apps/myapp.
+ *  @param projectsId Part of `name`. Required. Name of the Application resource
+ *    to update. Example: apps/myapp.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *
@@ -2492,7 +2496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2505,8 +2509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Deletes the specified service and all enclosed versions.
  *
- *  @param projectsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default.
+ *  @param projectsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param servicesId Part of `name`. See documentation of `projectsId`.
@@ -2554,7 +2558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, assign) BOOL migrateTraffic;
 
 /**
- *  Part of `name`. Name of the resource to update. Example:
+ *  Part of `name`. Required. Name of the resource to update. Example:
  *  apps/myapp/services/default.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2575,8 +2579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Updates the configuration of the specified service.
  *
  *  @param object The @c GTLRAppengine_Service to include in the query.
- *  @param projectsId Part of `name`. Name of the resource to update. Example:
- *    apps/myapp/services/default.
+ *  @param projectsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/services/default.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param servicesId Part of `name`. See documentation of `projectsId`.
@@ -2608,7 +2612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the resource requested. Example:
+ *  Part of `name`. Required. Name of the resource requested. Example:
  *  apps/myapp/services/default/versions/v1.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2624,8 +2628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Deletes an existing Version resource.
  *
- *  @param projectsId Part of `name`. Name of the resource requested. Example:
- *    apps/myapp/services/default/versions/v1.
+ *  @param projectsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param servicesId Part of `name`. See documentation of `projectsId`.
@@ -2689,7 +2693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Name of the resource to update. Example:
+ *  Part of `name`. Required. Name of the resource to update. Example:
  *  apps/myapp/services/default/versions/1.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
@@ -2744,8 +2748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)
  *
  *  @param object The @c GTLRAppengine_Version to include in the query.
- *  @param projectsId Part of `name`. Name of the resource to update. Example:
- *    apps/myapp/services/default/versions/1.
+ *  @param projectsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/services/default/versions/1.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param servicesId Part of `name`. See documentation of `projectsId`.

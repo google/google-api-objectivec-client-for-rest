@@ -3743,6 +3743,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Accelerates the deletion of a private cloud that is currently in soft
+ *  deletion A `PrivateCloud` resource in soft deletion has `PrivateCloud.state`
+ *  set to `SOFT_DELETED` and `PrivateCloud.expireTime` set to the time when
+ *  deletion can no longer be reversed.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.privateCloudDeletionNow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPrivateCloudDeletionNow : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the private cloud in softdeletion. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Accelerates the deletion of a private cloud that is currently in soft
+ *  deletion A `PrivateCloud` resource in soft deletion has `PrivateCloud.state`
+ *  set to `SOFT_DELETED` and `PrivateCloud.expireTime` set to the time when
+ *  deletion can no longer be reversed.
+ *
+ *  @param object The @c GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the private cloud in
+ *    softdeletion. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPrivateCloudDeletionNow
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Resets credentials of the NSX appliance.
  *
  *  Method: vmwareengine.projects.locations.privateClouds.resetNsxCredentials

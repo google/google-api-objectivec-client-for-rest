@@ -25,6 +25,7 @@
 @class GTLRPlayIntegrity_DeviceIntegrity;
 @class GTLRPlayIntegrity_DeviceRecall;
 @class GTLRPlayIntegrity_EnvironmentDetails;
+@class GTLRPlayIntegrity_PcAccountDetails;
 @class GTLRPlayIntegrity_PcDeviceIntegrity;
 @class GTLRPlayIntegrity_PcRequestDetails;
 @class GTLRPlayIntegrity_PcTokenPayloadExternal;
@@ -91,7 +92,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLe
 // GTLRPlayIntegrity_AccountDetails.appLicensingVerdict
 
 /**
- *  The app and certificate match the versions distributed by Play.
+ *  The user has a valid license to use the app.
  *
  *  Value: "LICENSED"
  */
@@ -111,7 +112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensin
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown;
 /**
- *  The certificate or package name does not match Google Play records.
+ *  The user does not have a valid license to use the app.
  *
  *  Value: "UNLICENSED"
  */
@@ -341,6 +342,35 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayPro
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_PcAccountDetails.appLicensingVerdict
+
+/**
+ *  The user has a valid license to use the app.
+ *
+ *  Value: "LICENSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Licensed;
+/**
+ *  Licensing details were not evaluated since a necessary requirement was
+ *  missed.
+ *
+ *  Value: "UNEVALUATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unevaluated;
+/**
+ *  Play does not have sufficient information to evaluate licensing details
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unknown;
+/**
+ *  The user does not have a valid license to use the app.
+ *
+ *  Value: "UNLICENSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unlicensed;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_PcDeviceIntegrity.deviceRecognitionVerdict
 
 /**
@@ -447,8 +477,7 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Licensed The
- *        app and certificate match the versions distributed by Play. (Value:
- *        "LICENSED")
+ *        user has a valid license to use the app. (Value: "LICENSED")
  *    @arg @c kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluated
  *        Licensing details were not evaluated since a necessary requirement was
  *        missed. For example DeviceIntegrity did not meet the minimum bar or
@@ -457,8 +486,8 @@ GTLR_DEPRECATED
  *        does not have sufficient information to evaluate licensing details
  *        (Value: "UNKNOWN")
  *    @arg @c kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed
- *        The certificate or package name does not match Google Play records.
- *        (Value: "UNLICENSED")
+ *        The user does not have a valid license to use the app. (Value:
+ *        "UNLICENSED")
  */
 @property(nonatomic, copy, nullable) NSString *appLicensingVerdict;
 
@@ -670,6 +699,34 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Contains the account information such as the licensing status for the user
+ *  in the scope.
+ */
+@interface GTLRPlayIntegrity_PcAccountDetails : GTLRObject
+
+/**
+ *  Required. Details about the licensing status of the user for the app in the
+ *  scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Licensed
+ *        The user has a valid license to use the app. (Value: "LICENSED")
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unevaluated
+ *        Licensing details were not evaluated since a necessary requirement was
+ *        missed. (Value: "UNEVALUATED")
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unknown
+ *        Play does not have sufficient information to evaluate licensing
+ *        details (Value: "UNKNOWN")
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unlicensed
+ *        The user does not have a valid license to use the app. (Value:
+ *        "UNLICENSED")
+ */
+@property(nonatomic, copy, nullable) NSString *appLicensingVerdict;
+
+@end
+
+
+/**
  *  Contains the device attestation information.
  */
 @interface GTLRPlayIntegrity_PcDeviceIntegrity : GTLRObject
@@ -704,6 +761,9 @@ GTLR_DEPRECATED
  *  Contains PC device attestation details.
  */
 @interface GTLRPlayIntegrity_PcTokenPayloadExternal : GTLRObject
+
+/** Details about the account information such as the licensing status. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcAccountDetails *accountDetails;
 
 /** Required. Details about the device integrity. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcDeviceIntegrity *deviceIntegrity;

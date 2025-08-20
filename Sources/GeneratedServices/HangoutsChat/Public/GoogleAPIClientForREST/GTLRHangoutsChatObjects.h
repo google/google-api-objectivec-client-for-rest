@@ -67,9 +67,15 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1CollapseControl;
 @class GTLRHangoutsChat_GoogleAppsCardV1Column;
 @class GTLRHangoutsChat_GoogleAppsCardV1Columns;
+@class GTLRHangoutsChat_GoogleAppsCardV1CommonWidgetAction;
+@class GTLRHangoutsChat_GoogleAppsCardV1Condition;
+@class GTLRHangoutsChat_GoogleAppsCardV1DataSourceConfig;
 @class GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker;
 @class GTLRHangoutsChat_GoogleAppsCardV1DecoratedText;
 @class GTLRHangoutsChat_GoogleAppsCardV1Divider;
+@class GTLRHangoutsChat_GoogleAppsCardV1EventAction;
+@class GTLRHangoutsChat_GoogleAppsCardV1ExpressionData;
+@class GTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition;
 @class GTLRHangoutsChat_GoogleAppsCardV1Grid;
 @class GTLRHangoutsChat_GoogleAppsCardV1GridItem;
 @class GTLRHangoutsChat_GoogleAppsCardV1Icon;
@@ -91,6 +97,8 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1SwitchControl;
 @class GTLRHangoutsChat_GoogleAppsCardV1TextInput;
 @class GTLRHangoutsChat_GoogleAppsCardV1TextParagraph;
+@class GTLRHangoutsChat_GoogleAppsCardV1Trigger;
+@class GTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction;
 @class GTLRHangoutsChat_GoogleAppsCardV1Validation;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widget;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widgets;
@@ -150,6 +158,7 @@
 @class GTLRHangoutsChat_User;
 @class GTLRHangoutsChat_UserMentionMetadata;
 @class GTLRHangoutsChat_WidgetMarkup;
+@class GTLRHangoutsChat_WorkflowDataSourceMarkup;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1080,6 +1089,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePic
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition.conditionType
+
+/**
+ *  Unspecified condition type.
+ *
+ *  Value: "CONDITION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ConditionTypeUnspecified;
+/**
+ *  The expression evaluation was unsuccessful.
+ *
+ *  Value: "EXPRESSION_EVALUATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ExpressionEvaluationFailure;
+/**
+ *  The expression evaluation was successful.
+ *
+ *  Value: "EXPRESSION_EVALUATION_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ExpressionEvaluationSuccess;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1GridItem.layout
 
 /**
@@ -1294,6 +1325,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_T
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction.visibility
+
+/**
+ *  The UI element is hidden.
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction_Visibility_Hidden;
+/**
+ *  Unspecified visibility. Do not use.
+ *
+ *  Value: "VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction_Visibility_VisibilityUnspecified;
+/**
+ *  The UI element is visible.
+ *
+ *  Value: "VISIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction_Visibility_Visible;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1Validation.inputType
 
 /**
@@ -1364,6 +1417,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Hori
  *  Value: "START"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Start;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Widget.visibility
+
+/**
+ *  The UI element is hidden.
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Hidden;
+/**
+ *  Unspecified visibility. Do not use.
+ *
+ *  Value: "VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_VisibilityUnspecified;
+/**
+ *  The UI element is visible.
+ *
+ *  Value: "VISIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Visible;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ImageButton.icon
@@ -1901,6 +1976,36 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Me
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_WorkflowDataSourceMarkup.type
+
+/**
+ *  Google Chat spaces that the user is a member of.
+ *
+ *  Value: "SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_Space;
+/**
+ *  Default value. Don't use.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_Unknown;
+/**
+ *  Google Workspace users. The user can only view and select users from their
+ *  Google Workspace organization.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_User;
+/**
+ *  Users can choose to view and select existing members from their Google
+ *  Workspace organization or manually enter an email address or a valid domain.
+ *
+ *  Value: "USER_WITH_FREE_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeForm;
 
 /**
  *  One or more interactive widgets that appear at the bottom of a message. For
@@ -3676,6 +3781,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *displayStyle;
 
 /**
+ *  The expression data for the card. Only supported by Google Workspace
+ *  Workflow, but not Google Chat apps or Google Workspace add-ons.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1ExpressionData *> *expressionData;
+
+/**
  *  The fixed footer shown at the bottom of this card. Setting `fixedFooter`
  *  without specifying a `primaryButton` or a `secondaryButton` causes an error.
  *  For Chat apps, you can use fixed footers in
@@ -4084,6 +4195,51 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Represents an action that is not specific to a widget. Only supported by
+ *  Google Workspace Workflow, but not Google Chat apps or Google Workspace
+ *  add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1CommonWidgetAction : GTLRObject
+
+/** The action to update the visibility of a widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction *updateVisibilityAction;
+
+@end
+
+
+/**
+ *  Represents a condition that can be used to trigger an action. Only supported
+ *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
+ *  add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Condition : GTLRObject
+
+/** The unique identifier of the ActionRule. */
+@property(nonatomic, copy, nullable) NSString *actionRuleId;
+
+/** The condition that is determined by the expression data. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition *expressionDataCondition;
+
+@end
+
+
+/**
+ *  A configuration object that helps configure the data sources for a widget.
+ *  Only supported by Google Workspace Workflow, but not Google Chat apps or
+ *  Google Workspace add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1DataSourceConfig : GTLRObject
+
+/** The data is from a Google Workspace application. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource *platformDataSource;
+
+/** The data is from a remote data provider. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *remoteDataSource;
+
+@end
+
+
+/**
  *  Lets users input a date, a time, or both a date and a time. Supports form
  *  submission validation. When `Action.all_widgets_are_required` is set to
  *  `true` or this widget is specified in `Action.required_widgets`, the
@@ -4096,6 +4252,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  apps](https://developers.google.com/workspace/extend):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker : GTLRObject
+
+/**
+ *  A data source that's unique to a Google Workspace host application, such as
+ *  Gmail emails, Google Calendar events, or Google Chat messages. Only
+ *  supported by Google Workspace Workflows, but not Google Chat API or Google
+ *  Workspace Add-ons.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_HostAppDataSourceMarkup *hostAppDataSource;
 
 /**
  *  The text that prompts users to input a date, a time, or a date and time. For
@@ -4230,6 +4394,81 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  following JSON creates a divider: ``` "divider": {} ```
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Divider : GTLRObject
+@end
+
+
+/**
+ *  Represents an actionthat can be performed on an ui element. Only supported
+ *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
+ *  add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1EventAction : GTLRObject
+
+/** The unique identifier of the ActionRule. */
+@property(nonatomic, copy, nullable) NSString *actionRuleId;
+
+/** Common widget action. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CommonWidgetAction *commonWidgetAction;
+
+/**
+ *  The list of triggers that will be triggered after the EventAction is
+ *  executed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Trigger *> *postEventTriggers;
+
+@end
+
+
+/**
+ *  Represents the data that is used to evaluate an expression. Only supported
+ *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
+ *  add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1ExpressionData : GTLRObject
+
+/**
+ *  The list of conditions that are determined by the expression evaluation
+ *  result.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Condition *> *conditions;
+
+/** The list of actions that the ExpressionData can be used. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1EventAction *> *eventActions;
+
+/** The uncompiled expression. */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  The unique identifier of the ExpressionData.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Represents a condition that is evaluated using CEL. Only supported by Google
+ *  Workspace Workflow, but not Google Chat apps or Google Workspace add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition : GTLRObject
+
+/**
+ *  The type of the condition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ConditionTypeUnspecified
+ *        Unspecified condition type. (Value: "CONDITION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ExpressionEvaluationFailure
+ *        The expression evaluation was unsuccessful. (Value:
+ *        "EXPRESSION_EVALUATION_FAILURE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ExpressionEvaluationSuccess
+ *        The expression evaluation was successful. (Value:
+ *        "EXPRESSION_EVALUATION_SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *conditionType;
+
 @end
 
 
@@ -4752,6 +4991,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *header;
 
 /**
+ *  A unique ID assigned to the section that's used to identify the section to
+ *  be mutated. The ID has a character limit of 64 characters and should be in
+ *  the format of `[a-zA-Z0-9-]+`. Only supported by Google Workspace Workflow,
+ *  but not Google Chat apps or Google Workspace add-ons.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
  *  The number of uncollapsible widgets which remain visible even when a section
  *  is collapsed. For example, when a section contains five widgets and the
  *  `uncollapsibleWidgetsCount` is set to `2`, the first two widgets are always
@@ -4789,6 +5038,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        its "items" property.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1SelectionInput : GTLRCollectionObject
+
+/**
+ *  Optional. The data source configs for the selection control. This field
+ *  provides more fine-grained control over the data source. If specified, the
+ *  `multi_select_max_selected_items` field, `multi_select_min_query_length`
+ *  field, `external_data_source` field and `platform_data_source` field are
+ *  ignored. Only supported by Google Workspace Workflow, but not Google Chat
+ *  apps or Google Workspace add-ons.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1DataSourceConfig *> *dataSourceConfigs;
 
 /** An external data source, such as a relational database. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *externalDataSource;
@@ -5071,6 +5330,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *hintText;
 
 /**
+ *  A data source that's unique to a Google Workspace host application, such as
+ *  Gmail emails, Google Calendar events, or Google Chat messages. Only
+ *  supported by Google Workspace Workflow, but not Google Chat apps or Google
+ *  Workspace add-ons.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_HostAppDataSourceMarkup *hostAppDataSource;
+
+/**
  *  Suggested values that users can enter. These values appear when users click
  *  inside the text input field. As users type, the suggested values dynamically
  *  filter to match what the users have typed. For example, a text input field
@@ -5177,6 +5444,41 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** The text that's shown in the widget. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents a trigger. Only supported by Google Workspace Workflow, but not
+ *  Google Chat apps or Google Workspace add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Trigger : GTLRObject
+
+/** The unique identifier of the ActionRule. */
+@property(nonatomic, copy, nullable) NSString *actionRuleId;
+
+@end
+
+
+/**
+ *  Represents an action that updates the visibility of a widget. Only supported
+ *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
+ *  add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction : GTLRObject
+
+/**
+ *  The new visibility.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction_Visibility_Hidden
+ *        The UI element is hidden. (Value: "HIDDEN")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction_Visibility_VisibilityUnspecified
+ *        Unspecified visibility. Do not use. (Value: "VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction_Visibility_Visible
+ *        The UI element is visible. (Value: "VISIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -5294,6 +5596,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Divider *divider;
 
 /**
+ *  Specifies the event actions that can be performed on the widget. Only
+ *  supported by Google Workspace Workflow, but not Google Chat apps or Google
+ *  Workspace add-ons.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1EventAction *> *eventActions;
+
+/**
  *  Displays a grid with a collection of items. A grid supports any number of
  *  columns and items. The number of rows is determined by the upper bounds of
  *  the number items divided by the number of columns. A grid with 10 items and
@@ -5328,6 +5637,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        aligns to the right. (Value: "START")
  */
 @property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+/**
+ *  A unique ID assigned to the widget that's used to identify the widget to be
+ *  mutated. The ID has a character limit of 64 characters and should be in the
+ *  format of `[a-zA-Z0-9-]+` and. Only supported by Google Workspace Workflow,
+ *  but not Google Chat apps or Google Workspace add-ons.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Displays an image. For example, the following JSON creates an image with
@@ -5371,6 +5690,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  { "text": " *bold text*" } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextParagraph *textParagraph;
+
+/**
+ *  Specifies whether the widget is visible or hidden. The default value is
+ *  `VISIBLE`. Only supported by Google Workspace Workflow, but not Google Chat
+ *  apps or Google Workspace add-ons.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Hidden The UI
+ *        element is hidden. (Value: "HIDDEN")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_VisibilityUnspecified
+ *        Unspecified visibility. Do not use. (Value: "VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Visible The UI
+ *        element is visible. (Value: "VISIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -5424,15 +5758,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  For a `SelectionInput` widget that uses a multiselect menu, a data source
- *  from a Google Workspace application. The data source populates selection
- *  items for the multiselect menu. [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  A data source from a Google Workspace application. The data source populates
+ *  available items for a widget.
  */
 @interface GTLRHangoutsChat_HostAppDataSourceMarkup : GTLRObject
 
 /** A data source from Google Chat. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ChatClientDataSourceMarkup *chatDataSource;
+
+/** A data source from Google Workflow. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_WorkflowDataSourceMarkup *workflowDataSource;
 
 @end
 
@@ -6250,8 +6585,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *privateMessageViewer;
 
 /**
- *  Optional. Information about a message that's quoted by a Google Chat user in
- *  a space. Google Chat users can quote a message to reply to it.
+ *  Optional. Information about a message that another message quotes. When you
+ *  create a message, you can quote messages within the same thread, or quote a
+ *  root message to create a new root message. However, you can't quote a
+ *  message reply from a different thread. When you update a message, you can't
+ *  add or replace the `quotedMessageMetadata` field, but you can remove it. For
+ *  example usage, see [Quote another
+ *  message](https://developers.google.com/workspace/chat/create-messages#quote-a-message).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_QuotedMessageMetadata *quotedMessageMetadata;
 
@@ -6469,13 +6809,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Information about a quoted message.
+ *  Information about a message that another message quotes. When you create a
+ *  message, you can quote messages within the same thread, or quote a root
+ *  message to create a new root message. However, you can't quote a message
+ *  reply from a different thread. When you update a message, you can't add or
+ *  replace the `quotedMessageMetadata` field, but you can remove it. For
+ *  example usage, see [Quote another
+ *  message](https://developers.google.com/workspace/chat/create-messages#quote-a-message).
  */
 @interface GTLRHangoutsChat_QuotedMessageMetadata : GTLRObject
 
 /**
  *  Required. The timestamp when the quoted message was created or when the
- *  quoted message was last updated.
+ *  quoted message was last updated. If the message was edited, use this field,
+ *  `last_update_time`. If the message was never edited, use `create_time`. If
+ *  `last_update_time` doesn't match the latest version of the quoted message,
+ *  the request fails.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 
@@ -6835,8 +7184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  and `SpaceType` is `SPACE`, otherwise should not be set. In the format
  *  `customers/{customer}`, where `customer` is the `id` from the [Admin SDK
- *  customer resource](
- *  https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers).
+ *  customer
+ *  resource](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers).
  *  Private apps can also use the `customers/my_customer` alias to create the
  *  space in the same Google Workspace organization as the app. For DMs, this
  *  field isn't populated.
@@ -7657,6 +8006,41 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** Display a text paragraph in this widget. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_TextParagraph *textParagraph;
+
+@end
+
+
+/**
+ *  * Only supported by Google Workspace Workflow, but not Google Chat apps or
+ *  Google Workspace add-ons. In a `TextInput` or `SelectionInput` widget with
+ *  MULTI_SELECT type or a `DateTimePicker`, provide data source from Google.
+ */
+@interface GTLRHangoutsChat_WorkflowDataSourceMarkup : GTLRObject
+
+/**
+ *  Whether to include variables from the previous step in the data source.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeVariables;
+
+/**
+ *  The type of data source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_Space Google Chat
+ *        spaces that the user is a member of. (Value: "SPACE")
+ *    @arg @c kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_Unknown Default
+ *        value. Don't use. (Value: "UNKNOWN")
+ *    @arg @c kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_User Google
+ *        Workspace users. The user can only view and select users from their
+ *        Google Workspace organization. (Value: "USER")
+ *    @arg @c kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeForm
+ *        Users can choose to view and select existing members from their Google
+ *        Workspace organization or manually enter an email address or a valid
+ *        domain. (Value: "USER_WITH_FREE_FORM")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

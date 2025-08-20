@@ -27,6 +27,7 @@
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_BinLogCoordinates;
 @class GTLRSQLAdmin_CloneContext;
+@class GTLRSQLAdmin_Column;
 @class GTLRSQLAdmin_ConnectionPoolConfig;
 @class GTLRSQLAdmin_ConnectionPoolFlags;
 @class GTLRSQLAdmin_ConnectPoolNodeConfig;
@@ -53,6 +54,7 @@
 @class GTLRSQLAdmin_ExportContext_TdeExportOptions;
 @class GTLRSQLAdmin_ExternalSyncSelectedObject;
 @class GTLRSQLAdmin_FailoverContext;
+@class GTLRSQLAdmin_FinalBackupConfig;
 @class GTLRSQLAdmin_Flag;
 @class GTLRSQLAdmin_GeminiInstanceConfig;
 @class GTLRSQLAdmin_ImportContext;
@@ -69,6 +71,7 @@
 @class GTLRSQLAdmin_IpMapping;
 @class GTLRSQLAdmin_LocationPreference;
 @class GTLRSQLAdmin_MaintenanceWindow;
+@class GTLRSQLAdmin_Metadata;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
 @class GTLRSQLAdmin_MySqlSyncConfig;
 @class GTLRSQLAdmin_OnPremisesConfiguration;
@@ -80,12 +83,14 @@
 @class GTLRSQLAdmin_PoolNodeConfig;
 @class GTLRSQLAdmin_PscAutoConnectionConfig;
 @class GTLRSQLAdmin_PscConfig;
+@class GTLRSQLAdmin_QueryResult;
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_ReplicationCluster;
 @class GTLRSQLAdmin_Reschedule;
 @class GTLRSQLAdmin_RestoreBackupContext;
 @class GTLRSQLAdmin_RotateServerCaContext;
 @class GTLRSQLAdmin_RotateServerCertificateContext;
+@class GTLRSQLAdmin_Row;
 @class GTLRSQLAdmin_SelectedObjects;
 @class GTLRSQLAdmin_Settings;
 @class GTLRSQLAdmin_Settings_UserLabels;
@@ -104,6 +109,7 @@
 @class GTLRSQLAdmin_TruncateLogContext;
 @class GTLRSQLAdmin_User;
 @class GTLRSQLAdmin_UserPasswordValidationPolicy;
+@class GTLRSQLAdmin_Value;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1386,6 +1392,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ConnectSettings.mdxProtocolSupport
+
+/**
+ *  Client should send the client protocol type in the MDX request.
+ *
+ *  Value: "CLIENT_PROTOCOL_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_MdxProtocolSupport_ClientProtocolType;
+/**
+ *  Not specified.
+ *
+ *  Value: "MDX_PROTOCOL_SUPPORT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_MdxProtocolSupport_MdxProtocolSupportUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ConnectSettings.serverCaMode
@@ -3227,6 +3249,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_SqlRep
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlActiveDirectoryConfig.mode
+
+/**
+ *  Unspecified mode. Will default to MANAGED_ACTIVE_DIRECTORY if the mode is
+ *  not specified to maintain backward compatibility.
+ *
+ *  Value: "ACTIVE_DIRECTORY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ActiveDirectoryModeUnspecified;
+/**
+ *  Managed Active Directory mode.
+ *
+ *  Value: "MANAGED_ACTIVE_DIRECTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ManagedActiveDirectory;
+/**
+ *  Self-managed Active Directory mode.
+ *
+ *  Value: "SELF_MANAGED_ACTIVE_DIRECTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_SelfManagedActiveDirectory;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlExternalSyncSettingError.type
 
 /** Value: "BINLOG_NOT_ENABLED" */
@@ -3414,6 +3459,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup;
 /**
+ *  The migration will delete existing data in the replica; set
+ *  replica_overwrite_enabled in the request to acknowledge this. This is an
+ *  error. MySQL only.
+ *
+ *  Value: "PROMPT_DELETE_EXISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PromptDeleteExisting;
+/**
  *  PSC only destination instance does not have a network attachment URI.
  *
  *  Value: "PSC_ONLY_INSTANCE_WITH_NO_NETWORK_ATTACHMENT_URI"
@@ -3434,6 +3487,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "SELECTED_OBJECTS_NOT_EXIST_ON_SOURCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsNotExistOnSource;
+/**
+ *  Selected objects reference unselected objects. Based on their object type
+ *  (foreign key constraint or view), selected objects will fail during
+ *  migration.
+ *
+ *  Value: "SELECTED_OBJECTS_REFERENCE_UNSELECTED_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsReferenceUnselectedObjects;
 /**
  *  This warning message indicates that Cloud SQL uses the maximum number of
  *  subscriptions to migrate data from the source to the destination.
@@ -3563,6 +3624,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "USERS_NOT_CREATED_IN_REPLICA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UsersNotCreatedInReplica;
+/**
+ *  The migration will delete existing data in the replica;
+ *  replica_overwrite_enabled was set in the request acknowledging this. This is
+ *  a warning rather than an error. MySQL only.
+ *
+ *  Value: "WILL_DELETE_EXISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WillDeleteExisting;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
@@ -4850,6 +4919,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *preferredZone;
 
+/**
+ *  The timestamp used to identify the time when the source instance is deleted.
+ *  If this instance is deleted, then you must set the timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *sourceInstanceDeletionTime;
+
+@end
+
+
+/**
+ *  Contains the name and datatype of a column.
+ */
+@interface GTLRSQLAdmin_Column : GTLRObject
+
+/** Name of the column. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Datatype of the column. */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -4867,6 +4956,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Optional. List of connection pool configuration flags. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ConnectionPoolFlags *> *flags;
+
+/**
+ *  Output only. Number of connection poolers.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *poolerCount;
 
 @end
 
@@ -5097,6 +5193,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  Optional. Output only. mdx_protocol_support controls how the client uses
+ *  metadata exchange when connecting to the instance. The values in the list
+ *  representing parts of the MDX protocol that are supported by this instance.
+ *  When the list is empty, the instance does not support MDX, so the client
+ *  must not send an MDX request. The default is empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mdxProtocolSupport;
+
+/**
  *  The number of read pool nodes in a read pool.
  *
  *  Uses NSNumber of intValue.
@@ -5241,13 +5346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "SQL_BACKEND_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *backendType;
-
-/**
- *  Clears private network settings when the instance is restored.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *clearNetwork;
 
 /** Connection name of the Cloud SQL instance used in connection strings. */
 @property(nonatomic, copy, nullable) NSString *connectionName;
@@ -5988,6 +6086,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  The request payload used to execute SQL statements.
+ */
+@interface GTLRSQLAdmin_ExecuteSqlPayload : GTLRObject
+
+/**
+ *  Optional. When set to true, the API caller identity associated with the
+ *  request is used for database authentication. The API caller must be an IAM
+ *  user in the database.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoIamAuthn;
+
+/** Optional. Name of the database on which the statement will be executed. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Optional. The maximum number of rows returned per SQL statement.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowLimit;
+
+/**
+ *  Required. SQL statements to run on the database. It can be a single
+ *  statement or a sequence of statements separated by semicolons.
+ */
+@property(nonatomic, copy, nullable) NSString *sqlStatement;
+
+@end
+
+
+/**
  *  Database instance export context.
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
@@ -6302,6 +6433,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *settingsVersion;
+
+@end
+
+
+/**
+ *  Config used to determine the final backup settings for the instance.
+ */
+@interface GTLRSQLAdmin_FinalBackupConfig : GTLRObject
+
+/**
+ *  Whether the final backup is enabled for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The number of days to retain the final backup after the instance deletion.
+ *  The final backup will be purged at (time_of_instance_deletion +
+ *  retention_days).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionDays;
 
 @end
 
@@ -7062,6 +7217,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
 
 /**
+ *  Optional. This field has the same purpose as restore_instance_settings,
+ *  changes any instance settings stored in the backup you are restoring from.
+ *  With the difference that these fields are cleared in the settings.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restoreInstanceClearOverridesFieldNames;
+
+/**
  *  Optional. By using this parameter, Cloud SQL overrides any instance settings
  *  stored in the backup you are restoring from. You can't change the instance's
  *  major database version and you can only increase the disk size. You can use
@@ -7426,6 +7588,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        notification is sent out. (Value: "week5")
  */
 @property(nonatomic, copy, nullable) NSString *updateTrack;
+
+@end
+
+
+/**
+ *  The additional metadata information regarding the execution of the SQL
+ *  statements.
+ */
+@interface GTLRSQLAdmin_Metadata : GTLRObject
+
+/** The time taken to execute the SQL statements. */
+@property(nonatomic, strong, nullable) GTLRDuration *sqlStatementExecutionTime;
 
 @end
 
@@ -8008,7 +8182,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  1035](https://tools.ietf.org/html/rfc1035) standards. Specifically, the name
  *  must be 1-63 characters long and match the regular expression
  *  [a-z]([-a-z0-9]*[a-z0-9])?. Reserved for future use.
- *  http://go/speckle-subnet-picker-clone
  */
 @property(nonatomic, copy, nullable) NSString *allocatedIpRange;
 
@@ -8173,6 +8346,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pscEnabled;
+
+@end
+
+
+/**
+ *  QueryResult contains the result of executing a single SQL statement.
+ */
+@interface GTLRSQLAdmin_QueryResult : GTLRObject
+
+/**
+ *  List of columns included in the result. This also includes the data type of
+ *  the column.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Column *> *columns;
+
+/** Message related to the SQL execution result. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Set to true if the SQL execution's result is truncated due to size limits.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partialResult;
+
+/** Rows returned by the SQL statement. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Row *> *rows;
 
 @end
 
@@ -8346,6 +8546,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  will be rotated to the most recently added server certificate version.
  */
 @property(nonatomic, copy, nullable) NSString *nextVersion;
+
+@end
+
+
+/**
+ *  Contains the values for a row.
+ */
+@interface GTLRSQLAdmin_Row : GTLRObject
+
+/** The values for the row. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Value *> *values;
 
 @end
 
@@ -8563,6 +8774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *enableGoogleMlIntegration;
 
+/** Optional. The final backup configuration for the instance. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_FinalBackupConfig *finalBackupConfig;
+
 /** Insights configuration, for now relevant only for Postgres. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_InsightsConfig *insightsConfig;
 
@@ -8711,11 +8925,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_SqlActiveDirectoryConfig : GTLRObject
 
+/**
+ *  Optional. The secret manager key storing the administrator credential.
+ *  (e.g., projects/{project}/secrets/{secret}).
+ */
+@property(nonatomic, copy, nullable) NSString *adminCredentialSecretName;
+
+/**
+ *  Optional. Domain controller IPv4 addresses used to bootstrap Active
+ *  Directory.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dnsServers;
+
 /** The name of the domain (e.g., mydomain.com). */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /** This is always sql#activeDirectoryConfig. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Optional. The mode of the Active Directory configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ActiveDirectoryModeUnspecified
+ *        Unspecified mode. Will default to MANAGED_ACTIVE_DIRECTORY if the mode
+ *        is not specified to maintain backward compatibility. (Value:
+ *        "ACTIVE_DIRECTORY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ManagedActiveDirectory
+ *        Managed Active Directory mode. (Value: "MANAGED_ACTIVE_DIRECTORY")
+ *    @arg @c kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_SelfManagedActiveDirectory
+ *        Self-managed Active Directory mode. (Value:
+ *        "SELF_MANAGED_ACTIVE_DIRECTORY")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Optional. The organizational unit distinguished name. This is the full
+ *  hierarchical path to the organizational unit.
+ */
+@property(nonatomic, copy, nullable) NSString *organizationalUnit;
 
 @end
 
@@ -8833,6 +9081,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup
  *        The primary instance has been setup and will fail the setup. (Value:
  *        "PRIMARY_ALREADY_SETUP")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PromptDeleteExisting
+ *        The migration will delete existing data in the replica; set
+ *        replica_overwrite_enabled in the request to acknowledge this. This is
+ *        an error. MySQL only. (Value: "PROMPT_DELETE_EXISTING")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PscOnlyInstanceWithNoNetworkAttachmentUri
  *        PSC only destination instance does not have a network attachment URI.
  *        (Value: "PSC_ONLY_INSTANCE_WITH_NO_NETWORK_ATTACHMENT_URI")
@@ -8845,6 +9097,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsNotExistOnSource
  *        The selected objects don't exist on the source instance. (Value:
  *        "SELECTED_OBJECTS_NOT_EXIST_ON_SOURCE")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsReferenceUnselectedObjects
+ *        Selected objects reference unselected objects. Based on their object
+ *        type (foreign key constraint or view), selected objects will fail
+ *        during migration. (Value:
+ *        "SELECTED_OBJECTS_REFERENCE_UNSELECTED_OBJECTS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SourceMaxSubscriptions
  *        This warning message indicates that Cloud SQL uses the maximum number
  *        of subscriptions to migrate data from the source to the destination.
@@ -8913,6 +9170,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        First, create all users, which are in the pg_user_mappings table of
  *        the source database, in the destination instance. Then, perform the
  *        migration. (Value: "USERS_NOT_CREATED_IN_REPLICA")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WillDeleteExisting
+ *        The migration will delete existing data in the replica;
+ *        replica_overwrite_enabled was set in the request acknowledging this.
+ *        This is a warning rather than an error. MySQL only. (Value:
+ *        "WILL_DELETE_EXISTING")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -8926,6 +9188,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The unique identifier for this operation. */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
+ *  Execute SQL statements response.
+ */
+@interface GTLRSQLAdmin_SqlInstancesExecuteSqlResponse : GTLRObject
+
+/**
+ *  The additional metadata information regarding the execution of the SQL
+ *  statements.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_Metadata *metadata;
+
+/** The list of results after executing all the SQL statements. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_QueryResult *> *results;
 
 @end
 
@@ -9017,6 +9296,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** MySQL-specific settings for start external sync. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlSyncConfig *mysqlSyncConfig;
+
+/**
+ *  Optional. MySQL only. True if end-user has confirmed that this SES call will
+ *  wipe replica databases overlapping with the proposed selected_objects. If
+ *  this field is not set and there are both overlapping and additional
+ *  databases proposed, an error will be returned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicaOverwriteEnabled;
 
 /**
  *  Whether to skip the verification step (VESS).
@@ -9687,6 +9976,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Unused. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  The cell value of the table.
+ */
+@interface GTLRSQLAdmin_Value : GTLRObject
+
+/**
+ *  If cell value is null, then this flag will be set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullValue;
+
+/** The cell value in string format. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

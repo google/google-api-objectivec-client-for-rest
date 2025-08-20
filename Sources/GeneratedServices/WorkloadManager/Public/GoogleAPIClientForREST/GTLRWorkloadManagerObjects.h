@@ -36,6 +36,7 @@
 @class GTLRWorkloadManager_ExecutionResult;
 @class GTLRWorkloadManager_ExternalDataSources;
 @class GTLRWorkloadManager_GceInstanceFilter;
+@class GTLRWorkloadManager_IAMPermission;
 @class GTLRWorkloadManager_Insight;
 @class GTLRWorkloadManager_InstanceProperties;
 @class GTLRWorkloadManager_Location;
@@ -75,6 +76,7 @@
 @class GTLRWorkloadManager_SapWorkload;
 @class GTLRWorkloadManager_SapWorkload_Metadata;
 @class GTLRWorkloadManager_ScannedResource;
+@class GTLRWorkloadManager_ServiceStates;
 @class GTLRWorkloadManager_ShellCommand;
 @class GTLRWorkloadManager_SqlserverValidation;
 @class GTLRWorkloadManager_SqlserverValidationDetails;
@@ -474,6 +476,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Evaluation_EvaluationTyp
  *  Value: "SQL_SERVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_SqlServer;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_Execution.engine
+
+/**
+ *  SlimCG / Scanner
+ *
+ *  Value: "ENGINE_SCANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_Engine_EngineScanner;
+/**
+ *  The original CG
+ *
+ *  Value: "ENGINE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_Engine_EngineUnspecified;
+/**
+ *  Evaluation Engine V2
+ *
+ *  Value: "V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_Engine_V2;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_Execution.runType
@@ -1090,6 +1114,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabaseHa;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_ServiceStates.state
+
+/**
+ *  The state means the service has config errors.
+ *
+ *  Value: "CONFIG_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_ConfigFailure;
+/**
+ *  The state means the service disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_Disabled;
+/**
+ *  The state means the service has no error.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_Enabled;
+/**
+ *  The state means the service has functionality errors.
+ *
+ *  Value: "FUNCTIONAILITY_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_FunctionailityFailure;
+/**
+ *  The state means the service has IAM permission errors.
+ *
+ *  Value: "IAM_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_IamFailure;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SqlserverValidationValidationDetail.type
 
 /**
@@ -1256,8 +1320,25 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 /** Optional. The available version of the agent in artifact registry. */
 @property(nonatomic, copy, nullable) NSString *availableVersion;
 
+/** Optional. HANA monitoring metrics of the agent. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_ServiceStates *hanaMonitoring;
+
 /** Optional. The installed version of the agent on the host. */
 @property(nonatomic, copy, nullable) NSString *installedVersion;
+
+/**
+ *  Optional. Whether the agent is fully enabled. If false, the agent is has
+ *  some issues.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFullyEnabled;
+
+/** Optional. The Process metrics of the agent. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_ServiceStates *processMetrics;
+
+/** Optional. The System discovery metrics of the agent. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_ServiceStates *systemDiscovery;
 
 @end
 
@@ -1762,6 +1843,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 /** Output only. [Output only] End time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/**
+ *  Optional. Engine
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_Execution_Engine_EngineScanner SlimCG /
+ *        Scanner (Value: "ENGINE_SCANNER")
+ *    @arg @c kGTLRWorkloadManager_Execution_Engine_EngineUnspecified The
+ *        original CG (Value: "ENGINE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_Execution_Engine_V2 Evaluation Engine V2
+ *        (Value: "V2")
+ */
+@property(nonatomic, copy, nullable) NSString *engine;
+
 /** Output only. [Output only] Evaluation ID */
 @property(nonatomic, copy, nullable) NSString *evaluationId;
 
@@ -1923,6 +2017,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 /** Service account of compute engine */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccounts;
+
+@end
+
+
+/**
+ *  The IAM permission status.
+ */
+@interface GTLRWorkloadManager_IAMPermission : GTLRObject
+
+/**
+ *  Output only. Whether the permission is granted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *granted;
+
+/** Output only. The name of the permission. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -3346,6 +3458,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 /** resource type */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The state of the service.
+ */
+@interface GTLRWorkloadManager_ServiceStates : GTLRObject
+
+/** Optional. Output only. The IAM permissions for the service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_IAMPermission *> *iamPermissions;
+
+/**
+ *  Output only. The overall state of the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_ServiceStates_State_ConfigFailure The state
+ *        means the service has config errors. (Value: "CONFIG_FAILURE")
+ *    @arg @c kGTLRWorkloadManager_ServiceStates_State_Disabled The state means
+ *        the service disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRWorkloadManager_ServiceStates_State_Enabled The state means
+ *        the service has no error. (Value: "ENABLED")
+ *    @arg @c kGTLRWorkloadManager_ServiceStates_State_FunctionailityFailure The
+ *        state means the service has functionality errors. (Value:
+ *        "FUNCTIONAILITY_FAILURE")
+ *    @arg @c kGTLRWorkloadManager_ServiceStates_State_IamFailure The state
+ *        means the service has IAM permission errors. (Value: "IAM_FAILURE")
+ *    @arg @c kGTLRWorkloadManager_ServiceStates_State_StateUnspecified The
+ *        state is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

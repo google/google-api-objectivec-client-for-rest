@@ -58,6 +58,7 @@
 @class GTLRNetAppFiles_StoragePool_Labels;
 @class GTLRNetAppFiles_TieringPolicy;
 @class GTLRNetAppFiles_TransferStats;
+@class GTLRNetAppFiles_UserCommands;
 @class GTLRNetAppFiles_Volume;
 @class GTLRNetAppFiles_Volume_Labels;
 @class GTLRNetAppFiles_WeeklySchedule;
@@ -297,6 +298,68 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_State_StateUnspe
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_HybridReplicationParameters.hybridReplicationType
+
+/**
+ *  Hybrid replication type for continuous replication.
+ *
+ *  Value: "CONTINUOUS_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ContinuousReplication;
+/**
+ *  Hybrid replication type for migration.
+ *
+ *  Value: "MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_Migration;
+/**
+ *  New field for reversible OnPrem replication, to be used for data protection.
+ *
+ *  Value: "ONPREM_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_OnpremReplication;
+/**
+ *  New field for reversible OnPrem replication, to be used for data protection.
+ *
+ *  Value: "REVERSE_ONPREM_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ReverseOnpremReplication;
+/**
+ *  Unspecified hybrid replication type.
+ *
+ *  Value: "VOLUME_HYBRID_REPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_VolumeHybridReplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_HybridReplicationParameters.replicationSchedule
+
+/**
+ *  Replication happens once every day.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Daily;
+/**
+ *  Replication happens once every 10 minutes.
+ *
+ *  Value: "EVERY_10_MINUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Every10Minutes;
+/**
+ *  Replication happens once every hour.
+ *
+ *  Value: "HOURLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Hourly;
+/**
+ *  Unspecified HybridReplicationSchedule
+ *
+ *  Value: "HYBRID_REPLICATION_SCHEDULE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_HybridReplicationScheduleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_KmsConfig.state
@@ -555,6 +618,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_HybridReplicatio
  *  Value: "MIGRATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_Migration;
+/**
+ *  New field for reversible OnPrem replication, to be used for data protection.
+ *
+ *  Value: "ONPREM_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_OnpremReplication;
+/**
+ *  Hybrid replication type for incremental Transfer in the reverse direction
+ *  (GCNV is source and Onprem is destination)
+ *
+ *  Value: "REVERSE_ONPREM_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_HybridReplicationType_ReverseOnpremReplication;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_Replication.mirrorState
@@ -572,6 +648,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_MirrorState_Abor
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_MirrorState_BaselineTransferring;
 /**
+ *  Replication is being managed from Onprem ONTAP.
+ *
+ *  Value: "EXTERNALLY_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_MirrorState_ExternallyManaged;
+/**
  *  Destination volume has been initialized and is ready to receive replication
  *  transfers.
  *
@@ -584,6 +666,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_MirrorState_Mirr
  *  Value: "MIRROR_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_MirrorState_MirrorStateUnspecified;
+/**
+ *  Peering is yet to be established.
+ *
+ *  Value: "PENDING_PEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_MirrorState_PendingPeering;
 /**
  *  Destination volume is being prepared.
  *
@@ -675,11 +763,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_State_Error;
 /**
+ *  Onprem ONTAP is destination and Replication can only be managed from Onprem.
+ *
+ *  Value: "EXTERNALLY_MANAGED_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_State_ExternallyManagedReplication;
+/**
  *  Replication is waiting for cluster peering to be established.
  *
  *  Value: "PENDING_CLUSTER_PEERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_State_PendingClusterPeering;
+/**
+ *  Replication is waiting for Commands to be executed on Onprem ONTAP.
+ *
+ *  Value: "PENDING_REMOTE_RESYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Replication_State_PendingRemoteResync;
 /**
  *  Replication is waiting for SVM peering to be established.
  *
@@ -800,6 +900,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_E
  *  Value: "SERVICE_MANAGED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_ServiceManaged;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_StoragePool.qosType
+
+/**
+ *  QoS Type is Auto
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_QosType_Auto;
+/**
+ *  QoS Type is Manual
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_QosType_Manual;
+/**
+ *  Unspecified QoS Type
+ *
+ *  Value: "QOS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_QosType_QosTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_StoragePool.serviceLevel
@@ -1965,8 +2087,36 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Optional. Type of the hybrid replication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ContinuousReplication
+ *        Hybrid replication type for continuous replication. (Value:
+ *        "CONTINUOUS_REPLICATION")
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_Migration
+ *        Hybrid replication type for migration. (Value: "MIGRATION")
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_OnpremReplication
+ *        New field for reversible OnPrem replication, to be used for data
+ *        protection. (Value: "ONPREM_REPLICATION")
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ReverseOnpremReplication
+ *        New field for reversible OnPrem replication, to be used for data
+ *        protection. (Value: "REVERSE_ONPREM_REPLICATION")
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_VolumeHybridReplicationTypeUnspecified
+ *        Unspecified hybrid replication type. (Value:
+ *        "VOLUME_HYBRID_REPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hybridReplicationType;
+
 /** Optional. Labels to be added to the replication as the key value pairs. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_HybridReplicationParameters_Labels *labels;
+
+/**
+ *  Optional. Constituent volume count for large volume.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *largeVolumeConstituentCount;
 
 /**
  *  Required. Name of the user's local source cluster to be peered with the
@@ -1991,6 +2141,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** Required. Desired name for the replication of this volume. */
 @property(nonatomic, copy, nullable) NSString *replication;
+
+/**
+ *  Optional. Replication Schedule for the replication created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Daily
+ *        Replication happens once every day. (Value: "DAILY")
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Every10Minutes
+ *        Replication happens once every 10 minutes. (Value: "EVERY_10_MINUTES")
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_Hourly
+ *        Replication happens once every hour. (Value: "HOURLY")
+ *    @arg @c kGTLRNetAppFiles_HybridReplicationParameters_ReplicationSchedule_HybridReplicationScheduleUnspecified
+ *        Unspecified HybridReplicationSchedule (Value:
+ *        "HYBRID_REPLICATION_SCHEDULE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *replicationSchedule;
 
 @end
 
@@ -2847,8 +3013,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        "HYBRID_REPLICATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetAppFiles_Replication_HybridReplicationType_Migration
  *        Hybrid replication type for migration. (Value: "MIGRATION")
+ *    @arg @c kGTLRNetAppFiles_Replication_HybridReplicationType_OnpremReplication
+ *        New field for reversible OnPrem replication, to be used for data
+ *        protection. (Value: "ONPREM_REPLICATION")
+ *    @arg @c kGTLRNetAppFiles_Replication_HybridReplicationType_ReverseOnpremReplication
+ *        Hybrid replication type for incremental Transfer in the reverse
+ *        direction (GCNV is source and Onprem is destination) (Value:
+ *        "REVERSE_ONPREM_REPLICATION")
  */
 @property(nonatomic, copy, nullable) NSString *hybridReplicationType;
+
+/**
+ *  Output only. Copy pastable snapmirror commands to be executed on onprem
+ *  cluster by the customer.
+ */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_UserCommands *hybridReplicationUserCommands;
 
 /** Resource labels to represent user provided metadata. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_Replication_Labels *labels;
@@ -2861,11 +3040,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        aborted. (Value: "ABORTED")
  *    @arg @c kGTLRNetAppFiles_Replication_MirrorState_BaselineTransferring
  *        Baseline replication is in progress. (Value: "BASELINE_TRANSFERRING")
+ *    @arg @c kGTLRNetAppFiles_Replication_MirrorState_ExternallyManaged
+ *        Replication is being managed from Onprem ONTAP. (Value:
+ *        "EXTERNALLY_MANAGED")
  *    @arg @c kGTLRNetAppFiles_Replication_MirrorState_Mirrored Destination
  *        volume has been initialized and is ready to receive replication
  *        transfers. (Value: "MIRRORED")
  *    @arg @c kGTLRNetAppFiles_Replication_MirrorState_MirrorStateUnspecified
  *        Unspecified MirrorState (Value: "MIRROR_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_Replication_MirrorState_PendingPeering Peering is
+ *        yet to be established. (Value: "PENDING_PEERING")
  *    @arg @c kGTLRNetAppFiles_Replication_MirrorState_Preparing Destination
  *        volume is being prepared. (Value: "PREPARING")
  *    @arg @c kGTLRNetAppFiles_Replication_MirrorState_Stopped Destination
@@ -2926,9 +3110,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        deleting. (Value: "DELETING")
  *    @arg @c kGTLRNetAppFiles_Replication_State_Error Replication is in error
  *        state. (Value: "ERROR")
+ *    @arg @c kGTLRNetAppFiles_Replication_State_ExternallyManagedReplication
+ *        Onprem ONTAP is destination and Replication can only be managed from
+ *        Onprem. (Value: "EXTERNALLY_MANAGED_REPLICATION")
  *    @arg @c kGTLRNetAppFiles_Replication_State_PendingClusterPeering
  *        Replication is waiting for cluster peering to be established. (Value:
  *        "PENDING_CLUSTER_PEERING")
+ *    @arg @c kGTLRNetAppFiles_Replication_State_PendingRemoteResync Replication
+ *        is waiting for Commands to be executed on Onprem ONTAP. (Value:
+ *        "PENDING_REMOTE_RESYNC")
  *    @arg @c kGTLRNetAppFiles_Replication_State_PendingSvmPeering Replication
  *        is waiting for SVM peering to be established. (Value:
  *        "PENDING_SVM_PEERING")
@@ -3298,6 +3488,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) NSNumber *allowAutoTiering;
 
 /**
+ *  Output only. Available throughput of the storage pool (in MiB/s).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableThroughputMibps;
+
+/**
  *  Required. Capacity in GIB of the pool
  *
  *  Uses NSNumber of longLongValue.
@@ -3391,6 +3588,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  are ignored.
  */
 @property(nonatomic, copy, nullable) NSString *psaRange;
+
+/**
+ *  Optional. QoS (Quality of Service) Type of the storage pool
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_StoragePool_QosType_Auto QoS Type is Auto (Value:
+ *        "AUTO")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_QosType_Manual QoS Type is Manual
+ *        (Value: "MANUAL")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_QosType_QosTypeUnspecified
+ *        Unspecified QoS Type (Value: "QOS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *qosType;
 
 /** Optional. Specifies the replica zone for regional storagePool. */
 @property(nonatomic, copy, nullable) NSString *replicaZone;
@@ -3603,6 +3813,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  UserCommands contains the commands to be executed by the customer.
+ */
+@interface GTLRNetAppFiles_UserCommands : GTLRObject
+
+/** Output only. List of commands to be executed by the customer. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *commands;
+
+@end
+
+
+/**
  *  ValidateDirectoryServiceRequest validates the directory service policy
  *  attached to the storage pool.
  */
@@ -3675,7 +3896,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) NSNumber *capacityGib;
 
 /**
- *  Output only. Size of the volume cold tier data in GiB.
+ *  Output only. Size of the volume cold tier data rounded down to the nearest
+ *  GiB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3877,6 +4099,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** Required. StoragePool name of the volume */
 @property(nonatomic, copy, nullable) NSString *storagePool;
+
+/**
+ *  Optional. Throughput of the volume (in MiB/s)
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *throughputMibps;
 
 /** Tiering policy for the volume. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_TieringPolicy *tieringPolicy;

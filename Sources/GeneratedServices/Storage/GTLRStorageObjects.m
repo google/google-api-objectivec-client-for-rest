@@ -560,8 +560,8 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_BulkRestoreObjectsRequest
-@dynamic allowOverwrite, copySourceAcl, matchGlobs, softDeletedAfterTime,
-         softDeletedBeforeTime;
+@dynamic allowOverwrite, copySourceAcl, createdAfterTime, createdBeforeTime,
+         matchGlobs, softDeletedAfterTime, softDeletedBeforeTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

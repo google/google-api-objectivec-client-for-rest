@@ -68,8 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudObservabilityQuery_ProjectsLocationsList : GTLRCloudObservabilityQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

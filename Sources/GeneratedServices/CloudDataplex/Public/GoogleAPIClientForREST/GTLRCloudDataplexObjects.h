@@ -4,7 +4,7 @@
 // API:
 //   Cloud Dataplex API (dataplex/v1)
 // Description:
-//   Dataplex API is used to manage the lifecycle of data lakes.
+//   A unified, intelligent governance solution for data and AI assets.
 // Documentation:
 //   https://cloud.google.com/dataplex/docs
 
@@ -1612,7 +1612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_S
 // GTLRCloudDataplex_GoogleCloudDataplexV1Job.state
 
 /**
- *  The job was cancelled outside of Dataplex.
+ *  The job was cancelled outside of Dataplex Universal Catalog.
  *
  *  Value: "ABORTED"
  */
@@ -1664,8 +1664,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_RunRequest;
 /**
- *  The job was triggered by Dataplex based on trigger spec from task
- *  definition.
+ *  The job was triggered by Dataplex Universal Catalog based on trigger spec
+ *  from task definition.
  *
  *  Value: "TASK_CONFIG"
  */
@@ -1693,8 +1693,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEv
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_RunRequest;
 /**
- *  The job was triggered by Dataplex based on trigger spec from task
- *  definition.
+ *  The job was triggered by Dataplex Universal Catalog based on trigger spec
+ *  from task definition.
  *
  *  Value: "TASK_CONFIG"
  */
@@ -1867,10 +1867,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Metad
 
 /**
  *  All resources in the job's scope are modified. If a resource exists in
- *  Dataplex but isn't included in the metadata import file, the resource is
- *  deleted when you run the metadata job. Use this mode to perform a full sync
- *  of the set of entries in the job scope.This sync mode is supported for
- *  entries.
+ *  Dataplex Universal Catalog but isn't included in the metadata import file,
+ *  the resource is deleted when you run the metadata job. Use this mode to
+ *  perform a full sync of the set of entries in the job scope.This sync mode is
+ *  supported for entries.
  *
  *  Value: "FULL"
  */
@@ -1903,10 +1903,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Metad
 
 /**
  *  All resources in the job's scope are modified. If a resource exists in
- *  Dataplex but isn't included in the metadata import file, the resource is
- *  deleted when you run the metadata job. Use this mode to perform a full sync
- *  of the set of entries in the job scope.This sync mode is supported for
- *  entries.
+ *  Dataplex Universal Catalog but isn't included in the metadata import file,
+ *  the resource is deleted when you run the metadata job. Use this mode to
+ *  perform a full sync of the set of entries in the job scope.This sync mode is
+ *  supported for entries.
  *
  *  Value: "FULL"
  */
@@ -3042,8 +3042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Immutable. The IAM permission grantable on the EntryGroup to allow access to
- *  instantiate Aspects of Dataplex owned AspectTypes, only settable for
- *  Dataplex owned Types.
+ *  instantiate Aspects of Dataplex Universal Catalog owned AspectTypes, only
+ *  settable for Dataplex Universal Catalog owned Types.
  */
 @property(nonatomic, copy, nullable) NSString *alternateUsePermission;
 
@@ -4282,17 +4282,17 @@ GTLR_DEPRECATED
 /** Output only. The result of post scan actions. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult *postScanActionsResult;
 
-/** The profile information per field. */
+/** Output only. The profile information per field. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile *profile;
 
 /**
- *  The count of rows scanned.
+ *  Output only. The count of rows scanned.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
 
-/** The data scanned for this result. */
+/** Output only. The data scanned for this result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData *scannedData;
 
 @end
@@ -4341,7 +4341,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile : GTLRObject
 
-/** List of fields with structural and profile information for each field. */
+/**
+ *  Output only. List of fields with structural and profile information for each
+ *  field.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField *> *fields;
 
 @end
@@ -4353,23 +4356,23 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField : GTLRObject
 
 /**
- *  The mode of the field. Possible values include: REQUIRED, if it is a
- *  required field. NULLABLE, if it is an optional field. REPEATED, if it is a
- *  repeated field.
+ *  Output only. The mode of the field. Possible values include: REQUIRED, if it
+ *  is a required field. NULLABLE, if it is an optional field. REPEATED, if it
+ *  is a repeated field.
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
-/** The name of the field. */
+/** Output only. The name of the field. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Profile information for the corresponding field. */
+/** Output only. Profile information for the corresponding field. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo *profile;
 
 /**
- *  The data type retrieved from the schema of the data source. For instance,
- *  for a BigQuery native table, it is the BigQuery Table Schema
+ *  Output only. The data type retrieved from the schema of the data source. For
+ *  instance, for a BigQuery native table, it is the BigQuery Table Schema
  *  (https://cloud.google.com/bigquery/docs/reference/rest/v2/tables#tablefieldschema).
- *  For a Dataplex Entity, it is the Entity Schema
+ *  For a Dataplex Universal Catalog Entity, it is the Entity Schema
  *  (https://cloud.google.com/dataplex/docs/reference/rpc/google.cloud.dataplex.v1#type_3).
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -4383,9 +4386,9 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo : GTLRObject
 
 /**
- *  Ratio of rows with distinct values against total scanned rows. Not available
- *  for complex non-groupable field type, including RECORD, ARRAY, GEOGRAPHY,
- *  and JSON, as well as fields with REPEATABLE mode.
+ *  Output only. Ratio of rows with distinct values against total scanned rows.
+ *  Not available for complex non-groupable field type, including RECORD, ARRAY,
+ *  GEOGRAPHY, and JSON, as well as fields with REPEATABLE mode.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4398,7 +4401,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoIntegerFieldInfo *integerProfile;
 
 /**
- *  Ratio of rows with null value against total scanned rows.
+ *  Output only. Ratio of rows with null value against total scanned rows.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4408,11 +4411,11 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo *stringProfile;
 
 /**
- *  The list of top N non-null values, frequency and ratio with which they occur
- *  in the scanned data. N is 10 or equal to the number of distinct values in
- *  the field, whichever is smaller. Not available for complex non-groupable
- *  field type, including RECORD, ARRAY, GEOGRAPHY, and JSON, as well as fields
- *  with REPEATABLE mode.
+ *  Output only. The list of top N non-null values, frequency and ratio with
+ *  which they occur in the scanned data. N is 10 or equal to the number of
+ *  distinct values in the field, whichever is smaller. Not available for
+ *  complex non-groupable field type, including RECORD, ARRAY, GEOGRAPHY, and
+ *  JSON, as well as fields with REPEATABLE mode.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue *> *topNValues;
 
@@ -4425,34 +4428,37 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoDoubleFieldInfo : GTLRObject
 
 /**
- *  Average of non-null values in the scanned data. NaN, if the field has a NaN.
+ *  Output only. Average of non-null values in the scanned data. NaN, if the
+ *  field has a NaN.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *average;
 
 /**
- *  Maximum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *  Output only. Maximum of non-null values in the scanned data. NaN, if the
+ *  field has a NaN.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *max;
 
 /**
- *  Minimum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *  Output only. Minimum of non-null values in the scanned data. NaN, if the
+ *  field has a NaN.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *min;
 
 /**
- *  A quartile divides the number of data points into four parts, or quarters,
- *  of more-or-less equal size. Three main quartiles used are: The first
- *  quartile (Q1) splits off the lowest 25% of data from the highest 75%. It is
- *  also known as the lower or 25th empirical quartile, as 25% of the data is
- *  below this point. The second quartile (Q2) is the median of a data set. So,
- *  50% of the data lies below this point. The third quartile (Q3) splits off
- *  the highest 25% of data from the lowest 75%. It is known as the upper or
+ *  Output only. A quartile divides the number of data points into four parts,
+ *  or quarters, of more-or-less equal size. Three main quartiles used are: The
+ *  first quartile (Q1) splits off the lowest 25% of data from the highest 75%.
+ *  It is also known as the lower or 25th empirical quartile, as 25% of the data
+ *  is below this point. The second quartile (Q2) is the median of a data set.
+ *  So, 50% of the data lies below this point. The third quartile (Q3) splits
+ *  off the highest 25% of data from the lowest 75%. It is known as the upper or
  *  75th empirical quartile, as 75% of the data lies below this point. Here, the
  *  quartiles is provided as an ordered list of quartile values for the scanned
  *  data, occurring in order Q1, median, Q3.
@@ -4462,8 +4468,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *quartiles;
 
 /**
- *  Standard deviation of non-null values in the scanned data. NaN, if the field
- *  has a NaN.
+ *  Output only. Standard deviation of non-null values in the scanned data. NaN,
+ *  if the field has a NaN.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4478,34 +4484,37 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoIntegerFieldInfo : GTLRObject
 
 /**
- *  Average of non-null values in the scanned data. NaN, if the field has a NaN.
+ *  Output only. Average of non-null values in the scanned data. NaN, if the
+ *  field has a NaN.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *average;
 
 /**
- *  Maximum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *  Output only. Maximum of non-null values in the scanned data. NaN, if the
+ *  field has a NaN.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *max;
 
 /**
- *  Minimum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *  Output only. Minimum of non-null values in the scanned data. NaN, if the
+ *  field has a NaN.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *min;
 
 /**
- *  A quartile divides the number of data points into four parts, or quarters,
- *  of more-or-less equal size. Three main quartiles used are: The first
- *  quartile (Q1) splits off the lowest 25% of data from the highest 75%. It is
- *  also known as the lower or 25th empirical quartile, as 25% of the data is
- *  below this point. The second quartile (Q2) is the median of a data set. So,
- *  50% of the data lies below this point. The third quartile (Q3) splits off
- *  the highest 25% of data from the lowest 75%. It is known as the upper or
+ *  Output only. A quartile divides the number of data points into four parts,
+ *  or quarters, of more-or-less equal size. Three main quartiles used are: The
+ *  first quartile (Q1) splits off the lowest 25% of data from the highest 75%.
+ *  It is also known as the lower or 25th empirical quartile, as 25% of the data
+ *  is below this point. The second quartile (Q2) is the median of a data set.
+ *  So, 50% of the data lies below this point. The third quartile (Q3) splits
+ *  off the highest 25% of data from the lowest 75%. It is known as the upper or
  *  75th empirical quartile, as 75% of the data lies below this point. Here, the
  *  quartiles is provided as an ordered list of approximate quartile values for
  *  the scanned data, occurring in order Q1, median, Q3.
@@ -4515,8 +4524,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *quartiles;
 
 /**
- *  Standard deviation of non-null values in the scanned data. NaN, if the field
- *  has a NaN.
+ *  Output only. Standard deviation of non-null values in the scanned data. NaN,
+ *  if the field has a NaN.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4531,21 +4540,21 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo : GTLRObject
 
 /**
- *  Average length of non-null values in the scanned data.
+ *  Output only. Average length of non-null values in the scanned data.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageLength;
 
 /**
- *  Maximum length of non-null values in the scanned data.
+ *  Output only. Maximum length of non-null values in the scanned data.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxLength;
 
 /**
- *  Minimum length of non-null values in the scanned data.
+ *  Output only. Minimum length of non-null values in the scanned data.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4560,21 +4569,21 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue : GTLRObject
 
 /**
- *  Count of the corresponding value in the scanned data.
+ *  Output only. Count of the corresponding value in the scanned data.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  Ratio of the corresponding value in the field against the total number of
- *  rows in the scanned data.
+ *  Output only. Ratio of the corresponding value in the field against the total
+ *  number of rows in the scanned data.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ratio;
 
-/** String value of a top N non-null value. */
+/** Output only. String value of a top N non-null value. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -4603,9 +4612,8 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A filter applied to all rows in a single DataScan job. The filter
- *  needs to be a valid SQL expression for a WHERE clause in GoogleSQL syntax
- *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#where_clause).Example:
- *  col1 >= 0 AND col2 < 10
+ *  needs to be a valid SQL expression for a WHERE clause in BigQuery standard
+ *  SQL syntax. Example: col1 >= 0 AND col2 < 10
  */
 @property(nonatomic, copy, nullable) NSString *rowFilter;
 
@@ -4643,7 +4651,6 @@ GTLR_DEPRECATED
 /**
  *  Optional. The BigQuery table to export DataProfileScan results to. Format:
  *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
- *  or projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
  */
 @property(nonatomic, copy, nullable) NSString *resultsTable;
 
@@ -4704,7 +4711,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension : GTLRObject
 
 /**
- *  Optional. The dimension name a rule belongs to. Custom dimension name is
+ *  Output only. The dimension name a rule belongs to. Custom dimension name is
  *  supported with all uppercase letters and maximum length of 30 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4747,7 +4754,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult : GTLRObject
 
-/** Output only. The status of publishing the data scan to Catalog. */
+/**
+ *  Output only. The status of publishing the data scan as Dataplex Universal
+ *  Catalog metadata.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus *catalogPublishingStatus;
 
 /**
@@ -5315,8 +5325,8 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec : GTLRObject
 
 /**
- *  Optional. If set, the latest DataScan job result will be published to
- *  Dataplex Catalog.
+ *  Optional. If set, the latest DataScan job result will be published as
+ *  Dataplex Universal Catalog metadata.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5582,7 +5592,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  The status of publishing the data scan result to Catalog.
+ *  The status of publishing the data scan result as Dataplex Universal Catalog
+ *  metadata.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus : GTLRObject
 
@@ -5608,7 +5619,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent : GTLRObject
 
-/** The status of publishing the data scan to Catalog. */
+/**
+ *  The status of publishing the data scan as Dataplex Universal Catalog
+ *  metadata.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus *catalogPublishingStatus;
 
 /** The time when the data scan job was created. */
@@ -6045,8 +6059,8 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataSource : GTLRObject
 
 /**
- *  Immutable. The Dataplex entity that represents the data source (e.g.
- *  BigQuery table) for DataScan, of the form:
+ *  Immutable. The Dataplex Universal Catalog entity that represents the data
+ *  source (e.g. BigQuery table) for DataScan, of the form:
  *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
@@ -6625,7 +6639,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects *aspects;
 
-/** Output only. The time when the entry was created in Dataplex. */
+/**
+ *  Output only. The time when the entry was created in Dataplex Universal
+ *  Catalog.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -6661,7 +6678,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *parentEntry;
 
-/** Output only. The time when the entry was last updated in Dataplex. */
+/**
+ *  Output only. The time when the entry was last updated in Dataplex Universal
+ *  Catalog.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -7056,8 +7076,8 @@ GTLR_DEPRECATED
 
 /**
  *  Immutable. The IAM permission grantable on the Entry Group to allow access
- *  to instantiate Entries of Dataplex owned Entry Types, only settable for
- *  Dataplex owned Types.
+ *  to instantiate Entries of Dataplex Universal Catalog owned Entry Types, only
+ *  settable for Dataplex Universal Catalog owned Types.
  */
 @property(nonatomic, copy, nullable) NSString *alternateUsePermission;
 
@@ -7216,7 +7236,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime : GTLRObject
 
-/** Required. Dataplex Image version. */
+/** Required. Dataplex Universal Catalog Image version. */
 @property(nonatomic, copy, nullable) NSString *imageVersion;
 
 /**
@@ -7312,8 +7332,8 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1GenerateDataQualityRulesResponse : GTLRObject
 
 /**
- *  The data quality rules that Dataplex generates based on the results of a
- *  data profiling scan.
+ *  The data quality rules that Dataplex Universal Catalog generates based on
+ *  the results of a data profiling scan.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *> *rule;
 
@@ -7647,7 +7667,8 @@ GTLR_DEPRECATED
  *  {project_id_or_number}.{location_id}.{aspect_type_id}.In FULL entry sync
  *  mode, if you leave this field empty, it is treated as specifying exactly
  *  those aspects that are present within the specified entry. Dataplex
- *  implicitly adds the keys for all of the required aspects of an entry.
+ *  Universal Catalog implicitly adds the keys for all of the required aspects
+ *  of an entry.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectKeys;
 
@@ -7663,14 +7684,15 @@ GTLR_DEPRECATED
 
 /**
  *  The fields to update, in paths that are relative to the Entry resource.
- *  Separate each field with a comma.In FULL entry sync mode, Dataplex includes
- *  the paths of all of the fields for an entry that can be modified, including
- *  aspects. This means that Dataplex replaces the existing entry with the entry
- *  in the metadata import file. All modifiable fields are updated, regardless
- *  of the fields that are listed in the update mask, and regardless of whether
- *  a field is present in the entry object.The update_mask field is ignored when
- *  an entry is created or re-created.In an aspect-only metadata job (when entry
- *  sync mode is NONE), set this value to aspects.Dataplex also determines which
+ *  Separate each field with a comma.In FULL entry sync mode, Dataplex Universal
+ *  Catalog includes the paths of all of the fields for an entry that can be
+ *  modified, including aspects. This means that Dataplex Universal Catalog
+ *  replaces the existing entry with the entry in the metadata import file. All
+ *  modifiable fields are updated, regardless of the fields that are listed in
+ *  the update mask, and regardless of whether a field is present in the entry
+ *  object.The update_mask field is ignored when an entry is created or
+ *  re-created.In an aspect-only metadata job (when entry sync mode is NONE),
+ *  set this value to aspects.Dataplex Universal Catalog also determines which
  *  entries and aspects to modify by comparing the values and timestamps that
  *  you provide in the metadata import file with the values and timestamps that
  *  exist in your project. For more information, see Comparison logic
@@ -7740,7 +7762,8 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_State_Aborted The job
- *        was cancelled outside of Dataplex. (Value: "ABORTED")
+ *        was cancelled outside of Dataplex Universal Catalog. (Value:
+ *        "ABORTED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_State_Cancelled The
  *        job cancellation was successful. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_State_Cancelling The
@@ -7764,8 +7787,8 @@ GTLR_DEPRECATED
  *        job was triggered by the explicit call of Task API. (Value:
  *        "RUN_REQUEST")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TaskConfig The
- *        job was triggered by Dataplex based on trigger spec from task
- *        definition. (Value: "TASK_CONFIG")
+ *        job was triggered by Dataplex Universal Catalog based on trigger spec
+ *        from task definition. (Value: "TASK_CONFIG")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TriggerUnspecified
  *        The trigger is unspecified. (Value: "TRIGGER_UNSPECIFIED")
  */
@@ -7809,8 +7832,8 @@ GTLR_DEPRECATED
  *        The job was triggered by the explicit call of Task API. (Value:
  *        "RUN_REQUEST")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_TaskConfig
- *        The job was triggered by Dataplex based on trigger spec from task
- *        definition. (Value: "TASK_CONFIG")
+ *        The job was triggered by Dataplex Universal Catalog based on trigger
+ *        spec from task definition. (Value: "TASK_CONFIG")
  */
 @property(nonatomic, copy, nullable) NSString *executionTrigger;
 
@@ -8840,10 +8863,10 @@ GTLR_DEPRECATED
  *  Required. The root path of the Cloud Storage bucket to export the metadata
  *  to, in the format gs://{bucket}/. You can optionally specify a custom prefix
  *  after the bucket name, in the format gs://{bucket}/{prefix}/. The maximum
- *  length of the custom prefix is 128 characters. Dataplex constructs the
- *  object path for the exported files by using the bucket name and prefix that
- *  you provide, followed by a system-generated path.The bucket must be in the
- *  same VPC Service Controls perimeter as the job.
+ *  length of the custom prefix is 128 characters. Dataplex Universal Catalog
+ *  constructs the object path for the exported files by using the bucket name
+ *  and prefix that you provide, followed by a system-generated path.The bucket
+ *  must be in the same VPC Service Controls perimeter as the job.
  */
 @property(nonatomic, copy, nullable) NSString *outputPath;
 
@@ -8996,10 +9019,10 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Full
  *        All resources in the job's scope are modified. If a resource exists in
- *        Dataplex but isn't included in the metadata import file, the resource
- *        is deleted when you run the metadata job. Use this mode to perform a
- *        full sync of the set of entries in the job scope.This sync mode is
- *        supported for entries. (Value: "FULL")
+ *        Dataplex Universal Catalog but isn't included in the metadata import
+ *        file, the resource is deleted when you run the metadata job. Use this
+ *        mode to perform a full sync of the set of entries in the job
+ *        scope.This sync mode is supported for entries. (Value: "FULL")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Incremental
  *        Only the resources that are explicitly included in the metadata import
  *        file are modified. Use this mode to modify a subset of resources while
@@ -9021,10 +9044,10 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Full
  *        All resources in the job's scope are modified. If a resource exists in
- *        Dataplex but isn't included in the metadata import file, the resource
- *        is deleted when you run the metadata job. Use this mode to perform a
- *        full sync of the set of entries in the job scope.This sync mode is
- *        supported for entries. (Value: "FULL")
+ *        Dataplex Universal Catalog but isn't included in the metadata import
+ *        file, the resource is deleted when you run the metadata job. Use this
+ *        mode to perform a full sync of the set of entries in the job
+ *        scope.This sync mode is supported for entries. (Value: "FULL")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Incremental
  *        Only the resources that are explicitly included in the metadata import
  *        file are modified. Use this mode to modify a subset of resources while
@@ -9427,16 +9450,16 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField : GTLRObject
 
-/** Value that marks the end of the range. */
+/** Output only. Value that marks the end of the range. */
 @property(nonatomic, copy, nullable) NSString *end;
 
 /**
- *  The field that contains values which monotonically increases over time (e.g.
- *  a timestamp column).
+ *  Output only. The field that contains values which monotonically increases
+ *  over time (e.g. a timestamp column).
  */
 @property(nonatomic, copy, nullable) NSString *field;
 
-/** Value that marks the start of the range. */
+/** Output only. Value that marks the start of the range. */
 @property(nonatomic, copy, nullable) NSString *start;
 
 @end
@@ -9475,14 +9498,16 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *partitionStyle;
 
 /**
- *  Required. Set to true if user-managed or false if managed by Dataplex. The
- *  default is false (managed by Dataplex). Set to falseto enable Dataplex
- *  discovery to update the schema. including new data discovery, schema
- *  inference, and schema evolution. Users retain the ability to input and edit
- *  the schema. Dataplex treats schema input by the user as though produced by a
- *  previous Dataplex discovery operation, and it will evolve the schema and
- *  take action based on that treatment. Set to true to fully manage the entity
- *  schema. This setting guarantees that Dataplex will not change schema fields.
+ *  Required. Set to true if user-managed or false if managed by Dataplex
+ *  Universal Catalog. The default is false (managed by Dataplex Universal
+ *  Catalog). Set to falseto enable Dataplex Universal Catalog discovery to
+ *  update the schema. including new data discovery, schema inference, and
+ *  schema evolution. Users retain the ability to input and edit the schema.
+ *  Dataplex Universal Catalog treats schema input by the user as though
+ *  produced by a previous Dataplex Universal Catalog discovery operation, and
+ *  it will evolve the schema and take action based on that treatment. Set to
+ *  true to fully manage the entity schema. This setting guarantees that
+ *  Dataplex Universal Catalog will not change schema fields.
  *
  *  Uses NSNumber of boolValue.
  */

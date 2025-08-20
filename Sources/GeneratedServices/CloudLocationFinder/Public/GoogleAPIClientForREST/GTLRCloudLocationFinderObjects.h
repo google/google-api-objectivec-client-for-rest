@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudLocationFinder_CloudLocation.cloudLocationType
 
 /**
+ *  CloudLocation type for Google Distributed Cloud Connected Zone.
+ *
+ *  Value: "CLOUD_LOCATION_TYPE_GDCC_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGdccZone;
+/**
  *  CloudLocation type for region.
  *
  *  Value: "CLOUD_LOCATION_TYPE_REGION"
@@ -111,6 +117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudP
  *  Optional. The type of the cloud location.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGdccZone
+ *        CloudLocation type for Google Distributed Cloud Connected Zone.
+ *        (Value: "CLOUD_LOCATION_TYPE_GDCC_ZONE")
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegion
  *        CloudLocation type for region. (Value: "CLOUD_LOCATION_TYPE_REGION")
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegionExtension

@@ -23,6 +23,38 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  If SchemaRegistryView is not specified, this is the default value. Returns
+ *  only the name of the schema registry. The contexts associated with it are
+ *  not included.
+ *
+ *  Value: "SCHEMA_REGISTRY_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewSchemaRegistryViewBasic;
+/**
+ *  Returns the name of the schema registry and all the contexts associated with
+ *  it.
+ *
+ *  Value: "SCHEMA_REGISTRY_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewSchemaRegistryViewFull;
+/**
+ *  The unset value. The API will default to SCHEMA_REGISTRY_VIEW_BASIC.
+ *
+ *  Value: "SCHEMA_REGISTRY_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Managed Kafka query classes.
  */
@@ -2934,6 +2966,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  Structured like: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Specifies the view to return for the schema registry instances. If
+ *  not specified, the default view is SCHEMA_REGISTRY_VIEW_BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafkaViewSchemaRegistryViewUnspecified The unset
+ *        value. The API will default to SCHEMA_REGISTRY_VIEW_BASIC. (Value:
+ *        "SCHEMA_REGISTRY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRManagedKafkaViewSchemaRegistryViewBasic If SchemaRegistryView
+ *        is not specified, this is the default value. Returns only the name of
+ *        the schema registry. The contexts associated with it are not included.
+ *        (Value: "SCHEMA_REGISTRY_VIEW_BASIC")
+ *    @arg @c kGTLRManagedKafkaViewSchemaRegistryViewFull Returns the name of
+ *        the schema registry and all the contexts associated with it. (Value:
+ *        "SCHEMA_REGISTRY_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRManagedKafka_ListSchemaRegistriesResponse.

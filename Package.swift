@@ -1026,6 +1026,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_SecretManager"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_SecureSourceManager",
+            targets: ["GoogleAPIClientForREST_SecureSourceManager"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             targets: ["GoogleAPIClientForREST_SecurityCommandCenter"]
         ),
@@ -2769,6 +2773,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_SecretManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/SecretManager",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_SecureSourceManager",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/SecureSourceManager",
             publicHeadersPath: "Public"
         ),
         .target(

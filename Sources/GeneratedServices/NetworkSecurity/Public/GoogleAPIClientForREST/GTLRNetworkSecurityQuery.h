@@ -594,7 +594,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsPatch : GTLRNetworkSecurityQuery
 
-/** Immutable. Identifier. name of resource */
+/** Immutable. Identifier. Name of resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -630,7 +630,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
- *  @param name Immutable. Identifier. name of resource
+ *  @param name Immutable. Identifier. Name of resource.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsPatch
  */

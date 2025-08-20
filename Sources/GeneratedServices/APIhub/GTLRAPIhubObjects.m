@@ -122,10 +122,34 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1DependencyErrorDetail_Error_Erro
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1DependencyErrorDetail_Error_SupplierNotFound = @"SUPPLIER_NOT_FOUND";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1DependencyErrorDetail_Error_SupplierRecreated = @"SUPPLIER_RECREATED";
 
+// GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation.sourceTypes
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_SourceTypes_GcpIlb = @"GCP_ILB";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_SourceTypes_GcpXlb = @"GCP_XLB";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_SourceTypes_SourceTypeUnspecified = @"SOURCE_TYPE_UNSPECIFIED";
+
+// GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation.style
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Graphql = @"GRAPHQL";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Grpc = @"GRPC";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_Rest = @"REST";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_Style_StyleUnspecified = @"STYLE_UNSPECIFIED";
+
+// GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation.classification
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_ClassificationUnspecified = @"CLASSIFICATION_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_Known = @"KNOWN";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation_Classification_Unknown = @"UNKNOWN";
+
 // GTLRAPIhub_GoogleCloudApihubV1ExecutionStatus.currentExecutionState
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecutionState_CurrentExecutionStateUnspecified = @"CURRENT_EXECUTION_STATE_UNSPECIFIED";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecutionState_NotRunning = @"NOT_RUNNING";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecutionState_Running = @"RUNNING";
+
+// GTLRAPIhub_GoogleCloudApihubV1Header.dataType
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Bool = @"BOOL";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Float = @"FLOAT";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Integer = @"INTEGER";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_String = @"STRING";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Uuid = @"UUID";
 
 // GTLRAPIhub_GoogleCloudApihubV1HttpOperation.method
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperation_Method_Delete = @"DELETE";
@@ -165,6 +189,14 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_Format
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec20 = @"OPEN_API_SPEC_2_0";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec30 = @"OPEN_API_SPEC_3_0";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec31 = @"OPEN_API_SPEC_3_1";
+
+// GTLRAPIhub_GoogleCloudApihubV1PathParam.dataType
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Bool = @"BOOL";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Float = @"FLOAT";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Integer = @"INTEGER";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_String = @"STRING";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1PathParam_DataType_Uuid = @"UUID";
 
 // GTLRAPIhub_GoogleCloudApihubV1Plugin.gatewayType
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApiDiscovery = @"API_DISCOVERY";
@@ -213,6 +245,14 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_Enabl
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_Enabling = @"ENABLING";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_Error = @"ERROR";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAPIhub_GoogleCloudApihubV1QueryParam.dataType
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Bool = @"BOOL";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Float = @"FLOAT";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Integer = @"INTEGER";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_String = @"STRING";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1QueryParam_DataType_Uuid = @"UUID";
 
 // GTLRAPIhub_GoogleCloudApihubV1ResourceConfig.actionType
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1ResourceConfig_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
@@ -806,6 +846,47 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation
+@dynamic apiOperationCount, createTime, hostname, knownOperationsCount,
+         lastEventDetectedTime, name, origin, serverIps, sourceLocations,
+         sourceMetadata, sourceTypes, style, unknownOperationsCount, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serverIps" : [NSString class],
+    @"sourceLocations" : [NSString class],
+    @"sourceTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation
+@dynamic classification, count, createTime, firstSeenTime, httpOperation,
+         lastSeenTime, matchResults, name, sourceMetadata, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matchResults" : [GTLRAPIhub_GoogleCloudApihubV1MatchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1Documentation
 //
 
@@ -931,6 +1012,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1Header
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1Header
+@dynamic count, dataType, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1HostingService
 //
 
@@ -956,6 +1047,100 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1HttpOperation
 @dynamic method, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails
+@dynamic httpOperation, pathParams, queryParams, request, response;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pathParams" : [GTLRAPIhub_GoogleCloudApihubV1PathParam class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails_QueryParams
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails_QueryParams
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAPIhub_GoogleCloudApihubV1QueryParam class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpRequest
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpRequest
+@dynamic headers;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpRequest_Headers
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpRequest_Headers
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAPIhub_GoogleCloudApihubV1Header class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpResponse
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpResponse
+@dynamic headers, responseCodes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpResponse_Headers
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpResponse_Headers
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAPIhub_GoogleCloudApihubV1Header class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpResponse_ResponseCodes
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpResponse_ResponseCodes
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -1149,6 +1334,50 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiObservationsResponse
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiObservationsResponse
+@dynamic discoveredApiObservations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discoveredApiObservations" : [GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"discoveredApiObservations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiOperationsResponse
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ListDiscoveredApiOperationsResponse
+@dynamic discoveredApiOperations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discoveredApiOperations" : [GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiOperation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"discoveredApiOperations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1ListExternalApisResponse
 //
 
@@ -1323,6 +1552,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1MatchResult
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1MatchResult
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1MultiIntValues
 //
 
@@ -1448,6 +1687,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1PathParam
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1PathParam
+@dynamic dataType, position;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1Plugin
 //
 
@@ -1560,6 +1809,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1Point
 @dynamic character, line;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1QueryParam
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1QueryParam
+@dynamic count, dataType, name;
 @end
 
 

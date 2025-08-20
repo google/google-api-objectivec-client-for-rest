@@ -47,10 +47,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarExperimentsExperimentUnspecified;
 
 /**
  *  Solar data is derived from enhanced satellite imagery processed at 0.25
- *  m/pixel. **Note:** This enum is only available if
- *  `experiments=EXPANDED_COVERAGE` is set in the request. For more information,
- *  see [Expanded
- *  Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
+ *  m/pixel.
  *
  *  Value: "BASE"
  */
@@ -186,11 +183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @arg @c kGTLRSolarRequiredQualityLow Solar data is derived from enhanced
  *        satellite imagery processed at 0.25 m/pixel. (Value: "LOW")
  *    @arg @c kGTLRSolarRequiredQualityBase Solar data is derived from enhanced
- *        satellite imagery processed at 0.25 m/pixel. **Note:** This enum is
- *        only available if `experiments=EXPANDED_COVERAGE` is set in the
- *        request. For more information, see [Expanded
- *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
- *        (Value: "BASE")
+ *        satellite imagery processed at 0.25 m/pixel. (Value: "BASE")
  */
 @property(nonatomic, copy, nullable) NSString *requiredQuality;
 
@@ -286,11 +279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @arg @c kGTLRSolarRequiredQualityLow Solar data is derived from enhanced
  *        satellite imagery processed at 0.25 m/pixel. (Value: "LOW")
  *    @arg @c kGTLRSolarRequiredQualityBase Solar data is derived from enhanced
- *        satellite imagery processed at 0.25 m/pixel. **Note:** This enum is
- *        only available if `experiments=EXPANDED_COVERAGE` is set in the
- *        request. For more information, see [Expanded
- *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
- *        (Value: "BASE")
+ *        satellite imagery processed at 0.25 m/pixel. (Value: "BASE")
  */
 @property(nonatomic, copy, nullable) NSString *requiredQuality;
 

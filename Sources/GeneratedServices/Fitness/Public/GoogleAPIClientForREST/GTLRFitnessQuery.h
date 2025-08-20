@@ -774,9 +774,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *activityType;
 
 /**
- *  An RFC3339 timestamp. Only sessions ending between the start and end times
- *  will be included in the response. If this time is omitted but startTime is
- *  specified, all sessions from startTime to the end of time will be returned.
+ *  An RFC3339 timestamp. Only sessions starting before endTime and ending after
+ *  startTime up to (endTime + 1 day) will be included in the response. If this
+ *  time is omitted but startTime is specified, all sessions ending after
+ *  startTime to the end of time will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
@@ -796,9 +797,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  An RFC3339 timestamp. Only sessions ending between the start and end times
- *  will be included in the response. If this time is omitted but endTime is
- *  specified, all sessions from the start of time up to endTime will be
+ *  An RFC3339 timestamp. Only sessions starting before endTime and ending after
+ *  startTime up to (endTime + 1 day) will be included in the response. If this
+ *  time is omitted but endTime is specified, all sessions starting before
+ *  endTime and ending after the start of time up to (endTime + 1 day) will be
  *  returned.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;

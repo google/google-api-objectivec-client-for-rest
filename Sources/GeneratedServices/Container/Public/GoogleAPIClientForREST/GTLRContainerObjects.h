@@ -170,6 +170,7 @@
 @class GTLRContainer_ResourceManagerTags;
 @class GTLRContainer_ResourceManagerTags_Tags;
 @class GTLRContainer_ResourceUsageExportConfig;
+@class GTLRContainer_RotationConfig;
 @class GTLRContainer_SandboxConfig;
 @class GTLRContainer_SecondaryBootDisk;
 @class GTLRContainer_SecondaryBootDiskUpdateStrategy;
@@ -6546,11 +6547,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  If set to true, the Lustre CSI driver will install Lustre kernel modules
- *  using port 6988.
+ *  using port 6988. This serves as a workaround for a port conflict with the
+ *  gke-metadata-server. This field is required ONLY under the following
+ *  conditions: 1. The GKE node version is older than 1.33.2-gke.4655000. 2.
+ *  You're connecting to a Lustre instance that has the 'gke-support-enabled'
+ *  flag.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableLegacyLustrePort;
+@property(nonatomic, strong, nullable) NSNumber *enableLegacyLustrePort GTLR_DEPRECATED;
 
 @end
 
@@ -9201,6 +9206,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  RotationConfig is config for secret manager auto rotation.
+ */
+@interface GTLRContainer_RotationConfig : GTLRObject
+
+/**
+ *  Whether the rotation is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The interval between two consecutive rotations. Default rotation interval is
+ *  2 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *rotationInterval;
+
+@end
+
+
+/**
  *  SandboxConfig contains configurations of the sandbox to use for the node.
  */
 @interface GTLRContainer_SandboxConfig : GTLRObject
@@ -9262,6 +9288,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Rotation config for secret manager. */
+@property(nonatomic, strong, nullable) GTLRContainer_RotationConfig *rotationConfig;
 
 @end
 
